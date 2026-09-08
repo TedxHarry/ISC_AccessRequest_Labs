@@ -31,7 +31,7 @@ Entitlements, access profiles, and roles are alternative requested objects, not 
 - A REST client and a PowerShell environment for API labs. Record the SDK and client versions you use.
 - For M11, a controlled HTTPS subscriber with configurable responses, logs, and a reset procedure.
 
-AR-006 is the environment gate: demonstrate correlation, group aggregation, target membership change through the configured provisioning path, requester/approver sign-in, evidence access, and recovery to the baseline. Prebuilt infrastructure users still complete this validation.
+AR-009 is the environment gate: demonstrate correlation, group aggregation, target membership change through the configured provisioning path, requester/approver sign-in, evidence access, and recovery to the baseline. Prebuilt infrastructure users still complete this validation.
 
 ### Dataset: 24 identities
 
@@ -70,7 +70,7 @@ The file uses usernames `acme.e001` through `acme.e024`, display names prefixed 
 | E023 | Abigail Lewis | Security | E007 | Security reviewer; temporary inactive-owner variant |
 | E024 | Samuel Walker | IT | E002 | IAM operations reviewer/fallback test identity |
 
-The HR baseline has all employees marked active with correct attributes. HR account creation in AR-001 does not establish AD account creation or correlation. Validate the existing AD connection in AR-003 and the expected AD accounts in AR-004, including E009's two-account setup. Enable fault variants only for the corresponding exercise; record before/after values. E003's missing-email variant is used temporarily in approval investigations.
+The HR baseline has all employees marked active with correct attributes. HR account creation in AR-001 does not establish AD account creation or correlation. Validate AD in AR-003, correlate Lucas in AR-004, and provision the remaining standard accounts in AR-005 through AR-007. C01 has 24 standard AD accounts. Add E009's second account in AR-026. Enable fault variants only for the corresponding exercise; record before/after values. E003's missing-email variant is used temporarily in approval investigations.
 
 Use fictional titles appropriate to each department, employeeType=Employee, location=Chicago, a fixed valid past startDate, and cost centers IT100/FIN200/HR300/SAL400/ENG500/SEC600. Real test mailbox values and tenant object IDs are environment parameters.
 
@@ -80,6 +80,7 @@ AD containers: AcmeLab/Users, AcmeLab/AdminAccounts, and AcmeLab/Groups. Record 
 
 | AD group | Purpose | Request configuration |
 |---|---|---|
+| GG-ACME-BASELINE | Standard account baseline, introduced in AR-005 | Automatic role assignment; not requestable |
 | GG-VPN-USERS | Shared remote connectivity | Direct request and shared bundle membership |
 | GG-REMOTE-USERS | Remote-work tools | Access profile |
 | GG-FIN-AP | Accounts payable | Access profile |
@@ -99,6 +100,7 @@ The AD groups simulate application access; this course does not provision real G
 
 | Access profile | Entitlements | Application | Owner |
 |---|---|---|---|
+| AP-Acme-AD-Baseline | ACME-BASELINE | Foundation provisioning | Lab administrator |
 | AP-Remote-Worker | VPN + REMOTE | Remote Services | E002 |
 | AP-Finance-Reporting | FIN-REPORTING + VPN | Finance Services | E003 |
 | AP-Finance-AP | FIN-AP | Finance Services | E003 |
@@ -111,6 +113,8 @@ The AD groups simulate application access; this course does not provision real G
 | AP-Production-Support | PROD-SUPPORT | Engineering Services | E006 |
 
 Group names in the entitlement column omit the GG- prefix for readability. All these profiles use the same AD source.
+
+Baseline role: ROLE-Acme-AD-Baseline contains AP-Acme-AD-Baseline and uses an explicit identity list expanded from Lucas to all 24 employees. Retain this assignment throughout the request labs.
 
 Roles: ROLE-Finance-Analyst = AP-Finance-Reporting + AP-Finance-AP; ROLE-Remote-Engineer = AP-Engineering-Tools + AP-Remote-Worker; ROLE-Service-Desk = AP-IT-Helpdesk + AP-Remote-Worker. Add a narrowly scoped automatic-assignment role only for the assignment comparison lab and restore its criteria afterward.
 

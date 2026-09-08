@@ -8,7 +8,7 @@
 
 Get Lucas's AD account and the 14 Acme groups into ISC. You will check the connection, confirm which AD locations the source reads, and inspect the imported objects.
 
-The HR import created HR accounts and identities. It did not create users in Active Directory. Start with one AD user here; AR-004 prepares the remaining accounts and checks their identity matches.
+The HR import created HR accounts and identities. It did not create users in Active Directory. Start with one AD user here; AR-004 correlates Lucas; AR-005 through AR-007 configure and run provisioning for the remaining standard accounts.
 
 Keep your actual source name, directory paths, and results in the [lab journal](EVIDENCE.md). Whenever these instructions say **your AD source**, select the existing Active Directory source in your tenant.
 
@@ -40,7 +40,7 @@ AcmeLab
 
 For example, a Users OU could have the distinguished name (DN) `OU=Users,OU=AcmeLab,DC=training,DC=example,DC=com`. Copy the value from your own directory; your domain and parent OUs will differ.
 
-**Check:** You have three actual OU DNs recorded. Leave AdminAccounts empty for now; Sofia's separate administrative account is introduced in AR-004.
+**Check:** You have three actual OU DNs recorded. Leave AdminAccounts empty for now; Sofia's separate administrative account is introduced in AR-026.
 
 ## 3. Prepare Lucas's AD account
 
@@ -115,7 +115,7 @@ Use the DNs collected in Section 2. The examples below assume AcmeLab is directl
 | User Search Scope, entry 2 | AdminAccounts | `OU=AdminAccounts,OU=AcmeLab,DC=training,DC=example,DC=com` |
 | Group Search Scope | Groups | `OU=Groups,OU=AcmeLab,DC=training,DC=example,DC=com` |
 
-AdminAccounts is empty in this lab. Include its coverage now; you will create Sofia's second account there in AR-004. If you reused Lucas or groups in another OU, include their actual locations too.
+AdminAccounts is empty in this lab. Include its coverage now; you will create Sofia's second account there in AR-026. If you reused Lucas or groups in another OU, include their actual locations too.
 
 ### Open and record the current configuration
 
@@ -169,7 +169,7 @@ The source's ID can be obtained from its URL; account aggregation runs from the 
 
 **Check:** ISC contains the AD account with `sAMAccountName = acme.e012`. A source-wide account count can include other users. You do not need exactly 24 AD accounts for this lab.
 
-An uncorrelated Lucas account can pass this step. If an existing rule matched it, record the identity and verify that it is Lucas. Investigate an incorrect match before continuing with later access requests. AR-004 handles correlation for the course population.
+An uncorrelated Lucas account can pass this step. If an existing rule matched it, record the identity and verify that it is Lucas. Investigate an incorrect match before continuing with later access requests. AR-004 handles Lucas's existing-account correlation.
 
 ## 7. Aggregate and inspect the groups
 
@@ -210,7 +210,7 @@ The aggregation summary's discovered count can differ from the total entitlement
 - [ ] GG-VPN-USERS has its actual entitlement attribute and value recorded.
 - [ ] Existing group memberships and any scope changes are recorded.
 
-Retain the users, OUs, and groups. Next, use AR-004 to prepare the remaining AD accounts and verify their links to Acme identities. A successful read does not yet prove that ISC can provision a group membership; that check belongs to AR-006.
+Retain the users, OUs, and groups. Next, use AR-004 to correlate Lucas, then provision the remaining standard accounts in AR-005 through AR-007. AR-006 proves the first membership update and account creation; AR-009 checks the completed foundation.
 
 ## Screenshots to capture as you work
 

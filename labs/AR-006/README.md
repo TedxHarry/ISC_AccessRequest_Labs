@@ -1,0 +1,82 @@
+# AR-006 · Provision Your First AD Account
+
+**Prerequisites:** Complete [AR-005](../AR-005/README.md). Lucas has a correlated AD account. Liam has no AD account. GG-ACME-BASELINE exists and is aggregated.
+
+## Your assignment
+
+Use one baseline access assignment for two different outcomes. ISC should add baseline membership to Lucas's existing account, then create Liam's missing account and add its membership. Use your existing administrator session; employee sign-in is prepared in AR-008.
+
+## 1. Create the baseline access profile
+
+1. Open **Admin > Access Model > Access Profiles > Create New**.
+2. Name it `AP-Acme-AD-Baseline`, select your administrator as owner, and select the AD source recorded in your journal.
+3. Under **Manage Entitlements**, add only GG-ACME-BASELINE. Verify its source and actual value before selecting it.
+4. Save the configuration and enable the access profile. Leave access requests disabled.
+
+The profile contains one group and will be assigned through a role. [Access profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html)
+
+## 2. Start with Lucas's existing account
+
+1. In AD, open GG-ACME-BASELINE and confirm Lucas is not a member. Record his existing account DN and objectGUID from Attribute Editor.
+2. In ISC, open **Admin > Access Model > Roles > Create New**. Name the role `ROLE-Acme-AD-Baseline`, select your administrator as owner, and add AP-Acme-AD-Baseline to its access profiles. Leave requests disabled.
+3. Open **Define Assignment**, choose **Identity List**, and add only Lucas (`acme.e012`) using the + control. Save.
+4. Verify the list contains one person. Enable the role and select **Apply Changes** from the role list.
+5. Wait for identity processing and provisioning. Inspect the resulting account activity using Section 4 below.
+6. In AD, confirm Lucas is now a direct member of GG-ACME-BASELINE. Verify his DN and objectGUID are unchanged and no second Lucas account was created.
+
+**Check:** The assignment changed membership on the existing account. Resolve a failure here before adding Liam.
+
+## 3. Add Liam to the same role
+
+1. Reconfirm `acme.e008` is absent from AD and from the ISC AD-source accounts.
+2. Open ROLE-Acme-AD-Baseline > **Define Assignment > Identity List**. Retain Lucas and add Liam (`acme.e008`).
+3. Check the list contains exactly Lucas and Liam. Save and apply changes from the role list. [Role assignment](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html)
+4. Wait for the operation and inspect its activity. Do not create Liam manually while waiting or resubmit repeatedly.
+
+Granting access on a direct-connect source can create the missing account using its Create Account configuration. Saving the role assignment starts that path; it does not prove completion. [Account creation behavior](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html)
+
+## 4. Inspect the operation and the target
+
+1. Open **Search** and select the **Account Activity** category. Locate activity for Liam and the AD source using the identity and operation time. Open the details and record the activity ID, status, operations, and any error messages.
+2. In AD, refresh AcmeLab/Users and find `acme.e008`. Inspect the actual account, not just an ISC success message.
+3. Compare its DN, sAMAccountName, UPN, displayName, employeeID, department, and title with the expected values from AR-005. Inspect enabled/disabled state and password-change flags and record them; resolve an unexpected state before later directory sign-in tests.
+4. Open GG-ACME-BASELINE > **Members** and confirm Liam is a direct member.
+5. Aggregate AD accounts using the procedure in AR-003. In ISC, open Liam's identity > **Accounts** and verify the AD account is linked to Liam. Check its imported employeeID and membership.
+
+Use account activity to investigate provisioning and AD to verify the target change. [Monitoring provisioning](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
+
+**Check:** The course has two standard AD accounts: Lucas and Liam. Both are linked to their intended identities and belong to the baseline group. Provisioned accounts may show `manuallyCorrelated=true`; ISC documents this for accounts it creates. It does not mean you manually uploaded a correlation file.
+
+## If provisioning fails
+
+| Observation | What to inspect |
+|---|---|
+| A manual task appears instead of an AD write | Direct provisioning support and source feature configuration |
+| Lucas's membership cannot be added | Connector permissions on the actual group and IQService error details |
+| Liam's account creation fails | Actual Users OU DN, naming collision, required attributes, and password-policy error |
+| Account exists but membership is absent | The group operation and the group's actual DN; the overall operation may be partial |
+| Role is visible but no provisioning occurs | Role/profile enablement, saved identity list, Apply Changes, and identity-processing status |
+| A retry is proposed | Inspect AD and running activity first. A partial operation may already have created the account. |
+
+Correct the cause, then use the supported retry action available for that failed activity or allow the documented role retry process to run. Verify the target before retrying. Do not remove and re-add a role merely to force another attempt; removing eligibility can remove access. [Role retries and removal behavior](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html)
+
+## Completion and screenshots
+
+- [ ] Lucas received baseline membership on his original account.
+- [ ] Liam's account was created by ISC with the expected attributes and membership.
+- [ ] Account activity and target checks agree, with no unresolved error.
+- [ ] Both accounts are linked correctly after aggregation.
+
+| Filename | What to show |
+|---|---|
+| AR-006-01-baseline-profile.png | Profile and its single baseline entitlement |
+| AR-006-02-lucas-assignment.png | Initial role identity list with Lucas only |
+| AR-006-03-lucas-membership.png | Membership added to Lucas's existing account |
+| AR-006-04-pilot-assignment.png | Saved identity list with Lucas and Liam |
+| AR-006-05-liam-activity.png | Creation/provisioning activity and result |
+| AR-006-06-liam-ad.png | Actual AD attributes and group membership |
+| AR-006-07-liam-linked.png | Liam's ISC identity with its AD account |
+
+Record results in the [journal](EVIDENCE.md). Keep the role assigned to both users for AR-007.
+
+[Previous: AR-005](../AR-005/README.md) · [Next: AR-007](../AR-007/README.md)

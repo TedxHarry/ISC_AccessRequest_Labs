@@ -10,8 +10,11 @@
   - [AR-002 · Manager hierarchy](/labs/AR-002/README.md)
   - [AR-003 · Validate AD connection](/labs/AR-003/README.md)
   - [AR-004 · Correlate AD accounts](/labs/AR-004/README.md)
-  - [AR-005 · Prepare reviewers](/labs/AR-005/README.md)
-  - AR-006 · Readiness gate
+  - [AR-005 · Configure AD provisioning](/labs/AR-005/README.md)
+  - [AR-006 · Provision one account](/labs/AR-006/README.md)
+  - [AR-007 · Provision the remaining accounts](/labs/AR-007/README.md)
+  - [AR-008 · Prepare reviewers](/labs/AR-008/README.md)
+  - [AR-009 · Readiness gate](/labs/AR-009/README.md)
 
 - **MODULES 02–04 · REQUEST BASICS**
   - [M02 · First working request](/README.md#m02--deliver-your-first-working-request)
