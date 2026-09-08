@@ -1,6 +1,7 @@
 # AR-001 — Import Acme's HR Records
 
-**Level:** Beginner  
+**Level:** Beginner
+
 **Prerequisites:** An ISC training tenant, an existing AD connection, and permission to manage sources and identity profiles.
 
 ## Your assignment
