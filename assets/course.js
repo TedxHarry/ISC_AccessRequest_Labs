@@ -69,10 +69,51 @@
     });
   }
 
+  function collapsePageSections() {
+    document.querySelectorAll('.sidebar-nav .app-sub-sidebar').forEach(function (sub) {
+      var parent = sub.parentElement;
+      if (!parent) return;
+
+      var labLink = null;
+      Array.prototype.forEach.call(parent.children, function (child) {
+        if (!labLink && child.tagName === 'A') labLink = child;
+      });
+      if (!labLink) return;
+
+      sub.hidden = true;
+      labLink.setAttribute('aria-expanded', 'false');
+
+      if (labLink.dataset.courseSectionToggle === 'true') return;
+      labLink.dataset.courseSectionToggle = 'true';
+
+      var indicator = document.createElement('span');
+      indicator.className = 'course-section-indicator';
+      indicator.textContent = '▸';
+      indicator.setAttribute('aria-hidden', 'true');
+      indicator.style.float = 'right';
+      indicator.style.marginLeft = '0.6rem';
+      indicator.style.opacity = '0.7';
+      labLink.appendChild(indicator);
+
+      labLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var willOpen = sub.hidden;
+        sub.hidden = !willOpen;
+        labLink.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        indicator.textContent = willOpen ? '▾' : '▸';
+      });
+    });
+  }
+
   window.$docsify = window.$docsify || {};
   window.$docsify.plugins = (window.$docsify.plugins || []).concat(function (hook) {
     hook.doneEach(function () {
-      window.requestAnimationFrame(decorateCoursePage);
+      window.requestAnimationFrame(function () {
+        decorateCoursePage();
+        collapsePageSections();
+      });
     });
   });
 })();
