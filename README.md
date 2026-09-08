@@ -59,7 +59,7 @@ Prerequisites: a provisioned training tenant and Windows infrastructure. You wil
 | [AR-001](labs/AR-001/README.md) | Build | Import Acme's 24 HR records | Explain and verify the resulting identities and mapped attributes |
 | [AR-002](labs/AR-002/README.md) | Build | Resolve the manager hierarchy | Verify employee-to-manager relationships and hierarchy root |
 | [AR-003](labs/AR-003/README.md) | Practice | Validate the existing AD connection and aggregate lab data | Record connection, accounts, groups, and actual source identifiers |
-| AR-004 | Practice | Match people to the correct AD accounts | Prove correlation; identify the two-account identity |
+| [AR-004](labs/AR-004/README.md) | Practice | Match people to the correct AD accounts | Prove correlation; identify the two-account identity |
 | AR-005 | Build | Prepare reviewers, sessions, and the evidence journal | Demonstrate separate requester/reviewer access and required permissions |
 | AR-006 | Check | Prove the environment is ready | Complete the readiness gate and save checkpoint C01 |
 

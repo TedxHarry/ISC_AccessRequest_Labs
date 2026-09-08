@@ -165,4 +165,25 @@ The aggregation summary's discovered count can differ from the total entitlement
 
 Retain the users, OUs, and groups. Next, use AR-004 to prepare the remaining AD accounts and verify their links to Acme identities. A successful read does not yet prove that ISC can provision a group membership; that check belongs to AR-006.
 
-[Previous: AR-002](../AR-002/README.md) · [Course outline](../../README.md)
+## Screenshots to capture as you work
+
+Take each screenshot after completing the listed section. Keep the source name and relevant values visible. Hide passwords, tokens, and connection secrets. Use the suggested filenames so you can upload the images later without having to identify them again.
+
+| After section | Suggested filename | What the screenshot must show |
+|---|---|---|
+| 1 | `AR-003-01-connection-test.png` | AD source name and successful Test Connection result |
+| 2 | `AR-003-02-lab-ous.png` | AcmeLab expanded with Users, AdminAccounts, and Groups |
+| 3 | `AR-003-03-lucas-ad-account.png` | Lucas's Account tab showing acme.e012 and the training-domain suffix |
+| 3 | `AR-003-04-lucas-dn.png` | Lucas's distinguishedName in Attribute Editor |
+| 4 | `AR-003-05-ad-groups.png` | The 14 named groups in AD; take a second image if they do not all fit |
+| 5 | `AR-003-06-user-scope.png` | User Search DN entries and filters covering Lucas's OU |
+| 5 | `AR-003-07-group-scope.png` | Group Search DN entries and filters covering the lab groups; include membership-search settings separately if needed |
+| 6 | `AR-003-08-account-aggregation.png` | Completed account aggregation, status, and scanned count |
+| 6 | `AR-003-09-lucas-isc-account.png` | Lucas's AD account in ISC, with source, sAMAccountName, and directory identifier |
+| 7 | `AR-003-10-entitlement-aggregation.png` | Completed entitlement aggregation and status |
+| 7 | `AR-003-11-isc-groups.png` | Lab entitlements on the AD source; use multiple images if necessary |
+| 7 | `AR-003-12-vpn-entitlement.png` | GG-VPN-USERS details, including source, entitlement attribute/type, and value |
+
+Record values that do not fit in an image in your [lab journal](EVIDENCE.md). Save any error and corrected result as separate images.
+
+[Previous: AR-002](../AR-002/README.md) · [Next: AR-004](../AR-004/README.md) · [Course outline](../../README.md)
