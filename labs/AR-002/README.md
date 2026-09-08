@@ -139,4 +139,4 @@ An unmatched changed reference does not necessarily clear an existing manager: S
 
 Keep this configuration for the later request-approval exercises.
 
-[Previous: AR-001](../AR-001/README.md) · [Course outline](../../README.md)
+[Previous: AR-001](../AR-001/README.md) · [Next: AR-003](../AR-003/README.md) · [Course outline](../../README.md)
