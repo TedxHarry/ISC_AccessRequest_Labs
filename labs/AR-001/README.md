@@ -2,7 +2,7 @@
 
 **Level:** Beginner
 
-**Prerequisites:** An ISC training tenant, an existing AD connection, and permission to manage sources and identity profiles.
+**Prerequisites:** Sign in to your ISC training tenant with an account that can create sources and identity profiles. Your existing AD connection will be used in later labs; this exercise imports HR data.
 
 ## Your assignment
 
@@ -14,15 +14,33 @@ Acme's HR team has supplied employee records for six departments. Import them in
 - [Evidence journal](EVIDENCE.md)
 - [Company and environment reference](../../LAB-ENVIRONMENT.md)
 
-Open the CSV on GitHub and select **Download raw file**. Keep an unchanged copy and use a separate working copy for the exercise.
+1. Open the **HR baseline CSV** link and select **Download raw file** on GitHub.
+2. Save it as `acme-hr-baseline.csv`.
+3. Make a copy named `acme-hr-working.csv`. Use this working copy for every upload below.
+4. Open the working copy in a text editor or a spreadsheet application. If using a spreadsheet application, save it as **CSV UTF-8 (Comma delimited)**, not an Excel workbook.
+
+**Check:** The downloaded file begins with `employeeNumber,userName,firstName`. If it contains webpage markup, download the raw CSV again.
 
 ## Starting state
 
 Your tenant and AD connection are already available. Use a new **Acme HR** Delimited File source for this lab.
 
-Check that the usernames `acme.e001` through `acme.e024` are not already assigned to unrelated identities. If this tenant already contains the Acme population, inspect the existing HR source and profile before importing it again.
+Open **Admin > Identity Management > Identities** and search for `acme.e001` and `Acme Lab`. The intended starting state is a new Acme population with usernames `acme.e001` through `acme.e024` available. If you already started this lab, use the same **Acme HR** source and **Acme Employees** profile, and resume at the first unfinished check. Do not create another copy of either object.
 
 Review existing automatic role criteria and identity-triggered workflows for rules that could include newly created lab employees. Use a training configuration that keeps these test identities outside unrelated automation.
+
+## What you will finish with
+
+| Item | Name or result |
+|---|---|
+| HR source | Acme HR |
+| HR accounts | 24 |
+| Identity profile | Acme Employees |
+| Acme identities | 24 |
+| Sample identity | acme.e012 — Acme Lab - Lucas Brown |
+| Lucas's final department | Finance |
+
+Complete the sections in order. At each **Check**, confirm the result before continuing. If a check fails, use the troubleshooting section rather than repeating source or profile creation.
 
 ## Before you configure anything
 
@@ -69,28 +87,39 @@ Keep the comma delimiter, exact column names, and all 24 rows. Save edited files
 3. Name the source **Acme HR** and describe it as `Acme lab employee records`.
 4. Select your existing administrator as owner; the Acme identities do not exist yet.
 5. Choose the file-based connection option if prompted and select **Authoritative Source**.
-6. Continue and save the source configuration. Keep this HR feed read-only.
+6. Continue and save the source configuration. Leave **Enable Provisioning** off for this HR feed.
 
-Record its name and identifier in your journal. [Source configuration](https://documentation.sailpoint.com/saas/help/sources/config_sources.html)
+**Check:** Reopen **Admin > Connections > Sources** and confirm **Acme HR** appears as a **Delimited File** source. Record its name in your journal. [Source configuration](https://documentation.sailpoint.com/saas/help/sources/config_sources.html)
 
 ## 3. Define the account schema
 
 1. In **Acme HR**, open **Account Management > Account Schema**.
-2. Use **+ Add New Attribute** for each missing CSV column. Reuse an existing attribute when its name already matches exactly.
-3. Set these 14 attributes to **String**, single-valued, and not entitlements.
-4. Select **Edit Schema**. Set **Account ID** to `employeeNumber` and **Account Name** to `userName`, then select **Update**.
-5. On this new, unaggregated source, remove unused default attributes through their **Actions > Delete** option so the schema matches the CSV header. If an attribute is referenced by another configuration, resolve that dependency before proceeding.
+2. Use **Upload Schema** with `acme-hr-working.csv` if that control is available. This imports the column definitions. Otherwise, use **+ Add New Attribute** to add each missing name from the 14-column table in Section 1; reuse names already present.
+3. For the CSV attributes, use **String** as the type. Leave **Multi-Valued** and **Entitlement** unchecked. Keep `startDate` and `status` as strings too.
+4. Select **Edit Schema** and choose the following values, then select **Update**:
+
+| Setting | Select |
+|---|---|
+| Account ID | employeeNumber |
+| Account Name | userName |
+
+5. Compare the schema with the CSV header. On this new, unaggregated source, remove unused default attributes through **Actions > Delete**. Keep all 14 CSV attributes, including `location`. If deletion is blocked by a referenced configuration, preserve the error details and resolve the source-specific reference before importing; do not remove configurations elsewhere in the tenant to force this step.
+
+**Check:** All 14 CSV columns exist in the schema with their exact spelling. `employeeNumber` is marked Account ID, and `userName` is marked Account Name. Capture this screen.
 
 Set the identifying attributes before importing accounts; changing them afterward can disrupt account references. [Account schemas](https://documentation.sailpoint.com/saas/help/accounts/schema.html)
 
-The supplied header is a custom HR schema. Delimited File defaults such as `id`, `name`, `givenName`, and `e-mail` are not the column names in this file. [Delimited File account attributes](https://documentation.sailpoint.com/connectors/delimited_file/help/integrating_delimited_file/account_attributes.html)
+The supplied header is a custom HR schema. Delimited File defaults such as `id`, `name`, `givenName`, and `e-mail` are not the column names in this file. Uploading a replacement schema retains existing settings for matching attributes, so verify their types and flags after upload. [Delimited File account attributes](https://documentation.sailpoint.com/connectors/delimited_file/help/integrating_delimited_file/account_attributes.html)
 
 ## 4. Import the accounts
 
 1. Open **Acme HR > Account Management > Account Aggregation**.
-2. Select the upload control and choose your working CSV.
-3. Follow the import prompts and inspect the completed aggregation result.
-4. Confirm that the source contains 24 accounts. Inspect `E012` and compare its department and other values with the file.
+2. Select the upload control and choose `acme-hr-working.csv`.
+3. Complete any upload confirmation. Check the latest aggregation result on that page until the operation finishes; investigate any error before continuing.
+4. Open **Acme HR > Account Management > Accounts**. Clear any Correlated/Uncorrelated filter and verify the total is **24**. Check all pages or use **Export** to count the records if necessary.
+5. Find the account named **acme.e012** and open it. Confirm its Account ID is `E012`, `department` is `Finance`, and `costCenter` is `FIN200`.
+
+**Check:** You can open Lucas's imported HR account and read its values. Identity verification comes after profile setup. [Viewing source accounts](https://documentation.sailpoint.com/saas/help/sources/index.html#viewing-accounts-on-a-source)
 
 Uploading a schema and aggregating accounts are separate operations. Account data must be loaded after the schema is defined. [Delimited File data import](https://documentation.sailpoint.com/connectors/delimited_file/help/integrating_delimited_file/data_import.html)
 
@@ -99,9 +128,9 @@ Use the uploaded filename and aggregation result to confirm which file was proce
 ## 5. Create the identity profile
 
 1. After aggregation completes, open **Admin > Identity Management > Identity Profiles > Create New**.
-2. Name it **Acme Employees**, select **Acme HR**, and save. Leave automatic invitations off for placeholder mailboxes.
-3. Open **Mappings**. Select **Acme HR** as the source for each mapping below.
-4. Save, then select **Apply Changes**. Use **Preview** once an identity is available to inspect its values.
+2. Enter **Acme Employees** as the name and **Acme HR** as the source. Leave automatic invitations off and save.
+3. Open **Mappings** and configure the table below. For each row, select **Acme HR** under **Source**, then the listed field under **Attribute**. Use direct mappings without a transform.
+4. Select **Save**. If **Preview** offers an Acme identity, verify its values before applying. If none is available yet, continue to Section 5a and preview afterward.
 
 User Name must be unique tenant-wide. User Name, Work Email, and Last Name must have nonempty mappings. [Required mappings and profile setup](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html)
 
@@ -120,16 +149,31 @@ User Name must be unique tenant-wide. User Name, Work Email, and Last Name must 
 
 Keep `managerEmployeeNumber`, `employeeType`, `status`, and `startDate` on the HR account for now. The CSV value `active` is HR text; do not map it to Lifecycle State or enable lifecycle provisioning in this exercise.
 
+**Check:** Reopen **Mappings** and confirm all ten mappings were saved. Pay attention to the difference between identity `firstname` and CSV `firstName`, and between identity `uid` and CSV `userName`.
+
+### 5a. Apply the mappings and check processing
+
+1. In **Acme Employees**, select **Apply Changes**. This applies the saved profile configuration to its identities.
+2. Open **Admin > Dashboard > Monitor** and inspect **Active Jobs** while identity processing runs.
+3. Return to **Admin > Identity Management > Identity Profiles**. If the profile still reports **Needs Processing**, check the job outcome before starting another job.
+4. If **Identity Exceptions** are present, download the report from the profile list. Investigate missing required values or duplicate usernames before continuing.
+
+Changes to imported account data normally initiate identity processing automatically. Saving a profile mapping and applying it are separate actions. [Identity processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html)
+
 ## 6. Verify the identities
 
-Open **Admin > Identity Management > Identities** and locate the Acme identities by username or display name. Open their details and **Accounts** to compare identity values with their **Acme HR** account data.
+1. Open **Acme HR > Aggregation History and Connections > Connections**. Under **Identity Profile**, verify the linked profile is **Acme Employees** and check its identity count. [Source connections](https://documentation.sailpoint.com/saas/help/sources/index.html#removing-identity-profiles-from-a-source)
+2. Open **Admin > Identity Management > Identities**, locate `acme.e012`, and open its details.
+3. Check Lucas's identity attributes against the expected values below.
+4. Select **Accounts**, open the **Acme HR** account, and compare its raw attributes with those identity values.
+5. Repeat the sample checks for `acme.e001`, `acme.e018`, and `acme.e023`.
 
-Count the Acme population associated with **Acme Employees**, rather than all identities in the tenant.
+Count the identities linked to this profile, not the total number of identities in the tenant. If the count differs from 24, investigate the account list and profile exceptions rather than treating the import as complete.
 
 | Check | Expected result |
 |---|---|
 | HR accounts on Acme HR | 24 |
-| Identities associated with Acme Employees | 24, assuming no pre-existing correlation/profile conflicts |
+| Identities associated with Acme Employees | 24 |
 | Identification numbers | E001 through E024, each represented once |
 | Usernames | acme.e001 through acme.e024, each represented once |
 | E001 | Acme Lab - Morgan Reed; IT; IT100 |
@@ -141,15 +185,22 @@ Department counts should be IT **6**, Finance **4**, HR **3**, Sales **3**, Engi
 
 Capture both Lucas's HR account and identity attributes. A successful aggregation alone is not the complete verification.
 
+**Check:** Lucas has one Acme identity, with Department `Finance`, Identification Number `E012`, and its corresponding Acme HR account. Manager resolution and AD account membership are not completion requirements for this lab.
+
 ## 7. Practice challenge: investigate a wrong department
 
 HR reports that Lucas Brown belongs in Finance, but ISC displays Sales.
 
 ### Introduce the problem
 
-1. In your working CSV, change only `E012`'s `department` from `Finance` to `Sales`.
-2. Upload the full 24-row file again through **Account Aggregation**.
-3. After processing, compare Lucas's HR account and identity department. Record the observed result.
+1. Open `acme-hr-working.csv` and locate the row whose first field is `E012`.
+2. Change only that row's `department` value from `Finance` to `Sales`. Leave its identifiers, cost center, and other fields unchanged.
+3. Save the CSV. Reopen it to confirm the change is present and all 24 rows remain.
+4. Open **Acme HR > Account Management > Account Aggregation** and upload the edited file using the upload control.
+5. Once aggregation finishes, open **Account Management > Accounts > acme.e012** and record the department.
+6. Open **Admin > Identity Management > Identities**, locate `acme.e012`, and record its identity Department after processing.
+
+**Check:** For this deliberately incorrect input, both values should become `Sales`; the employee and account counts should remain 24. If only the HR account changed, follow the processing checks below.
 
 ### Investigate
 
@@ -161,6 +212,13 @@ HR reports that Lucas Brown belongs in Finance, but ISC displays Sales.
 
 Explain which layer needs correction before applying a fix. If the identity has not updated, distinguish pending processing from an incorrect mapping.
 
+### If the account changed but the identity did not
+
+1. Confirm that identity Department maps to **Acme HR > department**.
+2. If you correct the mapping, **Save** and **Apply Changes** on **Acme Employees**.
+3. Check **Admin > Dashboard > Monitor** for active processing. Reopen the identity after the job completes.
+4. If the correct mapping is applied, processing is no longer running, and Lucas still shows the old value, find him on **Admin > Identity Management > Identities** and use **Actions > Process Identity**. Recheck the job and values. Record any error rather than repeatedly resubmitting the job. [Processing selected identities](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html#manually-processing-for-select-identities)
+
 <details>
 <summary>Hint: compare three values</summary>
 
@@ -170,9 +228,19 @@ Compare `E012`'s CSV department, Acme HR account department, and identity Depart
 
 ### Restore and prove the correction
 
-Correct Lucas's department to `Finance`, upload the complete working file, and repeat the account and identity checks. Keep your customized mailboxes if you changed them earlier.
+1. Change `E012`'s department back to `Finance` in the working file and save it.
+2. Upload that complete 24-row file again through **Acme HR > Account Management > Account Aggregation**.
+3. Verify the finished aggregation, then confirm `Finance` on the HR account and the identity.
+4. Compare Lucas's account and identity identifiers with your baseline evidence. They should still identify the same records.
+5. Retain the corrected working file. Keep your customized mailboxes if you changed them earlier.
 
 Your final result must show Finance in both records, 24 HR accounts, and no additional Lucas identity. Retain `FIN200` as his cost center throughout the exercise.
+
+| Stage | E012 CSV department | HR account department | Identity Department |
+|---|---|---|---|
+| Baseline | Finance | Finance | Finance |
+| After introducing the problem and processing | Sales | Sales | Sales |
+| After correction and processing | Finance | Finance | Finance |
 
 ## Troubleshooting checks
 
@@ -180,7 +248,7 @@ Your final result must show Finance in both records, 24 HR accounts, and no addi
 |---|---|
 | Import rejects the file | Actual CSV format, delimiter, headers, and source schema |
 | One field is empty on every HR account | Spelling and case of that column and schema attribute |
-| Accounts exist but identities are missing | Profile source, required mappings, and profile exceptions |
+| Accounts exist but identities are missing | Verify Acme Employees uses Acme HR, check the ten mappings, apply changes, and inspect the identity-exception report |
 | An existing identity received the HR account | Source correlation and other authoritative profiles; do not create another profile to hide the conflict |
 | HR department is correct but identity Department is wrong | Mapping source/attribute, applied changes, and processing state |
 | The old value remains after reimport | Uploaded filename, account value, and whether the old latest file was reused |
@@ -194,6 +262,20 @@ Your final result must show Finance in both records, 24 HR accounts, and no addi
 - [ ] Lucas's department is restored to Finance without duplicate records.
 - [ ] The unchanged or personalized baseline CSV is retained.
 - [ ] Your journal contains the evidence and your explanation of the fault.
+
+## Screenshots to retain
+
+| Screenshot | What it should show |
+|---|---|
+| HR source | Acme HR and Delimited File source type |
+| Account schema | CSV attributes and Account ID/Name selections |
+| Account import | Finished aggregation and account count |
+| Identity mappings | Acme HR selected for the mapped fields |
+| Baseline | Lucas's HR account and identity showing Finance |
+| Incident | Both records showing Sales |
+| Recovery | Both records showing Finance again |
+
+Use captions identifying the lab section and the result. Hide credentials and unrelated personal information.
 
 Keep **Acme HR** and **Acme Employees** for AR-002, where you will resolve the manager hierarchy. AD account correlation is covered in AR-004.
 

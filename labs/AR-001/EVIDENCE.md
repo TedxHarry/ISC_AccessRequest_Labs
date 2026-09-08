@@ -11,6 +11,8 @@ Copy this journal to your own notes and complete it with your lab observations. 
 | Working CSV filename | |
 | Account ID attribute | |
 | Account Name attribute | |
+| Lucas's HR account identifier | |
+| Lucas's ISC identity identifier | |
 
 ## Prediction
 
@@ -24,6 +26,8 @@ What should the first import produce? What should change when Lucas's department
 | HR account count | | |
 | Acme identity count | | |
 | Required identity mappings | | |
+| Identity processing outcome | | |
+| Identity exceptions, if any | | |
 | E012 account department | | |
 | E012 identity Department | | |
 | Department totals | | |
@@ -48,5 +52,15 @@ Record the aggregation identifiers and timestamps for the change and correction.
 - What did you change to correct the problem?
 - How did you verify that existing records were updated?
 - What baseline did you retain for the next lab?
+
+## Screenshot checklist
+
+- [ ] Acme HR source details
+- [ ] Account schema and identifying attributes
+- [ ] Completed aggregation and account count
+- [ ] Identity-profile mappings
+- [ ] Lucas's account and identity before the change
+- [ ] Lucas's account and identity during the incident
+- [ ] Lucas's account and identity after correction
 
 [Return to AR-001](README.md)
