@@ -31,6 +31,8 @@ You need an ISC training tenant, an isolated AD lab, the required connector infr
 - [Lab environment and test identities](LAB-ENVIRONMENT.md)
 - [Troubleshooting practice tickets](PRACTICE-TICKETS.md)
 
+Start with [AR-001 — Import Acme's HR Records](labs/AR-001/README.md) using the [HR baseline CSV](datasets/acme-hr-baseline.csv).
+
 ## Learning outcomes
 
 By completing the labs, you will be able to:
@@ -54,9 +56,9 @@ Prerequisites: a provisioned training tenant and Windows infrastructure. You wil
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|
-| AR-001 | Build | Import Acme's 24 HR records | Explain and verify the resulting identities and mapped attributes |
+| [AR-001](labs/AR-001/README.md) | Build | Import Acme's 24 HR records | Explain and verify the resulting identities and mapped attributes |
 | AR-002 | Build | Resolve the manager hierarchy | Verify employee-to-manager relationships and hierarchy root |
-| AR-003 | Build | Connect and aggregate Acme AD | Record connection, accounts, groups, and actual source identifiers |
+| AR-003 | Practice | Validate the existing AD connection and aggregate lab data | Record connection, accounts, groups, and actual source identifiers |
 | AR-004 | Practice | Match people to the correct AD accounts | Prove correlation; identify the two-account identity |
 | AR-005 | Build | Prepare reviewers, sessions, and the evidence journal | Demonstrate separate requester/reviewer access and required permissions |
 | AR-006 | Check | Prove the environment is ready | Complete the readiness gate and save checkpoint C01 |

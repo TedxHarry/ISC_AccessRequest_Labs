@@ -37,7 +37,11 @@ AR-006 is the environment gate: demonstrate correlation, group aggregation, targ
 
 Use employeeNumber as the stable HR identifier. Map managerEmployeeNumber through the chosen manager-correlation configuration; a populated CSV column alone is not proof of a resolved ISC manager.
 
-Required columns: employeeNumber, firstName, lastName, displayName, email, department, title, managerEmployeeNumber, location, employeeType, costCenter, status, startDate.
+Download the [HR baseline CSV](datasets/acme-hr-baseline.csv) and follow [AR-001](labs/AR-001/README.md) to import it.
+
+Columns: employeeNumber, userName, firstName, lastName, displayName, email, department, title, managerEmployeeNumber, location, employeeType, costCenter, status, startDate.
+
+The file uses usernames `acme.e001` through `acme.e024`, display names prefixed with `Acme Lab -`, and placeholder emails at `example.com`. Use controlled test mailboxes before sign-in and notification exercises. In AR-001, `employeeNumber` maps to the identity's `identificationNumber` attribute.
 
 | ID | Name | Department | Manager | Course responsibility or controlled variant |
 |---|---|---|---|---|
@@ -66,7 +70,7 @@ Required columns: employeeNumber, firstName, lastName, displayName, email, depar
 | E023 | Abigail Lewis | Security | E007 | Security reviewer; temporary inactive-owner variant |
 | E024 | Samuel Walker | IT | E002 | IAM operations reviewer/fallback test identity |
 
-Baseline all employees as active with correct attributes and expected accounts, except E009's deliberate two-account setup. Enable fault variants only for the corresponding exercise; record before/after values. E003's missing-email variant is used temporarily in approval investigations.
+The HR baseline has all employees marked active with correct attributes. HR account creation in AR-001 does not establish AD account creation or correlation. Validate the existing AD connection in AR-003 and the expected AD accounts in AR-004, including E009's two-account setup. Enable fault variants only for the corresponding exercise; record before/after values. E003's missing-email variant is used temporarily in approval investigations.
 
 Use fictional titles appropriate to each department, employeeType=Employee, location=Chicago, a fixed valid past startDate, and cost centers IT100/FIN200/HR300/SAL400/ENG500/SEC600. Real test mailbox values and tenant object IDs are environment parameters.
 

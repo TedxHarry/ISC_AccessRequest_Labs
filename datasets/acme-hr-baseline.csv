@@ -1,0 +1,25 @@
+employeeNumber,userName,firstName,lastName,displayName,email,department,title,managerEmployeeNumber,location,employeeType,costCenter,status,startDate
+E001,acme.e001,Morgan,Reed,Acme Lab - Morgan Reed,acme.e001@example.com,IT,Chief Information Officer,,Chicago,Employee,IT100,active,2025-01-06
+E002,acme.e002,Priya,Shah,Acme Lab - Priya Shah,acme.e002@example.com,IT,IT Manager,E001,Chicago,Employee,IT100,active,2025-01-06
+E003,acme.e003,Daniel,Brooks,Acme Lab - Daniel Brooks,acme.e003@example.com,Finance,Finance Manager,E001,Chicago,Employee,FIN200,active,2025-01-06
+E004,acme.e004,Elena,Cruz,Acme Lab - Elena Cruz,acme.e004@example.com,HR,HR Manager,E001,Chicago,Employee,HR300,active,2025-01-06
+E005,acme.e005,Marcus,Lee,Acme Lab - Marcus Lee,acme.e005@example.com,Sales,Sales Manager,E001,Chicago,Employee,SAL400,active,2025-01-06
+E006,acme.e006,Ava,Chen,Acme Lab - Ava Chen,acme.e006@example.com,Engineering,Engineering Manager,E001,Chicago,Employee,ENG500,active,2025-01-06
+E007,acme.e007,Noah,Williams,Acme Lab - Noah Williams,acme.e007@example.com,Security,Security Manager,E001,Chicago,Employee,SEC600,active,2025-01-06
+E008,acme.e008,Liam,Patel,Acme Lab - Liam Patel,acme.e008@example.com,IT,IT Analyst,E002,Chicago,Employee,IT100,active,2025-01-06
+E009,acme.e009,Sofia,Martin,Acme Lab - Sofia Martin,acme.e009@example.com,IT,Systems Engineer,E002,Chicago,Employee,IT100,active,2025-01-06
+E010,acme.e010,Ethan,Davis,Acme Lab - Ethan Davis,acme.e010@example.com,IT,Service Desk Analyst,E002,Chicago,Employee,IT100,active,2025-01-06
+E011,acme.e011,Olivia,Wilson,Acme Lab - Olivia Wilson,acme.e011@example.com,Finance,Financial Analyst,E003,Chicago,Employee,FIN200,active,2025-01-06
+E012,acme.e012,Lucas,Brown,Acme Lab - Lucas Brown,acme.e012@example.com,Finance,Reporting Analyst,E003,Chicago,Employee,FIN200,active,2025-01-06
+E013,acme.e013,Mia,Garcia,Acme Lab - Mia Garcia,acme.e013@example.com,Finance,Accounts Payable Analyst,E003,Chicago,Employee,FIN200,active,2025-01-06
+E014,acme.e014,James,Miller,Acme Lab - James Miller,acme.e014@example.com,HR,Payroll Specialist,E004,Chicago,Employee,HR300,active,2025-01-06
+E015,acme.e015,Amelia,Thomas,Acme Lab - Amelia Thomas,acme.e015@example.com,HR,Benefits Specialist,E004,Chicago,Employee,HR300,active,2025-01-06
+E016,acme.e016,Benjamin,Moore,Acme Lab - Benjamin Moore,acme.e016@example.com,Sales,Account Executive,E005,Chicago,Employee,SAL400,active,2025-01-06
+E017,acme.e017,Charlotte,Taylor,Acme Lab - Charlotte Taylor,acme.e017@example.com,Sales,Sales Operations Analyst,E005,Chicago,Employee,SAL400,active,2025-01-06
+E018,acme.e018,Henry,Anderson,Acme Lab - Henry Anderson,acme.e018@example.com,Engineering,Software Engineer,E006,Chicago,Employee,ENG500,active,2025-01-06
+E019,acme.e019,Harper,Jackson,Acme Lab - Harper Jackson,acme.e019@example.com,Engineering,Platform Engineer,E006,Chicago,Employee,ENG500,active,2025-01-06
+E020,acme.e020,Alexander,White,Acme Lab - Alexander White,acme.e020@example.com,Engineering,DevOps Engineer,E006,Chicago,Employee,ENG500,active,2025-01-06
+E021,acme.e021,Evelyn,Harris,Acme Lab - Evelyn Harris,acme.e021@example.com,Security,Security Analyst,E007,Chicago,Employee,SEC600,active,2025-01-06
+E022,acme.e022,William,Clark,Acme Lab - William Clark,acme.e022@example.com,Security,Security Engineer,E007,Chicago,Employee,SEC600,active,2025-01-06
+E023,acme.e023,Abigail,Lewis,Acme Lab - Abigail Lewis,acme.e023@example.com,Security,Security Architect,E007,Chicago,Employee,SEC600,active,2025-01-06
+E024,acme.e024,Samuel,Walker,Acme Lab - Samuel Walker,acme.e024@example.com,IT,IAM Engineer,E002,Chicago,Employee,IT100,active,2025-01-06
