@@ -1,0 +1,400 @@
+/* Readability and visual hierarchy overrides for the learner-facing course. */
+
+:root {
+  --read-accent: #1677b8;
+  --read-accent-soft: #eef7fc;
+  --read-heading: #12344d;
+  --read-text: #2d4356;
+  --read-muted: #60778a;
+  --read-border: #d9e6ee;
+  --read-card: #ffffff;
+}
+
+/* Reading comfort */
+.markdown-section {
+  max-width: 1040px;
+}
+
+.markdown-section p,
+.markdown-section li {
+  color: var(--read-text);
+  font-size: 1.02rem;
+  line-height: 1.78;
+}
+
+.markdown-section p {
+  margin: 1rem 0 1.15rem;
+}
+
+.markdown-section ol > li {
+  margin-bottom: 0.8rem;
+  padding-left: 0.35rem;
+}
+
+.markdown-section ul > li {
+  margin-bottom: 0.45rem;
+}
+
+/* Docsify wraps heading text in .anchor. Color the visible anchor explicitly. */
+.markdown-section h1,
+.markdown-section h1 .anchor,
+.markdown-section h1 .anchor span,
+.markdown-section h2,
+.markdown-section h2 .anchor,
+.markdown-section h2 .anchor span,
+.markdown-section h3,
+.markdown-section h3 .anchor,
+.markdown-section h3 .anchor span,
+.markdown-section h4,
+.markdown-section h4 .anchor,
+.markdown-section h4 .anchor span {
+  color: var(--read-heading) !important;
+  opacity: 1 !important;
+  text-decoration: none !important;
+}
+
+.markdown-section h1 {
+  border-bottom: 2px solid #dce8ef;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1rem;
+}
+
+/* Major lab sections look like clear section banners. */
+.markdown-section h2 {
+  background: linear-gradient(90deg, #eef7fc 0%, #f8fbfd 72%, rgba(248, 251, 253, 0) 100%);
+  border-left: 5px solid var(--read-accent);
+  border-top: 0;
+  border-radius: 10px;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  margin: 3.4rem 0 1.35rem;
+  padding: 0.8rem 1rem;
+}
+
+.markdown-section h3 {
+  border-left: 3px solid #7bb9dc;
+  font-size: 1.28rem;
+  line-height: 1.4;
+  margin-top: 2.4rem;
+  padding-left: 0.8rem;
+}
+
+.markdown-section h4 {
+  font-size: 1.08rem;
+  margin-top: 1.8rem;
+}
+
+.markdown-section a:not(.anchor) {
+  color: #0d6fae;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.markdown-section a:not(.anchor):hover {
+  color: #084f7d;
+}
+
+.markdown-section strong {
+  color: #17354b;
+}
+
+/* Images should feel like part of a lab, not loose browser screenshots. */
+.markdown-section img {
+  background: #fff;
+  border: 1px solid var(--read-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(18, 52, 77, 0.10);
+  display: block;
+  margin: 1.5rem auto;
+}
+
+/* Tables */
+.markdown-section table {
+  border-color: #d6e3eb;
+}
+
+.markdown-section table th {
+  background: #173f59;
+}
+
+.markdown-section table td {
+  color: #31485a;
+}
+
+/* Code */
+.markdown-section pre {
+  background: #0f2533;
+  border-color: #274557;
+}
+
+.markdown-section pre > code {
+  color: #edf6fb;
+}
+
+/* Callouts: keep body text high contrast. */
+.course-callout,
+.course-callout p,
+.course-callout li {
+  color: #294355;
+}
+
+.course-callout.check {
+  box-shadow: 0 5px 18px rgba(32, 132, 79, 0.08);
+}
+
+.course-callout.warning {
+  box-shadow: 0 5px 18px rgba(182, 106, 0, 0.08);
+}
+
+/* Sidebar: one clear row per course/lab item. */
+.sidebar ul li a {
+  line-height: 1.4;
+  margin: 3px 10px;
+  padding: 8px 10px;
+}
+
+.sidebar ul li.active > a {
+  box-shadow: inset 3px 0 0 var(--read-accent);
+}
+
+/* If a stale browser still renders Docsify's generated sub-sidebar, hide it. */
+.sidebar-nav .app-sub-sidebar {
+  display: none !important;
+}
+
+.course-section-indicator {
+  display: none !important;
+}
+
+/* Previous / Next should remain obvious in both themes. */
+.pagination-item {
+  background: #f7fafc;
+  border: 1px solid var(--read-border);
+  border-radius: 12px;
+  margin-top: 1.2rem;
+  padding: 1rem 1.15rem;
+}
+
+.pagination-item a,
+.pagination-item-label,
+.pagination-item-title,
+.pagination-item-subtitle {
+  color: #183d57 !important;
+  opacity: 1 !important;
+}
+
+.pagination-item-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.pagination-item-label {
+  color: #5b7486 !important;
+  font-weight: 700;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --read-accent: #69c7f3;
+    --read-heading: #f3f8fb;
+    --read-text: #d7e4ec;
+    --read-muted: #a3b7c5;
+    --read-border: #2f4a5b;
+    --read-card: #122633;
+  }
+
+  html,
+  body,
+  .content {
+    background: #0d1b24 !important;
+    color: var(--read-text) !important;
+  }
+
+  .markdown-section p,
+  .markdown-section li {
+    color: #d7e4ec !important;
+  }
+
+  .markdown-section strong {
+    color: #ffffff !important;
+  }
+
+  .markdown-section h1,
+  .markdown-section h1 .anchor,
+  .markdown-section h1 .anchor span {
+    color: #f7fbfd !important;
+  }
+
+  .markdown-section h2 {
+    background: linear-gradient(90deg, #143247 0%, #112733 72%, rgba(17, 39, 51, 0) 100%);
+    border-left-color: #69c7f3;
+  }
+
+  .markdown-section h2,
+  .markdown-section h2 .anchor,
+  .markdown-section h2 .anchor span {
+    color: #bfe8ff !important;
+  }
+
+  .markdown-section h3,
+  .markdown-section h3 .anchor,
+  .markdown-section h3 .anchor span,
+  .markdown-section h4,
+  .markdown-section h4 .anchor,
+  .markdown-section h4 .anchor span {
+    color: #eef7fb !important;
+  }
+
+  .markdown-section h3 {
+    border-left-color: #4f9fc9;
+  }
+
+  .markdown-section a:not(.anchor) {
+    color: #78cfff !important;
+  }
+
+  .markdown-section a:not(.anchor):hover {
+    color: #b8e7ff !important;
+  }
+
+  .markdown-section hr,
+  .markdown-section h1 {
+    border-color: #304b5c;
+  }
+
+  .markdown-section img {
+    background: #112733;
+    border-color: #365568;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  }
+
+  .markdown-section table th {
+    background: #1d4c68 !important;
+    color: #ffffff !important;
+  }
+
+  .markdown-section table td,
+  .markdown-section table tr:nth-child(even) td {
+    background: #112733 !important;
+    border-color: #2f4b5c !important;
+    color: #d8e5ed !important;
+  }
+
+  .markdown-section code:not(pre code) {
+    background: #173548 !important;
+    color: #a7e2ff !important;
+  }
+
+  .markdown-section pre {
+    background: #08151d !important;
+    border-color: #315063 !important;
+  }
+
+  .markdown-section pre > code {
+    color: #e9f5fb !important;
+  }
+
+  .markdown-section blockquote,
+  .markdown-section details {
+    background: #112733 !important;
+    border-color: #345267 !important;
+    color: #d2e0e8 !important;
+  }
+
+  .markdown-section details summary {
+    color: #dff2fc !important;
+  }
+
+  .course-callout,
+  .course-callout p,
+  .course-callout li {
+    color: #e1edf3 !important;
+  }
+
+  .course-callout.check {
+    background: #123223 !important;
+    border-color: #367456 !important;
+  }
+
+  .course-callout.warning {
+    background: #37290f !important;
+    border-color: #80612c !important;
+  }
+
+  .course-callout.info {
+    background: #123047 !important;
+    border-color: #356887 !important;
+  }
+
+  .course-callout.danger {
+    background: #3a2020 !important;
+    border-color: #815050 !important;
+  }
+
+  .sidebar {
+    background: #10212d !important;
+    border-color: #304858 !important;
+  }
+
+  .sidebar .app-name-link {
+    color: #f0f7fb !important;
+  }
+
+  .sidebar-nav > ul > li > p,
+  .sidebar-nav > ul > li > strong {
+    color: #a8c0cf !important;
+  }
+
+  .sidebar ul li a {
+    color: #d2e1e9 !important;
+  }
+
+  .sidebar ul li a:hover {
+    background: #152c3a;
+    color: #92d9ff !important;
+  }
+
+  .sidebar ul li.active > a {
+    background: #1a3a4f !important;
+    color: #8bd8ff !important;
+    box-shadow: inset 3px 0 0 #69c7f3;
+  }
+
+  .sidebar .search input {
+    background: #0b1a23 !important;
+    border-color: #3a596c !important;
+    color: #eef7fb !important;
+  }
+
+  .pagination-item {
+    background: #122733 !important;
+    border-color: #345365 !important;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.16);
+  }
+
+  .pagination-item a,
+  .pagination-item-title,
+  .pagination-item-subtitle {
+    color: #dff3fd !important;
+    opacity: 1 !important;
+  }
+
+  .pagination-item-label {
+    color: #9fc2d4 !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .markdown-section h2 {
+    font-size: 1.42rem;
+    margin-top: 2.7rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .markdown-section p,
+  .markdown-section li {
+    font-size: 1rem;
+  }
+}
