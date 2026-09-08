@@ -17,6 +17,10 @@ Record actual results as you complete [AR-003](README.md). Leave unfinished chec
 | Group Search DNs and filters before changes | |
 | Group Membership Search DN and filter | |
 | Scope changes made, or none | |
+| Saved User Search DNs and filters after reopening | |
+| Saved Group Search DNs and filters after reopening | |
+| Saved membership-search settings after reopening | |
+| Users and AdminAccounts coverage verified | |
 
 ## Account check
 
@@ -29,6 +33,9 @@ Record actual results as you complete [AR-003](README.md). Leave unfinished chec
 | ISC account sAMAccountName and DN match AD | |
 | Correlated identity, or uncorrelated | |
 | Latest account aggregation status | |
+| Original Delta Aggregation setting | |
+| Delta disabled for the full-scope run, if needed | |
+| Original Delta Aggregation setting restored | |
 | Accounts scanned | |
 | Warnings/errors and resolution | |
 

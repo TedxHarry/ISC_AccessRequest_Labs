@@ -101,25 +101,69 @@ Keep newly created groups empty. These groups simulate application access, so do
 
 **Check:** All 14 names exist in your lab directory. Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishedName`.
 
-## 5. Check what the source reads
+## 5. Update the AD source settings before aggregation
 
-1. Return to your AD source in ISC and open **Account and Group Settings**.
-2. Record the current **User Search Scope** and **Group Search Scope**, including Search DNs and LDAP filters, before editing anything.
-3. Check that the user scope covers Lucas's actual OU and permits his account. If it does not, use **Add Another** to include the lab Users DN while retaining existing entries.
-4. Check that the group scope covers the Groups OU and permits the 14 groups. Add the lab Groups DN only if needed. If the group scope was empty, first preserve the account scopes it was using as explicit group-scope entries, then add the lab location. Do not replace existing coverage with the lab OU.
-5. Review any **Group Membership Search DN** and filter for compatibility with the lab Groups OU. Save any changes.
+Complete this section now, before starting either aggregation. Creating an OU in AD does not add that OU to ISC's source configuration.
 
-Copy DNs exactly, including their case. Filters can exclude objects even when their OUs are covered. When no group scope is supplied, the connector uses the account scope; inspect that scope rather than assuming the Groups OU is included. [AD search-scope settings](https://documentation.sailpoint.com/connectors/active_directory/help/integrating_active_directory/account_and_group_settings.html)
+### Copy your actual OU paths
 
-**Check:** You can point to the scope entries that include Lucas and the 14 groups. Keep the existing account-deletion settings. Narrowing a source's scope can make previously imported accounts disappear from its results.
+Use the DNs collected in Section 2. The examples below assume AcmeLab is directly under `training.example.com`; replace the entire example with your actual DN, including any parent OUs.
+
+| ISC setting | Lab location | Example Search DN |
+|---|---|---|
+| User Search Scope, entry 1 | Users | `OU=Users,OU=AcmeLab,DC=training,DC=example,DC=com` |
+| User Search Scope, entry 2 | AdminAccounts | `OU=AdminAccounts,OU=AcmeLab,DC=training,DC=example,DC=com` |
+| Group Search Scope | Groups | `OU=Groups,OU=AcmeLab,DC=training,DC=example,DC=com` |
+
+AdminAccounts is empty in this lab. Include its coverage now; you will create Sofia's second account there in AR-004. If you reused Lucas or groups in another OU, include their actual locations too.
+
+### Open and record the current configuration
+
+1. Open **Admin > Connections > Sources > your AD source > Account and Group Settings**.
+2. Record all existing User and Group Search DNs, LDAP filters, and membership-search settings in your journal. Capture the page before changing it.
+3. Check whether an existing parent search already covers each lab OU. For example, a search under AcmeLab may cover its children. Confirm the search depth and filters permit the lab objects. Keep that entry if it already provides the required coverage; do not add overlapping entries unnecessarily.
+
+### Set the user searches
+
+1. Under **User Search Scope**, use **Add Another** for each uncovered user OU. If the section has a single empty entry, fill that entry first.
+2. In **Search DN**, paste the actual **Users OU DN**. Use an OU DN, not Lucas's account DN.
+3. For this new entry restricted to the lab Users OU, leave the optional **LDAP Search Filter** blank. Keep filters on existing entries unchanged. A filter on an existing broader entry must allow Lucas; otherwise add a separate lab entry that does.
+4. Repeat for **AdminAccounts** if it is not already covered.
+5. Select **Save**.
+
+**Check:** Lucas's actual OU is included in a saved user search that permits `acme.e012`. AdminAccounts also has coverage. The Groups OU alone would not cover Lucas in the sibling Users OU.
+
+### Set the group search
+
+1. Under **Group Search Scope**, keep existing entries. If Groups is not covered, select **Add Another** and paste the actual **Groups OU DN** into **Search DN**.
+2. Leave **LDAP Search Filter** blank on the new entry restricted to the lab Groups OU. Do not copy a user-only filter into a group search.
+3. Select **Save**.
+
+If Group Search Scope was entirely empty, the connector was using the account search scope. Before introducing explicit group entries, retain coverage for groups in the previously searched locations as well as the lab Groups OU. Record those locations first; entering only the new Groups OU could drop existing coverage. Use group-appropriate filters rather than copying user-only conditions. [AD user and group search settings](https://documentation.sailpoint.com/connectors/active_directory/help/integrating_active_directory/account_and_group_settings.html)
+
+**Check:** The saved group searches cover the actual locations of all 14 groups, including any reused groups outside AcmeLab.
+
+### Check membership searches and reopen the saved settings
+
+The **Group Membership Search DN** within a user-search entry controls where the connector looks for that user's memberships. The separate **Group Search Scope** above controls the group inventory.
+
+1. For each new lab user-search entry, set **Group Membership Search DN** to the actual lab Groups OU DN and leave its optional **Group Membership Search Filter** blank. If reused lab groups are elsewhere, include their container DNs too, separated by semicolons.
+2. For existing user-search entries, preserve their membership settings. If an explicit membership DN list excludes the lab groups, append the missing group-container DN with a semicolon. Check that any membership filter permits those groups. Do not narrow an existing unrestricted search to only the new lab OU.
+3. Select **Save**, leave the page, then reopen **Account and Group Settings**.
+4. Verify the saved values against your journal. Keep account-deletion settings unchanged.
+
+**Before you continue:** Users and AdminAccounts are covered by user searches; all lab groups are covered by group searches; applicable membership restrictions permit the lab groups. The connector account must also have read access to these locations. A successful connection test alone does not verify this coverage.
 
 ## 6. Aggregate and inspect Lucas's account
+
+Confirm Section 5's saved settings before starting. Open the source's **Aggregation Settings** and record **Delta Aggregation**. If enabled, turn it off and save for this run so the connector reads the full configured scope, including accounts that existed before the scope change. Restore its previous setting after the run completes. Keep account-deletion settings unchanged. [Full and delta aggregation](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 
 1. In your AD source, open **Account Management > Account Aggregation**.
 2. Select **Start Aggregation** and wait for completion.
 3. Inspect **Latest Account Aggregation** or **Aggregation History**. Record the status, accounts scanned, and any warning or error details. Investigate warnings before treating the run as complete.
 4. Open **Account Management > Accounts**. Find Lucas by `acme.e012` or `Acme Lab - Lucas Brown`, then open the account.
 5. Compare its `sAMAccountName` and directory DN with the AD values you recorded. Record the Account ID exactly as ISC displays it. Also record whether the account is correlated and, if so, to which identity.
+6. Restore the Delta Aggregation setting recorded before the run, if you changed it.
 
 The source's ID can be obtained from its URL; account aggregation runs from the source's Account Aggregation page. [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 
@@ -157,6 +201,9 @@ The aggregation summary's discovered count can differ from the total entitlement
 
 - [ ] The existing AD source passes Test Connection.
 - [ ] The source name, source ID, and actual OU DNs are recorded.
+- [ ] Saved user searches cover Users and AdminAccounts; group searches cover all lab groups.
+- [ ] Membership-search restrictions permit the lab groups, and previous source coverage is preserved.
+- [ ] The original Delta Aggregation setting is restored if it was changed.
 - [ ] Lucas's AD account is visible in ISC with the expected sAMAccountName and DN.
 - [ ] Account and entitlement aggregations complete with no unresolved warnings or errors.
 - [ ] All 14 named groups are present on the correct source.
@@ -176,8 +223,9 @@ Take each screenshot after completing the listed section. Keep the source name a
 | 3 | `AR-003-03-lucas-ad-account.png` | Lucas's Account tab showing acme.e012 and the training-domain suffix |
 | 3 | `AR-003-04-lucas-dn.png` | Lucas's distinguishedName in Attribute Editor |
 | 4 | `AR-003-05-ad-groups.png` | The 14 named groups in AD; take a second image if they do not all fit |
-| 5 | `AR-003-06-user-scope.png` | User Search DN entries and filters covering Lucas's OU |
-| 5 | `AR-003-07-group-scope.png` | Group Search DN entries and filters covering the lab groups; include membership-search settings separately if needed |
+| 5 | `AR-003-06-user-scope.png` | Reopened saved User Search DN entries and filters covering Users and AdminAccounts |
+| 5 | `AR-003-07-group-scope.png` | Reopened saved Group Search DN entries and filters covering the lab groups |
+| 5 | `AR-003-07a-membership-scope.png` | Membership-search DNs and filters on the applicable user-search entries |
 | 6 | `AR-003-08-account-aggregation.png` | Completed account aggregation, status, and scanned count |
 | 6 | `AR-003-09-lucas-isc-account.png` | Lucas's AD account in ISC, with source, sAMAccountName, and directory identifier |
 | 7 | `AR-003-10-entitlement-aggregation.png` | Completed entitlement aggregation and status |

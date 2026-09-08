@@ -17,7 +17,7 @@ Use the [lab journal](EVIDENCE.md) to check every account. Counts below apply to
 ## 1. Check the identity side first
 
 1. Open **Admin > Identity Management > Identity Profiles > Acme Employees > Mappings**.
-2. Confirm **Identification Number (`identificationNumber`)** reads from **Acme HR > employeeNumber**. If missing, add that mapping, save it, and select **Apply Changes**.
+2. Confirm **Identification Number (`identificationNumber`)** reads from **Acme HR > employeeNumber**. If missing, add that mapping, save it, and select **Apply Changes**. Wait for identity processing to finish in **Admin > Dashboard > Monitor** before checking the populated values.
 3. Open **Admin > Identity Management > Identities**. Inspect Lucas (`acme.e012`) and Sofia (`acme.e009`). Their Identification Numbers must be `E012` and `E009` respectively.
 4. Check the other Acme identities against the roster below. Each employee number must identify exactly one employee. Resolve duplicate identity identifiers before configuring the match.
 
@@ -37,6 +37,7 @@ For each employee in the roster:
 4. Open the account directly from its OU. In **Properties > General**, set **Display name** to the full name above. In **Organization**, set Department and Title from the [HR baseline](../../datasets/acme-hr-baseline.csv).
 5. In **Attribute Editor**, open `employeeID`, enter the roster's employee number exactly, and save. For Lucas, this is `E012`. Do not confuse `employeeID` with AD's separate `employeeNumber` attribute.
 6. Select **Apply**, reopen the attribute, and confirm the saved value. Record the account's DN in the journal.
+7. If a reused account is outside Users, verify that its actual OU is covered by the AD source's saved user searches and permitted by their filters. Follow [AR-003 Section 5](../AR-003/README.md#5-update-the-ad-source-settings-before-aggregation) for any missing coverage before aggregation.
 
 Use the same AD user-creation dialog introduced in AR-003. [Microsoft user-creation instructions](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-user-management)
 
@@ -77,7 +78,7 @@ The HR emails ending in `example.com` remain placeholders. This correlation uses
 2. Use First name `Sofia`, Last name `Martin`, and Full name `Acme Lab - Sofia Martin Admin`.
 3. Set both logon-name fields to `acme.e009.admin`, using your training-domain UPN suffix. Complete the password page using your domain policy.
 4. Open the account's **Properties > Attribute Editor**. Set `employeeID` to `E009` and save.
-5. Record its DN. Confirm the AD source's **Account and Group Settings > User Search Scope** includes this OU and permits this account. Add its actual OU DN if needed, preserving existing scope entries and filters.
+5. Record its DN. Verify the AdminAccounts coverage saved in AR-003 under **Account and Group Settings > User Search Scope** permits this account. If you used a different OU, follow [AR-003 Section 5](../AR-003/README.md#5-update-the-ad-source-settings-before-aggregation) to include its actual location before aggregation.
 
 This is an admin-account simulation. The account name grants no administrative permissions; leave privileged group membership unassigned.
 
