@@ -91,6 +91,10 @@ Keep the comma delimiter, exact column names, and all 24 rows. Save edited files
 
 **Check:** Reopen **Admin > Connections > Sources** and confirm **Acme HR** appears as a **Delimited File** source. Record its name in your journal. [Source configuration](https://documentation.sailpoint.com/saas/help/sources/config_sources.html)
 
+![Acme HR Delimited File source with its name, description, owner, and Healthy status](images/01-hr-source.png)
+
+*HR source: Base Configuration shows Acme HR, the lab description, and a selected source owner. Choose your own administrator as owner; TedxHarry is the owner in this example.*
+
 ## 3. Define the account schema
 
 1. In **Acme HR**, open **Account Management > Account Schema**.
@@ -107,6 +111,10 @@ Keep the comma delimiter, exact column names, and all 24 rows. Save edited files
 
 **Check:** All 14 CSV columns exist in the schema with their exact spelling. `employeeNumber` is marked Account ID, and `userName` is marked Account Name. Capture this screen.
 
+![Acme HR account schema showing 14 results, an Account ID attribute, userName as Account Name, and string attributes](images/02-account-schema.png)
+
+*Account schema: 14 attributes are listed. The identifying fields have Account ID and Account Name badges. Scroll through the remaining rows to check all attributes; the screenshot shows only the top portion of the list.*
+
 Set the identifying attributes before importing accounts; changing them afterward can disrupt account references. [Account schemas](https://documentation.sailpoint.com/saas/help/accounts/schema.html)
 
 The supplied header is a custom HR schema. Delimited File defaults such as `id`, `name`, `givenName`, and `e-mail` are not the column names in this file. Uploading a replacement schema retains existing settings for matching attributes, so verify their types and flags after upload. [Delimited File account attributes](https://documentation.sailpoint.com/connectors/delimited_file/help/integrating_delimited_file/account_attributes.html)
@@ -120,6 +128,12 @@ The supplied header is a custom HR schema. Delimited File defaults such as `id`,
 5. Find the account named **acme.e012** and open it. Confirm its Account ID is `E012`, `department` is `Finance`, and `costCenter` is `FIN200`.
 
 **Check:** You can open Lucas's imported HR account and read its values. Identity verification comes after profile setup. [Viewing source accounts](https://documentation.sailpoint.com/saas/help/sources/index.html#viewing-accounts-on-a-source)
+
+![Latest Account Aggregation for Acme HR showing 24 accounts scanned and Success](images/03-account-import.png)
+
+*Account import: Latest Account Aggregation shows **Accounts Scanned: 24** and **Status: Success**. Verify the stored account count and Lucas's account separately as described above.*
+
+**Note:** The same screen shows Account Deletion enabled with a 10% threshold. These are the example tenant's settings, not settings to copy for this lab. Keep all 24 records in each upload; the department exercise does not require account deletion.
 
 Uploading a schema and aggregating accounts are separate operations. Account data must be loaded after the schema is defined. [Delimited File data import](https://documentation.sailpoint.com/connectors/delimited_file/help/integrating_delimited_file/data_import.html)
 
@@ -138,7 +152,7 @@ User Name must be unique tenant-wide. User Name, Work Email, and Last Name must 
 |---|---|
 | User Name (`uid`) | userName |
 | First Name (`firstname`) | firstName |
-| Last Name (`lastname`) | lastName |
+| Last Name / Family Name (`lastname`) | lastName |
 | Display Name (`displayName`) | displayName |
 | Work Email (`email`) | email |
 | Identification Number (`identificationNumber`) | employeeNumber |
@@ -150,6 +164,10 @@ User Name must be unique tenant-wide. User Name, Work Email, and Last Name must 
 Keep `managerEmployeeNumber`, `employeeType`, `status`, and `startDate` on the HR account for now. The CSV value `active` is HR text; do not map it to Lifecycle State or enable lifecycle provisioning in this exercise.
 
 **Check:** Reopen **Mappings** and confirm all ten mappings were saved. Pay attention to the difference between identity `firstname` and CSV `firstName`, and between identity `uid` and CSV `userName`.
+
+![Acme Employees mappings showing Username from userName, Work Email from email, and Family Name from lastName, all sourced from Acme HR](images/04-identity-mappings.png)
+
+*Identity mappings: the three visible mappings use Acme HR and have no transform selected. This screen labels `lastname` as **Family Name**. Continue through the page to configure the other seven mappings in the table.*
 
 ### 5a. Apply the mappings and check processing
 
@@ -186,6 +204,12 @@ Department counts should be IT **6**, Finance **4**, HR **3**, Sales **3**, Engi
 Capture both Lucas's HR account and identity attributes. A successful aggregation alone is not the complete verification.
 
 **Check:** Lucas has one Acme identity, with Department `Finance`, Identification Number `E012`, and its corresponding Acme HR account. Manager resolution and AD account membership are not completion requirements for this lab.
+
+![Baseline identity acme.e012 associated with Acme Employees, showing Lucas Brown, Finance, FIN200, employee number E012, and display name acme.e012](images/05-baseline-identity.png)
+
+*Baseline identity: acme.e012 belongs to Acme Employees and shows Lucas Brown, Finance, FIN200, Chicago, and Reporting Analyst. The employee identifier appears under **Employee Number** in this tenant. Open **Accounts** to capture and compare the Acme HR account as well.*
+
+**Check:** Display Name in this screenshot is `acme.e012`; the supplied baseline CSV contains `Acme Lab - Lucas Brown`. To match the lab's expected value, compare the CSV and imported account's `displayName`, then check **Acme Employees > Mappings > Display Name** uses **Acme HR > displayName**. Save any mapping correction, apply changes, and verify the value after processing. Do not change the Username mapping.
 
 ## 7. Practice challenge: investigate a wrong department
 
