@@ -205,11 +205,11 @@ Capture both Lucas's HR account and identity attributes. A successful aggregatio
 
 **Check:** Lucas has one Acme identity, with Department `Finance`, Identification Number `E012`, and its corresponding Acme HR account. Manager resolution and AD account membership are not completion requirements for this lab.
 
-![Baseline identity acme.e012 associated with Acme Employees, showing Lucas Brown, Finance, FIN200, employee number E012, and display name acme.e012](images/05-baseline-identity.png)
+![Baseline identity Acme Lab - Lucas Brown with username acme.e012, Finance department, FIN200 cost center, and employee number E012](images/05-baseline-identity.png)
 
-*Baseline identity: acme.e012 belongs to Acme Employees and shows Lucas Brown, Finance, FIN200, Chicago, and Reporting Analyst. The employee identifier appears under **Employee Number** in this tenant. Open **Accounts** to capture and compare the Acme HR account as well.*
+*Baseline identity: Display Name is **Acme Lab - Lucas Brown**, while Username remains **acme.e012**. The identity belongs to Acme Employees and shows Finance, FIN200, Chicago, and Reporting Analyst. The employee identifier appears under **Employee Number** in this tenant. Open **Accounts** to capture and compare the Acme HR account as well.*
 
-**Check:** Display Name in this screenshot is `acme.e012`; the supplied baseline CSV contains `Acme Lab - Lucas Brown`. To match the lab's expected value, compare the CSV and imported account's `displayName`, then check **Acme Employees > Mappings > Display Name** uses **Acme HR > displayName**. Save any mapping correction, apply changes, and verify the value after processing. Do not change the Username mapping.
+**Check:** The displayed name matches the baseline CSV. Manager is still blank; resolve that relationship in [AR-002](../AR-002/README.md).
 
 ## 7. Practice challenge: investigate a wrong department
 
@@ -301,6 +301,6 @@ Your final result must show Finance in both records, 24 HR accounts, and no addi
 
 Use captions identifying the lab section and the result. Hide credentials and unrelated personal information.
 
-Keep **Acme HR** and **Acme Employees** for AR-002, where you will resolve the manager hierarchy. AD account correlation is covered in AR-004.
+Keep **Acme HR** and **Acme Employees** for [AR-002 — Resolve the Manager Hierarchy](../AR-002/README.md). Its starting requirement is the verified HR baseline; the department-change exercise can be revisited separately. AD account correlation is covered in AR-004.
 
 [Return to the course outline](../../README.md)
