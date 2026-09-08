@@ -10,7 +10,7 @@
   - [AR-002 · Manager hierarchy](/labs/AR-002/README.md)
   - [AR-003 · Validate AD connection](/labs/AR-003/README.md)
   - [AR-004 · Correlate AD accounts](/labs/AR-004/README.md)
-  - AR-005 · Prepare reviewers
+  - [AR-005 · Prepare reviewers](/labs/AR-005/README.md)
   - AR-006 · Readiness gate
 
 - **MODULES 02–04 · REQUEST BASICS**

@@ -203,4 +203,4 @@ Hide passwords, client secrets, and tokens. Use additional images where one scre
 | 6 | `AR-004-10-sofia-two-accounts.png` | Sofia's identity with both AD accounts visible |
 | 6 | `AR-004-11-correlation-check.png` | Uncorrelated Accounts check for the course accounts; use the journal for the full per-person verification |
 
-[Previous: AR-003](../AR-003/README.md) · [Course outline](../../README.md)
+[Previous: AR-003](../AR-003/README.md) · [Next: AR-005](../AR-005/README.md) · [Course outline](../../README.md)
