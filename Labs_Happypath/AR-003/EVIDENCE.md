@@ -1,4 +1,4 @@
-# AR-003 — Happy Path Evidence Journal
+# AR-003 — Evidence Journal
 
 ## AD source
 

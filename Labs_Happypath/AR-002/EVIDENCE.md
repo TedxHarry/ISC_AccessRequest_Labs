@@ -1,4 +1,4 @@
-# AR-002 — Happy Path Evidence Journal
+# AR-002 — Evidence Journal
 
 ## Configuration
 

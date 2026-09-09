@@ -1,4 +1,4 @@
-# AR-001 — Happy Path Evidence Journal
+# AR-001 — Evidence Journal
 
 ## Environment
 

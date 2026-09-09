@@ -1,13 +1,10 @@
 # AR-001 — Import Acme's HR Records
 
-**Level:** Beginner  
-**Path:** Happy Path
+**Level:** Beginner
 
 ## Goal
 
 Create the Acme HR authoritative source, import the 24 employee records, create the Acme Employees identity profile, map the core identity attributes, and verify that all 24 identities are created correctly.
-
-By the end of this lab, you will have a known-good HR and identity foundation for the rest of the course.
 
 ## Prerequisites
 
@@ -80,13 +77,13 @@ Reference: [Source configuration](https://documentation.sailpoint.com/saas/help/
 
 ![Acme HR Delimited File source](images/01-hr-source.png)
 
-**Screenshot:** Save the Acme HR source name and type.
+**Screenshot:** Capture the Acme HR source name and type.
 
 ## 3. Configure the account schema
 
 1. Open **Acme HR > Account Management > Account Schema**.
 2. Use **Upload Schema** with `acme-hr-working.csv` if available.
-3. If needed, add any missing CSV attributes manually.
+3. Add any missing CSV attributes manually if needed.
 4. Keep the CSV attributes as **String** values.
 5. Set:
 
@@ -182,7 +179,7 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 Reference: [Identity profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html)
 
-**Check:** All ten mappings are saved and `identificationNumber` maps to `employeeNumber`. AR-002 will use this value for manager correlation.
+**Check:** All ten mappings are saved and `identificationNumber` maps to `employeeNumber`. AR-002 uses this value for manager correlation.
 
 ![Acme Employees mappings](images/04-identity-mappings.png)
 
@@ -237,8 +234,6 @@ Optional sample checks:
 
 ## Final verification
 
-Before continuing, confirm:
-
 - [ ] Acme HR exists and contains 24 accounts.
 - [ ] `employeeNumber` is Account ID.
 - [ ] `userName` is Account Name.
@@ -256,4 +251,4 @@ Keep the Acme HR source, Acme Employees identity profile, 24 imported HR account
 
 Next: **[AR-002 — Resolve the Manager Hierarchy](../AR-002/README.md)**
 
-[Happy Path Home](../README.md)
+[Labs Home](../README.md)

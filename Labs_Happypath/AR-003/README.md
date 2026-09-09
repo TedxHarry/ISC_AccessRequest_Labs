@@ -1,13 +1,12 @@
 # AR-003 — Prepare and Aggregate the AD Lab
 
-**Level:** Beginner  
-**Path:** Happy Path
+**Level:** Beginner
 
 ## Goal
 
-Prepare the Active Directory lab structure, create Lucas's existing AD account and the course security groups, make sure the ISC AD source can read those objects, and aggregate them into ISC.
+Prepare the Active Directory lab structure, create Lucas's AD account and the course security groups, make sure the ISC AD source can read those objects, and aggregate them into ISC.
 
-This lab establishes the AD side of the course. AR-004 will correlate Lucas's existing AD account to his ISC identity.
+AR-004 will correlate Lucas's existing AD account to his ISC identity.
 
 ## Prerequisites
 
@@ -19,17 +18,13 @@ This lab establishes the AD side of the course. AR-004 will correlate Lucas's ex
 
 Keep your [evidence journal](EVIDENCE.md) open.
 
-## Happy Path assumptions
+## Environment requirements
 
-This guided version assumes:
-
-- the existing AD source already passes basic connectivity checks;
-- you have a dedicated lab area where `AcmeLab` can be created;
-- `acme.e012` is not already used by an unrelated account;
-- the 14 Acme course groups are not used by unrelated applications;
-- you can add the AcmeLab OUs to the AD source search scopes.
-
-If your environment differs substantially, use the full engineering version under `labs/AR-003` for the additional branches and troubleshooting guidance.
+- The AD source passes **Test Connection**.
+- A dedicated training location is available for `AcmeLab`.
+- `acme.e012` is not already used by an unrelated account.
+- The 14 Acme course group names are available for this lab.
+- You can add the AcmeLab OUs to the AD source search scopes.
 
 ## What you will finish with
 
@@ -83,10 +78,9 @@ Groups
 5. Enable **View > Advanced Features**.
 6. Open each child OU's **Properties > Attribute Editor**.
 7. Record the `distinguishedName` for:
-
-- Users
-- AdminAccounts
-- Groups
+   - Users
+   - AdminAccounts
+   - Groups
 
 Example only:
 
@@ -159,9 +153,7 @@ Create these exact names:
 | GG-PROD-SUPPORT | Acme lab - temporary production support |
 | GG-INTERNAL-NOREQUEST | Acme lab - non-requestable control |
 
-Keep these new lab groups empty.
-
-Do not nest them into Domain Admins or other privileged groups.
+Keep the groups empty and do not nest them into Domain Admins or other privileged groups.
 
 Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishedName`.
 
@@ -182,7 +174,7 @@ Add the actual DNs for:
 - AcmeLab/Users
 - AcmeLab/AdminAccounts
 
-For the new lab-specific entries, leave the optional LDAP filter blank unless your environment requires a documented filter.
+For these lab-specific entries, leave the optional LDAP filter blank unless your environment requires a documented filter.
 
 ### Group Search Scope
 
@@ -212,7 +204,7 @@ Reference: [AD Account and Group Settings](https://documentation.sailpoint.com/c
 ## 6. Run account aggregation
 
 1. Open the AD source's **Account Management > Account Aggregation**.
-2. Start an account aggregation.
+2. Select **Start Aggregation**.
 3. Wait for completion.
 4. Open **Account Management > Accounts**.
 5. Search for `acme.e012`.
@@ -227,7 +219,7 @@ Reference: [AD Account and Group Settings](https://documentation.sailpoint.com/c
 
 8. Record whether the account is currently correlated.
 
-It is acceptable for Lucas to be **uncorrelated** here. AR-004 is specifically responsible for correlating this existing AD account to Lucas's ISC identity.
+Lucas can be uncorrelated at this stage. AR-004 handles correlation of this existing AD account to Lucas's ISC identity.
 
 Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 
@@ -245,11 +237,10 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 6. Search for each of the 14 Acme groups.
 7. Open `GG-VPN-USERS`.
 8. Record:
-
-- source
-- entitlement attribute/type
-- entitlement value/native identifier
-- ISC entitlement ID, if displayed
+   - source
+   - entitlement attribute/type
+   - entitlement value/native identifier
+   - ISC entitlement ID, if displayed
 
 Reference: [Entitlement aggregation](https://documentation.sailpoint.com/saas/help/loading_entitlements/aggregating_entitlements.html)
 
@@ -258,8 +249,6 @@ Reference: [Entitlement aggregation](https://documentation.sailpoint.com/saas/he
 **Screenshots:** Capture the completed entitlement aggregation, the Acme groups, and GG-VPN-USERS details.
 
 ## Final verification
-
-Before continuing, confirm:
 
 - [ ] AD Test Connection succeeds.
 - [ ] AcmeLab exists with Users, AdminAccounts, and Groups.
@@ -285,8 +274,8 @@ Keep:
 - All 14 groups.
 - The added AD source scope coverage.
 
-Do not make the groups requestable yet. That work comes in the Access Request labs.
+Do not make the groups requestable yet.
 
-Next in the full course: **AR-004 — Correlate Lucas's Existing AD Account**.
+Next: **AR-004 — Correlate Lucas's Existing AD Account**.
 
-[Previous: AR-002](../AR-002/README.md) · [Happy Path Home](../README.md)
+[Previous: AR-002](../AR-002/README.md) · [Labs Home](../README.md)

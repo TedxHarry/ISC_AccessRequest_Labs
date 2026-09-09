@@ -1,7 +1,6 @@
 # AR-002 — Resolve the Manager Hierarchy
 
-**Level:** Beginner  
-**Path:** Happy Path
+**Level:** Beginner
 
 ## Goal
 
@@ -115,7 +114,7 @@ Reference: [Identity-profile mappings](https://documentation.sailpoint.com/saas/
 
 Reference: [Manager correlation](https://documentation.sailpoint.com/saas/help/sources/manager_correlation.html)
 
-The direction matters:
+The direction is:
 
 ```text
 Employee's HR account
@@ -176,7 +175,7 @@ Morgan Reed
 
 ## 6. Verify the full hierarchy
 
-Use the table below to confirm the original Acme population.
+Use the table below to validate the complete Acme population.
 
 | Expected manager | Employee IDs |
 |---|---|
@@ -189,13 +188,11 @@ Use the table below to confirm the original Acme population.
 | Noah Williams — E007 | E021, E022, E023 |
 | No manager | E001 |
 
-For the Happy Path, the minimum required verification is Lucas, Daniel, and Morgan. Use the full table to validate the complete dataset when practical.
+At minimum, verify Lucas, Daniel, and Morgan before continuing.
 
 **Check:** Morgan is the only intended root, and no identity is its own manager.
 
 ## Final verification
-
-Before continuing, confirm:
 
 - [ ] Manager Name maps to `Acme HR > managerEmployeeNumber`.
 - [ ] Identification Number maps to `Acme HR > employeeNumber`.
@@ -214,4 +211,4 @@ Keep the manager mapping and manager-correlation configuration. These relationsh
 
 Next: **[AR-003 — Prepare and Aggregate the AD Lab](../AR-003/README.md)**
 
-[Previous: AR-001](../AR-001/README.md) · [Happy Path Home](../README.md)
+[Previous: AR-001](../AR-001/README.md) · [Labs Home](../README.md)
