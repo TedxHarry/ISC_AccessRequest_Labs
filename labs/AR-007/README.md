@@ -26,12 +26,12 @@ Identity List keeps the provisioning population explicit. Removing a user from t
 
 ## 3. Verify every account
 
-For each row in the [journal](EVIDENCE.md):
+After each provisioning batch finishes, run **one AD account aggregation** using AR-003 Section 6. Wait for completion and inspect its result. Do not start an aggregation for every employee. Then complete each row in the [journal](EVIDENCE.md):
 
 1. Inspect the AD account's sAMAccountName, employeeID, UPN, and DN. Compare them with the intended employee and Users OU. Record its enabled state.
 2. Confirm direct membership in GG-ACME-BASELINE. Check for unintended duplicate usernames or accounts in another OU.
 3. Review failed or pending Account Activity. Do not count a submitted operation as a completed account.
-4. Aggregate AD accounts. Open the employee's ISC identity > **Accounts** and verify the actual linked AD DN.
+4. After the batch aggregation, open the employee’s ISC identity > **Accounts** and verify the actual linked AD DN. Investigate a wrong link using AR-004 before starting another source-wide aggregation.
 5. Check the 14 business groups against the membership baseline recorded in AR-003. This role should have granted only baseline access.
 
 **Check:** There are 24 standard course AD accounts, correctly linked to 24 identities, and 24 course members in GG-ACME-BASELINE. Source-wide counts may include unrelated users. Lucas was reused; in a fresh run, the other 23 accounts were provisioned.

@@ -119,6 +119,12 @@ Set the identifying attributes before importing accounts; changing them afterwar
 
 The supplied header is a custom HR schema. Delimited File defaults such as `id`, `name`, `givenName`, and `e-mail` are not the column names in this file. Uploading a replacement schema retains existing settings for matching attributes, so verify their types and flags after upload. [Delimited File account attributes](https://documentation.sailpoint.com/connectors/delimited_file/help/integrating_delimited_file/account_attributes.html)
 
+### Confirm the file will parse as columns
+
+Confirm the saved file is comma-delimited UTF-8 CSV with the exact 14-column header and 24 employee rows. If the source exposes **Parsing Settings**, select Delimited. In **File Settings**, edit the account file configuration and verify a comma delimiter. Keep unrelated settings unchanged; this manual upload does not need a remote file path.
+
+If a preview is offered, employeeNumber, userName and department must appear in separate columns. A whole row in one attribute indicates a parsing mismatch. After upload, inspect E012’s stored account to prove the file parsed correctly. [Delimited parsing](https://documentation.sailpoint.com/connectors/saas/delimited_file/help/saas_connectivity/delimited_file/parsing_settings.html)
+
 ## 4. Import the accounts
 
 1. Open **Acme HR > Account Management > Account Aggregation**.

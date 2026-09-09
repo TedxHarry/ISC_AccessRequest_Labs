@@ -20,3 +20,7 @@ Record actual results. Keep credentials out of this file.
 Use the checklist in the lab and record your files here.
 
 [Return to AR-009](README.md)
+
+## Explain the foundation
+
+Answer the six questions in AR-009 using the actual HR, identity, correlation, provisioning and sign-in evidence. Record any unresolved standard-account OU exception.

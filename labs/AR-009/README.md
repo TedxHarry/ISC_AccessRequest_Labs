@@ -28,6 +28,19 @@ Reopen saved source settings, the baseline profile, and the role. Check the IDs 
 
 If any check fails, return to its lab, correct the cause, and repeat that check. An empty approval queue is acceptable because this foundation has not yet submitted a business access request.
 
+### Explain the chain before the first business request
+
+Answer these questions in your journal using actual evidence:
+
+1. Which operation created Lucas’s HR account, and which configuration produced his identity?
+2. Which values resolve Daniel as his manager? Which different pair correlates his AD account?
+3. Why did the baseline role update Lucas but create Liam? Identify both operation records.
+4. Why do 24 HR identities not prove 24 AD accounts? Why does Test Connection not prove a successful write?
+5. Which sign-in route/password does each reviewer use? Why can identity Work Email differ from AD mail?
+6. Which business request, approval and revocation have you proved? At C01, **none yet**: you proved baseline role provisioning. User-submitted business requests begin in AR-010–012.
+
+Return to a missing check instead of recreating the environment. Record any standard-account OU exception before moving into the account-selection labs.
+
 ## 2. Record C01
 
 Create a private folder named `C01-Acme-Foundation` and retain:

@@ -37,3 +37,7 @@ The content-audit pass also checked the baseline CSV: 24 unique employee IDs/use
 Keep the execution ledger in the private evidence folder. Use columns: lab ID, date, tenant capability, result, request/activity IDs, screenshots, cleanup and remaining issue. The choices are Passed, Failed, Awaiting timed observation or Unavailable in this tenant.
 
 [Coverage](COVERAGE.md) · [Course outline](README.md)
+
+## Module 1 review, 9 September 2026
+
+[Focused review](M01-REVIEW.md): revised parsing checks, manager-data practice, standard-account layout, API error guidance, mapping edits, batch aggregation, email/sign-in expectations and C01 explanations. Local links, fenced-code structure and newly linked documentation were checked. No additional tenant execution is claimed.

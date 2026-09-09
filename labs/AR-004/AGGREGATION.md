@@ -25,7 +25,8 @@ https://<tenant>.api.identitynow.com/beta/sources/<AD-source-ID>/load-accounts
 3. Under **Authorization**, select **Bearer Token** and enter the `access_token`.
 4. Under **Body > form-data**, add a Text field named `disableOptimization` with value `true`. Do not attach the HR CSV. Let Postman generate the multipart Content-Type header.
 5. Select **Send** once. Record the response status and returned task reference if present. A successful submission starts a job; it does not prove that the account matches are correct.
-6. Return to the AD source's **Aggregation History** in ISC. Wait for the corresponding account aggregation to finish. Inspect its status and verify optimization was disabled. Resolve any warnings or errors before continuing.
+6. If rejected, inspect the response: 401 requires a valid token; 403 requires appropriate source-administration permissions. Recheck the AD source ID and multipart field for an invalid request. Do not grant requester identities administrative access to run this operation.
+7. Return to the AD source's **Aggregation History** in ISC. Wait for the corresponding account aggregation to finish. Inspect its status and verify optimization was disabled. Resolve any warnings or errors before continuing.
 
 This request and form field follow SailPoint's [documented unoptimized aggregation procedure](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html). Restore the Delta Aggregation setting you recorded before the request. Do not move accounts between OUs during this lab.
 

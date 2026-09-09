@@ -59,6 +59,8 @@ By completing the labs, you will be able to:
 
 ## M01 — Prepare a reliable lab environment
 
+[Check Module 1 prerequisites and expected state](M01-READINESS.md).
+
 Prerequisites: a provisioned training tenant and Windows infrastructure. You will establish a reproducible environment for Access Request work.
 
 | ID | Type | Assignment | Skill and required proof |

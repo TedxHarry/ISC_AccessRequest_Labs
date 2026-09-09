@@ -107,6 +107,19 @@ For each group below, inspect the employee identities' **Manager** value. Use th
 
 Manager relationships prepare the data for later manager-approval labs. Their presence alone does not demonstrate that an approval policy has been configured or tested.
 
+## Practice: a valid identifier pointing to the wrong manager
+
+Complete this after the correct hierarchy is verified. Use only the Acme lab population.
+
+1. Save a private copy of your latest complete working HR CSV. Preserve every record and controlled email address.
+2. In a second copy, change only Lucas E012’s managerEmployeeNumber from `E003` to `E002`. Priya exists, so this is a wrong business relationship with a valid identifier.
+3. Upload the complete edited file using AR-001’s import procedure. Wait for processing, then inspect Lucas’s HR manager reference and identity Manager. Record whether it resolves to Priya.
+4. Compare the CSV, source account, correlation pair and resolved manager. The correlation configuration can be correct while HR supplies the wrong relationship. Do not change the matching rule to compensate.
+5. Restore the saved complete file, import/process and verify Lucas resolves to Daniel again. Confirm Morgan remains the root and the other relationships are unchanged.
+6. Capture the incorrect and corrected manager results with the corresponding HR values. Do not continue while Lucas’s manager is still Priya.
+
+This exercise changes manager data, not an approval policy. The later Manager-review lab proves which person actually receives a submitted request.
+
 ## If a manager does not resolve
 
 | Observation | What to check next |

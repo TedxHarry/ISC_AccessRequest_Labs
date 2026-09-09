@@ -66,7 +66,7 @@ If it is missing:
 
 These use the standard AD user-creation dialog. [Microsoft's user and group creation steps](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-user-management)
 
-For a reused account, verify the same logon name and lab attributes before proceeding. Record its current OU rather than moving it just to match the example.
+For a reused account, verify the same logon name and lab attributes. Record its current OU. AR-026’s later standard-account selection rule expects accounts under **AcmeLab/Users**. If this dedicated course account is elsewhere, an authorized AD lab administrator can use **Move** to place it in Users before this import. Record its new DN and unchanged objectGUID. Do not move an account used for unrelated work. If it must stay elsewhere, record an environment exception requiring tested alternative account-selection criteria in AR-026; aggregation coverage alone does not resolve that exception.
 
 **Check:** The account's pre-Windows 2000 logon name is `acme.e012`. Open the user directly from its OU and copy its `distinguishedName` from **Properties > Attribute Editor**; the tab may be absent when opening a Find result. The HR email `acme.e012@example.com` is a course placeholder; it does not establish your AD logon suffix.
 

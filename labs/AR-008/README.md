@@ -46,6 +46,12 @@ Use the complete file for a flat-file import. [Loading HR account data](https://
 
 **Check:** Each of the three identities has its own working email address. No employee has disappeared from the baseline. Store your working file privately rather than committing real mailbox details to the public course repository.
 
+### Compare identity email with the already-created AD account
+
+Compare Lucas’s Acme HR account email, identity Work Email and AD account mail. The first two should show the controlled address after processing. AD mail can still contain the placeholder used during creation. Create Account mappings do not configure ongoing attribute synchronization.
+
+Record the difference instead of treating it as an import failure. Registration requires a deliverable identity Work Email. Do not enable source-wide synchronization merely to make screenshots match. If existing mail synchronization is configured, record its actual result. [Attribute synchronization](https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html)
+
 ## 3. Confirm how these users will sign in
 
 1. Open **Admin > Identity Management > Identity Profiles > Acme Employees > Settings**.

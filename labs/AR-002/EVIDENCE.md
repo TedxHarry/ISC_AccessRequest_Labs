@@ -47,3 +47,13 @@
 - If a relationship failed, where did the evidence first differ from the expected configuration?
 
 [Return to AR-002](README.md)
+
+## Wrong-manager practice
+
+| Stage | E012 HR manager reference | Resolved identity manager |
+|---|---|---|
+| Baseline | E003 | |
+| Controlled wrong reference | E002 | |
+| Restored | E003 | |
+
+Capture `AR-002-wrong-manager.png` and `AR-002-restored-manager.png`; confirm other manager relationships remain unchanged.

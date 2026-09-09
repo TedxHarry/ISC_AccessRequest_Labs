@@ -18,7 +18,7 @@ If your connection only reads accounts, complete its provisioning prerequisites 
 ## 2. Prepare a separate baseline group
 
 1. In **Active Directory Users and Computers**, right-click **AcmeLab > Groups > New > Group**.
-2. Create `GG-ACME-BASELINE`, scope **Global**, type **Security**. Description: `Acme lab - standard account baseline`. Leave its membership empty.
+2. Check whether `GG-ACME-BASELINE` exists. When resuming, reuse the verified lab group and record its members; do not empty it or create a duplicate. For a new run, create it with scope **Global**, type **Security**. Description: `Acme lab - standard account baseline`. Leave its membership empty.
 3. Record its DN and confirm the connector can update this group's membership. This group grants no real application or administrative access.
 4. In ISC, run the AD source's **Entitlement Management > Entitlement Aggregation**. Verify the baseline group appears on the correct source and record its entitlement value.
 
@@ -27,6 +27,13 @@ If your connection only reads accounts, complete its provisioning prerequisites 
 ## 3. Define the account attributes
 
 Open **Admin > Connections > Sources > your AD source > Account Management > Create Account**. Record the existing configuration before editing. On a source used by other exercises, ensure this Users-OU policy is appropriate for every account creation the source will perform.
+
+For each row in the table:
+
+1. Locate the attribute in **Account Attribute Mappings** and choose the mapping type.
+2. For **Identity Attribute**, select the named identity attribute. For **Generator**, choose the generator and enter Pattern Used where supplied. For **Static**, enter the literal value/expression. For **Disable**, select Disable to omit the attribute.
+3. If missing, select **Add Mapping > Add Existing Attribute**, choose the attribute and Add. Use **Create New Attribute** only for a supported AD attribute absent from that list. This does not add an aggregation schema attribute.
+4. Use the up/down arrows or drag control to place sAMAccountName above userPrincipalName. **Save**, leave the page and reopen it to verify values and order.
 
 Set these mappings. Replace `YOUR-USERS-OU-DN` and `YOUR-UPN-SUFFIX` with your actual values. The `$(uid)` and `$sAMAccountName` expressions below are literal expressions, not placeholders to replace with Liam's username.
 
@@ -57,7 +64,7 @@ The chosen usernames are unique course IDs under AD's length limit. If a usernam
 
 ## 4. Check the values before triggering creation
 
-1. Reopen **Create Account** and inspect the saved rows and order.
+1. Reopen **Create Account** and inspect the saved rows and order. Record the expected enabled/disabled state under your existing connector configuration; this table does not independently configure account enablement.
 2. Open Liam's ISC identity. Confirm uid `acme.e008`, identificationNumber `E008`, first name Liam, last name Patel, displayName `Acme Lab - Liam Patel`, department IT, and title IT Analyst.
 3. Write the expected values in your journal: `CN=acme.e008,` followed by your Users OU DN, and `acme.e008@` followed by your UPN suffix.
 4. Search AD and the ISC AD source for `acme.e008`. Confirm no account exists. If one does, record it and resolve the baseline discrepancy before this new-account exercise; do not delete it just to continue.
@@ -68,7 +75,7 @@ The chosen usernames are unique course IDs under AD's length limit. If a usernam
 ## Completion and screenshots
 
 - [ ] Provisioning prerequisites reviewed; Users OU and baseline-group permissions checked.
-- [ ] GG-ACME-BASELINE is imported and still empty.
+- [ ] GG-ACME-BASELINE is imported; empty on the first run, or retained course memberships recorded when resuming.
 - [ ] Required mappings, expression order, target OU, and password policy are recorded.
 - [ ] Liam's attributes are ready and he has no AD account.
 

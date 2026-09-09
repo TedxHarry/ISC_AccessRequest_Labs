@@ -66,3 +66,7 @@ For the learner’s next session, run AR-002 and compare the resolved hierarchy 
 - [End-date announcement](https://developer.sailpoint.com/discuss/t/enhancement-mandatory-end-date-and-max-duration-on-access-requests/192669)
 
 [Practice path](PRACTICE-PATH.md) · [Validation record](VALIDATION.md) · [Course outline](README.md)
+
+## Module 1 follow-up
+
+The [9 September learner walkthrough review](M01-REVIEW.md) records the focused AR-001–009 corrections and remaining live checks.

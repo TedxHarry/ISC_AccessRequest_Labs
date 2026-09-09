@@ -59,6 +59,8 @@ Capture, where relevant:
 
 ## Before Lab AR-001
 
+Use the [Module 1 readiness checklist](M01-READINESS.md) to confirm the AD administration tools, provisioning prerequisites and expected counts.
+
 Complete these items first:
 
 - Read the [Lab Environment](LAB-ENVIRONMENT.md) page.
