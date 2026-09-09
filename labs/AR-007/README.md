@@ -2,9 +2,17 @@
 
 **Prerequisites:** Complete both target checks in [AR-006](../AR-006/README.md). Lucas and Liam have working baseline membership and correctly linked accounts.
 
-## Your assignment
+## Before you open the settings
 
-Extend the proven baseline assignment to all 24 Acme employees. Use the existing role and profile. Finish with one standard AD account per identity. Sofia's extra account belongs to the later AR-026 account-selection exercise.
+Use the administrator session and the existing ROLE-Acme-AD-Baseline and AP-Acme-AD-Baseline.
+
+Lucas and Liam must each have one correctly linked standard account and baseline membership. There must be no unresolved failure from either pilot operation.
+
+Keep the 24-person journal open while selecting identities. A role-list count alone cannot tell you that the correct people were selected.
+
+## What you’ll do
+
+You’ve proved the update and creation paths. Now expand the same role in two batches and check every account. Keep the working pilot assignments; there is no need to start again.
 
 ## 1. Check the population before expanding
 
@@ -24,6 +32,8 @@ Extend the proven baseline assignment to all 24 Acme employees. Use the existing
 
 Identity List keeps the provisioning population explicit. Removing a user from that list can remove the assigned access, so preserve existing members while expanding it. [Role assignment](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html)
 
+**Screenshot reminder:** Save `AR-007-01-four-person-batch.png`, `AR-007-02-complete-assignment.png`, `AR-007-03-account-activity.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## 3. Verify every account
 
 After each provisioning batch finishes, run **one AD account aggregation** using AR-003 Section 6. Wait for completion and inspect its result. Do not start an aggregation for every employee. Then complete each row in the [journal](EVIDENCE.md):
@@ -36,14 +46,55 @@ After each provisioning batch finishes, run **one AD account aggregation** using
 
 **Check:** There are 24 standard course AD accounts, correctly linked to 24 identities, and 24 course members in GG-ACME-BASELINE. Source-wide counts may include unrelated users. Lucas was reused; in a fresh run, the other 23 accounts were provisioned.
 
+**Screenshot reminder:** Save `AR-007-04-ad-users.png`, `AR-007-05-baseline-members.png`, `AR-007-06-account-links.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## Troubleshooting practice
 
 If an account fails, record the employee, failing operation, exact error, target state, correction, and retest. Compare it with a successful account from the same batch. Keep successful assignments in place while diagnosing the failed account.
 
 For a deliberate fault exercise later, use a separate test identity and a configuration isolated from this baseline. Do not change the shared Create Account OU to an invalid value while these assignments can retry.
 
+## Compare the small batch with the full roster
+
+The four-person batch and the remaining 20-person batch are your controlled variation. After completing both:
+
+1. Compare Priya’s native DN, UPN and employeeID with your AR-005 prediction.
+2. Select one employee from a different department, such as James acme.e014. Follow the same identity → role assignment → account activity → AD account checks.
+3. Compare both with Lucas, whose account existed before provisioning. Record their different creation histories without assuming different departments require different source settings.
+
+Keep all successful assignments in place. Your evidence must identify the accounts, not just show a total of 24.
+
+## Your ticket: The role has 24 identities but only 23 course accounts have baseline membership.
+
+This is a supplied case. The total of selected identities is correct, but it does not identify the missing account.
+
+Use the 24-row journal to explain how you would find the missing person and separate a creation failure from a membership failure.
+
+Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+
+<details>
+<summary>Compare your diagnosis with the mentor’s solution</summary>
+
+Compare each selected username with native account existence, employeeID, membership, ISC link and activity outcome. For the missing row, inspect its specific operation. Preserve the other 23 assignments. Closure requires the missing native membership and correct identity link, not another screenshot of the role count.
+
+</details>
+
+## If you stopped midway or want to repeat this lab
+
+If the batch was interrupted, identify which selected identities have successful, failed or running activity. Preserve successful assignments and investigate only the unfinished accounts. Resume by adding only missing roster members; keep the current members. Leave all 24 in the role and retain their accounts and memberships. On repeat, verify the full roster without unassigning/reassigning it. Later extra accounts or identities must be recorded separately, not deleted to restore a count.
+
+## What you should leave in place
+
+| Item | State before you continue |
+|---|---|
+| Standard accounts | 24 roster accounts individually checked and linked |
+| Baseline role/group | Original 24 identities selected; 24 course accounts in the group |
+| AdminAccounts | Empty on the first pass; Sofia’s second account comes in AR-026 |
+
 ## Completion and screenshots
 
+- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
+- [ ] Any temporary change is restored and the retained state matches the next lab.
 - [ ] All 24 expected accounts and identity links are individually verified.
 - [ ] The role's identity list contains exactly the course population.
 - [ ] All 24 course accounts have baseline membership.

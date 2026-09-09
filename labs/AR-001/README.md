@@ -4,9 +4,17 @@
 
 **Prerequisites:** Sign in to your ISC training tenant with an account that can create sources and identity profiles. Your existing AD connection will be used in later labs; this exercise imports HR data.
 
-## Your assignment
+## Before you open the settings
 
-Acme's HR team has supplied employee records for six departments. Import them into ISC and make each employee available as an identity. Then demonstrate that a corrected HR value reaches the corresponding identity.
+Use your ISC administrator session. Keep the downloaded HR CSV and a private working copy beside you. You do not need an employee login yet.
+
+On your first attempt, Acme HR and Acme Employees do not exist. If either exists, open it and compare its configuration with this lab before creating anything.
+
+No HR file from another lab should be uploaded here. Begin with the 24-row Acme file; keep any controlled email addresses you already added.
+
+## What you’ll do
+
+Start with the employee file. You’ll bring its 24 records into ISC, check the identities it produces, then change Lucas’s department and follow that change through the records. This gives you a way to locate a data problem before you configure access requests.
 
 ## Lab files
 
@@ -95,6 +103,8 @@ Keep the comma delimiter, exact column names, and all 24 rows. Save edited files
 
 *HR source: Base Configuration shows Acme HR, the lab description, and a selected source owner. Choose your own administrator as owner; TedxHarry is the owner in this example.*
 
+**Screenshot reminder:** Capture the saved Acme HR source name and type.
+
 ## 3. Define the account schema
 
 1. In **Acme HR**, open **Account Management > Account Schema**.
@@ -125,6 +135,8 @@ Confirm the saved file is comma-delimited UTF-8 CSV with the exact 14-column hea
 
 If a preview is offered, employeeNumber, userName and department must appear in separate columns. A whole row in one attribute indicates a parsing mismatch. After upload, inspect E012’s stored account to prove the file parsed correctly. [Delimited parsing](https://documentation.sailpoint.com/connectors/saas/delimited_file/help/saas_connectivity/delimited_file/parsing_settings.html)
 
+**Screenshot reminder:** Capture the schema with Account ID and Account Name visible.
+
 ## 4. Import the accounts
 
 1. Open **Acme HR > Account Management > Account Aggregation**.
@@ -144,6 +156,8 @@ If a preview is offered, employeeNumber, userName and department must appear in 
 Uploading a schema and aggregating accounts are separate operations. Account data must be loaded after the schema is defined. [Delimited File data import](https://documentation.sailpoint.com/connectors/delimited_file/help/integrating_delimited_file/data_import.html)
 
 Use the uploaded filename and aggregation result to confirm which file was processed. **Aggregate Using Latest File** reuses the previously uploaded file; it does not read edits from your computer. [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
+
+**Screenshot reminder:** Capture the completed import and scanned account count.
 
 ## 5. Create the identity profile
 
@@ -184,6 +198,8 @@ Keep `managerEmployeeNumber`, `employeeType`, `status`, and `startDate` on the H
 
 Changes to imported account data normally initiate identity processing automatically. Saving a profile mapping and applying it are separate actions. [Identity processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html)
 
+**Screenshot reminder:** Capture the saved identity mappings; use several images to show all fields.
+
 ## 6. Verify the identities
 
 1. Open **Acme HR > Aggregation History and Connections > Connections**. Under **Identity Profile**, verify the linked profile is **Acme Employees** and check its identity count. [Source connections](https://documentation.sailpoint.com/saas/help/sources/index.html#removing-identity-profiles-from-a-source)
@@ -216,6 +232,8 @@ Capture both Lucas's HR account and identity attributes. A successful aggregatio
 *Baseline identity: Display Name is **Acme Lab - Lucas Brown**, while Username remains **acme.e012**. The identity belongs to Acme Employees and shows Finance, FIN200, Chicago, and Reporting Analyst. The employee identifier appears under **Employee Number** in this tenant. Open **Accounts** to capture and compare the Acme HR account as well.*
 
 **Check:** The displayed name matches the baseline CSV. Manager is still blank; resolve that relationship in [AR-002](../AR-002/README.md).
+
+**Screenshot reminder:** Capture Lucas’s HR account and identity with Department Finance.
 
 ## 7. Practice challenge: investigate a wrong department
 
@@ -272,7 +290,9 @@ Your final result must show Finance in both records, 24 HR accounts, and no addi
 | After introducing the problem and processing | Sales | Sales | Sales |
 | After correction and processing | Finance | Finance | Finance |
 
-## Troubleshooting checks
+**Screenshot reminder:** Capture Sales on the HR account and identity during the exercise, then Finance on both after restoration.
+
+## If the result doesn’t match
 
 | Symptom | Investigate |
 |---|---|
@@ -284,8 +304,38 @@ Your final result must show Finance in both records, 24 HR accounts, and no addi
 | The old value remains after reimport | Uploaded filename, account value, and whether the old latest file was reused |
 | More than one record appears for an employee | Stable Account ID/Name and existing correlation; preserve identifiers while investigating |
 
+
+## Your ticket: Lucas still shows Sales after the file was corrected.
+
+The supplied case says the learner edited a local file, selected Aggregate Using Latest File, and then found Sales on both the HR account and identity.
+
+Inspect your own import controls and identify how you would upload the edited file. Write the first stored value you would check and the result needed to close the ticket. Do not change a working identity merely to reproduce this case.
+
+Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+
+<details>
+<summary>Compare your diagnosis with the mentor’s solution</summary>
+
+The stored latest file can still be the earlier upload. Upload the corrected complete working CSV, inspect E012 on Acme HR, then check the identity after processing. If HR says Finance but the identity still says Sales, inspect the mapping and processing instead. Close only when both are Finance and no account/identity was duplicated.
+
+</details>
+
+## If you stopped midway or want to repeat this lab
+
+If an upload stopped, inspect the latest aggregation before uploading again. If accounts exist but identities do not, resume at profile mappings and processing. For a repeat, reuse the same source/profile and complete working file. Restore Lucas to Finance after the department exercise; keep source, profile, identities and the corrected file. After later labs add employees, preserve those rows and record the actual population instead of reimporting the original 24-row file.
+
+## What you should leave in place
+
+| Item | State before you continue |
+|---|---|
+| Acme HR / Acme Employees | Keep both; 24 HR accounts and identities on the first pass |
+| Lucas | Department Finance; same identifiers as before the practice |
+| AD | This import has not created an AD user |
+
 ## Completion checklist
 
+- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
+- [ ] Any temporary change is restored and the retained state matches the next lab.
 - [ ] Acme HR contains all 24 employee accounts.
 - [ ] Acme Employees has the expected Acme identity population and required mappings.
 - [ ] Sample identity values match the corresponding HR accounts.

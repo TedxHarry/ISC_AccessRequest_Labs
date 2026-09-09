@@ -22,6 +22,14 @@ The weaknesses were instructional transitions and assumptions about an existing 
 
 Added M01-READINESS.md with tool/permission prerequisites, expected counts at each stage, resume guidance and the boundary between an existing read connection and provisioning readiness.
 
+## Hands-on guidance pass
+
+All nine lab pages now include a named starting session and state, a practical comparison or controlled variation, an independent diagnosis ticket with an expandable solution, resume guidance, and a retained-state table. Screenshot reminders sit beside the related procedures and the capture lists remain at the end. Journals distinguish observed tenant results from supplied ticket cases.
+
+AR-001 and AR-002 retain their reversible data-change exercises. The provisioning sequence uses successful account comparisons before diagnosing supplied failure cases, so a first-time learner does not need to break a working source to complete the practice. AR-009 checks another employee and requires evidence across the complete foundation.
+
+This pass is limited to Module 1. Apply the same review to Module 2 next; later modules have not received this additional guidance pass.
+
 ## Limits and next validation
 
 AR-001 is learner-reported complete. AR-002–009 still require execution in the learner’s tenant. In particular, verify the actual UI labels, assigned AD password policy, enabled state, account creation result, sign-in route and absence of unintended role assignments. IQService installation and TLS setup remain stated environment prerequisites, not a newly authored installation guide.

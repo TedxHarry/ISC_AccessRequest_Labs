@@ -1,6 +1,6 @@
 # Course validation record
 
-Updated: 8 September 2026.
+Updated: 9 September 2026.
 
 See the [content audit](CONTENT-AUDIT.md) for corrected defects and unresolved acceptance checks. Written coverage is not a course-wide quality certification.
 
@@ -41,3 +41,5 @@ Keep the execution ledger in the private evidence folder. Use columns: lab ID, d
 ## Module 1 review, 9 September 2026
 
 [Focused review](M01-REVIEW.md): revised parsing checks, manager-data practice, standard-account layout, API error guidance, mapping edits, batch aggregation, email/sign-in expectations and C01 explanations. Local links, fenced-code structure and newly linked documentation were checked. No additional tenant execution is claimed.
+
+Module 1 now has the additional hands-on guidance pass described in [the module review](M01-REVIEW.md#hands-on-guidance-pass): starting states, comparisons, diagnosis tickets and solutions, resume/retained-state guidance, and screenshot reminders within the procedures. All nine journals include practice and ticket evidence fields. This is authored and locally checked material; live status above is unchanged.

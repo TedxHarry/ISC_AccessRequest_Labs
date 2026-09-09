@@ -4,9 +4,17 @@
 
 **Prerequisites:** Your existing AD source is connected to the training domain. You can administer that source in ISC and create users, organizational units (OUs), and groups in the AD lab area. Lucas Brown (`acme.e012`) exists in Acme Employees from [AR-001](../AR-001/README.md).
 
-## Your assignment
+## Before you open the settings
 
-Get Lucas's AD account and the 14 Acme groups into ISC. You will check the connection, confirm which AD locations the source reads, and inspect the imported objects.
+Use your ISC administrator session and your AD administration workstation. Keep your actual AD source name and the Acme HR source name separate in your notes.
+
+Lucas exists as an ISC identity. On a fresh run he has no AD account until you create it below; the other course employees still have no AD accounts.
+
+Record existing AD objects and memberships before reusing them. Do not assume an empty lab OU means the same username is absent elsewhere in the domain.
+
+## What you’ll do
+
+Bring Lucas and the lab groups into ISC before you try to grant anything. Start by checking where they actually live in AD. Then check the source reads those locations and inspect what it imported.
 
 The HR import created HR accounts and identities. It did not create users in Active Directory. Start with one AD user here; AR-004 correlates Lucas; AR-005 through AR-007 configure and run provisioning for the remaining standard accounts.
 
@@ -20,6 +28,8 @@ Keep your actual source name, directory paths, and results in the [lab journal](
 4. Record the result. If it fails, keep the error message and use the troubleshooting table below before aggregating.
 
 **Check:** The connection test succeeds. You still need to verify the account and groups individually in the following sections. [AD connection test](https://documentation.sailpoint.com/connectors/active_directory/help/common/topics/review_and_test.html)
+
+**Screenshot reminder:** Save `AR-003-01-connection-test.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## 2. Prepare the AD lab locations
 
@@ -41,6 +51,8 @@ AcmeLab
 For example, a Users OU could have the distinguished name (DN) `OU=Users,OU=AcmeLab,DC=training,DC=example,DC=com`. Copy the value from your own directory; your domain and parent OUs will differ.
 
 **Check:** You have three actual OU DNs recorded. Leave AdminAccounts empty for now; Sofia's separate administrative account is introduced in AR-026.
+
+**Screenshot reminder:** Save `AR-003-02-lab-ous.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## 3. Prepare Lucas's AD account
 
@@ -69,6 +81,8 @@ These use the standard AD user-creation dialog. [Microsoft's user and group crea
 For a reused account, verify the same logon name and lab attributes. Record its current OU. AR-026’s later standard-account selection rule expects accounts under **AcmeLab/Users**. If this dedicated course account is elsewhere, an authorized AD lab administrator can use **Move** to place it in Users before this import. Record its new DN and unchanged objectGUID. Do not move an account used for unrelated work. If it must stay elsewhere, record an environment exception requiring tested alternative account-selection criteria in AR-026; aggregation coverage alone does not resolve that exception.
 
 **Check:** The account's pre-Windows 2000 logon name is `acme.e012`. Open the user directly from its OU and copy its `distinguishedName` from **Properties > Attribute Editor**; the tab may be absent when opening a Find result. The HR email `acme.e012@example.com` is a course placeholder; it does not establish your AD logon suffix.
+
+**Screenshot reminder:** Save `AR-003-03-lucas-ad-account.png`, `AR-003-04-lucas-dn.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## 4. Create the 14 lab groups
 
@@ -100,6 +114,8 @@ In **AcmeLab > Groups**, create each missing group below:
 Keep newly created groups empty. These groups simulate application access, so do not nest them into Domain Admins or other privileged groups. For reused groups, record existing members; do not remove them to make the groups empty.
 
 **Check:** All 14 names exist in your lab directory. Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishedName`.
+
+**Screenshot reminder:** Save `AR-003-05-ad-groups.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## 5. Update the AD source settings before aggregation
 
@@ -154,6 +170,8 @@ The **Group Membership Search DN** within a user-search entry controls where the
 
 **Before you continue:** Users and AdminAccounts are covered by user searches; all lab groups are covered by group searches; applicable membership restrictions permit the lab groups. The connector account must also have read access to these locations. A successful connection test alone does not verify this coverage.
 
+**Screenshot reminder:** Save `AR-003-06-user-scope.png`, `AR-003-07-group-scope.png`, `AR-003-07a-membership-scope.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## 6. Aggregate and inspect Lucas's account
 
 Confirm Section 5's saved settings before starting. Open the source's **Aggregation Settings** and record **Delta Aggregation**. If enabled, turn it off and save for this run so the connector reads the full configured scope, including accounts that existed before the scope change. Restore its previous setting after the run completes. Keep account-deletion settings unchanged. [Full and delta aggregation](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
@@ -171,6 +189,8 @@ The source's ID can be obtained from its URL; account aggregation runs from the 
 
 An uncorrelated Lucas account can pass this step. If an existing rule matched it, record the identity and verify that it is Lucas. Investigate an incorrect match before continuing with later access requests. AR-004 handles Lucas's existing-account correlation.
 
+**Screenshot reminder:** Save `AR-003-08-account-aggregation.png`, `AR-003-09-lucas-isc-account.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## 7. Aggregate and inspect the groups
 
 1. In the same AD source, open **Entitlement Management > Entitlement Aggregation**.
@@ -183,6 +203,8 @@ An uncorrelated Lucas account can pass this step. If an existing rule matched it
 The aggregation summary's discovered count can differ from the total entitlements stored on the source. Verify the names individually. [Entitlement aggregation](https://documentation.sailpoint.com/saas/help/loading_entitlements/aggregating_entitlements.html)
 
 **Check:** All 14 groups appear as entitlements on the correct source. Keep their request settings unchanged; the request-configuration labs follow later.
+
+**Screenshot reminder:** Save `AR-003-10-entitlement-aggregation.png`, `AR-003-11-isc-groups.png`, `AR-003-12-vpn-entitlement.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## If something is missing
 
@@ -197,8 +219,45 @@ The aggregation summary's discovered count can differ from the total entitlement
 | The account has no identity match | Record it for AR-004; importing an account and correlating it are separate checks. |
 | A deletion threshold warning appears | Compare the saved search scopes with the current settings. Restore accidentally removed scope entries; do not raise the threshold to bypass the warning. |
 
+## Try a different account view
+
+1. Open Lucas on the AD source’s Accounts page and record the account DN and sAMAccountName.
+2. Search for the same person on the Identities page. Open the identity’s Accounts tab and check whether that AD account is linked yet.
+3. Compare the two results. A source can contain the imported account before the identity has the correct link. Record the actual state for AR-004; do not create a second account to make it appear under the identity.
+
+You have changed where you look, not the data. Keep both screenshots so you can explain importing versus linking.
+
+## Your ticket: The aggregation discovered zero new groups. Is the source broken?
+
+The supplied case says the aggregation succeeded, and all 14 named groups are already visible on this AD source.
+
+Use your source’s results to distinguish newly discovered objects from stored inventory. Name the evidence needed before changing the source configuration.
+
+Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+
+<details>
+<summary>Compare your diagnosis with the mentor’s solution</summary>
+
+Zero new discoveries does not mean zero stored groups. Verify the 14 names, source and native values individually. If they are present and there are no unresolved errors, no source reset is needed. If a named group is missing, compare its actual OU with Group Search Scope and its filter before aggregating again.
+
+</details>
+
+## If you stopped midway or want to repeat this lab
+
+If interrupted, compare each recorded OU, user, group and saved scope before creating another object. Resume at the first missing check. If an aggregation is still running, wait for its result. Keep the lab OUs, Lucas and all 14 groups, plus the added scope coverage. Restore temporary delta settings and any unrelated setting changed accidentally. If repeating after provisioning labs, retain the other accounts and memberships; do not try to return the directory to one user.
+
+## What you should leave in place
+
+| Item | State before you continue |
+|---|---|
+| Directory | Three lab OUs; Lucas’s account; 14 business groups |
+| ISC AD source | Lucas imported; 14 named groups found on the correct source |
+| Source scope | Lab user, group and membership searches saved; original coverage retained |
+
 ## Completion checklist
 
+- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
+- [ ] Any temporary change is restored and the retained state matches the next lab.
 - [ ] The existing AD source passes Test Connection.
 - [ ] The source name, source ID, and actual OU DNs are recorded.
 - [ ] Saved user searches cover Users and AdminAccounts; group searches cover all lab groups.

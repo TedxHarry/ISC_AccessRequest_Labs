@@ -2,9 +2,17 @@
 
 **Prerequisites:** Complete [AR-004](../AR-004/README.md). Your AD connector must support direct provisioning, with its VA, IQService, TLS, and service-account permissions configured.
 
-## Your assignment
+## Before you open the settings
 
-Configure how ISC will create standard accounts in AcmeLab/Users. Use Liam (`acme.e008`, employee E008) as the first new-account test in AR-006. Do not create him manually.
+Use your ISC administrator session and the AD workstation. Have the existing provisioning/IQService configuration and your actual Users OU DN available.
+
+Lucas is correctly linked. Liam has an ISC identity but no AD account. Keep that missing-account case for AR-006.
+
+Record the current Create Account mappings before editing. These settings apply to future account creation on this source, not just Liam.
+
+## What you’ll do
+
+Before ISC creates Liam, tell it where the account belongs and which values to use. Work through the mappings below, then write down the account you expect to see. Saving this page does not create him.
 
 ## 1. Check the write connection
 
@@ -23,6 +31,8 @@ If your connection only reads accounts, complete its provisioning prerequisites 
 4. In ISC, run the AD source's **Entitlement Management > Entitlement Aggregation**. Verify the baseline group appears on the correct source and record its entitlement value.
 
 **Check:** You now have 15 course groups: the original 14 plus this baseline group. Keep the baseline group separate from VPN and Finance grants.
+
+**Screenshot reminder:** Save `AR-005-01-baseline-group.png`, `AR-005-02-baseline-entitlement.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## 3. Define the account attributes
 
@@ -62,6 +72,8 @@ The password generator uses the source's assigned ISC password policy. Verify th
 
 The chosen usernames are unique course IDs under AD's length limit. If a username or DN already exists, investigate its owner instead of adding a suffix to bypass the collision. This exercise deliberately avoids a naming counter so expected account names stay predictable.
 
+**Screenshot reminder:** Save `AR-005-03-create-account.png`, `AR-005-04-naming.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## 4. Check the values before triggering creation
 
 1. Reopen **Create Account** and inspect the saved rows and order. Record the expected enabled/disabled state under your existing connector configuration; this table does not independently configure account enablement.
@@ -70,10 +82,50 @@ The chosen usernames are unique course IDs under AD's length limit. If a usernam
 4. Search AD and the ISC AD source for `acme.e008`. Confirm no account exists. If one does, record it and resolve the baseline discrepancy before this new-account exercise; do not delete it just to continue.
 5. Confirm employeeID is also in the aggregation schema from AR-004. A creation mapping alone does not add an attribute to imported account data.
 
-**Check:** The saved configuration can produce the expected values. Saving Create Account does not itself create Liam's account. AR-006 supplies the access assignment that triggers creation.
+**Check:** Your written expectations match the saved configuration; actual creation still needs to be checked in AR-006. Saving Create Account does not itself create Liam's account. AR-006 supplies the access assignment that triggers creation.
+
+**Screenshot reminder:** Save `AR-005-05-liam-identity.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+## Work out another account before creating it
+
+1. Open Priya’s identity, acme.e002, and record uid and identificationNumber.
+2. On paper, substitute her uid into the saved DN pattern and into the UPN expression after sAMAccountName is calculated. Write the expected DN, UPN and employeeID.
+3. Compare with Liam’s expected values. Only the employee values should differ; both use your recorded Users OU and UPN suffix.
+4. Save this prediction for AR-007. Do not create Priya manually or temporarily put her username in the shared policy.
+
+This is a configuration exercise. AR-007’s actual account is the test of your prediction.
+
+## Your ticket: The planned DN contains an empty username.
+
+The supplied draft pattern is CN=$(sAMAccountName), followed by the correct Users OU. The identity has uid acme.e008 but no identity attribute called sAMAccountName.
+
+Compare the two expression types in Section 3. Write the corrected DN pattern and explain why the UPN uses a different expression. Do not save the faulty draft.
+
+Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+
+<details>
+<summary>Compare your diagnosis with the mentor’s solution</summary>
+
+The DN generator references identity attributes, so use CN=$(uid), followed by the actual Users OU. The Static UPN expression references the previously calculated account sAMAccountName: ${sAMAccountName}@ followed by the actual suffix. Keep sAMAccountName above userPrincipalName. Verify the real account in AR-006 before calling the pattern proven.
+
+</details>
+
+## If you stopped midway or want to repeat this lab
+
+Reuse the existing baseline group and inspect its members before continuing. If editing stopped midway, compare every saved mapping with the table, including order, before allowing a new creation. Retain the working creation policy and imported baseline group for AR-006. On a later repeat, Liam may already exist: inspect his original creation evidence and current attributes rather than deleting him. Do not restore an obsolete source policy while baseline assignments are still provisioning or retrying.
+
+## What you should leave in place
+
+| Item | State before you continue |
+|---|---|
+| Group inventory | 15 course groups including GG-ACME-BASELINE |
+| Create Account | Saved mapping values, correct order and actual Users OU |
+| Liam | Still absent from AD on the first pass; creation begins in AR-006 |
 
 ## Completion and screenshots
 
+- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
+- [ ] Any temporary change is restored and the retained state matches the next lab.
 - [ ] Provisioning prerequisites reviewed; Users OU and baseline-group permissions checked.
 - [ ] GG-ACME-BASELINE is imported; empty on the first run, or retained course memberships recorded when resuming.
 - [ ] Required mappings, expression order, target OU, and password policy are recorded.

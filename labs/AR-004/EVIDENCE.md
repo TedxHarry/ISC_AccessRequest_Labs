@@ -16,3 +16,17 @@
 | Screenshot filenames | |
 
 [Return to AR-004](README.md)
+## Practice and ticket notes
+
+| Record | Your answer |
+|---|---|
+| First attempt, resumed, or repeat | |
+| Starting state checked; any exception | |
+| Guided result and evidence | |
+| Variation/comparison and what it taught you | |
+| Ticket diagnosis before opening the solution | |
+| Evidence that would close the ticket | |
+| Actual fault observed, or supplied case only | |
+| Temporary changes restored | |
+| Retained objects and memberships checked | |
+| Next unfinished check, if any | |

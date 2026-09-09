@@ -2,9 +2,17 @@
 
 **Prerequisites:** Complete [AR-008](../AR-008/README.md) and retain the evidence from AR-001 through AR-007.
 
-## Your assignment
+## Before you open the settings
 
-Check the environment before making business access requestable. Save checkpoint C01 as a record of the working configuration and how to reconstruct it.
+Use the administrator, Lucas, Daniel and Priya sessions from AR-008 and keep the AR-001–008 journals available.
+
+You expect 24 HR accounts, 24 Acme identities, 24 standard AD accounts and 24 course baseline members. No course business request has been submitted yet.
+
+This is a readiness assessment. Check the current records as well as your saved screenshots; a screenshot from yesterday does not establish today’s state.
+
+## What you’ll do
+
+Before opening VPN requests, walk through the environment once more. Use current records to check what exists, then save enough evidence that you could explain it to another engineer.
 
 ## 1. Verify the baseline
 
@@ -41,6 +49,8 @@ Answer these questions in your journal using actual evidence:
 
 Return to a missing check instead of recreating the environment. Record any standard-account OU exception before moving into the account-selection labs.
 
+**Screenshot reminder:** Save `AR-009-01-population.png`, `AR-009-02-baseline-role.png`, `AR-009-03-target-baseline.png`, `AR-009-04-sessions.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## 2. Record C01
 
 Create a private folder named `C01-Acme-Foundation` and retain:
@@ -53,8 +63,46 @@ Create a private folder named `C01-Acme-Foundation` and retain:
 
 Keep ROLE-Acme-AD-Baseline enabled and its identity list intact. Removing baseline eligibility can remove its group access; it is not a reset method. A folder of evidence is not a whole-tenant restore image.
 
+## Repeat the check with a different employee
+
+1. Select James acme.e014 instead of the Lucas/Liam samples.
+2. Without following his earlier screenshots, find his HR account, resolved manager, AD account, role selection and native baseline membership.
+3. Compare with the roster: his manager is Elena acme.e004 and his employee number is E014.
+4. Add the current evidence to C01. If a value is wrong, identify its source before making a correction.
+
+You should be able to follow the same checks for an employee whose setup you did not memorize.
+
+## Your ticket: A colleague says 24 identities means we are ready for access requests.
+
+The colleague has only a screenshot of the identity count.
+
+Write the additional evidence you would request, then locate it in your journals. Identify any missing evidence without marking it passed.
+
+Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+
+<details>
+<summary>Compare your diagnosis with the mentor’s solution</summary>
+
+Ask for correct manager links, individually verified AD accounts, baseline membership, source scope and creation settings, clean operation outcomes, and separate requester/reviewer sign-ins. These establish C01. They still do not prove a business approval or revocation; that evidence comes from the following request labs.
+
+</details>
+
+## If you stopped midway or want to repeat this lab
+
+If any check fails, record its identity/object and return to that check’s lab. Keep the rest of the working environment. When resuming, repeat the failed check and inspect pending activity before accepting C01. Keep the baseline role assigned and the source, accounts, profiles and sessions available for Module 2. On later repeats, record legitimate additions separately rather than deleting objects to force the original counts.
+
+## What you should leave in place
+
+| Item | State before you continue |
+|---|---|
+| C01 | Current counts, object IDs, configuration and reconstruction notes saved |
+| Pending problems | None unresolved in the foundation provisioning checks |
+| Next action | Configure VPN in AR-010; keep the baseline assignment |
+
 ## Completion and screenshots
 
+- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
+- [ ] Any temporary change is restored and the retained state matches the next lab.
 - [ ] Every baseline check has an actual passing result.
 - [ ] C01 contains the working data, configuration record, and reconstruction note.
 - [ ] No unresolved provisioning failure remains.

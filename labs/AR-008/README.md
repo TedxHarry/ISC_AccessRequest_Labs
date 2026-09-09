@@ -4,9 +4,17 @@
 
 **Prerequisites:** Complete AR-002's manager checks and [AR-007](../AR-007/README.md). Have three distinct, working test email addresses you control, access to their inboxes, and your existing ISC administrator session.
 
-## Your assignment
+## Before you open the settings
 
-Sign in as the people who will request and review access. Use these three identities so the requester, manager, and planned VPN owner are different people:
+Keep your administrator session open. Prepare separate browser profiles for Lucas, Daniel and Priya, plus three distinct controlled email addresses.
+
+All 24 standard AD accounts and their identity links are checked. Lucas’s manager is Daniel. Keep the current HR file so registration changes do not overwrite earlier work.
+
+An AD account and an ISC account can use different authentication routes. Record the configured sign-in method before trying a password.
+
+## What you’ll do
+
+Now sign in as the people who will request and review access. Prepare Lucas, Daniel and Priya separately so an administrator session does not hide a problem an ordinary user would see.
 
 | Person | ISC username | Responsibility in the next labs |
 |---|---|---|
@@ -31,6 +39,8 @@ Enabling an ISC identity and enabling its AD account are separate operations. [I
 
 **Check:** All three identities are available for sign-in setup, and Lucas resolves to Daniel as manager.
 
+**Screenshot reminder:** Save `AR-008-01-lucas-manager.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## 2. Replace the email placeholders in HR
 
 Each person needs a different, deliverable work email address. Do not assign the same address to all three. Use controlled test addresses; verify that each inbox receives mail before continuing. [Invitation prerequisites](https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html)
@@ -52,6 +62,8 @@ Compare Lucas’s Acme HR account email, identity Work Email and AD account mail
 
 Record the difference instead of treating it as an import failure. Registration requires a deliverable identity Work Email. Do not enable source-wide synchronization merely to make screenshots match. If existing mail synchronization is configured, record its actual result. [Attribute synchronization](https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html)
 
+**Screenshot reminder:** Save `AR-008-02-hr-import.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## 3. Confirm how these users will sign in
 
 1. Open **Admin > Identity Management > Identity Profiles > Acme Employees > Settings**.
@@ -62,6 +74,8 @@ Record the difference instead of treating it as an import failure. Registration 
 Do not change tenant-wide SSO, MFA, or network restrictions to follow this lab. If the existing authentication route cannot sign in these users, resolve that prerequisite before marking the session checks complete. [Profile sign-in settings](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html)
 
 **Check:** You have recorded one working sign-in route for the three users. For ISC credentials, continue with registration; for existing external authentication, proceed to the session checks.
+
+**Screenshot reminder:** Save `AR-008-03-sign-in-settings.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## 4. Register users who use ISC credentials
 
@@ -75,6 +89,8 @@ Perform these steps for each unregistered user using ISC User Name & Password:
 Use the registered ISC password for this path. The AD password generated during AD provisioning is not automatically the ISC password. If an invitation expires, resend it from the identity rather than resetting the identity. [Manual invitations and registration](https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html)
 
 **Check:** Lucas, Daniel, and Priya can each complete a fresh sign-in. Keep passwords, registration links, and MFA setup codes out of screenshots and the journal.
+
+**Screenshot reminder:** Save `AR-008-04-registration-status.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## Prepare additional actors when their first lab begins
 
@@ -114,6 +130,8 @@ Keep your administrator's permissions unchanged. [Setting user levels](https://d
 
 **Check:** Every window shows the intended user, and the required page loads with that user's own permissions. Opening Approvals verifies page access; a later submitted request will verify actual routing and decision permissions.
 
+**Screenshot reminder:** Save `AR-008-05-lucas-request-center.png`, `AR-008-06-daniel-approvals.png`, `AR-008-07-priya-approvals.png`, `AR-008-08-user-levels.png`. Use the matching descriptions in the screenshot checklist at the end.
+
 ## If a check fails
 
 | Observation | Next action |
@@ -126,8 +144,45 @@ Keep your administrator's permissions unchanged. [Setting user levels](https://d
 | Lucas's manager is missing | Return to AR-002 and verify the stored manager reference and resolved identity. |
 | The approval queue is empty | No approval has been submitted in this lab. Record page access only. |
 
+## Check that changing tabs does not change the user
+
+1. In Lucas’s browser profile, open another normal tab to the tenant and inspect the signed-in username. It should still be Lucas.
+2. Switch to Daniel’s separate browser profile and inspect its username. It must be Daniel before you inspect Approvals.
+3. Close the extra Lucas tab and retain the separate profiles. If SSO silently selected the wrong person, correct that profile’s identity-provider session and sign in again.
+
+Do not grant extra permissions to solve a browser-session mix-up. The username check comes first.
+
+## Your ticket: Daniel’s Approvals tab shows the administrator.
+
+The supplied case uses two normal tabs in the same browser profile, one opened after the administrator signed in.
+
+Demonstrate how to identify the session owner and correct the session separation. Explain why role changes are unnecessary.
+
+Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+
+<details>
+<summary>Compare your diagnosis with the mentor’s solution</summary>
+
+Normal tabs share the browser profile’s session. Use Daniel’s separate profile, check its SSO session if applicable, sign in as Daniel and verify the username before opening Approvals. Keep the administrator in its own profile. An empty Daniel queue is acceptable here; no business request has been submitted.
+
+</details>
+
+## If you stopped midway or want to repeat this lab
+
+If registration was interrupted, check that person’s registration state and current email before sending another invitation. Reuse working browser profiles and authentication settings. On repeat, sign out and back in to prove the correct user; do not reset passwords or reinvite already-working identities. Keep the private HR file with the controlled addresses and retain the ordinary-user permissions. Remove only accidental elevated levels introduced solely for this test.
+
+## What you should leave in place
+
+| Item | State before you continue |
+|---|---|
+| Requester | Lucas opens Request Center in his own session |
+| Reviewers | Daniel and Priya open Approvals in their own ordinary-user sessions |
+| Emails and credentials | Controlled identity emails retained privately; no secrets in screenshots |
+
 ## Completion checklist
 
+- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
+- [ ] Any temporary change is restored and the retained state matches the next lab.
 - [ ] Lucas, Daniel, and Priya have distinct working email addresses on their identities.
 - [ ] The complete working HR CSV preserves all 24 records and the new addresses.
 - [ ] Lucas's manager is Daniel.
