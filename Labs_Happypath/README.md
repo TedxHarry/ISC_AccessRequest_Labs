@@ -1,4 +1,4 @@
-# ISC Access Request Labs
+# Module 1 — Foundations
 
 Complete the labs in order.
 
@@ -7,6 +7,12 @@ Complete the labs in order.
 1. [AR-001 — Import Acme's HR Records](AR-001/README.md)
 2. [AR-002 — Resolve the Manager Hierarchy](AR-002/README.md)
 3. [AR-003 — Prepare and Aggregate the AD Lab](AR-003/README.md)
+4. [AR-004 — Correlate Lucas's Existing AD Account](AR-004/README.md)
+5. [AR-005 — Configure AD Account Creation](AR-005/README.md)
+6. [AR-006 — Provision Your First AD Account](AR-006/README.md)
+7. [AR-007 — Provision the Remaining Standard Accounts](AR-007/README.md)
+8. [AR-008 — Prepare Requester and Reviewer Sessions](AR-008/README.md)
+9. [AR-009 — Verify the Environment and Save C01](AR-009/README.md)
 
 ## Lab method
 

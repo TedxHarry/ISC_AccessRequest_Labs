@@ -1,0 +1,46 @@
+# AR-004 — Evidence Journal
+
+## Correlation values
+
+| Item | Expected | Observed |
+|---|---|---|
+| Lucas ISC username | acme.e012 | |
+| ISC Identification Number | E012 | |
+| AD sAMAccountName | acme.e012 | |
+| AD employeeID | E012 | |
+| AD distinguishedName | AcmeLab/Users location | |
+
+## Source configuration
+
+| Item | Expected | Observed |
+|---|---|---|
+| employeeID in account schema | Yes | |
+| Correlation Identity Attribute | identificationNumber | |
+| Correlation Account Attribute | employeeID | |
+| Aggregation result | Success | |
+| Imported employeeID | E012 | |
+
+## Account link
+
+| Check | Expected | Observed | Evidence |
+|---|---|---|---|
+| Lucas AD account linked | Yes | | |
+| Linked identity | acme.e012 | | |
+| AD DN matches native account | Yes | | |
+| Duplicate AD account | No | | |
+
+## Screenshots
+
+- [ ] Lucas Identification Number
+- [ ] AD employeeID
+- [ ] employeeID in the AD account schema
+- [ ] Account Correlation configuration
+- [ ] Completed account aggregation
+- [ ] Lucas with linked AD account
+
+## Completion
+
+- [ ] All AR-004 final verification checks passed.
+- [ ] Lucas's account correlation is retained for AR-005.
+
+[Return to AR-004](README.md)
