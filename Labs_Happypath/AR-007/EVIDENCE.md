@@ -55,3 +55,13 @@
 - [ ] The complete account baseline is retained for AR-008.
 
 [Return to AR-007](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| Why are 24 role assignments insufficient evidence of 24 usable accounts? | |
+| What did you check before moving from four people to 24? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

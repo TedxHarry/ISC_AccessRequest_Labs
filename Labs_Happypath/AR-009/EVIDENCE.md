@@ -67,3 +67,13 @@ Record the saved evidence location and identifiers.
 - [ ] Module 1 foundation remains in place.
 
 [Return to AR-009](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| Which parts of the foundation can you prove with current target evidence? | |
+| Which request, approval and revocation behavior remains to be tested? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

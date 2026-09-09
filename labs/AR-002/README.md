@@ -4,6 +4,12 @@
 
 **Prerequisites:** Acme HR contains the 24 employee accounts, and Acme Employees has the corresponding identities and baseline attributes from [AR-001](../AR-001/README.md).
 
+## If this configuration already exists
+
+Confirm Lucas → Daniel → Morgan and record Lucas’s current E003 manager reference before the reversible practice. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Practice: a valid identifier pointing to the wrong manager](#practice-a-valid-identifier-pointing-to-the-wrong-manager). Capture current results and label earlier creation activity as historical.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
 ## Before you open the settings
 
 Use your ISC administrator session, Acme HR, Acme Employees and the latest complete working HR file.
@@ -122,6 +128,8 @@ Manager relationships prepare the data for later manager-approval labs. Their pr
 **Screenshot reminder:** Capture Lucas with Daniel as manager, Daniel with Morgan, and Morgan with no manager.
 
 ## Practice: a valid identifier pointing to the wrong manager
+
+Before the live data-change exercise, confirm there are no pending course approvals/provisioning operations and no unrelated automation depending on the field you will change. Record the original value. If later configuration now acts on this field, use the supplied ticket case until you have an isolated test window. Restore and verify the original value before the next lab.
 
 Complete this after the correct hierarchy is verified. Use only the Acme lab population.
 

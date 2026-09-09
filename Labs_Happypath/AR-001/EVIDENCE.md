@@ -47,3 +47,13 @@
 - [ ] The 24-account / 24-identity baseline is retained for AR-002.
 
 [Return to AR-001](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| Which record contains the CSV values before identity mappings run? | |
+| What proves that the 24 imported accounts became 24 Acme identities? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

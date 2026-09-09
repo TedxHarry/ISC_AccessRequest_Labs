@@ -4,6 +4,12 @@
 
 **Prerequisites:** Complete AR-002's manager checks and [AR-007](../AR-007/README.md). Have three distinct, working test email addresses you control, access to their inboxes, and your existing ISC administrator session.
 
+## If this configuration already exists
+
+Confirm the three ordinary-user sessions and administrator session still work. Keep authentication settings and registrations; do not resend invitations to working users. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Check that changing tabs does not change the user](#check-that-changing-tabs-does-not-change-the-user). Capture current results and label earlier creation activity as historical.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
 ## Before you open the settings
 
 Keep your administrator session open. Prepare separate browser profiles for Lucas, Daniel and Priya, plus three distinct controlled email addresses.

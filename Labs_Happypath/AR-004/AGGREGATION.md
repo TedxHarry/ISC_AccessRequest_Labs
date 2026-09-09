@@ -55,7 +55,7 @@ https://<tenant>.api.identitynow.com/beta/sources/<AD-source-ID>/load-accounts
 | disableOptimization | Text | true |
 
 5. Send the request once.
-6. Record the returned task reference if present.
+6. Record the HTTP status and returned task reference if present. An accepted response starts a job; it is not completion. For 401, check token validity; for 403, check permissions; for 400, inspect the body format and source ID. Do not resubmit while a job is running. Let Postman supply the multipart Content-Type boundary.
 
 Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 

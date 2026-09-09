@@ -6,13 +6,19 @@
 
 Create the Acme HR authoritative source, import the 24 employee records, create the Acme Employees identity profile, map the core identity attributes, and verify that all 24 identities are created correctly.
 
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
+## Session for this lab
+
+Use your ISC administrator session.
+
 ## Prerequisites
 
 - ISC training tenant access with permission to create sources and identity profiles.
 - The course HR CSV: [acme-hr-baseline.csv](../../datasets/acme-hr-baseline.csv).
 - A place to save screenshots and your [evidence journal](EVIDENCE.md).
 
-Your existing Active Directory source is not used yet. AD work begins in AR-003.
+Your existing Active Directory source is not used yet. AD work begins in AR-003. Before importing new identities, check that existing automatic role assignments and identity-triggered workflows will not grant unrelated access to the Acme test population.
 
 ## Starting state
 
@@ -77,13 +83,13 @@ Reference: [Source configuration](https://documentation.sailpoint.com/saas/help/
 
 ![Acme HR Delimited File source](images/01-hr-source.png)
 
-**Screenshot:** Capture the Acme HR source name and type.
+**Screenshot:** Save `AR-001-01-hr-source.png`. Capture the Acme HR source name and type.
 
 ## 3. Configure the account schema
 
 1. Open **Acme HR > Account Management > Account Schema**.
 2. Use **Upload Schema** with `acme-hr-working.csv` if available.
-3. Add any missing CSV attributes manually if needed.
+3. For each missing attribute, select **Add New Attribute**, enter its exact name from the list below, select **String**, leave Entitlement and Multi-Valued off, and save.
 4. Keep the CSV attributes as **String** values.
 5. Set:
 
@@ -119,7 +125,9 @@ Set the identifying attributes before importing accounts. [Account schemas](http
 
 ![Acme HR account schema](images/02-account-schema.png)
 
-**Screenshot:** Capture the schema with Account ID and Account Name visible.
+**Screenshot:** Save `AR-001-02-account-schema.png`. Capture the schema with Account ID and Account Name visible.
+
+Before importing, open **Source Setup > Parsing Settings** and select delimited parsing. Open **File Settings**, set the delimiter to a comma, and confirm the first row supplies column names. Save. If a preview is offered, confirm it shows 14 separate columns.
 
 ## 4. Import the HR accounts
 
@@ -144,7 +152,7 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 ![Completed HR aggregation](images/03-account-import.png)
 
-**Screenshot:** Capture the completed aggregation and 24-account result.
+**Screenshot:** Save `AR-001-03-hr-import.png`. Capture the completed aggregation and 24-account result.
 
 ## 5. Create the Acme Employees identity profile
 
@@ -159,7 +167,7 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 4. Save the profile.
 5. Open **Mappings**.
-6. Configure the following direct mappings:
+6. For each row below, locate the identity attribute, select **Acme HR** as Source and the listed account Attribute. Leave Transform empty for these direct mappings:
 
 | Identity attribute | Acme HR attribute |
 |---|---|
@@ -183,7 +191,7 @@ Reference: [Identity profiles](https://documentation.sailpoint.com/saas/help/set
 
 ![Acme Employees mappings](images/04-identity-mappings.png)
 
-**Screenshot:** Capture the saved identity mappings.
+**Screenshot:** Save `AR-001-04-identity-mappings.png`. Capture the saved identity mappings.
 
 ## 6. Apply the profile and process identities
 
@@ -218,7 +226,7 @@ Reference: [Identity processing](https://documentation.sailpoint.com/saas/help/s
 6. Open the **Acme HR** account and confirm the raw HR values agree with the identity values.
 7. Confirm the Acme Employees population contains **24 identities**.
 
-Optional sample checks:
+Repeat the account-to-identity comparison for these employees:
 
 | Employee | Expected department |
 |---|---|
@@ -230,10 +238,24 @@ Optional sample checks:
 
 ![Lucas baseline identity](images/05-baseline-identity.png)
 
-**Screenshot:** Capture Lucas's identity and Acme HR account.
+**Screenshot:** Save `AR-001-05-lucas-baseline.png`. Capture Lucas's identity and Acme HR account.
+
+## Try it yourself
+
+Open Henry (`acme.e018`) without using Lucas’s screenshots. Compare his Acme HR department with identity Department. Both should show Engineering. Record his employee number E018 and leave his data unchanged.
+
+Write these answers in your [journal](EVIDENCE.md):
+
+1. Which record contains the CSV values before identity mappings run?
+2. What proves that the 24 imported accounts became 24 Acme identities?
+
+## If a check does not match
+
+If the account count or attributes differ, inspect the uploaded filename, comma delimiter and header/schema names. If HR is correct but the identity differs, inspect the mapping and processing job before importing again.
 
 ## Final verification
 
+- [ ] The independent check and both explanations are recorded.
 - [ ] Acme HR exists and contains 24 accounts.
 - [ ] `employeeNumber` is Account ID.
 - [ ] `userName` is Account Name.
@@ -248,6 +270,18 @@ Optional sample checks:
 ## Leave this in place
 
 Keep the Acme HR source, Acme Employees identity profile, 24 imported HR accounts, and 24 identities exactly as configured.
+
+## Screenshots to capture
+
+Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
+
+| Filename | Evidence |
+|---|---|
+| `AR-001-01-hr-source.png` | Capture the Acme HR source name and type. |
+| `AR-001-02-account-schema.png` | Capture the schema with Account ID and Account Name visible. |
+| `AR-001-03-hr-import.png` | Capture the completed aggregation and 24-account result. |
+| `AR-001-04-identity-mappings.png` | Capture the saved identity mappings. |
+| `AR-001-05-lucas-baseline.png` | Capture Lucas's identity and Acme HR account. |
 
 Next: **[AR-002 — Resolve the Manager Hierarchy](../AR-002/README.md)**
 

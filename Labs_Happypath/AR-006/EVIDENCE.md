@@ -10,6 +10,15 @@
 | Initial role member | Lucas / acme.e012 | |
 | Final pilot members | Lucas and Liam | |
 
+## Before assignment
+
+| Value | Before | After |
+|---|---|---|
+| Lucas distinguishedName | | |
+| Lucas objectGUID | | |
+| Lucas direct baseline membership | Absent | |
+| Liam enabled/disabled state and password flags expected in AR-005 | | |
+
 ## Lucas existing-account update
 
 | Check | Expected | Observed | Evidence |
@@ -51,3 +60,13 @@
 - [ ] Lucas and Liam remain assigned for AR-007.
 
 [Return to AR-006](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| Why did Lucas receive a membership update while Liam needed account creation? | |
+| Which evidence proves the write reached AD? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

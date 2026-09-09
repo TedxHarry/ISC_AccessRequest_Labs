@@ -8,6 +8,8 @@
 | Daniel Brooks | acme.e003 | E003 | Manager reviewer | |
 | Priya Shah | acme.e002 | E002 | Owner/reviewer | |
 
+Record credentials by type only; never write passwords. Mark invitation/registration fields not applicable when using an established external sign-in route.
+
 ## Email and registration
 
 | Identity | Work Email updated | Invitation sent | Registration complete | Fresh sign-in successful |
@@ -20,8 +22,8 @@
 
 | Item | Expected | Observed |
 |---|---|---|
-| Sign-in method | User Name & Password | |
-| Invitation method | Manual | |
+| Sign-in method | Recorded ISC credentials, SSO or Directory Connection route | |
+| Invitation method | Manual for unregistered ISC-credential users; record not applicable for other routes | |
 | HR account count after email update | 24 | |
 | Acme identity count after email update | 24 | |
 
@@ -58,3 +60,13 @@
 - [ ] The separate user sessions are retained for AR-009.
 
 [Return to AR-008](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| Which credentials does each person use for the recorded sign-in method? | |
+| Why does opening Approvals not yet prove approval routing? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

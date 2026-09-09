@@ -2,6 +2,12 @@
 
 **Prerequisites:** Complete [AR-004](../AR-004/README.md). Your AD connector must support direct provisioning, with its VA, IQService, TLS, and service-account permissions configured.
 
+## If this configuration already exists
+
+Compare the saved creation policy and baseline group with this lab. Keep existing Liam/Priya accounts and use their original activity for historical checks. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Work out another account before creating it](#work-out-another-account-before-creating-it). Capture current results and label earlier creation activity as historical.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
 ## Before you open the settings
 
 Use your ISC administrator session and the AD workstation. Have the existing provisioning/IQService configuration and your actual Users OU DN available.

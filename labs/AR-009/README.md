@@ -2,6 +2,12 @@
 
 **Prerequisites:** Complete [AR-008](../AR-008/README.md) and retain the evidence from AR-001 through AR-007.
 
+## If this configuration already exists
+
+Recheck current foundation state. Keep later legitimate additions and record them separately from the original 24-person baseline. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Repeat the check with a different employee](#repeat-the-check-with-a-different-employee). Capture current results and label earlier creation activity as historical.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
 ## Before you open the settings
 
 Use the administrator, Lucas, Daniel and Priya sessions from AR-008 and keep the AR-001–008 journals available.

@@ -6,6 +6,12 @@
 
 Verify the complete Module 1 foundation and save a clean evidence checkpoint before starting Access Request configuration.
 
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
+## Session for this lab
+
+Use the ISC administrator and AD workstation for configuration checks. In Section 7, switch to each named browser profile and verify its signed-in username.
+
 ## Prerequisites
 
 Complete [AR-008](../AR-008/README.md).
@@ -44,12 +50,14 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 
 **Check:** The authoritative population contains 24 HR accounts and 24 Acme identities.
 
+**Screenshot:** Save `AR-009-01-population.png`. Capture the records that prove this check.
+
 ## 2. Verify manager relationships
 
 1. Open Lucas and confirm Manager = Daniel Brooks.
 2. Open Daniel (`acme.e003`) and confirm Manager = Morgan Reed.
 3. Open Morgan (`acme.e001`) and confirm no Manager is assigned.
-4. Use the AR-002 evidence table to confirm the remaining manager relationships are recorded.
+4. Reopen the remaining identities and check their current Manager against the AR-002 table. Update the journal if an earlier screenshot no longer matches.
 
 **Check:** Morgan is the hierarchy root and the original roster has 23 manager relationships.
 
@@ -63,12 +71,14 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 - Correct `employeeID`
 - Correct DN / Users OU placement
 - Correct ISC identity link
-- Successful provisioning result
+- Provisioning evidence: Lucas’s membership update; ISC account creation for the other 23 employees
 
 5. In Active Directory, confirm the standard accounts are present in **AcmeLab > Users**.
 6. Confirm **AcmeLab > AdminAccounts** is still empty.
 
 **Check:** All 24 standard AD accounts are present and linked correctly.
+
+Open **Entitlement Management > Entitlements** on the AD source. Check the 14 business group names from AR-003 and GG-ACME-BASELINE from AR-005. Count these 15 course groups separately from unrelated source entitlements.
 
 ## 4. Verify the baseline access model
 
@@ -91,6 +101,8 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 5. Confirm the role did not add the population to business groups such as `GG-VPN-USERS` or `GG-FIN-REPORTING`.
 
 **Check:** The native target state matches the baseline role assignment.
+
+**Screenshot:** Save `AR-009-02-baseline-members.png`. Capture the records that prove this check.
 
 ## 6. Verify the key provisioning examples
 
@@ -132,6 +144,8 @@ Use Account Activity and your saved evidence to confirm:
 
 **Check:** The requester, reviewers, and administrator are signed in through separate sessions.
 
+**Screenshot:** Save `AR-009-03-user-sessions.png`. Capture the records that prove this check.
+
 ## 8. Confirm no business request has been tested yet
 
 At this checkpoint:
@@ -170,8 +184,31 @@ Save:
 
 Do not save passwords, Personal Access Token secrets, invitation links, MFA codes, or connector credentials in the evidence folder.
 
+**Check:** The private C01 folder contains the complete working file, journals, configuration values and current target evidence. This folder is an evidence checkpoint, not a tenant backup.
+
+## Try it yourself
+
+Without following the earlier sample screenshots, inspect James (`acme.e014`) from HR through identity, manager Elena (`acme.e004`), linked AD account, role assignment and native baseline membership. Record current evidence for every link. Keep all configuration intact.
+
+Write these answers in your [journal](EVIDENCE.md):
+
+1. Which parts of the foundation can you prove with current target evidence?
+2. Which request, approval and revocation behavior remains to be tested?
+
+<details>
+<summary>Check your assessment result</summary>
+
+James is E014 and reports to Elena E004. His HR and identity employee values agree, his AD employeeID is E014, and his standard account is linked to his identity and directly belongs to GG-ACME-BASELINE. The baseline role includes him. Record actual IDs and DNs from your tenant. These checks prove the foundation; they do not prove a business request, approval or revocation.
+
+</details>
+
+## If a check does not match
+
+If a check fails, record the affected identity or object and return to the lab that configured it. Keep the working foundation. Do not mark C01 passed while any required check is unresolved.
+
 ## Final verification
 
+- [ ] The independent check and both explanations are recorded.
 - [ ] Acme HR contains 24 accounts.
 - [ ] Acme Employees contains 24 identities.
 - [ ] Manager hierarchy is correct.
@@ -190,6 +227,16 @@ Do not save passwords, Personal Access Token secrets, invitation links, MFA code
 ## Leave this in place
 
 Keep the HR source, identity profile, manager relationships, AD source configuration, 24 standard accounts, baseline access profile, baseline role, baseline memberships, and separate user sessions in place.
+
+## Screenshots to capture
+
+Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
+
+| Filename | Evidence |
+|---|---|
+| `AR-009-01-population.png` | The authoritative population contains 24 HR accounts and 24 Acme identities. |
+| `AR-009-02-baseline-members.png` | The native target state matches the baseline role assignment. |
+| `AR-009-03-user-sessions.png` | The requester, reviewers, and administrator are signed in through separate sessions. |
 
 **Module 1 is complete.**
 

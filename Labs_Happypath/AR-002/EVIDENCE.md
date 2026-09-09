@@ -59,3 +59,13 @@
 - [ ] Manager relationships are retained for AR-003 and later approval labs.
 
 [Return to AR-002](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| Why does Lucas’s E003 manager reference match Daniel rather than Lucas? | |
+| What proves Morgan is the only root? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

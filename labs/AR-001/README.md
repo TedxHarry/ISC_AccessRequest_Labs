@@ -4,13 +4,19 @@
 
 **Prerequisites:** Sign in to your ISC training tenant with an account that can create sources and identity profiles. Your existing AD connection will be used in later labs; this exercise imports HR data.
 
+## If this configuration already exists
+
+Confirm Lucas is Finance/FIN200 on HR and identity, and retain the latest complete CSV including any later employees and controlled email addresses. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [7. Practice challenge: investigate a wrong department](#7-practice-challenge-investigate-a-wrong-department). Capture current results and label earlier creation activity as historical.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
 ## Before you open the settings
 
 Use your ISC administrator session. Keep the downloaded HR CSV and a private working copy beside you. You do not need an employee login yet.
 
 On your first attempt, Acme HR and Acme Employees do not exist. If either exists, open it and compare its configuration with this lab before creating anything.
 
-No HR file from another lab should be uploaded here. Begin with the 24-row Acme file; keep any controlled email addresses you already added.
+On the first run, begin with the 24-row Acme file. On a repeat, use the latest complete working file and preserve later employees and controlled email addresses.
 
 ## What you’ll do
 
@@ -236,6 +242,8 @@ Capture both Lucas's HR account and identity attributes. A successful aggregatio
 **Screenshot reminder:** Capture Lucas’s HR account and identity with Department Finance.
 
 ## 7. Practice challenge: investigate a wrong department
+
+Before the live data-change exercise, confirm there are no pending course approvals/provisioning operations and no unrelated automation depending on the field you will change. Record the original value. If later configuration now acts on this field, use the supplied ticket case until you have an isolated test window. Restore and verify the original value before the next lab.
 
 HR reports that Lucas Brown belongs in Finance, but ISC displays Sales.
 

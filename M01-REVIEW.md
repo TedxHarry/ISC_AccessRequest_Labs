@@ -37,3 +37,19 @@ AR-001 is learner-reported complete. AR-002–009 still require execution in the
 Run AR-002 next. Keep both the correct hierarchy evidence and the wrong-manager/restored-manager evidence. Do not repeat AR-001’s source creation to obtain new screenshots.
 
 [Module prerequisites](M01-READINESS.md) · [Course validation](VALIDATION.md)
+
+## Paired Module 1 walkthrough review
+
+Reviewed both folders against baseline commit fc66a5036af72e9a3b51ccba3e902a509b272336. Scope is AR-001–009 only. The shared [configuration record](M01-STATE.md) defines the original population, names, actual-value lookup instructions and retained states.
+
+- Beginner pages now name the session, add independent checks and explanation prompts, and provide short next actions when results differ. Screenshot filenames appear beside capture steps and in end-of-lab lists.
+- Engineering pages provide entry points for existing configurations. Retain completed role membership, accounts and registrations; use historical creation evidence when the original operation cannot be repeated without rebuilding. Journals distinguish that evidence from current observations.
+- Corrected gaps in HR schema/parsing actions, complete hierarchy verification, AD object creation and full-scan restoration, correlation criteria explanations, creation mapping edits/order, Lucas before/after identifiers, four-person batch account links, authentication prerequisites and C01 evidence.
+- AR-008 retains working external authentication instead of requiring a profile sign-in change. Both versions distinguish identity email from ongoing AD mail synchronization.
+- Beginner AR-009 includes an independent James/Elena foundation assessment and expandable acceptance guidance. Engineering AR-009 retains its diagnosis ticket and current-evidence assessment.
+
+Official references reviewed: [creation mappings](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html), [role assignment](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html), [correlation](https://documentation.sailpoint.com/saas/help/accounts/correlation.html), [profile settings](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html), and [AD search settings](https://documentation.sailpoint.com/connectors/active_directory/help/integrating_active_directory/account_and_group_settings.html).
+
+This records a writing and consistency review. It does not add tenant execution evidence. Future changes to a shared object, dataset or retained state must be checked against both versions of its lab and the following lab. Later modules remain outside this pass.
+
+Local validation checked repository Markdown paths, Module 1 entry anchors, all 18 walkthrough structures, screenshot-list consistency and the roster values used by the independent exercises. These checks establish document consistency, not live provisioning or UI execution.

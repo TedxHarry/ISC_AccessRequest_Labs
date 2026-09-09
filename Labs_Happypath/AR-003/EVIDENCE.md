@@ -93,3 +93,13 @@
 - [ ] Lucas and the 14 groups are retained for the next labs.
 
 [Return to AR-003](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| Which search setting controls users, which controls groups, and which controls membership reads? | |
+| Does an imported AD account necessarily belong to an ISC identity yet? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

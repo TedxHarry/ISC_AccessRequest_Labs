@@ -8,6 +8,12 @@ Prepare the Active Directory lab structure, create Lucas's AD account and the co
 
 AR-004 will correlate Lucas's existing AD account to his ISC identity.
 
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
+## Session for this lab
+
+Use your ISC administrator session for ISC steps and your AD administration workstation for directory steps.
+
 ## Prerequisites
 
 - Complete [AR-001](../AR-001/README.md) and [AR-002](../AR-002/README.md).
@@ -58,7 +64,7 @@ Reference: [AD Review and Test](https://documentation.sailpoint.com/connectors/a
 
 **Check:** Test Connection succeeds.
 
-**Screenshot:** Capture the AD source name and successful connection test.
+**Screenshot:** Save `AR-003-01-connection-test.png`. Capture the AD source name and successful connection test.
 
 ## 2. Create the AcmeLab OU structure
 
@@ -66,8 +72,8 @@ On your AD administration workstation:
 
 1. Open **Server Manager > Tools > Active Directory Users and Computers**.
 2. Navigate to the parent OU reserved for your training objects.
-3. Create an OU named **AcmeLab**.
-4. Under AcmeLab, create:
+3. Right-click the training parent and select **New > Organizational Unit**. Enter **AcmeLab** and select **OK**.
+4. Right-click AcmeLab and repeat **New > Organizational Unit** for each name:
 
 ```text
 Users
@@ -92,7 +98,7 @@ Use the actual DN from your directory.
 
 **Check:** All three OUs exist and you recorded their actual DNs.
 
-**Screenshot:** Capture AcmeLab expanded with Users, AdminAccounts, and Groups.
+**Screenshot:** Save `AR-003-02-lab-ous.png`. Capture AcmeLab expanded with Users, AdminAccounts, and Groups.
 
 ## 3. Create Lucas's AD account
 
@@ -111,8 +117,8 @@ Use the actual DN from your directory.
 
 4. Select **Next**.
 5. Set a password that meets the domain policy. Do not record the password in the course evidence.
-6. Complete the user creation.
-7. Open Lucas's **Properties**.
+6. Retain domain-required password settings, record the chosen enabled/disabled account state, then select **Next > Finish**.
+7. Open Lucas's **Properties**. Use **General** for Display name and **Organization** for Department and Title.
 8. Set:
 
 | Attribute | Value |
@@ -121,15 +127,17 @@ Use the actual DN from your directory.
 | Department | Finance |
 | Title | Reporting Analyst |
 
-9. Open **Attribute Editor** and record Lucas's `distinguishedName`.
+9. Select **Apply**, reopen the properties to confirm the saved values, then open **Attribute Editor** and record Lucas's `distinguishedName`.
 
 **Check:** Lucas exists under AcmeLab/Users with `sAMAccountName = acme.e012`.
 
-**Screenshots:** Capture Lucas's account and distinguishedName.
+**Screenshot:** Save `AR-003-03-lucas-account.png`. Capture Lucas's account and distinguishedName.
 
 ## 4. Create the 14 course groups
 
-Under **AcmeLab > Groups**, create each group as:
+Right-click **AcmeLab > Groups**, select **New > Group**, enter the name from the table and select the settings below. Select **OK**, open the group’s **Properties**, enter its description, and select **Apply**. Repeat for all 14 names.
+
+Use:
 
 - **Group scope:** Global
 - **Group type:** Security
@@ -159,7 +167,7 @@ Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishe
 
 **Check:** All 14 groups exist under AcmeLab/Groups.
 
-**Screenshot:** Capture the 14 groups in AD.
+**Screenshot:** Save `AR-003-04-ad-groups.png`. Capture the 14 groups in AD.
 
 ## 5. Add the AcmeLab locations to the ISC AD source
 
@@ -199,12 +207,12 @@ Reference: [AD Account and Group Settings](https://documentation.sailpoint.com/c
 - Membership search for the lab users can reach AcmeLab/Groups.
 - Existing source coverage was not removed.
 
-**Screenshots:** Capture the saved user, group, and membership-search settings.
+**Screenshot:** Save `AR-003-05-source-scopes.png`. Capture the saved user, group, and membership-search settings.
 
 ## 6. Run account aggregation
 
 1. Open the AD source's **Account Management > Account Aggregation**.
-2. Select **Start Aggregation**.
+2. Record **Aggregation Settings > Delta Aggregation**. If enabled, temporarily disable it and save for a full scan of the newly included locations. Return to **Account Aggregation** and select **Start Aggregation**.
 3. Wait for completion.
 4. Open **Account Management > Accounts**.
 5. Search for `acme.e012`.
@@ -218,6 +226,7 @@ Reference: [AD Account and Group Settings](https://documentation.sailpoint.com/c
 | Source | Your Active Directory source |
 
 8. Record whether the account is currently correlated.
+9. After completion, restore the recorded Delta Aggregation setting and save. Keep the expanded search coverage.
 
 Lucas can be uncorrelated at this stage. AR-004 handles correlation of this existing AD account to Lucas's ISC identity.
 
@@ -225,7 +234,7 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 **Check:** Lucas's AD account is visible on the ISC AD source with the expected sAMAccountName and DN.
 
-**Screenshots:** Capture the completed account aggregation and Lucas's imported AD account.
+**Screenshot:** Save `AR-003-06-account-import.png`. Capture the completed account aggregation and Lucas's imported AD account.
 
 ## 7. Run entitlement aggregation
 
@@ -246,10 +255,24 @@ Reference: [Entitlement aggregation](https://documentation.sailpoint.com/saas/he
 
 **Check:** All 14 Acme groups are visible as entitlements on the correct AD source.
 
-**Screenshots:** Capture the completed entitlement aggregation, the Acme groups, and GG-VPN-USERS details.
+**Screenshot:** Save `AR-003-07-entitlements.png`. Capture the completed entitlement aggregation, the Acme groups, and GG-VPN-USERS details.
+
+## Try it yourself
+
+Open GG-HR-PAYROLL in AD and then on the ISC AD source. Record its actual DN and imported entitlement value. Confirm you selected the same group on the same source.
+
+Write these answers in your [journal](EVIDENCE.md):
+
+1. Which search setting controls users, which controls groups, and which controls membership reads?
+2. Does an imported AD account necessarily belong to an ISC identity yet?
+
+## If a check does not match
+
+If an object is absent, compare its actual DN with the saved user/group search scope and filters. Inspect the aggregation result. A zero-new-objects result is acceptable when the expected records already exist.
 
 ## Final verification
 
+- [ ] The independent check and both explanations are recorded.
 - [ ] AD Test Connection succeeds.
 - [ ] AcmeLab exists with Users, AdminAccounts, and Groups.
 - [ ] Lucas exists in AcmeLab/Users as `acme.e012`.
@@ -276,6 +299,20 @@ Keep:
 
 Do not make the groups requestable yet.
 
-Next: **AR-004 — Correlate Lucas's Existing AD Account**.
+## Screenshots to capture
+
+Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
+
+| Filename | Evidence |
+|---|---|
+| `AR-003-01-connection-test.png` | Capture the AD source name and successful connection test. |
+| `AR-003-02-lab-ous.png` | Capture AcmeLab expanded with Users, AdminAccounts, and Groups. |
+| `AR-003-03-lucas-account.png` | Capture Lucas's account and distinguishedName. |
+| `AR-003-04-ad-groups.png` | Capture the 14 groups in AD. |
+| `AR-003-05-source-scopes.png` | Capture the saved user, group, and membership-search settings. |
+| `AR-003-06-account-import.png` | Capture the completed account aggregation and Lucas's imported AD account. |
+| `AR-003-07-entitlements.png` | Capture the completed entitlement aggregation, the Acme groups, and GG-VPN-USERS details. |
+
+Next: **[AR-004 — Correlate Lucas's Existing AD Account](../AR-004/README.md)**.
 
 [Previous: AR-002](../AR-002/README.md) · [Labs Home](../README.md)

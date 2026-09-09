@@ -4,6 +4,12 @@
 
 **Prerequisites:** Your existing AD source is connected to the training domain. You can administer that source in ISC and create users, organizational units (OUs), and groups in the AD lab area. Lucas Brown (`acme.e012`) exists in Acme Employees from [AR-001](../AR-001/README.md).
 
+## If this configuration already exists
+
+Check Lucas and all 14 business groups are imported. Keep later accounts and the baseline group; do not shrink scope or return the population to one user. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Try a different account view](#try-a-different-account-view). Capture current results and label earlier creation activity as historical.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
 ## Before you open the settings
 
 Use your ISC administrator session and your AD administration workstation. Keep your actual AD source name and the Acme HR source name separate in your notes.

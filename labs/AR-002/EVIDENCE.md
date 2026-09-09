@@ -72,3 +72,13 @@ Capture `AR-002-wrong-manager.png` and `AR-002-restored-manager.png`; confirm ot
 | Temporary changes restored | |
 | Retained objects and memberships checked | |
 | Next unfinished check, if any | |
+
+## Existing-configuration entry check
+
+| Item | Your record |
+|---|---|
+| First setup or existing configuration | |
+| Current objects and values checked before the exercise | |
+| Historical activity reused, including original date | |
+| Live changes made and original values | |
+| Restoration evidence and retained state | |

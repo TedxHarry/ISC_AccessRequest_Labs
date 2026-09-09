@@ -1,6 +1,6 @@
 # Module 1 — Foundations
 
-Complete the labs in order.
+Complete the labs in order. Keep the [Module 1 configuration record](../M01-STATE.md) and each lab’s journal beside you. Use actual tenant values wherever the instructions identify a placeholder.
 
 ## Lab sequence
 

@@ -62,3 +62,13 @@
 - [ ] Create Account configuration is retained for AR-006.
 
 [Return to AR-005](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| What will supply Liam’s username in the DN and UPN expressions? | |
+| Why does saving Create Account leave Liam absent from AD? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

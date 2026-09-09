@@ -2,6 +2,12 @@
 
 **Prerequisites:** Complete both target checks in [AR-006](../AR-006/README.md). Lucas and Liam have working baseline membership and correctly linked accounts.
 
+## If this configuration already exists
+
+Verify all 24 current account links and memberships. Use the saved batch history to compare operations; do not unassign employees to repeat provisioning. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Compare the small batch with the full roster](#compare-the-small-batch-with-the-full-roster). Capture current results and label earlier creation activity as historical.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
 ## Before you open the settings
 
 Use the administrator session and the existing ROLE-Acme-AD-Baseline and AP-Acme-AD-Baseline.

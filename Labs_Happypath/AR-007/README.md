@@ -6,6 +6,12 @@
 
 Expand the working baseline role from Lucas and Liam to all 24 Acme identities, provision the remaining AD accounts, and verify every account and baseline membership.
 
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
+## Session for this lab
+
+Use your ISC administrator session for ISC steps and your AD administration workstation for directory steps.
+
 ## Prerequisites
 
 Complete [AR-006](../AR-006/README.md).
@@ -66,10 +72,11 @@ Keep the [account verification journal](EVIDENCE.md) open.
 8. Wait for identity processing and provisioning to complete.
 9. Open **Search > Account Activity** and confirm Priya and Daniel finish successfully.
 10. In AD, confirm both accounts exist under the intended Users OU and are direct members of `GG-ACME-BASELINE`.
+11. Run one AD account aggregation using Section 4, then verify Priya and Daniel’s identity links using Section 5 before expanding to the remaining employees.
 
 **Check:** Lucas, Liam, Priya, and Daniel all have standard AD accounts and baseline membership.
 
-**Screenshot:** Capture the four-person assignment and successful provisioning results.
+**Screenshot:** Save `AR-007-01-four-person-batch.png`. Capture the four-person assignment and successful provisioning results.
 
 ## 3. Add the remaining 20 identities
 
@@ -87,13 +94,13 @@ Reference: [Role assignment](https://documentation.sailpoint.com/saas/help/provi
 
 **Check:** The role contains exactly the 24 Acme identities.
 
-**Screenshot:** Capture the complete role assignment. Use multiple images if needed.
+**Screenshot:** Save `AR-007-02-complete-role.png`. Capture the complete role assignment. Use multiple images if needed.
 
 ## 4. Run one AD account aggregation
 
 1. Open the AD source.
 2. Open **Account Management > Account Aggregation**.
-3. Start one account aggregation after the provisioning batch is complete.
+3. Start one account aggregation after the provisioning batch is complete. Use this procedure once after the four-person batch and once after the remaining 20.
 4. Wait for it to finish.
 5. Confirm the aggregation status is successful.
 
@@ -111,7 +118,7 @@ For each employee:
 2. Confirm `employeeID` matches the employee's Identification Number.
 3. Confirm the account DN is in the intended Users OU.
 4. Confirm the UPN uses the expected suffix.
-5. Confirm the account is enabled as expected for your lab configuration.
+5. Compare enabled/disabled state and password-change flags with the expectation recorded in AR-005. Resolve an unexpected state before relying on directory sign-in.
 6. Confirm direct membership in `GG-ACME-BASELINE`.
 7. Open the ISC identity > **Accounts**.
 8. Confirm the AD account is linked to the correct identity.
@@ -130,7 +137,7 @@ Use the journal rather than relying only on total counts.
 
 **Check:** `GG-ACME-BASELINE` contains the 24 intended Acme accounts.
 
-**Screenshot:** Capture the baseline group membership. Use multiple images if needed.
+**Screenshot:** Save `AR-007-03-baseline-members.png`. Capture the baseline group membership. Use multiple images if needed.
 
 ## 7. Confirm business groups were not changed
 
@@ -148,8 +155,22 @@ Confirm this lab did not add the 24 users to those groups.
 
 **Check:** The baseline role created standard accounts and baseline membership only.
 
+## Try it yourself
+
+Compare Priya’s actual DN, UPN and employeeID with your AR-005 prediction. Then independently locate James (`acme.e014`) in AD and ISC and verify his baseline membership and account link.
+
+Write these answers in your [journal](EVIDENCE.md):
+
+1. Why are 24 role assignments insufficient evidence of 24 usable accounts?
+2. What did you check before moving from four people to 24?
+
+## If a check does not match
+
+If a person is missing, find that username in the role list, activity and AD in that order. Keep successful assignments; resolve the specific failed account or membership operation before expanding the batch.
+
 ## Final verification
 
+- [ ] The independent check and both explanations are recorded.
 - [ ] Acme Employees contains 24 identities.
 - [ ] ROLE-Acme-AD-Baseline contains exactly 24 identities.
 - [ ] All provisioning activity is complete.
@@ -164,6 +185,16 @@ Confirm this lab did not add the 24 users to those groups.
 ## Leave this in place
 
 Keep all 24 role assignments, AD accounts, account links, and baseline memberships in place.
+
+## Screenshots to capture
+
+Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
+
+| Filename | Evidence |
+|---|---|
+| `AR-007-01-four-person-batch.png` | Capture the four-person assignment and successful provisioning results. |
+| `AR-007-02-complete-role.png` | Capture the complete role assignment. Use multiple images if needed. |
+| `AR-007-03-baseline-members.png` | Capture the baseline group membership. Use multiple images if needed. |
 
 Next: **[AR-008 — Prepare Requester and Reviewer Sessions](../AR-008/README.md)**
 

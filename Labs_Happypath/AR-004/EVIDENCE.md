@@ -44,3 +44,13 @@
 - [ ] Lucas's account correlation is retained for AR-005.
 
 [Return to AR-004](README.md)
+
+## Explain and repeat
+
+| Item | Your observation |
+|---|---|
+| Independent check: identity/object and result | |
+| Which two values identify Lucas across ISC and AD? | |
+| Why did this schema/correlation change require an unoptimized aggregation? | |
+| State retained for the next lab | |
+| Unresolved check, if any | |

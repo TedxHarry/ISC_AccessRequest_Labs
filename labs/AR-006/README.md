@@ -2,6 +2,12 @@
 
 **Prerequisites:** Complete [AR-005](../AR-005/README.md). Lucas has a correlated AD account. Liam has no AD account. GG-ACME-BASELINE exists and is aggregated.
 
+## If this configuration already exists
+
+Inspect Lucas’s original account and Liam’s creation activity. Keep the full current role list if AR-007 is already complete; do not reduce it to two people. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Compare the two outcomes, then check again](#compare-the-two-outcomes-then-check-again). Capture current results and label earlier creation activity as historical.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
 ## Before you open the settings
 
 Use your existing ISC administrator session and AD workstation. Employee sign-in is not needed to assign this baseline role.
