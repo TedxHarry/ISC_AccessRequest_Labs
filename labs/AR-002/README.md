@@ -4,6 +4,8 @@
 
 **Prerequisites:** Acme HR contains the 24 employee accounts, and Acme Employees has the corresponding identities and baseline attributes from [AR-001](../AR-001/README.md).
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Confirm Lucas → Daniel → Morgan and record Lucas’s current E003 manager reference before the reversible practice. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Practice: a valid identifier pointing to the wrong manager](#practice-a-valid-identifier-pointing-to-the-wrong-manager). Capture current results and label earlier creation activity as historical.

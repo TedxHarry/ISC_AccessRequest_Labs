@@ -53,3 +53,7 @@ Official references reviewed: [creation mappings](https://documentation.sailpoin
 This records a writing and consistency review. It does not add tenant execution evidence. Future changes to a shared object, dataset or retained state must be checked against both versions of its lab and the following lab. Later modules remain outside this pass.
 
 Local validation checked repository Markdown paths, Module 1 entry anchors, all 18 walkthrough structures, screenshot-list consistency and the roster values used by the independent exercises. These checks establish document consistency, not live provisioning or UI execution.
+
+## Direct-entry recheck before Module 2
+
+Confirmed AR-001–009 retain setup procedures and do not require the beginner copies. Added a first-run reading instruction and corrected AR-006’s Lucas activity check, which pointed prematurely to Liam’s later verification. Existing environment prerequisites, including provisioning connectivity, remain explicit. This was a documentation check, not a tenant run.

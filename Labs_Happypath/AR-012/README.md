@@ -6,10 +6,6 @@ Approve the request you submitted in AR-011 and follow it through to Lucas's exi
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## If you already completed this configuration
-
-Read the saved-state checks before changing anything. Reuse verified objects and existing requests. Keep Lucas’s completed VPN grant; inspect historical approval/activity when that decision already happened. Use the resume instructions and ticket below for further practice. A first-time learner should follow every numbered section in order.
-
 ## Before you start
 
 Complete [AR-011](../AR-011/README.md). Use Acme Priya, Acme Lucas, Acme Admin and the AD workstation. Keep the AR-011 request ID and your [journal](EVIDENCE.md) open.
@@ -94,36 +90,6 @@ Keep Lucas's directly requested VPN and baseline assignments. AR-013 uses Olivia
 
 [Reviewing access](https://documentation.sailpoint.com/saas/user-help/approvals/reviewing_access.html) · [Provisioning tracking](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
 
-## Your ticket: approved, but ISC still looks unchanged
-
-Supplied case: AD shows Lucas in VPN with the same objectGUID, while the last imported account data predates the write. Explain your next check and the evidence needed to close the ticket.
-
-<details>
-<summary>Compare your answer with the mentor's solution</summary>
-
-Match the source, account and group DN, then aggregate and inspect processing. Compare the imported membership again. The target write has evidence; reconciliation is the remaining check. Do not manually add the group or submit another grant. Closure needs the linked request/activity and matching native and imported results.
-
-</details>
-
-## If you repeat this lab
-
-Keep Lucas's requested VPN assignment. Inspect its history and current native membership. Label decision evidence historical if you did not perform it again. If the request is unresolved, resume its current stage rather than blindly replacing it. A different controller result calls for a replication check before changing ISC.
-
-## What to leave in place
-
-| Item | Required state |
-|---|---|
-| Lucas | Same standard account; baseline and directly requested VPN retained |
-| Evidence | Submission, Priya's decision, operation and native result linked |
-| Grant | No unexplained pending or failed operation |
-
-
-## Practice completion
-
-- [ ] Diagnosis recorded before opening the solution.
-- [ ] Supplied cases distinguished from failures actually observed.
-- [ ] Temporary changes restored, requests accounted for, and next lab state verified.
-
 ## Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
@@ -136,4 +102,4 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 | AR-012-04.png | Native VPN membership and unchanged account |
 | AR-012-05.png | Reconciled ISC account and Access |
 
-[Previous: AR-011](../AR-011/README.md) · [Course outline](../../README.md) · [Next: AR-013](../AR-013/README.md)
+[Previous: AR-011](../AR-011/README.md) · [Lab index](../README.md) · [Next: AR-013](../AR-013/README.md)

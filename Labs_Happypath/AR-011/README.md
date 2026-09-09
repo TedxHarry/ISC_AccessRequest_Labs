@@ -6,10 +6,6 @@ Configure Priya as the VPN reviewer, submit Lucas's request with a reason, and l
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## If you already completed this configuration
-
-Read the saved-state checks before changing anything. Reuse verified objects and existing requests. Keep Lucas’s completed VPN grant; inspect historical approval/activity when that decision already happened. Use the resume instructions and ticket below for further practice. A first-time learner should follow every numbered section in order.
-
 ## Before you start
 
 Complete [AR-010](../AR-010/README.md). Use Acme Admin, Acme Lucas (`acme.e012`) and Acme Priya (`acme.e002`) as separate sessions. Keep your [journal](EVIDENCE.md) open.
@@ -34,10 +30,6 @@ If enforced tenant controls prevent these settings, resolve that prerequisite fo
 **Check:** VPN has one Primary Owner reviewer and required request/denial comments. Priya reviews because she owns VPN; Daniel's manager relationship is not the reviewer selected here.
 
 **Screenshot:** `AR-011-01.png`: saved owner, reviewer and comments configuration.
-
-## Check the required-comment control
-
-In Lucas’s Request Center, choose Request for Myself if prompted, open Access Items > Entitlements, find VPN and select it. Leave the comment empty in Edit Request Details and try **Save**. Record the validation or disabled control as `AR-011-06.png`. If a request unexpectedly submits, locate it in My Requests before doing anything else. Otherwise cancel the unfinished details and clear the item selection, then follow Section 2 to submit the valid request.
 
 ## 2. Submit one request as Lucas
 
@@ -97,36 +89,6 @@ Keep this exact request pending and continue to AR-012. If its status changes wh
 
 [Entitlement controls](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html) · [Request Center procedure](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
 
-## Your ticket: Priya's queue is empty
-
-Supplied case: VPN now names Primary Owner, but administrator details show Daniel assigned on a request submitted before the policy edit. What would you compare before changing permissions?
-
-<details>
-<summary>Compare your answer with the mentor's solution</summary>
-
-Compare the request's item, creation time and actual assignee with the saved configuration and edit time. Verify Priya's session. An older request does not prove a newly saved policy failed. Account for the existing request before using a fresh request to test the new configuration. Do not grant Priya administrator rights or override the approval to make the test pass.
-
-</details>
-
-## If you stopped after submitting
-
-Find the recorded request before submitting again. If still pending with Priya, continue in AR-012. If it completed, inspect the actual decision and AD result and label missed observations historical. If it expired or was canceled, verify no active duplicate or VPN grant remains, then submit one replacement with a repeat label. Record both identifiers. Screenshots do not keep a request pending indefinitely.
-
-## What to leave in place
-
-| Item | Required state |
-|---|---|
-| VPN policy | One Primary Owner reviewer; request and denial comments required |
-| Request | One identified Lucas request pending with Priya |
-| AD | Lucas's baseline retained; VPN absent before approval |
-
-
-## Practice completion
-
-- [ ] Diagnosis recorded before opening the solution.
-- [ ] Supplied cases distinguished from failures actually observed.
-- [ ] Temporary changes restored, requests accounted for, and next lab state verified.
-
 ## Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
@@ -138,6 +100,5 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 | AR-011-03.png | Submitted request details |
 | AR-011-04.png | Priya pending Grant review |
 | AR-011-05.png | Administrator process and actual assignee |
-| AR-011-06.png | Required-comment validation before the valid submission |
 
-[Previous: AR-010](../AR-010/README.md) · [Course outline](../../README.md) · [Next: AR-012](../AR-012/README.md)
+[Previous: AR-010](../AR-010/README.md) · [Lab index](../README.md) · [Next: AR-012](../AR-012/README.md)

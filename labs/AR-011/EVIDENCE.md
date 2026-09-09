@@ -42,3 +42,15 @@ Use a separate row for each actual request. Write Not applicable for stages that
 | Recipient/item | Request ID/time | Reviewer/decision/time | Activity IDs/result | Native before/after | Removal or retained state |
 |---|---|---|---|---|---|
 | | | | | | |
+
+## Walkthrough acceptance record
+
+| Check | Expected | Actual / evidence |
+|---|---|---|
+| Recipient / reviewer | Lucas / Priya | |
+| Reviewer category | Primary Owner | |
+| Request state | One pending Grant request from AR-011 | |
+| Reason | AR-011: Remote access for the Finance lab | |
+| Native VPN | Absent while pending | |
+
+Use the screenshot names in the current README. Additional control captures in AR-011 and AR-013 follow the main walkthrough captures.

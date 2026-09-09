@@ -2,6 +2,8 @@
 
 **Prerequisites:** Complete [AR-005](../AR-005/README.md). Lucas has a correlated AD account. Liam has no AD account. GG-ACME-BASELINE exists and is aggregated.
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Inspect Lucas’s original account and Liam’s creation activity. Keep the full current role list if AR-007 is already complete; do not reduce it to two people. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Compare the two outcomes, then check again](#compare-the-two-outcomes-then-check-again). Capture current results and label earlier creation activity as historical.
@@ -37,7 +39,7 @@ The profile contains one group and will be assigned through a role. [Access prof
 2. In ISC, open **Admin > Access Model > Roles > Create New**. Name the role `ROLE-Acme-AD-Baseline`, select your administrator as owner, and add AP-Acme-AD-Baseline to its access profiles. Leave requests disabled.
 3. Open **Define Assignment**, choose **Identity List**, and add only Lucas (`acme.e012`) using the + control. Save.
 4. Verify the list contains one person. Enable the role and select **Apply Changes** from the role list.
-5. Wait for identity processing and provisioning. Inspect the resulting account activity using Section 4 below.
+5. Open **Search > Account Activity** and locate Lucas’s activity using his username `acme.e012`, the AD source and the role-assignment time. Open its details and record the membership operation, final status and activity ID. Wait for processing to finish; resolve an error before adding Liam. Section 4 below inspects Liam after his assignment.
 6. In AD, confirm Lucas is now a direct member of GG-ACME-BASELINE. Verify his DN and objectGUID are unchanged and no second Lucas account was created.
 
 **Check:** The assignment changed membership on the existing account. Resolve a failure here before adding Liam.

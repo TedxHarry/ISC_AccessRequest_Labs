@@ -4,6 +4,8 @@
 
 **Prerequisites:** Complete AR-002's manager checks and [AR-007](../AR-007/README.md). Have three distinct, working test email addresses you control, access to their inboxes, and your existing ISC administrator session.
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Confirm the three ordinary-user sessions and administrator session still work. Keep authentication settings and registrations; do not resend invitations to working users. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Check that changing tabs does not change the user](#check-that-changing-tabs-does-not-change-the-user). Capture current results and label earlier creation activity as historical.

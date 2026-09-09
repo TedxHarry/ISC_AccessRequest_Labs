@@ -2,6 +2,8 @@
 
 **Prerequisites:** Complete [AR-003](../AR-003/README.md). Lucas exists in AD and ISC has imported his account. Have your administrator session and Postman available.
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Confirm Lucas’s existing HR and AD links and E012 match. Do not unlink him to manufacture an unmatched account. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Check the same person through two sources](#check-the-same-person-through-two-sources). Capture current results and label earlier creation activity as historical.

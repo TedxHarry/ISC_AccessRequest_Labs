@@ -2,6 +2,8 @@
 
 **Prerequisites:** Complete both target checks in [AR-006](../AR-006/README.md). Lucas and Liam have working baseline membership and correctly linked accounts.
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Verify all 24 current account links and memberships. Use the saved batch history to compare operations; do not unassign employees to repeat provisioning. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Compare the small batch with the full roster](#compare-the-small-batch-with-the-full-roster). Capture current results and label earlier creation activity as historical.

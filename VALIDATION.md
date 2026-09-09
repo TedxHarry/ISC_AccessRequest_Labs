@@ -49,3 +49,5 @@ Module 1 now has the additional hands-on guidance pass described in [the module 
 [Focused review](M02-REVIEW.md): AR-010–015 now include explicit starting/retained state, approval controls, request-stage checks, independent diagnosis tickets, resume guidance and step-level screenshot cues. AR-015 includes an optional walkthrough and verified-documentation revocation steps. All six journals include comparison and request timeline fields. Local checks do not replace tenant execution; live status above remains unchanged.
 
 Both Module 1 folders received a paired walkthrough review. See [the review record](M01-REVIEW.md#paired-module-1-walkthrough-review). No additional tenant execution or screenshot validation is claimed.
+
+Module 2 now has six complete walkthroughs in each folder, beginner journals and retained engineering exercises. See [the paired review](M02-REVIEW.md#paired-walkthrough-pass-after-module-1-direct-entry-check). The first-request sequence and shared target-check instructions were reviewed locally; live execution status is unchanged.

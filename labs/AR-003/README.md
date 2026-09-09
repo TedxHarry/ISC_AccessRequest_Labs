@@ -4,6 +4,8 @@
 
 **Prerequisites:** Your existing AD source is connected to the training domain. You can administer that source in ISC and create users, organizational units (OUs), and groups in the AD lab area. Lucas Brown (`acme.e012`) exists in Acme Employees from [AR-001](../AR-001/README.md).
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Check Lucas and all 14 business groups are imported. Keep later accounts and the baseline group; do not shrink scope or return the population to one user. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Try a different account view](#try-a-different-account-view). Capture current results and label earlier creation activity as historical.

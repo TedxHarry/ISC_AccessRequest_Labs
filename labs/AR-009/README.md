@@ -2,6 +2,8 @@
 
 **Prerequisites:** Complete [AR-008](../AR-008/README.md) and retain the evidence from AR-001 through AR-007.
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Recheck current foundation state. Keep later legitimate additions and record them separately from the original 24-person baseline. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Repeat the check with a different employee](#repeat-the-check-with-a-different-employee). Capture current results and label earlier creation activity as historical.

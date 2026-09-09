@@ -32,3 +32,21 @@ All 836 local Markdown file links resolve. Changed-page heading anchors, six lin
 Run the six labs in order. Verify current UI labels, comment validation, actual assignee, provisioning activity visibility, native group writes and profile revocation in the learner's tenant. A required feature or inherited control that changes the result must be recorded rather than marked passed. Later modules have not received this additional guidance pass.
 
 [Module starting checks](M02-READINESS.md) · [Validation record](VALIDATION.md)
+
+## Paired walkthrough pass after Module 1 direct-entry check
+
+Baseline: 54cc4d46b3af079a8ea7d3122f97cb6bea8c75a1. Scope: Module 1 quick direct-entry check and Module 2 AR-010–015 in both folders. Module 1's Lucas activity reference was corrected before proceeding.
+
+The six beginner labs and journals are now authored. Both folders contain a complete visible working procedure; AR-015 no longer hides its essential walkthrough. Engineering pages retain diagnosis tickets, repeat/recovery guidance, required-comment validation exercises and the catalog diagnosis challenge. Beginners complete the intended denial and availability-management outcomes without support-ticket sections.
+
+The shared [request checks](M02-CHECKS.md) supply additional-user registration, a read-only native membership procedure, request/activity inspection and imported-data refresh. The [starting checks](M02-READINESS.md) define the state passed between labs. C01 navigation now leads into the beginner AR-010; its index stops at the completed Module 2 boundary.
+
+### Accuracy and sequence checks
+
+- Request Center selection, details, review and submission actions were checked against the [current request procedure](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html).
+- Entitlement requestability and explicit owner review, profile grant/removal review, reviewer decisions and administrator revocation were compared with the official references above.
+- AR-011 retains one pending request for AR-012; AR-012 retains Lucas's grant. Olivia is prepared before AR-013, Liam before AR-015. No extra AD account is created for either.
+- AR-014 restores individual requestability without revoking Lucas. AR-015 removes Liam's profile assignment through ISC, checks both native groups, and retains the profile definition and every baseline assignment.
+- Beginner and engineering journals have the same core acceptance outcomes, with separate engineering diagnosis fields. Screenshot cues and end lists were checked for matching filenames.
+
+Local checks covered 1,010 Markdown file links, 32 Module 1/2 heading anchors, 30 lab-page structures and all Module 2 screenshot inventories before this review-record update. No native commands, approvals or provisioning were executed in a tenant. Later module content was not revised by this pass.

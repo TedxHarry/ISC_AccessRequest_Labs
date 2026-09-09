@@ -6,10 +6,6 @@ Make the imported VPN group available in Lucas’s catalog. You will configure v
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## If you already completed this configuration
-
-Read the saved-state checks before changing anything. Reuse verified objects and existing requests. Keep Lucas’s completed VPN grant; inspect historical approval/activity when that decision already happened. Use the resume instructions and ticket below for further practice. A first-time learner should follow every numbered section in order.
-
 ## Before you start
 
 Complete [AR-009](../AR-009/README.md). Keep Acme Admin and Acme Lucas in separate browser profiles, plus your AD administration workstation. Confirm usernames in the ISC user menu.
@@ -90,36 +86,6 @@ Keep VPN requestable, Priya as owner, the internal control hidden and all baseli
 
 [Entitlement request configuration](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html)
 
-## Your ticket: the item is requestable but nobody can request it
-
-Supplied case: VPN is imported and marked requestable, but global entitlement requests are off. Write the setting you would change and how you would prove the fix without granting access.
-
-<details>
-<summary>Compare your answer with the mentor's solution</summary>
-
-Enable entitlement requests globally in the training tenant, retain the individual VPN setting, and retest as Lucas. Verify the hidden comparison item remains unavailable and native VPN membership stays unchanged. Importing a group does not by itself make a working request catalog.
-
-</details>
-
-## If you return to this lab later
-
-Reuse the same entitlement. If Lucas already received VPN in AR-012, preserve that access. Use Olivia's prepared session for a repeat visibility comparison after checking her assignments and pending requests. Record the changed actor. Do not remove Lucas's retained grant to recreate an empty starting state.
-
-## What to leave in place
-
-| Item | Required state |
-|---|---|
-| VPN | Requestable; Priya is primary owner; correct source and DN |
-| GG-INTERNAL-NOREQUEST | Not requestable |
-| Lucas, first pass | Baseline retained; no VPN request submitted or membership added |
-
-
-## Practice completion
-
-- [ ] Diagnosis recorded before opening the solution.
-- [ ] Supplied cases distinguished from failures actually observed.
-- [ ] Temporary changes restored, requests accounted for, and next lab state verified.
-
 ## Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
@@ -132,4 +98,4 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 | AR-010-04.png | VPN visible as Lucas |
 | AR-010-05.png | Hidden internal-control search and filters |
 
-[Previous: AR-009](../AR-009/README.md) · [Course outline](../../README.md) · [Next: AR-011](../AR-011/README.md)
+[Previous: AR-009](../AR-009/README.md) · [Lab index](../README.md) · [Next: AR-011](../AR-011/README.md)

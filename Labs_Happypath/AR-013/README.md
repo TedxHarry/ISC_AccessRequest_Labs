@@ -6,10 +6,6 @@ Submit Olivia's VPN request, deny it with a reason, and verify that the decision
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## If you already completed this configuration
-
-Read the saved-state checks before changing anything. Reuse verified objects and existing requests. Keep Lucas’s completed VPN grant; inspect historical approval/activity when that decision already happened. Use the resume instructions and ticket below for further practice. A first-time learner should follow every numbered section in order.
-
 ## Before you start
 
 Complete [AR-012](../AR-012/README.md). Use Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`), Acme Admin and the AD workstation. Prepare Olivia using [the additional-session steps](../../M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in) before continuing. Keep your [journal](EVIDENCE.md) open.
@@ -45,7 +41,7 @@ Olivia must have her linked standard account and baseline access, but neither VP
 1. Switch to Acme Priya and verify her username.
 2. Open **Approvals > Access Requests > Requested** and select Olivia's VPN request.
 3. Confirm the action is **Grant**, with Olivia as recipient and the AR-013 reason.
-4. Select **Deny**. First leave the reason empty and try to confirm. Record the validation or disabled control as `AR-013-05.png`. If a denial unexpectedly completes, record it and inspect the effective policy before creating another request. Otherwise enter `Remote-work requirement has not been approved` in the denial comment and confirm the decision.
+4. Select **Deny**. Enter `Remote-work requirement has not been approved` in the denial comment and confirm the decision.
 5. Open **Reviewed** and locate the same request. Record the decision and comment.
 6. In Acme Olivia, inspect the request under **My Requests**. In Acme Admin, locate it under **Admin > Dashboard > Approval Management > Access Requests** and inspect **Process** and **Details**. Record which view displays the explanation.
 
@@ -85,36 +81,6 @@ Keep the denied request as evidence. No access removal is needed for a correctly
 
 [Reviewing access requests](https://documentation.sailpoint.com/saas/user-help/approvals/reviewing_access.html)
 
-## Your ticket: denied, but the user has VPN
-
-Supplied case: the request was denied today, but before evidence shows VPN membership yesterday from another assignment. Would you close this as an unauthorized grant caused by the denied request?
-
-<details>
-<summary>Compare your answer with the mentor's solution</summary>
-
-No. Match the decision and timestamps to the existing assignment and before membership. Denying this grant request did not revoke earlier access. Investigate whether that earlier access is still appropriate separately. Do not attribute it to today's denial without a matching write operation.
-
-</details>
-
-## If you stopped during the decision
-
-Reopen the recorded request first. If denied, inspect the result and recheck native membership; do not resubmit merely to capture the comment prompt. If still pending, resume as Priya. A repeat denial test needs a fresh request only after confirming the earlier request ended and Olivia remains without VPN. Label each attempt separately.
-
-## What to leave in place
-
-| Item | Required state |
-|---|---|
-| Olivia | No VPN or Remote Users grant; denied request retained as evidence |
-| Lucas | Existing approved VPN and baseline access preserved |
-| VPN configuration | Priya reviewer and required comments unchanged |
-
-
-## Practice completion
-
-- [ ] Diagnosis recorded before opening the solution.
-- [ ] Supplied cases distinguished from failures actually observed.
-- [ ] Temporary changes restored, requests accounted for, and next lab state verified.
-
 ## Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
@@ -125,6 +91,5 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 | AR-013-02.png | Olivia submitted request and reason |
 | AR-013-03.png | Denied request and explanation |
 | AR-013-04.png | Olivia after memberships |
-| AR-013-05.png | Required denial-comment validation |
 
-[Previous: AR-012](../AR-012/README.md) · [Course outline](../../README.md) · [Next: AR-014](../AR-014/README.md)
+[Previous: AR-012](../AR-012/README.md) · [Lab index](../README.md) · [Next: AR-014](../AR-014/README.md)

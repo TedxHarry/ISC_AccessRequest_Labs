@@ -42,3 +42,18 @@ Use a separate row for each actual request. Write Not applicable for stages that
 | Recipient/item | Request ID/time | Reviewer/decision/time | Activity IDs/result | Native before/after | Removal or retained state |
 |---|---|---|---|---|---|
 | | | | | | |
+
+## Walkthrough acceptance record
+
+| Check | Expected | Actual / evidence |
+|---|---|---|
+| Profile / source | AP-Remote-Worker / recorded AD source | |
+| Entitlements | GG-VPN-USERS and GG-REMOTE-USERS only | |
+| Grant / removal reviewer | Priya as Primary Owner for both | |
+| Liam grant | Both groups on existing account | |
+| Olivia denial | Neither group granted | |
+| Liam removal | Both groups and test profile assignment absent | |
+| Baseline / Lucas VPN | All retained | |
+| C02 | Saved privately | |
+
+Use the screenshot names in the current README. Additional control captures in AR-011 and AR-013 follow the main walkthrough captures.

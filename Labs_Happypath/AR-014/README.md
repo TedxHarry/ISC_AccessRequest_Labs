@@ -6,10 +6,6 @@ Temporarily stop new VPN requests, verify the catalog change, then make VPN avai
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## If you already completed this configuration
-
-Read the saved-state checks before changing anything. Reuse verified objects and existing requests. Keep Lucas’s completed VPN grant; inspect historical approval/activity when that decision already happened. Use the resume instructions and ticket below for further practice. A first-time learner should follow every numbered section in order.
-
 ## Before you start
 
 Complete [AR-013](../AR-013/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Olivia's denied request is concluded; she has no VPN grant or pending VPN request. Lucas keeps his approved VPN membership. Keep your [journal](EVIDENCE.md) open.
@@ -39,10 +35,6 @@ This is a catalog administration task. Do not submit a request or remove an exis
 **Check:** VPN is unavailable for a new request in Olivia's catalog. You changed individual requestability, not the global feature.
 
 **Screenshots:** `AR-014-02.png`: saved off setting. `AR-014-03.png`: Olivia's catalog search with username and filters.
-
-## Diagnose the unavailable item before restoring it
-
-Write the failed check in your journal before reopening the setting: verify Olivia’s username, item source/DN, global entitlement enablement, individual requestability and applicable segments. Identify the one changed value using your before/after record. For an independent challenge, have a partner select a wrong search name or the individual requestability condition; when alone, diagnose the saved case without rereading the walkthrough. Restore the setting in Section 3 and recheck the hidden control.
 
 ## 3. Restore availability
 
@@ -87,36 +79,6 @@ Keep VPN requestable and all existing assignments intact. Keep Olivia's session 
 
 [Entitlement catalog configuration](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html)
 
-## Your ticket: it disappeared only for Lucas
-
-Supplied case: the administrator confirms VPN is requestable and Olivia can find it, but Lucas cannot submit a new request. Lucas already received VPN in AR-012. Write the checks you would make before changing global settings.
-
-<details>
-<summary>Compare your answer with the mentor's solution</summary>
-
-Verify Lucas's session, existing VPN assignment, account and pending requests. Compare the same item and filters with Olivia's session. An existing assignment can explain why a fresh request is unavailable; record the actual UI behavior. Olivia's result is a useful control against a global outage. Also inspect applicable segmentation if the assignment does not explain the difference. Do not revoke Lucas's retained grant or widen global visibility as a first fix.
-
-</details>
-
-## If you stopped while VPN was hidden
-
-Reopen the recorded entitlement and restore Allow Access Requests before any new request exercise. Retest with Olivia, verify Priya's owner/reviewer settings, and confirm GG-INTERNAL-NOREQUEST remains hidden. Keep the before, faulty and restored results separate in your journal. For another attempt, start from the verified visible state each time.
-
-## What to leave in place
-
-| Item | Required state |
-|---|---|
-| VPN | Requestable again; original owner/reviewer retained |
-| Olivia | Can find VPN; no new request or grant from this experiment |
-| Lucas / negative control | Lucas retains VPN; GG-INTERNAL-NOREQUEST stays hidden |
-
-
-## Practice completion
-
-- [ ] Diagnosis recorded before opening the solution.
-- [ ] Supplied cases distinguished from failures actually observed.
-- [ ] Temporary changes restored, requests accounted for, and next lab state verified.
-
 ## Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
@@ -129,4 +91,4 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 | AR-014-04.png | Restored visible item |
 | AR-014-05.png | Lucas retained VPN membership |
 
-[Previous: AR-013](../AR-013/README.md) · [Course outline](../../README.md) · [Next: AR-015](../AR-015/README.md)
+[Previous: AR-013](../AR-013/README.md) · [Lab index](../README.md) · [Next: AR-015](../AR-015/README.md)

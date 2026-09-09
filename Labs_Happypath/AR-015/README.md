@@ -6,19 +6,11 @@ Create one Remote Worker item containing VPN and remote-tool access. Approve it 
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## If you already completed this configuration
-
-Read the saved-state checks before changing anything. Reuse verified objects and existing requests. Keep Lucas’s completed VPN grant; inspect historical approval/activity when that decision already happened. Use the resume instructions and ticket below for further practice. A first-time learner should follow every numbered section in order.
-
 ## Before you start
 
 Complete [AR-014](../AR-014/README.md). Use Acme Admin, Acme Liam (`acme.e008`), Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`) and the AD workstation. Prepare Liam using [the additional-session steps](../../M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in).
 
 Liam and Olivia each have one linked standard AD account and baseline access, but neither `GG-VPN-USERS` nor `GG-REMOTE-USERS`. They have no Remote Worker assignment or pending request. Preserve Lucas's approved VPN and all 24 baseline assignments. Keep your [journal](EVIDENCE.md) open.
-
-## Plan the acceptance test
-
-Before following the walkthrough, write the profile name, two groups, owner, grant/removal reviewer and predicted recipient states. Try the familiar steps independently if ready; the complete procedure remains below. Record where you needed help. Do not skip final removal or native verification.
 
 ## 1. Record the two recipients before requesting
 
@@ -150,37 +142,6 @@ Retain AP-Remote-Worker and its policies. Liam and Olivia finish without either 
 
 [Profile request/removal policies](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html) · [Profile creation and revocation](https://documentation.sailpoint.com/saas/help/access/access-profiles.html)
 
-## Your ticket: the bundle is only partly present
-
-Supplied case: Liam's profile request was approved. VPN was added but the Remote Users operation failed. Is this ready to close? Write what you would inspect before retrying.
-
-<details>
-<summary>Compare your diagnosis with the mentor's solution</summary>
-
-Keep the case open. Match the account and group DNs, inspect the failed operation's exact error and verify native state. Correct the supported cause, then use an eligible retry or documented recovery. Do not submit the individual entitlements to disguise a partial profile fulfillment. Closure requires both memberships and a recorded final request/activity outcome.
-
-</details>
-
-## If you stopped midway or repeat later
-
-Find existing grant, denial and removal requests before submitting another. If Liam has the test profile, finish verification and supported removal. If removal is pending, resume its review or operation. Start a new test only after checking both memberships and accounting for earlier requests. Preserve pre-existing access and label exceptions; do not claim clean removal while a group remains unexplained.
-
-## What to leave in place
-
-| Item | Required state |
-|---|---|
-| AP-Remote-Worker | Enabled and requestable; two entitlements; Priya grant/removal reviewer |
-| Liam and Olivia | No Remote Worker test assignment or membership in either business group |
-| Lucas and baseline | Lucas retains requested VPN; baseline remains assigned to all 24 |
-| C02 | Approved, denied and removed outcomes supported by evidence |
-
-
-## Practice completion
-
-- [ ] Diagnosis recorded before opening the solution.
-- [ ] Supplied cases distinguished from failures actually observed.
-- [ ] Temporary changes restored, requests accounted for, and next lab state verified.
-
 ## Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
@@ -195,4 +156,6 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 | AR-015-06.png | Olivia unchanged memberships |
 | AR-015-07.png | Liam removal and final native state |
 
-[Previous: AR-014](../AR-014/README.md) · [Course outline](../../README.md) · [Next: AR-016](../AR-016/README.md)
+[Previous: AR-014](../AR-014/README.md) · [Lab index](../README.md)
+
+Module 2 is complete when the C02 checks pass. Keep the retained state for the next module.

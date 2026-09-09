@@ -1,15 +1,15 @@
 # Before your first business request
 
-Use this page with [AR-010](labs/AR-010/README.md). Keep C01 available and use the current tenant records to check the starting state.
+Use this page before AR-010. Keep C01 available and use the current tenant records to check the starting state.
 
 ## Get the sessions and target checks ready
 
 - Administrator: edit entitlement/profile settings and inspect Approval Management and Account Activity.
 - Lucas and Priya: working, separate ordinary-user sessions from AR-008.
-- Olivia: prepare her sign-in before AR-013. Liam: prepare his before AR-015. Use AR-008's additional-session procedure and the latest complete HR file.
+- Olivia: prepare her sign-in before AR-013. Liam: prepare his before AR-015. Use the [additional-session procedure](M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in) and the latest complete HR file.
 - AD workstation: the ActiveDirectory module or equivalent native AD view, and the same domain controller for before/after comparisons.
 
-Run the [lab desk membership check](LAB-DESK.md#check-membership-in-ad) with each lab's username and group. Record the account DN, objectGUID and direct membership. A group inherited through nesting is a separate observation.
+Run the [native membership check](M02-CHECKS.md#inspect-direct-ad-membership) with each lab's username and group. Record the account DN, objectGUID and direct membership. A group inherited through nesting is a separate observation.
 
 ## Check the state you need
 
@@ -41,4 +41,4 @@ For the course VPN item, record inherited settings and configure the item explic
 
 Catalog visibility proves only that the user can find the item. Approval proves a decision. Account activity and native membership prove whether the requested target change occurred. Retain evidence for each.
 
-[Start AR-010](labs/AR-010/README.md) · [Course outline](README.md)
+Keep this page with the current lab journal.

@@ -238,6 +238,8 @@ Capture results after the checks above. Hide passwords, tokens, invitation links
 | `AR-009-02-baseline-members.png` | The native target state matches the baseline role assignment. |
 | `AR-009-03-user-sessions.png` | The requester, reviewers, and administrator are signed in through separate sessions. |
 
-**Module 1 is complete.**
+**Module 1 is complete when the C01 checks pass.**
+
+Next: [AR-010 · Make VPN access requestable](../AR-010/README.md).
 
 [Previous: AR-008](../AR-008/README.md) · [Lab index](../README.md)

@@ -2,6 +2,8 @@
 
 **Prerequisites:** Complete [AR-004](../AR-004/README.md). Your AD connector must support direct provisioning, with its VA, IQService, TLS, and service-account permissions configured.
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Compare the saved creation policy and baseline group with this lab. Keep existing Liam/Priya accounts and use their original activity for historical checks. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Work out another account before creating it](#work-out-another-account-before-creating-it). Capture current results and label earlier creation activity as historical.

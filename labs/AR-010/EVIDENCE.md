@@ -42,3 +42,14 @@ Use a separate row for each actual request. Write Not applicable for stages that
 | Recipient/item | Request ID/time | Reviewer/decision/time | Activity IDs/result | Native before/after | Removal or retained state |
 |---|---|---|---|---|---|
 | | | | | | |
+
+## Walkthrough acceptance record
+
+| Check | Expected | Actual / evidence |
+|---|---|---|
+| Requested object | GG-VPN-USERS entitlement on the recorded AD source | |
+| Owner | Priya / acme.e002 | |
+| Requester visibility | VPN available to Lucas; internal control unavailable | |
+| Lucas native VPN | Absent before and after; no request submitted | |
+
+Use the screenshot names in the current README. Additional control captures in AR-011 and AR-013 follow the main walkthrough captures.

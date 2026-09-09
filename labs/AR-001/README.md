@@ -4,6 +4,8 @@
 
 **Prerequisites:** Sign in to your ISC training tenant with an account that can create sources and identity profiles. Your existing AD connection will be used in later labs; this exercise imports HR data.
 
+Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
+
 ## If this configuration already exists
 
 Confirm Lucas is Finance/FIN200 on HR and identity, and retain the latest complete CSV including any later employees and controlled email addresses. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [7. Practice challenge: investigate a wrong department](#7-practice-challenge-investigate-a-wrong-department). Capture current results and label earlier creation activity as historical.
