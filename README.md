@@ -77,7 +77,7 @@ Prerequisites: a provisioned training tenant and Windows infrastructure. You wil
 
 ## M02 — Deliver your first working request
 
-Prerequisite: C01. You will trace a simple request from submission to AD. Documentation: [entitlement request configuration](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html).
+Prerequisite: C01. Complete the [Module 2 starting checks](M02-READINESS.md). You will trace a simple request from submission to AD. Documentation: [entitlement request configuration](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html).
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|
@@ -86,7 +86,7 @@ Prerequisite: C01. You will trace a simple request from submission to AD. Docume
 | [AR-012](labs/AR-012/README.md) | Practice | Complete the first successful request | Link submission, decision, activity, and AD membership |
 | [AR-013](labs/AR-013/README.md) | Practice | Deny a second user's request | Prove the denial outcome and absence of a new target grant |
 | [AR-014](labs/AR-014/README.md) | Investigate | VPN is missing from Request Center | Isolate the requestability fault with a non-admin session |
-| [AR-015](labs/AR-015/README.md) | Check | Deliver Remote Users access without a walkthrough | Build, test, and explain a second end-to-end request |
+| [AR-015](labs/AR-015/README.md) | Check | Deliver Remote Users access without a walkthrough | Build, test, remove the test grant, and save C02 |
 
 ## M03 — Package useful business access
 

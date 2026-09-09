@@ -43,3 +43,7 @@ Keep the execution ledger in the private evidence folder. Use columns: lab ID, d
 [Focused review](M01-REVIEW.md): revised parsing checks, manager-data practice, standard-account layout, API error guidance, mapping edits, batch aggregation, email/sign-in expectations and C01 explanations. Local links, fenced-code structure and newly linked documentation were checked. No additional tenant execution is claimed.
 
 Module 1 now has the additional hands-on guidance pass described in [the module review](M01-REVIEW.md#hands-on-guidance-pass): starting states, comparisons, diagnosis tickets and solutions, resume/retained-state guidance, and screenshot reminders within the procedures. All nine journals include practice and ticket evidence fields. This is authored and locally checked material; live status above is unchanged.
+
+## Module 2 review, 9 September 2026
+
+[Focused review](M02-REVIEW.md): AR-010–015 now include explicit starting/retained state, approval controls, request-stage checks, independent diagnosis tickets, resume guidance and step-level screenshot cues. AR-015 includes an optional walkthrough and verified-documentation revocation steps. All six journals include comparison and request timeline fields. Local checks do not replace tenant execution; live status above remains unchanged.
