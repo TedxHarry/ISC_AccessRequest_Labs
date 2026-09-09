@@ -1,81 +1,49 @@
-# AR-001 — Evidence Journal
-
-Copy this journal to your own notes and complete it with your lab observations. Keep tenant details and screenshots in your private lab records.
+# AR-001 — Happy Path Evidence Journal
 
 ## Environment
 
-| Item | Your record |
+| Item | Your result |
 |---|---|
-| HR source name and ID | |
-| Identity profile name and ID | |
+| HR source name | |
+| Identity profile name | |
 | Working CSV filename | |
 | Account ID attribute | |
 | Account Name attribute | |
-| Lucas's HR account identifier | |
-| Lucas's ISC identity identifier | |
 
-## Prediction
+## Import verification
 
-What should the first import produce? What should change when Lucas's department changes?
-
-## Baseline verification
-
-| Check | Observed result | Evidence reference |
-|---|---|---|
-| HR aggregation result | | |
-| HR account count | | |
-| Acme identity count | | |
-| Required identity mappings | | |
-| Identity processing outcome | | |
-| Identity exceptions, if any | | |
-| E012 account department | | |
-| E012 identity Department | | |
-| Department totals | | |
-
-## Department incident
-
-| Layer | Before change | During incident | After correction |
+| Check | Expected | Observed | Evidence |
 |---|---|---|---|
-| E012 CSV department | | | |
-| E012 HR account department | | | |
-| E012 identity Department | | | |
-| HR account count | | | |
-| Acme identity count | | | |
+| HR aggregation | Success | | |
+| HR account count | 24 | | |
+| Lucas employeeNumber | E012 | | |
+| Lucas department | Finance | | |
+| Lucas costCenter | FIN200 | | |
 
-Record the aggregation identifiers and timestamps for the change and correction.
+## Identity verification
 
-## Diagnosis
+| Check | Expected | Observed | Evidence |
+|---|---|---|---|
+| Acme identity count | 24 | | |
+| Lucas username | acme.e012 | | |
+| Lucas Identification Number | E012 | | |
+| Lucas Department | Finance | | |
+| Lucas Cost Center | FIN200 | | |
+| Identity processing | Successful | | |
+| Identity exceptions | None unresolved | | |
 
-- What was the symptom?
-- Which evidence established the root cause?
-- Which alternative explanation did you rule out, and why?
-- What did you change to correct the problem?
-- How did you verify that existing records were updated?
-- What baseline did you retain for the next lab?
+## Screenshots
 
-## Screenshot checklist
-
-- [ ] Acme HR source details
-- [ ] Account schema and identifying attributes
-- [ ] Completed aggregation and account count
+- [ ] Acme HR source
+- [ ] Account schema
+- [ ] Completed HR aggregation
 - [ ] Identity-profile mappings
-- [ ] Lucas's account and identity before the change
-- [ ] Lucas's account and identity during the incident
-- [ ] Lucas's account and identity after correction
+- [ ] Lucas identity
+- [ ] Lucas Acme HR account
+
+## Completion
+
+- [ ] All final verification checks in AR-001 passed.
+- [ ] The 24-account / 24-identity baseline is retained for AR-002.
 
 [Return to AR-001](README.md)
-
-## Practice and ticket notes
-
-| Record | Your answer |
-|---|---|
-| First attempt, resumed, or repeat | |
-| Starting state checked; any exception | |
-| Guided result and evidence | |
-| Variation/comparison and what it taught you | |
-| Ticket diagnosis before opening the solution | |
-| Evidence that would close the ticket | |
-| Actual fault observed, or supplied case only | |
-| Temporary changes restored | |
-| Retained objects and memberships checked | |
-| Next unfinished check, if any | |

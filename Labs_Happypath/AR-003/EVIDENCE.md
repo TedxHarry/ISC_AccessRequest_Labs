@@ -1,105 +1,95 @@
-# AR-003 Lab Journal
+# AR-003 — Happy Path Evidence Journal
 
-Record actual results as you complete [AR-003](README.md). Leave unfinished checks blank. Keep passwords and connector credentials out of this file.
-
-## Directory and source
-
-| Item | Your value |
-|---|---|
-| AD source name | |
-| AD source ID | |
-| Connection-test result | |
-| Training domain / UPN suffix | |
-| Users OU DN | |
-| AdminAccounts OU DN | |
-| Groups OU DN | |
-| User Search DNs and filters before changes | |
-| Group Search DNs and filters before changes | |
-| Group Membership Search DN and filter | |
-| Scope changes made, or none | |
-| Saved User Search DNs and filters after reopening | |
-| Saved Group Search DNs and filters after reopening | |
-| Saved membership-search settings after reopening | |
-| Users and AdminAccounts coverage verified | |
-
-## Account check
+## AD source
 
 | Item | Your result |
 |---|---|
-| Lucas account reused or created | |
-| AD sAMAccountName (expected acme.e012) | |
-| AD distinguishedName | |
-| ISC account ID | |
-| ISC account sAMAccountName and DN match AD | |
-| Correlated identity, or uncorrelated | |
-| Latest account aggregation status | |
-| Original Delta Aggregation setting | |
-| Delta disabled for the full-scope run, if needed | |
-| Original Delta Aggregation setting restored | |
-| Accounts scanned | |
-| Warnings/errors and resolution | |
+| AD source name | |
+| AD source ID | |
+| Test Connection | |
+| Training domain / UPN suffix | |
 
-## Group check
+## OU structure
 
-For each group, record its actual DN, whether it appears in ISC on your AD source, and any existing members. Use `none` for an empty group.
-
-| Group | AD DN | Found in ISC | Existing members |
-|---|---|---|---|
-| GG-VPN-USERS | | | |
-| GG-REMOTE-USERS | | | |
-| GG-FIN-AP | | | |
-| GG-FIN-REPORTING | | | |
-| GG-HR-PAYROLL | | | |
-| GG-HR-BENEFITS | | | |
-| GG-IT-HELPDESK | | | |
-| GG-IT-ADMINS | | | |
-| GG-ENG-GITHUB | | | |
-| GG-ENG-DEVOPS | | | |
-| GG-SALES-CRM | | | |
-| GG-SEC-SOC | | | |
-| GG-PROD-SUPPORT | | | |
-| GG-INTERNAL-NOREQUEST | | | |
-
-| Entitlement detail | Your result |
+| OU | Distinguished Name |
 |---|---|
-| Latest entitlement aggregation status | |
-| Warnings/errors and resolution | |
-| GG-VPN-USERS source | |
-| GG-VPN-USERS entitlement attribute/type | |
-| GG-VPN-USERS entitlement value | |
-| GG-VPN-USERS ISC entitlement ID, if exposed | |
+| Users | |
+| AdminAccounts | |
+| Groups | |
 
-## Screenshots to retain
+## Lucas AD account
 
-- Successful AD connection test, with credentials hidden.
-- AD Users and Groups OUs showing the lab objects.
-- Search scopes covering the lab OUs.
-- Completed account aggregation and Lucas's imported AD account.
-- Completed entitlement aggregation and the lab entitlements.
-- GG-VPN-USERS entitlement details showing its source and value.
+| Item | Expected | Observed |
+|---|---|---|
+| sAMAccountName | acme.e012 | |
+| Display name | Acme Lab - Lucas Brown | |
+| Department | Finance | |
+| Title | Reporting Analyst | |
+| Distinguished Name | AcmeLab/Users location | |
 
-## Issues to carry into AR-004
+## AD source scope
 
-Record any unresolved account matches or differences from the lab names here:
+| Check | Observed |
+|---|---|
+| User Search Scope covers Users | |
+| User Search Scope covers AdminAccounts | |
+| Group Search Scope covers Groups | |
+| Membership search can reach Groups | |
+| Existing source coverage preserved | |
+
+## Account aggregation
+
+| Check | Expected | Observed | Evidence |
+|---|---|---|---|
+| Aggregation status | Success | | |
+| Lucas found | Yes | | |
+| Lucas sAMAccountName | acme.e012 | | |
+| Lucas DN matches AD | Yes | | |
+| Correlation state | Record actual state | | |
+
+## Entitlement aggregation
+
+| Check | Expected | Observed | Evidence |
+|---|---|---|---|
+| Aggregation status | Success | | |
+| Acme groups found | 14 | | |
+| GG-VPN-USERS source | AD source | | |
+| GG-VPN-USERS native value recorded | Yes | | |
+
+## Group checklist
+
+- [ ] GG-VPN-USERS
+- [ ] GG-REMOTE-USERS
+- [ ] GG-FIN-AP
+- [ ] GG-FIN-REPORTING
+- [ ] GG-HR-PAYROLL
+- [ ] GG-HR-BENEFITS
+- [ ] GG-IT-HELPDESK
+- [ ] GG-IT-ADMINS
+- [ ] GG-ENG-GITHUB
+- [ ] GG-ENG-DEVOPS
+- [ ] GG-SALES-CRM
+- [ ] GG-SEC-SOC
+- [ ] GG-PROD-SUPPORT
+- [ ] GG-INTERNAL-NOREQUEST
+
+## Screenshots
+
+- [ ] Successful AD connection test
+- [ ] AcmeLab OU structure
+- [ ] Lucas AD account
+- [ ] Lucas distinguishedName
+- [ ] 14 AD groups
+- [ ] Saved user/group/membership search settings
+- [ ] Completed account aggregation
+- [ ] Lucas AD account in ISC
+- [ ] Completed entitlement aggregation
+- [ ] Acme entitlements in ISC
+- [ ] GG-VPN-USERS details
 
 ## Completion
 
-- [ ] I completed each check in the lab's completion checklist.
-- [ ] My journal identifies the actual AD source, Lucas account, and VPN entitlement.
+- [ ] All AR-003 final verification checks passed.
+- [ ] Lucas and the 14 groups are retained for the next labs.
 
 [Return to AR-003](README.md)
-
-## Practice and ticket notes
-
-| Record | Your answer |
-|---|---|
-| First attempt, resumed, or repeat | |
-| Starting state checked; any exception | |
-| Guided result and evidence | |
-| Variation/comparison and what it taught you | |
-| Ticket diagnosis before opening the solution | |
-| Evidence that would close the ticket | |
-| Actual fault observed, or supplied case only | |
-| Temporary changes restored | |
-| Retained objects and memberships checked | |
-| Next unfinished check, if any | |
