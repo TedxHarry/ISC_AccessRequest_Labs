@@ -30,6 +30,20 @@ def decision(route, mode):
     raise ValueError('Unknown route')
 
 
+def summarize_event(route, payload):
+    """Keep correlation and decisions; exclude comments, names and secrets."""
+    key = 'requestedItemsStatus' if route == '/decision' else 'requestedItems'
+    items = payload.get(key, [])
+    return {'accessRequestId': payload.get('accessRequestId'),
+            'requestedForId': payload.get('requestedFor', {}).get('id'),
+            'requestedById': payload.get('requestedBy', {}).get('id'),
+            'items': [{'id': item.get('id'), 'operation': item.get('operation'),
+                       'decisions': [{'decision': info.get('approvalDecision'),
+                                      'approverId': info.get('approver', {}).get('id')}
+                                     for info in item.get('approvalInfo', [])]}
+                      for item in items]}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--mode-file', required=True)
@@ -69,7 +83,9 @@ def main():
                     return
                 payload = json.loads(self.rfile.read(size))
                 mode = json.loads(Path(args.mode_file).read_text(encoding='utf-8'))
-                if mode.get('async') and self.path != '/decision':
+                if mode.get('async') and self.path == '/dynamic':
+                    raise ValueError('This lab supports asynchronous Submitted only')
+                if mode.get('async') and self.path == '/submitted':
                     if not args.pending_dir:
                         raise ValueError('Asynchronous mode requires a private pending directory')
                     metadata = payload.get('_metadata', {})
@@ -86,8 +102,7 @@ def main():
                     return
                 output = decision(self.path, mode)
                 print(json.dumps({'time': time.time(), 'route': self.path,
-                                  'accessRequestId': payload.get('accessRequestId'),
-                                  'itemIds': [x.get('id') for x in payload.get('requestedItems', [])],
+                                  **summarize_event(self.path, payload),
                                   'response': output}), flush=True)
                 self.send_json(200, output)
             except (ValueError, KeyError, OSError, TypeError, AttributeError):

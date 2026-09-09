@@ -1,6 +1,6 @@
 # AR-042 · Request removal at the correct access level
 
-**Before you start:** AR-041. Use Olivia for Finance/VPN controls and preserve the baseline role.
+**Before you start:** AR-040 removal control, or AR-033 if date controls are unavailable. AR-041 timed observations can remain open. Use Olivia for Finance/VPN controls and preserve the baseline role.
 
 ## Compare three removal paths
 

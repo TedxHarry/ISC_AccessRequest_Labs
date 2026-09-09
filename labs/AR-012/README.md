@@ -9,7 +9,7 @@
 3. In Lucas's My Requests, refresh that request and inspect its process. Record approval and fulfillment separately, including timestamps.
 4. As administrator, inspect the matching provisioning/account activity. Record the AD account, group operation and any error text.
 5. Run the same AD membership check against the same controller. Lucas must now be a direct member of the VPN group.
-6. Open Lucas under **Admin > Identities > Accounts**, then inspect his AD account and **Access**. If the target has changed but the account data is stale, aggregate accounts and wait for processing before comparing again.
+6. Open **Admin > Identity Management > Identities**, select Lucas, then inspect his **Accounts > AD account** and **Access** tabs. If the target has changed but the account data is stale, aggregate accounts and wait for processing before comparing again.
 7. Explain the sequence in your journal: the configured owner became the reviewer, her decision allowed fulfillment, and the connector changed the existing account.
 
 **Check:** One request can be connected to Priya's approval, the actual operation and Lucas's AD membership. No second AD account was created.

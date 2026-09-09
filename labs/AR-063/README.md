@@ -4,9 +4,9 @@
 
 ## Use the action's actual output
 
-1. Clone the control workflow as `WF-Acme-AR063`. Run one denied control if needed and inspect the Approval Policy action's JSON output in execution history.
-2. Add a comparison after Approval Policy. In the variable picker choose the action's documented decision/status output and compare it with the approved value from your recorded output. Do not compare the overall workflow success state.
-3. On the approved branch add **Send Email** to your controlled lab mailbox, subject `AR-063 approval decision`, body containing the request ID, recipient and approved decision. On the other branch add a separate denial notification with the actual decision. Connect both to completion.
+1. Clone the control workflow as `WF-Acme-AR063`. Save the existing Production Support association, enable and temporarily attach the clone, submit a complete Henry control and deny as Ava. Inspect this clone’s Approval Policy output in its execution history before adding the email steps.
+2. Add a comparison after Approval Policy. In the variable picker choose **Approval Policy > status** and compare **Equals** with the documented value `APPROVED`. Record the generated JSONPath and confirm it matches that step’s actual output. Do not compare the overall workflow success state.
+3. On the approved branch add **Send Email** to your controlled lab mailbox, subject `AR-063 approval decision`, body containing the request ID, recipient and approved decision. On the other branch send a neutral `AR-063 decision outcome` notification containing the actual status. Do not label every non-APPROVED result as denial: expiration and unexpected results need their own interpretation. Connect both to completion.
 4. Enable and attach the workflow. Submit and approve a fresh request, then compare the delivered email with the request's decision and native fulfillment. Remove the grant.
 5. Submit and deny a second request. Verify the denial email and absent membership.
 6. Record that notification delivery and provisioning are separate outcomes. If the mail fails, inspect that action without resubmitting the already-approved access request.

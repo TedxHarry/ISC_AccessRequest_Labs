@@ -1,6 +1,6 @@
 # AR-033 · Regression-test the approval service
 
-**Before you start:** AR-032 configuration restored. Outstanding timed observations may remain in your journal, but do not mark them passed prematurely.
+**Before you start:** AR-032 settings restored after the timed tests, or AR-032 explicitly deferred. Do not cancel a request that you still need to observe: record its next observation time and keep it separate from the fresh controls below.
 
 ## Build the acceptance record
 

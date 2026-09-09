@@ -2,6 +2,8 @@
 
 **Before you start:** AR-012. Use Olivia (`acme.e011`) as requester and Priya as reviewer. Verify Olivia has no VPN assignment or membership.
 
+For any actor whose ISC sign-in is not prepared, complete [AR-008’s additional-session procedure](../AR-008/README.md) before submitting or reviewing.
+
 ## Run the denial case
 
 1. Capture Olivia's AD groups and ISC Access before the request.

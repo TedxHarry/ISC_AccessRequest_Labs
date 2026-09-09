@@ -2,6 +2,8 @@
 
 **Before you start:** AR-020. James (`acme.e014`) requests; Elena (`acme.e004`) owns and reviews.
 
+For any actor whose ISC sign-in is not prepared, complete [AR-008’s additional-session procedure](../AR-008/README.md) before submitting or reviewing.
+
 HR needs separate Payroll and Benefits choices under one application. Neither choice should include Finance access.
 
 ## Complete the delivery

@@ -68,6 +68,55 @@ Enter a current token at the hidden prompt. Create the output folder first. The 
 
 ## Configuration changes
 
-Open the current **Get/Update Access Request Configuration** API reference and select v2026 or its documented successor. Read the whole current writable configuration, save a private before copy, change only the required field, and send the matching current-version update. Re-read and compare afterward. Do not copy read-only fields blindly into an update body.
+Use the current service-versioned configuration operation published in the [Access Requests API reference](https://developer.sailpoint.com/docs/tools/sdk/python/access-requests/methods/access-requests/). These paths are relative to your API origin; do not prepend `/v3` or `/v2026` to a service-versioned path.
+
+1. Create **GET** `{{apiBase}}/access-request-config/v2` with your administrator token. Send and save the successful response privately as the before snapshot.
+2. Compare the response with the current writable **AccessRequestConfig2** schema. Make a working copy of that complete configuration. Preserve all unrelated values, including nested request-on-behalf and entitlement settings.
+3. Change only the field required by the lab, for example `reauthorizationEnabled` or `govGroupVisibilityEnabled`. JSON API names use camelCase; SDK property names may use snake_case.
+4. Immediately before writing, GET again. If another administrator changed the configuration, rebuild the working copy from the new result rather than overwriting their change.
+5. Create **PUT** to the same `/access-request-config/v2` path with the working copy as raw JSON. This operation **replaces** configuration; do not send a one-field partial body as if it were PATCH.
+6. GET again and compare the changed field and every preserved setting. On cleanup, repeat the read/compare/update process to restore the lab’s changed field without reverting someone else’s later edits.
+
+If a required field is absent from the current writable schema, stop that configuration subtest and record the gap. Do not inject an undocumented field into this replacement request. In particular, the end-date fallback announced in product news must be matched to a supported configuration operation before it is modified. [Current configuration model](https://developer.sailpoint.com/docs/tools/sdk/python/access-requests/models/access-request-config2/)
 
 Approval timeout/reminder settings use the approval-service configuration or the current UI. Older configuration writes can replace more advanced approval settings. AR-088 practices this change control without sending an obsolete PUT. [Approval migration notice](https://developer.sailpoint.com/discuss/t/enhancement-approvals-expiration-governance-group-visibility-and-more/193947)
+
+
+## Close one stuck pending request (AR-071)
+
+1. Search `status:Pending AND "Access Request"`. Add **Tracking Number** using Column Chooser. Match the recipient, item and activity to your isolated stuck request; copy its Identity Request tracking ID. Never use the reviewer’s approval ID.
+2. Confirm the request is genuinely stuck and record its target state and reason for closure. An ordinary pending approval should be decided or canceled through its normal path.
+3. As an authorized administrator, send **POST** `{{apiBase}}/access-requests/v1/close` with this raw JSON, replacing the ID locally:
+
+```json
+{
+  "accessRequestIds": ["YOUR-IDENTITY-REQUEST-TRACKING-ID"],
+  "message": "AR-071: Close isolated stuck request after investigation",
+  "executionStatus": "Terminated",
+  "completionStatus": "Failure"
+}
+```
+
+4. HTTP 202 is acceptance, not proof of completion. Search `name:"Close Identity Requests"` and inspect the started/completed audits, including IDs that finished in error. Reopen the original request and recheck native state.
+5. Closure does not revoke access. It also fires the Provisioning Completed event trigger for closed requests, so inspect any lab subscription listening to that event before sending the operation.
+
+[Close operation and eligibility](https://developer.sailpoint.com/docs/tools/sdk/python/access-requests/methods/access-requests/), [Close body schema](https://developer.sailpoint.com/docs/tools/sdk/python/access-requests/models/close-access-request/)
+
+## Remove one account’s entitlement (AR-082)
+
+Set recipientId to Sofia’s identity ID, itemId to VPN’s entitlement ID and nativeIdentity to her admin account’s actual source Account ID. POST `{{apiBase}}/v3/access-requests`:
+
+```json
+{
+  "requestedFor": ["{{recipientId}}"],
+  "requestType": "REVOKE_ACCESS",
+  "requestedItems": [{
+    "type": "ENTITLEMENT",
+    "id": "{{itemId}}",
+    "nativeIdentity": "{{nativeIdentity}}",
+    "comment": "AR-082: Remove VPN from Sofia admin account only"
+  }]
+}
+```
+
+Complete any review and verify both accounts in AD. Send one entitlement removal per request. Do not reuse a grant body containing startDate.

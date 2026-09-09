@@ -8,7 +8,7 @@
 2. In AD Users and Computers enable **View > Advanced Features**. Open this group's **Security > Advanced** and save screenshots of the original ACL and inheritance.
 3. Add a permission entry for the connector service principal, applying to **This object only**, that denies writing the group's `member` property. Do not change the Groups OU ACL or any other group. Verify the selected principal and property before saving.
 4. Request this entitlement for Taylor using authorized request-for-others access, then approve. Inspect the failed group-modification activity and absent membership.
-5. Run a known-good request to a separate business group. Compare the results to establish that the connector can still operate elsewhere.
+5. Request AP-Remote-Worker for Taylor as the separate known-good control, provided he starts without it. Have Priya approve and verify VPN/Remote Users membership. Record its ID separately, then remove that profile and verify both groups return to the starting state. This control establishes that the connector can still operate elsewhere.
 6. Remove only the explicit deny entry created in step 3 and verify the original ACL is restored.
 7. Inspect the failed request's retry state. Use a supported retry only if offered and eligible; otherwise wait for its final state, then submit one fresh control. Verify successful membership after recovery.
 

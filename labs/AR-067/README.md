@@ -4,7 +4,7 @@
 
 ## Observe a decision notification
 
-1. Create a filtered HTTP subscription for **Access Request Decision**, using the isolated profile and Basic authentication. This is a notification event; do not return an approval decision to authorize access through it.
+1. Create a filtered HTTP subscription for **Access Request Decision**, using the isolated profile and Basic authentication. Use the workbench’s Decision-specific `requestedItemsStatus` filter and test its positive and unrelated-item payloads; the Submitted/Dynamic `requestedItems` filter will not match this event. This is a notification event; do not return an approval decision to authorize access through it.
 2. Enable the subscription and submit a request for the isolated profile. Approve through its normal review.
 3. Inspect the sanitized event log and match the event's request ID, recipient and decision to ISC. Check target membership separately after fulfillment.
 4. Remove the grant. Submit a second request and deny it. Match the denial event and verify absent membership.

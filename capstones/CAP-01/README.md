@@ -1,6 +1,6 @@
 # CAP-01 · Launch Finance self-service access
 
-**Prerequisites:** AR-001–045. Add AR-061 for automated recipient eligibility and AR-076–077 when SoD is available.
+**Prerequisites:** AR-001–045. Add AR-061’s verified tests across both profiles and the role for automated recipient eligibility and AR-076–077 when SoD is available.
 
 Finance needs Reporting and Accounts Payable choices, a combined Analyst role, appropriate review and verified removal.
 

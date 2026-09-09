@@ -1,6 +1,6 @@
 # AR-046 · Triage approved-but-missing access
 
-**Before you start:** C07. Use a clean Henry Production Support request with no future start date and a valid end date.
+**Before you start:** AR-029 and the removal procedure on the lab desk; C07 is useful but optional feature exercises do not block this lab. Use a clean Henry Production Support request with no future start date, completing any enabled form/end-date requirements.
 
 ## Locate the failing boundary
 

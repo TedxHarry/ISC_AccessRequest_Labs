@@ -38,6 +38,16 @@ Change the username and group to those named in the lab. Capture the result befo
 
 If controllers disagree, record both results and investigate AD replication before changing ISC. Use native AD tools to verify the actual account; the Request Center status alone cannot prove membership.
 
+## Check the starting state for every lab
+
+1. Read the current lab’s actors and confirm each required requester/reviewer can sign in. For a new actor, repeat [AR-008 Sections 1–4](labs/AR-008/README.md), using the latest complete private HR file.
+2. Record the item’s owner, reviewer or workflow, requestability, form, date constraints, removal policy and segment. Record any global value the lab changes.
+3. Check the recipient’s current assignments, native group memberships and pending requests for the same item/account. A clean grant test needs no matching assignment or pending duplicate. Preserve baseline and unrelated access.
+4. For a request on behalf of Taylor or another user, verify the current requester is authorized under [AR-023](labs/AR-023/README.md). If a temporary setting change is needed, record it, enable only for the exercise, and restore it after all requests have been accounted for. Do not assume an earlier lab left Everyone-for-anyone enabled.
+5. After the lab, remove every test grant, including any known-good control on a second group, and resolve pending controls. Restore recorded settings unless the lab explicitly retains them. Do not advance while a failed removal leaves unexplained access.
+
+Lucas retains a directly requested VPN assignment from AR-012. Removing a later profile that also includes VPN must preserve that independent grant. After AR-047 the working HR file has 25 records; the baseline role still selects only the original 24.
+
 ## Submit and follow a control request
 
 1. Use the named requester's browser session. Confirm their username in the profile menu.

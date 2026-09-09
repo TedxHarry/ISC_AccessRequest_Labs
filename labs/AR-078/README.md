@@ -1,6 +1,6 @@
 # AR-078 · Fulfill and reconcile a disconnected application
 
-**Before you start:** AR-077. Use a separate non-authoritative source, Lucas and Taylor. Samuel owns the manual work.
+**Before you start:** AR-047 plus working entitlement request/removal controls. SoD and native workflows are not prerequisites. Use a separate non-authoritative source, Lucas and Taylor. Samuel owns the manual work.
 
 ## Create the small application register
 

@@ -2,6 +2,8 @@
 
 **Before you start:** AR-028. Henry (`acme.e018`) requests; Ava is his manager. Security reviewers have working sessions.
 
+For any actor whose ISC sign-in is not prepared, complete [AR-008’s additional-session procedure](../AR-008/README.md) before submitting or reviewing.
+
 ## Build the ordered review
 
 1. Open **Admin > Identities > Governance Groups > Create Group**. Create `GOV-Security-Review`, owner Noah (`acme.e007`), and save. Open **Membership > Add Members**, select Noah, Evelyn (`acme.e021`) and William (`acme.e022`), then Add. Verify all three identities.

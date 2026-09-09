@@ -1,5 +1,8 @@
 # SailPoint ISC Access Requests: Hands-On Labs
 
+
+[Choose your practice path and check retained state](PRACTICE-PATH.md) · [Content audit and corrections](CONTENT-AUDIT.md)
+
 Build requestable access, configure approvals, verify provisioning in Active Directory, and troubleshoot realistic Access Request incidents.
 
 The course follows Acme Corporation's IAM team through **90 practice labs and three capstone projects**. You will work with the same identities, AD groups, access profiles, roles, and applications as the scenarios become more challenging.

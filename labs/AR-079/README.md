@@ -1,6 +1,6 @@
 # AR-079 · Activate and expire Just-In-Time access
 
-**Before you start:** AR-078, Privilege on Demand/JIT capability and a supported direct-connected source. Use `GG-IT-ADMINS` only as the ordinary simulated lab group described in the environment.
+**Before you start:** AR-026 and AR-045 account-selection/removal checks, Privilege on Demand/JIT capability and a supported direct-connected source. Use `GG-IT-ADMINS` only as the ordinary simulated lab group described in the environment.
 
 ## Distinguish assignment from activation
 

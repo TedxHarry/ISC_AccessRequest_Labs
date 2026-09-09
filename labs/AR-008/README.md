@@ -70,6 +70,24 @@ Use the registered ISC password for this path. The AD password generated during 
 
 **Check:** Lucas, Daniel, and Priya can each complete a fresh sign-in. Keep passwords, registration links, and MFA setup codes out of screenshots and the journal.
 
+## Prepare additional actors when their first lab begins
+
+AR-008 registers Lucas, Daniel and Priya. Other identities exist but are not automatically registered for ISC sign-in. Repeat Sections 1–4 for each new actor before their first request or review. Add a unique controlled email to the latest complete working HR file, import it, verify the identity, and complete a fresh sign-in. Do not replace the working file with the public baseline. After AR-047, preserve Taylor’s 25th row too.
+
+| First needed | Additional sessions |
+|---|---|
+| AR-013 | Olivia, acme.e011 |
+| AR-015 | Liam, acme.e008; use Olivia for the denied control |
+| AR-021 | James, acme.e014; Elena, acme.e004 |
+| AR-026 | Sofia, acme.e009 |
+| AR-029 | Henry, acme.e018; Ava, acme.e006; Noah, acme.e007; Evelyn, acme.e021; William, acme.e022 |
+| AR-030 | Harper, acme.e019 |
+| AR-032 | Samuel, acme.e024 |
+| AR-043 | Alexander, acme.e020 |
+| AR-086 | Ethan, acme.e010 |
+
+Taylor can remain a recipient of administrator-submitted requests; a Taylor requester session is not required for those cases. Provisioned AD passwords do not register any of these ISC sessions.
+
 ## 5. Keep the sessions separate and check access
 
 Create four browser profiles named `Acme Admin`, `Acme Lucas`, `Acme Daniel`, and `Acme Priya`. In Chrome or Edge, use the browser profile menu to add a profile; browser-account synchronization is unnecessary. Separate normal tabs share a session, and multiple private windows can also share a private session.

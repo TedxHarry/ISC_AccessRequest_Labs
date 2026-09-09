@@ -1,6 +1,6 @@
 # Engineering practice and feature coverage
 
-Complete the core path in order. Then take the additional tracks for the capabilities available in your training environment. Use the checkpoints in the lab prerequisites when entering a track directly; an unavailable optional product does not block unrelated AD practice.
+Use the [practice path and starting states](PRACTICE-PATH.md) to follow the core labs and enter optional tracks. Then take the additional tracks for the capabilities available in your training environment. Use the checkpoints in the lab prerequisites when entering a track directly; an unavailable optional product does not block unrelated AD practice.
 
 | Engineering task | Walkthroughs | Evidence needed |
 |---|---|---|
@@ -51,7 +51,7 @@ The release review and sources are in [COURSE-REVIEW.md](COURSE-REVIEW.md). Prod
 | Reauthentication | Existing SSO and supported reauthentication | AR-080 after approval/API labs |
 | Machine identity | Existing isolated governed machine identity/account and required products | AR-083 after the request/account-selection labs |
 | External channel | Installed supported lab integration, authorized users and integration documentation | AR-084 after the core request labs |
-| Subscriber | Controlled authenticated HTTPS route to the supplied service | AR-064 after AR-063; AR-090 after AR-069 |
+| Subscriber | Controlled authenticated HTTPS route to the supplied service | AR-064 after AR-049; AR-058–063 only for the optional native-workflow comparison; AR-090 after AR-069 |
 
 ## Demonstrate independence
 

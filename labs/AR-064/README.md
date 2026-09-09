@@ -1,6 +1,6 @@
 # AR-064 · Compare native workflows with developer event triggers
 
-**Before you start:** AR-063 and the [subscriber workbench](../../SUBSCRIBER-WORKBENCH.md). Complete its local test before enabling any subscription.
+**Before you start:** AR-049 and the [subscriber workbench](../../SUBSCRIBER-WORKBENCH.md). Complete its local test before enabling any subscription.
 
 ## Record two different mechanisms
 
@@ -16,6 +16,8 @@
 If your tenant cannot enforce the filter, do not enable an unfiltered failure exercise. Use only the local synthetic test until the subscription can be scoped.
 
 [Submitted developer trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-submitted/)
+
+The native-workflow comparison in step 1 is optional if Adaptive Approvals is unavailable. Record that comparison as unavailable and continue with the separately configured developer subscription. Developer event triggers do not require completing AR-058–063.
 
 ## Screenshots to capture
 

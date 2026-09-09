@@ -2,6 +2,8 @@
 
 **Before you start:** AR-042. Use Alexander (`acme.e020`) with no existing test profiles.
 
+For any actor whose ISC sign-in is not prepared, complete [AR-008’s additional-session procedure](../AR-008/README.md) before submitting or reviewing.
+
 ## Build overlapping access deliberately
 
 1. Record Alexander's native VPN, Remote Users and Finance Reporting memberships.

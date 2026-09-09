@@ -1,6 +1,6 @@
 # AR-083 · Request access for a machine identity
 
-**Before you start:** AR-082 and the required Machine Identity Security/Agent Identity Security products. Use an existing isolated machine identity with an owned, correlated lab account; do not reclassify a human account merely to enable this exercise.
+**Before you start:** AR-045 account-selection/removal controls and the required Machine Identity Security/Agent Identity Security products. Use an existing isolated machine identity with an owned, correlated lab account; do not reclassify a human account merely to enable this exercise.
 
 ## Trace the machine recipient
 

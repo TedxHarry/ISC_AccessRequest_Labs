@@ -86,7 +86,7 @@ Keep the comma delimiter, exact column names, and all 24 rows. Save edited files
 2. Find **Delimited File** and choose **Configure** or **Actions > Standard Setup**.
 3. Name the source **Acme HR** and describe it as `Acme lab employee records`.
 4. Select your existing administrator as owner; the Acme identities do not exist yet.
-5. Choose the file-based connection option if prompted and select **Authoritative Source**.
+5. Choose the file-based connection option if prompted. If this setup screen offers **Authoritative Source**, select it; creating Acme Employees with Acme HR in Section 5 establishes the authoritative identity-profile relationship.
 6. Continue and save the source configuration. Leave **Enable Provisioning** off for this HR feed.
 
 **Check:** Reopen **Admin > Connections > Sources** and confirm **Acme HR** appears as a **Delimited File** source. Record its name in your journal. [Source configuration](https://documentation.sailpoint.com/saas/help/sources/config_sources.html)

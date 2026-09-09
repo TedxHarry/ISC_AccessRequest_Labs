@@ -10,7 +10,7 @@
 4. Preview or start a new request. Select Test and confirm the field is hidden. Select Production and confirm it appears.
 5. Enter a rollback plan, change back to Test, then change to Production again. Record whether the current form retains the value; do not assume hidden data was cleared.
 6. Submit one Production request with a plan and inspect the reviewer's answers. Deny the control after inspection.
-7. If requiring the plan conditionally is part of the business requirement, add the builder's required-field effect when available and test an empty Production plan. If that effect is unavailable, make the limitation explicit and enforce the requirement in review instead of claiming it is validated.
+7. Keep Rollback plan optional in this exercise. The documented condition effects are Hide, Show, Enable, Disable and Set Default Value; this procedure does not establish a conditional Required effect. Submit an empty Production plan as a negative business case and have Ava deny it. Record that the reviewer, rather than this Show condition, enforces the rollback requirement.
 
 **Check:** Both branches are tested, and you can explain the difference between a hidden field and a verified business condition.
 

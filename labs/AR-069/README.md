@@ -13,7 +13,7 @@
 
 **Pass when:** The service works, a fresh request works, historical failed requests are accounted for, and the handover explains how to stop the integration without losing track of its work.
 
-**Reset:** Subscriptions disabled unless you deliberately retain a working integration for a later lab. Stop the local service only after disabling its subscriptions.
+**Reset:** Subscriptions disabled unless you deliberately retain a working integration for a later lab. Stop the local service only after disabling its subscriptions. Restore the original request-on-behalf setting captured in the subscriber workbench and verify ordinary requester permissions return.
 
 [Subscriber workbench](../../SUBSCRIBER-WORKBENCH.md)
 

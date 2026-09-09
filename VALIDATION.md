@@ -2,6 +2,8 @@
 
 Updated: 8 September 2026.
 
+See the [content audit](CONTENT-AUDIT.md) for corrected defects and unresolved acceptance checks. Written coverage is not a course-wide quality certification.
+
 ## Authored material
 
 - AR-001–090 have walkthroughs and evidence journals.
@@ -18,9 +20,11 @@ This record does not certify every lab as tenant-tested. Timed expiration, exter
 ## Local checks completed
 
 - 90 lab pages and 90 evidence journals present.
-- 792 local Markdown links resolve to existing files.
-- 76 linked SailPoint documentation and community pages returned HTTP 200. Reachability does not establish correctness of every instruction.
-- Eight local tool tests passed: pagination, invalid response handling, fixture export, overwrite protection, subscriber authentication, decision responses, invalid modes, dynamic responses and asynchronous metadata handling. These tests use synthetic data and do not contact ISC.
+- 816 local Markdown links resolve to existing files.
+- 80 linked SailPoint documentation and community pages returned HTTP 200. Reachability does not establish correctness of every instruction.
+- Ten local tool tests passed, including Decision-event evidence and sensitive-field exclusion: pagination, invalid response handling, fixture export, overwrite protection, subscriber authentication, decision responses, invalid modes, dynamic responses and asynchronous metadata handling. These tests use synthetic data and do not contact ISC.
+
+The content-audit pass also checked the baseline CSV: 24 unique employee IDs/usernames, valid manager references, no manager cycles and the expected six-department counts. All fenced JSON examples parse.
 
 ## Before accepting a live lab
 

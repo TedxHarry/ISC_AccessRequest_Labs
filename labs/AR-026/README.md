@@ -2,6 +2,8 @@
 
 **Before you start:** AR-025. Sofia's standard account exists. AdminAccounts is already inside ISC's account search scope from AR-003.
 
+For any actor whose ISC sign-in is not prepared, complete [AR-008’s additional-session procedure](../AR-008/README.md) before submitting or reviewing.
+
 ## Prepare two distinguishable accounts
 
 1. Open `AP-Acme-AD-Baseline > Multiple Account Options`. Select the schema attribute containing the account DN (normally `distinguishedName`), operation **Contains**, and value `,OU=Users,OU=AcmeLab,` followed by your actual domain components. Use the exact Users OU DN recorded in AR-003 with the leading comma. Save and apply. Verify Sofia's standard account DN contains that value and the planned AdminAccounts DN does not before adding another account.

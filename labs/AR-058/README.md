@@ -1,6 +1,6 @@
 # AR-058 · Attach a native approval workflow
 
-**Before you start:** C09, workflow capability and Henry's working reviewer sessions. Save Production Support's reviewer configuration.
+**Before you start:** AR-029, working request/removal controls, Adaptive Approvals and its native Access Request service, plus Henry’s working reviewer sessions. Generic Workflows availability alone does not establish this capability; the API reporting module is useful but not required. Save Production Support's reviewer configuration.
 
 ## Build the smallest useful workflow
 

@@ -2,6 +2,8 @@
 
 **Before you start:** AR-014. Liam (`acme.e008`) requests; Priya owns and reviews.
 
+For any actor whose ISC sign-in is not prepared, complete [AR-008’s additional-session procedure](../AR-008/README.md) before submitting or reviewing.
+
 Acme wants a Remote Worker bundle containing VPN and remote-tool access.
 
 ## Build and demonstrate
@@ -12,7 +14,7 @@ Acme wants a Remote Worker bundle containing VPN and remote-tool access.
 4. As Liam, find and request the profile with reason `AR-015: Remote Worker acceptance test`.
 5. Predict the reviewer, then inspect the real pending approval. Have Priya approve.
 6. Track the activity and prove both direct group memberships in AD. Record the profile assignment and source account in ISC.
-7. As a separate negative case, request the profile for a clean recipient using that person's own session and deny it. Verify neither group is newly added.
+7. As a separate negative case, confirm Olivia has no VPN or Remote Users access, request the profile in Olivia’s session, and deny it as Priya. Verify neither group is newly added.
 8. Write a short handover containing profile/source IDs, owner, groups, reviewer and the two test outcomes.
 
 **Pass when:** Both groups are proven for the approved case, the denied case has no new grants, and your handover explains how to investigate a failure.

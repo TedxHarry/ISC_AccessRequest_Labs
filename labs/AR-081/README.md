@@ -1,6 +1,6 @@
 # AR-081 · Expose governance-group reviewers and compare owner choices
 
-**Before you start:** AR-080. Use GOV-Security-Review and Production Support; save the item's existing workflow/reviewer configuration.
+**Before you start:** AR-029 and AR-052. Use GOV-Security-Review and Production Support; save the item's existing workflow/reviewer configuration.
 
 ## Inspect who can decide
 

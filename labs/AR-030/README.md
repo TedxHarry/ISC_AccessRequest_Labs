@@ -2,6 +2,8 @@
 
 **Before you start:** AR-029. Harper (`acme.e019`) is the recipient. Keep the full working HR file and current approval configuration available.
 
+For any actor whose ISC sign-in is not prepared, complete [AR-008’s additional-session procedure](../AR-008/README.md) before submitting or reviewing.
+
 ## Missing-manager case
 
 1. Save Harper's current manager, Ava, and export or record the profile's reviewer/escalation settings.

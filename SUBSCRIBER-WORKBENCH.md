@@ -52,14 +52,39 @@ An already-controlled HTTPS route is a prerequisite for the live subscription. U
 ## Scope the subscription before enabling it
 
 1. In **Admin > Event Triggers**, select the named trigger and create an HTTP subscription using the HTTPS URL and Basic authentication.
-2. For Submitted and Dynamic Approval choose **Synchronous** response. Use a filter on the isolated profile ID; test a JSONPath expression such as `$[?(@.requestedItems[?(@.id == "YOUR-ISOLATED-PROFILE-ID")])]` in the tenant's filter tester.
+2. For Submitted and Dynamic Approval choose **Synchronous** response. Their item array is `requestedItems`. Test `$[?(@.requestedItems[?(@.id == "YOUR-ISOLATED-PROFILE-ID")])]` against a payload from that trigger. For Decision, the array is **requestedItemsStatus**: test `$[?(@.requestedItemsStatus[?(@.id == "YOUR-ISOLATED-PROFILE-ID")])]` against the Decision payload below. Do not reuse a Submitted payload to validate a Decision filter.
 3. Replace the ID before saving. Test the sample with that ID, then with a different ID. Enable only when the intended case matches and the unrelated case does not. If the tester rejects the nested expression, use its supported expression for the same exact item match; retain both test results.
 4. Submit only single-item requests in these trigger labs. Filters apply to invocations; a matching item inside a mixed request is not proof that every other item is isolated from the preliminary decision.
 5. Record the subscription ID and its enabled state. When finished, disable it before stopping the service.
 
 The service reloads the private mode file for each request. Submitted modes are `approve`, `deny`, `invalid` and `timeout`. Dynamic modes are `reviewer` and `none`. Change modes locally, never through a public configuration endpoint.
 
-The service prints request/item IDs and its response. It does not log Authorization headers or callback secrets. It is a teaching service, not a durable production integration: it does not provide a production queue or availability guarantees. Asynchronous mode saves metadata privately for a manual callback in AR-090.
+The service prints request, requester, recipient and item IDs. For Decision, it reads each item’s approvalInfo and records the approvalDecision and approver ID. Other routes also record their generated response. It does not log Authorization headers or callback secrets. It is a teaching service, not a durable production integration: it does not provide a production queue or availability guarantees. Asynchronous mode saves metadata privately for a manual callback in AR-090.
+
+## Verify the Decision payload locally
+
+Send this synthetic body to `/decision` with the same Basic authentication. Check the terminal log contains the recipient ID, item ID and APPROVED decision, while the HTTP reply is only an acknowledgment. Use the same body in the Decision filter tester after replacing the profile ID. Repeat with an unrelated item ID and with a DENIED decision.
+
+```json
+{
+  "accessRequestId": "synthetic-decision-test",
+  "requestedFor": {"id": "synthetic-recipient", "type": "IDENTITY"},
+  "requestedBy": {"id": "synthetic-requester", "type": "IDENTITY"},
+  "requestedItemsStatus": [{
+    "id": "YOUR-ISOLATED-PROFILE-ID",
+    "type": "ACCESS_PROFILE",
+    "operation": "Add",
+    "approvalInfo": [{
+      "approvalDecision": "APPROVED",
+      "approver": {"id": "synthetic-reviewer", "type": "IDENTITY"}
+    }]
+  }]
+}
+```
+
+The event can contain multiple approval entries. Preserve those entries in the evidence; do not invent a single top-level decision field. [Decision contract](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-decision/)
+
+Before creating any request-response subscription, inspect existing subscriptions for that trigger. Only one subscriber is supported for a request-response event. Do not replace an existing integration to run a course exercise; use the local tests until a dedicated lab subscription is available.
 
 ## Compare asynchronous handling without mixing contracts
 

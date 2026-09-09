@@ -1,6 +1,6 @@
 # AR-080 · Require reauthentication for a sensitive approval
 
-**Before you start:** AR-079, working tenant SSO and reauthenticated-approval capability. Keep the existing SSO configuration; this lab does not replace the identity provider.
+**Before you start:** AR-029 and AR-052, working tenant SSO and reauthenticated-approval capability. Keep the existing SSO configuration; this lab does not replace the identity provider.
 
 ## Test an authenticated decision
 

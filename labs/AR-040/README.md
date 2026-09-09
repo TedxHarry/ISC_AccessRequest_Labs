@@ -1,6 +1,6 @@
 # AR-040 · Enforce an end date and maximum duration
 
-**Before you start:** AR-039 and date controls available. Henry has no Production Support assignment.
+**Before you start:** AR-033 and date controls available. If you completed AR-034–039, retain and complete the attached form; native forms are not required to learn date controls. Henry has no Production Support assignment.
 
 ## Configure and test the limit
 

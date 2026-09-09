@@ -6,9 +6,9 @@
 
 1. Set the profile owner to Daniel and reviewers to **Manager**, then **Primary Owner**. Olivia's manager is Daniel, so both categories resolve to him.
 2. Submit as Olivia. Inspect Daniel's queue and the full request process. Decide once and record how the 2026 approval service represents the consolidated requirements.
-3. Remove Olivia's test grant. Change the owner to Priya, retain the reviewer categories and submit again. Confirm Daniel and Priya are now distinct stages; deny the request after observing routing.
+3. Remove Olivia's test grant. Change the owner to Priya, retain the reviewer categories and submit again. Confirm Daniel receives the first stage. Approve as Daniel, verify the second stage reaches Priya, then deny as Priya. Verify no grant. A denial at the first stage would not demonstrate the second reviewer’s routing.
 4. Restore Daniel as owner. For the self-approval case, temporarily make Olivia the primary owner and use only Primary Owner review. Submit as Olivia and inspect where the request actually routes. Do not approve it with an administrator merely to bypass the experiment.
-5. As administrator, capture the assignment evidence, then cancel or deny the diagnostic request using the permitted action.
+5. As administrator, capture the assignment and decision evidence. If pending, cancel or deny using the permitted action. If the effective self-approval configuration already approved and provisioned it, record that outcome, remove Olivia’s resulting test assignment and verify native cleanup; cancellation cannot undo that grant.
 6. Restore Daniel as owner and the original reviewer configuration. Submit and deny a final fresh control.
 
 **Check:** Same-reviewer consolidation and requester/reviewer overlap have separate test records. A historical report of duplicate approvals is not proof of current behavior.

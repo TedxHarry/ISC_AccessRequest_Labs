@@ -6,11 +6,13 @@
 
 1. Open **Admin > Global > Forms > New Form**. Name it `FORM-Acme-Production-Support` and describe the maintenance details reviewers need.
 2. Continue to Builder and add a section named `Maintenance details`.
-3. Add a Text field `Change ticket`, technical key `changeTicket`, required. Add a Select field `Environment`, key `environment`, choices `Production` and `Test`, required. Add a Text Area `Work description`, key `workDescription`, required. Save.
-4. Open `AP-Production-Support > Access Requests`. Enable **Require Access Request Form**, select this form and save. Retain manager/Security review.
-5. As Henry, request the profile. Confirm the native form appears during the request. Enter `CHG-LAB-034`, `Production` and `Verify the simulated support group during maintenance`.
-6. Inspect the standard date/comment fields separately. Submit with an AR-034 reason and leave the request pending for the reviewer check.
-7. As Ava, open the request and inspect the submitted answers. Deny this first control after capturing them.
+3. Inside Maintenance details, select **+ Add > Text Field**. Set Label to `Change ticket`, Technical Key to `changeTicket`, and turn on **Mark as required**. Select **Apply**.
+4. Select **+ Add > Select Field**. Set Label to `Environment`, Technical Key to `environment`, and turn on Mark as required. Configure static choices `Production` and `Test`; keep this a single selection. Apply.
+5. Select **+ Add > Text Area**. Set Label to `Work description`, Technical Key to `workDescription`, and turn on Mark as required. Apply, then **Save** the form. Reopen it and verify all three keys and required flags.
+6. Open `AP-Production-Support > Access Requests`. Enable **Require Access Request Form**, select this form and save. Retain manager/Security review.
+7. As Henry, request the profile. Confirm the native form appears during the request. Enter `CHG-LAB-034`, `Production` and `Verify the simulated support group during maintenance`.
+8. Inspect the standard date/comment fields separately. Submit with an AR-034 reason and leave the request pending for the reviewer check.
+9. As Ava, open the request and inspect the submitted answers. Deny this first control after capturing them.
 
 **Check:** A native access item requires the form during submission, and the reviewer can inspect the answers. If the item has no form setting, record capability availability and stop this feature exercise rather than substituting an unrelated form.
 

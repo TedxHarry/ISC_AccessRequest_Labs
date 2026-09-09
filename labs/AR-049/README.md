@@ -5,7 +5,7 @@
 ## Compare object identity with its name
 
 1. Record GG-ACME-FAULT-048's objectGUID, DN and ISC entitlement ID/value.
-2. Rename the AD group to `GG-ACME-FAULT-049` in AD Users and Computers. Record its new DN and unchanged objectGUID.
+2. Rename the AD group to `GG-ACME-FAULT-049` in AD Users and Computers. Inspect its General/Account fields and set the group name (pre-Windows 2000 / sAMAccountName) to `GG-ACME-FAULT-049` too. Record both names, its new DN and unchanged objectGUID. Confirm `Get-ADGroup -Identity 'GG-ACME-FAULT-049'` resolves the intended object before later labs use that identifier.
 3. Before aggregating entitlements, inspect ISC's saved entitlement value and compare it with AD. Capture the mismatch without submitting a request against an uncertain target.
 4. Run entitlement aggregation and inspect the resulting ISC object by ID and value. Record whether the connector updated the existing object or represented the change differently.
 5. Inspect any profile using the old reference. Repair the profile's selected entitlement if required, using the aggregated current object rather than typing a DN into an ID field.

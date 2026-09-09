@@ -130,3 +130,6 @@
   - [CAP-01](/capstones/CAP-01/README.md)
   - [CAP-02](/capstones/CAP-02/README.md)
   - [CAP-03](/capstones/CAP-03/README.md)
+
+- [Practice path](PRACTICE-PATH.md)
+- [Content audit](CONTENT-AUDIT.md)

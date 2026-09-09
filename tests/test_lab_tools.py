@@ -17,6 +17,30 @@ report = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(report)
 
 
+subscriber_spec = importlib.util.spec_from_file_location('lab_subscriber', ROOT / 'tools/lab_subscriber.py')
+subscriber = importlib.util.module_from_spec(subscriber_spec)
+subscriber_spec.loader.exec_module(subscriber)
+
+
+class EventEvidenceTests(unittest.TestCase):
+    def test_decision_payload_records_item_decision_without_sensitive_context(self):
+        payload = {'accessRequestId': 'request', 'requestedFor': {'id': 'recipient', 'name': 'private'},
+                   'requestedBy': {'id': 'requester'}, '_metadata': {'secret': 'secret'},
+                   'requestedItemsStatus': [{'id': 'item', 'operation': 'Add', 'comment': 'private',
+                       'approvalInfo': [{'approvalDecision': 'DENIED', 'approvalComment': 'private',
+                                         'approver': {'id': 'reviewer', 'name': 'private'}}]}]}
+        result = subscriber.summarize_event('/decision', payload)
+        self.assertEqual(result['requestedForId'], 'recipient')
+        self.assertEqual(result['items'][0]['id'], 'item')
+        self.assertEqual(result['items'][0]['decisions'], [{'decision': 'DENIED', 'approverId': 'reviewer'}])
+        self.assertNotIn('private', json.dumps(result))
+        self.assertNotIn('secret', json.dumps(result))
+
+    def test_submitted_payload_keeps_item_ids(self):
+        result = subscriber.summarize_event('/submitted', {'requestedItems': [{'id': 'submitted-item'}]})
+        self.assertEqual(result['items'][0]['id'], 'submitted-item')
+
+
 class ReportTests(unittest.TestCase):
     def test_full_final_page_requests_next_page(self):
         calls = []
@@ -122,6 +146,7 @@ class SubscriberTests(unittest.TestCase):
     def test_async_requires_metadata_then_saves_private_callback(self):
         self.mode_file.write_text(json.dumps(dict(self.base_mode, **{'async': True})))
         self.assertEqual(self.post()[0], 400)
+        self.assertEqual(self.post('/dynamic')[0], 400)
         body = {'accessRequestId': 'async-fixture', '_metadata':
                 {'callbackURL': 'https://example.invalid/complete', 'secret': 'synthetic-only'}}
         self.assertEqual(self.post(payload=body), (200, {}))
