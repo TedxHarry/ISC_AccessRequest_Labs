@@ -1,0 +1,11 @@
+{
+  "fixture": true,
+  "limit": 2,
+  "pages": [
+    [
+      {"id":"fixture-1","name":"Remote Worker","state":"REQUEST_COMPLETED","requestedFor":{"id":"fixture-recipient"}},
+      {"id":"fixture-2","name":"VPN","state":"DENIED","requestedFor":{"id":"fixture-recipient"}}
+    ],
+    [{"id":"fixture-3","name":"Production Support","state":"EXECUTING","requestedFor":{"id":"fixture-recipient"}}]
+  ]
+}

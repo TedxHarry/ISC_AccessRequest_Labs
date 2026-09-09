@@ -53,6 +53,6 @@ Keep ROLE-Acme-AD-Baseline enabled and its identity list intact. Removing baseli
 | AR-009-03-target-baseline.png | AD baseline membership |
 | AR-009-04-sessions.png | Correct requester and reviewer session identities; separate images are fine |
 
-Next is **AR-010: Make VPN access requestable**, listed in the [course outline](../../README.md). Keep baseline access assigned while learning how requested VPN access is granted and removed.
+Next is [AR-010: Make VPN access requestable](../AR-010/README.md). Keep baseline access assigned while learning how requested VPN access is granted and removed.
 
 [Previous: AR-008](../AR-008/README.md) · [Course outline](../../README.md)

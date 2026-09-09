@@ -122,6 +122,23 @@ Governance Groups: GOV-Security-Review = E007/E021/E022; GOV-Finance-Review = E0
 
 ### Checkpoints and recovery
 
+The population grows only in the named exercises:
+
+| Point in the course | Expected additional lab objects |
+|---|---|
+| AR-026 | Sofia's second AD account; still 24 HR identities and 24 standard accounts |
+| AR-047 | Taylor Stone, E025, and a request-created AD account; 25 HR identities and 26 AD accounts including Sofia's extra account |
+| AR-048–049 | One disposable permission/reference-test group; renamed to GG-ACME-FAULT-049 |
+| AR-076 | Two isolated payment-duty groups for SoD |
+| AR-078 | Two correlated accounts on a separate non-authoritative disconnected source; no new identities |
+| AR-085 | Two harmless nested-membership test groups |
+
+The foundation role continues to contain only the original 24 employees. After AR-047, preserve Taylor in the complete private HR working file so a later import does not unintentionally remove the test identity. Keep the original 24-row repository dataset as the foundation starting point.
+
+Additional profiles and roles use the `Acme` test names specified in their labs. Record their native group and ISC object IDs as they are created. Optional machine/integration tracks use separate pre-existing test facilities and their own manifests.
+
+Use the [lab desk](LAB-DESK.md) for repeatable native checks and the [coverage matrix](COVERAGE.md) for feature prerequisites.
+
 Create checkpoints after M01, M03, M05, M07, M09, and each advanced extension. A checkpoint consists of a manifest, supported configuration exports where available, target membership baseline, and reconstruction instructions. It is not a promise of whole-tenant snapshot restoration.
 
 Start each module from its prerequisite checkpoint. Retain business configuration and remove temporary faults after each exercise. Never leave an unresponsive event subscriber enabled after its exercise. In a shared tenant, coordinate global-setting changes with other participants; object prefixes do not isolate global configuration.

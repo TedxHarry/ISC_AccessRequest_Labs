@@ -2,36 +2,131 @@
   - [Course Home](/README.md)
   - [Start Here](/START-HERE.md)
   - [Lab Environment](/LAB-ENVIRONMENT.md)
+  - [Coverage and prerequisites](/COVERAGE.md)
+  - [Lab desk](/LAB-DESK.md)
+  - [API workbench](/API-WORKBENCH.md)
+  - [Subscriber workbench](/SUBSCRIBER-WORKBENCH.md)
   - [Practice Tickets](/PRACTICE-TICKETS.md)
 
 - **MODULE 01 · FOUNDATIONS**
-  - [M01 Overview](/README.md#m01--prepare-a-reliable-lab-environment)
-  - [AR-001 · Import Acme HR Records](/labs/AR-001/README.md)
-  - [AR-002 · Manager hierarchy](/labs/AR-002/README.md)
-  - [AR-003 · Validate AD connection](/labs/AR-003/README.md)
-  - [AR-004 · Correlate AD accounts](/labs/AR-004/README.md)
-  - [AR-005 · Configure AD provisioning](/labs/AR-005/README.md)
-  - [AR-006 · Provision one account](/labs/AR-006/README.md)
-  - [AR-007 · Provision the remaining accounts](/labs/AR-007/README.md)
-  - [AR-008 · Prepare reviewers](/labs/AR-008/README.md)
-  - [AR-009 · Readiness gate](/labs/AR-009/README.md)
+  - [AR-001 — Import Acme's HR Records](/labs/AR-001/README.md)
+  - [AR-002 — Resolve the Manager Hierarchy](/labs/AR-002/README.md)
+  - [AR-003 — Validate AD and Aggregate the Lab Data](/labs/AR-003/README.md)
+  - [AR-004 | Correlate Lucas's Existing AD Account](/labs/AR-004/README.md)
+  - [AR-005 | Configure AD Account Creation](/labs/AR-005/README.md)
+  - [AR-006 | Provision Your First AD Account](/labs/AR-006/README.md)
+  - [AR-007 | Provision the Remaining Standard Accounts](/labs/AR-007/README.md)
+  - [AR-008 | Prepare Requester and Reviewer Sessions](/labs/AR-008/README.md)
+  - [AR-009 | Verify the Environment and Save C01](/labs/AR-009/README.md)
 
-- **MODULES 02–04 · REQUEST BASICS**
-  - [M02 · First working request](/README.md#m02--deliver-your-first-working-request)
-  - [M03 · Business access](/README.md#m03--package-useful-business-access)
-  - [M04 · Visibility and request scope](/README.md#m04--control-who-can-find-and-request-access)
+- **MODULE 02 · FIRST WORKING REQUEST**
+  - [AR-010 | Make VPN access requestable](/labs/AR-010/README.md)
+  - [AR-011 | Require a reviewer and a business reason](/labs/AR-011/README.md)
+  - [AR-012 | Approve the first request and prove the AD change](/labs/AR-012/README.md)
+  - [AR-013 | Deny a request and verify that access was not added](/labs/AR-013/README.md)
+  - [AR-014 | Find why VPN disappeared from the catalog](/labs/AR-014/README.md)
+  - [AR-015 | Deliver a second working request independently](/labs/AR-015/README.md)
 
-- **MODULES 05–08 · ENGINEERING**
-  - [M05 · Approvals](/README.md#m05--engineer-and-troubleshoot-approvals)
-  - [M06 · Request forms](/README.md#m06--collect-request-information)
-  - [M07 · Temporary access and removal](/README.md#m07--manage-temporary-access-and-removal)
-  - [M08 · Provisioning troubleshooting](/README.md#m08--investigate-approved-but-missing-access)
+- **MODULE 03 · BUSINESS ACCESS**
+  - [AR-016 | Bundle Finance reporting access](/labs/AR-016/README.md)
+  - [AR-017 | Present Finance access through an application](/labs/AR-017/README.md)
+  - [AR-018 | Offer the Finance Analyst role](/labs/AR-018/README.md)
+  - [AR-019 | Compare entitlement, profile and role requests](/labs/AR-019/README.md)
+  - [AR-020 | Repair an application with no usable access](/labs/AR-020/README.md)
+  - [AR-021 | Deliver HR Services from a business requirement](/labs/AR-021/README.md)
 
-- **MODULES 09–12 · ADVANCED**
-  - [M09 · APIs](/README.md#m09--use-apis-as-engineering-tools)
-  - [M10 · Workflow approvals](/README.md#m10--build-workflow-approvals)
-  - [M11 · Event triggers](/README.md#m11--integrate-and-diagnose-event-triggers)
-  - [M12 · Operations](/README.md#m12--run-access-request-operations)
+- **MODULE 04 · VISIBILITY AND ACCOUNTS**
+  - [AR-022 | Restrict Finance catalog visibility](/labs/AR-022/README.md)
+  - [AR-023 | Test who can request for another person](/labs/AR-023/README.md)
+  - [AR-024 | Separate requester visibility from recipient eligibility](/labs/AR-024/README.md)
+  - [AR-025 | Trace a wrong department into catalog visibility](/labs/AR-025/README.md)
+  - [AR-026 | Select the correct account for Sofia's access](/labs/AR-026/README.md)
+  - [AR-027 | Resolve visibility and account-selection tickets](/labs/AR-027/README.md)
 
-- **CAPSTONE**
-  - [Capstone Projects](/README.md#capstone-projects)
+- **MODULE 05 · APPROVALS**
+  - [AR-028 | Compare manager, item-owner and source-owner routing](/labs/AR-028/README.md)
+  - [AR-029 | Require manager review followed by Security](/labs/AR-029/README.md)
+  - [AR-030 | Recover a request with an unresolved reviewer](/labs/AR-030/README.md)
+  - [AR-031 | Test consolidated reviewers and self-approval](/labs/AR-031/README.md)
+  - [AR-032 | Test reminders, escalation and approval expiration](/labs/AR-032/README.md)
+  - [AR-033 | Regression-test the approval service](/labs/AR-033/README.md)
+
+- **MODULE 06 · NATIVE REQUEST FORMS**
+  - [AR-034 | Attach a native form to Production Support](/labs/AR-034/README.md)
+  - [AR-035 | Test required and optional form inputs](/labs/AR-035/README.md)
+  - [AR-036 | Show an extra field for Production work](/labs/AR-036/README.md)
+  - [AR-037 | Trace form answers through a multi-item request](/labs/AR-037/README.md)
+  - [AR-038 | Repair a missing request form](/labs/AR-038/README.md)
+  - [AR-039 | Accept the Production Support form](/labs/AR-039/README.md)
+
+- **MODULE 07 · DATES AND REMOVAL**
+  - [AR-040 | Enforce an end date and maximum duration](/labs/AR-040/README.md)
+  - [AR-041 | Observe future provisioning and scheduled removal](/labs/AR-041/README.md)
+  - [AR-042 | Request removal at the correct access level](/labs/AR-042/README.md)
+  - [AR-043 | Explain why removing one profile leaves VPN](/labs/AR-043/README.md)
+  - [AR-044 | Compare automatic access with requested access](/labs/AR-044/README.md)
+  - [AR-045 | Remove access from one account and preserve the other](/labs/AR-045/README.md)
+
+- **MODULE 08 · FULFILLMENT INVESTIGATION**
+  - [AR-046 | Triage approved-but-missing access](/labs/AR-046/README.md)
+  - [AR-047 | Create an account through an access request](/labs/AR-047/README.md)
+  - [AR-048 | Diagnose a group-specific AD permission failure](/labs/AR-048/README.md)
+  - [AR-049 | Investigate a changed native group reference](/labs/AR-049/README.md)
+  - [AR-050 | Reconcile AD and ISC after an out-of-band change](/labs/AR-050/README.md)
+  - [AR-051 | Resolve a fulfillment incident from evidence](/labs/AR-051/README.md)
+
+- **MODULE 09 · APIS**
+  - [AR-052 | Authenticate and inspect Access Request APIs](/labs/AR-052/README.md)
+  - [AR-053 | Submit and track an API request](/labs/AR-053/README.md)
+  - [AR-054 | Join request, approval and activity evidence](/labs/AR-054/README.md)
+  - [AR-055 | Approve, deny and cancel through the API](/labs/AR-055/README.md)
+  - [AR-056 | Handle duplicates and uncertain responses](/labs/AR-056/README.md)
+  - [AR-057 | Produce a repeatable request report](/labs/AR-057/README.md)
+
+- **MODULE 10 · WORKFLOW APPROVALS**
+  - [AR-058 | Attach a native approval workflow](/labs/AR-058/README.md)
+  - [AR-059 | Compare serial and parallel approvals](/labs/AR-059/README.md)
+  - [AR-060 | Test a quorum with separate reviewers](/labs/AR-060/README.md)
+  - [AR-061 | Enforce eligibility using the recipient's department](/labs/AR-061/README.md)
+  - [AR-062 | Repair a workflow that is not invoked](/labs/AR-062/README.md)
+  - [AR-063 | Send a notification that reflects the real decision](/labs/AR-063/README.md)
+
+- **MODULE 11 · DEVELOPER TRIGGERS**
+  - [AR-064 | Compare native workflows with developer event triggers](/labs/AR-064/README.md)
+  - [AR-065 | Return a preliminary approval or denial](/labs/AR-065/README.md)
+  - [AR-066 | Add an additional reviewer dynamically](/labs/AR-066/README.md)
+  - [AR-067 | Correlate the decision event with fulfillment](/labs/AR-067/README.md)
+  - [AR-068 | Recover from an invalid or late subscriber response](/labs/AR-068/README.md)
+  - [AR-069 | Hand over a recovered subscriber integration](/labs/AR-069/README.md)
+
+- **MODULE 12 · OPERATIONS**
+  - [AR-070 | Triage an Access Request queue](/labs/AR-070/README.md)
+  - [AR-071 | Distinguish cancellation, closure and removal](/labs/AR-071/README.md)
+  - [AR-072 | Change an owner without losing pending work](/labs/AR-072/README.md)
+  - [AR-073 | Investigate mixed outcomes in one request](/labs/AR-073/README.md)
+  - [AR-074 | Prepare a support case another engineer can reproduce](/labs/AR-074/README.md)
+  - [AR-075 | Run an IAM support shift](/labs/AR-075/README.md)
+
+- **MODULE 13 · SOD AND DISCONNECTED ACCESS**
+  - [AR-076 | Investigate a separation-of-duties conflict](/labs/AR-076/README.md)
+  - [AR-077 | Reject a conflicting request through a workflow](/labs/AR-077/README.md)
+  - [AR-078 | Fulfill and reconcile a disconnected application](/labs/AR-078/README.md)
+
+- **MODULE 14 · ADDITIONAL CAPABILITIES**
+  - [AR-079 | Activate and expire Just-In-Time access](/labs/AR-079/README.md)
+  - [AR-080 | Require reauthentication for a sensitive approval](/labs/AR-080/README.md)
+  - [AR-081 | Expose governance-group reviewers and compare owner choices](/labs/AR-081/README.md)
+  - [AR-082 | Test API dates and account-specific removal](/labs/AR-082/README.md)
+  - [AR-083 | Request access for a machine identity](/labs/AR-083/README.md)
+  - [AR-084 | Trace a request from an external channel](/labs/AR-084/README.md)
+  - [AR-085 | Distinguish direct access, nested membership and account state](/labs/AR-085/README.md)
+  - [AR-086 | Give the service desk only the required request permissions](/labs/AR-086/README.md)
+  - [AR-087 | Reassign review work during an absence](/labs/AR-087/README.md)
+  - [AR-088 | Regression-test a product or API update](/labs/AR-088/README.md)
+  - [AR-089 | Change a profile without assuming existing access changes](/labs/AR-089/README.md)
+  - [AR-090 | Complete an asynchronous trigger callback](/labs/AR-090/README.md)
+
+- **CAPSTONES**
+  - [CAP-01](/capstones/CAP-01/README.md)
+  - [CAP-02](/capstones/CAP-02/README.md)
+  - [CAP-03](/capstones/CAP-03/README.md)

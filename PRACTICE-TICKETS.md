@@ -44,5 +44,30 @@ Investigate each report, identify the relevant evidence, explain the root cause,
 | T38 | P | Someone closed a request; does the user have access? | Administration versus target state / AR-071 |
 | T39 | P | Only some requested access appears to be present | Item/account evidence / AR-073 |
 | T40 | P | Support needs a reproducible case and timeline | Evidence package / AR-074 |
+| T41 | A | The same manager and owner now produce one approval | Consolidation / AR-031 |
+| T42 | A | Approval expired, but the user never received access | Approval timeout versus access expiry / AR-032 |
+| T43 | I | The second item has the wrong change ticket | Per-item form answers / AR-037 |
+| T44 | A | A date amendment used a different reviewer path | Date amendment versus re-request / AR-041 |
+| T45 | A | VPN was removed from only one of two accounts | Selected-account assignment / AR-045 |
+| T46 | A | SoD warned the reviewer but the conflicting grant proceeded | Warning versus decision enforcement / AR-076–077 |
+| T47 | A | A completed manual task is absent from account data | Disconnected reconciliation / AR-078 |
+| T48 | A | JIT was approved but the account has no membership | Assignment versus activation / AR-079 |
+| T49 | A | Approval now asks the reviewer to authenticate again | Reauthentication / AR-080 |
+| T50 | I | The requester cannot see who is in the review group | Governance-group visibility / AR-081 |
+| T51 | A | An API request without an end date received one | Date fallback and maximum / AR-082 |
+| T52 | A | A machine-account change affects another identity | Shared native account / AR-083 |
+| T53 | P | The external ticket is complete but ISC is still pending | External channel correlation / AR-084 |
+| T54 | A | The user has effective group access without direct membership | Nested membership / AR-085 |
+| T55 | I | The service desk can view requests but cannot reassign them | User-level permissions / AR-086 |
+| T56 | I | A request goes to a delegate while the item owner is unchanged | Work reassignment / AR-087 |
+| T57 | P | An older configuration script changed new approval settings | Schema/version regression / AR-088 |
+| T58 | A | Adding an entitlement to a profile changed only some users | Assignment origin and model changes / AR-089 |
+| T59 | A | Removing an entitlement from a profile left native access | Residual independent assignment / AR-089 |
+| T60 | A | The webhook acknowledged delivery but the request still waits | Asynchronous completion / AR-090 |
+| T61 | P | Only one item failed in a multi-item request | Item-specific recovery / AR-073 |
+| T62 | P | A bulk administrative action affected only part of the selection | Per-item bulk verification / AR-086 |
+| T63 | A | A disabled account still has all its group memberships | Account state versus access / AR-085 |
+| T64 | A | The subscriber is fixed but old requests remain failed | Service recovery versus request recovery / AR-069 |
+| T65 | A | Ending delegation did not return old tasks to the original reviewer | Previously reassigned work / AR-087 |
 
 [Return to the course outline](README.md)

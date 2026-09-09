@@ -1,0 +1,35 @@
+# Course validation record
+
+Updated: 8 September 2026.
+
+## Authored material
+
+- AR-001–090 have walkthroughs and evidence journals.
+- AR-010–090 include numbered procedures, expected-result checks, recovery/cleanup instructions and screenshot capture lists.
+- Three capstones provide execution steps and acceptance criteria.
+- The lab desk and API/subscriber workbenches supply shared procedures and local examples.
+
+## Live tenant status
+
+AR-001 is learner-reported complete. Later labs have not been executed end to end in the learner's tenant during this writing pass. Screenshots for later exercises remain pending. Instructions are based on cited documentation and must be checked against the tenant's actual feature availability and observed results.
+
+This record does not certify every lab as tenant-tested. Timed expiration, external integration, machine identity, SSO reauthentication and JIT exercises require their stated facilities and live observations. Local fixtures verify only the sample tools and test-handling logic.
+
+## Local checks completed
+
+- 90 lab pages and 90 evidence journals present.
+- 792 local Markdown links resolve to existing files.
+- 76 linked SailPoint documentation and community pages returned HTTP 200. Reachability does not establish correctness of every instruction.
+- Eight local tool tests passed: pagination, invalid response handling, fixture export, overwrite protection, subscriber authentication, decision responses, invalid modes, dynamic responses and asynchronous metadata handling. These tests use synthetic data and do not contact ISC.
+
+## Before accepting a live lab
+
+1. Confirm the required service, permissions and starting state.
+2. Follow the steps with the named actors and actual local IDs.
+3. Capture the expected result and negative/control case.
+4. Verify native target state and cleanup.
+5. Record discrepancies and correct the procedure before marking it passed.
+
+Keep the execution ledger in the private evidence folder. Use columns: lab ID, date, tenant capability, result, request/activity IDs, screenshots, cleanup and remaining issue. The choices are Passed, Failed, Awaiting timed observation or Unavailable in this tenant.
+
+[Coverage](COVERAGE.md) · [Course outline](README.md)

@@ -12,6 +12,10 @@ This course is designed to be completed as an engineering lab path, not read lik
 | **Troubleshooting** | M08 | A repeatable method for approved-but-missing-access incidents |
 | **Automation** | M09–M11 | APIs, workflows, and event-trigger integrations |
 | **Operations** | M12 + Capstones | Production-style tickets, changes, investigations, and independent delivery |
+| **Policy and disconnected systems** | M13 | SoD warning/enforcement and manual fulfillment with reconciliation |
+| **Additional capabilities** | M14 | JIT, reauthentication, machine requests, permissions, delegation, model changes and callbacks |
+
+Use the [coverage and prerequisite matrix](COVERAGE.md) to choose tracks available in your tenant. Keep the [lab desk](LAB-DESK.md) open while following the walkthroughs. Each lab ends with the screenshots to capture and links to its evidence journal.
 
 ## How to complete each lab
 

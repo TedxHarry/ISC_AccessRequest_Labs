@@ -2,13 +2,15 @@
 
 Reviewed: 8 September 2026.
 
+This is the design review that preceded the course expansion. Its proposed exercises are now mapped in [COVERAGE.md](COVERAGE.md), with walkthroughs through AR-090. See [VALIDATION.md](VALIDATION.md) for the distinction between authored instructions and live tenant validation.
+
 ## Assessment
 
 The course has a sound progression: prepare identities and accounts, deliver a request, package access, test visibility, route approvals, handle dates and removal, then investigate failures and automate operations. Keeping the same Acme identities and AD groups makes cause and effect easier to follow.
 
 The outline covers the main lifecycle, but it does not yet cover every important kind of Access Request work. Some subjects need more precise cases, and disconnected fulfillment and separation of duties need explicit exercises. AD provides a useful core environment; it cannot demonstrate every application's provisioning behavior.
 
-**Current delivery status:** AR-001–009 have lab directories and walkthroughs. AR-010–075 are outline assignments. These proposed exercises are not completed walkthroughs or tenant-tested results. The learner has reported completing AR-001; the rest still need tenant execution and screenshots.
+**Delivery status at the time of the initial review:** AR-001–009 had walkthroughs and AR-010–075 were outline assignments. The subsequent expansion adds the remaining walkthroughs and additional tracks. The learner has reported completing AR-001; later live exercises and screenshots remain to be validated.
 
 This review samples relevant ISC Developer Community discussions and checks product expectations against SailPoint documentation and product announcements. It is not an exhaustive inventory of community issues. IdentityIQ discussions were excluded. Community reports provide investigation scenarios; a reported defect is not assumed to remain reproducible today.
 
