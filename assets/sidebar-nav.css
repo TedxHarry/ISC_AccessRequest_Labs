@@ -42,18 +42,22 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-.sidebar-nav > ul > li.sidebar-path-section > strong {
-  display: none;
+/* A Docsify bold-only sidebar heading can be a direct <strong> or a <p><strong> wrapper. */
+.sidebar-nav li.sidebar-collapsible > .sidebar-collapse-heading-shell {
+  margin: 0.4rem 0.75rem 0.25rem !important;
+  padding: 0;
 }
 
-.sidebar-nav > ul > li.sidebar-path-section > ul {
-  margin-top: 0;
+.sidebar-nav li.sidebar-collapsible > strong.sidebar-collapse-heading-shell {
+  display: block;
 }
 
-.sidebar-nav li.sidebar-collapsible > strong {
+.sidebar-nav li.sidebar-collapsible .sidebar-collapse-heading {
   position: relative;
   display: block;
-  margin: 0.4rem 0.75rem 0.25rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 !important;
   padding: 0.7rem 2rem 0.7rem 0.8rem;
   border-radius: 0.55rem;
   color: #cbd5e1;
@@ -65,14 +69,19 @@
   user-select: none;
 }
 
-.sidebar-nav li.sidebar-collapsible > strong:hover,
-.sidebar-nav li.sidebar-collapsible > strong:focus-visible {
+.sidebar-nav > ul > li.sidebar-path-section .sidebar-collapse-heading {
+  color: #bae6fd;
+  font-size: 0.86rem;
+}
+
+.sidebar-nav li.sidebar-collapsible .sidebar-collapse-heading:hover,
+.sidebar-nav li.sidebar-collapsible .sidebar-collapse-heading:focus-visible {
   color: #ffffff;
   background: rgba(148, 163, 184, 0.1);
   outline: none;
 }
 
-.sidebar-nav li.sidebar-collapsible > strong::after {
+.sidebar-nav li.sidebar-collapsible .sidebar-collapse-heading::after {
   content: '›';
   position: absolute;
   top: 50%;
@@ -84,7 +93,8 @@
   transition: transform 0.15s ease;
 }
 
-.sidebar-nav li.sidebar-collapsible.sidebar-group-open > strong::after {
+.sidebar-nav li.sidebar-collapsible.sidebar-group-open > .sidebar-collapse-heading-shell > .sidebar-collapse-heading::after,
+.sidebar-nav li.sidebar-collapsible.sidebar-group-open > strong.sidebar-collapse-heading::after {
   transform: translateY(-50%) rotate(90deg);
 }
 
