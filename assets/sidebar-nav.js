@@ -32,9 +32,8 @@
     heading.setAttribute('role', 'button');
     heading.setAttribute('tabindex', '0');
 
-    // Default to collapsed. If the current page is inside this group,
-    // expand it so the learner can see their location in the course.
-    setExpanded(li, !!li.querySelector('a.active'));
+    // Every heading starts collapsed by default.
+    setExpanded(li, false);
 
     function toggle() {
       setExpanded(li, !li.classList.contains('sidebar-group-open'));
