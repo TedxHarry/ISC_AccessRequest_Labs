@@ -17,12 +17,13 @@
     var childList = directChild(li, 'ul');
     var heading = directChild(li, 'strong');
     if (!childList || !heading) return;
+
     li.classList.toggle('sidebar-group-open', expanded);
     childList.hidden = !expanded;
     heading.setAttribute('aria-expanded', expanded ? 'true' : 'false');
   }
 
-  function makeCollapsible(li, openForActive) {
+  function makeCollapsible(li) {
     var childList = directChild(li, 'ul');
     var heading = directChild(li, 'strong');
     if (!childList || !heading) return;
@@ -31,8 +32,9 @@
     heading.setAttribute('role', 'button');
     heading.setAttribute('tabindex', '0');
 
-    var active = !!li.querySelector('a.active');
-    setExpanded(li, openForActive && active);
+    // Default to collapsed. If the current page is inside this group,
+    // expand it so the learner can see their location in the course.
+    setExpanded(li, !!li.querySelector('a.active'));
 
     function toggle() {
       setExpanded(li, !li.classList.contains('sidebar-group-open'));
@@ -58,13 +60,11 @@
       return node.tagName === 'LI';
     });
 
-    var course = null;
     var happy = null;
     var engineer = null;
 
     topItems.forEach(function (li) {
       var text = labelText(li);
-      if (text === 'COURSE') course = li;
       if (text === 'HAPPY PATH') happy = li;
       if (text === 'ENGINEER PATH') engineer = li;
     });
@@ -99,10 +99,6 @@
     tabs.appendChild(engineerButton);
     nav.insertBefore(tabs, root);
 
-    function currentPath() {
-      return window.location.hash || '';
-    }
-
     function activate(pathName) {
       var useHappy = pathName === 'happy';
       happy.hidden = !useHappy;
@@ -117,7 +113,7 @@
       } catch (ignore) {}
     }
 
-    var route = currentPath();
+    var route = window.location.hash || '';
     var initial = route.indexOf('/Labs_Happypath/') !== -1 ? 'happy' :
       route.indexOf('/labs/') !== -1 || route.indexOf('/capstones/') !== -1 ? 'engineer' : null;
 
@@ -126,21 +122,25 @@
         initial = window.sessionStorage.getItem('isc-course-path');
       } catch (ignore) {}
     }
+
     if (initial !== 'engineer') initial = 'happy';
 
     happyButton.onclick = function () { activate('happy'); };
     engineerButton.onclick = function () { activate('engineer'); };
     activate(initial);
 
-    if (course) makeCollapsible(course, true);
+    // Collapse every normal sidebar heading with child links, including Course
+    // and Capstones. The two path labels themselves are replaced by the tabs.
+    topItems.forEach(function (li) {
+      if (li !== happy && li !== engineer) makeCollapsible(li);
+    });
 
     [happy, engineer].forEach(function (pathSection) {
       var pathList = directChild(pathSection, 'ul');
       if (!pathList) return;
+
       Array.prototype.slice.call(pathList.children).forEach(function (li) {
-        if (li.tagName === 'LI' && directChild(li, 'strong') && directChild(li, 'ul')) {
-          makeCollapsible(li, true);
-        }
+        if (li.tagName === 'LI') makeCollapsible(li);
       });
     });
   }
