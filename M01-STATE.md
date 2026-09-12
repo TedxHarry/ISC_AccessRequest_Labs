@@ -21,8 +21,8 @@ Record these privately; example domains and YOUR-* values are not values to past
 |---|---|---|
 | AR-001 | No Acme HR/profile on first run | Acme HR: 24 accounts; Acme Employees: 24 identities; Lucas Finance/FIN200; complete working CSV retained |
 | AR-002 | AR-001 population and identificationNumber mapping | 23 resolved manager relationships; Morgan root; Lucas to Daniel to Morgan; E012 manager reference E003 |
-| AR-003 | Working AD read connection and isolated training location | Users/AdminAccounts/Groups OUs; Lucas only standard AD user on first pass; 14 business groups imported; user/group/membership scopes saved; Delta setting restored |
-| AR-004 | Lucas imported from AD | employeeID E012 imported and matched to identificationNumber E012; correct Lucas link retained; Delta setting restored |
+| AR-003 | Working AD read connection and isolated training location | Users/AdminAccounts/Groups OUs; Lucas only standard AD user on first pass; 14 business groups imported; user/group/membership scopes saved; account-deletion settings unchanged |
+| AR-004 | Lucas imported from AD | employeeID E012 imported and matched to identificationNumber E012; correct Lucas link retained; account-deletion settings unchanged |
 | AR-005 | Lucas linked; direct provisioning prerequisites ready | 15 groups including GG-ACME-BASELINE; saved Create Account mappings; Liam absent on first pass |
 | AR-006 | Baseline group and creation policy; Lucas present, Liam absent | Lucas account retained; Liam created by ISC; two linked standard accounts and two baseline members; enabled baseline profile/role with requests disabled |
 | AR-007 | Lucas and Liam baseline complete | 24 linked standard accounts; 24 original identities selected in baseline role; 24 native baseline members; business access unchanged |

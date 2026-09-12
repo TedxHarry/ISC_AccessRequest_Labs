@@ -13,7 +13,7 @@
 
 **Check:** You distinguish the target change, account aggregation, identity processing and Search visibility. An indexed result is not always a live read of AD.
 
-If the aggregate does not detect the change, inspect the account scope and aggregation options from AR-003/004 before repeating. Keep delta/full-scan changes temporary and restore the original settings.
+If the aggregate does not detect the change, inspect the account scope and aggregation options from AR-003/004 before repeating. Use the unoptimized request in AR-004 when unchanged records need reprocessing; its disableOptimization flag applies only to that request.
 
 **Reset:** Taylor absent from the disposable group in both systems. The group stays non-requestable.
 

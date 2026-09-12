@@ -43,7 +43,7 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 4. Confirm Acme Employees contains **24 identities**.
 5. Open Lucas (`acme.e012`) and confirm:
 
-- Identification Number = E012
+- Employee Number = E012
 - Department = Finance
 - Cost Center = FIN200
 - Manager = Daniel Brooks

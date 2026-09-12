@@ -8,7 +8,7 @@
 | Lucas AD DN and sAMAccountName | |
 | Original correlation criteria | |
 | Saved correlation criteria | |
-| Original delta setting and restored value | |
+| Request body: disableOptimization=true | |
 | Aggregation status; optimization disabled | |
 | Linked identity before and after | |
 | Account DN matches AD | |

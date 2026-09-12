@@ -26,7 +26,7 @@
 |---|---|---|---|
 | Acme identity count | 24 | | |
 | Lucas username | acme.e012 | | |
-| Lucas Identification Number | E012 | | |
+| Lucas Employee Number | E012 | | |
 | Lucas Department | Finance | | |
 | Lucas Cost Center | FIN200 | | |
 | Identity processing | Successful | | |

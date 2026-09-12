@@ -39,14 +39,18 @@ Keep your [evidence journal](EVIDENCE.md) open.
 ## 1. Verify Lucas's ISC identifier
 
 1. Open **Admin > Identity Management > Identity Profiles > Acme Employees > Mappings**.
-2. Confirm **Identification Number (`identificationNumber`)** maps to **Acme HR > employeeNumber**.
+2. Confirm **Employee Number (`identificationNumber`)** maps to **Acme HR > employeeNumber**.
 3. Open **Admin > Identity Management > Identities**.
 4. Search for `acme.e012` and open Lucas Brown.
-5. Confirm **Identification Number = E012**.
+5. Confirm **Employee Number = E012**.
 
-**Check:** Lucas's ISC identity contains `E012` in Identification Number.
+**Check:** Lucas's ISC identity contains `E012` in Employee Number.
 
-**Screenshot:** Save `AR-004-01-identity-number.png`. Capture Lucas's Identification Number.
+**Screenshot:** Save `AR-004-01-identity-number.png`. Capture Lucas's Employee Number.
+
+![Lucas has Employee Number E012 on his ISC identity. In profile mappings, this field has technical name identificationNumber.](images/AR-004-01-identity-number.png)
+
+Lucas has Employee Number E012 on his ISC identity. In profile mappings, this field has technical name identificationNumber.
 
 ## 2. Set employeeID on Lucas's AD account
 
@@ -64,6 +68,10 @@ Do not change the separate AD `employeeNumber` attribute.
 **Check:** Lucas's AD account contains `employeeID = E012`.
 
 **Screenshot:** Save `AR-004-02-ad-employee-id.png`. Capture `employeeID = E012` on the AD account.
+
+![Set AD employeeID to E012. The separate AD employeeNumber field is not used for this correlation and remains unset in this example.](images/AR-004-02-ad-employee-id.png)
+
+Set AD employeeID to E012. The separate AD employeeNumber field is not used for this correlation and remains unset in this example.
 
 ## 3. Add employeeID to the AD account schema
 
@@ -88,6 +96,10 @@ Reference: [Account schemas](https://documentation.sailpoint.com/saas/help/accou
 
 **Screenshot:** Save `AR-004-03-account-schema.png`. Capture `employeeID` in the account schema.
 
+![The AD account schema includes employeeID with type string. Check the remaining flags in its attribute settings before saving.](images/AR-004-03-account-schema.png)
+
+The AD account schema includes employeeID with type string. Check the remaining flags in its attribute settings before saving.
+
 ## 4. Configure account correlation
 
 1. Open **Admin > Connections > Sources > your AD source > Account Management > Account Correlation**.
@@ -96,8 +108,8 @@ Reference: [Account schemas](https://documentation.sailpoint.com/saas/help/accou
 
 | Field | Value |
 |---|---|
-| Identity Attribute | Identification Number (`identificationNumber`) |
-| Operation | Equals |
+| Identity Attribute | Employee Number (`identificationNumber`) |
+| Comparison shown between the fields | Equals (fixed; no operator dropdown) |
 | Account Attribute | employeeID |
 
 4. Place this criterion first. Review remaining criteria: they are alternative matches, not conditions that must all pass. Retain criteria appropriate for this source and record their order.
@@ -119,7 +131,11 @@ identificationNumber = E012
 
 **Screenshot:** Save `AR-004-04-correlation.png`. Capture the saved Account Correlation configuration.
 
-## 5. Run a full AD account aggregation
+![The first criterion compares Employee Number with employeeID. The recommendation refresh shows Error; that is separate from the configured criterion. Save and reopen the criterion, inspect any lower fallback rows, and verify the aggregation result.](images/AR-004-04-correlation.png)
+
+The first criterion compares Employee Number with employeeID. The recommendation refresh shows Error; that is separate from the configured criterion. Save and reopen the criterion, inspect any lower fallback rows, and verify the aggregation result.
+
+## 5. Run an unoptimized AD account aggregation
 
 Use [AGGREGATION.md](AGGREGATION.md) to run an unoptimized AD account aggregation so the newly added `employeeID` schema attribute is read from the existing account.
 
@@ -127,7 +143,11 @@ The API procedure requires Postman and an authorized administrator API token. Us
 
 **Check:** The aggregation completes successfully and Lucas's imported AD account shows `employeeID = E012`.
 
-**Screenshot:** Save `AR-004-05-aggregation.png`. Capture the completed account aggregation.
+**Screenshot:** Save `AR-004-05-aggregation.png`. Capture the Postman request and response. Also capture the completed job separately as `AR-004-07-aggregation-history.png`.
+
+![Postman submits disableOptimization=true and receives 202 Accepted. This confirms submission only. Check the completed job in Aggregation History before continuing.](images/AR-004-05-aggregation.png)
+
+Postman submits disableOptimization=true and receives 202 Accepted. This confirms submission only. Check the completed job in Aggregation History before continuing.
 
 If Lucas was already linked correctly, retain that link. Record that you verified the existing association; an unchanged link alone does not prove which criterion originally matched it.
 
@@ -153,6 +173,10 @@ If Lucas was already linked correctly, retain that link. Record that you verifie
 
 **Screenshot:** Save `AR-004-06-linked-account.png`. Capture Lucas's identity with the linked AD account.
 
+![Lucas retains Acme HR and has one account on the course AD source. This tenant also lists an IdentityNow account; count accounts on the selected AD source rather than requiring two total rows.](images/AR-004-06-linked-account.png)
+
+Lucas retains Acme HR and has one account on the course AD source. This tenant also lists an IdentityNow account; count accounts on the selected AD source rather than requiring two total rows.
+
 ## Try it yourself
 
 Open Lucas’s Accounts and compare the Acme HR account with the AD account. Record each source’s account identifier and the E012 employee value. Explain why the two account identifiers need not be identical.
@@ -169,7 +193,7 @@ If employeeID is absent in ISC, check the saved schema and completed unoptimized
 ## Final verification
 
 - [ ] The independent check and both explanations are recorded.
-- [ ] Lucas's ISC Identification Number is E012.
+- [ ] Lucas's ISC Employee Number is E012.
 - [ ] Lucas's AD employeeID is E012.
 - [ ] employeeID exists in the AD account schema.
 - [ ] Account Correlation matches `identificationNumber` to `employeeID`.
@@ -189,15 +213,17 @@ Keep:
 
 ## Screenshots to capture
 
+The six supplied images appear above. Add AR-004-07-aggregation-history.png showing the completed account job, status and optimization disabled. Also retain an image of the imported AD account attribute mployeeID = E012; the account-list image alone does not show that value.
+
 Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
 
 | Filename | Evidence |
 |---|---|
-| `AR-004-01-identity-number.png` | Capture Lucas's Identification Number. |
+| `AR-004-01-identity-number.png` | Capture Lucas's Employee Number. |
 | `AR-004-02-ad-employee-id.png` | Capture `employeeID = E012` on the AD account. |
 | `AR-004-03-account-schema.png` | Capture `employeeID` in the account schema. |
 | `AR-004-04-correlation.png` | Capture the saved Account Correlation configuration. |
-| `AR-004-05-aggregation.png` | Capture the completed account aggregation. |
+| `AR-004-05-aggregation.png` | Postman request body and 202 Accepted response; submission only. |
 | `AR-004-06-linked-account.png` | Capture Lucas's identity with the linked AD account. |
 
 Next: **[AR-005 — Configure AD Account Creation](../AR-005/README.md)**

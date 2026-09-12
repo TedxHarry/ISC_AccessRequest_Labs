@@ -33,9 +33,7 @@ Record actual results as you complete [AR-003](README.md). Leave unfinished chec
 | ISC account sAMAccountName and DN match AD | |
 | Correlated identity, or uncorrelated | |
 | Latest account aggregation status | |
-| Original Delta Aggregation setting | |
-| Delta disabled for the full-scope run, if needed | |
-| Original Delta Aggregation setting restored | |
+| Saved scope verified before aggregation | |
 | Accounts scanned | |
 | Warnings/errors and resolution | |
 

@@ -13,12 +13,12 @@ The token inherits the generating user's permissions. [ISC API authentication](h
 
 ### Submit the aggregation
 
-Before sending the request, open the AD source's **Aggregation Settings**. Record **Delta Aggregation**. If enabled, turn it off and save for this run so the connector reads the full configured scope. Restore the previous setting after the job completes. Keep account-deletion settings unchanged.
+Before sending the request, confirm the AD source ID and saved user searches. Keep account-deletion settings unchanged. No Delta Aggregation toggle is required.
 
 1. Create another Postman **POST** request:
 
 ```text
-https://<tenant>.api.identitynow.com/beta/sources/<AD-source-ID>/load-accounts
+https://<tenant>.api.identitynow.com/sources/v1/<AD-source-ID>/load-accounts
 ```
 
 2. Replace both placeholders. Use the **AD source ID** recorded in AR-003.
@@ -28,7 +28,7 @@ https://<tenant>.api.identitynow.com/beta/sources/<AD-source-ID>/load-accounts
 6. If rejected, inspect the response: 401 requires a valid token; 403 requires appropriate source-administration permissions. Recheck the AD source ID and multipart field for an invalid request. Do not grant requester identities administrative access to run this operation.
 7. Return to the AD source's **Aggregation History** in ISC. Wait for the corresponding account aggregation to finish. Inspect its status and verify optimization was disabled. Resolve any warnings or errors before continuing.
 
-This request and form field follow SailPoint's [documented unoptimized aggregation procedure](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html). Restore the Delta Aggregation setting you recorded before the request. Do not move accounts between OUs during this lab.
+The `/sources/v1` endpoint is listed in the [current API reference](https://developer.sailpoint.com/docs/tools/sdk/powershell/sources/methods/sources/#import-accounts-v1). The form field follows SailPoint's [documented unoptimized aggregation procedure](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html). The disableOptimization flag applies only to this request; there is no persistent optimization setting to restore. Do not move accounts between OUs during this lab.
 
 **Check:** The aggregation completed successfully. You are ready to inspect actual account ownership.
 

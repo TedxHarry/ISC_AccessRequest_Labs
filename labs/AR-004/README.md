@@ -24,34 +24,54 @@ Lucas already has an AD account. Your job here is to connect that account to the
 
 ## 1. Verify both employee identifiers
 
-1. In ISC, open **Admin > Identity Management > Identity Profiles > Acme Employees > Mappings**. Confirm **Identification Number (`identificationNumber`)** maps to **Acme HR > employeeNumber**. If changed, save, select **Apply Changes**, and wait for processing in **Admin > Dashboard > Monitor**.
+1. In ISC, open **Admin > Identity Management > Identity Profiles > Acme Employees > Mappings**. Confirm **Employee Number (`identificationNumber`)** maps to **Acme HR > employeeNumber**. If changed, save, select **Apply Changes**, and wait for processing in **Admin > Dashboard > Monitor**.
 2. Open Lucas's identity (`acme.e012`). Verify `identificationNumber = E012`. Check that no other identity uses E012 as its employee identifier.
 3. In **Active Directory Users and Computers**, select **View > Advanced Features**. Open Lucas directly from his OU, then **Properties > Attribute Editor**.
 4. Set `employeeID` to `E012`, select **Apply**, and reopen the attribute to verify it. Record his DN. Do not change the separate AD employeeNumber attribute.
 
 **Check:** The same employee identifier exists on Lucas's identity and AD account.
 
-**Screenshot reminder:** Save `AR-004-01-identity-number.png`, `AR-004-02-ad-employee-id.png`, `AR-004-03-schema.png`. Use the matching descriptions in the screenshot checklist at the end.
+**Screenshot reminder:** Retain the Employee Number, AD employeeID and source-schema images below. Verify the schema in Section 2 before capturing it.
+
+![Lucas has Employee Number E012 on his ISC identity. In profile mappings, this field has technical name identificationNumber.](images/AR-004-01-identity-number.png)
+
+Lucas has Employee Number E012 on his ISC identity. In profile mappings, this field has technical name identificationNumber.
+
+![Set AD employeeID to E012. The separate AD employeeNumber field is not used for this correlation and remains unset in this example.](images/AR-004-02-ad-employee-id.png)
+
+Set AD employeeID to E012. The separate AD employeeNumber field is not used for this correlation and remains unset in this example.
 
 ## 2. Configure correlation on the AD source
 
 1. Open **Admin > Connections > Sources > your AD source > Account Management > Account Schema**.
 2. Find `employeeID`. If absent, select **Add New Attribute**, use that exact name and type **string**, leave Multi-Valued and Entitlement unselected, and save. Preserve Account ID and Account Name selections. [Account schema](https://documentation.sailpoint.com/saas/help/accounts/schema.html)
 3. Open **Account Correlation**. Record existing criteria before changing them.
-4. Add **Identity Attribute: Identification Number (`identificationNumber`)**, **Operation: Equals**, **Account Attribute: employeeID**. Place this pair first.
+4. Add **Identity Attribute: Employee Number (`identificationNumber`)**, the displayed **Equals** comparison, **Account Attribute: employeeID**. Place this pair first.
 5. On a course-only source, use this single criterion. If the source serves other lab users, preserve necessary fallback criteria and check they cannot match Lucas to someone else. Save. Leave Manager Correlation unchanged.
 
 Criteria are alternatives, rather than conditions that all need to match. [Account correlation](https://documentation.sailpoint.com/saas/help/accounts/correlation.html)
 
+![The AD account schema includes employeeID with type string. Check the remaining flags in its attribute settings before saving.](images/AR-004-03-account-schema.png)
+
+The AD account schema includes employeeID with type string. Check the remaining flags in its attribute settings before saving.
+
 **Screenshot reminder:** Save `AR-004-04-correlation.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![The first criterion compares Employee Number with employeeID. The recommendation refresh shows Error; that is separate from the configured criterion. Save and reopen the criterion, inspect any lower fallback rows, and verify the aggregation result.](images/AR-004-04-correlation.png)
+
+The first criterion compares Employee Number with employeeID. The recommendation refresh shows Error; that is separate from the configured criterion. Save and reopen the criterion, inspect any lower fallback rows, and verify the aggregation result.
 
 ## 3. Reexamine the imported account
 
-Follow the [aggregation walkthrough](AGGREGATION.md) to run the AD aggregation with optimization disabled. It includes authentication and the request body. Restore the original delta setting afterward.
+Follow the [aggregation walkthrough](AGGREGATION.md) to run the AD aggregation with optimization disabled. It includes authentication and the request body.
 
 **Check:** The job completes without unresolved errors. Inspect the imported Lucas account and confirm employeeID is E012 before checking its identity link.
 
 **Screenshot reminder:** Save `AR-004-05-aggregation.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![Postman submits disableOptimization=true and receives 202 Accepted. This confirms submission only. Check the completed job in Aggregation History before continuing.](images/AR-004-05-aggregation.png)
+
+Postman submits disableOptimization=true and receives 202 Accepted. This confirms submission only. Check the completed job in Aggregation History before continuing.
 
 ## 4. Check which identity owns this account
 
@@ -63,6 +83,10 @@ Follow the [aggregation walkthrough](AGGREGATION.md) to run the AD aggregation w
 If the identifier is blank, check the schema, AD value, and aggregation. If a previous manual link points to another person, record it and follow the [manual-correlation correction guidance](https://documentation.sailpoint.com/saas/help/accounts/correlation.html). Do not delete the identity or AD user to repair a link.
 
 **Screenshot reminder:** Save `AR-004-06-linked-account.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![Lucas retains Acme HR and has one account on the course AD source. This tenant also lists an IdentityNow account; count accounts on the selected AD source rather than requiring two total rows.](images/AR-004-06-linked-account.png)
+
+Lucas retains Acme HR and has one account on the course AD source. This tenant also lists an IdentityNow account; count accounts on the selected AD source rather than requiring two total rows.
 
 ## Check the same person through two sources
 
@@ -90,7 +114,7 @@ Check the saved AD schema includes employeeID, compare the actual AD account and
 
 ## If you stopped midway or want to repeat this lab
 
-If interrupted after the API call, inspect its aggregation job before sending another call. Verify the stored employeeID, then the linked identity. Keep the working correlation criterion and E012 on Lucas. Restore the original Delta Aggregation setting. On repeat, a correct existing link passes the ownership check; do not unlink it merely to manufacture an uncorrelated case. An incorrect manual link requires the documented correction procedure, not identity deletion.
+If interrupted after the API call, inspect its aggregation job before sending another call. Verify the stored employeeID, then the linked identity. Keep the working correlation criterion and E012 on Lucas. On repeat, a correct existing link passes the ownership check; do not unlink it merely to manufacture an uncorrelated case. An incorrect manual link requires the documented correction procedure, not identity deletion.
 
 ## What you should leave in place
 
@@ -111,13 +135,15 @@ If interrupted after the API call, inspect its aggregation job before sending an
 
 ## Screenshots to capture
 
+The six supplied images appear above. Add AR-004-07-aggregation-history.png showing the completed account job, status and optimization disabled. Also retain an image of the imported AD account attribute mployeeID = E012; the account-list image alone does not show that value.
+
 | Filename | What to show |
 |---|---|
 | AR-004-01-identity-number.png | Lucas's identity employee identifier |
 | AR-004-02-ad-employee-id.png | AD employeeID E012 |
-| AR-004-03-schema.png | employeeID in the source schema |
+| AR-004-03-account-schema.png | employeeID in the source schema |
 | AR-004-04-correlation.png | Saved correlation pair and fallback order |
-| AR-004-05-aggregation.png | Completed aggregation and optimization setting |
+| `AR-004-05-aggregation.png` | Postman request body and 202 Accepted response; submission only. |
 | AR-004-06-linked-account.png | Lucas's identity with its linked AD account |
 
 Record actual values in the [journal](EVIDENCE.md).

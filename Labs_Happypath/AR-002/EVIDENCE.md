@@ -6,7 +6,7 @@
 |---|---|---|
 | Manager Name source | Acme HR | |
 | Manager Name attribute | managerEmployeeNumber | |
-| Identification Number attribute | employeeNumber | |
+| Employee Number attribute | employeeNumber | |
 | Manager Correlation Identity Attribute | identificationNumber | |
 | Manager Correlation Account Attribute | managerEmployeeNumber | |
 | Identity processing | Successful | |
@@ -47,7 +47,7 @@
 
 ## Screenshots
 
-- [ ] Manager Name and Identification Number mappings
+- [ ] Manager Name and Employee Number mappings
 - [ ] Manager Correlation configuration
 - [ ] Lucas showing Daniel as Manager
 - [ ] Daniel showing Morgan as Manager

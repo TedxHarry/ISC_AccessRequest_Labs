@@ -45,7 +45,7 @@ Keep the [account verification journal](EVIDENCE.md) open.
 5. Verify each identity has:
 
 - Username
-- Identification Number
+- Employee Number
 - First Name
 - Last Name
 - Display Name
@@ -115,7 +115,7 @@ Complete every row in [EVIDENCE.md](EVIDENCE.md).
 For each employee:
 
 1. Find the AD account by `sAMAccountName`.
-2. Confirm `employeeID` matches the employee's Identification Number.
+2. Confirm `employeeID` matches the employee's Employee Number.
 3. Confirm the account DN is in the intended Users OU.
 4. Confirm the UPN uses the expected suffix.
 5. Compare enabled/disabled state and password-change flags with the expectation recorded in AR-005. Resolve an unexpected state before relying on directory sign-in.

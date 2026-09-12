@@ -64,7 +64,7 @@ Set these mappings. Replace `YOUR-USERS-OU-DN` and `YOUR-UPN-SUFFIX` with your a
 | displayName | Identity Attribute | Display Name (`displayName`) |
 | givenName | Identity Attribute | First Name (`firstname`) |
 | sn | Identity Attribute | Family Name (`lastname`) |
-| employeeID | Identity Attribute | Identification Number (`identificationNumber`) |
+| employeeID | Identity Attribute | Employee Number (`identificationNumber`) |
 | department | Identity Attribute | Department (`department`) |
 | title | Identity Attribute | Job Title (`title`) |
 | mail | Identity Attribute | Work Email (`email`) |

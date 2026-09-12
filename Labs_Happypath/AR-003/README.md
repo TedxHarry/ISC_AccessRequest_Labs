@@ -66,6 +66,10 @@ Reference: [AD Review and Test](https://documentation.sailpoint.com/connectors/a
 
 **Screenshot:** Save `AR-003-01-connection-test.png`. Capture the AD source name and successful connection test.
 
+![The AD connection test succeeds. AD_Local_Ted is the source used in this example; select your own AD source.](images/AR-003-01-connection-test.png)
+
+The AD connection test succeeds. AD_Local_Ted is the source used in this example; select your own AD source.
+
 ## 2. Create the AcmeLab OU structure
 
 On your AD administration workstation:
@@ -100,6 +104,10 @@ Use the actual DN from your directory.
 
 **Screenshot:** Save `AR-003-02-lab-ous.png`. Capture AcmeLab expanded with Users, AdminAccounts, and Groups.
 
+![AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own domain.](images/AR-003-02-lab-ous.png)
+
+AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own domain.
+
 ## 3. Create Lucas's AD account
 
 1. In Active Directory Users and Computers, open **AcmeLab > Users**.
@@ -132,6 +140,10 @@ Use the actual DN from your directory.
 **Check:** Lucas exists under AcmeLab/Users with `sAMAccountName = acme.e012`.
 
 **Screenshot:** Save `AR-003-03-lucas-account.png`. Capture Lucas's account and distinguishedName.
+
+![Lucas lives under AcmeLab/Users. This image shows his distinguishedName; also check the Account tab for acme.e012 and your logon suffix.](images/AR-003-03-lucas-account.png)
+
+Lucas lives under AcmeLab/Users. This image shows his distinguishedName; also check the Account tab for acme.e012 and your logon suffix.
 
 ## 4. Create the 14 course groups
 
@@ -168,6 +180,10 @@ Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishe
 **Check:** All 14 groups exist under AcmeLab/Groups.
 
 **Screenshot:** Save `AR-003-04-ad-groups.png`. Capture the 14 groups in AD.
+
+![The 14 business groups are present in AcmeLab/Groups. The baseline group is added in AR-005.](images/AR-003-04-ad-groups.png)
+
+The 14 business groups are present in AcmeLab/Groups. The baseline group is added in AR-005.
 
 ## 5. Add the AcmeLab locations to the ISC AD source
 
@@ -209,10 +225,14 @@ Reference: [AD Account and Group Settings](https://documentation.sailpoint.com/c
 
 **Screenshot:** Save `AR-003-05-source-scopes.png`. Capture the saved user, group, and membership-search settings.
 
+![User Search Scope includes Users and AdminAccounts, with Group Membership Search DN pointing to Groups. Scroll to the separate Group Search Scope and verify it too; that section is outside this image.](images/AR-003-05-source-scopes.png)
+
+User Search Scope includes Users and AdminAccounts, with Group Membership Search DN pointing to Groups. Scroll to the separate Group Search Scope and verify it too; that section is outside this image.
+
 ## 6. Run account aggregation
 
 1. Open the AD source's **Account Management > Account Aggregation**.
-2. Record **Aggregation Settings > Delta Aggregation**. If enabled, temporarily disable it and save for a full scan of the newly included locations. Return to **Account Aggregation** and select **Start Aggregation**.
+2. Confirm the saved search scopes include your lab OUs. Keep account-deletion settings unchanged and select **Start Aggregation**. No Delta Aggregation toggle is required.
 3. Wait for completion.
 4. Open **Account Management > Accounts**.
 5. Search for `acme.e012`.
@@ -226,7 +246,7 @@ Reference: [AD Account and Group Settings](https://documentation.sailpoint.com/c
 | Source | Your Active Directory source |
 
 8. Record whether the account is currently correlated.
-9. After completion, restore the recorded Delta Aggregation setting and save. Keep the expanded search coverage.
+9. Inspect **Aggregation History** and record the completed status, scanned count and any warnings. Keep the expanded search coverage.
 
 Lucas can be uncorrelated at this stage. AR-004 handles correlation of this existing AD account to Lucas's ISC identity.
 
@@ -235,6 +255,10 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 **Check:** Lucas's AD account is visible on the ISC AD source with the expected sAMAccountName and DN.
 
 **Screenshot:** Save `AR-003-06-account-import.png`. Capture the completed account aggregation and Lucas's imported AD account.
+
+![The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.](images/AR-003-06-ad-account.png)
+
+The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.
 
 ## 7. Run entitlement aggregation
 
@@ -256,6 +280,10 @@ Reference: [Entitlement aggregation](https://documentation.sailpoint.com/saas/he
 **Check:** All 14 Acme groups are visible as entitlements on the correct AD source.
 
 **Screenshot:** Save `AR-003-07-entitlements.png`. Capture the completed entitlement aggregation, the Acme groups, and GG-VPN-USERS details.
+
+![The AD source contains the imported lab groups. Other groups can also appear. Search for all 14 course names; this cropped list does not show every group.](images/AR-003-07-entitlements.png)
+
+The AD source contains the imported lab groups. Other groups can also appear. Search for all 14 course names; this cropped list does not show every group.
 
 ## Try it yourself
 
@@ -300,6 +328,8 @@ Keep:
 Do not make the groups requestable yet.
 
 ## Screenshots to capture
+
+The seven supplied images appear beside the steps. Capture these additional views to complete the evidence: Lucas's Account tab, the separate saved Group Search Scope, completed account and entitlement aggregation history, and GG-VPN-USERS details showing its native value. The supplied source-scopes image shows user and membership searches; the supplied account image shows the imported record. Neither replaces the missing views.
 
 Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
 

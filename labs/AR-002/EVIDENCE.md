@@ -5,7 +5,7 @@
 | Item | Observed value |
 |---|---|
 | Manager Name mapping source and attribute | |
-| Identification Number mapping source and attribute | |
+| Employee Number mapping source and attribute | |
 | Manager Correlation: Identity Attribute | |
 | Manager Correlation: Account Attribute | |
 | Processing result | |

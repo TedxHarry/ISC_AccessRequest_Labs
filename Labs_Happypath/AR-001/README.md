@@ -176,7 +176,7 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 | Last Name / Family Name (`lastname`) | lastName |
 | Display Name (`displayName`) | displayName |
 | Work Email (`email`) | email |
-| Identification Number (`identificationNumber`) | employeeNumber |
+| Employee Number (`identificationNumber`) | employeeNumber |
 | Department (`department`) | department |
 | Title (`title`) | title |
 | Location (`location`) | location |
@@ -216,7 +216,7 @@ Reference: [Identity processing](https://documentation.sailpoint.com/saas/help/s
 |---|---|
 | Username | acme.e012 |
 | Display Name | Acme Lab - Lucas Brown |
-| Identification Number | E012 |
+| Employee Number | E012 |
 | Department | Finance |
 | Cost Center | FIN200 |
 | Location | Chicago |
@@ -234,7 +234,7 @@ Repeat the account-to-identity comparison for these employees:
 | E018 — Henry Anderson | Engineering |
 | E023 — Abigail Lewis | Security |
 
-**Check:** Acme HR has 24 accounts, Acme Employees has 24 identities, and Lucas is Finance / FIN200 with Identification Number E012.
+**Check:** Acme HR has 24 accounts, Acme Employees has 24 identities, and Lucas is Finance / FIN200 with Employee Number E012.
 
 ![Lucas baseline identity](images/05-baseline-identity.png)
 

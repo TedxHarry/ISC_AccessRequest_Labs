@@ -39,6 +39,10 @@ Keep your actual source name, directory paths, and results in the [lab journal](
 
 **Screenshot reminder:** Save `AR-003-01-connection-test.png`. Use the matching descriptions in the screenshot checklist at the end.
 
+![The AD connection test succeeds. AD_Local_Ted is the source used in this example; select your own AD source.](images/AR-003-01-connection-test.png)
+
+The AD connection test succeeds. AD_Local_Ted is the source used in this example; select your own AD source.
+
 ## 2. Prepare the AD lab locations
 
 1. On your AD administration workstation, open **Server Manager > Tools > Active Directory Users and Computers**.
@@ -61,6 +65,10 @@ For example, a Users OU could have the distinguished name (DN) `OU=Users,OU=Acme
 **Check:** You have three actual OU DNs recorded. Leave AdminAccounts empty for now; Sofia's separate administrative account is introduced in AR-026.
 
 **Screenshot reminder:** Save `AR-003-02-lab-ous.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own domain.](images/AR-003-02-lab-ous.png)
+
+AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own domain.
 
 ## 3. Prepare Lucas's AD account
 
@@ -91,6 +99,10 @@ For a reused account, verify the same logon name and lab attributes. Record its 
 **Check:** The account's pre-Windows 2000 logon name is `acme.e012`. Open the user directly from its OU and copy its `distinguishedName` from **Properties > Attribute Editor**; the tab may be absent when opening a Find result. The HR email `acme.e012@example.com` is a course placeholder; it does not establish your AD logon suffix.
 
 **Screenshot reminder:** Save `AR-003-03-lucas-ad-account.png`, `AR-003-04-lucas-dn.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![Lucas lives under AcmeLab/Users. This image shows his distinguishedName; also check the Account tab for acme.e012 and your logon suffix.](images/AR-003-03-lucas-account.png)
+
+Lucas lives under AcmeLab/Users. This image shows his distinguishedName; also check the Account tab for acme.e012 and your logon suffix.
 
 ## 4. Create the 14 lab groups
 
@@ -124,6 +136,10 @@ Keep newly created groups empty. These groups simulate application access, so do
 **Check:** All 14 names exist in your lab directory. Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishedName`.
 
 **Screenshot reminder:** Save `AR-003-05-ad-groups.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![The 14 business groups are present in AcmeLab/Groups. The baseline group is added in AR-005.](images/AR-003-04-ad-groups.png)
+
+The 14 business groups are present in AcmeLab/Groups. The baseline group is added in AR-005.
 
 ## 5. Update the AD source settings before aggregation
 
@@ -180,16 +196,20 @@ The **Group Membership Search DN** within a user-search entry controls where the
 
 **Screenshot reminder:** Save `AR-003-06-user-scope.png`, `AR-003-07-group-scope.png`, `AR-003-07a-membership-scope.png`. Use the matching descriptions in the screenshot checklist at the end.
 
+![User Search Scope includes Users and AdminAccounts, with Group Membership Search DN pointing to Groups. Scroll to the separate Group Search Scope and verify it too; that section is outside this image.](images/AR-003-05-source-scopes.png)
+
+User Search Scope includes Users and AdminAccounts, with Group Membership Search DN pointing to Groups. Scroll to the separate Group Search Scope and verify it too; that section is outside this image.
+
 ## 6. Aggregate and inspect Lucas's account
 
-Confirm Section 5's saved settings before starting. Open the source's **Aggregation Settings** and record **Delta Aggregation**. If enabled, turn it off and save for this run so the connector reads the full configured scope, including accounts that existed before the scope change. Restore its previous setting after the run completes. Keep account-deletion settings unchanged. [Full and delta aggregation](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
+Confirm Section 5's saved user, group and membership searches before starting. Keep account-deletion settings unchanged. This walkthrough uses **Account Management > Account Aggregation > Start Aggregation**; no Delta Aggregation toggle is required.
 
 1. In your AD source, open **Account Management > Account Aggregation**.
 2. Select **Start Aggregation** and wait for completion.
 3. Inspect **Latest Account Aggregation** or **Aggregation History**. Record the status, accounts scanned, and any warning or error details. Investigate warnings before treating the run as complete.
 4. Open **Account Management > Accounts**. Find Lucas by `acme.e012` or `Acme Lab - Lucas Brown`, then open the account.
 5. Compare its `sAMAccountName` and directory DN with the AD values you recorded. Record the Account ID exactly as ISC displays it. Also record whether the account is correlated and, if so, to which identity.
-6. Restore the Delta Aggregation setting recorded before the run, if you changed it.
+6. Keep the saved search coverage in place for the next labs.
 
 The source's ID can be obtained from its URL; account aggregation runs from the source's Account Aggregation page. [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 
@@ -198,6 +218,10 @@ The source's ID can be obtained from its URL; account aggregation runs from the 
 An uncorrelated Lucas account can pass this step. If an existing rule matched it, record the identity and verify that it is Lucas. Investigate an incorrect match before continuing with later access requests. AR-004 handles Lucas's existing-account correlation.
 
 **Screenshot reminder:** Save `AR-003-08-account-aggregation.png`, `AR-003-09-lucas-isc-account.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.](images/AR-003-06-ad-account.png)
+
+The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.
 
 ## 7. Aggregate and inspect the groups
 
@@ -213,6 +237,10 @@ The aggregation summary's discovered count can differ from the total entitlement
 **Check:** All 14 groups appear as entitlements on the correct source. Keep their request settings unchanged; the request-configuration labs follow later.
 
 **Screenshot reminder:** Save `AR-003-10-entitlement-aggregation.png`, `AR-003-11-isc-groups.png`, `AR-003-12-vpn-entitlement.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![The AD source contains the imported lab groups. Other groups can also appear. Search for all 14 course names; this cropped list does not show every group.](images/AR-003-07-entitlements.png)
+
+The AD source contains the imported lab groups. Other groups can also appear. Search for all 14 course names; this cropped list does not show every group.
 
 ## If something is missing
 
@@ -252,7 +280,7 @@ Zero new discoveries does not mean zero stored groups. Verify the 14 names, sour
 
 ## If you stopped midway or want to repeat this lab
 
-If interrupted, compare each recorded OU, user, group and saved scope before creating another object. Resume at the first missing check. If an aggregation is still running, wait for its result. Keep the lab OUs, Lucas and all 14 groups, plus the added scope coverage. Restore temporary delta settings and any unrelated setting changed accidentally. If repeating after provisioning labs, retain the other accounts and memberships; do not try to return the directory to one user.
+If interrupted, compare each recorded OU, user, group and saved scope before creating another object. Resume at the first missing check. If an aggregation is still running, wait for its result. Keep the lab OUs, Lucas and all 14 groups, plus the added scope coverage. Restore any unrelated setting changed accidentally. If repeating after provisioning labs, retain the other accounts and memberships; do not try to return the directory to one user.
 
 ## What you should leave in place
 
@@ -270,7 +298,7 @@ If interrupted, compare each recorded OU, user, group and saved scope before cre
 - [ ] The source name, source ID, and actual OU DNs are recorded.
 - [ ] Saved user searches cover Users and AdminAccounts; group searches cover all lab groups.
 - [ ] Membership-search restrictions permit the lab groups, and previous source coverage is preserved.
-- [ ] The original Delta Aggregation setting is restored if it was changed.
+- [ ] The saved search scopes remain in place and account-deletion settings are unchanged.
 - [ ] Lucas's AD account is visible in ISC with the expected sAMAccountName and DN.
 - [ ] Account and entitlement aggregations complete with no unresolved warnings or errors.
 - [ ] All 14 named groups are present on the correct source.
@@ -279,7 +307,9 @@ If interrupted, compare each recorded OU, user, group and saved scope before cre
 
 Retain the users, OUs, and groups. Next, use AR-004 to correlate Lucas, then provision the remaining standard accounts in AR-005 through AR-007. AR-006 proves the first membership update and account creation; AR-009 checks the completed foundation.
 
-## Screenshots to capture as you work
+## Screenshots to capture
+
+The seven supplied images appear beside the steps. Capture these additional views to complete the evidence: Lucas's Account tab, the separate saved Group Search Scope, completed account and entitlement aggregation history, and GG-VPN-USERS details showing its native value. The supplied source-scopes image shows user and membership searches; the supplied account image shows the imported record. Neither replaces the missing views.
 
 Take each screenshot after completing the listed section. Keep the source name and relevant values visible. Hide passwords, tokens, and connection secrets. Use the suggested filenames so you can upload the images later without having to identify them again.
 

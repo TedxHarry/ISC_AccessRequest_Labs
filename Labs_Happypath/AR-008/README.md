@@ -45,10 +45,10 @@ Keep your [evidence journal](EVIDENCE.md) open.
 2. Open **Admin > Identity Management > Identities**.
 3. Open Lucas (`acme.e012`).
 4. Confirm:
-   - Identification Number = E012
+   - Employee Number = E012
    - Manager = Daniel Brooks
-5. Open Daniel (`acme.e003`) and confirm Identification Number = E003.
-6. Open Priya (`acme.e002`) and confirm Identification Number = E002.
+5. Open Daniel (`acme.e003`) and confirm Employee Number = E003.
+6. Open Priya (`acme.e002`) and confirm Employee Number = E002.
 7. Confirm all three identities are enabled. For a disabled dedicated lab identity, select **Actions > Enable Identity** and recheck its state.
 
 **Check:** Lucas, Daniel, and Priya are enabled and Lucas's Manager is Daniel.

@@ -1,5 +1,13 @@
 # Module 1 learner walkthrough review
 
+## Screenshot and terminology correction — 12 September 2026
+
+Compared the 16 supplied AR-002–004 screenshots with both paths. Embedded unchanged copies beside the matching steps. Corrected the UI label to Employee Number throughout Module 1; the mapping screenshot confirms its technical name remains identificationNumber. Removed the unsupported requirement to find or restore an AD Delta Aggregation toggle. AR-003 uses the account-aggregation page; AR-004 uses the request-only disableOptimization flag. Updated the API URL to the documented /sources/v1 endpoint shown in the supplied Postman collection.
+
+The images establish the displayed mappings, hierarchy sample, lab OUs and groups, imported account and linked-account views. They do not establish completed unoptimized aggregation, every imported employeeID value, all group-search settings or all 14 entitlement details. Captions and remaining-capture lists distinguish these checks. The recommendation refresh error is identified separately from correlation configuration. Existing navigation changes from origin/main were retained. No tenant operations were performed during this review.
+
+References: [Account loading and optimization](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html), [current account aggregation API](https://developer.sailpoint.com/docs/tools/sdk/powershell/sources/methods/sources/#import-accounts-v1), and the supplied screenshots. The general account-loading page still describes delta controls for supported connectors; this course no longer assumes that control is exposed in the supplied AD interface.
+
 Reviewed 9 September 2026. Scope: AR-001–009, supporting aggregation instructions, evidence journals and the transition into Module 2. This is a documentation walkthrough, not a claim of running the tenant.
 
 ## Assessment

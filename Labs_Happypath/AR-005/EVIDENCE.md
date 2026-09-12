@@ -43,7 +43,7 @@
 | Item | Expected | Observed |
 |---|---|---|
 | Username | acme.e008 | |
-| Identification Number | E008 | |
+| Employee Number | E008 | |
 | AD account before AR-006 | None | |
 | Expected DN | Recorded | |
 | Expected UPN | Recorded | |

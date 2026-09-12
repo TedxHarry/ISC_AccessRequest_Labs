@@ -1,15 +1,10 @@
-# Run a Full AD Account Aggregation
+# Run an Unoptimized AD Account Aggregation
 
 Use this procedure after adding `employeeID` to the AD account schema.
 
-## 1. Record the current aggregation setting
+## 1. Confirm the AD source
 
-1. Open **Admin > Connections > Sources > your AD source**.
-2. Open **Aggregation Settings**.
-3. Record the current **Delta Aggregation** setting.
-4. If Delta Aggregation is enabled, turn it off temporarily and save.
-
-Keep account-deletion settings unchanged.
+Open **Admin > Connections > Sources > your AD source** and copy its source ID. Confirm the saved user searches cover Lucas's OU. Keep account-deletion settings unchanged. No Delta Aggregation toggle is required for this procedure.
 
 ## 2. Get an API access token
 
@@ -43,7 +38,7 @@ Reference: [ISC API authentication](https://developer.sailpoint.com/docs/api/aut
 1. Create a new **POST** request:
 
 ```text
-https://<tenant>.api.identitynow.com/beta/sources/<AD-source-ID>/load-accounts
+https://<tenant>.api.identitynow.com/sources/v1/<AD-source-ID>/load-accounts
 ```
 
 2. Replace `<tenant>` and `<AD-source-ID>` with your values.
@@ -54,10 +49,10 @@ https://<tenant>.api.identitynow.com/beta/sources/<AD-source-ID>/load-accounts
 |---|---|---|
 | disableOptimization | Text | true |
 
-5. Send the request once.
+5. Leave the optional file field unchecked; AD reads directly from the connector. Send the request once.
 6. Record the HTTP status and returned task reference if present. An accepted response starts a job; it is not completion. For 401, check token validity; for 403, check permissions; for 400, inspect the body format and source ID. Do not resubmit while a job is running. Let Postman supply the multipart Content-Type boundary.
 
-Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
+Reference: [Current account aggregation API](https://developer.sailpoint.com/docs/tools/sdk/powershell/sources/methods/sources/#import-accounts-v1) and [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 
 ## 4. Verify completion
 
@@ -66,14 +61,12 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 3. Find the aggregation you just started.
 4. Wait until it finishes.
 5. Confirm the status is successful.
-6. Open Lucas's imported AD account and confirm `employeeID = E012`.
+6. Verify the history entry shows optimization disabled. Open Lucas's imported AD account and confirm `employeeID = E012`.
 
-## 5. Restore the setting
-
-If you changed **Delta Aggregation** in Step 1, restore its original value and save.
+## 5. Finish the API session
 
 If you created a temporary Personal Access Token only for this procedure, revoke it after you finish.
 
-**Check:** The aggregation completed successfully, Lucas's imported account contains `employeeID = E012`, and the original Delta Aggregation setting is restored.
+**Check:** The aggregation completed successfully, Lucas's imported account contains `employeeID = E012`. The request-only optimization flag requires no reset.
 
 [Return to AR-004](README.md)

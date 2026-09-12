@@ -105,7 +105,7 @@ Keep `$(uid)` and `${sAMAccountName}` exactly as shown.
 | displayName | Identity Attribute | Display Name (`displayName`) |
 | givenName | Identity Attribute | First Name (`firstname`) |
 | sn | Identity Attribute | Family Name (`lastname`) |
-| employeeID | Identity Attribute | Identification Number (`identificationNumber`) |
+| employeeID | Identity Attribute | Employee Number (`identificationNumber`) |
 | department | Identity Attribute | Department (`department`) |
 | title | Identity Attribute | Job Title (`title`) |
 | mail | Identity Attribute | Work Email (`email`) |
@@ -145,7 +145,7 @@ Reference: [AD provisioning reference](https://documentation.sailpoint.com/conne
 | Identity attribute | Expected value |
 |---|---|
 | Username | acme.e008 |
-| Identification Number | E008 |
+| Employee Number | E008 |
 | First Name | Liam |
 | Last Name | Patel |
 | Display Name | Acme Lab - Liam Patel |

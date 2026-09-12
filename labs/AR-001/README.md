@@ -183,7 +183,7 @@ User Name must be unique tenant-wide. User Name, Work Email, and Last Name must 
 | Last Name / Family Name (`lastname`) | lastName |
 | Display Name (`displayName`) | displayName |
 | Work Email (`email`) | email |
-| Identification Number (`identificationNumber`) | employeeNumber |
+| Employee Number (`identificationNumber`) | employeeNumber |
 | Department (`department`) | department |
 | Title (`title`) | title |
 | Location (`location`) | location |
@@ -233,7 +233,7 @@ Department counts should be IT **6**, Finance **4**, HR **3**, Sales **3**, Engi
 
 Capture both Lucas's HR account and identity attributes. A successful aggregation alone is not the complete verification.
 
-**Check:** Lucas has one Acme identity, with Department `Finance`, Identification Number `E012`, and its corresponding Acme HR account. Manager resolution and AD account membership are not completion requirements for this lab.
+**Check:** Lucas has one Acme identity, with Department `Finance`, Employee Number `E012`, and its corresponding Acme HR account. Manager resolution and AD account membership are not completion requirements for this lab.
 
 ![Baseline identity Acme Lab - Lucas Brown with username acme.e012, Finance department, FIN200 cost center, and employee number E012](images/05-baseline-identity.png)
 

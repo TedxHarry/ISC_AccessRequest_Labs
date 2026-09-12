@@ -5,7 +5,7 @@
 | Item | Expected | Observed |
 |---|---|---|
 | Lucas ISC username | acme.e012 | |
-| ISC Identification Number | E012 | |
+| ISC Employee Number | E012 | |
 | AD sAMAccountName | acme.e012 | |
 | AD employeeID | E012 | |
 | AD distinguishedName | AcmeLab/Users location | |
@@ -15,7 +15,7 @@
 | Item | Expected | Observed |
 |---|---|---|
 | employeeID in account schema | Yes | |
-| Correlation Identity Attribute | identificationNumber | |
+| Correlation Identity Attribute | Employee Number (identificationNumber) | |
 | Correlation Account Attribute | employeeID | |
 | Aggregation result | Success | |
 | Imported employeeID | E012 | |
@@ -31,11 +31,13 @@
 
 ## Screenshots
 
-- [ ] Lucas Identification Number
+- [ ] Lucas Employee Number
 - [ ] AD employeeID
 - [ ] employeeID in the AD account schema
 - [ ] Account Correlation configuration
-- [ ] Completed account aggregation
+- [ ] Postman request body and accepted response (submission only)
+- [ ] Completed account aggregation with optimization disabled
+- [ ] Imported AD account employeeID E012
 - [ ] Lucas with linked AD account
 
 ## Completion

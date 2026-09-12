@@ -62,7 +62,7 @@ The original 24-person dataset contains **23 manager relationships and one root*
 
 4. Open **Admin > Identity Management > Identities**.
 5. Search for `acme.e003` and open Daniel Brooks.
-6. Confirm Daniel's **Identification Number** is `E003`.
+6. Confirm Daniel's **Employee Number** is `E003`.
 
 The relationship is:
 
@@ -89,7 +89,7 @@ Result: Lucas's Manager = Daniel Brooks
 | Attribute | managerEmployeeNumber |
 | Transform | None |
 
-5. Confirm **Identification Number** still maps to:
+5. Confirm **Employee Number** still maps to:
 
 | Field | Value |
 |---|---|
@@ -100,9 +100,13 @@ Result: Lucas's Manager = Daniel Brooks
 
 Reference: [Identity-profile mappings](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html)
 
-**Check:** Manager Name reads `managerEmployeeNumber`, while Identification Number reads `employeeNumber`.
+**Check:** Manager Name reads `managerEmployeeNumber`, while Employee Number reads `employeeNumber`.
 
 **Screenshot:** Save `AR-002-01-identity-mappings.png`. Capture both mappings.
+
+![Employee Number (identificationNumber) reads employeeNumber; Manager Name (manager) reads managerEmployeeNumber from Acme HR.](images/AR-002-01-identity-mappings.png)
+
+Employee Number (identificationNumber) reads employeeNumber; Manager Name (manager) reads managerEmployeeNumber from Acme HR.
 
 ## 3. Configure Manager Correlation
 
@@ -113,7 +117,7 @@ Reference: [Identity-profile mappings](https://documentation.sailpoint.com/saas/
 
 | Manager Correlation field | Value |
 |---|---|
-| Identity Attribute | Identification Number (`identificationNumber`) |
+| Identity Attribute | Employee Number (`identificationNumber`) |
 | Account Attribute | managerEmployeeNumber |
 
 5. Save the configuration.
@@ -135,6 +139,10 @@ identificationNumber
 **Check:** The saved configuration compares `managerEmployeeNumber` from the employee HR account with `identificationNumber` on the manager identity.
 
 **Screenshot:** Save `AR-002-02-manager-correlation.png`. Capture the Manager Correlation settings.
+
+![Select Employee Number on the identity side and managerEmployeeNumber on the account side, then save. Equals is displayed between the fields.](images/AR-002-02-manager-correlation.png)
+
+Select Employee Number on the identity side and managerEmployeeNumber on the account side, then save. Equals is displayed between the fields.
 
 ## 4. Apply changes and process identities
 
@@ -179,6 +187,10 @@ Morgan Reed
 
 **Screenshot:** Save `AR-002-03-manager-hierarchy.png`. Capture Lucas with Daniel as manager, Daniel with Morgan as manager, and Morgan with no manager.
 
+![Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Check the remaining employees against the roster too.](images/AR-002-03-manager-hierarchy.png)
+
+Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Check the remaining employees against the roster too.
+
 ## 6. Verify the full hierarchy
 
 Use the table below to validate the complete Acme population.
@@ -215,7 +227,7 @@ If a manager differs, compare the employee’s stored managerEmployeeNumber with
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] Manager Name maps to `Acme HR > managerEmployeeNumber`.
-- [ ] Identification Number maps to `Acme HR > employeeNumber`.
+- [ ] Employee Number maps to `Acme HR > employeeNumber`.
 - [ ] Manager Correlation uses `identificationNumber` as Identity Attribute.
 - [ ] Manager Correlation uses `managerEmployeeNumber` as Account Attribute.
 - [ ] Identity processing completed successfully.

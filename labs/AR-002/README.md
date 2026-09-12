@@ -41,15 +41,13 @@ The full dataset has **23 employee-to-manager relationships and one root**. Keep
 1. Open **Admin > Connections > Sources > Acme HR > Account Management > Accounts**.
 2. Open `acme.e012`. Confirm `employeeNumber` is `E012` and `managerEmployeeNumber` is `E003`.
 3. Open **Admin > Identity Management > Identities** and find Daniel Brooks (`acme.e003`). Confirm he exists as an identity under **Acme Employees**.
-4. Open **Acme Employees > Mappings** and locate the identity attribute that receives **Acme HR > employeeNumber**. The course uses **Identification Number (`identificationNumber`)**.
+4. Open **Acme Employees > Mappings** and locate the identity attribute that receives **Acme HR > employeeNumber**. The course uses **Employee Number (`identificationNumber`)**.
 
 **Check:** The employee's manager reference is `E003`, and the manager's own employee identifier is `E003`. Those are the matching values. Lucas's own number, `E012`, is not the value to use to identify his manager.
 
 ### Check the identity attribute name
 
-The AR-001 screenshot labels the value **Employee Number**. A display label alone does not establish its technical attribute name. Inspect the profile mapping.
-
-For this lab, map the existing **Identification Number (`identificationNumber`)** attribute to **Acme HR > employeeNumber** if it is not already mapped. Retain any existing custom Employee Number mapping; you do not need to delete or rename it. This gives the steps below a consistent matching attribute.
+In **Acme Employees > Mappings**, the field is **Employee Number (`identificationNumber`)**. Select **Employee Number** in the correlation dropdown. The label and technical name refer to the same identity attribute; do not create a second attribute. Map it to **Acme HR > employeeNumber** if needed, then save and apply changes.
 
 ## 2. Map Manager Name
 
@@ -66,9 +64,13 @@ For this lab, map the existing **Identification Number (`identificationNumber`)*
 
 Despite its label, Manager Name takes the reference supplied by this HR feed. Do not replace the CSV's employee numbers with display names. [Identity-profile mappings](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html)
 
-**Check:** Manager Name reads from `managerEmployeeNumber`; Identification Number reads from `employeeNumber`. Capture both mappings.
+**Check:** Manager Name reads from `managerEmployeeNumber`; Employee Number reads from `employeeNumber`. Capture both mappings.
 
-**Screenshot reminder:** Capture the Manager Name and Identification Number mappings.
+**Screenshot reminder:** Capture the Manager Name and Employee Number mappings.
+
+![Employee Number (identificationNumber) reads employeeNumber; Manager Name (manager) reads managerEmployeeNumber from Acme HR.](images/AR-002-01-identity-mappings.png)
+
+Employee Number (identificationNumber) reads employeeNumber; Manager Name (manager) reads managerEmployeeNumber from Acme HR.
 
 ## 3. Configure the manager match
 
@@ -78,7 +80,7 @@ Despite its label, Manager Name takes the reference supplied by this HR feed. Do
 
 | Field | Select |
 |---|---|
-| Identity Attribute | Identification Number (`identificationNumber`) |
+| Identity Attribute | Employee Number (`identificationNumber`) |
 | Account Attribute | managerEmployeeNumber |
 
 4. Select **Save**.
@@ -97,12 +99,16 @@ Lucas's manager = Daniel Brooks
 
 **Screenshot reminder:** Capture the saved Manager Correlation selections.
 
+![Select Employee Number on the identity side and managerEmployeeNumber on the account side, then save. Equals is displayed between the fields.](images/AR-002-02-manager-correlation.png)
+
+Select Employee Number on the identity side and managerEmployeeNumber on the account side, then save. Equals is displayed between the fields.
+
 ## 4. Apply and process the identities
 
 1. Return to **Acme Employees** and select **Apply Changes**.
 2. Open **Admin > Dashboard > Monitor** to inspect running identity-processing jobs.
 3. When processing completes, reopen Lucas's identity and check **Manager**.
-4. If you added the Identification Number mapping in Section 1, first verify it populated Daniel's identity. If Lucas is still unresolved after that, locate Lucas on **Admin > Identity Management > Identities**, select **Actions > Process Identity**, and check the result again.
+4. If you added the Employee Number mapping in Section 1, first verify it populated Daniel's identity. If Lucas is still unresolved after that, locate Lucas on **Admin > Identity Management > Identities**, select **Actions > Process Identity**, and check the result again.
 
 Profile changes require applying; processing selected identities provides a targeted retry after correcting their data. Do not repeatedly submit jobs while one is still running. [Identity processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html)
 
@@ -129,6 +135,10 @@ Manager relationships prepare the data for later manager-approval labs. Their pr
 
 **Screenshot reminder:** Capture Lucas with Daniel as manager, Daniel with Morgan, and Morgan with no manager.
 
+![Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Check the remaining employees against the roster too.](images/AR-002-03-manager-hierarchy.png)
+
+Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Check the remaining employees against the roster too.
+
 ## Practice: a valid identifier pointing to the wrong manager
 
 Before the live data-change exercise, confirm there are no pending course approvals/provisioning operations and no unrelated automation depending on the field you will change. Record the original value. If later configuration now acts on this field, use the supplied ticket case until you have an isolated test window. Restore and verify the original value before the next lab.
@@ -153,7 +163,7 @@ This exercise changes manager data, not an approval policy. The later Manager-re
 | Manager is blank on Lucas | His HR account's managerEmployeeNumber, then both configurations in Sections 2 and 3 |
 | Manager reference is E003, but no match appears | Daniel exists and his selected identity attribute contains exactly E003 |
 | Manager reference is a number but the selected identity attribute holds a username | Use the matching employee-number attribute rather than uid |
-| A custom Employee Number attribute is missing from the dropdown | Use the standard identificationNumber mapping in Section 1; custom correlation attributes have additional searchable-attribute requirements |
+| Employee Number is missing from the dropdown | Reopen Acme Employees > Mappings and verify the technical name identificationNumber and its employeeNumber source mapping; confirm you are editing the Acme HR source |
 | The saved configuration is correct but the result is old | Check processing and use the targeted action in Section 4 after confirming the data |
 | An unexpected manager appears | Compare the actual manager identity's identifier with the employee's HR reference; check duplicate identifiers and other profile/source mappings |
 
@@ -200,7 +210,7 @@ If interrupted during the wrong-manager exercise, inspect E012 in both the worki
 
 ## Screenshots to retain
 
-- Manager Name and Identification Number mappings.
+- Manager Name and Employee Number mappings.
 - The Manager Correlation dropdown selections.
 - Lucas's identity with Daniel shown as Manager.
 - Daniel's identity with Morgan shown as Manager.
