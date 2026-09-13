@@ -48,6 +48,49 @@ If controllers disagree, record both results and investigate AD replication befo
 
 Lucas retains a directly requested VPN assignment from AR-012. Removing a later profile that also includes VPN must preserve that independent grant. After AR-047 the working HR file has 25 records; the baseline role still selects only the original 24.
 
+## Find a specific request, approval, or account activity
+
+Use this procedure whenever a lab says **find**, **locate**, **reopen**, or **follow** a request or provisioning activity. Do not scan the whole tenant and guess from a similar row.
+
+### Find the request
+
+1. In the requester's session, open **Request Center > My Requests**.
+2. Match the **recipient**, exact **access item**, lab reason/comment, and **submission time** recorded when you submitted it.
+3. In the administrator session, open **Admin > Dashboard > Approval Management > Access Requests** and match the same recipient, item, and submission time. Open **Process**, **Assignees**, and **Details**.
+4. Keep the request ID or tracking value with the lab journal. Do not assume it is the same value as an Account Activity ID.
+
+### Find the review task
+
+1. Sign in as the reviewer named by the lab and verify the username in the user menu.
+2. Open **Approvals > Access Requests > Requested** for pending work or **Reviewed** for a completed decision.
+3. Match the **Grant/Remove action**, recipient, item, lab reason, and submission time before deciding anything.
+4. If the task is missing, compare the administrator request's actual assignee and current stage before changing configuration or submitting another request.
+
+### Find the Account Activity
+
+1. Open the top navigation **Search** and select **Account Activity**.
+2. Use the course identity name and the exact AD source name recorded in your journal. Replace `YOUR-AD-SOURCE-NAME` before running the query:
+
+```text
+recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"
+```
+
+For Liam's missing-account creation in AR-006, narrow the same search to create operations:
+
+```text
+recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)
+```
+
+3. The `sources` value is case-sensitive. Use the source name exactly as ISC displays it.
+4. If several results match, use the recorded submission/role-assignment time and the **Created/Last Modified** values to select the activity produced by this lab. Account Activity is normally displayed newest first.
+5. Open the result, select the AD source entry, and inspect the account operation. Record the activity ID/tracking number, account/native identity, operation, attribute request, final status, and any error or warning.
+6. If a create-filtered query returns nothing, remove only `AND @accountRequests(op:create)` and search again. Do not resubmit or reapply access just to make a new row appear.
+7. For another identity, replace only the `recipient.name` value with that course username. For another source, replace only the quoted source name.
+
+Use Account Activity to prove what ISC attempted; use AD to prove what actually changed. Search retains Account Activity for a limited period, so label older screenshots or journal records as historical when the live activity is no longer available.
+
+References: [Searchable Account Activity fields](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html) · [Building nested Search queries](https://documentation.sailpoint.com/saas/help/search/building-query.html) · [Monitoring provisioning](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
+
 ## Submit and follow a control request
 
 1. Use the named requester's browser session. Confirm their username in the profile menu.
