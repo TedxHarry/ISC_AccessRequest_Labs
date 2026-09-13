@@ -8,7 +8,17 @@ Use a REST client such as Postman. The examples below use the published v3 reque
 2. In your REST client, create a private environment with `apiBase` equal to your tenant's API origin, for example `https://YOUR-TENANT.api.identitynow.com`. Do not use the UI hostname as the API origin.
 3. Add local secret variables `clientId` and `clientSecret`. Create **POST** `{{apiBase}}/oauth/token`; body type **x-www-form-urlencoded** with `grant_type=client_credentials`, `client_id={{clientId}}`, `client_secret={{clientSecret}}`.
 4. Send once. Store the returned `access_token` as a local secret `token`. On the remaining requests, choose **Bearer Token** and use `{{token}}`. Do not publish the token response or an exported environment containing secrets.
-5. Add non-secret local variables `recipientId`, `itemId`, `approvalId` and `activityId` from your own lab objects. Get identity and item IDs from a read-only object response, not by copying a group DN into an ID field.
+5. In Postman, open **Environments**, create or select your private lab environment, add the variables, then select that environment for your requests. Use the steps below to populate `recipientId` and `itemId`. Leave `approvalId` and `activityId` empty until their corresponding operations exist; those IDs cannot be collected before the first request.
+
+### Populate the IDs before your first API read
+
+1. In the ISC administrator session, open the recipient's identity **Details** and copy **ID**, after checking the username and Employee Number. Follow the [identity lookup](LAB-VALUES.md#find-isc-source-and-identity-ids). Paste this into the environment's `recipientId` value.
+2. Find the access profile specified in the lab and obtain its ID using the [access-item lookup](LAB-VALUES.md#find-an-access-profile-or-role-id). Paste it into `itemId`. Do not use an entitlement ID for a profile request.
+3. Save the environment values as appropriate for your Postman version. Open **GET `{{apiBase}}/v3/identities/{{recipientId}}`**, set **Authorization > Bearer Token** to `{{token}}`, and send. Confirm HTTP 200 and that the returned identity is your recipient.
+4. Send **GET `{{apiBase}}/v3/access-profiles/{{itemId}}`** and confirm the returned profile name and included access. These are reads; they create no access request.
+5. If a variable is unresolved, check the selected environment and its exact spelling. If the server returns an error, inspect its status and body before continuing. Do not submit a grant while either read identifies the wrong object.
+
+Record `apiBase` as the API origin only, without `/v3` or a trailing operation path. Use the API hostname confirmed for your tenant's region. A custom-branded sign-in URL is not sufficient to derive it; use your existing working tenant API configuration or the [authentication guidance](https://developer.sailpoint.com/docs/api/authentication/).
 
 ## Read before submitting
 
@@ -58,13 +68,35 @@ Cancellation uses the account activity identifier, not the approval ID. Read the
 
 ## Read-only investigation script
 
+### Open the correct folder and run the fixture first
+
+1. Download or clone this repository and locate the folder containing `tools`, `fixtures` and this file. Open **Windows PowerShell** and run `Set-Location -LiteralPath (Read-Host 'Full path to the course repository folder')`. Enter that folder path, not the `tools` subfolder.
+2. Run `Test-Path .\tools\request_report.py` and `Test-Path .\fixtures\request-status-pages.json`. Both must return `True`. If either is `False`, correct the current folder before continuing.
+3. Run `python --version`. If Python is unavailable, install Python 3 from [python.org](https://www.python.org/downloads/windows/) or use a workstation where it is already installed, then reopen PowerShell. The report uses Python's standard library; it needs no additional package installation.
+4. Run the fixture below. It reads supplied sample data and needs no tenant token.
+
+```powershell
+$LabEvidenceFolder = Join-Path ([Environment]::GetFolderPath('MyDocuments')) ('AcmeLabEvidence-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+New-Item -ItemType Directory -Path $LabEvidenceFolder -ErrorAction Stop | Out-Null
+$LabFixtureReport = Join-Path $LabEvidenceFolder 'fixture-report.json'
+python .\tools\request_report.py --fixture .\fixtures\request-status-pages.json --output $LabFixtureReport
+if ($LASTEXITCODE -ne 0) { throw 'The fixture report failed; inspect the error before continuing.' }
+$LabRows = @(Get-Content -LiteralPath $LabFixtureReport -Raw | ConvertFrom-Json)
+$LabRows.Count
+```
+
+**Check:** The count is `3`. Open the file at `$LabFixtureReport` and compare its three records with the fixture. Keep `$LabEvidenceFolder` for the live report; quote output paths when entering them literally, especially when they contain spaces.
+
 The [request report script](tools/request_report.py) reads all pages for one recipient and writes the raw records to a private file. It does not approve, cancel or retry submissions.
 
 ```powershell
-python tools/request_report.py --base https://YOUR-TENANT.api.identitynow.com --recipient YOUR-IDENTITY-ID --output C:\LabEvidence\request-report.json
+$LabApiBase = Read-Host 'Confirmed tenant API origin, without an operation path'
+$LabRecipientId = Read-Host 'Verified ISC recipient identity ID'
+$LabLiveReport = Join-Path $LabEvidenceFolder 'request-report.json'
+python .\tools\request_report.py --base $LabApiBase --recipient $LabRecipientId --output $LabLiveReport
 ```
 
-Enter a current token at the hidden prompt. Create the output folder first. The report can contain identity information; keep it private. Use `--fixture fixtures/request-status-pages.json` to practice pagination without a tenant.
+Enter a current token at the hidden prompt. Check the command completed successfully before opening `$LabLiveReport`. The report can contain identity information; keep it private. If you opened a new PowerShell session, repeat the folder/fixture setup to establish the variables first.
 
 ## Configuration changes
 

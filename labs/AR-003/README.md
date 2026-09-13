@@ -88,6 +88,8 @@ If it is missing:
 | UPN suffix dropdown | Your training domain's configured suffix |
 | User logon name (pre-Windows 2000) | acme.e012 |
 
+Before selecting the suffix, read the dropdown beside **User logon name**. Use the configured training-domain suffix, without taking a value from the HR email column. For example, `acme.e012` plus `@isc.com` forms the UPN `acme.e012@isc.com`. If more than one suffix is offered, use the established suffix for standard users in this training domain. [See the UPN lookup walkthrough](../AR-005/README.md#find-and-record-your-upn-suffix).
+
 3. Select **Next**, enter a password that meets your lab domain's policy, and retain the normal password-change settings. Keep the password out of the journal and screenshots.
 4. Select **Next > Finish**.
 5. Open the account's **Properties**. On **General**, set **Display name** to `Acme Lab - Lucas Brown` if needed. On **Organization**, set **Department** to `Finance` and **Title** to `Reporting Analyst`. Select **Apply**.
@@ -224,6 +226,8 @@ An uncorrelated Lucas account can pass this step. If an existing rule matched it
 The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.
 
 ## 7. Aggregate and inspect the groups
+
+For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
 
 1. In the same AD source, open **Entitlement Management > Entitlement Aggregation**.
 2. Select **Start Aggregation**. The default includes all entitlement types.

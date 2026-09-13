@@ -24,6 +24,8 @@ This is a catalog administration task. Do not submit a request or remove an exis
 4. In Acme Admin, open **Admin > Access Model > Entitlements**, find the same source/group DN and open **Actions > Edit**.
 5. Record the entitlement ID, primary owner, reviewer and **Access Requests > Allow Access Requests** setting.
 
+For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
+
 **Check:** Olivia can find the intended VPN item. Priya remains owner and reviewer.
 
 **Screenshot:** `AR-014-01.png`: visible VPN item in Olivia's session.

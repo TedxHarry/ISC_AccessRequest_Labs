@@ -123,6 +123,8 @@ AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own 
 | UPN suffix | Your training domain suffix |
 | Pre-Windows 2000 logon name | acme.e012 |
 
+Before selecting the suffix, read the dropdown beside **User logon name**. Use the configured training-domain suffix, without taking a value from the HR email column. For example, `acme.e012` plus `@isc.com` forms the UPN `acme.e012@isc.com`. If more than one suffix is offered, use the established suffix for standard users in this training domain. [See the UPN lookup walkthrough](../AR-005/README.md#find-and-record-your-upn-suffix).
+
 4. Select **Next**.
 5. Set a password that meets the domain policy. Do not record the password in the course evidence.
 6. Retain domain-required password settings, record the chosen enabled/disabled account state, then select **Next > Finish**.
@@ -261,6 +263,8 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.
 
 ## 7. Run entitlement aggregation
+
+For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
 
 1. Open the same AD source.
 2. Open **Entitlement Management > Entitlement Aggregation**.

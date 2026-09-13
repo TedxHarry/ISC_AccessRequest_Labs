@@ -27,14 +27,45 @@ Before ISC creates Liam, tell it where the account belongs and which values to u
 1. Open your AD source and record its provisioning and IQService connection settings without recording credentials.
 2. Check the existing installation against the [AD prerequisites](https://documentation.sailpoint.com/connectors/active_directory/help/integrating_active_directory/prerequisites.html) and [required permissions](https://documentation.sailpoint.com/connectors/active_directory/help/integrating_active_directory/required_permissions.html). The connector must be able to create users in the actual Users OU, set their required attributes and password, and update membership of the baseline group you will create below.
 3. Run the source's **Review and Test > Test Connection**. Resolve errors before proceeding. This test is preliminary; AR-006 will prove an actual write.
-4. Record the exact Users OU DN and your configured AD UPN suffix. Confirm the OU is covered by the saved search settings from AR-003.
+4. Follow the UPN and OU lookup steps below, then record the exact Users OU DN and configured AD UPN suffix. Confirm the OU is covered by the saved search settings from AR-003.
 
 If your connection only reads accounts, complete its provisioning prerequisites before continuing. A manual work item asking a person to create an account does not satisfy this lab's direct-provisioning check.
 
+### Find and record your UPN suffix
+
+A **User Principal Name (UPN)** is an AD sign-in name such as `acme.e012@isc.com`. The **suffix** is the part after `@`: `isc.com` in that example. It can differ from the employee's email domain.
+
+1. On your AD workstation, open **Server Manager > Tools > Active Directory Users and Computers**.
+2. Expand your training domain, then **AcmeLab > Users**.
+3. Right-click **Acme Lab - Lucas Brown > Properties** and open **Account**.
+4. Find **User logon name**. Read the username on the left and the selected suffix on the right. For example, `acme.e012` and `@isc.com` together form `acme.e012@isc.com`.
+5. In your journal, record Lucas's full UPN and the suffix **without `@`**. Use this same configured suffix for the new standard lab users. Close with **Cancel**; you are inspecting Lucas, not changing his sign-in name.
+6. If several suffixes are available, record the one selected for Lucas's standard lab account. If his UPN is blank, check the suffix selected on another working standard account in the same training domain. Do not invent a suffix from the HR email addresses.
+
+The **User logon name (pre-Windows 2000)** field is a different sign-in format, such as `ISC\acme.e012`; do not copy `ISC` as the UPN suffix. If you need to inspect configured alternatives, open **Server Manager > Tools > Active Directory Domains and Trusts**, right-click the top **Active Directory Domains and Trusts** node, select **Properties**, and view **UPN Suffixes**. An empty alternative-suffix list does not mean the domain has no default suffix. No new suffix is required for this lab. [Microsoft UPN guidance](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/howto-troubleshoot-upn-changes)
+
+**Check:** Your journal contains an observed full UPN and its suffix. For a confirmed suffix of `isc.com`, the ISC mapping will be `${sAMAccountName}@isc.com`, and Liam's expected UPN will be `acme.e008@isc.com`. Keep `${sAMAccountName}` as an expression in the mapping; do not replace it with Lucas's or Liam's username.
+
+**Screenshot:** Save `AR-005-upn-suffix.png` showing Lucas's **Account** tab and the selected suffix.
+
+### Copy the target OU DN
+
+The OU's **distinguished name (DN)** tells ISC where to create the user. Copy the OU value, not Lucas's account DN.
+
+1. In **Active Directory Users and Computers**, select **View > Advanced Features**.
+2. Right-click the **Users** OU directly beneath **AcmeLab**, then select **Properties > Attribute Editor**.
+3. Select **distinguishedName > View** (or **Edit**, if offered), copy the complete value, and close without changing it.
+4. Record that value as **Users OU DN**. If the Attribute Editor tab is missing, close Properties, confirm Advanced Features is selected, and reopen the OU directly from the tree.
+5. Compare it with the saved **User Search Scope > Search DN** in your AD source's **Account and Group Settings**. The search must cover this OU before provisioning.
+
+For example, if the copied value is `OU=Users,OU=AcmeLab,DC=isc,DC=com`, enter `CN=$(uid),OU=Users,OU=AcmeLab,DC=isc,DC=com` in the DN generator. Preserve any additional parent OUs present in your real DN. A value beginning `CN=Acme Lab - Lucas Brown,` is Lucas's account DN, not the target OU DN.
+
+**Check:** The recorded target starts with your Users OU and ends with your actual domain components. Save `AR-005-users-ou-dn.png` showing this value.
+
 ## 2. Prepare a separate baseline group
 
-1. In **Active Directory Users and Computers**, right-click **AcmeLab > Groups > New > Group**.
-2. Check whether `GG-ACME-BASELINE` exists. When resuming, reuse the verified lab group and record its members; do not empty it or create a duplicate. For a new run, create it with scope **Global**, type **Security**. Description: `Acme lab - standard account baseline`. Leave its membership empty.
+1. In **Active Directory Users and Computers**, open **AcmeLab > Groups** and look for `GG-ACME-BASELINE` before opening the creation dialog.
+2. Check whether `GG-ACME-BASELINE` exists. When resuming, reuse the verified lab group and record its members; do not empty it or create a duplicate. If it is missing, right-click **Groups > New > Group**, enter `GG-ACME-BASELINE`, select scope **Global** and type **Security**, then **OK**. Reopen its **Properties > General**, enter description `Acme lab - standard account baseline`, and select **Apply**. Leave its membership empty on this first run.
 3. Record its DN and confirm the connector can update this group's membership. This group grants no real application or administrative access.
 4. In ISC, run the AD source's **Entitlement Management > Entitlement Aggregation**. Verify the baseline group appears on the correct source and record its entitlement value.
 
@@ -43,6 +74,8 @@ If your connection only reads accounts, complete its provisioning prerequisites 
 **Screenshot reminder:** Save `AR-005-01-baseline-group.png`, `AR-005-02-baseline-entitlement.png`. Use the matching descriptions in the screenshot checklist at the end.
 
 ## 3. Define the account attributes
+
+For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
 
 Open **Admin > Connections > Sources > your AD source > Account Management > Create Account**. Record the existing configuration before editing. On a source used by other exercises, ensure this Users-OU policy is appropriate for every account creation the source will perform.
 
@@ -53,7 +86,7 @@ For each row in the table:
 3. If missing, select **Add Mapping > Add Existing Attribute**, choose the attribute and Add. Use **Create New Attribute** only for a supported AD attribute absent from that list. This does not add an aggregation schema attribute.
 4. Use the up/down arrows or drag control to place sAMAccountName above userPrincipalName. **Save**, leave the page and reopen it to verify values and order.
 
-Set these mappings. Replace `YOUR-USERS-OU-DN` and `YOUR-UPN-SUFFIX` with your actual values. The `$(uid)` and `$sAMAccountName` expressions below are literal expressions, not placeholders to replace with Liam's username.
+Set these mappings. Replace `YOUR-USERS-OU-DN` and `YOUR-UPN-SUFFIX` with your actual values. The `$(uid)` and `${sAMAccountName}` expressions below are literal expressions, not placeholders to replace with Liam's username.
 
 | Account attribute | Mapping type | Value or selection |
 |---|---|---|
@@ -81,6 +114,30 @@ The password generator uses the source's assigned ISC password policy. Verify th
 The chosen usernames are unique course IDs under AD's length limit. If a username or DN already exists, investigate its owner instead of adding a suffix to bypass the collision. This exercise deliberately avoids a naming counter so expected account names stay predictable.
 
 **Screenshot reminder:** Save `AR-005-03-create-account.png`, `AR-005-04-naming.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+### Inspect the password policy before creating an account
+
+The password generator needs rules that AD will accept. Record the policies first; a connection test does not validate a generated password.
+
+1. In ISC, open **Admin > Connections > Sources > your AD source > Additional Settings > Password Settings**. Record the selected password policy. If **Use Sync Group** is enabled, record the group without changing it; open **Admin > Password Mgmt > Sync Groups**, select that group, and record its policy.
+2. Open **Admin > Password Mgmt > Policies**, select the recorded policy, and inspect its length and character requirements. Keep this page open for comparison. [ISC password policies](https://documentation.sailpoint.com/saas/help/pwd/pwd_policies/pwd_policies.html) and [source policy/sync-group settings](https://documentation.sailpoint.com/saas/help/pwd/sync_grps.html).
+3. On your AD administration workstation, open **Windows PowerShell** and run the read-only block below. Enter the training domain's DNS name, such as `isc.com`, when prompted. This is the AD domain, which can differ from an alternative UPN suffix.
+
+```powershell
+Import-Module ActiveDirectory -ErrorAction Stop
+$LabDomain = Read-Host 'Training AD domain DNS name'
+Get-ADDefaultDomainPasswordPolicy -Identity $LabDomain -ErrorAction Stop |
+    Select-Object MinPasswordLength,ComplexityEnabled,PasswordHistoryCount,MinPasswordAge,MaxPasswordAge
+Get-ADUserResultantPasswordPolicy -Identity 'acme.e012' -Server $LabDomain -ErrorAction Stop |
+    Select-Object Name,MinPasswordLength,ComplexityEnabled,PasswordHistoryCount
+```
+
+The first result is the domain default. The second checks for a fine-grained policy applying to Lucas. No second result means no resultant fine-grained policy was returned; an error is not the same as an empty result. If a fine-grained policy applies, record it and check which users/groups it targets with your AD administrator. Lucas's result does not establish which policy a new Liam account will receive. [Domain policy](https://learn.microsoft.com/en-us/powershell/module/activedirectory/get-addefaultdomainpasswordpolicy) and [resultant user policy](https://learn.microsoft.com/en-us/powershell/module/activedirectory/get-aduserresultantpasswordpolicy).
+
+4. Compare the ISC generation rules with the applicable AD requirements. Also account for any installed password filter or custom provisioning rule. Record the ISC policy name, AD requirements and any unresolved difference in the journal. Keep domain policy and sync-group membership unchanged during this inspection.
+5. If the rules conflict, resolve the assigned ISC policy with the lab administrator before triggering creation. AR-006's actual account creation will verify acceptance; checking policy settings alone is not proof.
+
+If `Import-Module` fails, use the AD server or a workstation with the Active Directory RSAT tools installed. Save `AR-005-password-policy.png` showing policy names and requirements, without a password or secret.
 
 ## 4. Check the values before triggering creation
 
@@ -138,6 +195,8 @@ Reuse the existing baseline group and inspect its members before continuing. If 
 - [ ] GG-ACME-BASELINE is imported; empty on the first run, or retained course memberships recorded when resuming.
 - [ ] Required mappings, expression order, target OU, and password policy are recorded.
 - [ ] Liam's attributes are ready and he has no AD account.
+
+Also capture AR-005-upn-suffix.png, AR-005-users-ou-dn.png and AR-005-password-policy.png at the lookup steps above.
 
 | Filename | What to show |
 |---|---|

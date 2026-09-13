@@ -19,6 +19,8 @@ Use the [coverage and prerequisite matrix](COVERAGE.md) to choose tracks availab
 
 ## How to complete each lab
 
+If a step asks you to record an unfamiliar value, open [Find the values a lab asks you to record](LAB-VALUES.md). It covers domain controllers, directory paths, UPN references, object identifiers and the difference between an entitlement ID and its native value.
+
 1. **Read the assignment first.** Understand the business outcome before touching the tenant.
 2. **Predict the result.** Write down what you expect ISC and the target system to do.
 3. **Build or investigate.** Follow the lab steps, but stop whenever a Check does not match.

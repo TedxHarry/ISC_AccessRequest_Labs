@@ -4,7 +4,7 @@ Keep this page open beside the current lab. These procedures use the accounts an
 
 ## Record your environment
 
-Copy this table into your private notes. Obtain IDs from the relevant object's details or a read-only API response; names are not IDs.
+Copy this table into your private notes. Follow [Find the values a lab asks you to record](LAB-VALUES.md) for the domain controller, DNs, objectGUIDs and ISC IDs. Each lookup explains where to open the value and how to check you copied the right one.
 
 | Parameter | Your value |
 |---|---|
@@ -22,15 +22,15 @@ Keep passwords, tokens, callback secrets and working email addresses outside Git
 
 ## Check membership in AD
 
-On the AD administration workstation, open PowerShell with the ActiveDirectory module. Replace the domain controller value once; use the same controller for before/after checks.
+On the AD administration workstation, open PowerShell with the ActiveDirectory module. First [find your verification controller](LAB-VALUES.md#find-the-ad-domain-and-domain-controller). Enter its HostName when prompted below and use the same controller for before/after checks.
 
 ```powershell
-Import-Module ActiveDirectory
+Import-Module ActiveDirectory -ErrorAction Stop
 $LabDC = Read-Host 'Domain controller DNS name'
-$LabUser = Get-ADUser -Identity 'acme.e012' -Server $LabDC -Properties memberOf,employeeID,Enabled
+$LabUser = Get-ADUser -Identity 'acme.e012' -Server $LabDC -Properties memberOf,employeeID,Enabled -ErrorAction Stop
 $LabUser | Select-Object SamAccountName,DistinguishedName,ObjectGUID,employeeID,Enabled
 $LabUser.memberOf | Sort-Object
-Get-ADGroupMember -Identity 'GG-VPN-USERS' -Server $LabDC |
+Get-ADGroupMember -Identity 'GG-VPN-USERS' -Server $LabDC -ErrorAction Stop |
     Select-Object SamAccountName,DistinguishedName,ObjectClass
 ```
 
@@ -77,7 +77,7 @@ Retain business profiles for later labs. Disable requestability only when a lab 
 ## Remove a test assignment
 
 1. Record the identity's current **Access** and native membership.
-2. As administrator or an authorized Access Revoker, open **Admin > Identities**, select the recipient and open **Access**.
+2. As administrator or an authorized Access Revoker, open **Admin > Identity Management > Identities**, select the recipient and open **Access**.
 3. Locate the requested role, profile or entitlement assignment. Inspect its origin and account. Select the available removal action for that assignment, add the lab's reason and submit.
 4. Complete any removal approvals. Track the removal request and verify the intended target membership disappears.
 5. If it remains, inspect other roles/profiles and automatic assignments before making another change. AR-043 covers this investigation.

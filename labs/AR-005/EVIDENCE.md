@@ -14,6 +14,18 @@ Record actual results. Keep credentials out of this file.
 | Expected Liam DN and UPN | |
 | Liam account absent in AD and ISC | |
 
+## Lookup results
+
+| Value | Observed result |
+|---|---|
+| Lucas full UPN from Account tab | |
+| Selected UPN suffix without @ | |
+| Users OU distinguishedName copied from the OU | |
+| ISC password policy and sync group, if any | |
+| AD default requirements and applicable fine-grained policy | |
+| Password-policy difference to resolve before creation | |
+| UPN, OU and policy screenshot filenames | |
+
 ## Screenshot filenames
 
 Use the checklist in the lab and record your files here.

@@ -17,7 +17,7 @@ Use this procedure before AR-013 for Olivia (`acme.e011`, E011) and before AR-01
 
 ## Inspect direct AD membership
 
-On your AD administration workstation, open PowerShell. Run this block and enter the controller, username and group requested by the current lab. Use the same controller for before and after checks.
+On your AD administration workstation, open PowerShell. [Find your verification domain controller](LAB-VALUES.md#find-the-ad-domain-and-domain-controller), then run this block and enter its HostName, the username and the group requested by the current lab. Use the same controller for before and after checks. If a command fails, resolve the error before interpreting membership; a failed lookup is not an empty membership result.
 
 ```powershell
 Import-Module ActiveDirectory -ErrorAction Stop

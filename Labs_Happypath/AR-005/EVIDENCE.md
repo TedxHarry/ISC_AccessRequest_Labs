@@ -48,6 +48,18 @@
 | Expected DN | Recorded | |
 | Expected UPN | Recorded | |
 
+## Lookup results
+
+| Value | Observed result |
+|---|---|
+| Lucas full UPN from Account tab | |
+| Selected UPN suffix without @ | |
+| Users OU distinguishedName copied from the OU | |
+| ISC password policy and sync group, if any | |
+| AD default requirements and applicable fine-grained policy | |
+| Password-policy difference to resolve before creation | |
+| UPN, OU and policy screenshot filenames | |
+
 ## Screenshots
 
 - [ ] GG-ACME-BASELINE in AD

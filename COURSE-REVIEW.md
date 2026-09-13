@@ -122,3 +122,22 @@ For long-running date and approval-expiration scenarios, include a later observa
 Finish the first working request module, then strengthen account selection and approvals. Add native forms and the complete date matrix next. Write the SoD and disconnected-source exercises before calling the core coverage complete. Finish APIs, workflows and subscriber failures using the working UI cases as controls. End with the mixed support queue, including at least one case that requires an evidence-based escalation.
 
 [Return to the course outline](README.md)
+## Lookup and instruction-gap review — 13 September 2026
+
+Scanned 105 existing lab pages (90 engineering and 15 beginner) for steps asking learners to record, copy, find, identify or replace values. Reviewed the matching shared procedures and corrected the concrete lookup gaps below. This was a focused documentation review, not a new tenant execution of all course features.
+
+| Gap | Correction |
+|---|---|
+| AR-005 required a UPN suffix without showing where to find it | Both paths now walk through Lucas's Account tab, the selected suffix, journal entry, alternative suffixes and the resulting ISC expression |
+| OU DN and account DN could be confused | Added the OU Attribute Editor lookup, missing-tab recovery and a full substituted DN example in both AR-005 versions |
+| Password-policy comparison lacked navigation or a way to inspect AD requirements | Added source/sync-group policy lookup, ISC policy navigation and read-only AD default/resultant policy checks; new-user policy and actual-creation limits are explicit |
+| AR-003 introduced the UPN choice before explaining it | Added guidance before leaving the user-creation fields, with a link to the full lookup in the same path |
+| Baseline group creation in engineering AR-005 started before checking whether it existed | Reordered the existence check and added the missing description/save actions |
+| Shared membership commands asked for an unexplained domain-controller hostname | Added discovery steps and linked both lab desk and Module 2 checks; failed commands cannot count as absence evidence |
+| Native DNs, objectGUIDs and ISC item IDs lacked a consistent lookup procedure | Added LAB-VALUES.md and linked it from the start page, shared helpers and affected labs |
+| API workbench needed IDs before its first read | Added identity/item bootstrap steps and left request-generated IDs empty until the operation exists |
+| Report-script instructions assumed a working directory, Python and output folder | Added explicit setup, a token-free fixture run, expected count and live-output variables |
+| AR-026 compressed account creation and attribute lookup | Added the concrete username/suffix fields, properties navigation and native-ID lookup |
+| AR-049 referred to group General/Account fields | Corrected the rename and General-tab group-name instructions and linked separate native/ISC identifier lookups |
+
+Verification: the supplied report fixture returned three records; 102 local links, 22 section anchors and eight PowerShell blocks passed validation, along with the whitespace/diff check. PowerShell validation was syntax-only, not AD execution. Existing screenshots and tenant/navigation configuration are unchanged by this review. Feature-specific tenant checks remain governed by each lab's acceptance criteria.

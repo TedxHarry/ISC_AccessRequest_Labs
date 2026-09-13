@@ -8,12 +8,12 @@ Use this record alongside your private journals. Enter actual source names, IDs 
 |---|---|
 | AD source name and ID | Open the existing source in Admin > Connections > Sources; record its name and ID from the source URL |
 | Users, AdminAccounts and Groups DNs | AD Users and Computers > View > Advanced Features; each OU > Properties > Attribute Editor > distinguishedName |
-| AD UPN suffix | Lucas’s AD Properties > Account; use the configured suffix selected for the lab |
+| AD UPN suffix | Lucas’s AD Properties > Account > User logon name suffix dropdown; record without @. Follow the [UPN lookup steps](labs/AR-005/README.md#find-and-record-your-upn-suffix) |
 | Baseline entitlement value | AD source > Entitlement Management > Entitlements; open GG-ACME-BASELINE |
 | Administrator username | Signed-in user menu in the administrator browser profile |
 | Authentication route | Acme Employees > Settings > Sign-in Method |
 
-Record these privately; example domains and YOUR-* values are not values to paste unchanged.
+Record these privately; example domains and YOUR-* values are not values to paste unchanged. Use the [value lookup walkthroughs](LAB-VALUES.md) for DNs, controller names, native values and ISC IDs.
 
 ## Starting and retained states
 
