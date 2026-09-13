@@ -141,3 +141,25 @@ Scanned 105 existing lab pages (90 engineering and 15 beginner) for steps asking
 | AR-049 referred to group General/Account fields | Corrected the rename and General-tab group-name instructions and linked separate native/ISC identifier lookups |
 
 Verification: the supplied report fixture returned three records; 102 local links, 22 section anchors and eight PowerShell blocks passed validation, along with the whitespace/diff check. PowerShell validation was syntax-only, not AD execution. Existing screenshots and tenant/navigation configuration are unchanged by this review. Feature-specific tenant checks remain governed by each lab's acceptance criteria.
+
+
+### Provisioning-navigation follow-up — 13 September 2026
+
+A second pass reviewed the recurring **find/locate/follow Account Activity** instructions. These steps were too dependent on the learner visually scanning tenant-wide activity.
+
+Corrections made:
+
+| Gap | Correction |
+|---|---|
+| "Find Lucas/Liam's activity" did not tell the learner what to search | Added exact Account Activity queries using `recipient.name` plus the exact source name, with create-operation narrowing for Liam |
+| Source-name matching could silently fail | Added the documented case-sensitivity warning for `sources` and a fallback that removes only the narrowing clause before any retry |
+| Multiple activities for the same person were not disambiguated | Added role/request timestamps and Created/Last Modified matching before opening a row |
+| Activity rows did not say what evidence to open | Added the AD source-operation drill-down and required account/native identity, operation, status, tracking/ID and error evidence |
+| Request, approval and activity IDs could be conflated | Added one shared request/approval/activity lookup procedure in LAB-DESK.md and explicit separation of those identifiers |
+| Batch and scheduled labs said only "review activity" | Added source/time searches plus per-recipient narrowing in AR-007, AR-041 and the fulfillment-failure labs |
+| API cancellation asked for an activity ID without showing how to obtain it | AR-055 now matches the status record, copies `accountActivityItemId`, and confirms it with the account-activities read before cancellation |
+| Beginner path did not point at the shared lookup procedure | Linked Labs_Happypath/README.md to the Lab Desk and patched AR-006, AR-007, AR-009, AR-012 and AR-015 directly |
+
+The search syntax was checked against SailPoint's current Search documentation: `recipient.name`, `sources`, `action`, and nested `@accountRequests(op:create)` are documented Account Activity fields/query forms. The source field is case-sensitive. The course uses identity names such as `acme.e012` and `acme.e008` rather than assuming a full display name is indexed in `recipient.name`.
+
+References: [Searchable fields](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html) · [Building a Search query](https://documentation.sailpoint.com/saas/help/search/building-query.html) · [Monitoring provisioning](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
