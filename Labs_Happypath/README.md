@@ -1,6 +1,6 @@
 # ISC Access Request Labs
 
-Complete the labs in order. Keep the [Module 1 configuration record](../M01-STATE.md) and each lab’s journal beside you. Use actual tenant values wherever the instructions identify a placeholder.
+Complete the labs in order. Keep the [Module 1 configuration record](../M01-STATE.md), the [lab desk](../LAB-DESK.md), and each lab’s journal beside you. Use actual tenant values wherever the instructions identify a placeholder. When a step says **find**, **locate**, **reopen**, or **follow** a request or provisioning activity, use the lab desk's exact [request/approval/account-activity lookup procedure](../LAB-DESK.md#find-a-specific-request-approval-or-account-activity) rather than scanning the tenant and guessing.
 
 ## Module 1 · Foundations
 
