@@ -8,7 +8,7 @@
 2. Read Taylor's request history and current assignments to exclude an existing grant or pending duplicate.
 3. Create the POST request from the API workbench. Set the comment to `AR-053: Taylor Remote Worker control`. Send once and record HTTP status, response and submission time.
 4. Read status for Taylor and locate the item using the recipient, profile, comment and time. Record its accessRequestId and accountActivityItemId without assuming they are interchangeable.
-5. Have Priya approve through the UI. Read status again and follow the matching account activity.
+5. Have Priya approve through the UI. Read status again, then follow the matching account activity. If the API response does not provide a directly usable activity link, open **Search > Account Activity** and run `recipient.name:acme.e025 AND sources:"YOUR-AD-SOURCE-NAME" AND action:"Access Request"`, replacing the source placeholder and matching the `AR-053` submission time. Open the AD source operation and keep its activity identifier separate from the access request ID. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 6. Check Taylor's native VPN and Remote Users memberships. Compare API acceptance, approval and actual fulfillment times.
 7. Remove Taylor's test profile using the lab desk procedure and verify removal.
 
