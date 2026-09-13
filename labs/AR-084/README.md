@@ -7,7 +7,7 @@
 1. Select a clean test recipient and Remote Worker. Complete a native ISC request and removal as the control; save the request ID and target results.
 2. Sign in to the external channel as its authorized lab user. Find the integration's request action and select the same recipient and item. Record how the external identity maps to the ISC requester.
 3. Submit with reason `AR-084 external-channel control`. Record the external ticket/message reference and locate the corresponding ISC request by recipient, item and time.
-4. Complete the configured approval in its supported location. Verify ISC's decision, account activity and native memberships.
+4. Complete the configured approval in its supported location. In ISC, match the request by recipient, item and external submission time using the [request lookup procedure](../../LAB-DESK.md#find-the-request). Then locate the provisioning row with [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity), using the actual recipient and source for this integration. Verify the decision, source operation and native memberships separately.
 5. Test a denied request through the same channel after removing the grant. Compare the external status with ISC's actual item state.
 6. Try selecting a future date or a form-requiring item only when the installed integration documents support. Record fields that are unavailable rather than claiming parity with Request Center.
 7. For a stuck external status, check whether ISC has already completed the operation before repeating the external request. Inspect the integration's delivery/error record and prepare a linked support timeline.
