@@ -106,7 +106,9 @@ Open **Entitlement Management > Entitlements** on the AD source. Check the 14 bu
 
 ## 6. Verify the key provisioning examples
 
-Use Account Activity and your saved evidence to confirm:
+Open **Search > Account Activity** and use the exact AD source name from your journal. For Lucas, run `recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"`. For Liam, run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)`. Use the AR-006 timestamps to select the correct historical rows, then open each activity and inspect its AD source operation. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
+
+Use those activities and your saved evidence to confirm:
 
 ### Lucas
 - Existing AD account was reused.
