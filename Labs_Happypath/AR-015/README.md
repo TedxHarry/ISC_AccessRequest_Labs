@@ -101,7 +101,7 @@ Use Acme Admin. If the named course profile exists, inspect its source and setti
 2. Open **AP-Remote-Worker > Details**. Confirm it is Liam's test assignment and is revocable.
 3. Select **Revoke Access Profile**, enter `AR-015: Remove completed Remote Worker test`, then select **Revoke** once. Record the removal request separately from the grant.
 4. In Acme Priya, open **Approvals > Access Requests > Requested**. Find Liam's profile request and verify the action is **Remove**. Approve it and record the decision.
-5. In Acme Admin, follow the removal request and account activity until the operations finish.
+5. In Acme Admin, follow the removal request and then open **Search > Account Activity**. Run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND action:"Access Request"`, replacing the source placeholder with the exact recorded AD source name. Use the removal-approval time to select the matching row, open the AD source operation, and wait for both group removals to finish. If the action-filtered search returns nothing, remove only the `action` clause and search again. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 6. Check AD: Liam must now lack both business groups but retain **GG-ACME-BASELINE** and his original account. Refresh imported data if needed and confirm the profile assignment is gone.
 7. Check that Olivia still lacks both groups and Lucas still has VPN. Keep the enabled profile definition for later labs.
 
