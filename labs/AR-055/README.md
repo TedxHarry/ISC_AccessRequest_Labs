@@ -7,7 +7,7 @@
 1. Submit Remote Worker for Taylor with comment `AR-055 approve`. Read Priya's pending approvals and copy the matching approval ID.
 2. Send the workbench's approve operation using Priya's token and an approval comment. Verify the decision and both target memberships. Remove the assignment before the next case.
 3. Submit `AR-055 deny`, obtain its new approval ID and send the reject operation with a reason. Verify the denied result and absent new membership.
-4. Submit `AR-055 cancel` and leave it pending. Read its account activity identifier and cancellation eligibility.
+4. Submit `AR-055 cancel` and leave it pending. Call `GET {{apiBase}}/v3/access-request-status?requested-for={{recipientId}}&limit=50&offset=0`, match the new record by recipient, item, comment and submission time, and copy its `accountActivityItemId` into `activityId`. Confirm the value with `GET {{apiBase}}/v3/account-activities/{{activityId}}` before using it. Record the current request state and verify it is still eligible for cancellation.
 5. As the original requester or authorized admin, send the cancel operation with that activity ID and a reason. Verify the final state and the reviewer's queue.
 6. On a read-only inspection of the previously completed request, identify why cancellation is no longer the correct operation. Do not assume cancellation reverses a completed grant.
 
