@@ -7,7 +7,7 @@
 1. Record Henry's initial membership, then submit and approve the request through every configured stage.
 2. Open the request in Approval Management. Record whether it is awaiting a decision, scheduled, provisioning, failed or completed. Inspect each item rather than only the request banner.
 3. If the request is still pending, identify the assignee and do not change the AD connector. If it is scheduled, compare the requested start time. If provisioning failed, copy the actual operation error into the private journal.
-4. Inspect the account activity's source, account and group reference. Compare them with the manifest and Henry's correlated AD account.
+4. Open **Search > Account Activity** and run `recipient.name:acme.e018 AND sources:"YOUR-AD-SOURCE-NAME" AND action:"Access Request"`, replacing the source placeholder with the exact recorded AD source name. Use this request's approval/submission time to open the matching row, then select the AD source operation and compare its account/native identity and group reference with the manifest and Henry's correlated AD account. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 5. Check AD on the recorded controller. If membership is present, investigate aggregation/indexing instead of resubmitting. If absent, compare the actual operation result with the current account and group.
 6. Write a timeline with the first point where expectation and observation differ. Use AR-048's controlled permission fault next to repeat this method on a known failure.
 7. Remove the successful control assignment. If an actual failure remains unresolved, retain its IDs and leave it explicitly open.
