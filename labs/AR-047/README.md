@@ -8,7 +8,7 @@
 2. Import all 25 rows and process. Verify Taylor's identity and manager. Do not add Taylor to ROLE-Acme-AD-Baseline's explicit identity list.
 3. Verify Taylor has no AD account in ISC or AD. Record the unchanged 24 baseline accounts separately.
 4. Temporarily enable the authorized request-for-others mode if needed. As administrator, request AP-Remote-Worker for Taylor. Use `AR-047: Create Taylor through requested access`.
-5. Have Priya approve. Inspect activity for account creation and entitlement changes. Verify `acme.e025`, its Users OU DN, employeeID E025, UPN and both VPN/Remote Users memberships in AD.
+5. Have Priya approve. Open **Search > Account Activity** and run `recipient.name:acme.e025 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)`, replacing the source placeholder with the exact recorded AD source name. Open the matching Taylor activity, select the AD source operation, and inspect both account creation and entitlement changes. If the create-filtered query returns nothing, remove only the create clause and search again. Verify `acme.e025`, its Users OU DN, employeeID E025, UPN and both VPN/Remote Users memberships in AD. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 6. Confirm the new AD account is linked to Taylor and no duplicate identity was created. Compare with Lucas's existing-account update in AR-012.
 7. Remove Taylor's requested profile and verify group removal. Record whether the account remains; access removal must not be assumed to delete the account.
 
