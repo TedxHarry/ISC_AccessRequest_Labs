@@ -7,8 +7,8 @@
 1. Choose a future start at least one hour ahead and an end two hours after that start, within the 7-day maximum. Write the local and UTC times in the journal. These are access-policy values, not a course-duration estimate.
 2. As Henry, request Production Support using those dates and complete the form. Approve through both stages before the start.
 3. Record the approved assignment and run the native membership check before the start. Membership should still be absent.
-4. At or after the start, inspect the provisioning activity and repeat the same AD check until the operation completes or a specific error is reported. Record actual time separately from the scheduled time.
-5. After the end, follow the removal activity and verify native membership disappears. Reconcile the ISC account view if necessary.
+4. At or after the start, open **Search > Account Activity** and run `recipient.name:acme.e018 AND sources:"YOUR-AD-SOURCE-NAME" AND action:"Access Request"`, replacing the source placeholder with the exact recorded AD source name. Use the scheduled start and approval time to select Henry's matching row, open the AD source operation, and repeat the same AD check until the operation completes or a specific error is reported. Record actual time separately from the scheduled time.
+5. After the end, repeat the same Henry/source search and use the configured end time to select the removal activity. Open its AD source operation, wait for the removal to reach a final result, and verify native membership disappears. Reconcile the ISC account view if necessary. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 6. On a second future assignment, use **My Access** to request a later start with a shorter duration. Capture the modification and configured removal-review behavior. Compare a fresh Request Center re-request with altered dates, which uses the add-access review flow. Resolve both cases and remove any remaining test assignment.
 
 **Check:** Evidence shows absence before start, presence during the window and absence after completed removal. Leave unobserved boundaries open in the journal until you check them.
