@@ -39,7 +39,7 @@ The profile contains one group and will be assigned through a role. [Access prof
 2. In ISC, open **Admin > Access Model > Roles > Create New**. Name the role `ROLE-Acme-AD-Baseline`, select your administrator as owner, and add AP-Acme-AD-Baseline to its access profiles. Leave requests disabled.
 3. Open **Define Assignment**, choose **Identity List**, and add only Lucas (`acme.e012`) using the + control. Save.
 4. Verify the list contains one person. Enable the role and select **Apply Changes** from the role list.
-5. Open **Search > Account Activity** and locate Lucas’s activity using his username `acme.e012`, the AD source and the role-assignment time. Open its details and record the membership operation, final status and activity ID. Wait for processing to finish; resolve an error before adding Liam. Section 4 below inspects Liam after his assignment.
+5. Click **Search** in the top navigation, select **Account Activity**, and run `recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"`, replacing the source placeholder with the exact recorded AD source name. Use the role-assignment time to select the matching row, open it, select the AD source entry, and record the account/native identity, membership operation, final status and activity ID or tracking number. If no row appears, verify the case-sensitive source name and retry with only `recipient.name:acme.e012`; do not reapply the role to manufacture another activity. Wait for processing to finish and resolve an error before adding Liam. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 6. In AD, confirm Lucas is now a direct member of GG-ACME-BASELINE. Verify his DN and objectGUID are unchanged and no second Lucas account was created.
 
 **Check:** The assignment changed membership on the existing account. Resolve a failure here before adding Liam.
@@ -59,7 +59,7 @@ Granting access on a direct-connect source can create the missing account using 
 
 ## 4. Inspect the operation and the target
 
-1. Open **Search** and select the **Account Activity** category. Locate activity for Liam and the AD source using the identity and operation time. Open the details and record the activity ID, status, operations, and any error messages.
+1. Open **Search > Account Activity** and run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)`, replacing the source placeholder with the exact recorded AD source name. Open the newest matching activity created after Liam was added to the role, select the AD source entry, and record the activity ID or tracking number, account/native identity, status, operations, and any error messages. If the create-filtered query returns nothing, remove only the `@accountRequests(op:create)` clause and search again before considering any retry.
 2. In AD, refresh AcmeLab/Users and find `acme.e008`. Inspect the actual account, not just an ISC success message.
 3. Compare its DN, sAMAccountName, UPN, displayName, employeeID, department, and title with the expected values from AR-005. Inspect enabled/disabled state and password-change flags and record them; resolve an unexpected state before later directory sign-in tests.
 4. Open GG-ACME-BASELINE > **Members** and confirm Liam is a direct member.
