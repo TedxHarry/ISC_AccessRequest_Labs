@@ -48,7 +48,7 @@ After each provisioning batch finishes, run **one AD account aggregation** using
 
 1. Inspect the AD account's sAMAccountName, employeeID, UPN, and DN. Compare them with the intended employee and Users OU. Record its enabled state.
 2. Confirm direct membership in GG-ACME-BASELINE. Check for unintended duplicate usernames or accounts in another OU.
-3. Review failed or pending Account Activity. Do not count a submitted operation as a completed account.
+3. Open **Search > Account Activity** and start with `sources:"YOUR-AD-SOURCE-NAME"`, replacing the placeholder with the exact recorded AD source name. Use the batch **Apply Changes** time to review the newest rows. For any employee whose result is missing, pending, or failed, narrow to `recipient.name:COURSE-USERNAME AND sources:"YOUR-AD-SOURCE-NAME"`, replace the username, open the activity, and inspect the source operation. Do not count a submitted operation as a completed account. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 4. After the batch aggregation, open the employee’s ISC identity > **Accounts** and verify the actual linked AD DN. Investigate a wrong link using AR-004 before starting another source-wide aggregation.
 5. Check the 14 business groups against the membership baseline recorded in AR-003. This role should have granted only baseline access.
 
