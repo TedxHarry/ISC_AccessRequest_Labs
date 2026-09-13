@@ -38,8 +38,8 @@ Reopen that request and confirm it is pending with Priya, for Lucas and the VPN 
 
 1. Switch to Acme Lucas. Open **Request Center > My Requests** and reopen the request. Record its approval and fulfillment state separately.
 2. Switch to Acme Admin. Open **Admin > Dashboard > Approval Management > Access Requests**, locate the same recipient/item/time and inspect **Process**.
-3. Open the related account activity if linked. Otherwise open **Search > Account Activity** and match Lucas, the AD source, operation time and VPN group value.
-4. Open the activity details. Record its ID, account DN, membership operation, status and any error. Request and activity IDs are separate references.
+3. Open the related account activity if the request links to it. Otherwise open **Search > Account Activity** and run `recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME" AND action:"Access Request"`, replacing the source placeholder with the exact recorded AD source name. Use Priya's approval time and the request submission time to select the correct row. If the action-filtered query returns no row, remove only `AND action:"Access Request"` and search again.
+4. Open the activity, select the AD source entry, and record its ID or tracking number, account/native identity, VPN membership operation, status and any error or warning. Request and activity IDs are separate references. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 5. Wait for the operation to finish. If still pending, reopen this activity rather than submitting another request.
 
 **Check:** The request and successful VPN membership operation can be connected by recipient, source, account, group and time. If the operation failed, keep this lab incomplete and inspect the exact error before retrying.
