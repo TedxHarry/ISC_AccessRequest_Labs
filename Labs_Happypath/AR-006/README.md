@@ -96,15 +96,21 @@ Reference: [Role assignment](https://documentation.sailpoint.com/saas/help/provi
 
 ## 3. Verify Lucas's existing account was updated
 
-1. In **Admin > Dashboard > Monitor**, check identity processing. Then open the account activity below and wait for its operation to finish. Do not add Liam while Lucas’s update is pending or failed.
-2. Open **Search > Account Activity**.
-3. Find the activity for Lucas and the AD source.
-4. Record the activity ID, operation time, final status and membership operation. If it fails, read the operation error before continuing; verify the group DN and write permissions identified by that error.
-5. In Active Directory, open Lucas's existing account and record its current DN and objectGUID.
-6. Open `GG-ACME-BASELINE > Members`.
-7. Confirm Lucas is now a direct member.
-8. Confirm Lucas's DN and objectGUID are unchanged.
-9. Confirm no second `acme.e012` account was created.
+1. In **Admin > Dashboard > Monitor**, wait for the identity-processing work started by **Apply Changes** to finish. Do not add Liam while Lucas’s update is still processing or has failed.
+2. Click **Search** in the top navigation and select **Account Activity**.
+3. In the Search query box, enter the following. Replace `YOUR-AD-SOURCE-NAME` with the exact AD source name recorded in your Module 1 configuration record:
+   ```text
+   recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"
+   ```
+4. Run the search. If more than one row is returned, use the time you selected **Apply Changes** and the **Created/Last Modified** values to open the activity produced by this role assignment.
+5. Open the activity, select the AD source entry, and inspect the account operation. Record the activity ID or tracking number, operation time, final status, account/native identity, and the membership change. If it failed, record the exact error before continuing.
+6. In Active Directory, open Lucas's existing account and record its current DN and objectGUID.
+7. Open `GG-ACME-BASELINE > Properties > Members`.
+8. Confirm Lucas is now a direct member.
+9. Confirm Lucas's DN and objectGUID are unchanged.
+10. Confirm no second `acme.e012` account was created.
+
+If the query returns no row, first verify the source name and its capitalization, then search only `recipient.name:acme.e012`. Do not reapply the role just to create another activity. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 
 Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
 
@@ -130,12 +136,17 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 
 ## 5. Verify Liam's new AD account
 
-1. Open **Search > Account Activity**.
-2. Find Liam's provisioning activity.
-3. Record the activity ID, final status, and account-create operation.
-4. In Active Directory, refresh **AcmeLab > Users**.
-5. Open `acme.e008`.
-6. Confirm:
+1. Click **Search** in the top navigation and select **Account Activity**.
+2. Search for Liam on the exact AD source and narrow to account creation:
+   ```text
+   recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)
+   ```
+   Replace `YOUR-AD-SOURCE-NAME` with the exact source name from your journal.
+3. Open the newest matching activity created after you added Liam to the role. Select the AD source entry and record the activity ID or tracking number, final status, account/native identity, create operation, and any error or warning.
+4. If the create-filtered query returns nothing, remove only `AND @accountRequests(op:create)` and search again. Do not reapply the role while the original operation may still be running.
+5. In Active Directory, refresh **AcmeLab > Users**.
+6. Open `acme.e008`.
+7. Confirm:
 
 | Attribute | Expected result |
 |---|---|
@@ -147,8 +158,8 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 | DN | AcmeLab/Users location |
 | UPN | acme.e008@your UPN suffix |
 
-7. Inspect enabled/disabled state and password-change flags against your AR-005 expectations.
-8. Open **GG-ACME-BASELINE > Properties > Members** and confirm Liam is a direct member.
+8. Inspect enabled/disabled state and password-change flags against your AR-005 expectations.
+9. Open **GG-ACME-BASELINE > Properties > Members** and confirm Liam is a direct member.
 
 **Check:** Liam's AD account exists with the expected attributes and baseline membership.
 
