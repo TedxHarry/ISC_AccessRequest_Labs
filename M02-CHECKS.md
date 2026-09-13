@@ -45,8 +45,12 @@ Record the account DN, objectGUID, group DN and result. Repeat the block for eac
 1. Open **Admin > Dashboard > Approval Management > Access Requests**.
 2. Locate the request by recipient, item and submission time. Open it and record its request ID where displayed.
 3. Inspect **Process**, **Assignees** and **Details**. Record the actual reviewer and current stage.
-4. Open linked account activity when available. Otherwise open **Search**, select **Account Activity**, and match recipient, AD source, operation time and group value.
-5. Record operation status, error text and activity ID separately from the request ID. After a final successful operation, check AD directly. Approval alone does not establish target membership.
+4. Open linked account activity when available. Otherwise follow [Find the Account Activity](LAB-DESK.md#find-the-account-activity). Start with the recipient and exact source, for example:
+   ```text
+   recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"
+   ```
+   Replace the username and source with the values for the current lab, then use the request/decision time to select the matching activity.
+5. Open the result and select the AD source entry. Record operation status, account/native identity, membership operation, error text and activity ID separately from the request ID. After a final successful operation, check AD directly. Approval alone does not establish target membership.
 
 **If it is pending:** Identify whether it is waiting for a reviewer, scheduled access or provisioning. Reopen the same request instead of submitting a duplicate.
 
