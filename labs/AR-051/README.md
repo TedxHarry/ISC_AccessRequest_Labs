@@ -7,7 +7,7 @@
 1. Open the failed permission request from AR-048. Identify recipient, group, selected account, decision time and operation error.
 2. Compare the group's current permissions with the recorded fault. Explain whether the old request's status describes the current connector health.
 3. Open AR-049's reference comparison and AR-050's drift evidence. For each, state whether the fault was routing, provisioning or reconciliation.
-4. Submit one clean Remote Worker request for Taylor. Approve, inspect the operation and verify target membership.
+4. Submit one clean Remote Worker request for Taylor. Approve it, then locate the operation with `recipient.name:acme.e025 AND sources:"YOUR-AD-SOURCE-NAME" AND action:"Access Request"` in **Search > Account Activity**, replacing the source placeholder and matching the new request time. Open the AD source operation and verify target membership.
 5. Remove that assignment and verify removal. Confirm the disposable group ACL and account state remain restored.
 6. Write an incident record with symptom, timeline, evidence, root cause, repair and validation. Include one misleading observation and why it did not establish the cause.
 
