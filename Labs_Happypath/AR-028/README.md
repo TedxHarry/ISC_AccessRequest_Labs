@@ -55,26 +55,6 @@ If a reviewer differs, first compare the request's creation time with the policy
 
 [Individual entitlement reviewers](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html) · [Inspecting approval assignments](https://documentation.sailpoint.com/saas/help/requests/approvals_admin.html)
 
-## Engineering practice
-
-### Compare the recipient's manager on a profile request
-
-1. Record AP-Finance-Reporting's current grant reviewer and the current request-on-behalf setting. Follow [AR-023](../AR-023/README.md) to temporarily enable everyone-for-anyone if needed.
-2. Open **Admin > Access Model > Access Profiles > AP-Finance-Reporting > Access Requests**. Replace only its grant reviewer with **Manager**, save and reopen. Keep removal review unchanged.
-3. Verify Liam (`acme.e008`) has Manager Priya and has no Reporting or VPN membership. In Acme Olivia, open **Request Center**, choose the option to request for others, select Liam, and select **Request for These Identities**.
-4. Find AP-Finance-Reporting under **Access Items > Access Profiles**. Add it with reason `AR-028 recipient manager`, review the recipient as Liam, and submit once.
-5. Inspect the new request ID in Approval Management. Verify Priya receives it as Liam's manager, although Olivia's manager is Daniel. Deny it in Acme Priya and confirm no Reporting or VPN was added to Liam.
-6. Restore the profile's original grant reviewer and the original request-on-behalf setting. Save and reopen both.
-
-**Ticket:** The colleague expected Daniel because Olivia clicked Submit. Which two identity records and which request field establish why Priya was correct?
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-The request identifies Olivia as Requested by and Liam as Access for. Profile Manager review uses the recipient's manager. Compare Liam → Priya and Olivia → Daniel, then the actual Assignees. Do not change either HR manager to make the request reach Daniel.
-
-</details>
-
 ## Finish
 
 Keep VPN requestable with Priya as its primary-owner grant/removal reviewer. Keep Olivia without VPN, Lucas with VPN, and all baseline access. If interrupted, locate the recorded request and finish its denial before submitting the next variant. Restore the grant reviewer before leaving this lab.

@@ -126,8 +126,8 @@ Prerequisite: M04. You will explain effective approval behavior and recover revi
 |---|---|---|---|
 | [AR-028](labs/AR-028/README.md) | Build | Compare manager, item-owner, and source-owner routing | Record expected versus actual reviewer for each supported setup |
 | [AR-029](labs/AR-029/README.md) | Build | Add ordered review and a Governance Group | Demonstrate review order and who can complete the group review |
-| [AR-030](labs/AR-030/README.md) | Investigate | Recover missing-manager routing and inspect owner quality | Observe fallback, reassign pending work, restore the manager and retest |
-| [AR-031](labs/AR-031/README.md) | Practice | Test requester/reviewer overlap and reassignment | Verify self-approval handling and an authorized reassignment |
+| [AR-030](labs/AR-030/README.md) | Investigate | Reassign a review, then investigate missing-manager routing and inspect owner quality | Observe fallback, reassign pending work, restore the manager and retest |
+| [AR-031](labs/AR-031/README.md) | Practice | Test consolidated reviewers and requester/reviewer overlap | Verify consolidated review and actual self-approval handling |
 | [AR-032](labs/AR-032/README.md) | Investigate | Reminder or escalation behavior seems wrong | Compare effective settings, submission time, and notification evidence |
 | [AR-033](labs/AR-033/README.md) | Check | Repair an approval process and regression-test it | Include approval, denial, real timeout observations, and save C05 |
 

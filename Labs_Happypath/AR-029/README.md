@@ -77,19 +77,6 @@ If Security can act before Ava, reopen the saved reviewer order and check that y
 
 [Governance groups](https://documentation.sailpoint.com/saas/help/common/users/governance_groups.html) · [Ordered profile reviews and removal](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html)
 
-## Engineering practice
-
-### Diagnose a request with three Security members
-
-The service desk says Henry's request is incomplete because Evelyn approved but Noah and William did not. Use the actual Process and Assignees evidence to explain whether another decision is required. Also inspect the group's current membership; a group owner is not proof of membership.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-This direct-review governance-group step needs one eligible member's decision, not three votes. Verify Ava's earlier approval, Evelyn's group decision and the completed group step. Then use the activity and AD check to establish fulfillment. Do not add duplicate reviewer stages to simulate a quorum; that is a different approval design.
-
-</details>
-
 ## Finish
 
 Keep GOV-Security-Review and AP-Production-Support. Grant order is Manager then Security; removal reviewer is Primary Owner (Ava). Henry has no Production Support grant. Keep the recorded 90-day grant timeout with reminders/escalations off until AR-032.

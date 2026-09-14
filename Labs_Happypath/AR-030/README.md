@@ -51,32 +51,6 @@ If Noah cannot find the reassigned task, check his signed-in username and the re
 
 [Reassigning and canceling reviews](https://documentation.sailpoint.com/saas/help/requests/approvals_admin.html) · [Missing-reviewer behavior](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html#requests-missing-a-reviewer)
 
-## Engineering practice
-
-### Break and repair Harper's manager data
-
-1. Make a private backup of the latest complete working HR CSV. Locate E019 and record `managerEmployeeNumber=E006`. Preserve the current population, including any later-added rows and controlled emails.
-2. In the working copy, clear only E019's `managerEmployeeNumber`. Save, reopen and verify that one field changed.
-3. Upload the complete edited file through **Admin > Connections > Sources > Acme HR > Account Management > Account Aggregation**. Wait for aggregation and identity processing in **Admin > Dashboard > Monitor**. Inspect Harper's HR account and identity separately. Continue only when the HR manager field and resolved identity Manager are both empty.
-4. Submit one Harper request using Section 2 with reason `AR-030 missing manager`. Find its ID in Approval Management. Record the actual Assignees and Process history. Inspect the saved escalation/fallback configuration; do not assume the missing reviewer always routes to a particular administrator.
-5. Restore E019's manager field to E006 in the latest complete file, preserving other edits. Upload it and verify Ava returns as Harper's identity Manager.
-6. Inspect the existing diagnostic request separately. If pending with someone other than Ava, use Section 3's reassignment steps to move that individual review to Ava with comment `AR-030 manager data restored`. If already assigned to Ava through fallback, record that outcome without manufacturing a reassignment.
-7. Deny the diagnostic request in its current authorized reviewer's session. If the diagnostic request already concluded, record its actual outcome. For an unexpected grant, use [AR-029 Section 6](../AR-029/README.md#6-remove-the-grant-then-test-manager-denial) with Harper as recipient to revoke the profile and have Ava approve removal. Verify Production Support is absent before continuing.
-8. Repeat Section 4's fresh control and deny as Ava. Verify the restored HR row, identity Manager, clean request state and native membership.
-
-Before closing the exercise, open **AP-Production-Support > Configuration** and verify Ava is still its owner. Open **GOV-Security-Review > Membership** and inspect Noah, Evelyn and William on their identity pages. Confirm their current identity state, controlled Work Email and working sessions. Group membership alone does not establish that a reviewer can receive mail or sign in. Record a notification failure separately from an unresolved reviewer; do not disable a shared reviewer to manufacture it.
-
-**Ticket:** The HR manager is repaired, but an older request still names another reviewer. Does that prove the HR correction failed?
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-No. Check Harper's current identity Manager and a fresh request separately from the older assignment. Record how the missing review resolved in this tenant and any reassignment of that existing task. A correct new request does not erase the older request's history.
-
-</details>
-
-Capture the missing-manager identity as `AR-030-04.png`, actual fallback as `AR-030-05.png`, and restored Manager as `AR-030-06.png`.
-
 ## Finish
 
 Keep Harper's Manager Ava, the complete corrected HR file, the original profile settings and Security membership. Both working-scenario requests must be concluded with no grant. If pausing during the engineering exercise, restore the HR manager first, then account for its diagnostic request. Never leave the HR fault in place for the next lab.
@@ -90,8 +64,5 @@ Capture these as you reach the matching step. If a result needs two screens, add
 | AR-030-01.png | Original request assigned to Ava |
 | AR-030-02.png | Reassignment history and Noah decision |
 | AR-030-03.png | Fresh control assigned to Ava |
-| AR-030-04.png | Missing Manager during the engineering exercise |
-| AR-030-05.png | Actual missing-reviewer fallback |
-| AR-030-06.png | Restored Harper Manager |
 
 [Previous: AR-029](../AR-029/README.md) · [Course outline](../../README.md) · [Next: AR-031](../AR-031/README.md)

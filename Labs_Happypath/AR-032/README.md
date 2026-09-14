@@ -80,19 +80,6 @@ If you will do the timed portion later, cancel both pending diagnostic requests 
 
 [Approval settings and submission-time behavior](https://documentation.sailpoint.com/saas/help/requests/config_approval_settings.html) · [Approval expiration options](https://developer.sailpoint.com/discuss/t/enhancement-approvals-expiration-governance-group-visibility-and-more/193947)
 
-## Engineering practice
-
-### Diagnose an earlier request that did not escalate
-
-The colleague expects Henry's earlier request to use the four-day schedule saved after it was submitted. Compare both creation times with the configuration save time. Explain which evidence distinguishes retained earlier settings from a failed escalation.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-Timing changes apply to newly created requests. Henry's earlier request retains the prior settings; Harper's later request is the scheduled control. Use their IDs and histories, not only the profile's current page. A restored profile also does not cancel either pending request.
-
-</details>
-
 ## Finish
 
 Keep AP-Production-Support's original timing configuration, Manager then Security grant review, and Primary Owner removal review. Henry and Harper must have no Production Support membership or pending diagnostic request before AR-033. Save the actual observations, or explicitly record that the timed portion was deferred. Keep Samuel's prepared session for later work.

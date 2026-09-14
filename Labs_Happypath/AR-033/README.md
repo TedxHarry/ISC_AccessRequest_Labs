@@ -69,19 +69,6 @@ If the fresh control routes incorrectly, inspect the restored profile reviewer o
 
 [Approval process and assignment inspection](https://documentation.sailpoint.com/saas/help/requests/approvals_admin.html)
 
-## Engineering practice
-
-### Close a support ticket from your evidence
-
-Use the fresh Henry request to answer: who requested access, who reviewed each stage, what changed in AD, and how was it removed? Then answer this supplied ticket: “The request still says Pending, so provisioning must have failed.”
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-Open Process and Assignees for that exact request. A pending reviewer stage means the approval is unfinished; it is not evidence of a failed AD operation. If reviews finished, inspect the provisioning stage and target separately. Your closure should identify the current stage, responsible person, request/activity IDs and the next required action.
-
-</details>
-
 ## Finish
 
 Keep GOV-Security-Review, AP-Production-Support, all existing identities/accounts and the restored policies. Carry C05 into AR-034, where the Production Support request form will be added. If AR-032 is deferred, keep that clearly marked and rerun its before/after requests when ready; do not mark the timed observations passed.
@@ -98,4 +85,4 @@ Capture these as you reach the matching step. If a result needs two screens, add
 | AR-033-04.png | Final Henry/Harper native membership checks |
 | AR-033-05.png | C05 results with observed and pending items distinguished |
 
-[Previous: AR-032](../AR-032/README.md) · [Course outline](../../README.md) · [Next: AR-034](../AR-034/README.md)
+[Previous: AR-032](../AR-032/README.md) · [Course outline](../../README.md) · [Next: AR-034](../../labs/AR-034/README.md)

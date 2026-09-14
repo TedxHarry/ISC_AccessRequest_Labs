@@ -62,19 +62,6 @@ If the result differs, compare the actual requested object, submission time, own
 
 [Consolidated approvals announcement](https://developer.sailpoint.com/discuss/t/enhancement-approvals-expiration-governance-group-visibility-and-more/193947) · [Self-approval prevention and configuration](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html#preventing-self-approval)
 
-## Engineering practice
-
-### Diagnose two categories but one decision
-
-Your colleague wants to add another Daniel reviewer because the same-person test shows one action. Compare that request with the different-person test. Explain which evidence shows consolidation and which shows a real second reviewer.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-Manager and Primary Owner both resolved to Daniel in the first test. In the second, Manager resolved to Daniel and Primary Owner to Priya; after Daniel approved, Priya's stage became active. Adding Daniel again would not create independent oversight. The reviewer identities, not the number of category labels, establish the distinction.
-
-</details>
-
 ## Finish
 
 Keep Daniel as Finance Reporting owner, restore its original grant/removal review and keep Olivia without Reporting or VPN. If interrupted, inspect the recorded request before acting. Restore Daniel before requesting removal of any self-review test grant, then finish the exact assignment's cleanup. Keep all baseline assignments and the Finance segment.

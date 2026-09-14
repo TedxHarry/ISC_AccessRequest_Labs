@@ -57,3 +57,14 @@ Complete the [Module 4 starting checks](../M04-READINESS.md). Record original pe
 25. [AR-025 · Follow a department change into the catalog](AR-025/README.md)
 26. [AR-026 · Select the correct account for Sofia's access](AR-026/README.md)
 27. [AR-027 · Verify visibility and account targeting](AR-027/README.md)
+
+## Module 5 · Approval routing
+
+Continue from AR-027 with the existing accounts and access configuration. Each lab identifies its requester and reviewer sessions.
+
+28. [AR-028 · Compare manager, item-owner and source-owner routing](AR-028/README.md)
+29. [AR-029 · Require manager review followed by Security](AR-029/README.md)
+30. [AR-030 · Reassign a review and investigate an unresolved reviewer](AR-030/README.md)
+31. [AR-031 · Compare consolidated review and self-approval handling](AR-031/README.md)
+32. [AR-032 · Observe reminders, escalation and approval expiration](AR-032/README.md)
+33. [AR-033 · Verify the approval setup and save C05](AR-033/README.md)

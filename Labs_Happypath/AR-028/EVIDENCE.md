@@ -14,7 +14,3 @@ Keep this completed journal privately. Follow the [walkthrough](README.md) and i
 | Remaining issue or next observation | |
 
 Explain what changed and what you left in place in two or three sentences.
-
-## Engineering exercise
-
-Record your diagnosis, the evidence that supports it, and the smallest correction. Label supplied tickets separately from failures actually observed in the tenant.
