@@ -50,10 +50,6 @@ Complete [AR-050](../AR-050/README.md). Have the journals from AR-046–050 avai
 
 Your incident explanation is supported by actual records, a fresh Remote Worker grant/removal succeeds, and the retained state agrees with C08. A hypothetical or unobserved failure is not presented as a completed tenant test.
 
-## Engineering practice
-
-Read only the symptom you wrote, then solve it again using the request, operation and native evidence without looking at your conclusion. Identify one misleading observation—for example, an old Failed request after a successful repair—and explain which newer evidence resolves it. If you cannot distinguish two possible causes, name the next read-only check that would separate them instead of guessing or injecting another fault.
-
 ## Finish
 
 Keep C08 evidence, Taylor's account and sign-in, current group identifiers, restored permissions and disabled reference-test profile. Leave no test memberships or pending writes. Continue to AR-052 to prepare the API caller and look up these same objects.
@@ -69,4 +65,4 @@ Capture these at the matching step. Add a letter suffix when one result needs se
 | AR-051-03.png | Approved removal and native absence |
 | AR-051-04.png | C08 retained account, clean groups and labelled object IDs |
 
-[Previous: AR-050](../AR-050/README.md) · [Course outline](../../README.md) · [Next: AR-052](../AR-052/README.md)
+[Previous: AR-050](../AR-050/README.md) · [Course outline](../../README.md) · [Next: AR-052](../../labs/AR-052/README.md)

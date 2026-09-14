@@ -82,4 +82,4 @@ Capture these at the matching step. Add a letter suffix when one result needs se
 | AR-045-04.png | Second account VPN absent; standard VPN retained |
 | AR-045-05.png | Final cleanup and preserved accounts/baseline |
 
-[Previous: AR-044](../AR-044/README.md) · [Course outline](../../README.md) · [Next: AR-046](../../labs/AR-046/README.md)
+[Previous: AR-044](../AR-044/README.md) · [Course outline](../../README.md) · [Next: AR-046](../AR-046/README.md)

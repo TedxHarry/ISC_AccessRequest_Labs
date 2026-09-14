@@ -13,7 +13,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Manual removal time, native False and removal aggregation | |
 | Final account/Access/Search absence and retained objects | |
 | Change origin: AD administration; access-request ID not applicable | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

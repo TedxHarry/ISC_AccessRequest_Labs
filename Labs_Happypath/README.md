@@ -90,3 +90,14 @@ Keep the completed form and approval configuration. Start with date controls whe
 43. [AR-043 · Observe removal across overlapping standalone profiles](AR-043/README.md)
 44. [AR-044 · Compare role-required access with requested access](AR-044/README.md)
 45. [AR-045 · Remove access from one account and save C07](AR-045/README.md)
+
+## Module 8 — Provisioning and reconciliation
+
+Trace a working request, create Taylor’s missing AD account, repair a disposable-group fault and follow manual AD changes into ISC. Keep each lab’s cleanup complete before the next test.
+
+46. [AR-046 — Trace a request from approval to the AD result](AR-046/README.md)
+47. [AR-047 — Create Taylor’s AD account through an access request](AR-047/README.md)
+48. [AR-048 — Diagnose and repair a group-specific AD permission failure](AR-048/README.md)
+49. [AR-049 — Repair a profile after its AD group reference changes](AR-049/README.md)
+50. [AR-050 — Reconcile AD and ISC after a manual group change](AR-050/README.md)
+51. [AR-051 — Resolve a fulfillment incident and save C08](AR-051/README.md)

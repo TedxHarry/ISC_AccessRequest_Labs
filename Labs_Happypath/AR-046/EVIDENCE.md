@@ -12,7 +12,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Native result and subsequent aggregation/indexing times | |
 | Removal ID/activity, final membership and unchanged account | |
 | Diagnosis: first failed or unproved stage | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

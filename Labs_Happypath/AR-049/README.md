@@ -59,10 +59,6 @@ Get-ADGroup -Identity 'GG-ACME-FAULT-049' -Server $LabDC -ErrorAction Stop |
 
 The AD GUID is unchanged across the rename, native names/DN and ISC IDs are recorded separately, and the current profile reference passes grant/removal. Stale-reference observation is marked unobserved if automatic aggregation updated it first.
 
-## Engineering practice
-
-Compare the old and current IDs without relying on display names. Explain why a recreated group with the same name would have a different native identity, and why the same AD GUID does not guarantee the same ISC entitlement record after aggregation. If the profile disabled itself after aggregation, use its missing/current entitlement evidence to explain the cause. Do not delete/recreate a group just to produce that condition.
-
 ## Finish
 
 Keep GG-ACME-FAULT-049 with the original GUID and restored ACL. Keep its direct entitlement non-requestable and AP-Acme-Reference-Test disabled. Leave Taylor without membership and record current identifiers for every later disposable-group lab.

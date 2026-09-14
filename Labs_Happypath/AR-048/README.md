@@ -58,10 +58,6 @@ Complete [AR-047](../AR-047/README.md). Taylor has a retained AD account and no 
 
 The journal shows working control, exact group-only fault, actual failed operation, independent successful control, restored permissions and successful recovery/removal. If the fault was not reproduced, record that limitation instead of a passed failure test.
 
-## Engineering practice
-
-Investigate the difference between the ISC source owner, the configured directory service account and the account running IQService. Identify which evidence ties your denied principal to the failed operation. If the fault did not reproduce, inspect that execution context and the saved ACL scope before proposing another test; do not expand the fault to the OU or domain. Your report should explain why the unchanged historical failure is not evidence that the repair failed.
-
 ## Finish
 
 Leave no added deny entry, pending write/retry or disposable-group membership. Keep the group non-requestable, its owner/review settings recorded, Taylor’s account retained and the original connector configuration unchanged.

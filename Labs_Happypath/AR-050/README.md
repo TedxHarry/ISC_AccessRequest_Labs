@@ -49,10 +49,6 @@ Complete [AR-049](../AR-049/README.md). Keep Taylor's existing account, GG-ACME-
 
 Your evidence shows native False → True → False, the corresponding account aggregations, and the final imported absence. Record whether you actually observed a stale view; do not invent a delay or access-request record.
 
-## Engineering practice
-
-Investigate a report that says ‘The group was removed, but ISC still shows it.’ Start with the exact account and controller, then compare the imported account attribute, identity Access and Search. Identify the first view that disagrees. Explain why re-running entitlement aggregation or changing correlation would not be your first repair for an account-membership discrepancy. If the data is still inconsistent, retain the aggregation details and controller comparison rather than marking the exercise passed.
-
 ## Finish
 
 Leave Taylor out of GG-ACME-FAULT-049, VPN, Remote Users and baseline. Keep the account, restored group permissions, current group identifiers and disabled reference-test profile. Preserve the complete private HR file with Taylor.

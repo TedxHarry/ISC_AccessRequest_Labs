@@ -84,10 +84,6 @@ Get-ADUser -Filter "SamAccountName -eq 'acme.e025'" -Server $LabDC -ErrorAction 
 
 The first-run evidence shows no AD account before the request, an account-create operation, correct native attributes/groups, correlation and removal of the groups while retaining the account.
 
-## Engineering practice
-
-Compare Taylor’s operation with Lucas’s existing-account update from AR-012. Identify which settings supplied account attributes and which requested object supplied the groups. If Taylor already had an AD account before submission, record that the creation scenario was not reproduced and investigate automatic assignments or an earlier run; do not describe an update as a create.
-
 ## Finish
 
 Retain Taylor’s identity, ISC sign-in and AD account, with no VPN/Remote Users/baseline membership. Preserve the complete 25-row working HR file and the original 24-person baseline list. Continue with Taylor as requester in AR-048.

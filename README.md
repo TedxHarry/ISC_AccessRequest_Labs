@@ -172,9 +172,9 @@ Prerequisite: C07. You will locate failure across request, approval, connector, 
 | [AR-046](labs/AR-046/README.md) | Investigate | Access was approved but is absent | Classify the failing stage before changing configuration |
 | [AR-047](labs/AR-047/README.md) | Investigate | The requested-for identity has no AD account | Create isolated Taylor identity and verify request-driven account creation |
 | [AR-048](labs/AR-048/README.md) | Investigate | The provisioning account cannot change a lab group | Diagnose a scoped permission failure and validate recovery |
-| [AR-049](labs/AR-049/README.md) | Investigate | The requested group reference no longer resolves | Compare aggregated entitlement identity with the target object |
+| [AR-049](labs/AR-049/README.md) | Investigate | The requested group reference no longer resolves | Rename the disposable group, repair a real profile reference and verify grant/removal |
 | [AR-050](labs/AR-050/README.md) | Investigate | AD and ISC show different access state | Distinguish target state, aggregation, and search refresh evidence |
-| [AR-051](labs/AR-051/README.md) | Check | Resolve a multi-symptom fulfillment incident | Build a timeline, justify root cause, recover, and retest |
+| [AR-051](labs/AR-051/README.md) | Check | Resolve a multi-symptom fulfillment incident | Explain an observed incident, retest grant/removal and save C08 |
 
 Use the dedicated training environment for provisioning-failure exercises. Investigate the actual operation result when an account is missing or disabled.
 

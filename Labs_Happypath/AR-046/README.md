@@ -56,10 +56,6 @@ Use the cleaned state from [AR-045](../AR-045/README.md), or the completed AR-02
 
 Verify the request, reviewer stages, account operation and native result agree, followed by a completed removal. A real unresolved failure remains recorded as Failed, not as a completed control.
 
-## Engineering practice
-
-Use this report: “The request says Approved, but Henry cannot use the application.” Locate the first unproved step. Approval is not native provisioning evidence; group membership is not proof of application login, session refresh or application authorization. Use your exact request/account records to distinguish the ISC group-delivery result from a downstream application issue. Do not reset the connector based only on the report.
-
 ## Finish
 
 Leave Henry without Production Support or a pending request. Retain his account, baseline, profile, reviewers and any configured form/date policy. Continue to Taylor’s missing-account case.

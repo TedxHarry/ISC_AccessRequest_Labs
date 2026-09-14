@@ -14,7 +14,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | ACL restoration; retry/final-failure decision | |
 | Recovery and removal IDs; final membership False | |
 | Pending retries resolved; item non-requestable; fault reproduced or not | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

@@ -13,7 +13,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | AD DN/GUID, UPN, employeeID and correlated ISC account | |
 | Memberships: VPN/Remote True then False; baseline False | |
 | Retained 25-identity/26-account state and original baseline list | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

@@ -12,7 +12,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Profile repair needed or already current; enablement | |
 | Current-group grant/removal request and operation IDs | |
 | Final membership False, current names and disabled/non-requestable settings | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

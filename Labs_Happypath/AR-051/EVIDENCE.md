@@ -16,7 +16,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Final group name/GUID/ACL, non-requestability and disabled test profile | |
 | Retained HR/account counts, private CSV and original baseline | |
 | Misleading observation and remaining uncertainty | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 
