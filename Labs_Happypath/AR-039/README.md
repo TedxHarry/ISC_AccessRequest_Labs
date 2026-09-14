@@ -76,4 +76,4 @@ Capture these at the matching step. Add a letter suffix when one result needs mo
 | AR-039-04.png | Completed group addition and native result |
 | AR-039-05.png | Completed removal and final native result |
 
-[Previous: AR-038](../AR-038/README.md) · [Course outline](../../README.md) · [Next: AR-040](../../labs/AR-040/README.md)
+[Previous: AR-038](../AR-038/README.md) · [Course outline](../../README.md) · [Next: AR-040](../AR-040/README.md)

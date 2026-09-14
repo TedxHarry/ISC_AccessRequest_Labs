@@ -125,7 +125,7 @@ Retain business profiles for later labs. Disable requestability only when a lab 
 2. As administrator or an authorized Access Revoker, open **Admin > Identity Management > Identities**, select the recipient and open **Access**.
 3. Locate the requested role, profile or entitlement assignment. Inspect its origin and account. Select the available removal action for that assignment, add the lab's reason and submit.
 4. Complete any removal approvals. Track the removal request and verify the intended target membership disappears.
-5. If it remains, inspect other roles/profiles and automatic assignments before making another change. AR-043 covers this investigation.
+5. If it remains, inspect other roles/profiles and automatic assignments before making another change. AR-043 compares standalone profile overlap; AR-044 tests access still required by a role.
 
 Do not remove `ROLE-Acme-AD-Baseline` or its group as a request-lab reset. If a business membership existed before the lab, preserve it and use a different recipient for a clean negative test.
 

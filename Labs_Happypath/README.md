@@ -79,3 +79,14 @@ Continue from C05. You will create the form in AR-034, add and test its question
 37. [AR-037 · Trace form answers through a multi-item request](AR-037/README.md)
 38. [AR-038 · Repair a missing request form](AR-038/README.md)
 39. [AR-039 · Verify the Production Support form and save C06](AR-039/README.md)
+
+## Module 7 · Temporary access and removal
+
+Keep the completed form and approval configuration. Start with date controls when available, then compare removal by assignment type, overlapping access and Sofia’s two accounts.
+
+40. [AR-040 · Enforce an end date and maximum duration](AR-040/README.md)
+41. [AR-041 · Observe scheduled access and compare date-change reviews](AR-041/README.md)
+42. [AR-042 · Request removal at the correct access level](AR-042/README.md)
+43. [AR-043 · Observe removal across overlapping standalone profiles](AR-043/README.md)
+44. [AR-044 · Compare role-required access with requested access](AR-044/README.md)
+45. [AR-045 · Remove access from one account and save C07](AR-045/README.md)

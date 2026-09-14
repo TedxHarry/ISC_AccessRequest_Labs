@@ -16,7 +16,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | Date validation, timed boundaries and amendment statuses | |
 | Object removals, standalone overlap and role-required overlap evidence | |
 | Henry cleanup, restored permissions and disabled test role/profile | |
-| Engineering investigation: evidence, cause and next action | |
 
 ## Screenshots
 

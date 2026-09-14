@@ -95,3 +95,15 @@ Checked against [SailPoint form building and conditions](https://documentation.s
 Module 7, AR-040–045, is the next paired walkthrough review. Later labs retain their existing drafts. Module 6 tenant execution, field rendering and screenshots remain pending.
 
 Local checks passed for 78 revised walkthrough structures, six matching Module 6 working pairs and their journals, screenshot inventories, and preservation of earlier numbered steps, code and images. The link check covered 910 relevant local references before the final course-outline edit; the outline edit changes descriptions only.
+
+## Module 7 paired walkthrough review, 14 September 2026
+
+AR-040–045 now have paired working walkthroughs and lab-specific journals. Objectives remain outside prerequisite sections. The steps include date boundaries, real future provisioning/expiration observations, My Access versus Request Center amendment review, user-initiated entitlement/profile/role removal, corrected standalone-profile overlap, role-required overlap, and two-account entitlement removal. AR-045 records C07 and resolves Henry's earlier schedules before AR-046. No tenant execution or screenshots are claimed.
+
+The previous AR-043 prediction that another standalone profile protects VPN was incorrect. The replacement expects shared VPN removal and cleans up the remaining independent Remote Users grant through a controlled profile re-grant/removal. AR-044 separately proves role-required Remote Users retention and removes the test role's eligibility before disabling its definition. AR-042 uses My Access for all three removal requests; it no longer assumes administrator role revocation follows the same review route. Revoking never-provisioned future access is checked as an assignment change without inventing a required AD removal operation.
+
+Sources checked: [profile removal and overlap](https://documentation.sailpoint.com/saas/help/access/access-profiles.html), [date constraints](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html), [start dates and amendment routes](https://developer.sailpoint.com/discuss/t/new-capability-start-date-in-access-requests/206094), [user removal and date-edit controls](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access_removal.html), [role configuration](https://documentation.sailpoint.com/saas/help/access/roles.html), [automatic role assignment](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html), and [account-specific selection/revocation](https://developer.sailpoint.com/discuss/t/new-capability-multi-account-support/105600).
+
+Module 8, AR-046–051, is the next paired walkthrough review. Timed observations remain Pending/Deferred until executed; authored instructions do not establish a passed tenant result.
+
+Module 7 local checks passed: 12 walkthroughs, 12 journals, six identical working paths, 548 relevant local file/anchor references, numbered-step sequences, screenshot inventories and actor/manager values against the HR dataset. Dates, approvals, overlap outcomes and AD operations remain pending tenant execution.

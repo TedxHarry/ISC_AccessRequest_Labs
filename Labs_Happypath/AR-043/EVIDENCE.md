@@ -12,7 +12,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | Reporting removal operations; VPN False and Remote Users True | |
 | Controlled Remote Worker re-grant/removal IDs | |
 | Final three business groups False; baseline True | |
-| Engineering investigation: evidence, cause and next action | |
 
 ## Screenshots
 

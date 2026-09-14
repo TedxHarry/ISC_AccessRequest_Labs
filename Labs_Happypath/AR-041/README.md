@@ -58,10 +58,6 @@ If you cannot observe the first window yet, leave its boundary results pending a
 
 Verify all three timed native results and the two different date-change review routes. The original and amended windows must be ended or explicitly revoked, with no outstanding Henry request.
 
-## Engineering practice
-
-Use your recorded timestamps to investigate: “Access appeared at the wrong hour.” Compare UTC instants first, then each viewer's browser zone, actual operation time and selected time. A display-zone difference is not automatically a scheduling defect. Next explain why moving a start earlier, or re-requesting dates through Request Center, requires grant review. See [start dates and amendment routing](https://developer.sailpoint.com/discuss/t/new-capability-start-date-in-access-requests/206094). Do not add a start date retrospectively to access already provisioned.
-
 ## Finish
 
 Keep the seven-day date policy and existing form/review settings. Leave completed tests with Henry free of Production Support. If observing a live window later, retain its ID and mark it pending; do not reuse Henry until it is resolved.

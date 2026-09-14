@@ -66,10 +66,6 @@ Complete [AR-044](../AR-044/README.md) and retain Sofia’s two correlated accou
 
 The second account lost VPN while the standard account retained it, then the standard test grant was removed. Both accounts and baseline selection remain. C07 records actual results and any deferred observations.
 
-## Engineering practice
-
-Use your two grants and two removals to answer a ticket that only says “Sofia still has VPN.” Identify which account the report means, then locate its exact assignment using account ID/DN and native results. If a request targeted the correct account but the operation targeted the other one, retain both IDs as fulfillment evidence. If the request itself selected the wrong account, correct the requested assignment. See [multi-account request and review details](https://developer.sailpoint.com/discuss/t/new-capability-multi-account-support/105600).
-
 ## Finish
 
 Keep Sofia’s two accounts, standard-only baseline and no VPN on either. Keep course policies and C07 evidence. Begin AR-046 only after Henry’s old scheduled/pending work is resolved; deferred timed cases stay marked Deferred.
@@ -86,4 +82,4 @@ Capture these at the matching step. Add a letter suffix when one result needs se
 | AR-045-04.png | Second account VPN absent; standard VPN retained |
 | AR-045-05.png | Final cleanup and preserved accounts/baseline |
 
-[Previous: AR-044](../AR-044/README.md) · [Course outline](../../README.md) · [Next: AR-046](../AR-046/README.md)
+[Previous: AR-044](../AR-044/README.md) · [Course outline](../../README.md) · [Next: AR-046](../../labs/AR-046/README.md)

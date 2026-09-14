@@ -52,10 +52,6 @@ Complete [AR-042](../AR-042/README.md). Use Acme Admin, Alexander (`acme.e020`),
 
 You recorded the two standalone grants, loss of shared VPN on Reporting revocation, and the remaining Remote Users entitlement. All test business memberships are removed and the original on-behalf mode is restored.
 
-## Engineering practice
-
-Before the first removal, write down the prediction “VPN remains because Remote Worker also contains it.” Compare it with the actual operation and native result afterward. If VPN remains, inspect business role/lifecycle assignments and other provisioning activity before calling the service inconsistent. Do not confuse the baseline role, which requires only GG-ACME-BASELINE, with a role requiring VPN. Keep the exact assignment origins in the ticket explanation.
-
 ## Finish
 
 Keep Alexander’s standard account and working ISC session for AR-044. Leave all three business groups absent, preserve baseline, restore request-on-behalf permissions and retain the business profiles.

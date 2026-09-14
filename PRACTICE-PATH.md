@@ -47,6 +47,7 @@ Prepare each new requester/reviewer with [AR-008](labs/AR-008/README.md). Existi
 | AR-029 | Production Support with manager then Security review | Later workflow experiments leave those direct reviewers active |
 | AR-039, if completed | Required Production Support form | Later requests may omit its fields |
 | AR-040, if completed | Production Support required end date and seven-day maximum | Approval delay restarts the duration |
+| AR-045 | C07: completed removals, original on-behalf mode, clean Sofia accounts and resolved Henry schedules | An unobserved timed boundary is a passed test |
 | AR-047 | Taylor E025; complete 25-row HR file; baseline role still 24 | Reimporting the public 24-row CSV preserves Taylor |
 | AR-049 | Disposable group’s current DN, GUID and sAMAccountName | Changing its display name alone changes every identifier |
 | AR-058–063, if completed | Recorded Production Support workflow; proven Finance policies | All later reviews still route through manager then Security |

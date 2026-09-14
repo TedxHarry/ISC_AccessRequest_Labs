@@ -11,7 +11,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | B profile grant/removal IDs, reviewer and activity | |
 | C requested-role grant/removal IDs, reviewer and activity | |
 | Final Olivia memberships and Lucas control | |
-| Engineering investigation: evidence, cause and next action | |
 
 ## Screenshots
 

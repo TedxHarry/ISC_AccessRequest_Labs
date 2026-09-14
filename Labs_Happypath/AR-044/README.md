@@ -51,10 +51,6 @@ Complete [AR-043](../AR-043/README.md), including cleanup. Use Acme Admin, Alexa
 
 The requested profile’s removal removed VPN but preserved role-required Remote Users. Removing Alexander from the test role then removed Remote Users. Baseline and the account remain.
 
-## Engineering practice
-
-Explain this ticket: “I removed the group, but it came back overnight.” Inspect the test role's original criteria and assignment evidence. A native AD edit does not remove the ISC eligibility that requires access. Do not reproduce the ticket by manually changing the group; use the observed criteria-removal operation to demonstrate the correct repair. Compare it with a requested role that can be revoked from My Access in AR-042. See [automatic role assignment and removal](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html).
-
 ## Finish
 
 Keep the empty test role and its profile disabled, with no Alexander assignment or business membership. Preserve the 24-person baseline and all standard accounts. Continue to Sofia’s account-specific removal.

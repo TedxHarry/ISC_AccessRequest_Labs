@@ -157,11 +157,11 @@ Prerequisite: M06. You will distinguish access dates, removal requests, and othe
 | [AR-040](labs/AR-040/README.md) | Build | Request temporary production-support access | Test supported date constraints and capture effective dates |
 | [AR-041](labs/AR-041/README.md) | Practice | Observe future start and expiration | Verify target state before/after events; record the effective access dates |
 | [AR-042](labs/AR-042/README.md) | Build | Configure and execute access removal requests | Compare supported entitlement/profile/role removal paths |
-| [AR-043](labs/AR-043/README.md) | Investigate | Removal completed but VPN membership remains | Trace deliberately overlapping grants and the remaining path |
-| [AR-044](labs/AR-044/README.md) | Practice | Compare requested and automatically assigned access | Explain supported removal and potential reassignment behavior |
+| [AR-043](labs/AR-043/README.md) | Investigate | Observe removal across overlapping standalone profiles | Verify shared VPN removal and clean up the remaining independent group |
+| [AR-044](labs/AR-044/README.md) | Practice | Compare role-required and requested access | Preserve role-required access during profile removal, then remove eligibility |
 | [AR-045](labs/AR-045/README.md) | Check | Remove the intended access and preserve unrelated grants | Verify assignment and AD state; save C07 |
 
-In AR-040, also investigate supported ways to shorten or extend access. Explain any limitation and identify a supported alternative.
+AR-041 compares date changes through My Access and Request Center, including their different approval routes. Record timed observations only after you perform them.
 
 ## M08 — Investigate approved-but-missing access
 

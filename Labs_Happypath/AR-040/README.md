@@ -52,10 +52,6 @@ Save `AR-040-04.png` showing the completed removal and final membership.
 
 Verify the missing/excessive-date cases, effective end, completed grant and removal. Henry must finish without Production Support; the saved seven-day maximum remains.
 
-## Engineering practice
-
-Inspect **Admin > Access Model > Entitlements > GG-PROD-SUPPORT > Edit > Access Requests** without changing it. Record its own date policy. Compare it with the profile's policy. If a role containing this profile exists, inspect that role's Access Requests too; do not create a role just for this inspection. Explain why selecting another access object can invoke a different policy. Use [the profile date rules](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html) to explain the maximum-duration anchor with and without a future start.
-
 ## Finish
 
 Keep Production Support requestable with its required end date, seven-day maximum, existing form and reviewers. Keep Henry free of test access. Continue to AR-041.

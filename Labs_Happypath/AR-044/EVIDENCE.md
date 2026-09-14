@@ -12,7 +12,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | VPN False; Remote Users True after requested removal | |
 | Criteria-removal activity; final Remote/VPN False and baseline True | |
 | Empty disabled test role/profile; baseline list preserved | |
-| Engineering investigation: evidence, cause and next action | |
 
 ## Screenshots
 

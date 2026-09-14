@@ -12,7 +12,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | C Request Center changed dates and grant approvals | |
 | Final revocation/activity; no future assignment or pending request | |
 | Timed cases observed / failed / missed / deferred | |
-| Engineering investigation: evidence, cause and next action | |
 
 ## Screenshots
 

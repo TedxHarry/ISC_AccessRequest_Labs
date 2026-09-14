@@ -58,10 +58,6 @@ Complete AR-040’s removal control, or start from AR-033 if date controls are u
 
 Olivia’s three independent grant/removal cycles are complete, removal policies are restored and her business groups are absent. Baseline and Lucas’s VPN remain.
 
-## Engineering practice
-
-Inspect the Finance profiles while the requested Finance role is present in Step 4, before revoking it. Record why direct profile revocation is unavailable for role-supplied access. Do not attempt a separate group removal. Compare this with the profile-only case in Step 3 and the administrator revocation recorded in AR-019. The assignment origin and the action you choose both matter. See [user removal routes](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access_removal.html).
-
 ## Finish
 
 Keep all access definitions and their original policies. Leave Olivia without the three business memberships or pending requests. Keep any Henry timed observation separate and explicitly pending.

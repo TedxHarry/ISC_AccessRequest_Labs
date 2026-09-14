@@ -10,7 +10,6 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | Submitted end: local time, zone, UTC offset and UTC instant | |
 | Request ID; submission and approval times; effective end | |
 | Addition/removal activity IDs and native results | |
-| Engineering investigation: evidence, cause and next action | |
 
 ## Screenshots
 
