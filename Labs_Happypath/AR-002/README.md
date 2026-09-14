@@ -1,8 +1,8 @@
 # AR-002 — Resolve the Manager Hierarchy
 
-**Level:** Beginner
+## Before you start
 
-## Goal
+<a id="goal"></a>
 
 Use the manager reference already present in Acme HR to resolve ISC manager relationships for the 24 Acme identities.
 
@@ -20,11 +20,11 @@ Morgan is the hierarchy root and has no manager.
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-## Session for this lab
+<a id="session-for-this-lab"></a>
 
 Use your ISC administrator session.
 
-## Prerequisites
+<a id="prerequisites"></a>
 
 Complete [AR-001](../AR-001/README.md).
 
@@ -37,19 +37,9 @@ You should already have:
 
 Keep your [evidence journal](EVIDENCE.md) open.
 
-## What you will finish with
+## Follow the steps
 
-| Employee | Expected manager |
-|---|---|
-| Lucas Brown — E012 | Daniel Brooks — E003 |
-| Daniel Brooks — E003 | Morgan Reed — E001 |
-| Morgan Reed — E001 | No manager |
-
-The original 24-person dataset contains **23 manager relationships and one root**.
-
----
-
-## 1. Understand the matching values
+### 1. Understand the matching values
 
 1. Open **Admin > Connections > Sources > Acme HR > Account Management > Accounts**.
 2. Open `acme.e012`.
@@ -76,7 +66,7 @@ Result: Lucas's Manager = Daniel Brooks
 
 **Check:** Lucas's manager reference is `E003`, and Daniel's identification number is also `E003`.
 
-## 2. Map Manager Name
+### 2. Map Manager Name
 
 1. Open **Admin > Identity Management > Identity Profiles > Acme Employees**.
 2. Open **Mappings**.
@@ -108,7 +98,7 @@ Reference: [Identity-profile mappings](https://documentation.sailpoint.com/saas/
 
 Employee Number (identificationNumber) reads employeeNumber; Manager Name (manager) reads managerEmployeeNumber from Acme HR.
 
-## 3. Configure Manager Correlation
+### 3. Configure Manager Correlation
 
 1. Open **Admin > Connections > Sources > Acme HR**.
 2. Open **Account Management > Account Correlation**.
@@ -144,7 +134,7 @@ identificationNumber
 
 Select Employee Number on the identity side and managerEmployeeNumber on the account side, then save. Equals is displayed between the fields.
 
-## 4. Apply changes and process identities
+### 4. Apply changes and process identities
 
 1. Return to **Acme Employees**.
 2. Select **Apply Changes**.
@@ -156,22 +146,22 @@ Reference: [Identity processing](https://documentation.sailpoint.com/saas/help/s
 
 **Check:** Processing completes without unresolved identity errors.
 
-## 5. Verify Lucas → Daniel → Morgan
+### 5. Verify Lucas → Daniel → Morgan
 
-### Lucas
+#### Lucas
 
 1. Open **Admin > Identity Management > Identities**.
 2. Search for `acme.e012`.
 3. Open Lucas Brown.
 4. Confirm **Manager = Daniel Brooks**.
 
-### Daniel
+#### Daniel
 
 1. Search for `acme.e003`.
 2. Open Daniel Brooks.
 3. Confirm **Manager = Morgan Reed**.
 
-### Morgan
+#### Morgan
 
 1. Search for `acme.e001`.
 2. Open Morgan Reed.
@@ -191,7 +181,7 @@ Morgan Reed
 
 Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Check the remaining employees against the roster too.
 
-## 6. Verify the full hierarchy
+### 6. Verify the full hierarchy
 
 Use the table below to validate the complete Acme population.
 
@@ -210,7 +200,21 @@ Open every employee identity listed in the table and compare its Manager with th
 
 **Check:** Morgan is the only intended root, and no identity is its own manager.
 
-## Try it yourself
+## Check the result
+
+### What you will finish with
+
+| Employee | Expected manager |
+|---|---|
+| Lucas Brown — E012 | Daniel Brooks — E003 |
+| Daniel Brooks — E003 | Morgan Reed — E001 |
+| Morgan Reed — E001 | No manager |
+
+The original 24-person dataset contains **23 manager relationships and one root**.
+
+---
+
+### Try it yourself
 
 Find James (`acme.e014`) and follow his Manager link. Confirm Elena (`acme.e004`), then confirm Elena reports to Morgan. Record the usernames; leave the manager data unchanged.
 
@@ -219,11 +223,11 @@ Write these answers in your [journal](EVIDENCE.md):
 1. Why does Lucas’s E003 manager reference match Daniel rather than Lucas?
 2. What proves Morgan is the only root?
 
-## If a check does not match
+### If a check does not match
 
 If a manager differs, compare the employee’s stored managerEmployeeNumber with the intended manager’s identificationNumber, then inspect saved mappings and completed processing. Do not substitute display names for employee IDs.
 
-## Final verification
+### Final verification
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] Manager Name maps to `Acme HR > managerEmployeeNumber`.
@@ -238,11 +242,13 @@ If a manager differs, compare the employee’s stored managerEmployeeNumber with
 - [ ] Acme HR still contains 24 accounts.
 - [ ] Acme Employees still contains 24 identities.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the manager mapping and manager-correlation configuration. These relationships are required later for manager-based Access Request approvals.
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
 

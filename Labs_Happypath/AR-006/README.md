@@ -1,8 +1,8 @@
 # AR-006 — Provision Your First AD Account
 
-**Level:** Beginner
+## Before you start
 
-## Goal
+<a id="goal"></a>
 
 Use one access profile and one role to prove both AD provisioning paths:
 
@@ -11,11 +11,11 @@ Use one access profile and one role to prove both AD provisioning paths:
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-## Session for this lab
+<a id="session-for-this-lab"></a>
 
 Use your ISC administrator session for ISC steps and your AD administration workstation for directory steps.
 
-## Prerequisites
+<a id="prerequisites"></a>
 
 Complete [AR-005](../AR-005/README.md).
 
@@ -28,16 +28,9 @@ You should already have:
 
 Keep your [evidence journal](EVIDENCE.md) open.
 
-## What you will finish with
+## Follow the steps
 
-| Identity | Expected AD result |
-|---|---|
-| Lucas Brown — acme.e012 | Existing account retained; baseline group added |
-| Liam Patel — acme.e008 | New AD account created; baseline group added |
-
----
-
-## 1. Create the baseline access profile
+### 1. Create the baseline access profile
 
 1. Open **Admin > Access Model > Access Profiles**.
 2. Select **Create New**.
@@ -60,7 +53,7 @@ Reference: [Access profiles](https://documentation.sailpoint.com/saas/help/acces
 
 **Screenshot:** Save `AR-006-01-baseline-profile.png`. Capture the access profile and entitlement.
 
-## Record Lucas before assigning access
+### Record Lucas before assigning access
 
 In **Active Directory Users and Computers**, enable **View > Advanced Features**, open Lucas’s **Properties > Attribute Editor** and record `distinguishedName` and `objectGUID` in the journal. Open **GG-ACME-BASELINE > Properties > Members** and confirm Lucas is absent. Compare these before-values after provisioning.
 
@@ -68,7 +61,7 @@ In **Active Directory Users and Computers**, enable **View > Advanced Features**
 
 **Screenshot:** Save `AR-006-02-lucas-before.png`. Capture Lucas’s DN, objectGUID and absence from baseline membership.
 
-## 2. Create the baseline role for Lucas
+### 2. Create the baseline role for Lucas
 
 1. Open **Admin > Access Model > Roles**.
 2. Select **Create New**.
@@ -94,7 +87,7 @@ Reference: [Role assignment](https://documentation.sailpoint.com/saas/help/provi
 
 **Screenshot:** Save `AR-006-03-lucas-role.png`. Capture the role with Lucas in the identity list.
 
-## 3. Verify Lucas's existing account was updated
+### 3. Verify Lucas's existing account was updated
 
 1. In **Admin > Dashboard > Monitor**, wait for the identity-processing work started by **Apply Changes** to finish. Do not add Liam while Lucas’s update is still processing or has failed.
 2. Click **Search** in the top navigation and select **Account Activity**.
@@ -118,7 +111,7 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 
 **Screenshot:** Save `AR-006-04-lucas-update.png`. Capture Lucas's successful activity and native group membership.
 
-## 4. Add Liam to the same role
+### 4. Add Liam to the same role
 
 1. Confirm `acme.e008` is still absent from AD and the ISC AD-source accounts.
 2. Open `ROLE-Acme-AD-Baseline`.
@@ -134,7 +127,7 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 
 **Screenshot:** Save `AR-006-05-pilot-role.png`. Capture the two-person identity list.
 
-## 5. Verify Liam's new AD account
+### 5. Verify Liam's new AD account
 
 1. Click **Search** in the top navigation and select **Account Activity**.
 2. Search for Liam on the exact AD source and narrow to account creation:
@@ -165,7 +158,7 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 
 **Screenshot:** Save `AR-006-06-liam-created.png`. Capture Liam's provisioning activity, AD account, and group membership.
 
-## 6. Aggregate and verify Liam's account link
+### 6. Aggregate and verify Liam's account link
 
 1. Run one AD account aggregation from **Account Management > Account Aggregation**.
 2. Wait for completion.
@@ -180,7 +173,7 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 
 **Screenshot:** Save `AR-006-07-liam-linked.png`. Capture Liam's identity with the linked AD account.
 
-## 7. Compare the two provisioning results
+### 7. Compare the two provisioning results
 
 Record the difference:
 
@@ -193,7 +186,18 @@ Both users received the same access profile. Their account state determined the 
 
 **Check:** Your journal identifies the update operation for Lucas and create operation for Liam, with native AD evidence for each.
 
-## Try it yourself
+## Check the result
+
+### What you will finish with
+
+| Identity | Expected AD result |
+|---|---|
+| Lucas Brown — acme.e012 | Existing account retained; baseline group added |
+| Liam Patel — acme.e008 | New AD account created; baseline group added |
+
+---
+
+### Try it yourself
 
 Reopen both provisioning activities and locate the exact operation that added baseline membership. Compare Lucas’s before/after objectGUID. Retain both accounts and assignments; do not remove access to repeat creation.
 
@@ -202,7 +206,7 @@ Write these answers in your [journal](EVIDENCE.md):
 1. Why did Lucas receive a membership update while Liam needed account creation?
 2. Which evidence proves the write reached AD?
 
-## If a check does not match
+### If a check does not match
 
 If the activity is still pending, follow it before applying again. If it fails:
 
@@ -213,7 +217,7 @@ If the activity is still pending, follow it before applying again. If it fails:
 
 [Role provisioning retries](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html#role-provisioning-retries)
 
-## Final verification
+### Final verification
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] `AP-Acme-AD-Baseline` exists and contains only GG-ACME-BASELINE.
@@ -227,11 +231,13 @@ If the activity is still pending, follow it before applying again. If it fails:
 - [ ] Liam's account is linked to `acme.e008` after aggregation.
 - [ ] No unresolved provisioning activity remains.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the access profile, role, Lucas assignment, Liam assignment, both AD accounts, and both baseline memberships in place.
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
 

@@ -1,20 +1,16 @@
 # AR-016 · Bundle Finance reporting access
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Give Olivia one reporting item that supplies both the reporting group and VPN. Follow the request into AD, then remove the completed test grant. You will keep the profile for the next lab.
 
-## Before you start
-
 Complete [AR-015](../AR-015/README.md) and the [Module 3 starting checks](../../M03-READINESS.md). Open Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and your AD workstation. Keep your [journal](EVIDENCE.md) open.
 
-## Practice checkpoints
+## Follow the steps
 
-Use this prompt when you reach the named step in the walkthrough.
-
-Before submitting Section 4, inspect Priya's direct VPN policy and Daniel's profile policy side by side. Predict which reviewer will receive this request. After submission, record the actual Assignees and explain the result using the requested object type.
-
-## 1. Confirm Olivia's starting access
+### 1. Confirm Olivia's starting access
 
 1. In Acme Admin, open **Admin > Identity Management > Identities**, find Olivia and verify E011 and Acme Employees.
 2. Inspect **Accounts** and **Access**. Record the standard AD account DN and objectGUID. Confirm she has no Finance profile or role assignment and no pending request in her **Request Center > My Requests**.
@@ -25,7 +21,7 @@ Before submitting Section 4, inspect Priya's direct VPN policy and Daniel's prof
 
 **Screenshot:** `AR-016-01.png`: Olivia's starting memberships and account identifiers.
 
-## 2. Create the reporting profile
+### 2. Create the reporting profile
 
 1. As administrator, open **Admin > Access Model > Access Profiles**. Search `AP-Finance-Reporting`. If it exists, inspect and reuse the course object; otherwise select **Create New**.
 2. On **Configuration**, enter the following values:
@@ -44,7 +40,7 @@ Before submitting Section 4, inspect Priya's direct VPN policy and Daniel's prof
 
 **Check:** One profile contains Reporting and VPN from the intended AD source. Its definition alone has not granted either group to Olivia.
 
-## 3. Set Daniel as the profile reviewer
+### 3. Set Daniel as the profile reviewer
 
 1. On this profile, open **Access Requests** and turn on **Allow Access Requests**.
 2. Under **Reviewing Access Requests**, select **Require Approval > Reviewer**. Choose **Primary Owner**, select **+**, and keep that as the single grant reviewer.
@@ -59,7 +55,7 @@ Before submitting Section 4, inspect Priya's direct VPN policy and Daniel's prof
 
 **Screenshot:** `AR-016-02.png`: the two groups and saved grant/removal policies.
 
-## 4. Request and approve the profile
+### 4. Request and approve the profile
 
 1. Switch to Acme Olivia and verify `acme.e011` in the user menu.
 2. Open **Request Center**, choose **Request for Myself** if prompted, then **Access Items > Access Profiles**.
@@ -73,7 +69,7 @@ Before submitting Section 4, inspect Priya's direct VPN policy and Daniel's prof
 
 **Screenshot:** `AR-016-03.png`: Olivia's request and Daniel's recorded decision.
 
-## 5. Prove the two target changes
+### 5. Prove the two target changes
 
 1. As administrator, follow the [request and activity checks](../../M02-CHECKS.md#inspect-a-request-as-administrator). Match Olivia, the profile and submission time.
 2. Inspect the operations for both recorded group DNs. Wait for final results; record account activity IDs separately from request and approval IDs.
@@ -85,7 +81,7 @@ Before submitting Section 4, inspect Priya's direct VPN policy and Daniel's prof
 
 **Screenshot:** `AR-016-04.png`: both native memberships, unchanged account and matching activity.
 
-## 6. Remove Olivia's test grant
+### 6. Remove Olivia's test grant
 
 1. In Acme Admin, open Olivia under **Admin > Identity Management > Identities > Access > Access Profiles**.
 2. Open **AP-Finance-Reporting > Details**. Verify the recipient and that the assignment is revocable.
@@ -98,11 +94,13 @@ Before submitting Section 4, inspect Priya's direct VPN policy and Daniel's prof
 
 **Screenshot:** `AR-016-05.png`: removal decision/activity and final memberships.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 A missing revoke action may mean a role supplies the profile. A remaining group may mean another assignment or an unsuccessful removal operation. Inspect the origin and operation before acting; do not remove AD membership manually or delete the profile as cleanup. Use the [resume checks](../../M03-READINESS.md#resume-or-repeat-safely) if returning to an unfinished run.
 
-## Explain what you observed
+### Explain what you observed
 
 Before opening your notes, name the requested object, its reviewer and its two target changes. Then compare this with Lucas's direct VPN request.
 
@@ -113,7 +111,22 @@ Olivia requested AP-Finance-Reporting and Daniel reviewed it. That one requested
 
 </details>
 
-## Diagnose this ticket
+### Final verification
+
+- [ ] The profile contains exactly Reporting and VPN from the recorded AD source.
+- [ ] Daniel's grant decision and both native additions are recorded.
+- [ ] Daniel's removal decision and both native removals are recorded.
+- [ ] Olivia's original account and baseline remain; Lucas retains VPN.
+- [ ] The profile stays enabled/requestable with Daniel reviewing grants and removals.
+- [ ] No incomplete operation or pending test request remains.
+
+## Engineering practice
+
+### Practice checkpoints
+
+Compare Priya's direct VPN policy with Daniel's reporting-profile policy. Use your submitted request to explain why Daniel received the profile review even though it included VPN.
+
+### Diagnose this ticket
 
 This is a supplied practice case. Write your diagnosis before opening the answer; keep it separate from failures you actually observe in the tenant.
 
@@ -128,26 +141,19 @@ Keep the fulfillment check open. Match the exact Reporting DN and inspect its ac
 
 </details>
 
-## Resume or repeat
+## Finish
 
-Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
-## Final verification
-
-- [ ] The profile contains exactly Reporting and VPN from the recorded AD source.
-- [ ] Daniel's grant decision and both native additions are recorded.
-- [ ] Daniel's removal decision and both native removals are recorded.
-- [ ] Olivia's original account and baseline remain; Lucas retains VPN.
-- [ ] The profile stays enabled/requestable with Daniel reviewing grants and removals.
-- [ ] No incomplete operation or pending test request remains.
-
-## Leave this in place
+### Leave this in place
 
 Keep AP-Finance-Reporting. Olivia finishes without Reporting or VPN. Preserve all 24 baseline assignments.
 
 [Profile configuration and revocation](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) · [Request policies](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html)
 
-## Screenshots to capture
+### Resume or repeat
+
+Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
+
+### Screenshots to capture
 
 Capture at the matching steps; use additional images when a panel does not fit. Keep credentials and private mailbox information out of captures.
 

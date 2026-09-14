@@ -1,18 +1,20 @@
 # AR-012 · Approve the first request and prove the AD change
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Approve the request you submitted in AR-011 and follow it through to Lucas's existing AD account. Keep the resulting VPN access for later comparisons.
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## Before you start
-
 Complete [AR-011](../AR-011/README.md). Use Acme Priya, Acme Lucas, Acme Admin and the AD workstation. Keep the AR-011 request ID and your [journal](EVIDENCE.md) open.
 
 Reopen that request and confirm it is pending with Priya, for Lucas and the VPN entitlement, with immediate access. If it expired, completed or changed reviewer while you were away, inspect its current stage before submitting or deciding anything else.
 
-## 1. Capture the target before approval
+## Follow the steps
+
+### 1. Capture the target before approval
 
 1. Run the [direct membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for `acme.e012` and `GG-VPN-USERS`.
 2. Use the same domain controller as AR-010. Record the account DN, objectGUID and result.
@@ -22,7 +24,7 @@ Reopen that request and confirm it is pending with Priya, for Lucas and the VPN 
 
 **Screenshot:** `AR-012-01.png`: pending request and native before state.
 
-## 2. Approve as Priya
+### 2. Approve as Priya
 
 1. Switch to Acme Priya and verify `acme.e002` in the user menu.
 2. Open **Approvals > Access Requests > Requested**.
@@ -34,7 +36,7 @@ Reopen that request and confirm it is pending with Priya, for Lucas and the VPN 
 
 **Screenshot:** `AR-012-02.png`: Priya's reviewed decision and time.
 
-## 3. Follow fulfillment in ISC
+### 3. Follow fulfillment in ISC
 
 1. Switch to Acme Lucas. Open **Request Center > My Requests** and reopen the request. Record its approval and fulfillment state separately.
 2. Switch to Acme Admin. Open **Admin > Dashboard > Approval Management > Access Requests**, locate the same recipient/item/time and inspect **Process**.
@@ -46,7 +48,7 @@ Reopen that request and confirm it is pending with Priya, for Lucas and the VPN 
 
 **Screenshot:** `AR-012-03.png`: request process and matching account activity.
 
-## 4. Prove the native change
+### 4. Prove the native change
 
 1. Repeat the AD check for Lucas and VPN on the same controller.
 2. Confirm **DirectMember = True** for the recorded group DN.
@@ -57,7 +59,7 @@ Reopen that request and confirm it is pending with Priya, for Lucas and the VPN 
 
 **Screenshot:** `AR-012-04.png`: native membership and unchanged identifiers.
 
-## 5. Compare the imported account and save the timeline
+### 5. Compare the imported account and save the timeline
 
 1. As administrator, open **Admin > Identity Management > Identities**, find Lucas and open **Accounts > AD account**.
 2. Compare imported group membership with the native result. Also inspect **Access** for the requested entitlement.
@@ -68,15 +70,17 @@ Reopen that request and confirm it is pending with Priya, for Lucas and the VPN 
 
 **Screenshot:** `AR-012-05.png`: reconciled ISC account and Access view.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 An approval with no membership needs investigation of the current process stage, start date and account operation. A successful native write with old imported data needs a reconciliation check. Do not manually add the group or submit a duplicate to make the result appear complete.
 
-## Explain the result
+### Explain the result
 
 Point to the evidence that proves the decision, the write and the unchanged account identity. Explain why the approval screenshot alone would not prove all three.
 
-## Final verification
+### Final verification
 
 - [ ] The AR-011 request is matched to Priya's decision.
 - [ ] The VPN membership operation completed successfully.
@@ -84,13 +88,15 @@ Point to the evidence that proves the decision, the write and the unchanged acco
 - [ ] Baseline membership remains and imported data agrees.
 - [ ] No unexplained pending or failed operation remains.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep Lucas's directly requested VPN and baseline assignments. AR-013 uses Olivia for denial so Lucas's successful grant remains available as a comparison.
 
 [Reviewing access](https://documentation.sailpoint.com/saas/user-help/approvals/reviewing_access.html) · [Provisioning tracking](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
 

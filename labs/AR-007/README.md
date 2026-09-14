@@ -1,16 +1,14 @@
 # AR-007 · Provision the Remaining Standard Accounts
 
+## Before you start
+
+<a id="what-youll-do"></a>
+
+You’ve proved the update and creation paths. Now expand the same role in two batches and check every account. Keep the working pilot assignments; there is no need to start again.
+
 **Prerequisites:** Complete both target checks in [AR-006](../AR-006/README.md). Lucas and Liam have working baseline membership and correctly linked accounts.
 
-Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
-
-## If this configuration already exists
-
-Verify all 24 current account links and memberships. Use the saved batch history to compare operations; do not unassign employees to repeat provisioning. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Compare the small batch with the full roster](#compare-the-small-batch-with-the-full-roster). Capture current results and label earlier creation activity as historical.
-
-Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
-
-## Before you open the settings
+<a id="before-you-open-the-settings"></a>
 
 Use the administrator session and the existing ROLE-Acme-AD-Baseline and AP-Acme-AD-Baseline.
 
@@ -18,11 +16,11 @@ Lucas and Liam must each have one correctly linked standard account and baseline
 
 Keep the 24-person journal open while selecting identities. A role-list count alone cannot tell you that the correct people were selected.
 
-## What you’ll do
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-You’ve proved the update and creation paths. Now expand the same role in two batches and check every account. Keep the working pilot assignments; there is no need to start again.
+## Follow the steps
 
-## 1. Check the population before expanding
+### 1. Check the population before expanding
 
 1. Compare the 24 Acme identities with the [HR roster](../../datasets/acme-hr-baseline.csv). Verify uid, identificationNumber, first name, last name, and displayName are populated.
 2. Search AD for the remaining usernames before assigning access. Record any account that already exists. Correlate a legitimate existing account using AR-004's employee-number match before giving it the baseline role. Do not permit an unexpected existing account to become a duplicate-creation attempt.
@@ -30,7 +28,7 @@ You’ve proved the update and creation paths. Now expand the same role in two b
 
 **Check:** The journal identifies which employees already have accounts and which require creation.
 
-## 2. Expand in two stages
+### 2. Expand in two stages
 
 1. Open **Admin > Access Model > Roles > ROLE-Acme-AD-Baseline > Define Assignment**.
 2. Retain Lucas and Liam in **Identity List**. Add Priya (`acme.e002`) and Daniel (`acme.e003`) with the + control. Verify the four selected identities, save, and select **Apply Changes** from the role list.
@@ -42,7 +40,7 @@ Identity List keeps the provisioning population explicit. Removing a user from t
 
 **Screenshot reminder:** Save `AR-007-01-four-person-batch.png`, `AR-007-02-complete-assignment.png`, `AR-007-03-account-activity.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-## 3. Verify every account
+### 3. Verify every account
 
 After each provisioning batch finishes, run **one AD account aggregation** using AR-003 Section 6. Wait for completion and inspect its result. Do not start an aggregation for every employee. Then complete each row in the [journal](EVIDENCE.md):
 
@@ -56,13 +54,25 @@ After each provisioning batch finishes, run **one AD account aggregation** using
 
 **Screenshot reminder:** Save `AR-007-04-ad-users.png`, `AR-007-05-baseline-members.png`, `AR-007-06-account-links.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-## Troubleshooting practice
+## Check the result
+
+### Troubleshooting practice
 
 If an account fails, record the employee, failing operation, exact error, target state, correction, and retest. Compare it with a successful account from the same batch. Keep successful assignments in place while diagnosing the failed account.
 
 For a deliberate fault exercise later, use a separate test identity and a configuration isolated from this baseline. Do not change the shared Create Account OU to an invalid value while these assignments can retry.
 
-## Compare the small batch with the full roster
+### Completion and screenshots
+
+- [ ] All 24 expected accounts and identity links are individually verified.
+- [ ] The role's identity list contains exactly the course population.
+- [ ] All 24 course accounts have baseline membership.
+- [ ] No duplicate, failed, or pending course account remains unresolved.
+- [ ] Business group memberships are unchanged by the baseline assignment.
+
+## Engineering practice
+
+### Compare the small batch with the full roster
 
 The four-person batch and the remaining 20-person batch are your controlled variation. After completing both:
 
@@ -72,13 +82,13 @@ The four-person batch and the remaining 20-person batch are your controlled vari
 
 Keep all successful assignments in place. Your evidence must identify the accounts, not just show a total of 24.
 
-## Your ticket: The role has 24 identities but only 23 course accounts have baseline membership.
+### Your ticket: The role has 24 identities but only 23 course accounts have baseline membership.
 
 This is a supplied case. The total of selected identities is correct, but it does not identify the missing account.
 
 Use the 24-row journal to explain how you would find the missing person and separate a creation failure from a membership failure.
 
-Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+Write your diagnosis before opening the answer. Label this as a supplied ticket, not a failure observed in your tenant.
 
 <details>
 <summary>Compare your diagnosis with the mentor’s solution</summary>
@@ -87,11 +97,9 @@ Compare each selected username with native account existence, employeeID, member
 
 </details>
 
-## If you stopped midway or want to repeat this lab
+## Finish
 
-If the batch was interrupted, identify which selected identities have successful, failed or running activity. Preserve successful assignments and investigate only the unfinished accounts. Resume by adding only missing roster members; keep the current members. Leave all 24 in the role and retain their accounts and memberships. On repeat, verify the full roster without unassigning/reassigning it. Later extra accounts or identities must be recorded separately, not deleted to restore a count.
-
-## What you should leave in place
+### What you should leave in place
 
 | Item | State before you continue |
 |---|---|
@@ -99,15 +107,15 @@ If the batch was interrupted, identify which selected identities have successful
 | Baseline role/group | Original 24 identities selected; 24 course accounts in the group |
 | AdminAccounts | Empty on the first pass; Sofia’s second account comes in AR-026 |
 
-## Completion and screenshots
+<a id="if-this-configuration-already-exists"></a>
 
-- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
-- [ ] Any temporary change is restored and the retained state matches the next lab.
-- [ ] All 24 expected accounts and identity links are individually verified.
-- [ ] The role's identity list contains exactly the course population.
-- [ ] All 24 course accounts have baseline membership.
-- [ ] No duplicate, failed, or pending course account remains unresolved.
-- [ ] Business group memberships are unchanged by the baseline assignment.
+### If you stopped midway or want to repeat this lab
+
+Verify all 24 current account links and memberships. Use the saved batch history to compare operations; do not unassign employees to repeat provisioning. Label earlier activity as historical when repeating the lab.
+
+If the batch was interrupted, identify which selected identities have successful, failed or running activity. Preserve successful assignments and investigate only the unfinished accounts. Resume by adding only missing roster members; keep the current members. Leave all 24 in the role and retain their accounts and memberships. On repeat, verify the full roster without unassigning/reassigning it. Later extra accounts or identities must be recorded separately, not deleted to restore a count.
+
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|

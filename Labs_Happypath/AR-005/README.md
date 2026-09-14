@@ -1,18 +1,18 @@
 # AR-005 — Configure AD Account Creation
 
-**Level:** Beginner
+## Before you start
 
-## Goal
+<a id="goal"></a>
 
 Configure the Active Directory source so ISC can create standard Acme user accounts with predictable names, attributes, passwords, and target OU placement.
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-## Session for this lab
+<a id="session-for-this-lab"></a>
 
 Use your ISC administrator session for ISC steps and your AD administration workstation for directory steps.
 
-## Prerequisites
+<a id="prerequisites"></a>
 
 Complete [AR-004](../AR-004/README.md).
 
@@ -26,15 +26,9 @@ You should already have:
 
 Keep your [evidence journal](EVIDENCE.md) open.
 
-## What you will finish with
+## Follow the steps
 
-- `GG-ACME-BASELINE` created and aggregated.
-- A saved **Create Account** configuration for the AD source.
-- Liam Patel (`acme.e008`) still without an AD account, ready for AR-006.
-
----
-
-## 1. Verify the AD source is ready for provisioning
+### 1. Verify the AD source is ready for provisioning
 
 1. Open **Admin > Connections > Sources > your AD source**.
 2. Open **Review and Test**.
@@ -52,7 +46,7 @@ Reference:
 
 If the course group already exists, inspect its DN and membership and reuse it. Do not empty an existing group or create a duplicate to repeat this lab.
 
-### Find and record your UPN suffix
+#### Find and record your UPN suffix
 
 A **User Principal Name (UPN)** is an AD sign-in name such as `acme.e012@isc.com`. The **suffix** is the part after `@`: `isc.com` in that example. It can differ from the employee's email domain.
 
@@ -69,7 +63,7 @@ The **User logon name (pre-Windows 2000)** field is a different sign-in format, 
 
 **Screenshot:** Save `AR-005-upn-suffix.png` showing Lucas's **Account** tab and the selected suffix.
 
-### Copy the target OU DN
+#### Copy the target OU DN
 
 The OU's **distinguished name (DN)** tells ISC where to create the user. Copy the OU value, not Lucas's account DN.
 
@@ -83,7 +77,7 @@ For example, if the copied value is `OU=Users,OU=AcmeLab,DC=isc,DC=com`, enter `
 
 **Check:** The recorded target starts with your Users OU and ends with your actual domain components. Save `AR-005-users-ou-dn.png` showing this value.
 
-## 2. Create the baseline security group
+### 2. Create the baseline security group
 
 1. Open **Active Directory Users and Computers**.
 2. Open **AcmeLab > Groups**.
@@ -111,7 +105,7 @@ GG-ACME-BASELINE
 
 **Screenshot:** Save `AR-005-01-baseline-group.png`. Capture the baseline group in AD and the imported entitlement in ISC.
 
-## 3. Open Create Account configuration
+### 3. Open Create Account configuration
 
 For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
 
@@ -152,7 +146,7 @@ Reference: [Create Account configuration](https://documentation.sailpoint.com/sa
 
 `pwdLastSet = true` requires a password change at first AD logon. Omit manager because the managers’ AD accounts do not all exist yet. Record the expected enabled/disabled account state under your connector configuration; the table does not independently set account enablement.
 
-## 4. Verify mapping order and password policy
+### 4. Verify mapping order and password policy
 
 1. Use the up/down arrows or drag control to place **sAMAccountName** before **userPrincipalName**.
 2. Confirm `userPrincipalName` uses the previously calculated `${sAMAccountName}` value.
@@ -169,7 +163,7 @@ Reference: [AD provisioning reference](https://documentation.sailpoint.com/conne
 
 **Screenshot:** Save `AR-005-02-create-account-mappings.png`. Capture the complete mappings and the naming expressions.
 
-### Inspect the password policy before creating an account
+#### Inspect the password policy before creating an account
 
 The password generator needs rules that AD will accept. Record the policies first; a connection test does not validate a generated password.
 
@@ -193,7 +187,7 @@ The first result is the domain default. The second checks for a fine-grained pol
 
 If `Import-Module` fails, use the AD server or a workstation with the Active Directory RSAT tools installed. Save `AR-005-password-policy.png` showing policy names and requirements, without a password or secret.
 
-## 5. Verify Liam's identity before creation
+### 5. Verify Liam's identity before creation
 
 1. Open **Admin > Identity Management > Identities**.
 2. Search for `acme.e008` and open Liam Patel.
@@ -223,7 +217,17 @@ employeeID = E008
 
 **Screenshot:** Save `AR-005-03-liam-identity.png`. Capture Liam's ISC identity attributes.
 
-## Try it yourself
+## Check the result
+
+### What you will finish with
+
+- `GG-ACME-BASELINE` created and aggregated.
+- A saved **Create Account** configuration for the AD source.
+- Liam Patel (`acme.e008`) still without an AD account, ready for AR-006.
+
+---
+
+### Try it yourself
 
 Use Priya’s identity (`acme.e002`) to write her expected DN, UPN and employeeID using the saved mappings. Keep this prediction for AR-007. Do not change the shared policy or create her manually.
 
@@ -232,11 +236,11 @@ Write these answers in your [journal](EVIDENCE.md):
 1. What will supply Liam’s username in the DN and UPN expressions?
 2. Why does saving Create Account leave Liam absent from AD?
 
-## If a check does not match
+### If a check does not match
 
 If a saved mapping differs, reopen Create Account and correct its type, value and order before assigning baseline access. If Liam already exists, keep him and record the existing account; do not delete him to recreate the example.
 
-## Final verification
+### Final verification
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] AD Test Connection succeeds.
@@ -251,11 +255,13 @@ If a saved mapping differs, reopen Create Account and correct its type, value an
 - [ ] Liam has no AD account yet.
 - [ ] Liam's expected DN, UPN, and employeeID are recorded.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the baseline group and Create Account configuration unchanged. AR-006 will use them to update Lucas's existing account and create Liam's missing account.
 
-## Screenshots to capture
+### Screenshots to capture
 
 Also capture AR-005-upn-suffix.png, AR-005-users-ou-dn.png and AR-005-password-policy.png at the lookup steps above.
 

@@ -1,18 +1,20 @@
 # AR-015 · Request and remove a two-group access profile
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Create one Remote Worker item containing VPN and remote-tool access. Approve it for Liam, deny it for Olivia, then remove Liam's test assignment through ISC. Verify each result in AD.
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## Before you start
-
 Complete [AR-014](../AR-014/README.md). Use Acme Admin, Acme Liam (`acme.e008`), Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`) and the AD workstation. Prepare Liam using [the additional-session steps](../../M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in).
 
 Liam and Olivia each have one linked standard AD account and baseline access, but neither `GG-VPN-USERS` nor `GG-REMOTE-USERS`. They have no Remote Worker assignment or pending request. Preserve Lucas's approved VPN and all 24 baseline assignments. Keep your [journal](EVIDENCE.md) open.
 
-## 1. Record the two recipients before requesting
+## Follow the steps
+
+### 1. Record the two recipients before requesting
 
 1. As administrator, open each identity under **Admin > Identity Management > Identities**. Inspect **Accounts** and **Access** for existing business assignments.
 2. In each user's own session, check **Request Center > My Requests** for a pending request.
@@ -23,7 +25,7 @@ Liam and Olivia each have one linked standard AD account and baseline access, bu
 
 **Screenshot:** `AR-015-01.png`: Liam and Olivia before memberships and account identifiers.
 
-## 2. Create AP-Remote-Worker
+### 2. Create AP-Remote-Worker
 
 Use Acme Admin. If the named course profile exists, inspect its source and settings before reusing it; do not create a duplicate.
 
@@ -44,7 +46,7 @@ Use Acme Admin. If the named course profile exists, inspect its source and setti
 
 **Check:** One profile contains the two intended groups from the correct source. Creating its definition has not assigned it to Liam or Olivia.
 
-## 3. Configure grant and removal review
+### 3. Configure grant and removal review
 
 1. Open the profile's **Access Requests** page and enable **Allow Access Requests**.
 2. Under **Reviewing Access Requests**, select **Require Approval > Reviewer**. Choose **Primary Owner** and select **+**. Keep it as the only grant reviewer.
@@ -59,7 +61,7 @@ Use Acme Admin. If the named course profile exists, inspect its source and setti
 
 **Screenshot:** `AR-015-02.png`: profile source, entitlements, grant and removal settings.
 
-## 4. Request the profile as Liam
+### 4. Request the profile as Liam
 
 1. Switch to Acme Liam and verify `acme.e008` in the user menu.
 2. Open **Request Center**, choose **Request for Myself** if prompted, then **Access Items > Access Profiles**.
@@ -70,7 +72,7 @@ Use Acme Admin. If the named course profile exists, inspect its source and setti
 
 **Check:** One profile request for Liam is pending. Two groups are included in the requested item.
 
-## 5. Approve and verify both groups
+### 5. Approve and verify both groups
 
 1. In Acme Priya, open **Approvals > Access Requests > Requested**.
 2. Select Liam's AP-Remote-Worker **Grant** request. Check the recipient, profile and reason, then select **Approve** and confirm.
@@ -83,7 +85,7 @@ Use Acme Admin. If the named course profile exists, inspect its source and setti
 
 **Screenshots:** `AR-015-03.png`: approval and activity. `AR-015-04.png`: Liam's two memberships and unchanged account identifiers.
 
-## 6. Run Olivia's denial
+### 6. Run Olivia's denial
 
 1. Recheck that Olivia still lacks both groups and has no pending profile request.
 2. In Acme Olivia, repeat Section 4 for **AP-Remote-Worker**, using reason `AR-015: Remote Worker denial check`. Verify Olivia as recipient and her standard account. Record this separate request ID.
@@ -95,7 +97,7 @@ Use Acme Admin. If the named course profile exists, inspect its source and setti
 
 **Screenshots:** `AR-015-05.png`: Olivia's denied request. `AR-015-06.png`: unchanged native memberships.
 
-## 7. Remove Liam's completed test assignment
+### 7. Remove Liam's completed test assignment
 
 1. In Acme Admin, open **Admin > Identity Management > Identities**, select Liam, then **Access > Access Profiles**.
 2. Open **AP-Remote-Worker > Details**. Confirm it is Liam's test assignment and is revocable.
@@ -109,11 +111,13 @@ Use Acme Admin. If the named course profile exists, inspect its source and setti
 
 **Screenshot:** `AR-015-07.png`: removal decision/activity and final memberships.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If one group is missing after approval, inspect that group's operation and exact DN. If removal is unavailable, inspect the assignment's origin and revocability. If a group remains after removal, inspect other assignments and operation results. Do not remove membership manually or request individual groups to disguise an incomplete profile operation.
 
-## Assess your result and save C02
+### Assess your result and save C02
 
 Without following the steps again, explain where to find proof for Liam's grant, Olivia's denial and Liam's removal. Record which evidence belongs to each request.
 
@@ -126,7 +130,7 @@ Your evidence should identify three separate AR-015 requests: Liam’s grant, Ol
 
 </details>
 
-## Final verification
+### Final verification
 
 - [ ] The profile is enabled and requestable, with exactly two intended entitlements.
 - [ ] Priya reviews profile grants and removals.
@@ -136,13 +140,15 @@ Your evidence should identify three separate AR-015 requests: Liam’s grant, Ol
 - [ ] All baseline assignments and Lucas's VPN remain.
 - [ ] No unresolved test request or operation remains; C02 is saved.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Retain AP-Remote-Worker and its policies. Liam and Olivia finish without either business group; Lucas retains VPN. Keep all 24 standard accounts and baseline assignments.
 
 [Profile request/removal policies](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html) · [Profile creation and revocation](https://documentation.sailpoint.com/saas/help/access/access-profiles.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
 
@@ -156,6 +162,6 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 | AR-015-06.png | Olivia unchanged memberships |
 | AR-015-07.png | Liam removal and final native state |
 
-[Previous: AR-014](../AR-014/README.md) · [Lab index](../README.md) · [Next: AR-016](../AR-016/README.md)
-
 Module 2 is complete when the C02 checks pass. Keep the retained state for the next module.
+
+[Previous: AR-014](../AR-014/README.md) · [Lab index](../README.md) · [Next: AR-016](../AR-016/README.md)

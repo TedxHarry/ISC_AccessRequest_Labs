@@ -1,41 +1,26 @@
 # AR-009 — Verify the Environment and Save C01
 
-**Level:** Beginner
+## Before you start
 
-## Goal
+<a id="goal"></a>
 
 Verify the complete Module 1 foundation and save a clean evidence checkpoint before starting Access Request configuration.
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-## Session for this lab
+<a id="session-for-this-lab"></a>
 
 Use the ISC administrator and AD workstation for configuration checks. In Section 7, switch to each named browser profile and verify its signed-in username.
 
-## Prerequisites
+<a id="prerequisites"></a>
 
 Complete [AR-008](../AR-008/README.md).
 
 Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, and Priya sessions available.
 
-## Expected foundation
+## Follow the steps
 
-| Area | Expected result |
-|---|---|
-| Acme HR accounts | 24 |
-| Acme Employees identities | 24 |
-| Manager relationships | 23 relationships; Morgan is the root |
-| Standard AD accounts | 24 |
-| Course groups | 15 including GG-ACME-BASELINE |
-| Baseline role assignments | 24 identities |
-| Baseline native membership | 24 standard accounts |
-| Requester session | Lucas opens Request Center |
-| Reviewer sessions | Daniel and Priya open Approvals |
-| Business access requests submitted | 0 |
-
----
-
-## 1. Verify Acme HR and identities
+### 1. Verify Acme HR and identities
 
 1. Open **Admin > Connections > Sources > Acme HR > Account Management > Accounts**.
 2. Confirm there are **24 HR accounts**.
@@ -52,7 +37,7 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 
 **Screenshot:** Save `AR-009-01-population.png`. Capture the records that prove this check.
 
-## 2. Verify manager relationships
+### 2. Verify manager relationships
 
 1. Open Lucas and confirm Manager = Daniel Brooks.
 2. Open Daniel (`acme.e003`) and confirm Manager = Morgan Reed.
@@ -61,7 +46,7 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 
 **Check:** Morgan is the hierarchy root and the original roster has 23 manager relationships.
 
-## 3. Verify the 24 standard AD accounts
+### 3. Verify the 24 standard AD accounts
 
 1. Open the AD source in ISC.
 2. Open **Account Management > Accounts**.
@@ -80,7 +65,7 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 
 Open **Entitlement Management > Entitlements** on the AD source. Check the 14 business group names from AR-003 and GG-ACME-BASELINE from AR-005. Count these 15 course groups separately from unrelated source entitlements.
 
-## 4. Verify the baseline access model
+### 4. Verify the baseline access model
 
 1. Open **Admin > Access Model > Access Profiles**.
 2. Open `AP-Acme-AD-Baseline`.
@@ -92,7 +77,7 @@ Open **Entitlement Management > Entitlements** on the AD source. Check the 14 bu
 
 **Check:** The baseline access profile and role remain enabled and correctly configured.
 
-## 5. Verify the native baseline membership
+### 5. Verify the native baseline membership
 
 1. Open **Active Directory Users and Computers**.
 2. Open **AcmeLab > Groups > GG-ACME-BASELINE**.
@@ -104,18 +89,18 @@ Open **Entitlement Management > Entitlements** on the AD source. Check the 14 bu
 
 **Screenshot:** Save `AR-009-02-baseline-members.png`. Capture the records that prove this check.
 
-## 6. Verify the key provisioning examples
+### 6. Verify the key provisioning examples
 
 Open **Search > Account Activity** and use the exact AD source name from your journal. For Lucas, run `recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"`. For Liam, run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)`. Use the AR-006 timestamps to select the correct historical rows, then open each activity and inspect its AD source operation. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 
 Use those activities and your saved evidence to confirm:
 
-### Lucas
+#### Lucas
 - Existing AD account was reused.
 - Baseline group membership was added.
 - No duplicate account was created.
 
-### Liam
+#### Liam
 - Missing AD account was created by ISC.
 - Account attributes match the Create Account configuration.
 - Baseline group membership was added.
@@ -123,24 +108,24 @@ Use those activities and your saved evidence to confirm:
 
 **Check:** The foundation proves both an existing-account update and a missing-account creation.
 
-## 7. Verify the user sessions
+### 7. Verify the user sessions
 
-### Lucas
+#### Lucas
 1. Open the **Acme Lucas** browser profile.
 2. Confirm the signed-in identity is `acme.e012`.
 3. Open **Request Center**.
 
-### Daniel
+#### Daniel
 1. Open the **Acme Daniel** browser profile.
 2. Confirm the signed-in identity is `acme.e003`.
 3. Open **Approvals**.
 
-### Priya
+#### Priya
 1. Open the **Acme Priya** browser profile.
 2. Confirm the signed-in identity is `acme.e002`.
 3. Open **Approvals**.
 
-### Administrator
+#### Administrator
 1. Open the **Acme Admin** browser profile.
 2. Confirm administrative pages remain available.
 
@@ -148,7 +133,7 @@ Use those activities and your saved evidence to confirm:
 
 **Screenshot:** Save `AR-009-03-user-sessions.png`. Capture the records that prove this check.
 
-## 8. Confirm no business request has been tested yet
+### 8. Confirm no business request has been tested yet
 
 At this checkpoint:
 
@@ -162,7 +147,7 @@ No user-submitted business access request, approval, denial, or revocation has b
 
 **Check:** The first Access Request configuration will start after this foundation checkpoint.
 
-## 9. Save the C01 foundation checkpoint
+### 9. Save the C01 foundation checkpoint
 
 Create a private folder named:
 
@@ -188,7 +173,26 @@ Do not save passwords, Personal Access Token secrets, invitation links, MFA code
 
 **Check:** The private C01 folder contains the complete working file, journals, configuration values and current target evidence. This folder is an evidence checkpoint, not a tenant backup.
 
-## Try it yourself
+## Check the result
+
+### Expected foundation
+
+| Area | Expected result |
+|---|---|
+| Acme HR accounts | 24 |
+| Acme Employees identities | 24 |
+| Manager relationships | 23 relationships; Morgan is the root |
+| Standard AD accounts | 24 |
+| Course groups | 15 including GG-ACME-BASELINE |
+| Baseline role assignments | 24 identities |
+| Baseline native membership | 24 standard accounts |
+| Requester session | Lucas opens Request Center |
+| Reviewer sessions | Daniel and Priya open Approvals |
+| Business access requests submitted | 0 |
+
+---
+
+### Try it yourself
 
 Without following the earlier sample screenshots, inspect James (`acme.e014`) from HR through identity, manager Elena (`acme.e004`), linked AD account, role assignment and native baseline membership. Record current evidence for every link. Keep all configuration intact.
 
@@ -204,11 +208,11 @@ James is E014 and reports to Elena E004. His HR and identity employee values agr
 
 </details>
 
-## If a check does not match
+### If a check does not match
 
 If a check fails, record the affected identity or object and return to the lab that configured it. Keep the working foundation. Do not mark C01 passed while any required check is unresolved.
 
-## Final verification
+### Final verification
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] Acme HR contains 24 accounts.
@@ -226,11 +230,13 @@ If a check fails, record the affected identity or object and return to the lab t
 - [ ] No unresolved provisioning failure remains.
 - [ ] C01-Acme-Foundation evidence is saved privately.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the HR source, identity profile, manager relationships, AD source configuration, 24 standard accounts, baseline access profile, baseline role, baseline memberships, and separate user sessions in place.
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
 

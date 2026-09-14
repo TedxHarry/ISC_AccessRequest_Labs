@@ -67,3 +67,9 @@ AR-022–027 now have complete walkthroughs and journals in both folders. The [r
 Both paths include the working procedures, target checks and cleanup. Engineering adds prediction/diagnosis exercises and solutions. Source documentation was checked, including the public account-selection screenshot. No new learner screenshots or tenant executions are claimed.
 
 Final Module 4 local check: 1,388 local Markdown file links and 88 changed-page anchors resolve. Across Modules 3–4, 24 walkthroughs, 24 journals, 142 numbered-section Checks, paired working procedures, expandable answers and capture inventories passed. Path-specific AR-003 anchors were checked separately. Actor departments/managers match the HR dataset. No tenant actions were performed.
+
+## Modules 1–4 walkthrough simplification, 14 September 2026
+
+AR-001–027 in both folders now use Before you start, Follow the steps, Check the result and Finish. Engineering investigations follow the working walkthrough. Repeated introduction and finishing instructions were consolidated; the numbered procedures, code examples and existing images were preserved. Resume instructions were corrected for the specific catalog, permission and account exercises. Module 5 and later walkthroughs were not changed.
+
+Local checks cover all 54 page structures, preserved numbered steps/code/images, local links and heading anchors, and Markdown formatting. This is a writing and navigation pass, not additional tenant execution. The next paired module is Module 5, AR-028–033.

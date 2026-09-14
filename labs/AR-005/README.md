@@ -1,16 +1,14 @@
 # AR-005 · Configure AD Account Creation
 
+## Before you start
+
+<a id="what-youll-do"></a>
+
+Before ISC creates Liam, tell it where the account belongs and which values to use. Work through the mappings below, then write down the account you expect to see. Saving this page does not create him.
+
 **Prerequisites:** Complete [AR-004](../AR-004/README.md). Your AD connector must support direct provisioning, with its VA, IQService, TLS, and service-account permissions configured.
 
-Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
-
-## If this configuration already exists
-
-Compare the saved creation policy and baseline group with this lab. Keep existing Liam/Priya accounts and use their original activity for historical checks. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Work out another account before creating it](#work-out-another-account-before-creating-it). Capture current results and label earlier creation activity as historical.
-
-Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
-
-## Before you open the settings
+<a id="before-you-open-the-settings"></a>
 
 Use your ISC administrator session and the AD workstation. Have the existing provisioning/IQService configuration and your actual Users OU DN available.
 
@@ -18,11 +16,11 @@ Lucas is correctly linked. Liam has an ISC identity but no AD account. Keep that
 
 Record the current Create Account mappings before editing. These settings apply to future account creation on this source, not just Liam.
 
-## What you’ll do
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-Before ISC creates Liam, tell it where the account belongs and which values to use. Work through the mappings below, then write down the account you expect to see. Saving this page does not create him.
+## Follow the steps
 
-## 1. Check the write connection
+### 1. Check the write connection
 
 1. Open your AD source and record its provisioning and IQService connection settings without recording credentials.
 2. Check the existing installation against the [AD prerequisites](https://documentation.sailpoint.com/connectors/active_directory/help/integrating_active_directory/prerequisites.html) and [required permissions](https://documentation.sailpoint.com/connectors/active_directory/help/integrating_active_directory/required_permissions.html). The connector must be able to create users in the actual Users OU, set their required attributes and password, and update membership of the baseline group you will create below.
@@ -31,7 +29,7 @@ Before ISC creates Liam, tell it where the account belongs and which values to u
 
 If your connection only reads accounts, complete its provisioning prerequisites before continuing. A manual work item asking a person to create an account does not satisfy this lab's direct-provisioning check.
 
-### Find and record your UPN suffix
+#### Find and record your UPN suffix
 
 A **User Principal Name (UPN)** is an AD sign-in name such as `acme.e012@isc.com`. The **suffix** is the part after `@`: `isc.com` in that example. It can differ from the employee's email domain.
 
@@ -48,7 +46,7 @@ The **User logon name (pre-Windows 2000)** field is a different sign-in format, 
 
 **Screenshot:** Save `AR-005-upn-suffix.png` showing Lucas's **Account** tab and the selected suffix.
 
-### Copy the target OU DN
+#### Copy the target OU DN
 
 The OU's **distinguished name (DN)** tells ISC where to create the user. Copy the OU value, not Lucas's account DN.
 
@@ -62,7 +60,7 @@ For example, if the copied value is `OU=Users,OU=AcmeLab,DC=isc,DC=com`, enter `
 
 **Check:** The recorded target starts with your Users OU and ends with your actual domain components. Save `AR-005-users-ou-dn.png` showing this value.
 
-## 2. Prepare a separate baseline group
+### 2. Prepare a separate baseline group
 
 1. In **Active Directory Users and Computers**, open **AcmeLab > Groups** and look for `GG-ACME-BASELINE` before opening the creation dialog.
 2. Check whether `GG-ACME-BASELINE` exists. When resuming, reuse the verified lab group and record its members; do not empty it or create a duplicate. If it is missing, right-click **Groups > New > Group**, enter `GG-ACME-BASELINE`, select scope **Global** and type **Security**, then **OK**. Reopen its **Properties > General**, enter description `Acme lab - standard account baseline`, and select **Apply**. Leave its membership empty on this first run.
@@ -73,7 +71,7 @@ For example, if the copied value is `OU=Users,OU=AcmeLab,DC=isc,DC=com`, enter `
 
 **Screenshot reminder:** Save `AR-005-01-baseline-group.png`, `AR-005-02-baseline-entitlement.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-## 3. Define the account attributes
+### 3. Define the account attributes
 
 For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
 
@@ -115,7 +113,7 @@ The chosen usernames are unique course IDs under AD's length limit. If a usernam
 
 **Screenshot reminder:** Save `AR-005-03-create-account.png`, `AR-005-04-naming.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-### Inspect the password policy before creating an account
+#### Inspect the password policy before creating an account
 
 The password generator needs rules that AD will accept. Record the policies first; a connection test does not validate a generated password.
 
@@ -139,7 +137,7 @@ The first result is the domain default. The second checks for a fine-grained pol
 
 If `Import-Module` fails, use the AD server or a workstation with the Active Directory RSAT tools installed. Save `AR-005-password-policy.png` showing policy names and requirements, without a password or secret.
 
-## 4. Check the values before triggering creation
+### 4. Check the values before triggering creation
 
 1. Reopen **Create Account** and inspect the saved rows and order. Record the expected enabled/disabled state under your existing connector configuration; this table does not independently configure account enablement.
 2. Open Liam's ISC identity. Confirm uid `acme.e008`, identificationNumber `E008`, first name Liam, last name Patel, displayName `Acme Lab - Liam Patel`, department IT, and title IT Analyst.
@@ -151,7 +149,20 @@ If `Import-Module` fails, use the AD server or a workstation with the Active Dir
 
 **Screenshot reminder:** Save `AR-005-05-liam-identity.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-## Work out another account before creating it
+## Check the result
+
+### Completion and screenshots
+
+- [ ] Provisioning prerequisites reviewed; Users OU and baseline-group permissions checked.
+- [ ] GG-ACME-BASELINE is imported; empty on the first run, or retained course memberships recorded when resuming.
+- [ ] Required mappings, expression order, target OU, and password policy are recorded.
+- [ ] Liam's attributes are ready and he has no AD account.
+
+Also capture AR-005-upn-suffix.png, AR-005-users-ou-dn.png and AR-005-password-policy.png at the lookup steps above.
+
+## Engineering practice
+
+### Work out another account before creating it
 
 1. Open Priya’s identity, acme.e002, and record uid and identificationNumber.
 2. On paper, substitute her uid into the saved DN pattern and into the UPN expression after sAMAccountName is calculated. Write the expected DN, UPN and employeeID.
@@ -160,13 +171,13 @@ If `Import-Module` fails, use the AD server or a workstation with the Active Dir
 
 This is a configuration exercise. AR-007’s actual account is the test of your prediction.
 
-## Your ticket: The planned DN contains an empty username.
+### Your ticket: The planned DN contains an empty username.
 
 The supplied draft pattern is CN=$(sAMAccountName), followed by the correct Users OU. The identity has uid acme.e008 but no identity attribute called sAMAccountName.
 
 Compare the two expression types in Section 3. Write the corrected DN pattern and explain why the UPN uses a different expression. Do not save the faulty draft.
 
-Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+Write your diagnosis before opening the answer. Label this as a supplied ticket, not a failure observed in your tenant.
 
 <details>
 <summary>Compare your diagnosis with the mentor’s solution</summary>
@@ -175,11 +186,9 @@ The DN generator references identity attributes, so use CN=$(uid), followed by t
 
 </details>
 
-## If you stopped midway or want to repeat this lab
+## Finish
 
-Reuse the existing baseline group and inspect its members before continuing. If editing stopped midway, compare every saved mapping with the table, including order, before allowing a new creation. Retain the working creation policy and imported baseline group for AR-006. On a later repeat, Liam may already exist: inspect his original creation evidence and current attributes rather than deleting him. Do not restore an obsolete source policy while baseline assignments are still provisioning or retrying.
-
-## What you should leave in place
+### What you should leave in place
 
 | Item | State before you continue |
 |---|---|
@@ -187,16 +196,15 @@ Reuse the existing baseline group and inspect its members before continuing. If 
 | Create Account | Saved mapping values, correct order and actual Users OU |
 | Liam | Still absent from AD on the first pass; creation begins in AR-006 |
 
-## Completion and screenshots
+<a id="if-this-configuration-already-exists"></a>
 
-- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
-- [ ] Any temporary change is restored and the retained state matches the next lab.
-- [ ] Provisioning prerequisites reviewed; Users OU and baseline-group permissions checked.
-- [ ] GG-ACME-BASELINE is imported; empty on the first run, or retained course memberships recorded when resuming.
-- [ ] Required mappings, expression order, target OU, and password policy are recorded.
-- [ ] Liam's attributes are ready and he has no AD account.
+### If you stopped midway or want to repeat this lab
 
-Also capture AR-005-upn-suffix.png, AR-005-users-ou-dn.png and AR-005-password-policy.png at the lookup steps above.
+Compare the saved creation policy and baseline group with this lab. Keep existing Liam/Priya accounts and use their original activity for historical checks. Label earlier activity as historical when repeating the lab.
+
+Reuse the existing baseline group and inspect its members before continuing. If editing stopped midway, compare every saved mapping with the table, including order, before allowing a new creation. Retain the working creation policy and imported baseline group for AR-006. On a later repeat, Liam may already exist: inspect his original creation evidence and current attributes rather than deleting him. Do not restore an obsolete source policy while baseline assignments are still provisioning or retrying.
+
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|

@@ -39,7 +39,7 @@ Prepare each new requester/reviewer with [AR-008](labs/AR-008/README.md). Existi
 | After | Retain | Do not assume |
 |---|---|---|
 | AR-009 | 24 HR identities, 24 standard AD accounts, 24-member baseline role | Every employee has a registered ISC session |
-| AR-012 | Lucas’s directly requested VPN | Removing a later profile removes that independent grant |
+| AR-012 | Lucas’s directly requested VPN | A separate grant guarantees VPN survives an overlapping profile revocation |
 | AR-021 | [C03 business-access configuration](M03-READINESS.md#state-passed-between-labs), clean Olivia/James and retained Lucas VPN | Catalog visibility proves a native grant |
 | AR-022 | Enabled Finance segment | Segmentation checks the recipient’s business eligibility |
 | AR-026 | Sofia’s standard and admin accounts; baseline selects standard | Account creation or correlation grants admin privileges |

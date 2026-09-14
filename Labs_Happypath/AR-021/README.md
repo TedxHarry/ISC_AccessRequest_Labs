@@ -1,18 +1,20 @@
 # AR-021 · Deliver HR Services from a business requirement
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 James needs Payroll access for an approved HR task. Benefits access has not been approved. Build two separate choices under HR Services, approve Payroll, deny Benefits, then remove Payroll after the test.
 
 Keep the choices separate: asking for Payroll must not also grant Benefits.
 
-## Before you start
-
 Complete [AR-020](../AR-020/README.md). Prepare **Acme James** (`acme.e014`, E014) and **Acme Elena** (`acme.e004`, E004) using [the registration and session steps](../../M03-READINESS.md#prepare-james-and-elena-before-ar-021). Also open Acme Admin and the AD workstation.
 
 Keep the [module state](../../M03-READINESS.md) and your [journal](EVIDENCE.md) open. James already has a linked standard AD account and baseline access. You will not create another account.
 
-## 1. Translate the requirement into two access choices
+## Follow the steps
+
+### 1. Translate the requirement into two access choices
 
 1. Write these two rows in your journal before creating anything:
 
@@ -30,7 +32,7 @@ Keep the [module state](../../M03-READINESS.md) and your [journal](EVIDENCE.md) 
 
 **Screenshot:** `AR-021-01.png`: James's identity/account and starting memberships.
 
-## 2. Create the two HR profiles
+### 2. Create the two HR profiles
 
 Complete this procedure for Payroll first, then repeat it for Benefits using the table.
 
@@ -55,7 +57,7 @@ Complete this procedure for Payroll first, then repeat it for Benefits using the
 
 **Screenshot:** `AR-021-02.png`: both profiles' groups and saved policies; use two images if needed.
 
-## 3. Publish the two choices under HR Services
+### 3. Publish the two choices under HR Services
 
 1. Open **Admin > Access Model > Applications**. Search `HR Services`; inspect/reuse the matching course application or select **Create Application**.
 2. Set **Name** to `HR Services`, **Description** to `Request Payroll or Benefits access for approved Acme HR work`, **Owner** to Elena (`acme.e004`) and **Source** to your recorded AD source. Select **Save**.
@@ -70,7 +72,7 @@ Complete this procedure for Payroll first, then repeat it for Benefits using the
 
 **Screenshot:** `AR-021-03.png`: saved application configuration and James's two choices.
 
-## 4. Request Payroll and approve it as Elena
+### 4. Request Payroll and approve it as Elena
 
 1. In Acme James, confirm `acme.e014`, then select HR Services in **Request Center > Applications**.
 2. Select **AP-HR-Payroll only**, then **Save Selections**.
@@ -85,7 +87,7 @@ Complete this procedure for Payroll first, then repeat it for Benefits using the
 
 **Screenshot:** `AR-021-04.png`: Payroll request, Elena's decision and activity.
 
-## 5. Verify Payroll without Benefits
+### 5. Verify Payroll without Benefits
 
 1. Run Section 1's four native checks for James on the same controller.
 2. Compare his account DN/objectGUID with the starting record.
@@ -96,7 +98,7 @@ Complete this procedure for Payroll first, then repeat it for Benefits using the
 
 **Screenshot:** `AR-021-05.png`: all four native results and unchanged account identifiers.
 
-## 6. Request Benefits and deny it
+### 6. Request Benefits and deny it
 
 1. In Acme James, reopen **Request Center > Applications > HR Services**. Select **AP-HR-Benefits only** and **Save Selections**.
 2. Enter `AR-021: Benefits access review test`, keep immediate access and the standard account, then **Save > Review Request > Submit Request**. Record a separate request ID.
@@ -109,7 +111,7 @@ Complete this procedure for Payroll first, then repeat it for Benefits using the
 
 **Screenshot:** `AR-021-06.png`: Benefits denial and the separate Payroll/Benefits target results.
 
-## 7. Remove Payroll after the exercise
+### 7. Remove Payroll after the exercise
 
 1. In Acme Admin, open **Admin > Identity Management > Identities > James > Access > Access Profiles**.
 2. Select **AP-HR-Payroll > Details**, verify the requested assignment is revocable, then select **Revoke Access Profile**.
@@ -123,7 +125,7 @@ Complete this procedure for Payroll first, then repeat it for Benefits using the
 
 **Screenshot:** `AR-021-07.png`: Payroll removal decision/activity and final native results.
 
-## 8. Save C03 and check the module handoff
+### 8. Save C03 and check the module handoff
 
 1. Create a private evidence folder named **C03-Business-Access**. Copy all six completed module journals, screenshots and actual-value records into it.
 2. Open **Admin > Access Model > Access Profiles**. Verify AP-Finance-Reporting, AP-Finance-AP, AP-HR-Payroll and AP-HR-Benefits are enabled/requestable with the expected groups and owners.
@@ -138,11 +140,13 @@ Complete this procedure for Payroll first, then repeat it for Benefits using the
 
 **Screenshot:** `AR-021-08.png`: retained catalog/model, baseline comparison and C03 evidence index.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If James or Elena cannot sign in, finish their registration/session checks before requesting. If both HR groups appear after Payroll approval, inspect the actual profile contents and other assignments; do not conceal the result by denying an unrelated request. If Elena sees no review, inspect Assignees for the exact request and the object's saved policy. Keep an incomplete operation visible in the journal until it is resolved.
 
-## Assess your work
+### Assess your work
 
 Close the walkthrough. Explain how you would give a new HR requester Payroll access without Benefits, find the actual reviewer, prove the native result and remove the test grant. Use James's three request records to support the explanation.
 
@@ -153,7 +157,7 @@ The selectable Payroll profile contains only GG-HR-PAYROLL and uses Elena as its
 
 </details>
 
-## Final verification
+### Final verification
 
 - [ ] James and Elena have working ordinary-user sessions.
 - [ ] Each HR profile contains exactly one correct-source group.
@@ -163,13 +167,15 @@ The selectable Payroll profile contains only GG-HR-PAYROLL and uses Elena as its
 - [ ] Finance configuration, Lucas's VPN and all 24 baseline assignments remain.
 - [ ] C03 records the final configuration and has no unresolved test operations.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the four business profiles, two applications and Finance Analyst role enabled/requestable. Retain their grant/removal policies and the existing baseline. Use [resume guidance](../../M03-READINESS.md#resume-or-repeat-safely) if you return to an unfinished request.
 
 [Profile management](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) · [Application configuration](https://documentation.sailpoint.com/saas/help/access/app-config.html) · [Reviewer actions](https://documentation.sailpoint.com/saas/user-help/approvals/reviewing_access.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|
@@ -184,6 +190,6 @@ Keep the four business profiles, two applications and Finance Analyst role enabl
 
 Use extra images for separate panels. Keep credentials and invitation links out of captures.
 
-[Previous: AR-020](../AR-020/README.md) · [Lab index](../README.md) · [Next: AR-022](../AR-022/README.md)
-
 Continue to Module 4 after the C03 checks pass.
+
+[Previous: AR-020](../AR-020/README.md) · [Lab index](../README.md) · [Next: AR-022](../AR-022/README.md)

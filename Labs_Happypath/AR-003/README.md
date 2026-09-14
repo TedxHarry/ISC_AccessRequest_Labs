@@ -1,8 +1,8 @@
 # AR-003 — Prepare and Aggregate the AD Lab
 
-**Level:** Beginner
+## Before you start
 
-## Goal
+<a id="goal"></a>
 
 Prepare the Active Directory lab structure, create Lucas's AD account and the course security groups, make sure the ISC AD source can read those objects, and aggregate them into ISC.
 
@@ -10,11 +10,11 @@ AR-004 will correlate Lucas's existing AD account to his ISC identity.
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-## Session for this lab
+<a id="session-for-this-lab"></a>
 
 Use your ISC administrator session for ISC steps and your AD administration workstation for directory steps.
 
-## Prerequisites
+<a id="prerequisites"></a>
 
 - Complete [AR-001](../AR-001/README.md) and [AR-002](../AR-002/README.md).
 - Existing Active Directory source connected to the training domain.
@@ -24,7 +24,7 @@ Use your ISC administrator session for ISC steps and your AD administration work
 
 Keep your [evidence journal](EVIDENCE.md) open.
 
-## Environment requirements
+<a id="environment-requirements"></a>
 
 - The AD source passes **Test Connection**.
 - A dedicated training location is available for `AcmeLab`.
@@ -32,27 +32,9 @@ Keep your [evidence journal](EVIDENCE.md) open.
 - The 14 Acme course group names are available for this lab.
 - You can add the AcmeLab OUs to the AD source search scopes.
 
-## What you will finish with
+## Follow the steps
 
-```text
-AcmeLab
-├── Users
-│   └── Acme Lab - Lucas Brown (acme.e012)
-├── AdminAccounts
-└── Groups
-    ├── GG-VPN-USERS
-    ├── GG-REMOTE-USERS
-    └── 12 additional course groups
-```
-
-ISC will contain:
-
-- Lucas's AD account on the AD source.
-- All 14 Acme security groups as entitlements.
-
----
-
-## 1. Test the existing AD source
+### 1. Test the existing AD source
 
 1. Open **Admin > Connections > Sources**.
 2. Select your existing **Active Directory** source.
@@ -70,7 +52,7 @@ Reference: [AD Review and Test](https://documentation.sailpoint.com/connectors/a
 
 The AD connection test succeeds. AD_Local_Ted is the source used in this example; select your own AD source.
 
-## 2. Create the AcmeLab OU structure
+### 2. Create the AcmeLab OU structure
 
 On your AD administration workstation:
 
@@ -108,7 +90,7 @@ Use the actual DN from your directory.
 
 AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own domain.
 
-## 3. Create Lucas's AD account
+### 3. Create Lucas's AD account
 
 1. In Active Directory Users and Computers, open **AcmeLab > Users**.
 2. Right-click **Users > New > User**.
@@ -147,7 +129,7 @@ Before selecting the suffix, read the dropdown beside **User logon name**. Use t
 
 Lucas lives under AcmeLab/Users. This image shows his distinguishedName; also check the Account tab for acme.e012 and your logon suffix.
 
-## 4. Create the 14 course groups
+### 4. Create the 14 course groups
 
 Right-click **AcmeLab > Groups**, select **New > Group**, enter the name from the table and select the settings below. Select **OK**, open the group’s **Properties**, enter its description, and select **Apply**. Repeat for all 14 names.
 
@@ -187,13 +169,13 @@ Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishe
 
 The 14 business groups are present in AcmeLab/Groups. The baseline group is added in AR-005.
 
-## 5. Add the AcmeLab locations to the ISC AD source
+### 5. Add the AcmeLab locations to the ISC AD source
 
 1. Open **Admin > Connections > Sources > your AD source**.
 2. Open **Account and Group Settings**.
 3. Record the existing search-scope settings before making changes.
 
-### User Search Scope
+#### User Search Scope
 
 Add the actual DNs for:
 
@@ -202,13 +184,13 @@ Add the actual DNs for:
 
 For these lab-specific entries, leave the optional LDAP filter blank unless your environment requires a documented filter.
 
-### Group Search Scope
+#### Group Search Scope
 
 Add the actual DN for:
 
 - AcmeLab/Groups
 
-### Group Membership Search DN
+#### Group Membership Search DN
 
 For the AcmeLab user-search entries, set the membership search to the actual AcmeLab/Groups DN so the connector can read memberships for the lab users.
 
@@ -231,7 +213,7 @@ Reference: [AD Account and Group Settings](https://documentation.sailpoint.com/c
 
 User Search Scope includes Users and AdminAccounts, with Group Membership Search DN pointing to Groups. Scroll to the separate Group Search Scope and verify it too; that section is outside this image.
 
-## 6. Run account aggregation
+### 6. Run account aggregation
 
 1. Open the AD source's **Account Management > Account Aggregation**.
 2. Confirm the saved search scopes include your lab OUs. Keep account-deletion settings unchanged and select **Start Aggregation**. No Delta Aggregation toggle is required.
@@ -262,7 +244,7 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.
 
-## 7. Run entitlement aggregation
+### 7. Run entitlement aggregation
 
 For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
 
@@ -289,7 +271,29 @@ Reference: [Entitlement aggregation](https://documentation.sailpoint.com/saas/he
 
 The AD source contains the imported lab groups. Other groups can also appear. Search for all 14 course names; this cropped list does not show every group.
 
-## Try it yourself
+## Check the result
+
+### What you will finish with
+
+```text
+AcmeLab
+├── Users
+│   └── Acme Lab - Lucas Brown (acme.e012)
+├── AdminAccounts
+└── Groups
+    ├── GG-VPN-USERS
+    ├── GG-REMOTE-USERS
+    └── 12 additional course groups
+```
+
+ISC will contain:
+
+- Lucas's AD account on the AD source.
+- All 14 Acme security groups as entitlements.
+
+---
+
+### Try it yourself
 
 Open GG-HR-PAYROLL in AD and then on the ISC AD source. Record its actual DN and imported entitlement value. Confirm you selected the same group on the same source.
 
@@ -298,11 +302,11 @@ Write these answers in your [journal](EVIDENCE.md):
 1. Which search setting controls users, which controls groups, and which controls membership reads?
 2. Does an imported AD account necessarily belong to an ISC identity yet?
 
-## If a check does not match
+### If a check does not match
 
 If an object is absent, compare its actual DN with the saved user/group search scope and filters. Inspect the aggregation result. A zero-new-objects result is acceptable when the expected records already exist.
 
-## Final verification
+### Final verification
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] AD Test Connection succeeds.
@@ -320,7 +324,9 @@ If an object is absent, compare its actual DN with the saved user/group search s
 - [ ] All 14 groups are visible as entitlements.
 - [ ] GG-VPN-USERS native value is recorded.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep:
 
@@ -331,7 +337,7 @@ Keep:
 
 Do not make the groups requestable yet.
 
-## Screenshots to capture
+### Screenshots to capture
 
 The seven supplied images appear beside the steps. Capture these additional views to complete the evidence: Lucas's Account tab, the separate saved Group Search Scope, completed account and entitlement aggregation history, and GG-VPN-USERS details showing its native value. The supplied source-scopes image shows user and membership searches; the supplied account image shows the imported record. Neither replaces the missing views.
 

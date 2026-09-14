@@ -1,26 +1,8 @@
 # AR-003 — Validate AD and Aggregate the Lab Data
 
-**Level:** Beginner
+## Before you start
 
-**Prerequisites:** Your existing AD source is connected to the training domain. You can administer that source in ISC and create users, organizational units (OUs), and groups in the AD lab area. Lucas Brown (`acme.e012`) exists in Acme Employees from [AR-001](../AR-001/README.md).
-
-Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
-
-## If this configuration already exists
-
-Check Lucas and all 14 business groups are imported. Keep later accounts and the baseline group; do not shrink scope or return the population to one user. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Try a different account view](#try-a-different-account-view). Capture current results and label earlier creation activity as historical.
-
-Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
-
-## Before you open the settings
-
-Use your ISC administrator session and your AD administration workstation. Keep your actual AD source name and the Acme HR source name separate in your notes.
-
-Lucas exists as an ISC identity. On a fresh run he has no AD account until you create it below; the other course employees still have no AD accounts.
-
-Record existing AD objects and memberships before reusing them. Do not assume an empty lab OU means the same username is absent elsewhere in the domain.
-
-## What you’ll do
+<a id="what-youll-do"></a>
 
 Bring Lucas and the lab groups into ISC before you try to grant anything. Start by checking where they actually live in AD. Then check the source reads those locations and inspect what it imported.
 
@@ -28,7 +10,21 @@ The HR import created HR accounts and identities. It did not create users in Act
 
 Keep your actual source name, directory paths, and results in the [lab journal](EVIDENCE.md). Whenever these instructions say **your AD source**, select the existing Active Directory source in your tenant.
 
-## 1. Identify and test your AD source
+**Prerequisites:** Your existing AD source is connected to the training domain. You can administer that source in ISC and create users, organizational units (OUs), and groups in the AD lab area. Lucas Brown (`acme.e012`) exists in Acme Employees from [AR-001](../AR-001/README.md).
+
+<a id="before-you-open-the-settings"></a>
+
+Use your ISC administrator session and your AD administration workstation. Keep your actual AD source name and the Acme HR source name separate in your notes.
+
+Lucas exists as an ISC identity. On a fresh run he has no AD account until you create it below; the other course employees still have no AD accounts.
+
+Record existing AD objects and memberships before reusing them. Do not assume an empty lab OU means the same username is absent elsewhere in the domain.
+
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
+
+## Follow the steps
+
+### 1. Identify and test your AD source
 
 1. Open **Admin > Connections > Sources** and select your Active Directory source.
 2. Record its name and copy its source ID from the source's browser URL. Keep the ID associated with this AD source, separate from the Acme HR source ID.
@@ -43,7 +39,7 @@ Keep your actual source name, directory paths, and results in the [lab journal](
 
 The AD connection test succeeds. AD_Local_Ted is the source used in this example; select your own AD source.
 
-## 2. Prepare the AD lab locations
+### 2. Prepare the AD lab locations
 
 1. On your AD administration workstation, open **Server Manager > Tools > Active Directory Users and Computers**.
 2. Expand the training domain and locate the parent location reserved for your lab objects.
@@ -70,7 +66,7 @@ For example, a Users OU could have the distinguished name (DN) `OU=Users,OU=Acme
 
 AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own domain.
 
-## 3. Prepare Lucas's AD account
+### 3. Prepare Lucas's AD account
 
 First check whether `acme.e012` already exists in the training domain. In Active Directory Users and Computers, right-click the domain, select **Find**, choose **Users, Contacts, and Groups**, and search for Lucas. Inspect the **Account** tab of a matching user to confirm the logon name. Reuse the course account if it exists; do not create a second account for the same username.
 
@@ -106,7 +102,7 @@ For a reused account, verify the same logon name and lab attributes. Record its 
 
 Lucas lives under AcmeLab/Users. This image shows his distinguishedName; also check the Account tab for acme.e012 and your logon suffix.
 
-## 4. Create the 14 lab groups
+### 4. Create the 14 lab groups
 
 In **AcmeLab > Groups**, create each missing group below:
 
@@ -143,11 +139,11 @@ Keep newly created groups empty. These groups simulate application access, so do
 
 The 14 business groups are present in AcmeLab/Groups. The baseline group is added in AR-005.
 
-## 5. Update the AD source settings before aggregation
+### 5. Update the AD source settings before aggregation
 
 Complete this section now, before starting either aggregation. Creating an OU in AD does not add that OU to ISC's source configuration.
 
-### Copy your actual OU paths
+#### Copy your actual OU paths
 
 Use the DNs collected in Section 2. The examples below assume AcmeLab is directly under `training.example.com`; replace the entire example with your actual DN, including any parent OUs.
 
@@ -159,13 +155,13 @@ Use the DNs collected in Section 2. The examples below assume AcmeLab is directl
 
 AdminAccounts is empty in this lab. Include its coverage now; you will create Sofia's second account there in AR-026. If you reused Lucas or groups in another OU, include their actual locations too.
 
-### Open and record the current configuration
+#### Open and record the current configuration
 
 1. Open **Admin > Connections > Sources > your AD source > Account and Group Settings**.
 2. Record all existing User and Group Search DNs, LDAP filters, and membership-search settings in your journal. Capture the page before changing it.
 3. Check whether an existing parent search already covers each lab OU. For example, a search under AcmeLab may cover its children. Confirm the search depth and filters permit the lab objects. Keep that entry if it already provides the required coverage; do not add overlapping entries unnecessarily.
 
-### Set the user searches
+#### Set the user searches
 
 1. Under **User Search Scope**, use **Add Another** for each uncovered user OU. If the section has a single empty entry, fill that entry first.
 2. In **Search DN**, paste the actual **Users OU DN**. Use an OU DN, not Lucas's account DN.
@@ -175,7 +171,7 @@ AdminAccounts is empty in this lab. Include its coverage now; you will create So
 
 **Check:** Lucas's actual OU is included in a saved user search that permits `acme.e012`. AdminAccounts also has coverage. The Groups OU alone would not cover Lucas in the sibling Users OU.
 
-### Set the group search
+#### Set the group search
 
 1. Under **Group Search Scope**, keep existing entries. If Groups is not covered, select **Add Another** and paste the actual **Groups OU DN** into **Search DN**.
 2. Leave **LDAP Search Filter** blank on the new entry restricted to the lab Groups OU. Do not copy a user-only filter into a group search.
@@ -185,7 +181,7 @@ If Group Search Scope was entirely empty, the connector was using the account se
 
 **Check:** The saved group searches cover the actual locations of all 14 groups, including any reused groups outside AcmeLab.
 
-### Check membership searches and reopen the saved settings
+#### Check membership searches and reopen the saved settings
 
 The **Group Membership Search DN** within a user-search entry controls where the connector looks for that user's memberships. The separate **Group Search Scope** above controls the group inventory.
 
@@ -202,7 +198,7 @@ The **Group Membership Search DN** within a user-search entry controls where the
 
 User Search Scope includes Users and AdminAccounts, with Group Membership Search DN pointing to Groups. Scroll to the separate Group Search Scope and verify it too; that section is outside this image.
 
-## 6. Aggregate and inspect Lucas's account
+### 6. Aggregate and inspect Lucas's account
 
 Confirm Section 5's saved user, group and membership searches before starting. Keep account-deletion settings unchanged. This walkthrough uses **Account Management > Account Aggregation > Start Aggregation**; no Delta Aggregation toggle is required.
 
@@ -225,7 +221,7 @@ An uncorrelated Lucas account can pass this step. If an existing rule matched it
 
 The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.
 
-## 7. Aggregate and inspect the groups
+### 7. Aggregate and inspect the groups
 
 For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
 
@@ -246,7 +242,9 @@ The aggregation summary's discovered count can differ from the total entitlement
 
 The AD source contains the imported lab groups. Other groups can also appear. Search for all 14 course names; this cropped list does not show every group.
 
-## If something is missing
+## Check the result
+
+### If something is missing
 
 | Observation | What to check next |
 |---|---|
@@ -259,45 +257,8 @@ The AD source contains the imported lab groups. Other groups can also appear. Se
 | The account has no identity match | Record it for AR-004; importing an account and correlating it are separate checks. |
 | A deletion threshold warning appears | Compare the saved search scopes with the current settings. Restore accidentally removed scope entries; do not raise the threshold to bypass the warning. |
 
-## Try a different account view
+### Completion checklist
 
-1. Open Lucas on the AD source’s Accounts page and record the account DN and sAMAccountName.
-2. Search for the same person on the Identities page. Open the identity’s Accounts tab and check whether that AD account is linked yet.
-3. Compare the two results. A source can contain the imported account before the identity has the correct link. Record the actual state for AR-004; do not create a second account to make it appear under the identity.
-
-You have changed where you look, not the data. Keep both screenshots so you can explain importing versus linking.
-
-## Your ticket: The aggregation discovered zero new groups. Is the source broken?
-
-The supplied case says the aggregation succeeded, and all 14 named groups are already visible on this AD source.
-
-Use your source’s results to distinguish newly discovered objects from stored inventory. Name the evidence needed before changing the source configuration.
-
-Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
-
-<details>
-<summary>Compare your diagnosis with the mentor’s solution</summary>
-
-Zero new discoveries does not mean zero stored groups. Verify the 14 names, source and native values individually. If they are present and there are no unresolved errors, no source reset is needed. If a named group is missing, compare its actual OU with Group Search Scope and its filter before aggregating again.
-
-</details>
-
-## If you stopped midway or want to repeat this lab
-
-If interrupted, compare each recorded OU, user, group and saved scope before creating another object. Resume at the first missing check. If an aggregation is still running, wait for its result. Keep the lab OUs, Lucas and all 14 groups, plus the added scope coverage. Restore any unrelated setting changed accidentally. If repeating after provisioning labs, retain the other accounts and memberships; do not try to return the directory to one user.
-
-## What you should leave in place
-
-| Item | State before you continue |
-|---|---|
-| Directory | Three lab OUs; Lucas’s account; 14 business groups |
-| ISC AD source | Lucas imported; 14 named groups found on the correct source |
-| Source scope | Lab user, group and membership searches saved; original coverage retained |
-
-## Completion checklist
-
-- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
-- [ ] Any temporary change is restored and the retained state matches the next lab.
 - [ ] The existing AD source passes Test Connection.
 - [ ] The source name, source ID, and actual OU DNs are recorded.
 - [ ] Saved user searches cover Users and AdminAccounts; group searches cover all lab groups.
@@ -311,7 +272,50 @@ If interrupted, compare each recorded OU, user, group and saved scope before cre
 
 Retain the users, OUs, and groups. Next, use AR-004 to correlate Lucas, then provision the remaining standard accounts in AR-005 through AR-007. AR-006 proves the first membership update and account creation; AR-009 checks the completed foundation.
 
-## Screenshots to capture
+## Engineering practice
+
+### Try a different account view
+
+1. Open Lucas on the AD source’s Accounts page and record the account DN and sAMAccountName.
+2. Search for the same person on the Identities page. Open the identity’s Accounts tab and check whether that AD account is linked yet.
+3. Compare the two results. A source can contain the imported account before the identity has the correct link. Record the actual state for AR-004; do not create a second account to make it appear under the identity.
+
+You have changed where you look, not the data. Keep both screenshots so you can explain importing versus linking.
+
+### Your ticket: The aggregation discovered zero new groups. Is the source broken?
+
+The supplied case says the aggregation succeeded, and all 14 named groups are already visible on this AD source.
+
+Use your source’s results to distinguish newly discovered objects from stored inventory. Name the evidence needed before changing the source configuration.
+
+Write your diagnosis before opening the answer. Label this as a supplied ticket, not a failure observed in your tenant.
+
+<details>
+<summary>Compare your diagnosis with the mentor’s solution</summary>
+
+Zero new discoveries does not mean zero stored groups. Verify the 14 names, source and native values individually. If they are present and there are no unresolved errors, no source reset is needed. If a named group is missing, compare its actual OU with Group Search Scope and its filter before aggregating again.
+
+</details>
+
+## Finish
+
+### What you should leave in place
+
+| Item | State before you continue |
+|---|---|
+| Directory | Three lab OUs; Lucas’s account; 14 business groups |
+| ISC AD source | Lucas imported; 14 named groups found on the correct source |
+| Source scope | Lab user, group and membership searches saved; original coverage retained |
+
+<a id="if-this-configuration-already-exists"></a>
+
+### If you stopped midway or want to repeat this lab
+
+Check Lucas and all 14 business groups are imported. Keep later accounts and the baseline group; do not shrink scope or return the population to one user. Label earlier activity as historical when repeating the lab.
+
+If interrupted, compare each recorded OU, user, group and saved scope before creating another object. Resume at the first missing check. If an aggregation is still running, wait for its result. Keep the lab OUs, Lucas and all 14 groups, plus the added scope coverage. Restore any unrelated setting changed accidentally. If repeating after provisioning labs, retain the other accounts and memberships; do not try to return the directory to one user.
+
+### Screenshots to capture
 
 The seven supplied images appear beside the steps. Capture these additional views to complete the evidence: Lucas's Account tab, the separate saved Group Search Scope, completed account and entitlement aggregation history, and GG-VPN-USERS details showing its native value. The supplied source-scopes image shows user and membership searches; the supplied account image shows the imported record. Neither replaces the missing views.
 

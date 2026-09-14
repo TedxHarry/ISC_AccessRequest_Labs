@@ -1,20 +1,18 @@
 # AR-027 · Resolve visibility and account-selection tickets
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Finish the module by checking an intended catalog restriction, tracing an incorrect department, and delivering VPN to Sofia's standard account. Use evidence to explain whether a reported result is correct behavior, a data problem or an account-selection problem.
-
-## Before you start
 
 Complete [AR-026](../AR-026/README.md), including VPN removal. Open Acme Admin, Acme Lucas, Acme Liam, Acme Sofia and Acme Priya. Keep the latest complete private HR file, AR-023's original permission record, AR-026's two-account evidence and your [journal](EVIDENCE.md) open.
 
 Finance segmentation is enabled; Lucas is Finance; Liam is IT. Sofia has two correlated AD accounts, neither with VPN. Only her standard account has baseline. No test request is pending.
 
-## Practice checkpoints
+## Follow the steps
 
-Use this prompt as you reach the named steps. Before following each check, write the evidence you would gather and predict whether any change is needed. At the end, write three ticket closures independently. If working alone, use the supplied case below; no partner or undisclosed tenant change is required.
-
-## 1. Check Liam's intended restriction
+### 1. Check Liam's intended restriction
 
 1. As administrator, open Liam under **Admin > Identity Management > Identities** and record Department=IT.
 2. Open **Admin > Access Model > Segments > SEG-Acme-Finance > Edit Segment**. Check **Define Segment** and **Define Access**: Finance criterion, both Finance profiles and the Finance Analyst role. Verify the segment is enabled.
@@ -26,7 +24,7 @@ Use this prompt as you reach the named steps. Before following each check, write
 
 **Screenshot:** `AR-027-01.png`: identity, segment and Liam's restricted/control searches.
 
-## 2. Compare an administrator while Lucas has the wrong department
+### 2. Compare an administrator while Lucas has the wrong department
 
 1. Save a new private backup of the latest complete HR file. Confirm Lucas is Finance on the file, HR account and identity before the comparison.
 2. In a separate working copy, change only E012's department to Sales. Preserve every current row, email and manager value. Verify the row count and single-field change.
@@ -40,7 +38,7 @@ Use this prompt as you reach the named steps. Before following each check, write
 
 **Screenshot:** `AR-027-02.png`: Sales identity value and administrator/ordinary-user catalog comparison.
 
-## 3. Restore the source data and retest Lucas
+### 3. Restore the source data and retest Lucas
 
 1. Restore E012 to Finance in the latest complete working file, preserving all other current rows and fields. Use the Section 2 backup only if no newer data has changed.
 2. Upload the complete restored file through Acme HR's Account Aggregation.
@@ -53,7 +51,7 @@ Use this prompt as you reach the named steps. Before following each check, write
 
 **Screenshot:** `AR-027-03.png`: restored data chain, catalog and native control.
 
-## 4. Request VPN for Sofia's standard account
+### 4. Request VPN for Sofia's standard account
 
 The earlier AR-026 grant targeted the second account. This request deliberately targets standard, so you can compare both choices with actual results.
 
@@ -70,7 +68,7 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 
 **Screenshot:** `AR-027-04.png`: clean two-account state and explicit standard-account selection.
 
-## 5. Compare intended, selected and fulfilled targets
+### 5. Compare intended, selected and fulfilled targets
 
 1. In Acme Priya, open **Approvals > Access Requests > Requested**, find Sofia's new VPN **Grant** and inspect **Details**.
 2. Confirm the selected account is acme.e009, then approve and verify **Reviewed**.
@@ -91,7 +89,7 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 
 **Screenshot:** `AR-027-05.png`: approval/account activity, both native results and comparison.
 
-## 6. Remove the standard-account test grant
+### 6. Remove the standard-account test grant
 
 1. In Acme Sofia, open **My Access > Entitlements > GG-VPN-USERS**.
 2. Select the **Assignment** whose target is the standard account acme.e009. Compare its account identifier with Section 5.
@@ -104,7 +102,7 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 
 **Screenshot:** `AR-027-06.png`: exact removal target and final memberships.
 
-## 7. Save the Module 4 handoff
+### 7. Save the Module 4 handoff
 
 1. Create a private **C04-Visibility-and-Accounts** evidence folder and copy the six module journals, request histories, configuration records and screenshots into it.
 2. Reopen the Finance segment and verify it is enabled with its original Finance criterion and three items.
@@ -120,11 +118,13 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 
 **Screenshot:** `AR-027-07.png`: final segment, original permission, HR values, baseline and C04 index.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If a catalog result differs, find the first mismatch in identity data, segment membership or item settings before changing anything. If an account result differs, compare the written intent, submitted account, activity target and both native accounts. Complete removal of the exact requested assignment before another test; do not clear memberships directly in AD.
 
-## Assess your diagnosis
+### Assess your diagnosis
 
 Write your answer before opening the explanation: when does “access went to the wrong account” describe a selection error, and when does it describe a fulfillment problem? Include the evidence needed to distinguish them.
 
@@ -135,7 +135,23 @@ If the selected account differs from the business intent but the native operatio
 
 </details>
 
-## Diagnose this ticket
+### Final verification
+
+- [ ] Liam's intended restriction and visible control are demonstrated.
+- [ ] Administrator visibility is distinguished from Lucas's ordinary-user visibility.
+- [ ] Lucas's temporary Sales value is restored throughout the data chain.
+- [ ] Sofia's standard-account grant is compared with the earlier second-account grant.
+- [ ] The exact standard assignment is removed; both accounts remain without VPN.
+- [ ] Original request-on-behalf settings, baseline, Finance segment and Lucas's VPN remain.
+- [ ] C04 includes complete evidence and no unresolved test operation.
+
+## Engineering practice
+
+### Practice checkpoints
+
+Use your completed checks to write the three ticket closures before opening the supplied answers. State the evidence, any correction and the final state. Keep supplied cases separate from tenant failures you observed.
+
+### Diagnose this ticket
 
 This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
 
@@ -148,27 +164,19 @@ Separate the cases. Liam's Finance restriction matches policy when his IT identi
 
 </details>
 
-## Resume or repeat
+## Finish
 
-Read the current lab state before repeating. Reuse the course segment and accounts; preserve the original request-on-behalf record and latest full HR file. Complete an existing pending request rather than submitting another. If a grant completed, resume at native verification and remove its exact account assignment. Keep all baseline assignments. Use [the module resume instructions](../../M04-READINESS.md#resume-without-losing-the-previous-state) to restore temporary settings when pausing.
-
-## Final verification
-
-- [ ] Liam's intended restriction and visible control are demonstrated.
-- [ ] Administrator visibility is distinguished from Lucas's ordinary-user visibility.
-- [ ] Lucas's temporary Sales value is restored throughout the data chain.
-- [ ] Sofia's standard-account grant is compared with the earlier second-account grant.
-- [ ] The exact standard assignment is removed; both accounts remain without VPN.
-- [ ] Original request-on-behalf settings, baseline, Finance segment and Lucas's VPN remain.
-- [ ] C04 includes complete evidence and no unresolved test operation.
-
-## Leave this in place
+### Leave this in place
 
 Retain the Finance restriction, original request-on-behalf mode, current HR file, both Sofia accounts and standard-account baseline criterion. Keep C04 for the approval-routing labs.
 
 [Segment behavior](https://documentation.sailpoint.com/saas/help/requests/segments.html) · [Account selection](https://developer.sailpoint.com/discuss/t/new-capability-multi-account-support/105600) · [Account-specific removal](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access_removal.html)
 
-## Screenshots to capture
+### Resume or repeat
+
+First confirm Lucas is back in Finance; if he is still Sales, complete Section 3. Find Sofia's standard-account VPN request before submitting another. Finish its verification and removal in Sections 5–6, then complete the handoff in Section 7. Keep both Sofia accounts, her baseline filter and the Finance segment; restore the original request-on-behalf setting.
+
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|
@@ -183,5 +191,4 @@ Retain the Finance restriction, original request-on-behalf mode, current HR file
 Exclude passwords, invitation links and private HR email fields.
 
 [Previous: AR-026](../AR-026/README.md) · [Course outline](../../README.md)
-
 [Next: AR-028](../AR-028/README.md). Continue after the C04 checks pass.

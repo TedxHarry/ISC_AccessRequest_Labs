@@ -1,14 +1,16 @@
 # AR-023 · Test who can request for another person
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Compare manager-only request authority with everyone-for-anyone authority. Build a recipient-selection matrix without granting access.
 
-## Before you start
-
 Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003`), Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep the Finance segment enabled and your [journal](EVIDENCE.md) open.
 
-## 1. Save the original setting and manager relationships
+## Follow the steps
+
+### 1. Save the original setting and manager relationships
 
 1. As administrator, open **Admin > Global > System Settings > Feature Settings > Access Requests**.
 2. Record **Enable Requests on Behalf of others** as on/off and the selected option: **By Managers for their Team** or **By Everyone for Anyone**. Capture the whole relevant section, including any disabled selection.
@@ -20,7 +22,7 @@ Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003
 
 **Screenshot:** `AR-023-01.png`: original global setting and manager relationships.
 
-## 2. Enable manager-only requests
+### 2. Enable manager-only requests
 
 1. Return to **Admin > Global > System Settings > Feature Settings > Access Requests**.
 2. Enable **Requests on Behalf of others** and select **By Managers for their Team**.
@@ -31,7 +33,7 @@ Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003
 
 **Screenshot:** `AR-023-02.png`: saved manager-only mode.
 
-## 3. Check Daniel and Lucas in manager-only mode
+### 3. Check Daniel and Lucas in manager-only mode
 
 1. In Acme Daniel, verify `acme.e003` and open **Request Center > Request for Your Team**.
 2. Find Lucas by `acme.e012` in the recipient list. Select him and continue with **Request for These Identities** when shown.
@@ -44,7 +46,7 @@ Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003
 
 **Screenshot:** `AR-023-03.png`: Daniel's report/non-report comparison and Lucas's self-only view.
 
-## 4. Compare everyone-for-anyone mode
+### 4. Compare everyone-for-anyone mode
 
 1. In Acme Admin, change the same setting to **By Everyone for Anyone**, then **Save** and reopen it.
 2. Refresh Acme Lucas. Open **Request Center > Request for Others**.
@@ -65,7 +67,7 @@ Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003
 
 **Screenshot:** `AR-023-04.png`: everyone-for-anyone setting, Lucas selecting Liam and completed matrix.
 
-## 5. Keep item visibility separate
+### 5. Keep item visibility separate
 
 1. In Acme Lucas, start a fresh request for himself and search AP-Finance-Reporting. Record it is visible.
 2. In Acme Liam, request for himself and search the same item, then AP-Remote-Worker. Finance remains absent; Remote Worker remains visible.
@@ -77,11 +79,13 @@ Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003
 
 **Screenshot:** `AR-023-05.png`: actor-specific catalog comparison and retained original-setting record.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If Daniel cannot select Lucas, inspect Lucas's identity Manager and status. If Lucas can choose Liam in manager-only mode, verify the persisted global option and whether the session has administrator permissions. Reopen the flow after the change; do not interpret an old recipient picker as the saved policy's result.
 
-## Explain the result
+### Explain the result
 
 Why is Daniel's position in the manager hierarchy not enough to assume he can request for every person below him?
 
@@ -92,7 +96,7 @@ Manager-only mode permits requests for direct reports. The identity's actual Man
 
 </details>
 
-## Final verification
+### Final verification
 
 - [ ] Original on/off state and selected mode are saved for restoration.
 - [ ] All five recipient-selection rows were tested in the correct sessions.
@@ -101,11 +105,13 @@ Manager-only mode permits requests for direct reports. The identity's actual Man
 - [ ] Finance segmentation and native access remain unchanged.
 - [ ] The temporary mode and resume/restoration instruction are recorded.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 For immediate continuation, keep everyone-for-anyone enabled through AR-024's denial test, then restore the original setting there. [Request-on-behalf configuration](https://documentation.sailpoint.com/saas/help/requests/requests_for_others.html) · [Recipient selection](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|

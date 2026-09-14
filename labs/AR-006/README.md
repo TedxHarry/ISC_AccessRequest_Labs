@@ -1,16 +1,14 @@
 # AR-006 · Provision Your First AD Account
 
+## Before you start
+
+<a id="what-youll-do"></a>
+
+Give the same baseline access to two people and watch the difference. Lucas already has an account, so he needs a group membership. Liam has no account, so ISC must create it first. Prove the Lucas update before adding Liam.
+
 **Prerequisites:** Complete [AR-005](../AR-005/README.md). Lucas has a correlated AD account. Liam has no AD account. GG-ACME-BASELINE exists and is aggregated.
 
-Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
-
-## If this configuration already exists
-
-Inspect Lucas’s original account and Liam’s creation activity. Keep the full current role list if AR-007 is already complete; do not reduce it to two people. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Compare the two outcomes, then check again](#compare-the-two-outcomes-then-check-again). Capture current results and label earlier creation activity as historical.
-
-Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
-
-## Before you open the settings
+<a id="before-you-open-the-settings"></a>
 
 Use your existing ISC administrator session and AD workstation. Employee sign-in is not needed to assign this baseline role.
 
@@ -18,11 +16,11 @@ On the first run, Lucas has one linked AD account without GG-ACME-BASELINE; Liam
 
 If you are returning to a partially completed run, inspect the existing role, activity and native accounts first. Use the resume instructions below instead of repeating the creation steps.
 
-## What you’ll do
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-Give the same baseline access to two people and watch the difference. Lucas already has an account, so he needs a group membership. Liam has no account, so ISC must create it first. Prove the Lucas update before adding Liam.
+## Follow the steps
 
-## 1. Create the baseline access profile
+### 1. Create the baseline access profile
 
 1. Open **Admin > Access Model > Access Profiles > Create New**.
 2. Name it `AP-Acme-AD-Baseline`, select your administrator as owner, and select the AD source recorded in your journal.
@@ -33,7 +31,7 @@ The profile contains one group and will be assigned through a role. [Access prof
 
 **Screenshot reminder:** Save `AR-006-01-baseline-profile.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-## 2. Start with Lucas's existing account
+### 2. Start with Lucas's existing account
 
 1. In AD, open GG-ACME-BASELINE and confirm Lucas is not a member. Record his existing account DN and objectGUID from Attribute Editor.
 2. In ISC, open **Admin > Access Model > Roles > Create New**. Name the role `ROLE-Acme-AD-Baseline`, select your administrator as owner, and add AP-Acme-AD-Baseline to its access profiles. Leave requests disabled.
@@ -46,7 +44,7 @@ The profile contains one group and will be assigned through a role. [Access prof
 
 **Screenshot reminder:** Save `AR-006-02-lucas-assignment.png`, `AR-006-03-lucas-membership.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-## 3. Add Liam to the same role
+### 3. Add Liam to the same role
 
 1. Reconfirm `acme.e008` is absent from AD and from the ISC AD-source accounts.
 2. Open ROLE-Acme-AD-Baseline > **Define Assignment > Identity List**. Retain Lucas and add Liam (`acme.e008`).
@@ -57,7 +55,7 @@ Granting access on a direct-connect source can create the missing account using 
 
 **Screenshot reminder:** Save `AR-006-04-pilot-assignment.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-## 4. Inspect the operation and the target
+### 4. Inspect the operation and the target
 
 1. Open **Search > Account Activity** and run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)`, replacing the source placeholder with the exact recorded AD source name. Open the newest matching activity created after Liam was added to the role, select the AD source entry, and record the activity ID or tracking number, account/native identity, status, operations, and any error messages. If the create-filtered query returns nothing, remove only the `@accountRequests(op:create)` clause and search again before considering any retry.
 2. In AD, refresh AcmeLab/Users and find `acme.e008`. Inspect the actual account, not just an ISC success message.
@@ -71,7 +69,9 @@ Use account activity to investigate provisioning and AD to verify the target cha
 
 **Screenshot reminder:** Save `AR-006-05-liam-activity.png`, `AR-006-06-liam-ad.png`, `AR-006-07-liam-linked.png`. Use the matching descriptions in the screenshot checklist at the end.
 
-## If provisioning fails
+## Check the result
+
+### If provisioning fails
 
 | Observation | What to inspect |
 |---|---|
@@ -89,7 +89,16 @@ Use account activity to investigate provisioning and AD to verify the target cha
 
 [Role provisioning retries](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html#role-provisioning-retries)
 
-## Compare the two outcomes, then check again
+### Completion and screenshots
+
+- [ ] Lucas received baseline membership on his original account.
+- [ ] Liam's account was created by ISC with the expected attributes and membership.
+- [ ] Account activity and target checks agree, with no unresolved error.
+- [ ] Both accounts are linked correctly after aggregation.
+
+## Engineering practice
+
+### Compare the two outcomes, then check again
 
 1. Put Lucas’s and Liam’s activity records side by side. Identify which record added membership to an existing account and which created an account.
 2. Record both AD objectGUIDs and DNs. Reopen their role assignments and accounts after processing completes.
@@ -98,13 +107,13 @@ Use account activity to investigate provisioning and AD to verify the target cha
 
 If both accounts existed when you started, use the saved creation activity and label it historical. Do not claim to have observed a new creation during this repeat.
 
-## Your ticket: Liam exists in AD, but the baseline group is missing.
+### Your ticket: Liam exists in AD, but the baseline group is missing.
 
 This is a supplied partial-provisioning case, not a failure you must manufacture in the tenant.
 
 Inspect your successful creation record and identify where a failed group operation would appear. Write what you would check before retrying the failed case.
 
-Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+Write your diagnosis before opening the answer. Label this as a supplied ticket, not a failure observed in your tenant.
 
 <details>
 <summary>Compare your diagnosis with the mentor’s solution</summary>
@@ -113,11 +122,9 @@ Find the account by username, employeeID and DN, then inspect the group operatio
 
 </details>
 
-## If you stopped midway or want to repeat this lab
+## Finish
 
-If Liam already exists after an interrupted operation, compare his employeeID, DN, linked identity and activity first. A missing group does not mean account creation failed. Keep Lucas and Liam selected in the baseline role; do not remove and re-add them to force a retry. Resolve the failed operation and verify the target. On a later repeat, inspect retained assignments and repeat the comparison above. Keep both accounts, the role/profile and their baseline memberships.
-
-## What you should leave in place
+### What you should leave in place
 
 | Item | State before you continue |
 |---|---|
@@ -125,14 +132,15 @@ If Liam already exists after an interrupted operation, compare his employeeID, D
 | Baseline role | Lucas and Liam selected and both native memberships verified |
 | Business groups | No new business access from this one-group baseline |
 
-## Completion and screenshots
+<a id="if-this-configuration-already-exists"></a>
 
-- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
-- [ ] Any temporary change is restored and the retained state matches the next lab.
-- [ ] Lucas received baseline membership on his original account.
-- [ ] Liam's account was created by ISC with the expected attributes and membership.
-- [ ] Account activity and target checks agree, with no unresolved error.
-- [ ] Both accounts are linked correctly after aggregation.
+### If you stopped midway or want to repeat this lab
+
+Inspect Lucas’s original account and Liam’s creation activity. Keep the full current role list if AR-007 is already complete; do not reduce it to two people. Label earlier activity as historical when repeating the lab.
+
+If Liam already exists after an interrupted operation, compare his employeeID, DN, linked identity and activity first. A missing group does not mean account creation failed. Keep Lucas and Liam selected in the baseline role; do not remove and re-add them to force a retry. Resolve the failed operation and verify the target. On a later repeat, inspect retained assignments and repeat the comparison above. Keep both accounts, the role/profile and their baseline memberships.
+
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|

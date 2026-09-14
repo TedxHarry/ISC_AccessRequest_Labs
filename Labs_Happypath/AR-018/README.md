@@ -1,14 +1,16 @@
 # AR-018 · Offer the Finance Analyst role
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Create a requestable Finance Analyst role containing reporting and accounts-payable profiles. Approve it for Olivia, verify three groups on her existing AD account, then revoke her requested role assignment.
 
-## Before you start
-
 Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and the AD workstation. Keep the [module state](../../M03-READINESS.md) and your [journal](EVIDENCE.md) open.
 
-## 1. Check the recipient and the new entitlement
+## Follow the steps
+
+### 1. Check the recipient and the new entitlement
 
 1. As administrator, open Olivia under **Admin > Identity Management > Identities**. Inspect **Accounts**, **Access** and her pending requests.
 2. Record the standard AD account DN/objectGUID. Run the [native check](../../M02-CHECKS.md#inspect-direct-ad-membership) for `GG-FIN-REPORTING`, `GG-VPN-USERS`, `GG-FIN-AP` and `GG-ACME-BASELINE`.
@@ -19,7 +21,7 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 
 **Screenshot:** `AR-018-01.png`: clean recipient and the exact FIN-AP entitlement.
 
-## 2. Create the accounts-payable profile
+### 2. Create the accounts-payable profile
 
 1. In **Admin > Access Model > Access Profiles**, search `AP-Finance-AP`. Inspect and reuse the matching course profile if present; otherwise select **Create New**.
 2. Set **Name** to `AP-Finance-AP`, **Primary Owner** to Daniel (`acme.e003`), **Description** to `Accounts-payable access for Acme Finance work` and **Entitlement Source** to your recorded AD source. Select **Save**.
@@ -34,7 +36,7 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 
 **Screenshot:** `AR-018-02.png`: AP profile settings and both application associations.
 
-## 3. Build a standard role with those profiles
+### 3. Build a standard role with those profiles
 
 1. Open **Admin > Access Model > Roles** and search `ROLE-Finance-Analyst`. Reuse only the matching course role; otherwise select **Create New**.
 2. On **Configuration**, choose **Standard** for Role Type. Set **Name** to `ROLE-Finance-Analyst`, **Primary Owner** to Daniel (`acme.e003`) and **Description** to `Reporting, VPN and accounts-payable access for the Acme Finance Analyst assignment`.
@@ -46,7 +48,7 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 
 **Check:** The new standard role contains two profiles representing three distinct AD groups and has no automatic assignment rule.
 
-## 4. Configure and enable role requests
+### 4. Configure and enable role requests
 
 1. On ROLE-Finance-Analyst, open **Access Requests** and enable **Allow Access Requests**.
 2. Under **Reviewing Access Requests**, select **Require Approval > Reviewer**, add **Primary Owner** with **+** and keep one grant reviewer.
@@ -60,7 +62,7 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 
 **Screenshot:** `AR-018-03.png`: role contents, empty automatic criteria and saved request controls.
 
-## 5. Request the role as Olivia
+### 5. Request the role as Olivia
 
 1. In Acme Olivia, verify `acme.e011`, then open **Request Center > Request for Myself** if prompted.
 2. Choose **Access Items > Roles**, search ROLE-Finance-Analyst and inspect **Details**.
@@ -73,7 +75,7 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 
 **Screenshot:** `AR-018-04.png`: requested role and Daniel's decision.
 
-## 6. Verify all three groups and assignment origin
+### 6. Verify all three groups and assignment origin
 
 1. In Acme Admin, inspect [the matching request and account activity](../../M02-CHECKS.md#inspect-a-request-as-administrator). Record operations against all three group DNs.
 2. After provisioning finishes, repeat Section 1's native membership checks.
@@ -85,7 +87,7 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 
 **Screenshot:** `AR-018-05.png`: requested assignment and all three native memberships.
 
-## 7. Revoke Olivia's requested role assignment
+### 7. Revoke Olivia's requested role assignment
 
 1. Stay in Acme Admin. Open **Admin > Access Model > Roles**, find ROLE-Finance-Analyst and select **View Details**.
 2. Open **Identities**, find Olivia and select **View Assignments**.
@@ -99,11 +101,13 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 
 **Screenshot:** `AR-018-06.png`: administrative revocation/activity and final memberships.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If the role cannot be enabled, check that it has saved access and is configured for requests. If revocation is unavailable, check the assignment origin: automatic roles use assignment criteria and are not manually revocable in this flow. If only two groups arrive, inspect the role contents and the third operation rather than adding a direct entitlement request.
 
-## Explain what you observed
+### Explain what you observed
 
 Why did Olivia submit one role request instead of two profile requests, and why did you remove the role assignment rather than either profile?
 
@@ -114,7 +118,7 @@ The role packages both profiles into one requested job assignment and uses its o
 
 </details>
 
-## Final verification
+### Final verification
 
 - [ ] AP-Finance-AP is enabled/requestable with FIN-AP only and Daniel's grant/removal policies.
 - [ ] Finance Services contains both Finance profiles.
@@ -123,13 +127,15 @@ The role packages both profiles into one requested job assignment and uses its o
 - [ ] Administrative revocation removed that assignment and the three business groups.
 - [ ] All baseline assignments, Lucas's VPN and the course definitions remain.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the two Finance profiles, Finance Services and the role enabled/requestable. Olivia finishes with none of the three business groups or Finance assignments. Use [resume guidance](../../M03-READINESS.md#resume-or-repeat-safely) before repeating.
 
 [Role configuration and revocation](https://documentation.sailpoint.com/saas/help/access/roles.html) · [Role and profile request policies](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|

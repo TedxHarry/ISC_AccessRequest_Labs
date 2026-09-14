@@ -1,18 +1,16 @@
 # AR-002 — Resolve the Manager Hierarchy
 
-**Level:** Beginner
+## Before you start
+
+<a id="what-youll-do"></a>
+
+Lucas’s HR record says his manager is E003. You and I can look that up in the file, but ISC needs a link to Daniel’s identity. Set up that match, then check the rest of the team and correct a deliberately wrong manager reference.
+
+Use the existing HR source, profile, and [baseline dataset](../../datasets/acme-hr-baseline.csv). No new source or AD configuration is needed.
 
 **Prerequisites:** Acme HR contains the 24 employee accounts, and Acme Employees has the corresponding identities and baseline attributes from [AR-001](../AR-001/README.md).
 
-Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
-
-## If this configuration already exists
-
-Confirm Lucas → Daniel → Morgan and record Lucas’s current E003 manager reference before the reversible practice. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Practice: a valid identifier pointing to the wrong manager](#practice-a-valid-identifier-pointing-to-the-wrong-manager). Capture current results and label earlier creation activity as historical.
-
-Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
-
-## Before you open the settings
+<a id="before-you-open-the-settings"></a>
 
 Use your ISC administrator session, Acme HR, Acme Employees and the latest complete working HR file.
 
@@ -20,23 +18,11 @@ Open Lucas and Daniel first. Lucas must have identificationNumber E012 and Danie
 
 Do not change the AD source in this lab. You are matching employees to managers using HR data.
 
-## What you’ll do
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-Lucas’s HR record says his manager is E003. You and I can look that up in the file, but ISC needs a link to Daniel’s identity. Set up that match, then check the rest of the team and correct a deliberately wrong manager reference.
+## Follow the steps
 
-Use the existing HR source, profile, and [baseline dataset](../../datasets/acme-hr-baseline.csv). No new source or AD configuration is needed.
-
-## What you will finish with
-
-| Employee | Expected manager |
-|---|---|
-| Lucas Brown — E012 | Daniel Brooks — E003 |
-| Daniel Brooks — E003 | Morgan Reed — E001 |
-| Morgan Reed — E001 | No manager; hierarchy root |
-
-The full dataset has **23 employee-to-manager relationships and one root**. Keep notes in the [evidence journal](EVIDENCE.md).
-
-## 1. Follow one relationship through the data
+### 1. Follow one relationship through the data
 
 1. Open **Admin > Connections > Sources > Acme HR > Account Management > Accounts**.
 2. Open `acme.e012`. Confirm `employeeNumber` is `E012` and `managerEmployeeNumber` is `E003`.
@@ -45,11 +31,11 @@ The full dataset has **23 employee-to-manager relationships and one root**. Keep
 
 **Check:** The employee's manager reference is `E003`, and the manager's own employee identifier is `E003`. Those are the matching values. Lucas's own number, `E012`, is not the value to use to identify his manager.
 
-### Check the identity attribute name
+#### Check the identity attribute name
 
 In **Acme Employees > Mappings**, the field is **Employee Number (`identificationNumber`)**. Select **Employee Number** in the correlation dropdown. The label and technical name refer to the same identity attribute; do not create a second attribute. Map it to **Acme HR > employeeNumber** if needed, then save and apply changes.
 
-## 2. Map Manager Name
+### 2. Map Manager Name
 
 1. Open **Admin > Identity Management > Identity Profiles > Acme Employees > Mappings**.
 2. Locate **Manager Name** and use the following direct mapping:
@@ -72,7 +58,7 @@ Despite its label, Manager Name takes the reference supplied by this HR feed. Do
 
 Employee Number (identificationNumber) reads employeeNumber; Manager Name (manager) reads managerEmployeeNumber from Acme HR.
 
-## 3. Configure the manager match
+### 3. Configure the manager match
 
 1. Open **Admin > Connections > Sources > Acme HR > Account Management > Account Correlation**.
 2. Scroll to **Manager Correlation**. Leave the separate account-to-identity correlation settings unchanged.
@@ -103,7 +89,7 @@ Lucas's manager = Daniel Brooks
 
 Select Employee Number on the identity side and managerEmployeeNumber on the account side, then save. Equals is displayed between the fields.
 
-## 4. Apply and process the identities
+### 4. Apply and process the identities
 
 1. Return to **Acme Employees** and select **Apply Changes**.
 2. Open **Admin > Dashboard > Monitor** to inspect running identity-processing jobs.
@@ -114,7 +100,7 @@ Profile changes require applying; processing selected identities provides a targ
 
 **Check:** Lucas's Manager resolves to Daniel Brooks. Daniel's own employee identifier remains `E003`; his manager reference is `E001`.
 
-## 5. Check everyone’s manager
+### 5. Check everyone’s manager
 
 For each group below, inspect the employee identities' **Manager** value. Use the usernames from the CSV to distinguish people with similar names. Record the actual result for every employee in your journal.
 
@@ -139,7 +125,43 @@ Manager relationships prepare the data for later manager-approval labs. Their pr
 
 Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Check the remaining employees against the roster too.
 
-## Practice: a valid identifier pointing to the wrong manager
+## Check the result
+
+### What you will finish with
+
+| Employee | Expected manager |
+|---|---|
+| Lucas Brown — E012 | Daniel Brooks — E003 |
+| Daniel Brooks — E003 | Morgan Reed — E001 |
+| Morgan Reed — E001 | No manager; hierarchy root |
+
+The full dataset has **23 employee-to-manager relationships and one root**. Keep notes in the [evidence journal](EVIDENCE.md).
+
+### If a manager does not resolve
+
+| Observation | What to check next |
+|---|---|
+| Manager is blank on Lucas | His HR account's managerEmployeeNumber, then both configurations in Sections 2 and 3 |
+| Manager reference is E003, but no match appears | Daniel exists and his selected identity attribute contains exactly E003 |
+| Manager reference is a number but the selected identity attribute holds a username | Use the matching employee-number attribute rather than uid |
+| Employee Number is missing from the dropdown | Reopen Acme Employees > Mappings and verify the technical name identificationNumber and its employeeNumber source mapping; confirm you are editing the Acme HR source |
+| The saved configuration is correct but the result is old | Check processing and use the targeted action in Section 4 after confirming the data |
+| An unexpected manager appears | Compare the actual manager identity's identifier with the employee's HR reference; check duplicate identifiers and other profile/source mappings |
+
+An unmatched changed reference does not necessarily clear an existing manager: SailPoint documents that the previous relationship can remain when the new value cannot be correlated. Diagnose the stored reference and resolved identity together. [Manager-correlation behavior](https://documentation.sailpoint.com/saas/help/sources/manager_correlation.html)
+
+### Completion checklist
+
+- [ ] Manager Name uses Acme HR > managerEmployeeNumber.
+- [ ] identificationNumber uses Acme HR > employeeNumber.
+- [ ] Manager Correlation matches those two attributes in the correct direction.
+- [ ] Lucas resolves to Daniel, and Daniel resolves to Morgan.
+- [ ] All 23 expected relationships are verified; Morgan has no manager.
+- [ ] The baseline data and 24-employee population are preserved.
+
+## Engineering practice
+
+### Practice: a valid identifier pointing to the wrong manager
 
 Before the live data-change exercise, confirm there are no pending course approvals/provisioning operations and no unrelated automation depending on the field you will change. Record the original value. If later configuration now acts on this field, use the supplied ticket case until you have an isolated test window. Restore and verify the original value before the next lab.
 
@@ -156,27 +178,13 @@ This exercise changes manager data, not an approval policy. The later Manager-re
 
 **Screenshot reminder:** Save the temporary Priya result and the restored Daniel result before leaving the practice.
 
-## If a manager does not resolve
-
-| Observation | What to check next |
-|---|---|
-| Manager is blank on Lucas | His HR account's managerEmployeeNumber, then both configurations in Sections 2 and 3 |
-| Manager reference is E003, but no match appears | Daniel exists and his selected identity attribute contains exactly E003 |
-| Manager reference is a number but the selected identity attribute holds a username | Use the matching employee-number attribute rather than uid |
-| Employee Number is missing from the dropdown | Reopen Acme Employees > Mappings and verify the technical name identificationNumber and its employeeNumber source mapping; confirm you are editing the Acme HR source |
-| The saved configuration is correct but the result is old | Check processing and use the targeted action in Section 4 after confirming the data |
-| An unexpected manager appears | Compare the actual manager identity's identifier with the employee's HR reference; check duplicate identifiers and other profile/source mappings |
-
-An unmatched changed reference does not necessarily clear an existing manager: SailPoint documents that the previous relationship can remain when the new value cannot be correlated. Diagnose the stored reference and resolved identity together. [Manager-correlation behavior](https://documentation.sailpoint.com/saas/help/sources/manager_correlation.html)
-
-
-## Your ticket: Lucas is assigned to Priya even though the rule looks correct.
+### Your ticket: Lucas is assigned to Priya even though the rule looks correct.
 
 Use the wrong-manager result you captured in this lab, or treat it as a supplied case if you have not executed that exercise.
 
 Identify the HR value, the matched manager and the narrow correction. Explain why changing the matching rule would be the wrong repair.
 
-Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+Write your diagnosis before opening the answer. Label this as a supplied ticket, not a failure observed in your tenant.
 
 <details>
 <summary>Compare your diagnosis with the mentor’s solution</summary>
@@ -185,11 +193,9 @@ E002 is a valid identifier for Priya. The matching rule can work correctly on in
 
 </details>
 
-## If you stopped midway or want to repeat this lab
+## Finish
 
-If interrupted during the wrong-manager exercise, inspect E012 in both the working CSV and HR account before proceeding. Restore managerEmployeeNumber E003, upload the complete file and check Daniel is the resolved manager. Keep the mappings and manager-correlation pair. When repeating later, preserve added employees and report the original 23 relationships separately from any later additions.
-
-## What you should leave in place
+### What you should leave in place
 
 | Item | State before you continue |
 |---|---|
@@ -197,18 +203,15 @@ If interrupted during the wrong-manager exercise, inspect E012 in both the worki
 | Lucas → Daniel → Morgan | Restored and checked on the identities |
 | HR file | Complete current file retained; no wrong-manager value left behind |
 
-## Completion checklist
+<a id="if-this-configuration-already-exists"></a>
 
-- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
-- [ ] Any temporary change is restored and the retained state matches the next lab.
-- [ ] Manager Name uses Acme HR > managerEmployeeNumber.
-- [ ] identificationNumber uses Acme HR > employeeNumber.
-- [ ] Manager Correlation matches those two attributes in the correct direction.
-- [ ] Lucas resolves to Daniel, and Daniel resolves to Morgan.
-- [ ] All 23 expected relationships are verified; Morgan has no manager.
-- [ ] The baseline data and 24-employee population are preserved.
+### If you stopped midway or want to repeat this lab
 
-## Screenshots to retain
+Confirm Lucas → Daniel → Morgan and record Lucas’s current E003 manager reference before the reversible practice. Label earlier activity as historical when repeating the lab.
+
+If interrupted during the wrong-manager exercise, inspect E012 in both the working CSV and HR account before proceeding. Restore managerEmployeeNumber E003, upload the complete file and check Daniel is the resolved manager. Keep the mappings and manager-correlation pair. When repeating later, preserve added employees and report the original 23 relationships separately from any later additions.
+
+### Screenshots to retain
 
 - Manager Name and Employee Number mappings.
 - The Manager Correlation dropdown selections.

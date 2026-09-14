@@ -1,12 +1,12 @@
 # AR-010 · Make VPN access requestable
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Make the imported VPN group available in Lucas’s catalog. You will configure visibility now and approval in AR-011, before submitting any request.
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
-
-## Before you start
 
 Complete [AR-009](../AR-009/README.md). Keep Acme Admin and Acme Lucas in separate browser profiles, plus your AD administration workstation. Confirm usernames in the ISC user menu.
 
@@ -14,7 +14,9 @@ Lucas (`acme.e012`) has one linked standard AD account and baseline membership. 
 
 Keep your [journal](EVIDENCE.md) and [request and target checks](../../M02-CHECKS.md) open. Use the AD source and group DNs recorded in AR-003; an item’s name alone is not enough to identify it.
 
-## 1. Record Lucas’s current access
+## Follow the steps
+
+### 1. Record Lucas’s current access
 
 1. As administrator, open **Admin > Identity Management > Identities**, search `acme.e012` and open Lucas.
 2. Open **Accounts**, select his AD account and record its DN. Open **Access** and check that VPN is not already assigned.
@@ -25,7 +27,7 @@ Keep your [journal](EVIDENCE.md) and [request and target checks](../../M02-CHECK
 
 **Screenshot:** `AR-010-01.png`: Lucas’s before membership and account identifiers.
 
-## 2. Enable entitlement requests
+### 2. Enable entitlement requests
 
 Use Acme Admin.
 
@@ -39,7 +41,7 @@ Use Acme Admin.
 
 **Screenshot:** `AR-010-02.png`: saved global entitlement-request setting.
 
-## 3. Configure the VPN item
+### 3. Configure the VPN item
 
 1. Open **Admin > Access Model > Entitlements**.
 2. Search `GG-VPN-USERS`. Match the AD source and native group DN from Section 1.
@@ -53,7 +55,7 @@ Use Acme Admin.
 
 **Screenshot:** `AR-010-03.png`: VPN identity, source, owner and saved request settings.
 
-## 4. Check the catalog as Lucas
+### 4. Check the catalog as Lucas
 
 1. Switch to Acme Lucas and verify `acme.e012` in the user menu.
 2. Open **Request Center** and search `GG-VPN-USERS` in access items. Clear unrelated filters.
@@ -65,28 +67,32 @@ Use Acme Admin.
 
 **Screenshots:** `AR-010-04.png`: VPN visible as Lucas. `AR-010-05.png`: internal-control search, username and filters.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If VPN is missing, compare global enablement, this item’s saved setting and any existing access-request segment restrictions. Refresh the catalog after the change becomes effective. Do not widen unrelated settings or treat an administrator’s catalog as Lucas’s result.
 
-## Explain the result
+### Explain the result
 
 In your journal, explain why importing a group, making it requestable and granting membership are three separate results. Use the internal group as your comparison; no additional request is needed.
 
-## Final verification
+### Final verification
 
 - [ ] The correct VPN source and group DN are recorded.
 - [ ] Global and individual request settings are saved; Priya is primary owner.
 - [ ] Lucas can find VPN; the internal control is unavailable.
 - [ ] Lucas still has no VPN membership or pending request.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep VPN requestable, Priya as owner, the internal control hidden and all baseline assignments intact. Continue to AR-011 without submitting yet.
 
 [Entitlement request configuration](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
 

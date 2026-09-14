@@ -1,18 +1,20 @@
 # AR-011 · Require a reviewer and a business reason
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Configure Priya as the VPN reviewer, submit Lucas's request with a reason, and leave it pending for AR-012.
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## Before you start
-
 Complete [AR-010](../AR-010/README.md). Use Acme Admin, Acme Lucas (`acme.e012`) and Acme Priya (`acme.e002`) as separate sessions. Keep your [journal](EVIDENCE.md) open.
 
 VPN is requestable and owned by Priya. Lucas has baseline access but no VPN grant or pending VPN request. Recheck his **Access**, **My Requests** and [native membership](../../M02-CHECKS.md#inspect-direct-ad-membership). Do not submit if an earlier request is already pending.
 
-## 1. Set the item's approval policy
+## Follow the steps
+
+### 1. Set the item's approval policy
 
 Use Acme Admin.
 
@@ -31,7 +33,7 @@ If enforced tenant controls prevent these settings, resolve that prerequisite fo
 
 **Screenshot:** `AR-011-01.png`: saved owner, reviewer and comments configuration.
 
-## 2. Submit one request as Lucas
+### 2. Submit one request as Lucas
 
 1. Switch to Acme Lucas and confirm `acme.e012` in the user menu.
 2. Open **Request Center**. Choose **Request for Myself** if an audience choice appears.
@@ -46,7 +48,7 @@ If enforced tenant controls prevent these settings, resolve that prerequisite fo
 
 **Screenshots:** `AR-011-02.png`: completed reason before submission. `AR-011-03.png`: submitted request details.
 
-## 3. Inspect Priya's pending review
+### 3. Inspect Priya's pending review
 
 1. Switch to Acme Priya and verify `acme.e002` in the user menu.
 2. Open **Approvals > Access Requests > Requested**.
@@ -57,7 +59,7 @@ If enforced tenant controls prevent these settings, resolve that prerequisite fo
 
 **Screenshot:** `AR-011-04.png`: Priya's pending review and reason.
 
-## 4. Match the administrator view and target
+### 4. Match the administrator view and target
 
 1. In Acme Admin, open **Admin > Dashboard > Approval Management > Access Requests**.
 2. Open the same request. Inspect **Process**, **Assignees** and **Details**.
@@ -68,28 +70,32 @@ If enforced tenant controls prevent these settings, resolve that prerequisite fo
 
 **Screenshot:** `AR-011-05.png`: administrator process/assignee and pending target state.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If Priya's queue is empty, check her signed-in username and the request's actual assignee and submission time. Inspect whether the request predates the saved policy. Do not grant extra user levels or submit duplicates to find the request.
 
-## Explain the result
+### Explain the result
 
 Record the configured reviewer category and the resolved person separately. Explain why a pending request and a provisioned group membership are different outcomes.
 
-## Final verification
+### Final verification
 
 - [ ] VPN reviewer and comment settings persisted.
 - [ ] One Lucas request is identified across requester, reviewer and administrator views.
 - [ ] Priya has the pending Grant request and its reason.
 - [ ] Lucas has no VPN membership yet.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep this exact request pending and continue to AR-012. If its status changes while you are away, inspect the recorded request before taking another action. A saved screenshot does not mean it is still pending.
 
 [Entitlement controls](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html) · [Request Center procedure](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
 

@@ -1,20 +1,18 @@
 # AR-025 · Trace a wrong department into catalog visibility
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Follow Lucas's Department from the HR file to his HR account, mapped identity and Finance catalog. Change it to Sales for the comparison, then restore Finance and verify the full chain.
-
-## Before you start
 
 Complete [AR-024](../AR-024/README.md). Keep the Finance segment enabled and the original request-on-behalf setting restored. Use Acme Admin, Acme Lucas (`acme.e012`), Acme Liam (`acme.e008`) and the AD workstation.
 
 Open the latest complete private HR working file and your [journal](EVIDENCE.md). A first pass has 24 rows; a repeat after AR-047 can have 25. Preserve the current population and controlled email addresses throughout.
 
-## Practice checkpoints
+## Follow the steps
 
-Use this prompt as you reach the named steps. At each point in Sections 3–5, stop and identify the first stage whose value differs from the intended source value. Predict the next stage before opening it. If everything matches, use the supplied ticket for the mismatch exercise without inventing a tenant failure.
-
-## 1. Save a complete starting record
+### 1. Save a complete starting record
 
 1. Make a private backup of your latest complete HR working file named `acme-hr-before-AR025.csv`. Keep the working file separate.
 2. Open the file in a CSV-aware editor. Record its data-row count and confirm employee numbers and usernames are unique. Find employee E012, username acme.e012, and record Department=Finance.
@@ -28,7 +26,7 @@ Use this prompt as you reach the named steps. At each point in Sections 3–5, s
 
 **Screenshot:** `AR-025-01.png`: Lucas's identity Details showing Department=Finance. Hide private email values.
 
-## 2. Change only Lucas's department
+### 2. Change only Lucas's department
 
 1. In the separate working file, locate E012 again.
 2. Change only that row's department from `Finance` to `Sales`. Keep employee number, username, email, manager and every other field unchanged.
@@ -40,7 +38,7 @@ Use this prompt as you reach the named steps. At each point in Sections 3–5, s
 
 **Screenshot:** `AR-025-02.png`: E012's row in the complete working CSV showing department=Sales. Hide private email columns.
 
-## 3. Import and inspect the source and identity
+### 3. Import and inspect the source and identity
 
 1. In Acme Admin, open **Admin > Connections > Sources > Acme HR > Account Management > Account Aggregation**.
 2. Select the upload control, choose the complete edited working file and confirm the upload.
@@ -53,7 +51,7 @@ Use this prompt as you reach the named steps. At each point in Sections 3–5, s
 
 **Screenshot:** `AR-025-03.png`: Lucas's identity Details showing Department=Sales after processing.
 
-## 4. Observe the changed catalog
+### 4. Observe the changed catalog
 
 1. Reopen **SEG-Acme-Finance > Edit Segment > Define Segment**. Keep the criterion Finance; inspect the matching identities.
 2. After the saved attribute/segment result reaches the catalog, refresh Acme Lucas's Request Center for himself.
@@ -65,7 +63,7 @@ Use this prompt as you reach the named steps. At each point in Sections 3–5, s
 
 **Screenshot:** `AR-025-04.png`: Lucas's Request Center search for AP-Finance-Reporting showing no matching item.
 
-## 5. Restore Finance through the full HR file
+### 5. Restore Finance through the full HR file
 
 1. Restore E012's department to Finance in the complete working file. If no other data changed during the exercise, you may use the saved complete backup; otherwise preserve newer records/edits and restore only E012's department in the latest complete file.
 2. Verify row count, unique employee IDs/usernames, controlled emails and manager values are preserved. Reopen E012 to confirm Finance.
@@ -79,7 +77,9 @@ Use this prompt as you reach the named steps. At each point in Sections 3–5, s
 
 **Screenshot:** `AR-025-05.png`: Lucas's Request Center search for AP-Finance-Reporting showing the item again after restoring Finance.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 | First mismatch | Inspect next |
 |---|---|
@@ -89,7 +89,7 @@ Use this prompt as you reach the named steps. At each point in Sections 3–5, s
 | Segment membership changed but catalog did not | Propagation, current session, other enabled segments and item requestability |
 | Access changed unexpectedly | Native membership and request/activity/automatic-assignment evidence; catalog visibility alone does not explain deprovisioning |
 
-## Explain the result
+### Explain the result
 
 Where would you correct this case if Sales was an accidental HR value? Why would broadening the segment be the wrong repair?
 
@@ -100,7 +100,22 @@ The incorrect value begins in the authoritative HR row. Correct that field in th
 
 </details>
 
-## Diagnose this ticket
+### Final verification
+
+- [ ] One department field was changed in a complete file with the current population preserved.
+- [ ] CSV, source account, identity, segment and catalog were checked separately.
+- [ ] Lucas is restored to Finance at every relevant stage.
+- [ ] Manager, identity ID, baseline and direct VPN remain unchanged.
+- [ ] The Finance segment and original request-on-behalf settings remain.
+- [ ] The restored complete working file is retained for future imports.
+
+## Engineering practice
+
+### Practice checkpoints
+
+Follow the recorded department value from the CSV through the HR account, identity and catalog. Identify where you would start if two consecutive stages disagreed. Use the supplied ticket below if your tenant results all matched.
+
+### Diagnose this ticket
 
 This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
 
@@ -113,24 +128,17 @@ The first remaining mismatch is between the source account and identity. Inspect
 
 </details>
 
-## Resume or repeat
+## Finish
 
-Check Lucas's department in the working file, HR account and identity. If all three show Sales, continue with Section 4, then restore Finance in Section 5. If they disagree, finish the import and mapping checks in Section 3 first. If you already completed the Sales comparison and all three now show Finance, finish the checks in Section 5. If you have not made the change yet, start at Section 1. Keep his VPN and baseline memberships; this lab does not submit or remove access requests.
-
-## Final verification
-
-- [ ] One department field was changed in a complete file with the current population preserved.
-- [ ] CSV, source account, identity, segment and catalog were checked separately.
-- [ ] Lucas is restored to Finance at every relevant stage.
-- [ ] Manager, identity ID, baseline and direct VPN remain unchanged.
-- [ ] The Finance segment and original request-on-behalf settings remain.
-- [ ] The restored complete working file is retained for future imports.
-
-## Leave this in place
+### Leave this in place
 
 Lucas finishes in Finance. Keep the restored current HR file and private before/change/after evidence. If pausing while Sales is active, restore through Section 5 before moving on. [Identity processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html) · [Segment behavior](https://documentation.sailpoint.com/saas/help/requests/segments.html)
 
-## Screenshots to capture
+### Resume or repeat
+
+Check Lucas's department in the working file, HR account and identity. If all three show Sales, continue with Section 4, then restore Finance in Section 5. If they disagree, finish the import and mapping checks in Section 3 first. If you already completed the Sales comparison and all three now show Finance, finish the checks in Section 5. If you have not made the change yet, start at Section 1. Keep his VPN and baseline memberships; this lab does not submit or remove access requests.
+
+### Screenshots to capture
 
 Save these five screens. Record the other checks in your journal.
 

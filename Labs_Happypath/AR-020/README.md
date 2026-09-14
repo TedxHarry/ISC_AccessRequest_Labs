@@ -1,16 +1,18 @@
 # AR-020 · Manage the profiles offered by Finance Services
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Change which profiles Finance Services offers, observe the catalog, and restore both choices. You will check application configuration separately from profile requestability and native access.
-
-## Before you start
 
 Complete [AR-019](../AR-019/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Keep your [journal](EVIDENCE.md) open.
 
 Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles are enabled/requestable, as is ROLE-Finance-Analyst. Olivia has no Finance/VPN access or pending request. Lucas retains his direct VPN.
 
-## 1. Capture the working catalog
+## Follow the steps
+
+### 1. Capture the working catalog
 
 1. As administrator, open **Admin > Access Model > Applications**, find Finance Services and select **Edit**.
 2. Record Configuration: owner, AD source, **Admin (IT)**, **Specific Users from Source**, both Request Center options and **Enable for Users**.
@@ -23,7 +25,7 @@ Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles 
 
 **Screenshot:** `AR-020-01.png`: saved application settings, two choices and direct profile search.
 
-## 2. Change the application associations
+### 2. Change the application associations
 
 1. In Acme Admin, return to **Finance Services > Edit > Access Profiles**.
 2. Remove the AP-Finance-Reporting and AP-Finance-AP rows using each association's remove control. Verify you are editing this application's association list.
@@ -35,7 +37,7 @@ Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles 
 
 **Screenshot:** `AR-020-02.png`: empty saved associations and Olivia's catalog result.
 
-## 3. Check the profiles and target independently
+### 3. Check the profiles and target independently
 
 1. As administrator, open **Admin > Access Model > Access Profiles** and inspect each Finance profile.
 2. Confirm its definition, source, groups and enabled/requestable state match Section 1.
@@ -47,7 +49,7 @@ Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles 
 
 **Screenshot:** `AR-020-03.png`: direct profile search, intact definitions and unchanged native controls.
 
-## 4. Restore the two application choices
+### 4. Restore the two application choices
 
 1. In Acme Admin, open **Admin > Access Model > Applications > Finance Services > Edit > Access Profiles**.
 2. In **Add Access Profile**, search AP-Finance-Reporting, select it and use the **Add (+)** icon.
@@ -60,7 +62,7 @@ Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles 
 
 **Screenshot:** `AR-020-04.png`: restored associations and both requester choices.
 
-## 5. Verify the handoff
+### 5. Verify the handoff
 
 1. Compare your three catalog captures: working, associations removed, restored.
 2. Recheck the role still contains the same two profiles under **Admin > Access Model > Roles > ROLE-Finance-Analyst > Manage Access**.
@@ -71,7 +73,9 @@ Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles 
 
 **Screenshot:** `AR-020-05.png`: final configuration and preserved native state.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 Work down this table in the same Olivia session. Record what you inspect before changing another setting.
 
@@ -83,7 +87,7 @@ Work down this table in the same Olivia session. Record what you inspect before 
 | Administrator sees an item but Olivia cannot | Actual signed-in username and requester-specific catalog; administrator visibility is not Olivia's result |
 | Saved associations are correct but old choices remain | Wait for processing, refresh the requester page and recheck before making another configuration change |
 
-## Explain the result
+### Explain the result
 
 Which observation distinguished an application-association problem from a disabled profile?
 
@@ -94,7 +98,7 @@ During the empty-association state, the enabled/requestable profiles remained av
 
 </details>
 
-## Final verification
+### Final verification
 
 - [ ] A working starting catalog was captured.
 - [ ] Both application associations were removed, observed and restored.
@@ -103,13 +107,15 @@ During the empty-association state, the enabled/requestable profiles remained av
 - [ ] Finance Services ends enabled/visible/requestable with both profiles.
 - [ ] The role, profile policies, baseline and Lucas's VPN remain intact.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the restored Finance Services application, both profiles and role. Olivia remains without Finance/VPN access. Use [resume guidance](../../M03-READINESS.md#resume-or-repeat-safely) and Section 4 if returning while associations are removed.
 
 [Application configuration and associations](https://documentation.sailpoint.com/saas/help/access/app-config.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|

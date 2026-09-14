@@ -1,22 +1,20 @@
 # AR-011 · Require a reviewer and a business reason
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Configure Priya as the VPN reviewer, submit Lucas's request with a reason, and leave it pending for AR-012.
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## If you already completed this configuration
-
-Read the saved-state checks before changing anything. Reuse verified objects and existing requests. Keep Lucas’s completed VPN grant; inspect historical approval/activity when that decision already happened. Use the resume instructions and ticket below for further practice. A first-time learner should follow every numbered section in order.
-
-## Before you start
-
 Complete [AR-010](../AR-010/README.md). Use Acme Admin, Acme Lucas (`acme.e012`) and Acme Priya (`acme.e002`) as separate sessions. Keep your [journal](EVIDENCE.md) open.
 
 VPN is requestable and owned by Priya. Lucas has baseline access but no VPN grant or pending VPN request. Recheck his **Access**, **My Requests** and [native membership](../../M02-CHECKS.md#inspect-direct-ad-membership). Do not submit if an earlier request is already pending.
 
-## 1. Set the item's approval policy
+## Follow the steps
+
+### 1. Set the item's approval policy
 
 Use Acme Admin.
 
@@ -35,11 +33,11 @@ If enforced tenant controls prevent these settings, resolve that prerequisite fo
 
 **Screenshot:** `AR-011-01.png`: saved owner, reviewer and comments configuration.
 
-## Check the required-comment control
+### Check the required-comment control
 
 In Lucas’s Request Center, choose Request for Myself if prompted, open Access Items > Entitlements, find VPN and select it. Leave the comment empty in Edit Request Details and try **Save**. Record the validation or disabled control as `AR-011-06.png`. If a request unexpectedly submits, locate it in My Requests before doing anything else. Otherwise cancel the unfinished details and clear the item selection, then follow Section 2 to submit the valid request.
 
-## 2. Submit one request as Lucas
+### 2. Submit one request as Lucas
 
 1. Switch to Acme Lucas and confirm `acme.e012` in the user menu.
 2. Open **Request Center**. Choose **Request for Myself** if an audience choice appears.
@@ -54,7 +52,7 @@ In Lucas’s Request Center, choose Request for Myself if prompted, open Access 
 
 **Screenshots:** `AR-011-02.png`: completed reason before submission. `AR-011-03.png`: submitted request details.
 
-## 3. Inspect Priya's pending review
+### 3. Inspect Priya's pending review
 
 1. Switch to Acme Priya and verify `acme.e002` in the user menu.
 2. Open **Approvals > Access Requests > Requested**.
@@ -65,7 +63,7 @@ In Lucas’s Request Center, choose Request for Myself if prompted, open Access 
 
 **Screenshot:** `AR-011-04.png`: Priya's pending review and reason.
 
-## 4. Match the administrator view and target
+### 4. Match the administrator view and target
 
 1. In Acme Admin, open **Admin > Dashboard > Approval Management > Access Requests**.
 2. Open the same request. Inspect **Process**, **Assignees** and **Details**.
@@ -76,28 +74,26 @@ In Lucas’s Request Center, choose Request for Myself if prompted, open Access 
 
 **Screenshot:** `AR-011-05.png`: administrator process/assignee and pending target state.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If Priya's queue is empty, check her signed-in username and the request's actual assignee and submission time. Inspect whether the request predates the saved policy. Do not grant extra user levels or submit duplicates to find the request.
 
-## Explain the result
+### Explain the result
 
 Record the configured reviewer category and the resolved person separately. Explain why a pending request and a provisioned group membership are different outcomes.
 
-## Final verification
+### Final verification
 
 - [ ] VPN reviewer and comment settings persisted.
 - [ ] One Lucas request is identified across requester, reviewer and administrator views.
 - [ ] Priya has the pending Grant request and its reason.
 - [ ] Lucas has no VPN membership yet.
 
-## Leave this in place
+## Engineering practice
 
-Keep this exact request pending and continue to AR-012. If its status changes while you are away, inspect the recorded request before taking another action. A saved screenshot does not mean it is still pending.
-
-[Entitlement controls](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html) · [Request Center procedure](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
-
-## Your ticket: Priya's queue is empty
+### Your ticket: Priya's queue is empty
 
 Supplied case: VPN now names Primary Owner, but administrator details show Daniel assigned on a request submitted before the policy edit. What would you compare before changing permissions?
 
@@ -108,26 +104,25 @@ Compare the request's item, creation time and actual assignee with the saved con
 
 </details>
 
-## If you stopped after submitting
+## Finish
+
+### Leave this in place
+
+Keep this exact request pending and continue to AR-012. If its status changes while you are away, inspect the recorded request before taking another action. A saved screenshot does not mean it is still pending.
+
+[Entitlement controls](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html) · [Request Center procedure](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
+
+<a id="what-to-leave-in-place"></a>
+
+<a id="practice-completion"></a>
+
+<a id="if-you-already-completed-this-configuration"></a>
+
+### If you stopped after submitting
 
 Find the recorded request before submitting again. If still pending with Priya, continue in AR-012. If it completed, inspect the actual decision and AD result and label missed observations historical. If it expired or was canceled, verify no active duplicate or VPN grant remains, then submit one replacement with a repeat label. Record both identifiers. Screenshots do not keep a request pending indefinitely.
 
-## What to leave in place
-
-| Item | Required state |
-|---|---|
-| VPN policy | One Primary Owner reviewer; request and denial comments required |
-| Request | One identified Lucas request pending with Priya |
-| AD | Lucas's baseline retained; VPN absent before approval |
-
-
-## Practice completion
-
-- [ ] Diagnosis recorded before opening the solution.
-- [ ] Supplied cases distinguished from failures actually observed.
-- [ ] Temporary changes restored, requests accounted for, and next lab state verified.
-
-## Screenshots to capture
+### Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
 

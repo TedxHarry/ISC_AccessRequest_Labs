@@ -1,16 +1,18 @@
 # AR-026 · Select the correct account for Sofia's access
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Correlate two AD accounts to Sofia, keep automatic baseline access on her standard account, then request VPN for her second test account. Verify and remove the grant from that exact account.
-
-## Before you start
 
 Complete [AR-025](../AR-025/README.md). Prepare [Sofia's ordinary ISC session](../../M04-READINESS.md#prepare-sofias-sign-in-before-ar-026). Open Acme Admin, Acme Sofia (`acme.e009`), Acme Priya (`acme.e002`) and the AD workstation.
 
 The second account will be called `acme.e009.admin` to distinguish its use in the lab. It receives no domain-administrator privileges. Keep your [journal](EVIDENCE.md) open.
 
-## 1. Record the existing account and OU coverage
+## Follow the steps
+
+### 1. Record the existing account and OU coverage
 
 1. As administrator, open **Admin > Identity Management > Identities > Sofia**. Verify E009, Acme Employees and her standard AD account `acme.e009`.
 2. Record its ISC account ID, source, displayed Account Name/Account ID values, native DN and objectGUID. Keep the ISC account-record ID separate from the native identifier.
@@ -24,7 +26,7 @@ The second account will be called `acme.e009.admin` to distinguish its use in th
 
 **Screenshot:** `AR-026-01.png`: original account, memberships and source coverage.
 
-## 2. Set baseline selection before introducing the second account
+### 2. Set baseline selection before introducing the second account
 
 1. Open **Admin > Connections > Sources > your AD source > Account Management > Account Schema**. Inspect `distinguishedName`, then Sofia's imported standard account. Confirm that attribute contains its full native DN.
 2. If that supported attribute is absent from the schema, add **distinguishedName**, type **string**, single-valued and not an entitlement. Save without changing the source's existing Account ID/Account Name choices. Aggregate accounts and verify the imported value before proceeding. If an unchanged account is skipped after the schema edit, use [AR-004's unoptimized aggregation procedure](../AR-004/AGGREGATION.md).
@@ -38,7 +40,7 @@ The second account will be called `acme.e009.admin` to distinguish its use in th
 
 **Screenshot:** `AR-026-02.png`: imported DN attribute, saved criterion and predicted match/non-match.
 
-## 3. Create the second ordinary AD test account
+### 3. Create the second ordinary AD test account
 
 Skip creation only if the matching course account already exists; inspect all values in that case.
 
@@ -55,7 +57,7 @@ Skip creation only if the matching course account already exists; inspect all va
 
 **Screenshot:** `AR-026-03.png`: second account's name, OU, employeeID and distinct native identifier.
 
-## 4. Aggregate and verify correlation and baseline
+### 4. Aggregate and verify correlation and baseline
 
 1. In ISC, inspect **your AD source > Account Management > Account Correlation**. Confirm the saved course rule compares identity **Employee Number (identificationNumber)** with account **employeeID**. Keep it from AR-004; do not correlate using display name.
 2. Start AD account aggregation under **Account Management > Account Aggregation**. Inspect its completed result and wait for identity processing.
@@ -74,7 +76,7 @@ Skip creation only if the matching course account already exists; inspect all va
 
 **Screenshot:** `AR-026-04.png`: two correlated accounts, unique criterion match and four native results.
 
-## 5. Request VPN for the second account
+### 5. Request VPN for the second account
 
 1. In Acme Admin, inspect GG-VPN-USERS on the intended AD source. Confirm requestable status, Priya as primary owner and primary-owner grant/removal review from AR-019.
 2. In Acme Sofia, verify the ISC username is `acme.e009`. Open **Request Center** for herself and choose **Access Items > Entitlements**.
@@ -88,7 +90,7 @@ Skip creation only if the matching course account already exists; inspect all va
 
 **Screenshot:** `AR-026-05.png`: selected account and submitted request account details.
 
-## 6. Approve and verify both accounts
+### 6. Approve and verify both accounts
 
 1. In Acme Priya, open **Approvals > Access Requests > Requested**. Find Sofia's VPN **Grant** and open **Details**.
 2. Verify the requested account matches acme.e009.admin and the reason. Approve and confirm **Reviewed**.
@@ -100,7 +102,7 @@ Skip creation only if the matching course account already exists; inspect all va
 
 **Screenshot:** `AR-026-06.png`: reviewer account details, activity target and both accounts' memberships.
 
-## 7. Remove VPN from that exact assignment
+### 7. Remove VPN from that exact assignment
 
 1. In Acme Sofia, open the home dashboard's **My Access > Entitlements > GG-VPN-USERS**.
 2. Select the **Assignment** for the second account. Check its target matches the recorded AdminAccounts DN/account identifier.
@@ -113,11 +115,13 @@ Skip creation only if the matching course account already exists; inspect all va
 
 **Screenshot:** `AR-026-07.png`: account-specific removal and final four native results.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If correlation fails, trace scope → imported employeeID → identity Employee Number → correlation rule. If baseline appears on both accounts, inspect the saved criterion and other assignments before continuing; do not remove baseline from the original account. If VPN reaches an unexpected account, compare the submitted selection with the actual activity target before deciding whether the error was selection or fulfillment. Never substitute manual AD membership changes for requested-assignment removal.
 
-## Explain the result
+### Explain the result
 
 Name the three separate decisions you verified: identity correlation, automatic baseline selection and interactive request selection.
 
@@ -128,7 +132,7 @@ Employee Number/employeeID correlation linked both accounts to Sofia. The baseli
 
 </details>
 
-## Final verification
+### Final verification
 
 - [ ] Sofia has one HR identity and two distinct correlated AD accounts.
 - [ ] Baseline criteria uniquely match standard and are saved before the extra account is processed.
@@ -137,13 +141,15 @@ Employee Number/employeeID correlation linked both accounts to Sofia. The baseli
 - [ ] Removal targeted that assignment; neither account retains VPN.
 - [ ] Both accounts, baseline criteria, Finance segment and other retained course settings remain.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep both accounts for AR-027, AR-045 and later exercises. Keep the baseline Multiple Account Options criterion. On a first pass, there are now 24 identities and 25 lab AD accounts; baseline still covers the 24 standard accounts.
 
 [Automatic multiple-account options](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) · [Account selection in requests](https://developer.sailpoint.com/discuss/t/new-capability-multi-account-support/105600) · [Targeted user removal](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access_removal.html)
 
-## Screenshots to capture
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|

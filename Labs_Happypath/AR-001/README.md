@@ -1,18 +1,18 @@
 # AR-001 — Import Acme's HR Records
 
-**Level:** Beginner
+## Before you start
 
-## Goal
+<a id="goal"></a>
 
 Create the Acme HR authoritative source, import the 24 employee records, create the Acme Employees identity profile, map the core identity attributes, and verify that all 24 identities are created correctly.
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-## Session for this lab
+<a id="session-for-this-lab"></a>
 
 Use your ISC administrator session.
 
-## Prerequisites
+<a id="prerequisites"></a>
 
 - ISC training tenant access with permission to create sources and identity profiles.
 - The course HR CSV: [acme-hr-baseline.csv](../../datasets/acme-hr-baseline.csv).
@@ -20,7 +20,7 @@ Use your ISC administrator session.
 
 Your existing Active Directory source is not used yet. AD work begins in AR-003. Before importing new identities, check that existing automatic role assignments and identity-triggered workflows will not grant unrelated access to the Acme test population.
 
-## Starting state
+<a id="starting-state"></a>
 
 For a first run:
 
@@ -30,21 +30,9 @@ For a first run:
 
 If you already completed this lab once, reuse the existing Acme HR source and Acme Employees profile instead of creating duplicates.
 
-## What you will finish with
+## Follow the steps
 
-| Item | Expected result |
-|---|---|
-| HR source | Acme HR |
-| HR accounts | 24 |
-| Identity profile | Acme Employees |
-| Acme identities | 24 |
-| Lucas username | acme.e012 |
-| Lucas department | Finance |
-| Lucas cost center | FIN200 |
-
----
-
-## 1. Download the HR file
+### 1. Download the HR file
 
 1. Open the [HR baseline CSV](../../datasets/acme-hr-baseline.csv).
 2. Select **Download raw file**.
@@ -60,7 +48,7 @@ The file contains **24 employees and 14 columns**.
 
 **Check:** You have a comma-delimited UTF-8 CSV with all 24 employee rows.
 
-## 2. Create the Acme HR source
+### 2. Create the Acme HR source
 
 1. Open **Admin > Connections > Sources**.
 2. Select **Create New**.
@@ -85,7 +73,7 @@ Reference: [Source configuration](https://documentation.sailpoint.com/saas/help/
 
 **Screenshot:** Save `AR-001-01-hr-source.png`. Capture the Acme HR source name and type.
 
-## 3. Configure the account schema
+### 3. Configure the account schema
 
 1. Open **Acme HR > Account Management > Account Schema**.
 2. Use **Upload Schema** with `acme-hr-working.csv` if available.
@@ -129,7 +117,7 @@ Set the identifying attributes before importing accounts. [Account schemas](http
 
 Before importing, open **Source Setup > Parsing Settings** and select delimited parsing. Open **File Settings**, set the delimiter to a comma, and confirm the first row supplies column names. Save. If a preview is offered, confirm it shows 14 separate columns.
 
-## 4. Import the HR accounts
+### 4. Import the HR accounts
 
 1. Open **Acme HR > Account Management > Account Aggregation**.
 2. Upload `acme-hr-working.csv`.
@@ -154,7 +142,7 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 **Screenshot:** Save `AR-001-03-hr-import.png`. Capture the completed aggregation and 24-account result.
 
-## 5. Create the Acme Employees identity profile
+### 5. Create the Acme Employees identity profile
 
 1. Open **Admin > Identity Management > Identity Profiles**.
 2. Select **Create New**.
@@ -193,7 +181,7 @@ Reference: [Identity profiles](https://documentation.sailpoint.com/saas/help/set
 
 **Screenshot:** Save `AR-001-04-identity-mappings.png`. Capture the saved identity mappings.
 
-## 6. Apply the profile and process identities
+### 6. Apply the profile and process identities
 
 1. In **Acme Employees**, select **Apply Changes**.
 2. Open **Admin > Dashboard > Monitor**.
@@ -205,7 +193,7 @@ Reference: [Identity processing](https://documentation.sailpoint.com/saas/help/s
 
 **Check:** Processing completes successfully and Acme Employees is no longer waiting for required processing.
 
-## 7. Verify the Acme identities
+### 7. Verify the Acme identities
 
 1. Open **Admin > Identity Management > Identities**.
 2. Search for `acme.e012`.
@@ -240,7 +228,23 @@ Repeat the account-to-identity comparison for these employees:
 
 **Screenshot:** Save `AR-001-05-lucas-baseline.png`. Capture Lucas's identity and Acme HR account.
 
-## Try it yourself
+## Check the result
+
+### What you will finish with
+
+| Item | Expected result |
+|---|---|
+| HR source | Acme HR |
+| HR accounts | 24 |
+| Identity profile | Acme Employees |
+| Acme identities | 24 |
+| Lucas username | acme.e012 |
+| Lucas department | Finance |
+| Lucas cost center | FIN200 |
+
+---
+
+### Try it yourself
 
 Open Henry (`acme.e018`) without using Lucas’s screenshots. Compare his Acme HR department with identity Department. Both should show Engineering. Record his employee number E018 and leave his data unchanged.
 
@@ -249,11 +253,11 @@ Write these answers in your [journal](EVIDENCE.md):
 1. Which record contains the CSV values before identity mappings run?
 2. What proves that the 24 imported accounts became 24 Acme identities?
 
-## If a check does not match
+### If a check does not match
 
 If the account count or attributes differ, inspect the uploaded filename, comma delimiter and header/schema names. If HR is correct but the identity differs, inspect the mapping and processing job before importing again.
 
-## Final verification
+### Final verification
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] Acme HR exists and contains 24 accounts.
@@ -267,11 +271,13 @@ If the account count or attributes differ, inspect the uploaded filename, comma 
 - [ ] Lucas is `acme.e012`, Finance, FIN200, E012.
 - [ ] No duplicate Acme source or identity profile was created.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the Acme HR source, Acme Employees identity profile, 24 imported HR accounts, and 24 identities exactly as configured.
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
 

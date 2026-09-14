@@ -1,18 +1,16 @@
 # AR-022 · Restrict Finance catalog visibility
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Show the Finance profiles and role to Finance requesters while keeping them out of Liam's catalog. Use Remote Worker as a visible control and keep existing AD access unchanged.
 
-## Before you start
-
 Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../M04-READINESS.md). Open Acme Admin, Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep your [journal](EVIDENCE.md) open.
 
-## Practice checkpoints
+## Follow the steps
 
-Use this prompt as you reach the named steps. Before Section 4, predict the four-row matrix from the saved identities and access associations. Compare a direct profile search with a role search rather than treating the Finance application card as proof for both.
-
-## 1. Capture the catalog before segmentation
+### 1. Capture the catalog before segmentation
 
 1. As administrator, open Lucas and Liam under **Admin > Identity Management > Identities**. Confirm Lucas's Department is Finance and Liam's is IT. Verify neither ordinary-user session has administrator permissions.
 2. Inspect the two Finance profiles and ROLE-Finance-Analyst under **Admin > Access Model**. Confirm each is enabled/requestable and record the [object IDs](../../LAB-VALUES.md#find-an-access-profile-or-role-id).
@@ -25,7 +23,7 @@ Use this prompt as you reach the named steps. Before Section 4, predict the four
 
 **Screenshot:** `AR-022-01.png`: departments and each user's starting item searches.
 
-## 2. Define the Finance identities
+### 2. Define the Finance identities
 
 1. In Acme Admin, open **Admin > Access Model > Segments**. Search `SEG-Acme-Finance`.
 2. If absent, select **New**, enter that name and description `Finance requester visibility for Acme Finance profiles and role`, then **Save**.
@@ -36,7 +34,7 @@ Use this prompt as you reach the named steps. Before Section 4, predict the four
 
 **Check:** The segment uses the identity's mapped Department and its matching population agrees with the three named controls. If department is unavailable, inspect Acme Employees > Mappings and the identity values before continuing.
 
-## 3. Add the exact access items and enable
+### 3. Add the exact access items and enable
 
 1. On **Edit Segment > Define Access**, search AP-Finance-Reporting. Check its name/type/ID and select its checkbox, then **+ Add to Segment**.
 2. Add AP-Finance-AP and ROLE-Finance-Analyst the same way, using the appropriate profile/role search.
@@ -49,7 +47,7 @@ Use this prompt as you reach the named steps. Before Section 4, predict the four
 
 **Screenshot:** `AR-022-02.png`: criterion, matching identities, three items and enabled state.
 
-## 4. Verify both requester views
+### 4. Verify both requester views
 
 1. Allow the saved segment change to reach the catalog using [the processing checks](../../M04-READINESS.md#wait-for-a-saved-change-to-reach-the-catalog).
 2. In Acme Lucas, refresh Request Center for himself. Search each Finance item by its exact name, then Remote Worker.
@@ -69,7 +67,7 @@ Use this prompt as you reach the named steps. Before Section 4, predict the four
 
 **Screenshot:** `AR-022-03.png`: both requester searches and Remote Worker control.
 
-## 5. Confirm that visibility did not revoke access
+### 5. Confirm that visibility did not revoke access
 
 1. Use the [native check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas against GG-VPN-USERS and GG-ACME-BASELINE; both remain True.
 2. Check Liam still lacks GG-FIN-REPORTING, GG-FIN-AP and GG-VPN-USERS and retains baseline.
@@ -80,11 +78,13 @@ Use this prompt as you reach the named steps. Before Section 4, predict the four
 
 **Screenshot:** `AR-022-04.png`: preserved native controls and final segment state.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 Check the current session username, existing access, object enabled/requestable state, saved segment membership and other segments in that order. Do not widen the Finance criterion to hide an incorrect HR department. Record a delayed result before making another change.
 
-## Explain the result
+### Explain the result
 
 Can Lucas see the Finance role because he already has VPN? Would this segment alone stop him requesting Finance access for someone outside Finance?
 
@@ -95,7 +95,21 @@ Lucas's Finance identity attribute puts him in the segment; his existing VPN doe
 
 </details>
 
-## Diagnose this ticket
+### Final verification
+
+- [ ] The mapped Finance criterion and three exact access items are saved.
+- [ ] Lucas sees all three; Liam sees none; Remote Worker is visible to both.
+- [ ] Existing segments and ordinary-user sessions were checked.
+- [ ] The segment stays enabled and no request was submitted.
+- [ ] Baseline, Lucas's VPN and Liam's clean business access remain.
+
+## Engineering practice
+
+### Practice checkpoints
+
+Use your recorded requester views to explain which identities could find each Finance profile and the role. Check the individual access items rather than relying on the application card alone.
+
+### Diagnose this ticket
 
 This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
 
@@ -108,23 +122,17 @@ The second segment supplies another visibility path. Inspect and record both seg
 
 </details>
 
-## Resume or repeat
+## Finish
 
-Read the current lab state before repeating. Reuse the course segment and accounts; preserve the original request-on-behalf record and latest full HR file. Complete an existing pending request rather than submitting another. If a grant completed, resume at native verification and remove its exact account assignment. Keep all baseline assignments. Use [the module resume instructions](../../M04-READINESS.md#resume-without-losing-the-previous-state) to restore temporary settings when pausing.
-
-## Final verification
-
-- [ ] The mapped Finance criterion and three exact access items are saved.
-- [ ] Lucas sees all three; Liam sees none; Remote Worker is visible to both.
-- [ ] Existing segments and ordinary-user sessions were checked.
-- [ ] The segment stays enabled and no request was submitted.
-- [ ] Baseline, Lucas's VPN and Liam's clean business access remain.
-
-## Leave this in place
+### Leave this in place
 
 Keep SEG-Acme-Finance enabled for AR-023–025 and later exercises. Record its ID/settings and the visibility matrix. [Segment configuration and behavior](https://documentation.sailpoint.com/saas/help/requests/segments.html)
 
-## Screenshots to capture
+### Resume or repeat
+
+Reopen SEG-Acme-Finance and compare its saved criterion and three access items with Sections 2–3. Reuse that segment, then repeat the Lucas/Liam checks in Sections 4–5. Keep the segment enabled and existing memberships unchanged. This lab does not submit or revoke requests.
+
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|

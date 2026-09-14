@@ -1,18 +1,18 @@
 # AR-007 — Provision the Remaining Standard Accounts
 
-**Level:** Beginner
+## Before you start
 
-## Goal
+<a id="goal"></a>
 
 Expand the working baseline role from Lucas and Liam to all 24 Acme identities, provision the remaining AD accounts, and verify every account and baseline membership.
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-## Session for this lab
+<a id="session-for-this-lab"></a>
 
 Use your ISC administrator session for ISC steps and your AD administration workstation for directory steps.
 
-## Prerequisites
+<a id="prerequisites"></a>
 
 Complete [AR-006](../AR-006/README.md).
 
@@ -27,16 +27,9 @@ You should already have:
 
 Keep the [account verification journal](EVIDENCE.md) open.
 
-## What you will finish with
+## Follow the steps
 
-- 24 Acme identities assigned to `ROLE-Acme-AD-Baseline`.
-- 24 standard Acme AD accounts under the intended account population.
-- All 24 standard accounts directly in `GG-ACME-BASELINE`.
-- Each AD account linked to the correct ISC identity.
-
----
-
-## 1. Verify the 24-person roster
+### 1. Verify the 24-person roster
 
 1. Open the [Acme HR baseline CSV](../../datasets/acme-hr-baseline.csv).
 2. Confirm the roster contains `acme.e001` through `acme.e024`.
@@ -56,7 +49,7 @@ Keep the [account verification journal](EVIDENCE.md) open.
 
 **Check:** The 24-person identity roster is ready and the baseline provisioning configuration is unchanged.
 
-## 2. Add Priya and Daniel first
+### 2. Add Priya and Daniel first
 
 1. Open **Admin > Access Model > Roles > ROLE-Acme-AD-Baseline**.
 2. Open **Define Assignment > Identity List**.
@@ -78,7 +71,7 @@ Keep the [account verification journal](EVIDENCE.md) open.
 
 **Screenshot:** Save `AR-007-01-four-person-batch.png`. Capture the four-person assignment and successful provisioning results.
 
-## 3. Add the remaining 20 identities
+### 3. Add the remaining 20 identities
 
 1. Return to `ROLE-Acme-AD-Baseline > Define Assignment > Identity List`.
 2. Keep the existing four members.
@@ -96,7 +89,7 @@ Reference: [Role assignment](https://documentation.sailpoint.com/saas/help/provi
 
 **Screenshot:** Save `AR-007-02-complete-role.png`. Capture the complete role assignment. Use multiple images if needed.
 
-## 4. Run one AD account aggregation
+### 4. Run one AD account aggregation
 
 1. Open the AD source.
 2. Open **Account Management > Account Aggregation**.
@@ -108,7 +101,7 @@ Do not start a separate aggregation for each employee.
 
 **Check:** The latest account aggregation completes successfully.
 
-## 5. Verify all 24 AD accounts
+### 5. Verify all 24 AD accounts
 
 Complete every row in [EVIDENCE.md](EVIDENCE.md).
 
@@ -127,7 +120,7 @@ Use the journal rather than relying only on total counts.
 
 **Check:** All 24 rows have the correct account, employeeID, baseline membership, and ISC link.
 
-## 6. Verify the baseline group
+### 6. Verify the baseline group
 
 1. In Active Directory, open `GG-ACME-BASELINE`.
 2. Open **Members**.
@@ -139,7 +132,7 @@ Use the journal rather than relying only on total counts.
 
 **Screenshot:** Save `AR-007-03-baseline-members.png`. Capture the baseline group membership. Use multiple images if needed.
 
-## 7. Confirm business groups were not changed
+### 7. Confirm business groups were not changed
 
 The baseline role should grant only `GG-ACME-BASELINE`.
 
@@ -155,7 +148,18 @@ Confirm this lab did not add the 24 users to those groups.
 
 **Check:** The baseline role created standard accounts and baseline membership only.
 
-## Try it yourself
+## Check the result
+
+### What you will finish with
+
+- 24 Acme identities assigned to `ROLE-Acme-AD-Baseline`.
+- 24 standard Acme AD accounts under the intended account population.
+- All 24 standard accounts directly in `GG-ACME-BASELINE`.
+- Each AD account linked to the correct ISC identity.
+
+---
+
+### Try it yourself
 
 Compare Priya’s actual DN, UPN and employeeID with your AR-005 prediction. Then independently locate James (`acme.e014`) in AD and ISC and verify his baseline membership and account link.
 
@@ -164,11 +168,11 @@ Write these answers in your [journal](EVIDENCE.md):
 1. Why are 24 role assignments insufficient evidence of 24 usable accounts?
 2. What did you check before moving from four people to 24?
 
-## If a check does not match
+### If a check does not match
 
 If a person is missing, find that username in the role list, activity and AD in that order. Keep successful assignments; resolve the specific failed account or membership operation before expanding the batch.
 
-## Final verification
+### Final verification
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] Acme Employees contains 24 identities.
@@ -182,11 +186,13 @@ If a person is missing, find that username in the role list, activity and AD in 
 - [ ] No unresolved provisioning failure remains.
 - [ ] Business groups were not unintentionally granted.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep all 24 role assignments, AD accounts, account links, and baseline memberships in place.
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
 

@@ -1,22 +1,20 @@
 # AR-014 · Control VPN catalog availability
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Temporarily stop new VPN requests, verify the catalog change, then make VPN available again. Check that Lucas's existing access remains throughout.
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
-## If you already completed this configuration
-
-Read the saved-state checks before changing anything. Reuse verified objects and existing requests. Keep Lucas’s completed VPN grant; inspect historical approval/activity when that decision already happened. Use the resume instructions and ticket below for further practice. A first-time learner should follow every numbered section in order.
-
-## Before you start
-
 Complete [AR-013](../AR-013/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Olivia's denied request is concluded; she has no VPN grant or pending VPN request. Lucas keeps his approved VPN membership. Keep your [journal](EVIDENCE.md) open.
 
 This is a catalog administration task. Do not submit a request or remove an existing assignment during it.
 
-## 1. Record current availability
+## Follow the steps
+
+### 1. Record current availability
 
 1. In Acme Olivia, verify `acme.e011` in the user menu.
 2. Open **Request Center**, choose **Request for Myself** if prompted, then **Access Items > Entitlements**.
@@ -30,7 +28,7 @@ For the separate ISC ID and native group value, follow [the entitlement lookup](
 
 **Screenshot:** `AR-014-01.png`: visible VPN item in Olivia's session.
 
-## 2. Stop new requests for this item
+### 2. Stop new requests for this item
 
 1. In the administrator edit page, open **Access Requests**.
 2. Turn **Allow Access Requests** off for this VPN entitlement only and select **Save**. The list action **Mark as Not Requestable** is another route to the same change.
@@ -42,11 +40,7 @@ For the separate ISC ID and native group value, follow [the entitlement lookup](
 
 **Screenshots:** `AR-014-02.png`: saved off setting. `AR-014-03.png`: Olivia's catalog search with username and filters.
 
-## Diagnose the unavailable item before restoring it
-
-Write the failed check in your journal before reopening the setting: verify Olivia’s username, item source/DN, global entitlement enablement, individual requestability and applicable segments. Identify the one changed value using your before/after record. For an independent challenge, have a partner select a wrong search name or the individual requestability condition; when alone, diagnose the saved case without rereading the walkthrough. Restore the setting in Section 3 and recheck the hidden control.
-
-## 3. Restore availability
+### 3. Restore availability
 
 1. Return to the same VPN entitlement in Acme Admin.
 2. Enable **Allow Access Requests**, select **Save**, then reopen to verify it stayed on.
@@ -58,7 +52,7 @@ Write the failed check in your journal before reopening the setting: verify Oliv
 
 **Screenshot:** `AR-014-04.png`: restored VPN item in Olivia's session.
 
-## 4. Verify existing access was retained
+### 4. Verify existing access was retained
 
 1. Run the [native membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas (`acme.e012`) and `GG-VPN-USERS` on the recorded controller.
 2. Confirm direct membership remains and his account identifiers match AR-012.
@@ -68,28 +62,30 @@ Write the failed check in your journal before reopening the setting: verify Oliv
 
 **Screenshot:** `AR-014-05.png`: Lucas's retained native VPN membership.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 Check the signed-in user, item source/DN, saved requestability and search filters before changing another setting. If interrupted while VPN is unavailable, restore Section 3 before continuing to AR-015. Do not toggle global entitlement requests to correct one item's visibility.
 
-## Explain the result
+### Explain the result
 
 Record the visible, unavailable and restored states with their times. Explain which separate action would be needed to remove an existing assignment. Do not perform that removal here.
 
-## Final verification
+### Final verification
 
 - [ ] The individual off setting changed Olivia's catalog result.
 - [ ] VPN is requestable again with Priya's policy unchanged.
 - [ ] The internal control remains unavailable.
 - [ ] Lucas retains VPN; Olivia received no grant or pending request.
 
-## Leave this in place
+## Engineering practice
 
-Keep VPN requestable and all existing assignments intact. Keep Olivia's session for the profile denial in AR-015.
+### Diagnose the unavailable item before restoring it
 
-[Entitlement catalog configuration](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html)
+Use the before/after evidence from Sections 2–3 to name the setting that hid VPN. Compare Olivia's username, item source/DN, global entitlement enablement, individual requestability and applicable segments. Explain which check identified the change. Keep the restored configuration; use the supplied ticket below for the failure case.
 
-## Your ticket: it disappeared only for Lucas
+### Your ticket: it disappeared only for Lucas
 
 Supplied case: the administrator confirms VPN is requestable and Olivia can find it, but Lucas cannot submit a new request. Lucas already received VPN in AR-012. Write the checks you would make before changing global settings.
 
@@ -100,26 +96,25 @@ Verify Lucas's session, existing VPN assignment, account and pending requests. C
 
 </details>
 
-## If you stopped while VPN was hidden
+## Finish
+
+### Leave this in place
+
+Keep VPN requestable and all existing assignments intact. Keep Olivia's session for the profile denial in AR-015.
+
+[Entitlement catalog configuration](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html)
+
+<a id="what-to-leave-in-place"></a>
+
+<a id="practice-completion"></a>
+
+<a id="if-you-already-completed-this-configuration"></a>
+
+### If you stopped while VPN was hidden
 
 Reopen the recorded entitlement and restore Allow Access Requests before any new request exercise. Retest with Olivia, verify Priya's owner/reviewer settings, and confirm GG-INTERNAL-NOREQUEST remains hidden. Keep the before, faulty and restored results separate in your journal. For another attempt, start from the verified visible state each time.
 
-## What to leave in place
-
-| Item | Required state |
-|---|---|
-| VPN | Requestable again; original owner/reviewer retained |
-| Olivia | Can find VPN; no new request or grant from this experiment |
-| Lucas / negative control | Lucas retains VPN; GG-INTERNAL-NOREQUEST stays hidden |
-
-
-## Practice completion
-
-- [ ] Diagnosis recorded before opening the solution.
-- [ ] Supplied cases distinguished from failures actually observed.
-- [ ] Temporary changes restored, requests accounted for, and next lab state verified.
-
-## Screenshots to capture
+### Screenshots to capture
 
 Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
 

@@ -1,16 +1,14 @@
 # AR-004 · Correlate Lucas's Existing AD Account
 
+## Before you start
+
+<a id="what-youll-do"></a>
+
+Lucas already has an AD account. Your job here is to connect that account to the right ISC identity. Follow the employee number through both records; a matching display name is not enough.
+
 **Prerequisites:** Complete [AR-003](../AR-003/README.md). Lucas exists in AD and ISC has imported his account. Have your administrator session and Postman available.
 
-Starting here for the first time? Follow the configuration sections in order, verify the working result, then complete the practice. The existing-configuration entry below applies only when those objects have already been verified.
-
-## If this configuration already exists
-
-Confirm Lucas’s existing HR and AD links and E012 match. Do not unlink him to manufacture an unmatched account. Read the configuration sections to compare your saved settings, but skip creation actions for objects already verified. Start the additional practice at [Check the same person through two sources](#check-the-same-person-through-two-sources). Capture current results and label earlier creation activity as historical.
-
-Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
-
-## Before you open the settings
+<a id="before-you-open-the-settings"></a>
 
 Use your ISC administrator session, AD Users and Computers and an administrator-owned REST client session.
 
@@ -18,11 +16,11 @@ Lucas has one AD account imported in AR-003 and one Acme identity. Record whethe
 
 Keep the actual source ID, Lucas’s account DN and the original correlation criteria in your journal. Do not use a display name as the matching identifier.
 
-## What you’ll do
+Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-Lucas already has an AD account. Your job here is to connect that account to the right ISC identity. Follow the employee number through both records; a matching display name is not enough.
+## Follow the steps
 
-## 1. Verify both employee identifiers
+### 1. Verify both employee identifiers
 
 1. In ISC, open **Admin > Identity Management > Identity Profiles > Acme Employees > Mappings**. Confirm **Employee Number (`identificationNumber`)** maps to **Acme HR > employeeNumber**. If changed, save, select **Apply Changes**, and wait for processing in **Admin > Dashboard > Monitor**.
 2. Open Lucas's identity (`acme.e012`). Verify `identificationNumber = E012`. Check that no other identity uses E012 as its employee identifier.
@@ -41,7 +39,7 @@ Lucas has Employee Number E012 on his ISC identity. In profile mappings, this fi
 
 Set AD employeeID to E012. The separate AD employeeNumber field is not used for this correlation and remains unset in this example.
 
-## 2. Configure correlation on the AD source
+### 2. Configure correlation on the AD source
 
 1. Open **Admin > Connections > Sources > your AD source > Account Management > Account Schema**.
 2. Find `employeeID`. If absent, select **Add New Attribute**, use that exact name and type **string**, leave Multi-Valued and Entitlement unselected, and save. Preserve Account ID and Account Name selections. [Account schema](https://documentation.sailpoint.com/saas/help/accounts/schema.html)
@@ -61,7 +59,7 @@ The AD account schema includes employeeID with type string. Check the remaining 
 
 The first criterion compares Employee Number with employeeID. The recommendation refresh shows Error; that is separate from the configured criterion. Save and reopen the criterion, inspect any lower fallback rows, and verify the aggregation result.
 
-## 3. Reexamine the imported account
+### 3. Reexamine the imported account
 
 Follow the [aggregation walkthrough](AGGREGATION.md) to run the AD aggregation with optimization disabled. It includes authentication and the request body.
 
@@ -73,7 +71,7 @@ Follow the [aggregation walkthrough](AGGREGATION.md) to run the AD aggregation w
 
 Postman submits disableOptimization=true and receives 202 Accepted. This confirms submission only. Check the completed job in Aggregation History before continuing.
 
-## 4. Check which identity owns this account
+### 4. Check which identity owns this account
 
 1. Open **Admin > Identity Management > Identities > acme.e012 > Accounts**.
 2. Find the account on your AD source. Compare its DN and sAMAccountName with AD.
@@ -88,7 +86,18 @@ If the identifier is blank, check the schema, AD value, and aggregation. If a pr
 
 Lucas retains Acme HR and has one account on the course AD source. This tenant also lists an IdentityNow account; count accounts on the selected AD source rather than requiring two total rows.
 
-## Check the same person through two sources
+## Check the result
+
+### Completion checklist
+
+- [ ] Lucas has employeeID E012 in AD and identificationNumber E012 in ISC.
+- [ ] The saved AD correlation pair matches those attributes.
+- [ ] His imported AD account belongs to the correct identity.
+- [ ] The course still has 24 HR identities and only Lucas's standard AD account.
+
+## Engineering practice
+
+### Check the same person through two sources
 
 1. Open Lucas’s identity and its Acme HR account. Record HR Account ID E012.
 2. Open the linked AD account and record its actual Account ID, DN and employeeID.
@@ -97,13 +106,13 @@ Lucas retains Acme HR and has one account on the course AD source. This tenant a
 
 This comparison is repeatable after the link already exists. It does not require deliberately assigning Lucas to the wrong person.
 
-## Your ticket: AD shows E012, but the imported account has no employeeID.
+### Your ticket: AD shows E012, but the imported account has no employeeID.
 
 The supplied case says the identity identificationNumber is E012, while the imported AD account attribute is missing.
 
 Inspect where the AD account schema is configured and identify what to check before editing correlation rules.
 
-Write your diagnosis and the evidence you would accept before opening the solution. If you use the supplied case, label it a ticket exercise; do not record it as a tenant failure you observed.
+Write your diagnosis before opening the answer. Label this as a supplied ticket, not a failure observed in your tenant.
 
 <details>
 <summary>Compare your diagnosis with the mentor’s solution</summary>
@@ -112,11 +121,9 @@ Check the saved AD schema includes employeeID, compare the actual AD account and
 
 </details>
 
-## If you stopped midway or want to repeat this lab
+## Finish
 
-If interrupted after the API call, inspect its aggregation job before sending another call. Verify the stored employeeID, then the linked identity. Keep the working correlation criterion and E012 on Lucas. On repeat, a correct existing link passes the ownership check; do not unlink it merely to manufacture an uncorrelated case. An incorrect manual link requires the documented correction procedure, not identity deletion.
-
-## What you should leave in place
+### What you should leave in place
 
 | Item | State before you continue |
 |---|---|
@@ -124,16 +131,15 @@ If interrupted after the API call, inspect its aggregation job before sending an
 | Account ownership | One course AD account linked to Lucas’s existing identity |
 | Other employees | No accounts created by this correlation exercise |
 
-## Completion checklist
+<a id="if-this-configuration-already-exists"></a>
 
-- [ ] The practice/comparison and your ticket diagnosis are recorded in the journal.
-- [ ] Any temporary change is restored and the retained state matches the next lab.
-- [ ] Lucas has employeeID E012 in AD and identificationNumber E012 in ISC.
-- [ ] The saved AD correlation pair matches those attributes.
-- [ ] His imported AD account belongs to the correct identity.
-- [ ] The course still has 24 HR identities and only Lucas's standard AD account.
+### If you stopped midway or want to repeat this lab
 
-## Screenshots to capture
+Confirm Lucas’s existing HR and AD links and E012 match. Do not unlink him to manufacture an unmatched account. Label earlier activity as historical when repeating the lab.
+
+If interrupted after the API call, inspect its aggregation job before sending another call. Verify the stored employeeID, then the linked identity. Keep the working correlation criterion and E012 on Lucas. On repeat, a correct existing link passes the ownership check; do not unlink it merely to manufacture an uncorrelated case. An incorrect manual link requires the documented correction procedure, not identity deletion.
+
+### Screenshots to capture
 
 The six supplied images appear above. Add AR-004-07-aggregation-history.png showing the completed account job, status and optimization disabled. Also retain an image of the imported AD account attribute mployeeID = E012; the account-list image alone does not show that value.
 

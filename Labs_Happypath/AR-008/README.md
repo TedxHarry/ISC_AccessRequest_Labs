@@ -1,18 +1,18 @@
 # AR-008 — Prepare Requester and Reviewer Sessions
 
-**Level:** Beginner
+## Before you start
 
-## Goal
+<a id="goal"></a>
 
 Prepare separate ISC sign-in sessions for Lucas, Daniel, Priya, and the administrator so the next access-request labs can be tested with the correct requester and reviewers.
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
-## Session for this lab
+<a id="session-for-this-lab"></a>
 
 Start in your ISC administrator session. Switch to the named user’s separate browser profile only when the step tells you to sign in as that person.
 
-## Prerequisites
+<a id="prerequisites"></a>
 
 Complete [AR-007](../AR-007/README.md).
 
@@ -28,7 +28,7 @@ Use the sign-in method configured for Acme Employees. The registration steps bel
 
 Keep your [evidence journal](EVIDENCE.md) open.
 
-## Users for this lab
+<a id="users-for-this-lab"></a>
 
 | Person | ISC username | Use in later labs |
 |---|---|---|
@@ -39,7 +39,9 @@ Keep your [evidence journal](EVIDENCE.md) open.
 
 ---
 
-## 1. Verify the three identities
+## Follow the steps
+
+### 1. Verify the three identities
 
 1. Sign in with the administrator account.
 2. Open **Admin > Identity Management > Identities**.
@@ -55,7 +57,7 @@ Keep your [evidence journal](EVIDENCE.md) open.
 
 **Screenshot:** Save `AR-008-01-lucas-manager.png`. Capture Lucas's identity with Daniel shown as Manager.
 
-## 2. Add working email addresses
+### 2. Add working email addresses
 
 Use three different test email addresses that you control.
 
@@ -87,7 +89,7 @@ The identity Work Email is used for invitations. AD mail can still show the plac
 
 Before registration, use your browser’s profile menu to create **Acme Lucas**, **Acme Daniel** and **Acme Priya** profiles. Keep **Acme Admin** separate. Ordinary tabs in one profile share the sign-in session.
 
-## 3. Configure the sign-in method
+### 3. Configure the sign-in method
 
 1. Open **Admin > Identity Management > Identity Profiles > Acme Employees**.
 2. Open **Settings**.
@@ -101,7 +103,7 @@ Reference: [Identity profile settings](https://documentation.sailpoint.com/saas/
 
 **Screenshot:** Save `AR-008-03-sign-in-settings.png`. Capture the saved sign-in and invitation settings.
 
-## 4. Invite Lucas
+### 4. Invite Lucas
 
 1. As administrator, open Lucas's identity. If he already has a working registration, keep it and skip to Step 8 for the fresh sign-in check.
 2. Select **Actions > Invite Identity**.
@@ -120,7 +122,7 @@ Reference: [Inviting users](https://documentation.sailpoint.com/saas/help/common
 
 **Check:** Lucas can sign in to ISC as `acme.e012`.
 
-## 5. Invite Daniel and Priya
+### 5. Invite Daniel and Priya
 
 Repeat the same registration process using separate browser profiles:
 
@@ -137,7 +139,7 @@ For each user:
 
 **Check:** Lucas, Daniel, and Priya can each sign in independently.
 
-## 6. Verify ordinary user access
+### 6. Verify ordinary user access
 
 As administrator:
 
@@ -150,7 +152,7 @@ Reference: [User levels](https://documentation.sailpoint.com/saas/help/common/us
 
 **Check:** The three course users have ordinary user access.
 
-## 7. Verify the four separate sessions
+### 7. Verify the four separate sessions
 
 Keep four browser profiles:
 
@@ -161,26 +163,26 @@ Keep four browser profiles:
 
 Then verify:
 
-### Lucas
+#### Lucas
 1. Sign in as Lucas.
 2. Open **Request Center**.
 3. Confirm the page loads.
 
 An empty catalog is acceptable at this stage.
 
-### Daniel
+#### Daniel
 1. Sign in as Daniel.
 2. Open **Approvals**.
 3. Confirm the page loads.
 
 An empty approval queue is expected.
 
-### Priya
+#### Priya
 1. Sign in as Priya.
 2. Open **Approvals**.
 3. Confirm the page loads.
 
-### Administrator
+#### Administrator
 1. Sign in as the administrator.
 2. Open **Admin > Connections > Sources**.
 3. Confirm administrative configuration pages remain available.
@@ -191,7 +193,9 @@ Reference: [User-level access matrix](https://documentation.sailpoint.com/saas/h
 
 **Screenshot:** Save `AR-008-04-user-sessions.png`. Capture Lucas in Request Center, Daniel in Approvals, Priya in Approvals, and the relevant user-level checks. Do not capture passwords, invitation links, MFA codes, or personal mailbox details.
 
-## Try it yourself
+## Check the result
+
+### Try it yourself
 
 Close Daniel’s tenant tab, reopen the tenant in Acme Daniel and confirm the signed-in username before opening Approvals. Keep Acme Admin open separately and confirm its username has not changed.
 
@@ -200,11 +204,11 @@ Write these answers in your [journal](EVIDENCE.md):
 1. Which credentials does each person use for the recorded sign-in method?
 2. Why does opening Approvals not yet prove approval routing?
 
-## If a check does not match
+### If a check does not match
 
 If sign-in fails, verify the selected authentication route and username. For a missing invitation, check current identity Work Email, registration state and inbox delivery. Do not grant administrator rights to make a reviewer session work.
 
-## Final verification
+### Final verification
 
 - [ ] The independent check and both explanations are recorded.
 - [ ] Lucas's manager is Daniel.
@@ -220,11 +224,13 @@ If sign-in fails, verify the selected authentication route and username. For a m
 - [ ] The three users have ordinary user permissions.
 - [ ] The administrator session remains separate and usable.
 
-## Leave this in place
+## Finish
+
+### Leave this in place
 
 Keep the three registered user accounts, their test email addresses, the separate browser profiles, and the administrator session available.
 
-## Screenshots to capture
+### Screenshots to capture
 
 Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
 

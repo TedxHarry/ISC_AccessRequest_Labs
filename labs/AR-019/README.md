@@ -1,10 +1,10 @@
 # AR-019 · Compare entitlement, profile and role requests
 
-## Goal
+## Before you start
+
+<a id="goal"></a>
 
 Request three different access objects for the same person, one at a time. Compare what Olivia selects, who reviews it, what AD receives and how you remove it.
-
-## Before you start
 
 Complete [AR-018](../AR-018/README.md), including role removal. Open Acme Admin, Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`), Acme Daniel (`acme.e003`) and the AD workstation. Keep your [journal](EVIDENCE.md) open.
 
@@ -16,13 +16,9 @@ All three items below are enabled/requestable. Olivia starts without the three b
 | B | Access profile: AP-Finance-Reporting | Daniel | VPN + FIN-REPORTING |
 | C | Role: ROLE-Finance-Analyst | Daniel | VPN + FIN-REPORTING + FIN-AP |
 
-## Practice checkpoints
+## Follow the steps
 
-Use this prompt when you reach the named step in the walkthrough.
-
-Before opening your saved comparison, predict the grant reviewer and distinct group count for A, B and C. Then use request details and activity to check the prediction. Include an explanation of why a detected access-profile card alone cannot establish which object was requested.
-
-## 1. Prepare the comparison and VPN removal review
+### 1. Prepare the comparison and VPN removal review
 
 1. As administrator, inspect Olivia's **Accounts**, **Access** and pending requests. Record her standard AD account DN/objectGUID.
 2. Run the [native membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Olivia against GG-VPN-USERS, GG-FIN-REPORTING, GG-FIN-AP and GG-ACME-BASELINE. Business results must be False and baseline True.
@@ -36,7 +32,7 @@ Before opening your saved comparison, predict the grant reviewer and distinct gr
 
 **Screenshot:** `AR-019-01.png`: initial memberships and saved VPN removal policy.
 
-## 2. Test A — request and remove the entitlement
+### 2. Test A — request and remove the entitlement
 
 1. In Acme Olivia, verify the username. Open **Request Center**, choose **Request for Myself** if prompted, then **Access Items > Entitlements**.
 2. Search GG-VPN-USERS, inspect its source/DN in **Details** and select it. Enter reason `AR-019 A: Direct VPN comparison` in request details, keep immediate access and the standard account, then **Save**.
@@ -53,7 +49,7 @@ Before opening your saved comparison, predict the grant reviewer and distinct gr
 
 **Screenshots:** `AR-019-02.png`: Test A grant and native result. `AR-019-03.png`: self-removal, Priya's decision and clean result.
 
-## 3. Test B — request and remove the profile
+### 3. Test B — request and remove the profile
 
 1. Recheck Olivia has no business membership, Finance assignment or pending request.
 2. In Acme Olivia, open **Request Center > Access Items > Access Profiles** for herself. Search and select AP-Finance-Reporting.
@@ -69,7 +65,7 @@ Before opening your saved comparison, predict the grant reviewer and distinct gr
 
 **Screenshots:** `AR-019-04.png`: Test B grant and native result. `AR-019-05.png`: profile removal and clean result.
 
-## 4. Test C — request and remove the role
+### 4. Test C — request and remove the role
 
 1. Recheck the clean recipient state.
 2. In Acme Olivia, open **Request Center > Access Items > Roles** for herself. Search and select ROLE-Finance-Analyst.
@@ -85,7 +81,7 @@ Before opening your saved comparison, predict the grant reviewer and distinct gr
 
 **Screenshots:** `AR-019-06.png`: Test C grant, assignment and target result. `AR-019-07.png`: administrative role revocation and final native state.
 
-## 5. Compare the three records
+### 5. Compare the three records
 
 1. Complete each comparison row using your observed IDs, reviewer and native result.
 2. Look at the grant request details for A, B and C. Confirm their item types differ even though all three delivered VPN.
@@ -97,11 +93,13 @@ Before opening your saved comparison, predict the grant reviewer and distinct gr
 
 **Screenshot:** `AR-019-08.png`: completed comparison with final control memberships.
 
-## If the result differs
+## Check the result
+
+### If the result differs
 
 If a later card is unavailable, check whether the previous assignment or imported membership still exists. Finish the preceding removal and refresh before retrying. If My Access does not offer Revoke Assignment, verify the direct requested entitlement and account; do not revoke a role-supplied entitlement. Use [the shared diagnosis checks](../../M03-READINESS.md#if-your-result-differs) for partial writes or unexplained retention.
 
-## Explain the result
+### Explain the result
 
 A reviewer says, “All three tests delivered VPN, so they are the same request.” Use two differences from your journal to respond.
 
@@ -112,7 +110,22 @@ The requested type/ID and approval policy differ. The profile also delivered Rep
 
 </details>
 
-## Diagnose this ticket
+### Final verification
+
+- [ ] Three distinct grant tests and their native results are recorded.
+- [ ] Each test was removed before the next began.
+- [ ] VPN direct grant/removal review remains assigned to Priya.
+- [ ] Finance object policies remain assigned to Daniel.
+- [ ] Olivia has no Finance/VPN assignment or pending test operation.
+- [ ] Baseline, original accounts, Lucas's VPN and all course definitions remain.
+
+## Engineering practice
+
+### Practice checkpoints
+
+Without opening your comparison, name the reviewer and distinct group count for each of the three requests. Then check your answers against the saved requests and activities. Explain why a detected profile alone does not prove it was requested.
+
+### Diagnose this ticket
 
 This is a supplied practice case. Write your diagnosis before opening the answer; keep it separate from failures you actually observe in the tenant.
 
@@ -127,26 +140,19 @@ The supplied evidence cannot establish the three cycles. Identify which grant ac
 
 </details>
 
-## Resume or repeat
+## Finish
 
-Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
-## Final verification
-
-- [ ] Three distinct grant tests and their native results are recorded.
-- [ ] Each test was removed before the next began.
-- [ ] VPN direct grant/removal review remains assigned to Priya.
-- [ ] Finance object policies remain assigned to Daniel.
-- [ ] Olivia has no Finance/VPN assignment or pending test operation.
-- [ ] Baseline, original accounts, Lucas's VPN and all course definitions remain.
-
-## Leave this in place
+### Leave this in place
 
 Retain the access model and the explicit VPN removal policy. Olivia finishes with none of the three business groups. Follow [resume guidance](../../M03-READINESS.md#resume-or-repeat-safely) before repeating any cycle.
 
 [Entitlement request/removal policies](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html) · [User removal steps](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access_removal.html) · [Role revocation](https://documentation.sailpoint.com/saas/help/access/roles.html)
 
-## Screenshots to capture
+### Resume or repeat
+
+Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
+
+### Screenshots to capture
 
 | Filename | What to show |
 |---|---|
