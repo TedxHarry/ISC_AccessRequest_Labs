@@ -35,3 +35,14 @@ Keep the [request and target checks](../M02-CHECKS.md) open when preparing new s
 13. [AR-013 · Deny a request and verify that access was not added](AR-013/README.md)
 14. [AR-014 · Control VPN catalog availability](AR-014/README.md)
 15. [AR-015 · Request and remove a two-group access profile](AR-015/README.md)
+
+## Module 3 · Business access
+
+Complete the [Module 3 starting checks](../M03-READINESS.md). Keep the existing accounts and baseline assignments throughout the grant/removal exercises.
+
+16. [AR-016 · Bundle Finance reporting access](AR-016/README.md)
+17. [AR-017 · Present Finance access through an application](AR-017/README.md)
+18. [AR-018 · Offer the Finance Analyst role](AR-018/README.md)
+19. [AR-019 · Compare entitlement, profile and role requests](AR-019/README.md)
+20. [AR-020 · Manage the profiles offered by Finance Services](AR-020/README.md)
+21. [AR-021 · Deliver HR Services from a business requirement](AR-021/README.md)

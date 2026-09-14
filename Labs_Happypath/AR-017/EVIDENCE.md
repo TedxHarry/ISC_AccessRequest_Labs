@@ -1,4 +1,4 @@
-# AR-019 · Evidence journal
+# AR-017 · Evidence journal
 
 Keep this journal in your private evidence folder while following [the walkthrough](README.md). Enter observed values; leave unperformed steps marked Pending.
 
@@ -36,12 +36,12 @@ Record baseline and Lucas's retained VPN separately from the current recipient's
 
 ## Acceptance
 
-- [ ] Three distinct grant tests and their native results are recorded.
-- [ ] Each test was removed before the next began.
-- [ ] VPN direct grant/removal review remains assigned to Priya.
-- [ ] Finance object policies remain assigned to Daniel.
-- [ ] Olivia has no Finance/VPN assignment or pending test operation.
-- [ ] Baseline, original accounts, Lucas's VPN and all course definitions remain.
+- [ ] Finance Services uses the existing AD source and contains AP-Finance-Reporting once.
+- [ ] The application and profile are enabled for requests.
+- [ ] Olivia requested the profile through Applications; Daniel reviewed it.
+- [ ] Both native groups were added and then removed through ISC.
+- [ ] The original account, baseline, Lucas's VPN and application definition remain.
+- [ ] No unresolved test request or operation remains.
 
 
 ## Screenshots
@@ -51,15 +51,3 @@ Use the exact filenames in [Screenshots to capture](README.md#screenshots-to-cap
 ## Explain the result
 
 Write your own answer to the lab's explanation or assessment before opening its answer. Include the requested object, controlling policy, native proof and cleanup where applicable.
-
-## Engineering investigation
-
-| Record | Your answer |
-|---|---|
-| Independent practice prediction and observed comparison | |
-| Supplied ticket: likely cause and supporting facts | |
-| Supplied ticket: next inspection and alternative to rule out | |
-| Supplied ticket: correction, repeat check and retained state | |
-| Actual tenant failure, if any: evidence and recovery | |
-
-Do not report the supplied ticket as an observed tenant failure. If the working run succeeded, record that independently of the paper diagnosis.

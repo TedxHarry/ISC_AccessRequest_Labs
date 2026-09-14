@@ -24,8 +24,16 @@
     - [AR-011 — Require a reviewer and a business reason](/Labs_Happypath/AR-011/README.md)
     - [AR-012 — Approve the first request and prove the AD change](/Labs_Happypath/AR-012/README.md)
     - [AR-013 — Deny a request and verify that access was not added](/Labs_Happypath/AR-013/README.md)
-    - [AR-014 — Find why VPN disappeared from the catalog](/Labs_Happypath/AR-014/README.md)
-    - [AR-015 — Deliver a second working request independently](/Labs_Happypath/AR-015/README.md)
+    - [AR-014 — Control VPN catalog availability](/Labs_Happypath/AR-014/README.md)
+    - [AR-015 — Request and remove a two-group access profile](/Labs_Happypath/AR-015/README.md)
+
+  - **MODULE 03 · BUSINESS ACCESS**
+    - [AR-016 — Bundle Finance reporting access](/Labs_Happypath/AR-016/README.md)
+    - [AR-017 — Present Finance access through an application](/Labs_Happypath/AR-017/README.md)
+    - [AR-018 — Offer the Finance Analyst role](/Labs_Happypath/AR-018/README.md)
+    - [AR-019 — Compare entitlement, profile and role requests](/Labs_Happypath/AR-019/README.md)
+    - [AR-020 — Manage the profiles offered by Finance Services](/Labs_Happypath/AR-020/README.md)
+    - [AR-021 — Deliver HR Services from a business requirement](/Labs_Happypath/AR-021/README.md)
 
 - **ENGINEER PATH**
   - **MODULE 01 · FOUNDATIONS**

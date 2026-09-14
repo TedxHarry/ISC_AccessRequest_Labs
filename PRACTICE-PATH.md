@@ -2,6 +2,8 @@
 
 Start at the first unfinished check. A later lab number does not mean every earlier optional product is required.
 
+Choose [beginner walkthroughs](Labs_Happypath/README.md) or [engineering labs](README.md#labs). Both provide the working steps. Engineering labs add investigation and evidence exercises. Reuse matching course objects when switching folders.
+
 ## Core sequence
 
 | Sequence | Complete before moving on |
@@ -38,6 +40,7 @@ Prepare each new requester/reviewer with [AR-008](labs/AR-008/README.md). Existi
 |---|---|---|
 | AR-009 | 24 HR identities, 24 standard AD accounts, 24-member baseline role | Every employee has a registered ISC session |
 | AR-012 | Lucas’s directly requested VPN | Removing a later profile removes that independent grant |
+| AR-021 | [C03 business-access configuration](M03-READINESS.md#state-passed-between-labs), clean Olivia/James and retained Lucas VPN | Catalog visibility proves a native grant |
 | AR-022 | Enabled Finance segment | Segmentation checks the recipient’s business eligibility |
 | AR-026 | Sofia’s standard and admin accounts; baseline selects standard | Account creation or correlation grants admin privileges |
 | AR-029 | Production Support with manager then Security review | Later workflow experiments leave those direct reviewers active |

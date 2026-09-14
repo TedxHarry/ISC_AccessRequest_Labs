@@ -10,12 +10,6 @@ Complete [AR-016](../AR-016/README.md), including removal. Use Acme Admin, Acme 
 
 AP-Finance-Reporting is enabled/requestable with Daniel reviewing grants and removals. Olivia has no Reporting or VPN membership, profile assignment or pending request. Confirm those conditions using AR-016 Section 1 before continuing.
 
-## Practice checkpoints
-
-Use this prompt when you reach the named step in the walkthrough.
-
-After Section 3 and before submitting, open separate Request Center tabs in Olivia's session. Find AP-Finance-Reporting directly and through Finance Services. Record the same profile name/ID and select it through Applications only. Compare this with the submitted request's item type.
-
 ## 1. Record the existing profile
 
 1. In Acme Admin, open **Admin > Access Model > Access Profiles > AP-Finance-Reporting**.
@@ -104,25 +98,6 @@ Finance Services gave Olivia a business name under which to find the reporting p
 
 </details>
 
-## Diagnose this ticket
-
-This is a supplied practice case. Write your diagnosis before opening the answer; keep it separate from failures you actually observe in the tenant.
-
-> The application has Visible in Request Center and Allow Access Requests selected. The profile is associated and can be requested directly. Finance Services itself is absent for Olivia. The configuration export shows Enable for Users is off.
-
-Record the evidence you would inspect, the smallest correction, the repeat check and the state you would leave for the next lab.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-Use Section 3 to enable the application for users, then reopen it to verify the saved state. Refresh Olivia's session and repeat the Applications search before submitting once. The two Request Center options do not override a disabled application. Complete the request/native checks and Section 6 removal.
-
-</details>
-
-## Resume or repeat
-
-Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
 ## Final verification
 
 - [ ] Finance Services uses the existing AD source and contains AP-Finance-Reporting once.
@@ -150,4 +125,4 @@ Keep Finance Services enabled for users, visible and requestable with the Report
 
 Keep credentials and registration links out of captures.
 
-[Previous: AR-016](../AR-016/README.md) · [Course outline](../../README.md) · [Next: AR-018](../AR-018/README.md)
+[Previous: AR-016](../AR-016/README.md) · [Lab index](../README.md) · [Next: AR-018](../AR-018/README.md)

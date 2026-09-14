@@ -156,6 +156,6 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 | AR-015-06.png | Olivia unchanged memberships |
 | AR-015-07.png | Liam removal and final native state |
 
-[Previous: AR-014](../AR-014/README.md) · [Lab index](../README.md)
+[Previous: AR-014](../AR-014/README.md) · [Lab index](../README.md) · [Next: AR-016](../AR-016/README.md)
 
 Module 2 is complete when the C02 checks pass. Keep the retained state for the next module.

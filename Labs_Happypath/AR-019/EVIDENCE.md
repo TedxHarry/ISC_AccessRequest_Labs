@@ -51,15 +51,3 @@ Use the exact filenames in [Screenshots to capture](README.md#screenshots-to-cap
 ## Explain the result
 
 Write your own answer to the lab's explanation or assessment before opening its answer. Include the requested object, controlling policy, native proof and cleanup where applicable.
-
-## Engineering investigation
-
-| Record | Your answer |
-|---|---|
-| Independent practice prediction and observed comparison | |
-| Supplied ticket: likely cause and supporting facts | |
-| Supplied ticket: next inspection and alternative to rule out | |
-| Supplied ticket: correction, repeat check and retained state | |
-| Actual tenant failure, if any: evidence and recovery | |
-
-Do not report the supplied ticket as an observed tenant failure. If the working run succeeded, record that independently of the paper diagnosis.

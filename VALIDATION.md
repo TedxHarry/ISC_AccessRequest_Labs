@@ -1,6 +1,6 @@
 # Course validation record
 
-Updated: 9 September 2026.
+Updated: 13 September 2026.
 
 See the [content audit](CONTENT-AUDIT.md) for corrected defects and unresolved acceptance checks. Written coverage is not a course-wide quality certification.
 
@@ -51,3 +51,11 @@ Module 1 now has the additional hands-on guidance pass described in [the module 
 Both Module 1 folders received a paired walkthrough review. See [the review record](M01-REVIEW.md#paired-module-1-walkthrough-review). No additional tenant execution or screenshot validation is claimed.
 
 Module 2 now has six complete walkthroughs in each folder, beginner journals and retained engineering exercises. See [the paired review](M02-REVIEW.md#paired-walkthrough-pass-after-module-1-direct-entry-check). The first-request sequence and shared target-check instructions were reviewed locally; live execution status is unchanged.
+
+## Module 3 paired walkthrough review, 13 September 2026
+
+AR-016–021 now have complete working walkthroughs and journals in both folders. The [review record](M03-REVIEW.md) describes corrected configuration, request, removal and sequence gaps. The [starting and handoff checks](M03-READINESS.md) define C02 prerequisites, additional HR sessions, retained state and recovery.
+
+Engineering pages retain independent comparisons and supplied diagnosis cases while exposing the same working procedures as the beginner pages. Module 3 changes are authored and locally reviewed; tenant execution and new screenshots remain pending. Later modules were not revised in this pass.
+
+Final Module 3 local check: 1,250 local Markdown file links resolve; 12 walkthroughs and 12 journals are present. Paired procedures, 97 changed-page anchors, numbered-section Checks, expandable answers and screenshot inventories passed. Actor IDs and manager references match the HR dataset. No tenant actions were performed.

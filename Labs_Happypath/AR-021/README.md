@@ -12,12 +12,6 @@ Complete [AR-020](../AR-020/README.md). Prepare **Acme James** (`acme.e014`, E01
 
 Keep the [module state](../../M03-READINESS.md) and your [journal](EVIDENCE.md) open. James already has a linked standard AD account and baseline access. You will not create another account.
 
-## Practice checkpoints
-
-Use this prompt when you reach the named step in the walkthrough.
-
-Before Section 2, write the object design and acceptance table from the requirement without copying the supplied rows. After Section 8, give a handover that another engineer could use to identify all three HR requests and reproduce the target checks. Compare it with the assessment answer only after writing your own.
-
 ## 1. Translate the requirement into two access choices
 
 1. Write these two rows in your journal before creating anything:
@@ -159,25 +153,6 @@ The selectable Payroll profile contains only GG-HR-PAYROLL and uses Elena as its
 
 </details>
 
-## Diagnose this ticket
-
-This is a supplied practice case. Write your diagnosis before opening the answer; keep it separate from failures you actually observe in the tenant.
-
-> Payroll was approved and Benefits was denied, but both HR groups are present on James's AD account. The saved Payroll profile contains both GG-HR-PAYROLL and GG-HR-BENEFITS. The team proposes closing the Benefits denial as successful.
-
-Record the evidence you would inspect, the smallest correction, the repeat check and the state you would leave for the next lab.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-The denial did not grant Benefits; the approved Payroll bundle supplied it. Record the actual Payroll grant and both native operations. Remove the incorrect requested Payroll assignment through the documented review/removal flow while its contents still describe the grant, then verify both business groups are absent. Check other assignments before expecting removal. Correct Payroll to contain Payroll only, save/apply and verify the definition. Repeat the Payroll grant and native separation checks, then complete cleanup. Do not treat editing a profile definition as proof that previously granted access was revoked.
-
-</details>
-
-## Resume or repeat
-
-Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
 ## Final verification
 
 - [ ] James and Elena have working ordinary-user sessions.
@@ -209,6 +184,6 @@ Keep the four business profiles, two applications and Finance Analyst role enabl
 
 Use extra images for separate panels. Keep credentials and invitation links out of captures.
 
-[Previous: AR-020](../AR-020/README.md) · [Course outline](../../README.md)
+[Previous: AR-020](../AR-020/README.md) · [Lab index](../README.md)
 
-[Next: AR-022](../AR-022/README.md). Continue after the C03 checks pass.
+Continue to Module 4 after the C03 checks pass.

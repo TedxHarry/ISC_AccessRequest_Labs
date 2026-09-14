@@ -8,12 +8,6 @@ Create a requestable Finance Analyst role containing reporting and accounts-paya
 
 Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and the AD workstation. Keep the [module state](../../M03-READINESS.md) and your [journal](EVIDENCE.md) open.
 
-## Practice checkpoints
-
-Use this prompt when you reach the named step in the walkthrough.
-
-Before Section 7, inspect the contained profile's assignment origin without changing it. Compare its revocability with the requested role's View Assignments screen. Record which object must be removed and why. Then complete the administrator role revocation.
-
 ## 1. Check the recipient and the new entitlement
 
 1. As administrator, open Olivia under **Admin > Identity Management > Identities**. Inspect **Accounts**, **Access** and her pending requests.
@@ -120,25 +114,6 @@ The role packages both profiles into one requested job assignment and uses its o
 
 </details>
 
-## Diagnose this ticket
-
-This is a supplied practice case. Write your diagnosis before opening the answer; keep it separate from failures you actually observe in the tenant.
-
-> Olivia has Reporting, VPN and FIN-AP through ROLE-Finance-Analyst. A colleague opens AP-Finance-AP on her identity and cannot revoke it. They propose disabling the role.
-
-Record the evidence you would inspect, the smallest correction, the repeat check and the state you would leave for the next lab.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-Inspect role View Details > Identities > Olivia > View Assignments. The profile is supplied by the role; follow Section 7 for the requested role assignment. Do not disable the definition: that is not targeted deprovisioning. Verify all three native removals, baseline and the retained enabled definition.
-
-</details>
-
-## Resume or repeat
-
-Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
 ## Final verification
 
 - [ ] AP-Finance-AP is enabled/requestable with FIN-AP only and Daniel's grant/removal policies.
@@ -167,4 +142,4 @@ Keep the two Finance profiles, Finance Services and the role enabled/requestable
 
 Exclude credentials and private registration details.
 
-[Previous: AR-017](../AR-017/README.md) · [Course outline](../../README.md) · [Next: AR-019](../AR-019/README.md)
+[Previous: AR-017](../AR-017/README.md) · [Lab index](../README.md) · [Next: AR-019](../AR-019/README.md)

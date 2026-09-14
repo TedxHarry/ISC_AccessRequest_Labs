@@ -16,12 +16,6 @@ All three items below are enabled/requestable. Olivia starts without the three b
 | B | Access profile: AP-Finance-Reporting | Daniel | VPN + FIN-REPORTING |
 | C | Role: ROLE-Finance-Analyst | Daniel | VPN + FIN-REPORTING + FIN-AP |
 
-## Practice checkpoints
-
-Use this prompt when you reach the named step in the walkthrough.
-
-Before opening your saved comparison, predict the grant reviewer and distinct group count for A, B and C. Then use request details and activity to check the prediction. Include an explanation of why a detected access-profile card alone cannot establish which object was requested.
-
 ## 1. Prepare the comparison and VPN removal review
 
 1. As administrator, inspect Olivia's **Accounts**, **Access** and pending requests. Record her standard AD account DN/objectGUID.
@@ -112,25 +106,6 @@ The requested type/ID and approval policy differ. The profile also delivered Rep
 
 </details>
 
-## Diagnose this ticket
-
-This is a supplied practice case. Write your diagnosis before opening the answer; keep it separate from failures you actually observe in the tenant.
-
-> A handover lists three successful tests, but its screenshots show VPN present before Tests B and C. There is one grant ID and no removal evidence. The engineer says the final group list proves all three request paths worked.
-
-Record the evidence you would inspect, the smallest correction, the repeat check and the state you would leave for the next lab.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-The supplied evidence cannot establish the three cycles. Identify which grant actually exists using its requested type/ID and assignment origin. Complete its documented removal, verify the three business memberships are absent, then rerun only the unproven cycles in order. Keep a separate grant/removal timeline per test and compare the same native account each time.
-
-</details>
-
-## Resume or repeat
-
-Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
 ## Final verification
 
 - [ ] Three distinct grant tests and their native results are recorded.
@@ -161,4 +136,4 @@ Retain the access model and the explicit VPN removal policy. Olivia finishes wit
 
 Use extra captures for decision/activity/native panels. Exclude credentials.
 
-[Previous: AR-018](../AR-018/README.md) · [Course outline](../../README.md) · [Next: AR-020](../AR-020/README.md)
+[Previous: AR-018](../AR-018/README.md) · [Lab index](../README.md) · [Next: AR-020](../AR-020/README.md)

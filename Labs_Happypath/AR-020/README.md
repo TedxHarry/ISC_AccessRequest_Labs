@@ -1,4 +1,4 @@
-# AR-020 · Repair an application with no usable access
+# AR-020 · Manage the profiles offered by Finance Services
 
 ## Goal
 
@@ -9,12 +9,6 @@ Change which profiles Finance Services offers, observe the catalog, and restore 
 Complete [AR-019](../AR-019/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Keep your [journal](EVIDENCE.md) open.
 
 Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles are enabled/requestable, as is ROLE-Finance-Analyst. Olivia has no Finance/VPN access or pending request. Lucas retains his direct VPN.
-
-## Practice checkpoints
-
-Use this prompt when you reach the named step in the walkthrough.
-
-After Section 2, pause before reading the recovery table. Use the requester comparison and administrator settings to name the failed configuration. Explain what evidence would change your diagnosis if direct profile search also failed. Then complete Sections 3–5 to restore the catalog.
 
 ## 1. Capture the working catalog
 
@@ -100,25 +94,6 @@ During the empty-association state, the enabled/requestable profiles remained av
 
 </details>
 
-## Diagnose this ticket
-
-This is a supplied practice case. Write your diagnosis before opening the answer; keep it separate from failures you actually observe in the tenant.
-
-> Finance Services is enabled, visible and requestable. Olivia can find AP-Finance-Reporting and AP-Finance-AP through direct search, but the application offers neither. Its Access Profiles list is empty.
-
-Record the evidence you would inspect, the smallest correction, the repeat check and the state you would leave for the next lab.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-This evidence points to missing associations. Use Section 4 to add the existing two profiles and save; wait for refresh, then verify both choices in Olivia's session. Do not rebuild profiles, relax global request settings or modify AD membership. Retain the three-state evidence and restored configuration.
-
-</details>
-
-## Resume or repeat
-
-Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
 ## Final verification
 
 - [ ] A working starting catalog was captured.
@@ -146,4 +121,4 @@ Keep the restored Finance Services application, both profiles and role. Olivia r
 
 Keep private registration information out of captures.
 
-[Previous: AR-019](../AR-019/README.md) · [Course outline](../../README.md) · [Next: AR-021](../AR-021/README.md)
+[Previous: AR-019](../AR-019/README.md) · [Lab index](../README.md) · [Next: AR-021](../AR-021/README.md)

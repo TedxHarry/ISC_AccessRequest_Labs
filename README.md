@@ -5,6 +5,8 @@
 
 Build requestable access, configure approvals, verify provisioning in Active Directory, and troubleshoot realistic Access Request incidents.
 
+[Beginner walkthroughs](Labs_Happypath/README.md) · [Engineering labs](#labs). Both use the same environment; keep the stated access and configuration when switching folders.
+
 The course follows Acme Corporation's IAM team through **90 practice labs and three capstone projects**. You will work with the same identities, AD groups, access profiles, roles, and applications as the scenarios become more challenging.
 
 ## Course outline
@@ -86,11 +88,11 @@ Prerequisite: C01. Complete the [Module 2 starting checks](M02-READINESS.md). Yo
 | [AR-012](labs/AR-012/README.md) | Practice | Complete the first successful request | Link submission, decision, activity, and AD membership |
 | [AR-013](labs/AR-013/README.md) | Practice | Deny a second user's request | Prove the denial outcome and absence of a new target grant |
 | [AR-014](labs/AR-014/README.md) | Investigate | VPN is missing from Request Center | Isolate the requestability fault with a non-admin session |
-| [AR-015](labs/AR-015/README.md) | Check | Deliver Remote Users access without a walkthrough | Build, test, remove the test grant, and save C02 |
+| [AR-015](labs/AR-015/README.md) | Check | Deliver and verify Remote Worker access | Build, test, remove the test grant, and save C02 |
 
 ## M03 — Package useful business access
 
-Prerequisite: M02. You will choose and validate entitlement, profile, and role requests. Documentation: [role and access profile requests](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html).
+Prerequisite: C02. Complete the [Module 3 starting checks](M03-READINESS.md). You will choose and validate entitlement, profile, and role requests. Documentation: [role and access profile requests](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html).
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|

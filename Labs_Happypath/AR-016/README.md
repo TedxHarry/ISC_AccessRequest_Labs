@@ -8,12 +8,6 @@ Give Olivia one reporting item that supplies both the reporting group and VPN. F
 
 Complete [AR-015](../AR-015/README.md) and the [Module 3 starting checks](../../M03-READINESS.md). Open Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and your AD workstation. Keep your [journal](EVIDENCE.md) open.
 
-## Practice checkpoints
-
-Use this prompt when you reach the named step in the walkthrough.
-
-Before submitting Section 4, inspect Priya's direct VPN policy and Daniel's profile policy side by side. Predict which reviewer will receive this request. After submission, record the actual Assignees and explain the result using the requested object type.
-
 ## 1. Confirm Olivia's starting access
 
 1. In Acme Admin, open **Admin > Identity Management > Identities**, find Olivia and verify E011 and Acme Employees.
@@ -113,25 +107,6 @@ Olivia requested AP-Finance-Reporting and Daniel reviewed it. That one requested
 
 </details>
 
-## Diagnose this ticket
-
-This is a supplied practice case. Write your diagnosis before opening the answer; keep it separate from failures you actually observe in the tenant.
-
-> Olivia's request says Approved. VPN is present, but GG-FIN-REPORTING is absent. A colleague proposes closing the request because the approval succeeded.
-
-Record the evidence you would inspect, the smallest correction, the repeat check and the state you would leave for the next lab.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-Keep the fulfillment check open. Match the exact Reporting DN and inspect its account activity operation. Compare the native account and controller with the VPN check. Resolve the reported operation error before a supported retry; do not create a second profile or add the group manually. Close only after both native memberships are verified, then use Section 6 to remove the test grant.
-
-</details>
-
-## Resume or repeat
-
-Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
 ## Final verification
 
 - [ ] The profile contains exactly Reporting and VPN from the recorded AD source.
@@ -159,4 +134,4 @@ Capture at the matching steps; use additional images when a panel does not fit. 
 | AR-016-04.png | Successful activity and both memberships |
 | AR-016-05.png | Removal and restored recipient state |
 
-[Previous: AR-015](../AR-015/README.md) · [Course outline](../../README.md) · [Next: AR-017](../AR-017/README.md)
+[Previous: AR-015](../AR-015/README.md) · [Lab index](../README.md) · [Next: AR-017](../AR-017/README.md)
