@@ -1,6 +1,6 @@
 # Start Here
 
-This course is designed to be completed as an engineering lab path, not read like a textbook. Build the environment once, complete the labs in order, capture evidence, and use the investigation exercises to learn how to diagnose failures instead of only following happy-path steps.
+Build the environment once, then complete the labs in order. Choose the beginner path to follow the working scenario, or the engineering path for the same guided steps with additional troubleshooting practice. Both paths use the same lab environment.
 
 ## Your learning path
 
@@ -71,7 +71,7 @@ Complete these items first:
 - Create a place for your evidence journal and screenshots.
 - Use dedicated requester and reviewer sessions when a lab tests requester-facing behavior.
 
-Then begin with **[AR-001 — Import Acme's HR Records](labs/AR-001/README.md)**.
+Begin AR-001: **[Beginner walkthrough](Labs_Happypath/AR-001/README.md)** or **[Engineering lab](labs/AR-001/README.md)**. When switching paths, continue from your current lab and keep its required configuration.
 
 ## When a lab does not match your tenant
 

@@ -204,7 +204,14 @@ Write these answers in your [journal](EVIDENCE.md):
 
 ## If a check does not match
 
-If an activity is pending, inspect that activity before applying again. If it fails, read the account-create and membership results separately and inspect AD; a failed membership operation may still leave a created account. Resolve the reported cause before adding another person.
+If the activity is still pending, follow it before applying again. If it fails:
+
+1. Reopen the matching **Search > Account Activity** result and select the AD source entry. Read the account-create and group-membership results separately. Copy the exact error into your private journal.
+2. Inspect the named account in AD before trying again. If Liam already exists, keep that account; a failed group operation does not mean account creation failed. For a naming or attribute error, compare the reported value with your saved AR-005 mappings. For a membership error, compare the reported group DN with GG-ACME-BASELINE in AD.
+3. Correct the setting identified by the error. Automatic role provisioning retries only retryable failures, once per hour, up to three times. Follow the activity and recheck AD after the attempt; do not remove and re-add the role to force a retry.
+4. If the error is not retryable or all attempts have failed, keep the account and role assignments in place. Give your lab administrator or SailPoint support the exact error, activity ID and current AD result to determine the supported recovery. Continue only when the account is linked correctly and its baseline membership is present.
+
+[Role provisioning retries](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html#role-provisioning-retries)
 
 ## Final verification
 

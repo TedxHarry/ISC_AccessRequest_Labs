@@ -46,7 +46,9 @@ If controllers disagree, record both results and investigate AD replication befo
 4. For a request on behalf of Taylor or another user, verify the current requester is authorized under [AR-023](labs/AR-023/README.md). If a temporary setting change is needed, record it, enable only for the exercise, and restore it after all requests have been accounted for. Do not assume an earlier lab left Everyone-for-anyone enabled.
 5. After the lab, remove every test grant, including any known-good control on a second group, and resolve pending controls. Restore recorded settings unless the lab explicitly retains them. Do not advance while a failed removal leaves unexplained access.
 
-Lucas retains a directly requested VPN assignment from AR-012. Removing a later profile that also includes VPN must preserve that independent grant. After AR-047 the working HR file has 25 records; the baseline role still selects only the original 24.
+Keep Lucas's VPN assignment from AR-012 in place unless a lab explicitly tests its removal. Do not assume a separate grant protects an entitlement when an overlapping profile is revoked. Check the assignment origin and native membership; [profile removal can revoke shared entitlements](https://documentation.sailpoint.com/saas/help/access/access-profiles.html#deprovisioning-with-access-profiles). Use the recipient named in each lab for grant/removal tests.
+
+After AR-047 the working HR file has 25 records; the baseline role still selects only the original 24.
 
 ## Find a specific request, approval, or account activity
 

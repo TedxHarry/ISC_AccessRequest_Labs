@@ -82,7 +82,12 @@ Use account activity to investigate provisioning and AD to verify the target cha
 | Role is visible but no provisioning occurs | Role/profile enablement, saved identity list, Apply Changes, and identity-processing status |
 | A retry is proposed | Inspect AD and running activity first. A partial operation may already have created the account. |
 
-Correct the cause, then use the supported retry action available for that failed activity or allow the documented role retry process to run. Verify the target before retrying. Do not remove and re-add a role merely to force another attempt; removing eligibility can remove access. [Role retries and removal behavior](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html)
+1. Reopen the matching **Search > Account Activity** result and select the AD source entry. Read the account-create and group-membership results separately. Copy the exact error into your private journal.
+2. Inspect the named account in AD before trying again. If Liam already exists, keep that account; a failed group operation does not mean account creation failed. For a naming or attribute error, compare the reported value with your saved AR-005 mappings. For a membership error, compare the reported group DN with GG-ACME-BASELINE in AD.
+3. Correct the setting identified by the error. Automatic role provisioning retries only retryable failures, once per hour, up to three times. Follow the activity and recheck AD after the attempt; do not remove and re-add the role to force a retry.
+4. If the error is not retryable or all attempts have failed, keep the account and role assignments in place. Give your lab administrator or SailPoint support the exact error, activity ID and current AD result to determine the supported recovery. Continue only when the account is linked correctly and its baseline membership is present.
+
+[Role provisioning retries](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html#role-provisioning-retries)
 
 ## Compare the two outcomes, then check again
 
@@ -104,7 +109,7 @@ Write your diagnosis and the evidence you would accept before opening the soluti
 <details>
 <summary>Compare your diagnosis with the mentor’s solution</summary>
 
-Find the account by username, employeeID and DN, then inspect the group operation and its exact error. The account may already have been created. Correct the specific group reference/permission error supported by the evidence, then use an eligible supported retry or documented retry process. Do not delete Liam or unassign/reassign the role to force account creation again.
+Find the account by username, employeeID and DN, then inspect the group operation and its exact error. The account may already have been created. Correct the specific group reference/permission error supported by the evidence, then follow the recovery steps under **If provisioning fails**. Do not delete Liam or unassign/reassign the role to force account creation again.
 
 </details>
 
