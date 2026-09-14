@@ -68,3 +68,14 @@ Continue from AR-027 with the existing accounts and access configuration. Each l
 31. [AR-031 · Compare consolidated review and self-approval handling](AR-031/README.md)
 32. [AR-032 · Observe reminders, escalation and approval expiration](AR-032/README.md)
 33. [AR-033 · Verify the approval setup and save C05](AR-033/README.md)
+
+## Module 6 · Request forms
+
+Continue from C05. You will create the form in AR-034, add and test its questions, then save C06 after the final grant and removal.
+
+34. [AR-034 · Attach a native form to Production Support](AR-034/README.md)
+35. [AR-035 · Test required and optional form answers](AR-035/README.md)
+36. [AR-036 · Show an extra field for Production work](AR-036/README.md)
+37. [AR-037 · Trace form answers through a multi-item request](AR-037/README.md)
+38. [AR-038 · Repair a missing request form](AR-038/README.md)
+39. [AR-039 · Verify the Production Support form and save C06](AR-039/README.md)

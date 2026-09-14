@@ -1,10 +1,10 @@
 # AR-009 — Verify the Environment and Save C01
 
-## Before you start
-
 <a id="goal"></a>
 
-Verify the complete Module 1 foundation and save a clean evidence checkpoint before starting Access Request configuration.
+In this lab, you'll verify the Module 1 environment using current ISC and AD records, then save checkpoint C01.
+
+## Before you start
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 

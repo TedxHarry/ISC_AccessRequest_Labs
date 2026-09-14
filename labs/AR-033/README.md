@@ -1,10 +1,12 @@
 # AR-033 · Verify the approval setup and save C05
 
+You will run fresh approval and denial controls, then leave the environment ready for request forms.
+
 ## Before you start
 
 Complete AR-031 and either finish AR-032's observations or close its requests and mark the timed portion deferred. AP-Production-Support must have its original timing settings restored before you create new requests.
 
-Use Acme Admin, Acme Henry, Acme Harper, Acme Ava and Acme Evelyn. Keep the Module 5 journals and the [AR-033 journal](EVIDENCE.md) open. You will run fresh approval and denial controls, then leave the environment ready for request forms.
+Use Acme Admin, Acme Henry, Acme Harper, Acme Ava and Acme Evelyn. Keep the Module 5 journals and the [AR-033 journal](EVIDENCE.md) open.
 
 ## Follow the steps
 

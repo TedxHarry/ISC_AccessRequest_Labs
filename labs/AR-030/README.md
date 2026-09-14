@@ -1,10 +1,12 @@
 # AR-030 · Reassign a review and investigate an unresolved reviewer
 
+You will first reassign a valid pending review to Noah and verify that the next request still uses Ava.
+
 ## Before you start
 
 Complete AR-029. Prepare Acme Harper (`acme.e019`) using the same email, registration and browser-profile steps in [AR-029 Section 1](../AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), substituting Harper's username. Use Acme Admin, Acme Ava and Acme Noah too.
 
-Harper's Manager is Ava. AP-Production-Support still requires Manager then Security. You will first reassign a valid pending review to Noah and verify that the next request still uses Ava. Keep the [journal](EVIDENCE.md) open.
+Harper's Manager is Ava. AP-Production-Support still requires Manager then Security. Keep the [journal](EVIDENCE.md) open.
 
 ## Follow the steps
 

@@ -1,10 +1,10 @@
 # AR-020 · Manage the profiles offered by Finance Services
 
-## Before you start
-
 <a id="goal"></a>
 
-Change which profiles Finance Services offers, observe the catalog, and restore both choices. You will check application configuration separately from profile requestability and native access.
+In this lab, you'll change which profiles Finance Services offers, observe the catalog and restore both choices without changing existing AD access.
+
+## Before you start
 
 Complete [AR-019](../AR-019/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Keep your [journal](EVIDENCE.md) open.
 

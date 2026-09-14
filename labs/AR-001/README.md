@@ -1,10 +1,10 @@
 # AR-001 — Import Acme's HR Records
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-Start with the employee file. You’ll bring its 24 records into ISC, check the identities it produces, then change Lucas’s department and follow that change through the records. This gives you a way to locate a data problem before you configure access requests.
+In this lab, you'll import the 24 Acme HR records, map their identity attributes and verify the resulting identities.
+
+## Before you start
 
 **Prerequisites:** Sign in to your ISC training tenant with an account that can create sources and identity profiles. Your existing AD connection will be used in later labs; this exercise imports HR data.
 

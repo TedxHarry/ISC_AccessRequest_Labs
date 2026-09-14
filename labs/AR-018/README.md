@@ -1,10 +1,10 @@
 # AR-018 · Offer the Finance Analyst role
 
-## Before you start
-
 <a id="goal"></a>
 
-Create a requestable Finance Analyst role containing reporting and accounts-payable profiles. Approve it for Olivia, verify three groups on her existing AD account, then revoke her requested role assignment.
+In this lab, you'll create a requestable Finance Analyst role, approve it for Olivia, verify its three AD groups and revoke the test role assignment.
+
+## Before you start
 
 Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and the AD workstation. Keep the [module state](../../M03-READINESS.md) and your [journal](EVIDENCE.md) open.
 

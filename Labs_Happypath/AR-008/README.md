@@ -1,10 +1,10 @@
 # AR-008 — Prepare Requester and Reviewer Sessions
 
-## Before you start
-
 <a id="goal"></a>
 
-Prepare separate ISC sign-in sessions for Lucas, Daniel, Priya, and the administrator so the next access-request labs can be tested with the correct requester and reviewers.
+In this lab, you'll prepare separate ISC sessions for Lucas, Daniel and Priya, then verify who is signed in to each session.
+
+## Before you start
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
@@ -16,7 +16,7 @@ Start in your ISC administrator session. Switch to the named user’s separate b
 
 Complete [AR-007](../AR-007/README.md).
 
-You should already have:
+From the previous labs, you need:
 
 - 24 Acme identities.
 - 24 standard Acme AD accounts.

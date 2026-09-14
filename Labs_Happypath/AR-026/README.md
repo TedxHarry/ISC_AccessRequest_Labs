@@ -1,10 +1,10 @@
 # AR-026 · Select the correct account for Sofia's access
 
-## Before you start
-
 <a id="goal"></a>
 
-Correlate two AD accounts to Sofia, keep automatic baseline access on her standard account, then request VPN for her second test account. Verify and remove the grant from that exact account.
+In this lab, you'll create and correlate Sofia's second AD test account, keep automatic baseline access on her standard account, and request then remove VPN on the second account.
+
+## Before you start
 
 Complete [AR-025](../AR-025/README.md). Prepare [Sofia's ordinary ISC session](../../M04-READINESS.md#prepare-sofias-sign-in-before-ar-026). Open Acme Admin, Acme Sofia (`acme.e009`), Acme Priya (`acme.e002`) and the AD workstation.
 

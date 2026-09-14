@@ -1,23 +1,22 @@
-# AR-039 evidence journal
+# AR-039 · Evidence journal
 
-| Record | Your evidence |
+Record what you observe while following the [lab](README.md). Leave unexecuted checks marked **Not run**.
+
+| Record | Your observation or evidence |
 |---|---|
-| Date, tenant and available capability | |
-| Requester / recipient / reviewer | |
-| Source, access item and account IDs | |
-| Starting configuration and native access | |
-| Predicted result | |
-| Request / approval / activity IDs | |
-| Actual result and timestamps | |
-| Changed condition and result | |
-| Root cause, recovery and repeat test | |
-| Final configuration and native access | |
-| Remaining observation or support case | |
+| Date, tenant and signed-in usernames | |
+| C06 status: observed / failed / not run | |
+| Form/profile IDs and five fields: type/key/required | |
+| Environment choices and condition operator/value/effect | |
+| Each missing-field error and Test branch | |
+| Control request ID and denial | |
+| Production request ID; Ava and Evelyn decisions | |
+| Addition activity and Support True; other groups unchanged | |
+| Removal request/activity and Support False; baseline True | |
+| Remote Worker original association restored; no pending requests | |
+| Outstanding failure or unexecuted observation | |
+| Engineering investigation: cause, evidence, repair and fresh check | |
 
 ## Screenshots
 
-Use the capture list at the end of the [lab](README.md). Name the files `AR-039-01.png`, `AR-039-02.png` and so on in that order. Record a separate filename for each test variant. Exclude credentials and callback secrets.
-
-## Explain the result
-
-Which evidence proves the requested outcome? Which other cause did you rule out? Could another engineer repeat your recovery from these notes?
+Use the filenames in the lab’s capture list. Record each saved filename beside its matching result above.

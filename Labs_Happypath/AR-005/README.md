@@ -1,10 +1,10 @@
 # AR-005 — Configure AD Account Creation
 
-## Before you start
-
 <a id="goal"></a>
 
-Configure the Active Directory source so ISC can create standard Acme user accounts with predictable names, attributes, passwords, and target OU placement.
+In this lab, you'll configure the AD account-creation mappings and check the values ISC will use for Liam. Saving these mappings does not create his account; AR-006 triggers that operation.
+
+## Before you start
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
@@ -16,10 +16,10 @@ Use your ISC administrator session for ISC steps and your AD administration work
 
 Complete [AR-004](../AR-004/README.md).
 
-You should already have:
+From the previous labs, you need:
 
 - Lucas's AD account correctly correlated.
-- An Active Directory source with direct provisioning configured.
+- An Active Directory connector that supports direct provisioning; the account-creation mappings will be configured in this lab.
 - Working VA/IQService connectivity and permissions for the AcmeLab OUs and groups.
 - The actual AcmeLab/Users OU DN.
 - Access to Lucas's AD Account tab to look up the configured UPN suffix below.

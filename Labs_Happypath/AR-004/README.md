@@ -1,10 +1,10 @@
 # AR-004 — Correlate Lucas's Existing AD Account
 
-## Before you start
-
 <a id="goal"></a>
 
-Correlate Lucas Brown's existing Active Directory account to his ISC identity by matching the same employee identifier on both records.
+In this lab, you'll link Lucas's imported AD account to his ISC identity using the employee identifier. You created and imported the account in AR-003; you will configure and verify the match here.
+
+## Before you start
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
@@ -16,7 +16,7 @@ Use your ISC administrator session for ISC steps and your AD administration work
 
 Complete [AR-003](../AR-003/README.md).
 
-You should already have:
+From the previous labs, you need:
 
 - Lucas Brown as ISC identity `acme.e012`.
 - Lucas's AD account imported on the AD source.

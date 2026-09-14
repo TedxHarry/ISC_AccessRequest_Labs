@@ -1,10 +1,10 @@
 # AR-010 · Make VPN access requestable
 
-## Before you start
-
 <a id="goal"></a>
 
-Make the imported VPN group available in Lucas’s catalog. You will configure visibility now and approval in AR-011, before submitting any request.
+In this lab, you'll make the imported VPN group available in Lucas's catalog. You will configure approval in AR-011 before submitting a request.
+
+## Before you start
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 

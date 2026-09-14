@@ -1,10 +1,10 @@
 # AR-009 · Verify the Environment and Save C01
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-Before opening VPN requests, walk through the environment once more. Use current records to check what exists, then save enough evidence that you could explain it to another engineer.
+In this lab, you'll verify the Module 1 environment using current ISC and AD records, then save checkpoint C01.
+
+## Before you start
 
 **Prerequisites:** Complete [AR-008](../AR-008/README.md) and retain the evidence from AR-001 through AR-007.
 

@@ -1,10 +1,8 @@
 # AR-002 — Resolve the Manager Hierarchy
 
-## Before you start
-
 <a id="goal"></a>
 
-Use the manager reference already present in Acme HR to resolve ISC manager relationships for the 24 Acme identities.
+In this lab, you'll use the HR manager references to link the Acme identities to their managers, then verify Lucas → Daniel → Morgan.
 
 By the end of this lab:
 
@@ -18,6 +16,8 @@ Morgan Reed (E001)
 
 Morgan is the hierarchy root and has no manager.
 
+## Before you start
+
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
 <a id="session-for-this-lab"></a>
@@ -28,7 +28,7 @@ Use your ISC administrator session.
 
 Complete [AR-001](../AR-001/README.md).
 
-You should already have:
+From the previous labs, you need:
 
 - Acme HR with 24 accounts.
 - Acme Employees with 24 identities.

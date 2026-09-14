@@ -1,10 +1,10 @@
 # AR-013 · Deny a request and verify that access was not added
 
-## Before you start
-
 <a id="goal"></a>
 
-Submit Olivia's VPN request, deny it with a reason, and verify that the decision leaves her AD access unchanged.
+In this lab, you'll submit Olivia's VPN request, deny it with a reason and verify that her AD access is unchanged.
+
+## Before you start
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 

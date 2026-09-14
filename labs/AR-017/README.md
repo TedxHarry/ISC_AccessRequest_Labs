@@ -1,10 +1,10 @@
 # AR-017 · Present Finance access through an application
 
-## Before you start
-
 <a id="goal"></a>
 
-Let Olivia find reporting access under **Finance Services** in Request Center. You will associate the existing profile with an ISC access application, request it there, and verify the same two AD groups.
+In this lab, you'll associate the reporting profile with Finance Services, request it from that application and verify the resulting AD access before removal.
+
+## Before you start
 
 Complete [AR-016](../AR-016/README.md), including removal. Use Acme Admin, Acme Olivia, Acme Daniel and the AD workstation. Keep your [journal](EVIDENCE.md) and [module state](../../M03-READINESS.md) open.
 

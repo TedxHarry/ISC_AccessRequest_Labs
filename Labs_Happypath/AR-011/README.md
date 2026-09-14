@@ -1,10 +1,10 @@
 # AR-011 · Require a reviewer and a business reason
 
-## Before you start
-
 <a id="goal"></a>
 
-Configure Priya as the VPN reviewer, submit Lucas's request with a reason, and leave it pending for AR-012.
+In this lab, you'll configure Priya as the VPN reviewer, submit Lucas's request with a reason and leave it pending for AR-012.
+
+## Before you start
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 

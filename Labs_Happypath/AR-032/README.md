@@ -1,12 +1,14 @@
 # AR-032 · Observe reminders, escalation and approval expiration
 
+This lab includes real scheduled events. You can write down the configuration today, but leave the timed results unverified until the events occur.
+
 ## Before you start
 
 Complete AR-031. Use Acme Henry, Acme Harper, Acme Ava and Acme Noah. Prepare Samuel's session (`acme.e024`) using [AR-029 Section 1](../AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), substituting Samuel's username. Ava and Samuel need controlled inboxes for the reminder/escalation observations.
 
 Use the item-level Timeout, Reminders and Escalations controls described below. If they are unavailable in your tenant, record the missing capability and defer this lab rather than changing global settings as a substitute.
 
-This lab includes real scheduled events. You can write down the configuration today, but leave the timed results unverified until the events occur. Keep the [journal](EVIDENCE.md) for the next observation. Do not approve either diagnostic request.
+Keep the [journal](EVIDENCE.md) for the next observation. Do not approve either diagnostic request.
 
 ## Follow the steps
 

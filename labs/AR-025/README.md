@@ -1,10 +1,10 @@
 # AR-025 · Trace a wrong department into catalog visibility
 
-## Before you start
-
 <a id="goal"></a>
 
-Follow Lucas's Department from the HR file to his HR account, mapped identity and Finance catalog. Change it to Sales for the comparison, then restore Finance and verify the full chain.
+In this lab, you'll trace Lucas's Department from HR to his identity and catalog, temporarily change it to Sales and restore Finance after the comparison.
+
+## Before you start
 
 Complete [AR-024](../AR-024/README.md). Keep the Finance segment enabled and the original request-on-behalf setting restored. Use Acme Admin, Acme Lucas (`acme.e012`), Acme Liam (`acme.e008`) and the AD workstation.
 

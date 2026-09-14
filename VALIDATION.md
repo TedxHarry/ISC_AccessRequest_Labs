@@ -83,3 +83,15 @@ Behavior was checked against the current [entitlement request guide](https://doc
 The next paired module is Module 6, AR-034–039. Later walkthroughs were not revised in this pass.
 
 Module 5 local checks: all 12 walkthroughs have the agreed structure and a matching journal; the six pairs have identical working steps. Actor/manager values match the course CSV. Local links and heading anchors, screenshot references, and Markdown formatting were checked. Live approval decisions, notifications, escalation, expiration and native fulfillment remain pending tenant execution.
+
+## Module 6 and opening-section review, 14 September 2026
+
+AR-001–033 in both paths now put the lab objective above Before you start. The prerequisite section retains actual prior-lab state and required tools. AR-004 explicitly distinguishes the account created/imported in AR-003 from the correlation performed in AR-004. AR-005 distinguishes an available provisioning connector from the creation mappings configured in that lab. This pass preserves the earlier walkthrough procedures, code blocks and images.
+
+AR-034–039 now have paired working walkthroughs and individual journals. Engineering adds focused investigations. The steps cover form creation/association, required and optional answers, conditional visibility and hidden-answer retention, copied answers in a multi-item submission, association repair, reviewer checks, native grant/removal verification and C06. Remote Worker's temporary association is restored. No learner screenshots or tenant execution are claimed.
+
+Checked against [SailPoint form building and conditions](https://documentation.sailpoint.com/saas/help/forms/index.html), [native access-request form capabilities](https://developer.sailpoint.com/discuss/t/new-capability-forms-for-access-request/217255), [profile request configuration](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html) and [Request Center behavior](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html). The documented contrary effect of a false condition is retained; a redundant competing hide rule was not introduced. Array versus scalar comparison is checked against the builder's actual representation. Native form values are not claimed to validate external tickets, become AD attributes automatically or schedule removal.
+
+Module 7, AR-040–045, is the next paired walkthrough review. Later labs retain their existing drafts. Module 6 tenant execution, field rendering and screenshots remain pending.
+
+Local checks passed for 78 revised walkthrough structures, six matching Module 6 working pairs and their journals, screenshot inventories, and preservation of earlier numbered steps, code and images. The link check covered 910 relevant local references before the final course-outline edit; the outline edit changes descriptions only.

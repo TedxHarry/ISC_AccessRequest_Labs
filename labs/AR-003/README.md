@@ -1,10 +1,10 @@
 # AR-003 — Validate AD and Aggregate the Lab Data
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-Bring Lucas and the lab groups into ISC before you try to grant anything. Start by checking where they actually live in AD. Then check the source reads those locations and inspect what it imported.
+In this lab, you'll create the Acme lab OUs, Lucas's AD account and the course groups, update the source search scopes, and aggregate them into ISC.
+
+## Before you start
 
 The HR import created HR accounts and identities. It did not create users in Active Directory. Start with one AD user here; AR-004 correlates Lucas; AR-005 through AR-007 configure and run provisioning for the remaining standard accounts.
 

@@ -1,10 +1,10 @@
 # AR-002 — Resolve the Manager Hierarchy
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-Lucas’s HR record says his manager is E003. You and I can look that up in the file, but ISC needs a link to Daniel’s identity. Set up that match, then check the rest of the team and correct a deliberately wrong manager reference.
+In this lab, you'll use the HR manager references to link the Acme identities to their managers, then verify Lucas → Daniel → Morgan.
+
+## Before you start
 
 Use the existing HR source, profile, and [baseline dataset](../../datasets/acme-hr-baseline.csv). No new source or AD configuration is needed.
 

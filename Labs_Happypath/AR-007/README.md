@@ -1,10 +1,10 @@
 # AR-007 — Provision the Remaining Standard Accounts
 
-## Before you start
-
 <a id="goal"></a>
 
-Expand the working baseline role from Lucas and Liam to all 24 Acme identities, provision the remaining AD accounts, and verify every account and baseline membership.
+In this lab, you'll expand the baseline role from the two verified pilot accounts in AR-006 to all 24 Acme identities and check the remaining account creations.
+
+## Before you start
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
@@ -16,7 +16,7 @@ Use your ISC administrator session for ISC steps and your AD administration work
 
 Complete [AR-006](../AR-006/README.md).
 
-You should already have:
+From the previous labs, you need:
 
 - Lucas with his existing AD account and baseline membership.
 - Liam with an ISC-created AD account and baseline membership.

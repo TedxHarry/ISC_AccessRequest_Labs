@@ -1,8 +1,10 @@
 # AR-031 · Compare consolidated review and self-approval handling
 
+You will compare two reviewer categories resolving to one person, two different people, and a requester who is also the profile owner.
+
 ## Before you start
 
-Complete AR-030. Use Acme Admin, Acme Olivia, Acme Daniel and Acme Priya. AP-Finance-Reporting contains Reporting and VPN; Olivia's Manager is Daniel. You will compare two reviewer categories resolving to one person, two different people, and a requester who is also the profile owner. Keep the [journal](EVIDENCE.md) open.
+Complete AR-030. Use Acme Admin, Acme Olivia, Acme Daniel and Acme Priya. AP-Finance-Reporting contains Reporting and VPN; Olivia's Manager is Daniel. Keep the [journal](EVIDENCE.md) open.
 
 ## Follow the steps
 

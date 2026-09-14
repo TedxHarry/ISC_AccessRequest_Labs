@@ -1,10 +1,10 @@
 # AR-023 · Test who can request for another person
 
-## Before you start
-
 <a id="goal"></a>
 
-Compare manager-only request authority with everyone-for-anyone authority. Build a recipient-selection matrix without granting access.
+In this lab, you'll compare manager-only and everyone-for-anyone request authority by checking who each requester can select, without granting access.
+
+## Before you start
 
 Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003`), Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep the Finance segment enabled and your [journal](EVIDENCE.md) open.
 

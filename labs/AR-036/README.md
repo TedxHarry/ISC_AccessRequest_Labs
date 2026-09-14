@@ -1,29 +1,79 @@
 # AR-036 · Show an extra field for Production work
 
-**Before you start:** AR-035.
+In this lab, you'll show a rollback question when Production is selected and check what happens when the requester changes that selection.
 
-## Add and test a condition
+## Before you start
 
-1. Add Text Area `Rollback plan`, technical key `rollbackPlan`, to the Maintenance details section. Save.
-2. In the form builder, open **Settings > Conditions > Create New**.
-3. Set the rule to compare the `environment` field with string `Production` using equality. Add the effect that shows the Rollback plan element. Apply and save.
-4. Preview or start a new request. Select Test and confirm the field is hidden. Select Production and confirm it appears.
-5. Enter a rollback plan, change back to Test, then change to Production again. Record whether the current form retains the value; do not assume hidden data was cleared.
-6. Submit one Production request with a plan and inspect the reviewer's answers. Deny the control after inspection.
-7. Keep Rollback plan optional in this exercise. The documented condition effects are Hide, Show, Enable, Disable and Set Default Value; this procedure does not establish a conditional Required effect. Submit an empty Production plan as a negative business case and have Ava deny it. Record that the reviewer, rather than this Show condition, enforces the rollback requirement.
+Complete [AR-035](../AR-035/README.md). Keep its required questions and optional Implementation notes. Use Acme Admin, Acme Henry (`acme.e018`) and Acme Ava (`acme.e006`) in separate browser profiles, plus your AD workstation. Keep your [journal](EVIDENCE.md) open.
 
-**Check:** Both branches are tested, and you can explain the difference between a hidden field and a verified business condition.
+## Follow the steps
 
-**Reset:** Retain the working condition. Remove any contradictory test condition and resolve the request.
+### 1. Add the rollback question and condition
 
-[Form conditions](https://documentation.sailpoint.com/saas/help/forms/index.html)
+1. As administrator, open **Admin > Global > Forms > FORM-Acme-Production-Support** and select **Edit in Builder**.
+2. Inside Maintenance details, select **+ Add > Text Area Field**. Set Label `Rollback plan`, Technical Key `rollbackPlan`, and leave **Mark as required** off. Select **Apply**.
+3. Open **Settings > Conditions > + Create New**. Set **If** to the Environment field's technical key `environment`. For a single-value field, select **Equals** and enter exact String Value `Production`.
+4. If your builder represents that Select field as an array and offers **A List of Values** instead of String Value, use **Includes** with the single value `Production`. Record the actual operator and representation. Do not compare an array to a scalar string.
+5. Add the effect **Action: Show**, **Element: Rollback plan**. Select **Apply**, exit Settings and **Save** the form. Reopen the condition to verify the key, value and target field. Save `AR-036-01.png`.
 
-## Screenshots to capture
+SailPoint applies the contrary effect when the condition is false, so this Show rule hides the field for a nonmatching selection. Do not add a second competing visibility rule. See [form conditions](https://documentation.sailpoint.com/saas/help/forms/index.html#conditions).
 
-1. Rule, comparison value and effect.
-2. Test versus Production display.
-3. Reviewer answers and any required-plan validation.
+**Check:** One condition controls one optional field. A visibility condition does not make the field required.
 
-Record the results in your [evidence journal](EVIDENCE.md). Use the [lab desk](../../LAB-DESK.md) for the shared request, AD verification and removal procedures.
+### 2. Test both directions in a request
+
+1. In Henry's session, open **Request Center > Access Items > Access Profiles** and select `AP-Production-Support`. Use a new request after saving the definition; do not reuse an already-open form from before the change.
+2. Enter ticket `CHG-LAB-036-A`, Work description `Test conditional rollback guidance`, and standard comments `AR-036 condition check`. Keep immediate access and leave Implementation notes blank.
+3. Select `Test`. Confirm Rollback plan is hidden. Save `AR-036-02.png`.
+4. Change Environment to `Production`. Confirm Rollback plan appears. Enter `Remove the lab support assignment and verify group removal.` Save `AR-036-03.png`.
+5. Change back to `Test`, then back to `Production`. Record whether your entered plan is retained or cleared. Reenter it if necessary. Hiding an answer is not proof that its stored value was erased.
+6. Save, select **Review Request**, open **Edit Request Details**, and verify Production and the rollback text. Confirm Henry and his standard account, then **Submit Request**. Record the ID.
+7. As Ava, open **Approvals > Access Requests > Requested** and open Henry's matching Production Support **Grant** details. Compare each answer with your journal. Save `AR-036-04.png` showing the plan in Ava's details before deciding. Select **Deny**, enter the stated test reason and confirm. As administrator, verify **Denied** under **Admin > Dashboard > Approval Management > Access Requests** using that request ID. Check Henry's direct `GG-PROD-SUPPORT` membership is **False** using [the AD membership procedure](../../M02-CHECKS.md#inspect-direct-ad-membership). An error is not a False result. Use denial reason `AR-036 condition inspection complete`.
+
+**Check:** Test hides the field, Production shows it, and the submitted Production answer reaches Ava.
+
+### 3. Check what optional means for Production
+
+1. Start a fresh Henry Production Support request after the first is Denied. Enter ticket `CHG-LAB-036-B`, Environment `Production`, Work description `Test an omitted rollback plan`, and comments `AR-036 optional rollback control`.
+2. Leave Rollback plan and Implementation notes blank. Save and review. The three required questions are filled, so an optional rollback field should not block submission. Submit and record the new ID.
+3. As Ava, inspect the empty plan and deny with reason `Production work needs a rollback plan for this exercise`. Verify Denied and native Production Support False.
+4. If the form blocks the empty plan, inspect the saved field's required setting and any additional conditions. Restore Rollback plan to optional, save, and repeat with a new request.
+
+**Check:** The reviewer can reject an incomplete business plan even when field validation allows submission. This lab has not configured a conditional-required control.
+
+## Check the result
+
+You verified Test → Production → Test → Production, recorded hidden-answer retention, and compared a populated plan with an empty optional plan. Both submitted requests are denied.
+
+## Engineering practice
+
+### Repair a condition using the wrong value
+
+1. Record the working condition. Temporarily change its comparison value from `Production` to `Prod`, apply and save. Keep the dropdown choices unchanged.
+2. Start a fresh Henry form, choose Production and observe the missing rollback question. Do not submit. Compare the dropdown value with the condition's comparison value.
+3. Restore `Production`, apply and save. Return to Request Center and remove the unsent item from the review page using its remove control. Start again and verify Test hides the field and Production shows it.
+4. Record the incorrect value, corrected value and fresh-request result. If an item was submitted accidentally, deny it as Ava and verify no membership.
+
+<details>
+<summary>Compare your diagnosis</summary>
+
+The condition must match the stored selection, including its actual value and value type. A label that looks similar is not enough. Check the technical key, operator, comparison value and any later effects targeting the same field. The last conflicting effect wins; adding another rule can hide the original fault.
+
+</details>
+
+## Finish
+
+Keep the form definition and its Production Support association. Leave Henry without Production Support membership or a pending diagnostic request. Preserve existing accounts, baseline access and Lucas's VPN. Keep Rollback plan optional and the working Production visibility condition saved.
+
+### Screenshots to capture
+
+Capture these at the matching step. Add a letter suffix when one result needs more than one image.
+
+| Filename | What to show |
+|---|---|
+| AR-036-01.png | Saved condition, key, operator and target |
+| AR-036-02.png | Test with rollback hidden |
+| AR-036-03.png | Production with rollback visible |
+| AR-036-04.png | Ava’s submitted rollback answer |
 
 [Previous: AR-035](../AR-035/README.md) · [Course outline](../../README.md) · [Next: AR-037](../AR-037/README.md)

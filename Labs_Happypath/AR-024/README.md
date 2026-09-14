@@ -1,10 +1,10 @@
 # AR-024 · Separate requester visibility from recipient eligibility
 
-## Before you start
-
 <a id="goal"></a>
 
-Have Lucas request Finance Reporting for Liam, then have Daniel deny it because Liam's task is outside Finance. Verify that visibility allowed the request to be submitted, while the human review prevented access.
+In this lab, you'll have Lucas request Finance Reporting for Liam and Daniel deny it, then verify that catalog visibility allowed submission but the review prevented the grant.
+
+## Before you start
 
 Complete [AR-023](../AR-023/README.md). Keep its **original request-on-behalf configuration** record. Open Acme Admin, Acme Lucas (`acme.e012`), Acme Liam (`acme.e008`), Acme Daniel (`acme.e003`) and the AD workstation.
 

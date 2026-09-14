@@ -1,10 +1,10 @@
 # AR-003 — Prepare and Aggregate the AD Lab
 
-## Before you start
-
 <a id="goal"></a>
 
-Prepare the Active Directory lab structure, create Lucas's AD account and the course security groups, make sure the ISC AD source can read those objects, and aggregate them into ISC.
+In this lab, you'll create the Acme lab OUs, Lucas's AD account and the course groups, update the source search scopes, and aggregate them into ISC.
+
+## Before you start
 
 AR-004 will correlate Lucas's existing AD account to his ISC identity.
 

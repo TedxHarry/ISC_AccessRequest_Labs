@@ -1,10 +1,10 @@
 # AR-006 · Provision Your First AD Account
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-Give the same baseline access to two people and watch the difference. Lucas already has an account, so he needs a group membership. Liam has no account, so ISC must create it first. Prove the Lucas update before adding Liam.
+In this lab, you'll add baseline membership to Lucas's existing AD account, then use the same role to create Liam's missing account and add its baseline membership.
+
+## Before you start
 
 **Prerequisites:** Complete [AR-005](../AR-005/README.md). Lucas has a correlated AD account. Liam has no AD account. GG-ACME-BASELINE exists and is aggregated.
 

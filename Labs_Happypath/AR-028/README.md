@@ -1,10 +1,10 @@
 # AR-028 · Compare manager, item-owner and source-owner routing
 
+You will request the same VPN entitlement three times, changing only its grant reviewer between requests. Each reviewer will deny the request so Olivia stays without VPN. Lucas keeps his existing VPN.
+
 ## Before you start
 
 Complete AR-027. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and Acme Priya (`acme.e002`). You will also need the existing AD source owner's working session for the third test. Keep the [journal](EVIDENCE.md) open.
-
-You will request the same VPN entitlement three times, changing only its grant reviewer between requests. Each reviewer will deny the request so Olivia stays without VPN. Lucas keeps his existing VPN.
 
 ## Follow the steps
 

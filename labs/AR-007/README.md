@@ -1,10 +1,10 @@
 # AR-007 · Provision the Remaining Standard Accounts
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-You’ve proved the update and creation paths. Now expand the same role in two batches and check every account. Keep the working pilot assignments; there is no need to start again.
+In this lab, you'll expand the baseline role from the two verified pilot accounts in AR-006 to all 24 Acme identities and check the remaining account creations.
+
+## Before you start
 
 **Prerequisites:** Complete both target checks in [AR-006](../AR-006/README.md). Lucas and Liam have working baseline membership and correctly linked accounts.
 

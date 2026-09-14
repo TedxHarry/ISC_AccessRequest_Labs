@@ -1,10 +1,10 @@
 # AR-027 · Verify visibility and account targeting
 
-## Before you start
-
 <a id="goal"></a>
 
-Finish the module by checking an intended catalog restriction, tracing an incorrect department, and delivering VPN to Sofia's standard account. Use evidence to explain whether a reported result is correct behavior, a data problem or an account-selection problem.
+In this lab, you'll check the Finance catalog restriction, trace a department problem and request then remove VPN on Sofia's standard account, using the evidence to explain each result.
+
+## Before you start
 
 Complete [AR-026](../AR-026/README.md), including VPN removal. Open Acme Admin, Acme Lucas, Acme Liam, Acme Sofia and Acme Priya. Keep the latest complete private HR file, AR-023's original permission record, AR-026's two-account evidence and your [journal](EVIDENCE.md) open.
 

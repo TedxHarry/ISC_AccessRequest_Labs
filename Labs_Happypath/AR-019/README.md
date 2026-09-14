@@ -1,10 +1,10 @@
 # AR-019 · Compare entitlement, profile and role requests
 
-## Before you start
-
 <a id="goal"></a>
 
-Request three different access objects for the same person, one at a time. Compare what Olivia selects, who reviews it, what AD receives and how you remove it.
+In this lab, you'll request an entitlement, an access profile and a role for Olivia, one at a time, and compare their reviewers, AD changes and removal steps.
+
+## Before you start
 
 Complete [AR-018](../AR-018/README.md), including role removal. Open Acme Admin, Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`), Acme Daniel (`acme.e003`) and the AD workstation. Keep your [journal](EVIDENCE.md) open.
 

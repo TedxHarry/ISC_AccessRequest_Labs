@@ -1,10 +1,10 @@
 # AR-021 · Deliver HR Services from a business requirement
 
-## Before you start
-
 <a id="goal"></a>
 
-James needs Payroll access for an approved HR task. Benefits access has not been approved. Build two separate choices under HR Services, approve Payroll, deny Benefits, then remove Payroll after the test.
+In this lab, you'll build separate Payroll and Benefits choices under HR Services, approve James's Payroll request, deny Benefits and remove the Payroll test grant.
+
+## Before you start
 
 Keep the choices separate: asking for Payroll must not also grant Benefits.
 

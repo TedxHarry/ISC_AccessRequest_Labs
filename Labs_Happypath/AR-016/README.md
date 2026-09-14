@@ -1,10 +1,10 @@
 # AR-016 · Bundle Finance reporting access
 
-## Before you start
-
 <a id="goal"></a>
 
-Give Olivia one reporting item that supplies both the reporting group and VPN. Follow the request into AD, then remove the completed test grant. You will keep the profile for the next lab.
+In this lab, you'll create one Finance reporting item that supplies Reporting and VPN, request it for Olivia and remove the test grant after checking AD.
+
+## Before you start
 
 Complete [AR-015](../AR-015/README.md) and the [Module 3 starting checks](../../M03-READINESS.md). Open Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and your AD workstation. Keep your [journal](EVIDENCE.md) open.
 

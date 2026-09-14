@@ -1,10 +1,10 @@
 # AR-005 · Configure AD Account Creation
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-Before ISC creates Liam, tell it where the account belongs and which values to use. Work through the mappings below, then write down the account you expect to see. Saving this page does not create him.
+In this lab, you'll configure the AD account-creation mappings and check the values ISC will use for Liam. Saving these mappings does not create his account; AR-006 triggers that operation.
+
+## Before you start
 
 **Prerequisites:** Complete [AR-004](../AR-004/README.md). Your AD connector must support direct provisioning, with its VA, IQService, TLS, and service-account permissions configured.
 

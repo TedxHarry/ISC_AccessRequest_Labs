@@ -1,10 +1,12 @@
 # AR-029 · Require manager review followed by Security
 
+You will create AP-Production-Support and require two decisions: Ava first, then one member of Security.
+
 ## Before you start
 
 Complete AR-028. Use Henry (`acme.e018`) as requester, Ava (`acme.e006`) as manager, and Noah (`acme.e007`), Evelyn (`acme.e021`) and William (`acme.e022`) as Security reviewers. Keep Acme Admin and the AD workstation available.
 
-You will create AP-Production-Support and require two decisions: Ava first, then one member of Security. Keep the [journal](EVIDENCE.md) open.
+Keep the [journal](EVIDENCE.md) open.
 
 ## Follow the steps
 

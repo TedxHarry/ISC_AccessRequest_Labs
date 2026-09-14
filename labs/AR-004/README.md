@@ -1,10 +1,10 @@
 # AR-004 · Correlate Lucas's Existing AD Account
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-Lucas already has an AD account. Your job here is to connect that account to the right ISC identity. Follow the employee number through both records; a matching display name is not enough.
+In this lab, you'll link Lucas's imported AD account to his ISC identity using the employee identifier. You created and imported the account in AR-003; you will configure and verify the match here.
+
+## Before you start
 
 **Prerequisites:** Complete [AR-003](../AR-003/README.md). Lucas exists in AD and ISC has imported his account. Have your administrator session and Postman available.
 

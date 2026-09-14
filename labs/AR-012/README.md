@@ -1,10 +1,10 @@
 # AR-012 · Approve the first request and prove the AD change
 
-## Before you start
-
 <a id="goal"></a>
 
-Approve the request you submitted in AR-011 and follow it through to Lucas's existing AD account. Keep the resulting VPN access for later comparisons.
+In this lab, you'll approve the request submitted in AR-011, verify the change on Lucas's existing AD account and keep his VPN access for later comparisons.
+
+## Before you start
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 

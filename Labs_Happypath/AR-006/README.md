@@ -1,13 +1,13 @@
 # AR-006 — Provision Your First AD Account
 
-## Before you start
-
 <a id="goal"></a>
 
-Use one access profile and one role to prove both AD provisioning paths:
+In this lab, you'll add baseline membership to Lucas's existing AD account, then use the same role to create Liam's missing account and add its baseline membership.
 
 1. Add group membership to Lucas's existing AD account.
 2. Create Liam's missing AD account and add the same group membership.
+
+## Before you start
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
@@ -19,7 +19,7 @@ Use your ISC administrator session for ISC steps and your AD administration work
 
 Complete [AR-005](../AR-005/README.md).
 
-You should already have:
+From the previous labs, you need:
 
 - Lucas's existing AD account correctly linked.
 - Liam with no AD account.

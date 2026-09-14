@@ -1,10 +1,10 @@
 # AR-022 · Restrict Finance catalog visibility
 
-## Before you start
-
 <a id="goal"></a>
 
-Show the Finance profiles and role to Finance requesters while keeping them out of Liam's catalog. Use Remote Worker as a visible control and keep existing AD access unchanged.
+In this lab, you'll restrict Finance catalog items to Finance requesters, using Remote Worker as a visible comparison while leaving existing AD access unchanged.
+
+## Before you start
 
 Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../M04-READINESS.md). Open Acme Admin, Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep your [journal](EVIDENCE.md) open.
 

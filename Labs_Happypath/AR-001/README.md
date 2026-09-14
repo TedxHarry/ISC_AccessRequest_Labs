@@ -1,10 +1,10 @@
 # AR-001 — Import Acme's HR Records
 
-## Before you start
-
 <a id="goal"></a>
 
-Create the Acme HR authoritative source, import the 24 employee records, create the Acme Employees identity profile, map the core identity attributes, and verify that all 24 identities are created correctly.
+In this lab, you'll import the 24 Acme HR records, map their identity attributes and verify the resulting identities.
+
+## Before you start
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 

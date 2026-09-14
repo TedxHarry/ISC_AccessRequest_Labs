@@ -1,10 +1,8 @@
 # AR-008 · Prepare Requester and Reviewer Sessions
 
-## Before you start
-
 <a id="what-youll-do"></a>
 
-Now sign in as the people who will request and review access. Prepare Lucas, Daniel and Priya separately so an administrator session does not hide a problem an ordinary user would see.
+In this lab, you'll prepare separate ISC sessions for Lucas, Daniel and Priya, then verify who is signed in to each session.
 
 | Person | ISC username | Responsibility in the next labs |
 |---|---|---|
@@ -17,13 +15,15 @@ Priya becomes the VPN item's owner when you configure that item in the request l
 
 Finish with four separate browser sessions and record the checks in your [lab journal](EVIDENCE.md). Keep the 24-person HR dataset and 24 standard AD accounts from the previous labs.
 
+## Before you start
+
 **Prerequisites:** Complete AR-002's manager checks and [AR-007](../AR-007/README.md). Have three distinct, working test email addresses you control, access to their inboxes, and your existing ISC administrator session.
 
 <a id="before-you-open-the-settings"></a>
 
 Keep your administrator session open. Prepare separate browser profiles for Lucas, Daniel and Priya, plus three distinct controlled email addresses.
 
-All 24 standard AD accounts and their identity links are checked. Lucas’s manager is Daniel. Keep the current HR file so registration changes do not overwrite earlier work.
+AR-007 must be complete: all 24 standard AD accounts and their identity links verified. Lucas’s manager is Daniel. Keep the current HR file so registration changes do not overwrite earlier work.
 
 An AD account and an ISC account can use different authentication routes. Record the configured sign-in method before trying a password.
 

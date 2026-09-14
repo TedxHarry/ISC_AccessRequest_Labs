@@ -1,10 +1,10 @@
 # AR-015 · Request and remove a two-group access profile
 
-## Before you start
-
 <a id="goal"></a>
 
-Create one Remote Worker item containing VPN and remote-tool access. Approve it for Liam, deny it for Olivia, then remove Liam's test assignment through ISC. Verify each result in AD.
+In this lab, you'll create a Remote Worker profile, approve it for Liam, deny it for Olivia and remove Liam's test grant through ISC. You will check each result in AD.
+
+## Before you start
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 

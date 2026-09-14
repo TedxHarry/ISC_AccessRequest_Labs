@@ -1,31 +1,71 @@
 # AR-038 · Repair a missing request form
 
-**Before you start:** AR-037. Use Production Support and Henry.
+In this lab, you'll reproduce a missing form association, restore it, and verify a fresh request from Henry's session.
 
-## Reproduce the association fault
+## Before you start
 
-1. Confirm a new Production Support request presents the form, then discard the unsent request.
-2. Save the item configuration and turn off its required-form association. Leave the form definition itself intact.
-3. Start a fresh request as Henry and confirm the form is absent. Do not submit this incomplete business case.
-4. Inspect the exact requested object. Check its type and ID against the item you edited. A profile's form setting is not proof that a containing role requires that form.
-5. Re-enable the required form on Production Support, select the correct form and save.
-6. Start another fresh request, complete the expected fields, submit and inspect the answers as Ava. Deny the control after verification.
-7. Record why editing a definition alone would not have repaired an item-association fault.
+Complete [AR-037](../AR-037/README.md), including removal and restoration of Remote Worker. Use Acme Admin, Acme Henry (`acme.e018`) and Acme Ava (`acme.e006`) in separate browser profiles, plus your AD workstation. Keep your [journal](EVIDENCE.md) open.
 
-**Check:** The same item now requires the intended form, and the saved request contains its answers.
+## Follow the steps
 
-If the form option is missing from every supported item, inspect service availability and permission before diagnosing an individual association problem.
+### 1. Confirm the working request
 
-**Reset:** Production Support requires the correct form; no accidental grant remains.
+1. As Henry, open **Request Center > Access Items > Access Profiles** and select `AP-Production-Support`. Verify the maintenance questions appear. Do not submit this request.
+2. Record the selected object's type and exact name. As administrator, open **Admin > Access Model > Access Profiles > AP-Production-Support** and record its ID from the page URL. Verify its source and `GG-PROD-SUPPORT` entitlement so a similarly named object cannot be mistaken for it.
+3. Open the profile's **Access Requests** page. Record **Require Access Request Form** and the selected `FORM-Acme-Production-Support`, plus the reviewer order. Save `AR-038-01.png` showing the working association.
+4. Close the unsent form. If the item is already in Henry's selections, open **Review Request** and use the item's remove control to empty the selection. Do not press Submit Request. Check My Requests if you are unsure whether anything was submitted.
 
-[Item request configuration](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html)
+**Check:** You know the exact working profile, its form and the requester view before changing anything.
 
-## Screenshots to capture
+### 2. Reproduce the missing association
 
-1. Missing form and actual requested item.
-2. Faulty and restored association.
-3. Fresh request with reviewer-visible answers.
+1. As administrator, clear **Require Access Request Form** on Production Support and **Save**. Do not delete the form definition or change reviewers. This temporary change applies to new requests for this lab profile; keep other lab sessions from submitting it during the test.
+2. Leave the settings page and reopen it to verify the unchecked state.
+3. In Henry's session, return to the access catalog and start a new selection of the same profile. The custom maintenance questions should be absent. Standard comments may still be required; those are separate from the custom form.
+4. Save `AR-038-02.png` showing the missing custom questions. Do not submit this incomplete business case. Remove the unsent item as in Step 1.
+5. As administrator, open **Admin > Global > Forms** and verify `FORM-Acme-Production-Support` still exists with its questions. Record: definition present, profile association disabled.
 
-Record the results in your [evidence journal](EVIDENCE.md). Use the [lab desk](../../LAB-DESK.md) for the shared request, AD verification and removal procedures.
+**Check:** You reproduced the fault by changing one saved setting. The form was not deleted.
+
+### 3. Repair and prove the result
+
+1. Return to **Admin > Access Model > Access Profiles > AP-Production-Support > Access Requests**. Enable **Require Access Request Form**, select `FORM-Acme-Production-Support`, and **Save**. Reopen to verify both the checkbox and selection.
+2. Confirm Manager then GOV-Security-Review grant approval and Primary Owner removal approval remain unchanged.
+3. As Henry, start another fresh request for that exact profile. Enter ticket `CHG-LAB-038`, Environment `Production`, Work description `Verify restored request questions`, Rollback plan `Revoke any approved test access`, and standard comments `AR-038 repaired association`. Leave Implementation notes and standard dates empty.
+4. Save, select **Review Request**, and reopen **Edit Request Details**. Verify the saved answers, Henry and his standard account. Select **Submit Request** once and record the ID from **My Requests**.
+5. As Ava, open **Approvals > Access Requests > Requested** and open Henry's matching Production Support **Grant** details. Compare each answer with your journal. Select **Deny**, enter the stated test reason and confirm. As administrator, verify **Denied** under **Admin > Dashboard > Approval Management > Access Requests** using that request ID. Check Henry's direct `GG-PROD-SUPPORT` membership is **False** using [the AD membership procedure](../../M02-CHECKS.md#inspect-direct-ad-membership). An error is not a False result. Use reason `AR-038 repaired form verified`. Save `AR-038-03.png` showing the restored requester form and Ava's matching answers.
+
+**Check:** The repair is proved with a newly submitted request and its reviewer details, not just a saved administrator checkbox.
+
+## Check the result
+
+The form disappeared when its association was disabled and returned after that association was restored. Ava received the repaired request’s answers and denied it; no access was added.
+
+## Engineering practice
+
+### Explain a repair that seems not to work
+
+Investigate this ticket using your evidence: “The checkbox is enabled, but the requester still sees the old form.” Compare the configured object ID and type with the selected item, then discard the unsent selection and open a fresh form. Check that the form changes were applied and saved, and that the correct definition is selected. Record which layer differs before changing another setting.
+
+<details>
+<summary>Compare your diagnosis</summary>
+
+The profile association, form definition and already-open request are separate things to inspect. Editing one profile does not configure a containing role or a similarly named entitlement. Do not weaken approval or delete the form to make the screen refresh. If a fresh request for the verified object still differs, keep the IDs, saved configuration and timestamped captures for investigation.
+
+</details>
+
+## Finish
+
+Keep the form definition and its Production Support association. Leave Henry without Production Support membership or a pending diagnostic request. Preserve existing accounts, baseline access and Lucas's VPN. If you pause during the fault demonstration, restore the association before leaving the lab.
+
+### Screenshots to capture
+
+Capture these at the matching step. Add a letter suffix when one result needs more than one image.
+
+| Filename | What to show |
+|---|---|
+| AR-038-01.png | Working association and exact profile |
+| AR-038-02.png | Missing custom questions with definition still present |
+| AR-038-03.png | Restored fresh form and reviewer answers |
 
 [Previous: AR-037](../AR-037/README.md) · [Course outline](../../README.md) · [Next: AR-039](../AR-039/README.md)

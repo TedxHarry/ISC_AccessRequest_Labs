@@ -1,10 +1,10 @@
 # AR-014 · Control VPN catalog availability
 
-## Before you start
-
 <a id="goal"></a>
 
-Temporarily stop new VPN requests, verify the catalog change, then make VPN available again. Check that Lucas's existing access remains throughout.
+In this lab, you'll temporarily stop new VPN requests, check the catalog and restore requestability while preserving Lucas's existing access.
+
+## Before you start
 
 Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 

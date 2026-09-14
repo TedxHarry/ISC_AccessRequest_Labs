@@ -139,12 +139,12 @@ Prerequisite: C05 and forms available in the tenant. You will collect useful inf
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|
-| [AR-034](labs/AR-034/README.md) | Build | Create a production-support request form | Configure business reason, ticket number, and environment |
+| [AR-034](labs/AR-034/README.md) | Build | Create a production-support request form | Create and attach ticket, environment and work-description questions |
 | [AR-035](labs/AR-035/README.md) | Practice | Test required and optional inputs | Record accepted and rejected submissions |
 | [AR-036](labs/AR-036/README.md) | Practice | Explore documented conditional-field behavior | Test visible/hidden field combinations; record limitations |
-| [AR-037](labs/AR-037/README.md) | Practice | Trace submitted information to the reviewer | Identify actual display locations and available evidence |
+| [AR-037](labs/AR-037/README.md) | Practice | Trace form answers through a multi-item request | Edit copied answers and verify independent decisions and AD results |
 | [AR-038](labs/AR-038/README.md) | Investigate | The expected form does not appear | Diagnose item association/configuration with a control request |
-| [AR-039](labs/AR-039/README.md) | Check | Deliver a usable request form from requirements | Prove validation and explain what the form does not enforce |
+| [AR-039](labs/AR-039/README.md) | Check | Verify the Production Support form and save C06 | Prove validation, reviewer answers, grant and removal |
 
 A duration field in a form is collected data until a documented mechanism enforces access dates. A ticket number field does not automatically validate an external ticket or create an integration.
 
