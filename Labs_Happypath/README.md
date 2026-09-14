@@ -46,3 +46,14 @@ Complete the [Module 3 starting checks](../M03-READINESS.md). Keep the existing 
 19. [AR-019 · Compare entitlement, profile and role requests](AR-019/README.md)
 20. [AR-020 · Manage the profiles offered by Finance Services](AR-020/README.md)
 21. [AR-021 · Deliver HR Services from a business requirement](AR-021/README.md)
+
+## Module 4 · Visibility and accounts
+
+Complete the [Module 4 starting checks](../M04-READINESS.md). Record original permissions before changing them and keep both account identifiers visible during the Sofia exercises.
+
+22. [AR-022 · Restrict Finance catalog visibility](AR-022/README.md)
+23. [AR-023 · Test who can request for another person](AR-023/README.md)
+24. [AR-024 · Separate requester visibility from recipient eligibility](AR-024/README.md)
+25. [AR-025 · Follow a department change into the catalog](AR-025/README.md)
+26. [AR-026 · Select the correct account for Sofia's access](AR-026/README.md)
+27. [AR-027 · Verify visibility and account targeting](AR-027/README.md)

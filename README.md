@@ -105,7 +105,7 @@ Prerequisite: C02. Complete the [Module 3 starting checks](M03-READINESS.md). Yo
 
 ## M04 — Control who can find and request access
 
-Prerequisite: C03. You will test visibility separately from authority to request for someone else. Documentation: [segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) and [requests for others](https://documentation.sailpoint.com/saas/help/requests/requests_for_others.html).
+Prerequisite: C03. Complete the [Module 4 starting checks](M04-READINESS.md). You will test visibility separately from authority to request for someone else. Documentation: [segments](https://documentation.sailpoint.com/saas/help/requests/segments.html) and [requests for others](https://documentation.sailpoint.com/saas/help/requests/requests_for_others.html).
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|

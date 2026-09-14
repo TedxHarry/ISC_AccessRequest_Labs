@@ -55,15 +55,3 @@ Use one row per grant, denial or removal. Record No request submitted for catalo
 Use [the capture list](README.md#screenshots-to-capture) at the named steps. Add filenames when several panels are needed. Keep passwords, invitation links and private HR email fields out of captures.
 
 Write your own answer to the walkthrough's explanation/assessment before opening the answer. Identify what changed, why the result followed, and what you restored.
-
-## Engineering practice
-
-| Record | Your answer |
-|---|---|
-| Independent prediction and observed comparison | |
-| Supplied ticket: first inspection and likely cause | |
-| Alternative cause to rule out and required evidence | |
-| Smallest correction, repeat check and retained state | |
-| Actual tenant incident and recovery, if one occurred | |
-
-Do not report a supplied ticket as a tenant incident. A successful working run and a paper diagnosis are separate records.

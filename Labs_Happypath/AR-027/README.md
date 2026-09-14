@@ -1,4 +1,4 @@
-# AR-027 · Resolve visibility and account-selection tickets
+# AR-027 · Verify visibility and account targeting
 
 ## Goal
 
@@ -9,10 +9,6 @@ Finish the module by checking an intended catalog restriction, tracing an incorr
 Complete [AR-026](../AR-026/README.md), including VPN removal. Open Acme Admin, Acme Lucas, Acme Liam, Acme Sofia and Acme Priya. Keep the latest complete private HR file, AR-023's original permission record, AR-026's two-account evidence and your [journal](EVIDENCE.md) open.
 
 Finance segmentation is enabled; Lucas is Finance; Liam is IT. Sofia has two correlated AD accounts, neither with VPN. Only her standard account has baseline. No test request is pending.
-
-## Practice checkpoints
-
-Use this prompt as you reach the named steps. Before following each check, write the evidence you would gather and predict whether any change is needed. At the end, write three ticket closures independently. If working alone, use the supplied case below; no partner or undisclosed tenant change is required.
 
 ## 1. Check Liam's intended restriction
 
@@ -135,23 +131,6 @@ If the selected account differs from the business intent but the native operatio
 
 </details>
 
-## Diagnose this ticket
-
-This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
-
-> Three reports arrive together: Liam cannot find Finance Reporting; Lucas cannot see it while an org administrator can, and his identity says Sales; Sofia intended the second account but the recorded submission selected standard and the operation updated standard. Someone proposes rerunning every aggregation.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-Separate the cases. Liam's Finance restriction matches policy when his IT identity and control catalog are correct. Lucas needs the source-to-identity department chain checked and corrected, followed by a requester retest; administrator visibility is exempt from segmentation. Sofia's operation matches the submitted selection, so inspect the selection/review error, remove the exact wrong test assignment and repeat with the intended account. Rerunning every aggregation does not correct all three causes. Use each case's own before/after and restoration evidence.
-
-</details>
-
-## Resume or repeat
-
-Read the current lab state before repeating. Reuse the course segment and accounts; preserve the original request-on-behalf record and latest full HR file. Complete an existing pending request rather than submitting another. If a grant completed, resume at native verification and remove its exact account assignment. Keep all baseline assignments. Use [the module resume instructions](../../M04-READINESS.md#resume-without-losing-the-previous-state) to restore temporary settings when pausing.
-
 ## Final verification
 
 - [ ] Liam's intended restriction and visible control are demonstrated.
@@ -182,6 +161,6 @@ Retain the Finance restriction, original request-on-behalf mode, current HR file
 
 Exclude passwords, invitation links and private HR email fields.
 
-[Previous: AR-026](../AR-026/README.md) · [Course outline](../../README.md)
+[Previous: AR-026](../AR-026/README.md) · [Lab index](../README.md)
 
-[Next: AR-028](../AR-028/README.md). Continue after the C04 checks pass.
+Continue to Module 5 after the C04 checks pass.

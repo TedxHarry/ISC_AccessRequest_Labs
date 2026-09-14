@@ -10,10 +10,6 @@ Complete [AR-023](../AR-023/README.md). Keep its **original request-on-behalf co
 
 SEG-Acme-Finance remains enabled. Everyone-for-anyone must be enabled for this test; if you restored the original setting while pausing AR-023, enable the temporary mode again using its Section 4. Keep your [journal](EVIDENCE.md) open.
 
-## Practice checkpoints
-
-Use this prompt as you reach the named steps. Before Section 3, write the requester ID, recipient ID, each department and expected reviewer. Compare them with the request and approval Details. Explain which of those values a future eligibility workflow must use.
-
 ## 1. Verify the two different people
 
 1. As administrator, inspect Lucas and Liam under **Admin > Identity Management > Identities**. Record their identity IDs, usernames and Departments: Finance and IT respectively.
@@ -93,23 +89,6 @@ The decision must evaluate the requested-for identity, Liam, against the approve
 
 </details>
 
-## Diagnose this ticket
-
-This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
-
-> A proposed eligibility check approves Finance Reporting whenever the requester has Department=Finance. Lucas is Finance, but he is requesting for Liam, who is IT.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-The check reads the wrong identity for recipient eligibility. Separate requester authority/visibility from the requested-for business rule. Use the request's recipient identifier to inspect Liam's department and deny the supplied case. This lab demonstrates the manual decision only; do not claim automated enforcement until a later workflow or policy has been implemented and tested.
-
-</details>
-
-## Resume or repeat
-
-Read the current lab state before repeating. Reuse the course segment and accounts; preserve the original request-on-behalf record and latest full HR file. Complete an existing pending request rather than submitting another. If a grant completed, resume at native verification and remove its exact account assignment. Keep all baseline assignments. Use [the module resume instructions](../../M04-READINESS.md#resume-without-losing-the-previous-state) to restore temporary settings when pausing.
-
 ## Final verification
 
 - [ ] Lucas and Liam were recorded as separate requester and recipient.
@@ -133,4 +112,4 @@ Retain the Finance segment and original request-on-behalf configuration. Liam fi
 | AR-024-04.png | Unchanged native access and catalog |
 | AR-024-05.png | Restored original permission and behavior |
 
-[Previous: AR-023](../AR-023/README.md) · [Course outline](../../README.md) · [Next: AR-025](../AR-025/README.md)
+[Previous: AR-023](../AR-023/README.md) · [Lab index](../README.md) · [Next: AR-025](../AR-025/README.md)

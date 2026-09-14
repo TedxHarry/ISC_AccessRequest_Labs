@@ -35,6 +35,14 @@
     - [AR-020 — Manage the profiles offered by Finance Services](/Labs_Happypath/AR-020/README.md)
     - [AR-021 — Deliver HR Services from a business requirement](/Labs_Happypath/AR-021/README.md)
 
+  - **MODULE 04 · VISIBILITY AND ACCOUNTS**
+    - [AR-022 — Restrict Finance catalog visibility](/Labs_Happypath/AR-022/README.md)
+    - [AR-023 — Test who can request for another person](/Labs_Happypath/AR-023/README.md)
+    - [AR-024 — Separate requester visibility from recipient eligibility](/Labs_Happypath/AR-024/README.md)
+    - [AR-025 — Follow a department change into the catalog](/Labs_Happypath/AR-025/README.md)
+    - [AR-026 — Select the correct account for Sofia's access](/Labs_Happypath/AR-026/README.md)
+    - [AR-027 — Verify visibility and account targeting](/Labs_Happypath/AR-027/README.md)
+
 - **ENGINEER PATH**
   - **MODULE 01 · FOUNDATIONS**
     - [AR-001 — Import Acme's HR Records](/labs/AR-001/README.md)

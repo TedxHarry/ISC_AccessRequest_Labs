@@ -8,10 +8,6 @@ Compare manager-only request authority with everyone-for-anyone authority. Build
 
 Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003`), Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep the Finance segment enabled and your [journal](EVIDENCE.md) open.
 
-## Practice checkpoints
-
-Use this prompt as you reach the named steps. Before each mode change, predict the five recipient-selection outcomes. Record where the UI skips the audience screen for a self-only user. Do not use an administrator session to fill an ordinary user's row.
-
 ## 1. Save the original setting and manager relationships
 
 1. As administrator, open **Admin > Global > System Settings > Feature Settings > Access Requests**.
@@ -96,23 +92,6 @@ Manager-only mode permits requests for direct reports. The identity's actual Man
 
 </details>
 
-## Diagnose this ticket
-
-This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
-
-> Daniel cannot select Liam in manager-only mode. Liam's identity is active and his Manager is Priya. Daniel asks for his manager field to be changed so the request will work.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-This is the intended direct-report boundary, not a broken picker. Retain Liam's correct manager and show the manager-only configuration plus identity relationship. If the approved business process requires broader request authority, it must be handled through that process's request-on-behalf policy rather than falsifying HR manager data. Complete the controlled everyone-for-anyone comparison and restore the original configuration after AR-024.
-
-</details>
-
-## Resume or repeat
-
-Read the current lab state before repeating. Reuse the course segment and accounts; preserve the original request-on-behalf record and latest full HR file. Complete an existing pending request rather than submitting another. If a grant completed, resume at native verification and remove its exact account assignment. Keep all baseline assignments. Use [the module resume instructions](../../M04-READINESS.md#resume-without-losing-the-previous-state) to restore temporary settings when pausing.
-
 ## Final verification
 
 - [ ] Original on/off state and selected mode are saved for restoration.
@@ -136,4 +115,4 @@ For immediate continuation, keep everyone-for-anyone enabled through AR-024's de
 | AR-023-04.png | Everyone mode and recipient-selection matrix |
 | AR-023-05.png | Separate catalog checks and restoration record |
 
-[Previous: AR-022](../AR-022/README.md) · [Course outline](../../README.md) · [Next: AR-024](../AR-024/README.md)
+[Previous: AR-022](../AR-022/README.md) · [Lab index](../README.md) · [Next: AR-024](../AR-024/README.md)

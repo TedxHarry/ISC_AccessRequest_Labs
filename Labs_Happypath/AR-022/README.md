@@ -8,10 +8,6 @@ Show the Finance profiles and role to Finance requesters while keeping them out 
 
 Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../M04-READINESS.md). Open Acme Admin, Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep your [journal](EVIDENCE.md) open.
 
-## Practice checkpoints
-
-Use this prompt as you reach the named steps. Before Section 4, predict the four-row matrix from the saved identities and access associations. Compare a direct profile search with a role search rather than treating the Finance application card as proof for both.
-
 ## 1. Capture the catalog before segmentation
 
 1. As administrator, open Lucas and Liam under **Admin > Identity Management > Identities**. Confirm Lucas's Department is Finance and Liam's is IT. Verify neither ordinary-user session has administrator permissions.
@@ -95,23 +91,6 @@ Lucas's Finance identity attribute puts him in the segment; his existing VPN doe
 
 </details>
 
-## Diagnose this ticket
-
-This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
-
-> Liam is IT and outside SEG-Acme-Finance, but he still sees AP-Finance-Reporting. Another enabled segment includes all IT identities and also contains that profile.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-The second segment supplies another visibility path. Inspect and record both segments' identities and item associations before proposing a change. If the extra association is an accidental course-only edit, remove that profile association from the extra segment, save and recheck Liam plus the Remote Worker control. Preserve unrelated segment access. Do not change Liam's department or disable the intended Finance segment.
-
-</details>
-
-## Resume or repeat
-
-Read the current lab state before repeating. Reuse the course segment and accounts; preserve the original request-on-behalf record and latest full HR file. Complete an existing pending request rather than submitting another. If a grant completed, resume at native verification and remove its exact account assignment. Keep all baseline assignments. Use [the module resume instructions](../../M04-READINESS.md#resume-without-losing-the-previous-state) to restore temporary settings when pausing.
-
 ## Final verification
 
 - [ ] The mapped Finance criterion and three exact access items are saved.
@@ -133,4 +112,4 @@ Keep SEG-Acme-Finance enabled for AR-023–025 and later exercises. Record its I
 | AR-022-03.png | Lucas/Liam matrix with Remote Worker |
 | AR-022-04.png | Preserved memberships and retained segment |
 
-[Previous: AR-021](../AR-021/README.md) · [Course outline](../../README.md) · [Next: AR-023](../AR-023/README.md)
+[Previous: AR-021](../AR-021/README.md) · [Lab index](../README.md) · [Next: AR-023](../AR-023/README.md)

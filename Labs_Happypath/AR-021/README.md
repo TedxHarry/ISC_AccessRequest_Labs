@@ -184,6 +184,6 @@ Keep the four business profiles, two applications and Finance Analyst role enabl
 
 Use extra images for separate panels. Keep credentials and invitation links out of captures.
 
-[Previous: AR-020](../AR-020/README.md) · [Lab index](../README.md)
+[Previous: AR-020](../AR-020/README.md) · [Lab index](../README.md) · [Next: AR-022](../AR-022/README.md)
 
 Continue to Module 4 after the C03 checks pass.

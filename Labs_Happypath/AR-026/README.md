@@ -10,10 +10,6 @@ Complete [AR-025](../AR-025/README.md). Prepare [Sofia's ordinary ISC session](.
 
 The second account will be called `acme.e009.admin` to distinguish its use in the lab. It receives no domain-administrator privileges. Keep your [journal](EVIDENCE.md) open.
 
-## Practice checkpoints
-
-Use this prompt as you reach the named steps. Before Section 5, cover the account dropdown labels and predict the required account from its recorded native identity. After opening the dropdown, match both entries to the journal rather than choosing the first. At Section 6, compare intended, submitted and fulfilled targets as three separate fields.
-
 ## 1. Record the existing account and OU coverage
 
 1. As administrator, open **Admin > Identity Management > Identities > Sofia**. Verify E009, Acme Employees and her standard AD account `acme.e009`.
@@ -21,7 +17,7 @@ Use this prompt as you reach the named steps. Before Section 5, cover the accoun
 3. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for acme.e009 against GG-VPN-USERS and GG-ACME-BASELINE. VPN must be False and baseline True.
 4. On the AD workstation, use **Active Directory Users and Computers > View > Advanced Features**. Copy the actual Users and AdminAccounts OU DNs from each OU's **Properties > Attribute Editor > distinguishedName**, following [the DN lookup](../../LAB-VALUES.md#copy-an-ou-user-or-group-dn).
 5. In ISC, open **Admin > Connections > Sources > your AD source > Account and Group Settings**. Confirm saved User Search Scope covers both OUs and applicable membership searches include the lab Groups OU.
-6. If AdminAccounts is uncovered, follow [AR-003 Section 5](../AR-003/README.md#5-update-the-ad-source-settings-before-aggregation) to add its restricted search and membership coverage, save and reopen. Preserve existing scopes and filters. Verify connector read access to that OU before aggregation.
+6. If AdminAccounts is uncovered, follow [AR-003 Section 5](../AR-003/README.md#5-add-the-acmelab-locations-to-the-isc-ad-source) to add its restricted search and membership coverage, save and reopen. Preserve existing scopes and filters. Verify connector read access to that OU before aggregation.
 7. Check AD for an existing acme.e009.admin. On a repeat, inspect/reuse the matching course account; never create another because its display name differs.
 
 **Check:** Sofia's original account and baseline are recorded, VPN is absent, and the second account's OU is inside the connector's saved search scope.
@@ -132,23 +128,6 @@ Employee Number/employeeID correlation linked both accounts to Sofia. The baseli
 
 </details>
 
-## Diagnose this ticket
-
-This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
-
-> The request reason says second account, but its submitted account details name acme.e009. Account activity also targets acme.e009 and VPN is present there. The team calls this a connector routing failure.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-The submitted selection and fulfillment agree; the selection differs from the written intent. Record all three, remove the wrong requested assignment through its exact account in My Access and Priya's removal review, and verify cleanup on both accounts. Submit a fresh request selecting acme.e009.admin, then repeat native verification/removal. If the submitted account and operation target actually differ, preserve those IDs and investigate fulfillment instead.
-
-</details>
-
-## Resume or repeat
-
-Read the current lab state before repeating. Reuse the course segment and accounts; preserve the original request-on-behalf record and latest full HR file. Complete an existing pending request rather than submitting another. If a grant completed, resume at native verification and remove its exact account assignment. Keep all baseline assignments. Use [the module resume instructions](../../M04-READINESS.md#resume-without-losing-the-previous-state) to restore temporary settings when pausing.
-
 ## Final verification
 
 - [ ] Sofia has one HR identity and two distinct correlated AD accounts.
@@ -178,4 +157,4 @@ Keep both accounts for AR-027, AR-045 and later exercises. Keep the baseline Mul
 
 Exclude passwords and invitation links.
 
-[Previous: AR-025](../AR-025/README.md) · [Course outline](../../README.md) · [Next: AR-027](../AR-027/README.md)
+[Previous: AR-025](../AR-025/README.md) · [Lab index](../README.md) · [Next: AR-027](../AR-027/README.md)

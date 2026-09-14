@@ -43,6 +43,7 @@ Prepare each new requester/reviewer with [AR-008](labs/AR-008/README.md). Existi
 | AR-021 | [C03 business-access configuration](M03-READINESS.md#state-passed-between-labs), clean Olivia/James and retained Lucas VPN | Catalog visibility proves a native grant |
 | AR-022 | Enabled Finance segment | Segmentation checks the recipient’s business eligibility |
 | AR-026 | Sofia’s standard and admin accounts; baseline selects standard | Account creation or correlation grants admin privileges |
+| AR-027 | [C04 visibility and account evidence](M04-READINESS.md#what-each-lab-leaves-behind), original request-on-behalf mode and Sofia without test VPN | Current cleaned-up membership proves a historical grant |
 | AR-029 | Production Support with manager then Security review | Later workflow experiments leave those direct reviewers active |
 | AR-039, if completed | Required Production Support form | Later requests may omit its fields |
 | AR-040, if completed | Production Support required end date and seven-day maximum | Approval delay restarts the duration |

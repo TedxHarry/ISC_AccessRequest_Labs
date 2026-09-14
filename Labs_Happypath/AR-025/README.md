@@ -1,4 +1,4 @@
-# AR-025 · Trace a wrong department into catalog visibility
+# AR-025 · Follow a department change into the catalog
 
 ## Goal
 
@@ -9,10 +9,6 @@ Follow Lucas's Department from the HR file to his HR account, mapped identity an
 Complete [AR-024](../AR-024/README.md). Keep the Finance segment enabled and the original request-on-behalf setting restored. Use Acme Admin, Acme Lucas (`acme.e012`), Acme Liam (`acme.e008`) and the AD workstation.
 
 Open the latest complete private HR working file and your [journal](EVIDENCE.md). A first pass has 24 rows; a repeat after AR-047 can have 25. Preserve the current population and controlled email addresses throughout.
-
-## Practice checkpoints
-
-Use this prompt as you reach the named steps. At each point in Sections 3–5, stop and identify the first stage whose value differs from the intended source value. Predict the next stage before opening it. If everything matches, use the supplied ticket for the mismatch exercise without inventing a tenant failure.
 
 ## 1. Save a complete starting record
 
@@ -100,23 +96,6 @@ The incorrect value begins in the authoritative HR row. Correct that field in th
 
 </details>
 
-## Diagnose this ticket
-
-This supplied practice case is separate from your observed tenant results. Write the first inspection, likely cause, smallest correction and repeat check before opening the answer.
-
-> Lucas's CSV and HR account show Finance after a correction, but his identity still shows Sales. The administrator proposes adding Sales to the Finance segment.
-
-<details>
-<summary>Compare your diagnosis</summary>
-
-The first remaining mismatch is between the source account and identity. Inspect the Department mapping's source, account attribute and transform, then processing status and errors. Complete the supported refresh before testing the catalog again. Leave the Finance segment's intended criterion unchanged. Verify the corrected identity value, segment membership, catalog and original native access.
-
-</details>
-
-## Resume or repeat
-
-Read the current lab state before repeating. Reuse the course segment and accounts; preserve the original request-on-behalf record and latest full HR file. Complete an existing pending request rather than submitting another. If a grant completed, resume at native verification and remove its exact account assignment. Keep all baseline assignments. Use [the module resume instructions](../../M04-READINESS.md#resume-without-losing-the-previous-state) to restore temporary settings when pausing.
-
 ## Final verification
 
 - [ ] One department field was changed in a complete file with the current population preserved.
@@ -140,4 +119,4 @@ Lucas finishes in Finance. Keep the restored current HR file and private before/
 | AR-025-04.png | Changed segment/catalog and retained memberships |
 | AR-025-05.png | Full restoration through to Request Center |
 
-[Previous: AR-024](../AR-024/README.md) · [Course outline](../../README.md) · [Next: AR-026](../AR-026/README.md)
+[Previous: AR-024](../AR-024/README.md) · [Lab index](../README.md) · [Next: AR-026](../AR-026/README.md)

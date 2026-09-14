@@ -1,4 +1,4 @@
-# AR-027 · Evidence journal
+# AR-024 · Evidence journal
 
 Keep this private journal beside [the walkthrough](README.md). Mark unperformed checks Pending; keep supplied ticket facts separate from observations.
 
@@ -41,13 +41,12 @@ Use one row per grant, denial or removal. Record No request submitted for catalo
 
 ## Acceptance
 
-- [ ] Liam's intended restriction and visible control are demonstrated.
-- [ ] Administrator visibility is distinguished from Lucas's ordinary-user visibility.
-- [ ] Lucas's temporary Sales value is restored throughout the data chain.
-- [ ] Sofia's standard-account grant is compared with the earlier second-account grant.
-- [ ] The exact standard assignment is removed; both accounts remain without VPN.
-- [ ] Original request-on-behalf settings, baseline, Finance segment and Lucas's VPN remain.
-- [ ] C04 includes complete evidence and no unresolved test operation.
+- [ ] Lucas and Liam were recorded as separate requester and recipient.
+- [ ] Daniel reviewed the submitted profile request and denied it.
+- [ ] Liam gained neither group and kept his original account/baseline.
+- [ ] Liam's own catalog remains restricted.
+- [ ] Original request-on-behalf settings and behavior are restored.
+- [ ] Lucas's VPN and the Finance segment remain intact.
 
 
 ## Screenshots and explanation
@@ -55,15 +54,3 @@ Use one row per grant, denial or removal. Record No request submitted for catalo
 Use [the capture list](README.md#screenshots-to-capture) at the named steps. Add filenames when several panels are needed. Keep passwords, invitation links and private HR email fields out of captures.
 
 Write your own answer to the walkthrough's explanation/assessment before opening the answer. Identify what changed, why the result followed, and what you restored.
-
-## Engineering practice
-
-| Record | Your answer |
-|---|---|
-| Independent prediction and observed comparison | |
-| Supplied ticket: first inspection and likely cause | |
-| Alternative cause to rule out and required evidence | |
-| Smallest correction, repeat check and retained state | |
-| Actual tenant incident and recovery, if one occurred | |
-
-Do not report a supplied ticket as a tenant incident. A successful working run and a paper diagnosis are separate records.

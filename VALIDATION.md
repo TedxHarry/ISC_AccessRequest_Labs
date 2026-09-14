@@ -59,3 +59,11 @@ AR-016–021 now have complete working walkthroughs and journals in both folders
 Engineering pages retain independent comparisons and supplied diagnosis cases while exposing the same working procedures as the beginner pages. Module 3 changes are authored and locally reviewed; tenant execution and new screenshots remain pending. Later modules were not revised in this pass.
 
 Final Module 3 local check: 1,250 local Markdown file links resolve; 12 walkthroughs and 12 journals are present. Paired procedures, 97 changed-page anchors, numbered-section Checks, expandable answers and screenshot inventories passed. Actor IDs and manager references match the HR dataset. No tenant actions were performed.
+
+## Module 4 paired walkthrough review, 13 September 2026
+
+AR-022–027 now have complete walkthroughs and journals in both folders. The [review record](M04-REVIEW.md) describes corrected visibility, request authority, source-data, correlation and account-selection gaps. The [starting and handoff page](M04-READINESS.md) defines C03 prerequisites, Sofia's session, original-setting restoration and C04.
+
+Both paths include the working procedures, target checks and cleanup. Engineering adds prediction/diagnosis exercises and solutions. Source documentation was checked, including the public account-selection screenshot. No new learner screenshots or tenant executions are claimed.
+
+Final Module 4 local check: 1,388 local Markdown file links and 88 changed-page anchors resolve. Across Modules 3–4, 24 walkthroughs, 24 journals, 142 numbered-section Checks, paired working procedures, expandable answers and capture inventories passed. Path-specific AR-003 anchors were checked separately. Actor departments/managers match the HR dataset. No tenant actions were performed.
