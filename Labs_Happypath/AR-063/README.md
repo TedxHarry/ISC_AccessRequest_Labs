@@ -99,4 +99,4 @@ Capture these beside the matching steps. Hide credentials and unnecessary identi
 | AR-063-04.png | Other-decision message, denied request and absent membership |
 | AR-063-05.png | C10 active policies, restored data and clean test accounts |
 
-[Previous: AR-062](../AR-062/README.md) · [Course outline](../../README.md) · [Next: AR-064](../../labs/AR-064/README.md)
+[Previous: AR-062](../AR-062/README.md) · [Course outline](../../README.md) · [Next: AR-064](../AR-064/README.md)

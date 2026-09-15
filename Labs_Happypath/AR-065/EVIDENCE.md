@@ -10,7 +10,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Priya decision, target grant and removal evidence | |
 | Denied response/request/invocation and terminal outcome | |
 | Restored fresh control and final disabled state | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

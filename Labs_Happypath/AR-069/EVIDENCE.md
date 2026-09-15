@@ -14,7 +14,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Actual restart/disable/shutdown procedure | |
 | Disabled profile, complete HR state and unaffected retained policies | |
 | Private evidence location and credential retention decision | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

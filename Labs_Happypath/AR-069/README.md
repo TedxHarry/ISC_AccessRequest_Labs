@@ -41,10 +41,6 @@ Complete [AR-068](../AR-068/README.md), or retain its unresolved cases with all 
 
 The final request is fulfilled and removed, prior failed requests are reconciled, all course subscriptions and the isolated profile are disabled, and C11 records the restart sequence and unresolved cases honestly.
 
-## Engineering practice
-
-Use your handover to diagnose this paper scenario: the tunnel still responds, but the Python process was stopped while Submitted remained enabled. Identify which control would distinguish a proxy response from the subscriber response, which subscription to disable, and which requests need reconciliation. Do not reproduce an unscoped outage.
-
 ## Finish
 
 Keep C11, disabled subscription/profile definitions, the current group/account identifiers and clean Taylor access. Service and dedicated forwarding may remain stopped. AR-070 starts the support-operation labs; asynchronous subscriber callbacks remain a separate AR-090 exercise.
@@ -60,4 +56,4 @@ Capture these beside the matching steps. Hide credentials and callback secrets. 
 | AR-069-03.png | Removal, retained account and refreshed absence |
 | AR-069-04.png | C11 reconciliation, restart steps and safe final state |
 
-[Previous: AR-068](../AR-068/README.md) · [Course outline](../../README.md) · [Next: AR-070](../AR-070/README.md)
+[Previous: AR-068](../AR-068/README.md) · [Course outline](../../README.md) · [Next: AR-070](../../labs/AR-070/README.md)

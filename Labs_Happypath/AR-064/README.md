@@ -45,10 +45,6 @@ Complete [AR-049](../AR-049/README.md). Taylor's account and disposable group ar
 
 The local and HTTPS controls pass, the filter matches only the intended test inputs, and one real request has matching invocation/service/review evidence. Local-only work remains labelled separately from live delivery.
 
-## Engineering practice
-
-Compare three symptoms in your evidence: 401 at the endpoint, a valid non-matching filter, and a 200 HTML proxy page. Identify the next check for each. None establishes that the Python decision code returned a valid approval response. Do not remove authentication or the filter to make a failing live request pass.
-
 ## Finish
 
 Leave SUB-Acme-AR-Submitted disabled and submitted in approve mode. Keep the isolated profile enabled for AR-065, Taylor clean and the original account retained. Keep private mode/authentication details outside the repository. No Requests on Behalf change is needed.

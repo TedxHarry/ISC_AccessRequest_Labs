@@ -1,16 +1,16 @@
-# AR-065 · Evidence journal
+# AR-066 · Evidence journal
 
 Record actual observations beside the [lab](README.md). Mark unexecuted cases **Not run**, unresolved work **Pending**, and local/mock requests **Synthetic**. Keep passwords, tokens and callback secrets out of this journal.
 
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and session usernames | |
-| Starting filter, mode and Taylor membership | |
-| Approved response/request/invocation and pending normal review | |
-| Priya decision, target grant and removal evidence | |
-| Denied response/request/invocation and terminal outcome | |
-| Restored fresh control and final disabled state | |
-| Engineering investigation: evidence, conclusion and next check | |
+| Dynamic subscription ID, filter tests and endpoint | |
+| Evelyn ID/name/type and local response | |
+| Invocation timing versus Priya and Evelyn decision times | |
+| Intermediate absence, final grant and removal | |
+| None response, normal review and second cleanup | |
+| Restored Evelyn object and disabled subscriptions | |
 
 ## Screenshots
 

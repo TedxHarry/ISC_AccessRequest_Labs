@@ -210,16 +210,16 @@ Use Access Request Approval Policy for these exercises. Do not substitute Generi
 
 ## M11 — Integrate and diagnose event triggers
 
-Prerequisites: M10 and a controlled subscriber service. You will distinguish external request-response processing from native workflows. Documentation: [Submitted event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-submitted/) and [Dynamic Approval event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-dynamic-approval/).
+Prerequisites: AR-049 with Taylor and the retained disposable group, Python 3, Postman, and the AR-052 administrator API environment for filter validation. Live delivery needs a controlled HTTPS route and dedicated subscription slot. You will prepare the subscriber in AR-064; M10 is optional for the native-workflow comparison. Documentation: [Submitted event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-submitted/) and [Dynamic Approval event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-dynamic-approval/).
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|
-| [AR-064](labs/AR-064/README.md) | Practice | Compare the two Submitted mechanisms | Produce separate payload, configuration, and timing records |
+| [AR-064](labs/AR-064/README.md) | Practice | Connect an isolated developer event subscriber | Prove local/HTTPS authentication, scoped filters and one live invocation |
 | [AR-065](labs/AR-065/README.md) | Build | Return a preliminary decision from the subscriber | Verify successful and denied control requests |
 | [AR-066](labs/AR-066/README.md) | Build | Add a reviewer through Dynamic Approval | Prove the additional review and valid identity/group resolution |
 | [AR-067](labs/AR-067/README.md) | Practice | Observe the request decision event | Match subscriber evidence to the request's actual decision |
 | [AR-068](labs/AR-068/README.md) | Investigate | An external subscriber disrupts requests | Diagnose no response/invalid response variants; restore the baseline |
-| [AR-069](labs/AR-069/README.md) | Check | Recover an integration and prove normal requests work | Validate affected and fresh requests; record remaining side effects |
+| [AR-069](labs/AR-069/README.md) | Check | Verify recovery and save the subscriber handover | Reconcile old requests, prove grant/removal and save C11 with subscriptions disabled |
 
 The Submitted developer trigger is documented as REQUEST_RESPONSE; an absent or incorrect subscriber response can disrupt requests. Restore the subscriber after failure exercises and verify that fresh requests work. Test the chosen integration rather than assuming workflow and event-trigger mechanisms are interchangeable.
 

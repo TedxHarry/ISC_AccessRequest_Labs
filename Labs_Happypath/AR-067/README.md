@@ -39,10 +39,6 @@ Complete [AR-066](../AR-066/README.md). Keep Submitted and Dynamic disabled, the
 
 Approved and denied requests have separately matched Decision events and independent native checks. The approved access is removed, and all subscriptions finish disabled.
 
-## Engineering practice
-
-Review the terminal log beside the invocation input. Identify which fields were intentionally omitted from the log, including names, comments and secrets. Explain how you would correlate repeated delivery of the same request/item/decision without treating each event as a new access grant. The teaching service does not persist a deduplicated audit ledger.
-
 ## Finish
 
 Keep the Decision definition and evidence but leave it disabled. Taylor has no test access or pending work. Keep the service mode in approve/reviewer for the response-failure exercises.

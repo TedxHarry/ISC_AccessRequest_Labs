@@ -123,3 +123,14 @@ Start with the capability check in AR-058. Build a working manager review, compa
 61. [AR-061 · Check recipient eligibility before Finance approval](AR-061/README.md)
 62. [AR-062 · Repair a workflow that is not invoked](AR-062/README.md)
 63. [AR-063 · Send a notification that reflects the real decision](AR-063/README.md)
+
+## Module 11 · Developer event triggers and subscribers
+
+Prepare an isolated subscriber, compare preliminary decisions and additional reviewers, capture decision events, then recover from response failures. Start with the local checks; live delivery also needs the controlled HTTPS route and validated subscription filter.
+
+64. [AR-064 · Connect an isolated developer event subscriber](AR-064/README.md)
+65. [AR-065 · Return a preliminary approval or denial](AR-065/README.md)
+66. [AR-066 · Add a final reviewer dynamically](AR-066/README.md)
+67. [AR-067 · Match a decision event to its access request](AR-067/README.md)
+68. [AR-068 · Recover from an invalid or late subscriber response](AR-068/README.md)
+69. [AR-069 · Verify recovery and save the subscriber handover](AR-069/README.md)

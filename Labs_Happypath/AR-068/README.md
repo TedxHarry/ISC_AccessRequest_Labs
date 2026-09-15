@@ -40,10 +40,6 @@ Complete [AR-067](../AR-067/README.md). Keep every course subscription disabled 
 
 Invalid and late responses have distinct invocation/request evidence, no diagnostic access remains, and a fresh valid response reaches normal review. Unreproduced or unresolved cases remain labelled rather than counted as passed.
 
-## Engineering practice
-
-Compare the delayed local result with the tenant invocation. Explain why approved true arriving after the deadline does not authorize the earlier request. Then review your invalid case: identify whether the error occurred at authentication, JSON parsing, output schema validation or the access-request process. Use the first failing boundary rather than changing the approval policy.
-
 ## Finish
 
 Leave all subscriptions disabled and the file in approve/reviewer mode. Keep every affected request accounted for and no delayed handler or retry unexplained. Taylor remains clean. Keep the original profile and account for the final control.

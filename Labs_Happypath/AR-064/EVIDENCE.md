@@ -13,7 +13,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Live request/invocation/normal-review IDs and native result | |
 | Optional native-workflow comparison and unexecuted cases | |
 | Disabled subscription, mode and retained profile/account | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

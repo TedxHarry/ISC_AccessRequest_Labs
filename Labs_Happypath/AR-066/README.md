@@ -45,13 +45,6 @@ Complete [AR-065](../AR-065/README.md). Keep Submitted disabled and Taylor clean
 
 The first request waits for Evelyn after Priya; the second completes its normal review without adding her. Both grants are verified and removed. The final file again selects Evelyn and subscriptions are disabled.
 
-## Engineering practice
-
-1. After the working cases, record GOV-Security-Review's ID from **Admin > Identity Management > Governance Groups** and verify its intended membership. Prepare Noah's existing acme.e007 session.
-2. With Dynamic disabled, save Evelyn's reviewer object. Replace it with the group's ID, name GOV-Security-Review and type GOVERNANCE_GROUP. POST the synthetic input to /dynamic and inspect that exact object.
-3. Enable the validated Dynamic subscription for one Taylor request, reason `AR-066 group reviewer`. Have Priya approve the normal review. Verify the additional task is assigned to the group; have Noah inspect and deny it with `AR-066 group test complete`.
-4. Verify terminal denial and native membership False. Disable Dynamic and restore Evelyn's ID/name/type. Record the group assignee and actual deciding identity separately. Do not treat a governance-group review as the individual-vote quorum from Module 10.
-
 ## Finish
 
 Keep both request-response subscriptions disabled, dynamic reviewer restored to Evelyn and Taylor clean. Do not leave the group-reviewer override active. Preserve the profile and current group/account identifiers.

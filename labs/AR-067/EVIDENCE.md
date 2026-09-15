@@ -1,23 +1,19 @@
-# AR-067 evidence journal
+# AR-067 · Evidence journal
 
-| Record | Your evidence |
+Record actual observations beside the [lab](README.md). Mark unexecuted cases **Not run**, unresolved work **Pending**, and local/mock requests **Synthetic**. Keep passwords, tokens and callback secrets out of this journal.
+
+| Record | Your observation or evidence |
 |---|---|
-| Date, tenant and available capability | |
-| Requester / recipient / reviewer | |
-| Source, access item and account IDs | |
-| Starting configuration and native access | |
-| Predicted result | |
-| Request / approval / activity IDs | |
-| Actual result and timestamps | |
-| Changed condition and result | |
-| Root cause, recovery and repeat test | |
-| Final configuration and native access | |
-| Remaining observation or support case | |
+| Date, tenant and session usernames | |
+| Decision subscription ID and array-specific filter tests | |
+| Synthetic approved/denied payload results | |
+| Approved request/invocation/item/approver evidence | |
+| Native observation and operation timestamps | |
+| Removal and retained account evidence | |
+| Denied request/invocation/approvalInfo and absence | |
+| Delivery gaps and final disabled states | |
+| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 
-Use the capture list at the end of the [lab](README.md). Name the files `AR-067-01.png`, `AR-067-02.png` and so on in that order. Record a separate filename for each test variant. Exclude credentials and callback secrets.
-
-## Explain the result
-
-Which evidence proves the requested outcome? Which other cause did you rule out? Could another engineer repeat your recovery from these notes?
+Use the lab’s capture filenames and associate each image with the observation above.

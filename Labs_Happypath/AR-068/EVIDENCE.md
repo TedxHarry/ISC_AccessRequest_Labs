@@ -12,7 +12,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Outstanding handler/retry review and resolution | |
 | Fresh recovery request/invocation and Priya denial | |
 | Three-case reconciliation and final disabled/mode state | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

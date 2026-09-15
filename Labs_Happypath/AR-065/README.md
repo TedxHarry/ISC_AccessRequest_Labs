@@ -40,10 +40,6 @@ Complete the live control in [AR-064](../AR-064/README.md). Keep its service/HTT
 
 The preliminary approve case still needs Priya and fulfills only after her approval. The preliminary deny case grants nothing. The successful grant is removed and the restored mode passes a fresh control.
 
-## Engineering practice
-
-Inspect the two terminal request records beside their response bodies. Explain why an intentional approved false response is different from invalid JSON or a missing response. Use the invocation status and response comment; do not diagnose either case from an access-request phase label alone.
-
 ## Finish
 
 Keep the Submitted subscription disabled, submitted approve, Taylor without the test assignment and the isolated profile enabled. Retain request/invocation IDs and native cleanup evidence for AR-066.
