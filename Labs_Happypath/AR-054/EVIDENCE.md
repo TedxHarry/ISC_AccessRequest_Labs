@@ -11,7 +11,6 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | AR-054 request and matching owner/requestedObject/approval ID | |
 | Rejected history, departed queue item and native absence | |
 | Fixture output path and three-row comparison | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

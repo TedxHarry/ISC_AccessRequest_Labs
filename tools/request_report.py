@@ -42,8 +42,8 @@ def main():
             parser.error('--base must be an HTTPS API origin without a path or credentials')
         token = getpass.getpass('Access token (hidden): ')
         def fetch(offset, limit):
-            params = urlencode({'requested-for': args.recipient, 'limit': limit, 'offset': offset})
-            req = Request(args.base.rstrip('/') + '/v3/access-request-status?' + params,
+            params = urlencode({'requested-for': args.recipient, 'limit': limit, 'offset': offset, 'sorters': 'created,accountActivityItemId'})
+            req = Request(args.base.rstrip('/') + '/access-request-status/v1?' + params,
                           headers={'Authorization': 'Bearer ' + token, 'Accept': 'application/json'})
             try:
                 with urlopen(req, timeout=30) as response:

@@ -57,10 +57,6 @@ Complete [AR-053](../AR-053/README.md) and keep its labelled IDs. Taylor has no 
 
 The journal connects a verified parent activity, its item and a matching approval. Paging retains all returned records, the diagnostic review is rejected without a grant, and the fixture produces three rows.
 
-## Engineering practice
-
-Explain which ID you would use for approve, reject, parent-activity read and cancel, then point to the verified field that supplied it. Inspect the fixture's simplified shape: a three-row fixture proves the paging loop, not tenant authorization, real request joins or correctness under concurrent updates.
-
 ## Finish
 
 Leave the AR-054 request rejected, Taylor's groups absent and no diagnostic approval pending. Keep the private identifier map and fixture output for AR-055–057. Do not overwrite the AR-053 evidence when collecting a newer record.

@@ -51,6 +51,7 @@ Prepare each new requester/reviewer with [AR-008](labs/AR-008/README.md). Existi
 | AR-047 | Taylor E025; complete 25-row HR file; baseline role still 24 | Reimporting the public 24-row CSV preserves Taylor |
 | AR-049 | GG-ACME-FAULT-049 current DN/GUID/ISC ID; restored ACL; AP-Acme-Reference-Test disabled | Changing its display name alone changes every identifier |
 | AR-051 | C08: Taylor’s retained account, clean test memberships, no pending writes, 25 HR identities and 26 AD accounts on a first full pass | A historical failure proves the current connector is broken |
+| AR-057 | C09: private caller environments, verified parent/item/approval IDs, permitted reports and clean Taylor access | A 202 response proves fulfillment, or a status-row count equals POST count |
 | AR-058–063, if completed | Recorded Production Support workflow; proven Finance policies | All later reviews still route through manager then Security |
 | AR-069 | Disabled subscriptions, original request-on-behalf setting | A stopped local service automatically disables subscriptions |
 | AR-078, if completed | Separate two-row disconnected register | That file is safe to import into Acme HR |

@@ -13,7 +13,6 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Owned-access attempt and whether a history row exists | |
 | Cleanup request/activity and all groups False | |
 | Synthetic 429 earliest retry time and timeout decision | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

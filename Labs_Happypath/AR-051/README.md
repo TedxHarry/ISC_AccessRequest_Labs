@@ -65,4 +65,4 @@ Capture these at the matching step. Add a letter suffix when one result needs se
 | AR-051-03.png | Approved removal and native absence |
 | AR-051-04.png | C08 retained account, clean groups and labelled object IDs |
 
-[Previous: AR-050](../AR-050/README.md) · [Course outline](../../README.md) · [Next: AR-052](../../labs/AR-052/README.md)
+[Previous: AR-050](../AR-050/README.md) · [Course outline](../../README.md) · [Next: AR-052](../AR-052/README.md)

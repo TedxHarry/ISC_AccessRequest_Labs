@@ -3,9 +3,47 @@
   "limit": 2,
   "pages": [
     [
-      {"id":"fixture-1","name":"Remote Worker","state":"REQUEST_COMPLETED","requestedFor":{"id":"fixture-recipient"}},
-      {"id":"fixture-2","name":"VPN","state":"DENIED","requestedFor":{"id":"fixture-recipient"}}
+      {
+        "id": "fixture-1",
+        "name": "Remote Worker",
+        "state": "REQUEST_COMPLETED",
+        "requestedFor": {
+          "id": "fixture-recipient"
+        },
+        "accessRequestId": "fixture-parent-1",
+        "accountActivityItemId": "fixture-child-1",
+        "created": "2026-01-01T12:00:00Z",
+        "type": "ACCESS_PROFILE",
+        "requestType": "GRANT_ACCESS"
+      },
+      {
+        "id": "fixture-2",
+        "name": "VPN",
+        "state": "REJECTED",
+        "requestedFor": {
+          "id": "fixture-recipient"
+        },
+        "accessRequestId": "fixture-parent-2",
+        "accountActivityItemId": "fixture-child-2",
+        "created": "2026-01-02T12:00:00Z",
+        "type": "ENTITLEMENT",
+        "requestType": "GRANT_ACCESS"
+      }
     ],
-    [{"id":"fixture-3","name":"Production Support","state":"EXECUTING","requestedFor":{"id":"fixture-recipient"}}]
+    [
+      {
+        "id": "fixture-3",
+        "name": "Production Support",
+        "state": "EXECUTING",
+        "requestedFor": {
+          "id": "fixture-recipient"
+        },
+        "accessRequestId": "fixture-parent-3",
+        "accountActivityItemId": "fixture-child-3",
+        "created": "2026-01-03T12:00:00Z",
+        "type": "ACCESS_PROFILE",
+        "requestType": "GRANT_ACCESS"
+      }
+    ]
   ]
 }

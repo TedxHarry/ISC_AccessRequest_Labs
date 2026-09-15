@@ -14,7 +14,6 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Henry admin caller/filter/path/count and matching recipient | |
 | Pagination/concurrent-change limitations | |
 | Clean retained Taylor/C08 state and PAT retention/deletion record | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

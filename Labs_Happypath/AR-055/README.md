@@ -83,10 +83,6 @@ Complete [AR-054](../AR-054/README.md). Use Acme API Taylor, Priya and Admin wit
 
 Separate records prove an API-approved grant, API-requested removal, rejected grant and eligible cancellation. Each case has the correct caller, new identifiers, final queue/status checks and native membership evidence.
 
-## Engineering practice
-
-Use the four records to identify the allowed actor and required state for each action. Explain why Priya's approval ID cannot cancel Taylor's request, why Taylor's self-request token is not the API removal caller here, and why approving an old ID again cannot create a new case. Keep the investigation read-only; there is no need to test unauthorized mutations.
-
 ## Finish
 
 Leave Taylor without Remote Worker or pending controls. Keep the account, restored course configuration and separate records for all four cases. Clear stale `approvalId` and `activityId` values after recording them so the next case cannot accidentally reuse them.

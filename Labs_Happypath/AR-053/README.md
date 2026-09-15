@@ -64,10 +64,6 @@ Complete [AR-052](../AR-052/README.md). Use Acme API Taylor for submission/histo
 
 The API submission is traceable to Priya's decision and the actual group additions. Cleanup removes the requested profile and both groups while preserving Taylor's account.
 
-## Engineering practice
-
-Compare the 202 response time with the approval and native-operation times. Explain what a caller can safely report at each point. If the API returns existing request tracking data, use the existing record's current state before deciding whether the intended work is already in progress. Do not interpret a successful HTTP response as ‘AD access granted.’
-
 ## Finish
 
 Leave Taylor without Remote Worker, VPN or Remote Users and without a pending diagnostic request. Keep the sanitized submission and separate parent/item/approval IDs for AR-054. Restore Acme API Taylor for the next request.

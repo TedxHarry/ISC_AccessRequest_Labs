@@ -187,9 +187,9 @@ Prerequisite: M08 and authorized API credentials. You will operate requests prog
 | [AR-052](labs/AR-052/README.md) | Practice | Authenticate and read the request configuration | Distinguish authentication, authorization, and API-version errors |
 | [AR-053](labs/AR-053/README.md) | Build | Submit one request and track its outcome | Use current payloads and distinguish acceptance from fulfillment |
 | [AR-054](labs/AR-054/README.md) | Practice | Investigate a request across related API resources | Map returned identifiers to UI/activity evidence; handle pagination |
-| [AR-055](labs/AR-055/README.md) | Practice | Test approval, rejection, and cancellation operations | Use permitted actors and explain operation/state restrictions |
+| [AR-055](labs/AR-055/README.md) | Practice | Test approval, API removal, rejection and cancellation | Use permitted actors and explain operation/state restrictions |
 | [AR-056](labs/AR-056/README.md) | Investigate | A client loses a response and proposes a retry | Check existing state before resubmission; use fixtures for throttling/error cases |
-| [AR-057](labs/AR-057/README.md) | Check | Produce a repeatable request investigation report | Build a parameterized read-only script and save C09 |
+| [AR-057](labs/AR-057/README.md) | Check | Produce a repeatable request investigation report | Run and inspect the read-only report for two recipients; save C09 |
 
 Record the API operation, method, path, version, required permissions, and tested payload. Use the current supported endpoint for each operation. Use sample responses to practice rate-limit handling.
 

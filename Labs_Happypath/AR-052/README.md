@@ -49,10 +49,6 @@ Complete [AR-051](../AR-051/README.md). Taylor (`acme.e025`) retains the account
 
 All three caller environments have successful reads. Admin object IDs match the UI, and the negative reads record actual authentication/authorization behaviour without elevating Taylor or Priya.
 
-## Engineering practice
-
-Duplicate an administrator identity GET, change only the route to `/identities/v999/{{recipientId}}`, and send it once as a read-only invalid-route check. Record the actual response and restore the verified route. Compare it with the missing-token and other-user-history results; explain why a single HTTP code is insufficient without the caller, URL and response body. Do not keep trying version numbers or add privileges to fix a path typo.
-
 ## Finish
 
 Keep the private caller environments, verified IDs and expiry records. Leave Taylor without new access and leave tenant configuration unchanged. Keep secrets in the local vault; screenshots and shared exports contain none.

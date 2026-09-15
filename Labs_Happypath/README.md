@@ -101,3 +101,14 @@ Trace a working request, create Taylor’s missing AD account, repair a disposab
 49. [AR-049 — Repair a profile after its AD group reference changes](AR-049/README.md)
 50. [AR-050 — Reconcile AD and ISC after a manual group change](AR-050/README.md)
 51. [AR-051 — Resolve a fulfillment incident and save C08](AR-051/README.md)
+
+## Module 9 · Access Request APIs
+
+Prepare the callers, submit and trace a request, compare identifiers, decide and cancel fresh controls, then produce a read-only report. Keep the same tenant objects from C08.
+
+52. [AR-052 · Authenticate and verify the API caller](AR-052/README.md)
+53. [AR-053 · Submit an API request and verify fulfillment](AR-053/README.md)
+54. [AR-054 · Map request, approval and activity identifiers](AR-054/README.md)
+55. [AR-055 · Approve, remove, deny and cancel through the API](AR-055/README.md)
+56. [AR-056 · Handle duplicate submissions and uncertain responses](AR-056/README.md)
+57. [AR-057 · Produce a repeatable request report and save C09](AR-057/README.md)

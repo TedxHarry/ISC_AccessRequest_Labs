@@ -13,7 +13,6 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Admin identity/profile/configuration comparisons | |
 | Missing token, Taylor reading Henry and admin reading Henry results | |
 | Final environment selection and clean Taylor access | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

@@ -12,7 +12,6 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Priya approval evidence and post-decision status | |
 | Verified parent activity and native grant times | |
 | Removal activity and final membership False | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

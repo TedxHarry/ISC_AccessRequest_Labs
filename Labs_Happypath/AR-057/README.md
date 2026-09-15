@@ -74,10 +74,6 @@ $LabHenryRows.Count
 
 The fixture yields three records, Taylor and Henry reports use the correct callers/filters, and the action table agrees with actual request/native evidence. C09 records remaining uncertainty and the preserved tenant state.
 
-## Engineering practice
-
-Inspect a report with a terminal failed item beside a later successful control. Explain which row requires action now. Also explain why offset paging during concurrent updates can miss or repeat records, and why the fixture cannot prove snapshot consistency. Use a settled lab window for comparison and retain timestamps instead of claiming the report is an audit-complete snapshot.
-
 ## Finish
 
 Keep C09, private reports, caller provenance and clean Taylor access. Retain or retire only the named lab credentials as recorded. Module 10 starts native approval-workflow exercises when the required capability is available; ordinary Workflows access alone does not establish that capability.
@@ -93,4 +89,4 @@ Capture these beside the matching steps. Hide token values and secrets. Add a le
 | AR-057-03.png | Action table and separate Henry/admin report |
 | AR-057-04.png | C09 and clean retained account/access state |
 
-[Previous: AR-056](../AR-056/README.md) · [Course outline](../../README.md) · [Next: AR-058](../AR-058/README.md)
+[Previous: AR-056](../AR-056/README.md) · [Course outline](../../README.md) · [Next: AR-058](../../labs/AR-058/README.md)

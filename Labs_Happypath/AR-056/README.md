@@ -50,10 +50,6 @@ Complete [AR-055](../AR-055/README.md). Taylor has no Remote Worker assignment o
 
 One simulated lost-response lookup, one pending duplicate and one owned-access attempt are recorded with actual outcomes. All resulting work is resolved and Taylor's test access is removed. The 429/timeout examples remain labelled synthetic.
 
-## Engineering practice
-
-Compare the first and duplicate responses with the later records. Identify what proves one intended grant versus two independent workflows. If no new status row appears for the owned-access attempt, explain the documented omission without claiming that an empty response alone proves anything about current AD membership. Use both the assignment and native checks.
-
 ## Finish
 
 Leave no Remote Worker assignment, VPN/Remote Users membership or pending diagnostic review/write. Retain the private response examples and retry notes for AR-057. Keep identities, baseline configuration and the disposable-group state unchanged.

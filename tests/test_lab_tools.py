@@ -1,4 +1,5 @@
 """Local contract tests only. No ISC connection or real credentials."""
+import io
 import importlib.util
 import json
 from pathlib import Path
@@ -8,6 +9,8 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
+from urllib.parse import parse_qs, urlparse
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
@@ -53,6 +56,32 @@ class ReportTests(unittest.TestCase):
     def test_error_envelope_is_not_a_page(self):
         with self.assertRaises(ValueError):
             report.collect(lambda *_: {'error': 'forbidden'})
+
+    def test_live_report_uses_current_get_route_and_preserves_filter_across_pages(self):
+        calls = []
+        def fetch(request, timeout):
+            self.assertEqual(request.get_method(), 'GET')
+            parsed = urlparse(request.full_url)
+            self.assertEqual(parsed.scheme, 'https')
+            self.assertEqual(parsed.netloc, 'tenant.api.identitynow.com')
+            self.assertEqual(parsed.path, '/access-request-status/v1')
+            query = parse_qs(parsed.query)
+            self.assertEqual(query['requested-for'], ['fixture-recipient'])
+            self.assertEqual(query['sorters'], ['created,accountActivityItemId'])
+            self.assertEqual(query['limit'], ['50'])
+            self.assertEqual(request.get_header('Authorization'), 'Bearer synthetic-token')
+            offset = int(query['offset'][0])
+            calls.append(offset)
+            rows = [{'id': str(i)} for i in range(offset, min(offset + 50, 51))]
+            return io.StringIO(json.dumps(rows))
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / 'live-shape.json'
+            args = ['request_report.py', '--base', 'https://tenant.api.identitynow.com',
+                    '--recipient', 'fixture-recipient', '--output', str(output)]
+            with patch.object(sys, 'argv', args), patch.object(report.getpass, 'getpass', return_value='synthetic-token'), patch.object(report, 'urlopen', side_effect=fetch), patch('sys.stdout', new_callable=io.StringIO):
+                report.main()
+            self.assertEqual(len(json.loads(output.read_text())), 51)
+            self.assertEqual(calls, [0, 50])
 
     def test_cli_fixture_and_no_overwrite(self):
         with tempfile.TemporaryDirectory() as folder:
