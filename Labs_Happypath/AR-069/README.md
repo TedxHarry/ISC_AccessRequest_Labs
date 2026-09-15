@@ -56,4 +56,4 @@ Capture these beside the matching steps. Hide credentials and callback secrets. 
 | AR-069-03.png | Removal, retained account and refreshed absence |
 | AR-069-04.png | C11 reconciliation, restart steps and safe final state |
 
-[Previous: AR-068](../AR-068/README.md) · [Course outline](../../README.md) · [Next: AR-070](../../labs/AR-070/README.md)
+[Previous: AR-068](../AR-068/README.md) · [Course outline](../../README.md) · [Next: AR-070](../AR-070/README.md)

@@ -12,7 +12,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Profile removal and any accidental-grant cleanup | |
 | Restored entitlement settings and final memberships | |
 | Historical failure comparison and recovery scope | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

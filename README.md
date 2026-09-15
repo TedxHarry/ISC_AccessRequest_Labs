@@ -225,16 +225,16 @@ The Submitted developer trigger is documented as REQUEST_RESPONSE; an absent or 
 
 ## M12 — Run Access Request operations
 
-Prerequisite: C09. You will own a ticket queue, a change, and a support escalation. Documentation: [Approvals Administration](https://documentation.sailpoint.com/saas/help/requests/approvals_admin.html).
+Prerequisite: AR-051 with clean Taylor access and restored permissions. AR-071 uses the AR-052 administrator API environment only when a genuinely stuck request is eligible for live closure. Earlier journals supply historical cases; Modules 10/11 are optional. You will triage requests, test a configuration change and prepare an operational handover. Documentation: [Approvals Administration](https://documentation.sailpoint.com/saas/help/requests/approvals_admin.html).
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|
-| [AR-070](labs/AR-070/README.md) | Practice | Triage a queue of aged requests | Classify approval, provisioning, timing, and evidence gaps |
-| [AR-071](labs/AR-071/README.md) | Practice | Decide whether a request should be canceled or closed | Apply documented eligibility, capture audits, and verify target state separately |
-| [AR-072](labs/AR-072/README.md) | Build | Change an owner and approval configuration | Record impact, apply the change, and regression-test fresh requests |
-| [AR-073](labs/AR-073/README.md) | Investigate | Diagnose a partial or uncertain fulfillment report | Examine item/account evidence and propose justified recovery |
+| [AR-070](labs/AR-070/README.md) | Practice | Triage a request queue | Create one pending control and classify current, historical and paper evidence |
+| [AR-071](labs/AR-071/README.md) | Practice | Choose cancellation, closure or removal | Cancel a pending request, remove a grant and assess closure eligibility |
+| [AR-072](labs/AR-072/README.md) | Build | Change an owner without losing pending work | Compare old and fresh assignees, transfer a task where needed, and prove restored routing |
+| [AR-073](labs/AR-073/README.md) | Investigate | Investigate mixed outcomes in one submission | Approve a profile, deny an independent entitlement and verify both item outcomes |
 | [AR-074](labs/AR-074/README.md) | Practice | Prepare an operational handover and support package | Write a reproducible incident report with sanitized evidence |
-| [AR-075](labs/AR-075/README.md) | Check | Run a simulated IAM support shift | Prioritize mixed tickets, resolve supported cases, and escalate the rest |
+| [AR-075](labs/AR-075/README.md) | Check | Run an IAM support shift and save C12 | Repair two scoped configuration faults, verify fresh grant/removal and denial, and account for remaining tickets |
 
 After closing a request, verify the target state and review the related audit and event evidence. Closure alone does not prove that access was provisioned or revoked. [Close request operation](https://developer.sailpoint.com/docs/tools/sdk/powershell/accessrequests/methods/access-requests/)
 

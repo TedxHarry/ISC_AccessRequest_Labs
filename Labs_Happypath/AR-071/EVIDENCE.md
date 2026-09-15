@@ -12,7 +12,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Closure candidate state, tracking ID and eligibility reasoning | |
 | Closure caller/audits/event effects or Not run reason | |
 | Final target state and unresolved monitoring | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

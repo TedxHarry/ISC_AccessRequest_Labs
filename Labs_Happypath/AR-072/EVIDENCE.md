@@ -12,7 +12,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Existing-task behavior and reassignment event | |
 | Two denials and native checks | |
 | Rollback and fresh Priya control | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

@@ -69,10 +69,6 @@ Complete [AR-074](../AR-074/README.md). Use Acme Admin, Taylor, Priya, Samuel an
 
 Both configuration faults have before/after proof, fresh grant/removal and denial pass, and all six reports have a justified disposition. C12 identifies unresolved work without claiming it was fixed.
 
-## Engineering practice
-
-For a second pass, cover the repair paragraphs and write your hypothesis and first read-only check for each live symptom before consulting them. Compare your diagnosis with the saved changed field. Reproduce only the same scoped profile faults and complete their restoration; do not add an unplanned source or global-policy outage.
-
 ## Finish
 
 Keep C12 and the handover, original profile owners/settings, disabled course subscriptions and clean Taylor access. AR-076 begins the SoD feature track when that capability is available. Carry forward explicitly pending cases rather than calling the course tenant fully verified.
@@ -89,4 +85,4 @@ Capture these beside the matching steps. Hide credentials and unnecessary person
 | AR-075-04.png | Post-repair grant/removal and fresh denial |
 | AR-075-05.png | C12 final settings, memberships and pending-work record |
 
-[Previous: AR-074](../AR-074/README.md) · [Course outline](../../README.md) · [Next: AR-076](../AR-076/README.md)
+[Previous: AR-074](../AR-074/README.md) · [Course outline](../../README.md) · [Next: AR-076](../../labs/AR-076/README.md)

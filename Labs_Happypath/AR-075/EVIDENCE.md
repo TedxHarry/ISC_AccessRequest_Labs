@@ -13,7 +13,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Other ticket dispositions and handover/evidence request | |
 | Final owners, requestability, native state and retained module policies | |
 | Unresolved cases, responsible people and next checks | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

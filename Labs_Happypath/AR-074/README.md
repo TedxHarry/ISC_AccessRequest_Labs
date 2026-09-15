@@ -48,10 +48,6 @@ Complete [AR-073](../AR-073/README.md), including cleanup. Keep its basket, per-
 
 The package gives a reproducible sequence, per-item evidence, timestamped timeline, current state and justified next action. Facts, predictions and missing evidence remain distinct.
 
-## Engineering practice
-
-Remove the item table from a temporary copy and reread the symptom. Identify the wrong conclusion a reader could draw from the basket-level status alone. Restore the table and explain which row rules out retrying the denied entitlement as a provisioning repair.
-
 ## Finish
 
 Keep the private evidence and sanitized handover. Leave all tenant objects in their AR-073 restored state. If using a historical failure, preserve its later resolution and do not present it as a current outage.

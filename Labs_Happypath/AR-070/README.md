@@ -46,10 +46,6 @@ Complete [AR-051](../AR-051/README.md) and retain its clean Taylor account and r
 
 Your queue distinguishes approval, timing, provisioning, reconciliation and historical outcomes. The one new live request is denied without granting access; paper cases are clearly labelled.
 
-## Engineering practice
-
-For the saved permission case, compare the old failed request with the later working control from AR-049. Explain which record supports present connector health and which records the earlier incident. Age and a historical Failure label do not establish an active fault.
-
 ## Finish
 
 Keep the triage table and source evidence. Leave Taylor clean and Priya/Remote Worker settings intact. Do not recreate an old directory fault or schedule solely to fill the queue.

@@ -133,7 +133,7 @@ Approval timeout/reminder settings use the approval-service configuration or the
 
 1. Search `status:Pending AND "Access Request"`. Add **Tracking Number** using Column Chooser. Match the recipient, item and activity to your isolated stuck request; copy its Identity Request tracking ID. Never use the reviewer’s approval ID.
 2. Confirm the request is genuinely stuck and record its target state and reason for closure. An ordinary pending approval should be decided or canceled through its normal path.
-3. As an authorized administrator, send **POST** `{{apiBase}}/access-requests/v1/close` with this raw JSON, replacing the ID locally:
+3. Select **Acme API Admin** with an ORG_ADMIN token. Create **POST** `{{apiBase}}/access-requests/v1/close`, set **Authorization > Bearer Token** to `{{token}}` and **Body > raw > JSON**. Use this one-ID body, replacing the tracking ID locally:
 
 ```json
 {
@@ -145,7 +145,7 @@ Approval timeout/reminder settings use the approval-service configuration or the
 ```
 
 4. HTTP 202 is acceptance, not proof of completion. Search `name:"Close Identity Requests"` and inspect the started/completed audits, including IDs that finished in error. Reopen the original request and recheck native state.
-5. Closure does not revoke access. It also fires the Provisioning Completed event trigger for closed requests, so inspect any lab subscription listening to that event before sending the operation.
+5. Closure is not a substitute for removing an assignment or accounting for a queued connector write. It also fires the Provisioning Completed event trigger for closed requests, so inspect any lab subscription listening to that event before sending the operation.
 
 [Close operation and eligibility](https://developer.sailpoint.com/docs/tools/sdk/python/access-requests/methods/access-requests/), [Close body schema](https://developer.sailpoint.com/docs/tools/sdk/python/access-requests/models/close-access-request/)
 

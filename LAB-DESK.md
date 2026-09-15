@@ -140,6 +140,21 @@ Do not remove `ROLE-Acme-AD-Baseline` or its group as a request-lab reset. If a 
 
 Use the Access Request action, not **Generic Approval Policy**. A successful workflow execution is not by itself proof that access was approved. [Workflow actions](https://documentation.sailpoint.com/saas/help/workflows/workflow-actions.html), [Adaptive Approvals](https://documentation.sailpoint.com/saas/help/adaptive_approvals/index.html)
 
+## Submit a Remote Worker operations control
+
+1. Use the requester named by the lab, normally Taylor (`acme.e025`) or Liam (`acme.e008`). Verify the session username, no AP-Remote-Worker assignment or pending request, and native GG-VPN-USERS/GG-REMOTE-USERS membership False. Keep the account; Taylor has no baseline membership, while Liam retains baseline.
+2. As administrator, inspect **Admin > Access Model > Access Profiles > AP-Remote-Worker > Edit**. Its owner is Priya unless the lab is deliberately testing Samuel. Access Requests uses direct Primary Owner grant/removal review, required reason, no form and no date requirement. Verify the included groups are VPN and Remote Users. Keep the course's developer subscriptions disabled.
+3. In the requester's session open **Request Center > Access Items > Access Profiles**, select AP-Remote-Worker, enter the lab's exact reason and leave dates empty. Select Save, Review Request, verify the recipient and standard account, then Submit Request once.
+4. Open My Requests and record the new ID/time. As administrator, open **Admin > Dashboard > Approval Management > Access Requests**, find the matching request and open its access name, Process and Assignees. Record the actual current reviewer. Stop before deciding; the lab gives the next action.
+5. To decide, the named reviewer opens **Approvals > Access Requests > Requested**, verifies recipient/item/reason and chooses Approve or Deny with the lab comment. After approval, follow [Account Activity](#find-the-account-activity) and verify both native groups True. After denial, verify both remain False. Preserve account DN/GUID and each recipient's original baseline state.
+
+## Remove a Remote Worker operations grant
+
+1. Before submitting, verify Remote Worker's owner is Priya and removal review is Primary Owner. If an owner-change test is still active, restore Priya first as that lab instructs. In the recipient's session, open **My Access > Access Profiles > AP-Remote-Worker > Revoke Access Profile**. Enter the lab's cleanup reason and submit.
+2. As Priya, inspect the matching Remove under **Approvals > Access Requests > Requested**, approve and confirm.
+3. Follow the removal activity and verify GG-VPN-USERS and GG-REMOTE-USERS False on the same account. Refresh imported data using [account aggregation](M02-CHECKS.md#refresh-imported-ad-data) and confirm the profile assignment is gone before another request. Taylor remains outside baseline; Liam keeps baseline.
+4. An error is not absence. If a write remains pending or membership remains, keep the actual request/activity evidence and investigate before another grant. Do not delete the user's account as cleanup.
+
 ## When the result differs
 
 Write down the failing boundary: visibility, submission, routing, decision, provisioning, target state or reconciliation. Compare a fresh control request. Change one setting, repeat the same case and record the new evidence. When the configuration and inputs match the documentation but the service result does not, retain the request IDs and sanitized evidence for AR-074 instead of inventing a workaround.

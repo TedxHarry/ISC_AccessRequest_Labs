@@ -48,10 +48,6 @@ Complete [AR-072](../AR-072/README.md). Taylor is clean and Remote Worker is bac
 
 Both items have separate decision and target evidence. Remote Worker is granted then removed; the denied disposable entitlement stays absent and finishes non-requestable.
 
-## Engineering practice
-
-Respond to “Only some access arrived; submit everything again” using your item table. Identify approved, denied, fulfilled and later-removed access. State what evidence would change your conclusion if the second item had a failed connector operation instead of a denial.
-
 ## Finish
 
 Keep Priya on Remote Worker, restore the original disposable entitlement settings with requestability off, and leave Taylor clean. Preserve the basket and item records without assuming a single shared request ID.

@@ -13,7 +13,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Changes tried, current state and unresolved evidence | |
 | Requested next action and responsible person | |
 | Shareable-copy location and redaction/re-read corrections | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

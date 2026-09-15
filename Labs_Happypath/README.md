@@ -134,3 +134,14 @@ Prepare an isolated subscriber, compare preliminary decisions and additional rev
 67. [AR-067 · Match a decision event to its access request](AR-067/README.md)
 68. [AR-068 · Recover from an invalid or late subscriber response](AR-068/README.md)
 69. [AR-069 · Verify recovery and save the subscriber handover](AR-069/README.md)
+
+## Module 12 · Access Request operations
+
+Triage request evidence, choose the correct administrative action, handle an owner change and mixed item outcomes, then prepare a support handover and complete a controlled support shift.
+
+70. [AR-070 · Triage an Access Request queue](AR-070/README.md)
+71. [AR-071 · Choose between cancellation, closure and removal](AR-071/README.md)
+72. [AR-072 · Change an owner without losing pending work](AR-072/README.md)
+73. [AR-073 · Investigate mixed outcomes in one submission](AR-073/README.md)
+74. [AR-074 · Prepare a reproducible support handover](AR-074/README.md)
+75. [AR-075 · Run an IAM support shift and save C12](AR-075/README.md)

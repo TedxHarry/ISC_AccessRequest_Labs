@@ -45,10 +45,6 @@ Complete [AR-070](../AR-070/README.md). Use Taylor, Priya, Acme Admin and native
 
 The cancellation and actual removal have distinct live evidence. Closure is either verified on an eligible course request or explicitly recorded as an unexecuted eligibility review. Native state is checked independently.
 
-## Engineering practice
-
-Compare the approval ID, status accountActivityItemId and parent Identity Request tracking ID from your records. Explain why substituting one for another in a cancel/close call is unsafe. Use read-only evidence to resolve an unknown ID; never discover the right ID by trying mutations.
-
 ## Finish
 
 Leave Taylor without Remote Worker and no pending control. Preserve original grant, cancellation, removal and any closure records separately. Keep any unresolved closure or connector work Pending with its next check.

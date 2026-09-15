@@ -46,10 +46,6 @@ Complete [AR-071](../AR-071/README.md). Use Acme Admin, Taylor, Liam, Priya and 
 
 The new request resolves the changed owner, the old task is inspected and transferred where needed, and a fresh denied control confirms Priya after rollback.
 
-## Engineering practice
-
-Inspect how the removal policy also refers to Primary Owner. Explain why leaving Samuel as owner would change later removal routing even if only grant routing was being tested. Separate owner changes, policy changes and one-task reassignment in the before-record.
-
 ## Finish
 
 Keep Priya restored and all diagnostic requests terminal. Preserve Liam baseline, Taylor baseline exclusion, original accounts and unrelated access. Retain Samuel’s working session without granting new administrator rights.
