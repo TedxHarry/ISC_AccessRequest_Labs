@@ -49,10 +49,6 @@ Complete [AR-059](../AR-059/README.md). Use Henry and three individual reviewers
 
 Three distinct identities and each decision sequence are recorded. The observations identify the completion threshold. Henry has no Support or unresolved quorum request.
 
-## Engineering practice
-
-Compare this with AR-029's governance-group review. Explain why one group member deciding its work item differs from two individuals meeting a three-person quorum. Preserve any disagreement between the policy output and request status.
-
 ## Finish
 
 Keep the quorum copy disabled, the original control attached/enabled and Henry clean. Retain the case records and original profile settings.

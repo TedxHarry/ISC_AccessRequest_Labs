@@ -1,23 +1,18 @@
-# AR-062 evidence journal
+# AR-062 — Evidence journal
 
-| Record | Your evidence |
+Use the [lab](README.md) and record actual observations. Mark unexecuted cases **Not run** and unresolved work **Pending**. Keep predictions and simulations labelled separately from tenant results. Never record a password, bearer token or Client Secret.
+
+| Record | Your observation or evidence |
 |---|---|
-| Date, tenant and available capability | |
-| Requester / recipient / reviewer | |
-| Source, access item and account IDs | |
-| Starting configuration and native access | |
-| Predicted result | |
-| Request / approval / activity IDs | |
-| Actual result and timestamps | |
-| Changed condition and result | |
-| Root cause, recovery and repeat test | |
-| Final configuration and native access | |
-| Remaining observation or support case | |
+| Date, tenant and session usernames | |
+| Original profile ID, workflow ID, trigger and saved settings | |
+| Before-control request/execution IDs and denial | |
+| Direct-review request ID, route and history search interval | |
+| Restored-control request/execution IDs and decision | |
+| Three-request comparison and any unresolved discrepancy | |
+| Henry native state and retained profile/workflow settings | |
+| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 
-Use the capture list at the end of the [lab](README.md). Name the files `AR-062-01.png`, `AR-062-02.png` and so on in that order. Record a separate filename for each test variant. Exclude credentials and callback secrets.
-
-## Explain the result
-
-Which evidence proves the requested outcome? Which other cause did you rule out? Could another engineer repeat your recovery from these notes?
+Use the filenames in the lab’s capture list and associate each image with its observation above.

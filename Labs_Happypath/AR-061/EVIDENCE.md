@@ -14,7 +14,6 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Each Finance object eligible grant/removal and ineligible stop | |
 | Restored on-behalf/removal policies and clean accounts | |
 | Accepted associations or original policies restored; unresolved cases | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

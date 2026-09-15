@@ -16,7 +16,6 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Finance object IDs, accepted or original policies, original removal reviews | |
 | HR/on-behalf restoration, Olivia/Liam/Lucas/Taylor retained state | |
 | AR-058–062 outcomes and timeout observation status | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

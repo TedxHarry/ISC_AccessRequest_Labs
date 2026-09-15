@@ -89,4 +89,4 @@ Capture these beside the matching steps. Hide token values and secrets. Add a le
 | AR-057-03.png | Action table and separate Henry/admin report |
 | AR-057-04.png | C09 and clean retained account/access state |
 
-[Previous: AR-056](../AR-056/README.md) · [Course outline](../../README.md) · [Next: AR-058](../../labs/AR-058/README.md)
+[Previous: AR-056](../AR-056/README.md) · [Course outline](../../README.md) · [Next: AR-058](../AR-058/README.md)

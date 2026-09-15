@@ -83,10 +83,6 @@ Check the request's provisioning result and the target account before treating a
 
 A fresh approval and denial each reach the intended notification branch. Delivered messages match the actual policy output; native checks and cleanup establish the separate access outcome. C10 records active policies, restored data and unresolved observations.
 
-## Engineering practice
-
-Inspect the non-matching branch and explain what it would send for an expiration status rather than a denial. Do not mark expiration tested without an observed run. Then compare an email failure after an approved policy with a provisioning failure after the same decision: identify which action or account activity supplies evidence for each. Preserve the original request ID when investigating; replaying the whole workflow could repeat side effects.
-
 ## Finish
 
 Keep the original control enabled/attached, the notification copy disabled after resolved tests, Henry clean and C10 saved. Retain only Finance policies supported by your AR-061 evidence. Module 11 continues with developer event-trigger/subscriber exercises; it uses a different integration model from these native workflows.
@@ -103,4 +99,4 @@ Capture these beside the matching steps. Hide credentials and unnecessary identi
 | AR-063-04.png | Other-decision message, denied request and absent membership |
 | AR-063-05.png | C10 active policies, restored data and clean test accounts |
 
-[Previous: AR-062](../AR-062/README.md) · [Course outline](../../README.md) · [Next: AR-064](../AR-064/README.md)
+[Previous: AR-062](../AR-062/README.md) · [Course outline](../../README.md) · [Next: AR-064](../../labs/AR-064/README.md)

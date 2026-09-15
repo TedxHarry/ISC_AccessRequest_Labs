@@ -80,13 +80,6 @@ Complete AR-058–060 and [AR-049](../AR-049/README.md). Keep GG-ACME-FAULT-049 
 
 The isolated non-Finance and missing/blank-data tests must stop the request without access before Finance attachment. Each attached Finance profile/role is then verified with eligible Olivia and ineligible Liam. Untested or failed enforcement remains explicitly Not accepted.
 
-## Engineering practice
-
-1. Open the saved Get Recipient output from the isolated test. Copy just the department field into your private journal, without changing the workflow or HR data.
-2. Trace five written examples through your configured checks: absent, null, empty string, number 42 and string IT. Record which check should route each to a named failure end. Then trace Finance to Manager review. Label this table Predicted; it is not tenant execution.
-3. Compare the prediction with the actual missing/blank-value run. Record the representation you observed and which other cases remain untested. A synthetic trigger edit cannot override the real department fetched by Get Identity.
-4. Open the on-behalf execution and compare requestedBy with requestedFor and Get Recipient's input. Explain why selecting the requester's Finance department would incorrectly admit Liam. Keep the tested recipient path unchanged.
-
 ## Finish
 
 On success or an early stop, restore the original Requests on Behalf setting, complete private HR file and original Finance removal policies. Verify Liam is back in IT and Olivia/Liam have no diagnostic access. Keep only tested Finance grant associations; otherwise restore the original grant policies. Disable the isolated control after its requests are resolved. Production Support remains on WF-Acme-AR058. Record unresolved requests and enforcement tests as Pending or Not accepted.

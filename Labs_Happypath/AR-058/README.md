@@ -49,10 +49,6 @@ Use the completed AR-029 request/removal setup and resolve Henry's earlier pendi
 
 The profile invokes the native workflow, Ava handles both fresh cases, the approved grant is removed, and denial grants nothing.
 
-## Engineering practice
-
-Compare this native trigger with Access Request Decision. Explain why a post-decision notification cannot supply a pending approval. Record Timeout/Expire as configuration only unless you actually observed the two-day boundary.
-
 ## Finish
 
 Keep WF-Acme-AR058 enabled and attached as the working control. Leave Henry clean and removal review as Ava. Preserve the pre-module policy snapshot; later labs duplicate this control and restore its association.

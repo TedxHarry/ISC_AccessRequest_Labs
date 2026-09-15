@@ -131,12 +131,12 @@ Do not remove `ROLE-Acme-AD-Baseline` or its group as a request-lab reset. If a 
 
 ## Prepare an approval workflow
 
-1. Open **Admin > Workflows** and create a workflow from scratch. Use the name specified by the lab.
+1. Open **Admin > Workflows > Create Workflow > Start in the Workflow Builder**. Use the name specified by the lab. If duplicating a control, use **Manager > Actions > Duplicate Workflow** and rename the copy.
 2. Select the native **Access Request Submitted** trigger.
 3. Add **Approval Policy** from **Access Request Actions**. Select the specified type, scheme and reviewers. Use **Expire** for timeout unless a lab explicitly tests another outcome.
-4. Connect the trigger to the action and the action to the completion step. Save, validate and enable the workflow.
+4. Connect the trigger to the action and the action to **End Steps > Success**. Save and resolve validation errors, then set Status to Enabled on the Workflows Manager page.
 5. Edit the named access item's **Access Requests** configuration. Under approval, choose **Workflow**, select this enabled workflow and save.
-6. Submit a new request. Open that workflow's execution history and correlate its input with the request. Verify approval and target state separately.
+6. Submit a new request. Open that workflow's **Executions** tab and match the request ID, recipient, item and submission time. Verify the policy decision and target state separately. Changes to the association affect future requests; resolve earlier diagnostic requests before switching policies.
 
 Use the Access Request action, not **Generic Approval Policy**. A successful workflow execution is not by itself proof that access was approved. [Workflow actions](https://documentation.sailpoint.com/saas/help/workflows/workflow-actions.html), [Adaptive Approvals](https://documentation.sailpoint.com/saas/help/adaptive_approvals/index.html)
 

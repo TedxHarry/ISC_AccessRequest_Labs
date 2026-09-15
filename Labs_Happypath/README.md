@@ -112,3 +112,14 @@ Prepare the callers, submit and trace a request, compare identifiers, decide and
 55. [AR-055 · Approve, remove, deny and cancel through the API](AR-055/README.md)
 56. [AR-056 · Handle duplicate submissions and uncertain responses](AR-056/README.md)
 57. [AR-057 · Produce a repeatable request report and save C09](AR-057/README.md)
+
+## Module 10 · Native approval workflows
+
+Start with the capability check in AR-058. Build a working manager review, compare review sequences, test recipient eligibility, repair an association and send decision notifications. Resolve each test and restore its settings before continuing.
+
+58. [AR-058 · Attach and verify a native approval workflow](AR-058/README.md)
+59. [AR-059 · Compare serial and parallel reviews](AR-059/README.md)
+60. [AR-060 · Test a quorum with three separate reviewers](AR-060/README.md)
+61. [AR-061 · Check recipient eligibility before Finance approval](AR-061/README.md)
+62. [AR-062 · Repair a workflow that is not invoked](AR-062/README.md)
+63. [AR-063 · Send a notification that reflects the real decision](AR-063/README.md)

@@ -49,10 +49,6 @@ Complete [AR-058](../AR-058/README.md). Henry is clean and WF-Acme-AR058 is atta
 
 The same reviewers act serially and in parallel. Membership stays absent until all required approvals, and denial grants nothing. Both successful grants are removed.
 
-## Engineering practice
-
-Compare task availability, decisions and native provisioning times. Distinguish a task preview from an actionable review. If one decision grants access unexpectedly, inspect the saved Approval Type and resolved participants before blaming the scheme.
-
 ## Finish
 
 Keep Henry clean, WF-Acme-AR058 attached and the serial/parallel copies disabled. Preserve form/date/removal settings and the comparison evidence.

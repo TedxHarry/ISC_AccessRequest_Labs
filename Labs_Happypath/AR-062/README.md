@@ -42,10 +42,6 @@ Complete [AR-061](../AR-061/README.md), including its restoration steps, or reco
 
 The two workflow controls have their own matching executions. The request submitted while direct Manager review was selected follows that direct route. All three are denied without granting Support, and the final saved association is WF-Acme-AR058.
 
-## Engineering practice
-
-Open AR-061's saved on-behalf execution, if available. Read requestedBy and requestedFor, the Get Recipient input, its returned identity ID/department, and the comparator's actual input. Write which value first differs from the intended Liam/IT case. A wrong recipient lookup can return a valid Finance value and take the wrong branch without a workflow error. A missing execution is a different problem: no comparator ran. If that case was not executed, label this review Not run; do not invent a payload. Keep any proposed correction in a disabled copy until you can repeat the isolated AR-061 test.
-
 ## Finish
 
 Keep WF-Acme-AR058 enabled and selected for Production Support. Verify no diagnostic review, scheduled grant or removal is outstanding and Henry remains clean. Leave Finance's recorded AR-061 policies unchanged. Preserve the three-request comparison for later investigations.

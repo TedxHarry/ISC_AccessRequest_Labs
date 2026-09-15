@@ -12,7 +12,6 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Parallel native False/True/False | |
 | Denial and remaining task state | |
 | Restored control and disabled copies | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

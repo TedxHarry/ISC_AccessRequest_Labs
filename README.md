@@ -195,16 +195,16 @@ Record the API operation, method, path, version, required permissions, and teste
 
 ## M10 — Build workflow approvals
 
-Prerequisite: C09 and workflow capability. You will configure and diagnose workflow-based approval. Documentation: [workflow triggers](https://documentation.sailpoint.com/saas/help/workflows/workflow-triggers.html) and [Approval Policy action](https://documentation.sailpoint.com/saas/help/workflows/workflow-actions.html).
+Prerequisite: AR-029 with working removals, plus Adaptive Approvals/native Access Request service. AR-061 also uses the Finance setup from AR-019/022 and the disposable group from AR-049. C09 API credentials are not required. You will configure and diagnose native workflow approvals. Documentation: [workflow triggers](https://documentation.sailpoint.com/saas/help/workflows/workflow-triggers.html) and [Approval Policy action](https://documentation.sailpoint.com/saas/help/workflows/workflow-actions.html).
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|
 | [AR-058](labs/AR-058/README.md) | Build | Attach a simple approval workflow | Prove that the correct access item invokes the enabled workflow |
 | [AR-059](labs/AR-059/README.md) | Build | Compare serial and parallel multi-step review | Demonstrate timing and final decisions using separate requests |
 | [AR-060](labs/AR-060/README.md) | Practice | Test a quorum approval policy | Predict and test sufficient approvals, denial outcomes, and early completion |
-| [AR-061](labs/AR-061/README.md) | Build | Route a request using a documented identity attribute | Verify both branches and unavailable-data behavior |
+| [AR-061](labs/AR-061/README.md) | Build | Check recipient eligibility before Finance approval | Prove the isolated failure branch stops access, then test all three Finance entry points |
 | [AR-062](labs/AR-062/README.md) | Investigate | The workflow never starts or follows the wrong branch | Trace association, enablement, payload, and execution evidence |
-| [AR-063](labs/AR-063/README.md) | Check | Deliver conditional approval with decision notification | Validate approval/denial and compare new versus in-flight requests |
+| [AR-063](labs/AR-063/README.md) | Check | Send a notification that reflects the real decision | Compare actual policy output, delivered messages and fulfillment; save C10 |
 
 Use Access Request Approval Policy for these exercises. Do not substitute Generic Approval Policy without proving that it implements the required access-request behavior. Conditional examples must use fields actually available to the workflow, retrieved through a documented method if necessary.
 
