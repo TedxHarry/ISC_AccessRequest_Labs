@@ -42,7 +42,7 @@ Use one row per grant, denial or removal. Record No request submitted for catalo
 ## Acceptance
 
 - [ ] Sofia has one HR identity and two distinct correlated AD accounts.
-- [ ] Baseline criteria uniquely match standard and are saved before the extra account is processed.
+- [ ] Baseline criteria uniquely match standard; the first run saves them before processing the extra account, and repeats verify the retained criteria.
 - [ ] Standard alone retains baseline.
 - [ ] VPN request, review, activity and native state identify the second account.
 - [ ] Removal targeted that assignment; neither account retains VPN.

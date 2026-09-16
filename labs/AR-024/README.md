@@ -10,12 +10,14 @@ Complete [AR-023](../AR-023/README.md). Keep its **original request-on-behalf co
 
 SEG-Acme-Finance remains enabled. Everyone-for-anyone must be enabled for this test; if you restored the original setting while pausing AR-023, enable the temporary mode again using its Section 4. Keep your [journal](EVIDENCE.md) open.
 
+If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
+
 ## Follow the steps
 
 ### 1. Verify the two different people
 
 1. As administrator, inspect Lucas and Liam under **Admin > Identity Management > Identities**. Record their identity IDs, usernames and Departments: Finance and IT respectively.
-2. Inspect Liam's **Accounts**, **Access** and pending requests. He must have no Finance Reporting assignment or unfinished matching request.
+2. Inspect Liam's **Accounts** and **Access**. Use [administrator request details](../../M02-CHECKS.md#inspect-a-request-as-administrator) to check unfinished requests for Liam, including those submitted by another person. He must have no Finance Reporting assignment or unfinished matching request.
 3. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for Liam against GG-FIN-REPORTING, GG-VPN-USERS and GG-ACME-BASELINE. Record the account DN/objectGUID.
 4. Open **Admin > Access Model > Access Profiles > AP-Finance-Reporting > Access Requests**. Confirm its saved grant reviewer is **Primary Owner**, Daniel, and request/denial comments are required.
 5. In Liam's own Request Center, verify AP-Finance-Reporting is absent while Remote Worker is visible. Record this before Lucas submits anything.
@@ -42,7 +44,7 @@ SEG-Acme-Finance remains enabled. Everyone-for-anyone must be enabled for this t
 ### 3. Inspect and deny the request
 
 1. In Acme Daniel, open **Approvals > Access Requests > Requested** and find this AP-Finance-Reporting **Grant**.
-2. Open **Details** and verify both the requester and requested-for identity, selected account and business reason.
+2. Open **Details** and verify both the requester and requested-for identity and business reason. If a single-account request does not show an account selection, use administrator details and Liam's recorded linked AD account to confirm the target before deciding.
 3. In Acme Admin, locate [the matching request](../../LAB-DESK.md#find-the-request). Inspect **Assignees** and confirm Daniel. Read Liam's identity Department to support the decision; do not infer it from Lucas's department.
 4. In Acme Daniel, select **Deny**, enter `Recipient is not eligible for Finance access for this task` and confirm.
 5. Verify **Reviewed** and record the denied result in administrator request details.
@@ -79,6 +81,8 @@ SEG-Acme-Finance remains enabled. Everyone-for-anyone must be enabled for this t
 ## Check the result
 
 ### If the result differs
+
+If you stop before completing the denial, restore the original request-on-behalf setting using Section 5 and record the outstanding request ID and stage. Restoring the setting does not cancel an already-submitted request; finish its review or use the [existing-request procedure](../../M02-READINESS.md#account-for-existing-requests-before-repeating) before another attempt.
 
 If the profile is unavailable to Lucas, verify his session, Finance identity attribute and the segment before loosening visibility. If it was accidentally approved, do not report the denial exercise as passed: verify Liam's actual groups, remove the requested profile through the AR-016 removal procedure using Liam as recipient and Daniel as reviewer, then repeat from a clean state with a new request ID. Preserve Lucas's grant.
 

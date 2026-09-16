@@ -6,17 +6,20 @@ In this lab, you'll compare manager-only and everyone-for-anyone request authori
 
 ## Before you start
 
-Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003`), Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep the Finance segment enabled and your [journal](EVIDENCE.md) open.
+Complete [AR-022](../AR-022/README.md). Open the AD workstation, Acme Admin, Acme Daniel (`acme.e003`), Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep the Finance segment enabled and your [journal](EVIDENCE.md) open.
+
+If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
 
 ## Follow the steps
 
 ### 1. Save the original setting and manager relationships
 
 1. As administrator, open **Admin > Global > System Settings > Feature Settings > Access Requests**.
-2. Record **Enable Requests on Behalf of others** as on/off and the selected option: **By Managers for their Team** or **By Everyone for Anyone**. Capture the whole relevant section, including any disabled selection.
+2. Record **Enable Requests on Behalf of others** as on/off and the selected option: **By Managers for their Team** or **By Everyone for Anyone**. Capture the whole relevant section, including any disabled selection. If you are resuming AR-023–024, keep the original record from before the first edit; do not replace it with the temporary everyone-mode setting.
 3. Label the record **AR-023 original request-on-behalf configuration**. Keep it for restoration in AR-024; do not replace it with a screenshot taken after your edit.
 4. Open Lucas and Liam under **Admin > Identity Management > Identities**. Verify Lucas's manager is Daniel and Liam's is Priya.
 5. Verify Lucas has no direct reports in the current lab data. Keep the ordinary-user sessions separate from Acme Admin.
+6. On your AD workstation, run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas against `GG-VPN-USERS` and `GG-ACME-BASELINE` (both True), and Liam against `GG-VPN-USERS`, `GG-FIN-REPORTING` and `GG-FIN-AP` (all False), plus `GG-ACME-BASELINE` (True). Record the controller and account identifiers.
 
 **Check:** You can name the original configuration and explain why Lucas is Daniel's direct-report test while Liam is the non-report control.
 
@@ -72,7 +75,7 @@ Complete [AR-022](../AR-022/README.md). Open Acme Admin, Acme Daniel (`acme.e003
 1. In Acme Lucas, start a fresh request for himself and search AP-Finance-Reporting. Record it is visible.
 2. In Acme Liam, request for himself and search the same item, then AP-Remote-Worker. Finance remains absent; Remote Worker remains visible.
 3. In Acme Admin's Request Center, inspect the Finance item without submitting. Record this as an administrator observation, not a pass for Liam.
-4. Verify there are no requests from this lab in the ordinary users' **My Requests**.
+4. Verify there are no requests from this lab in the ordinary users' **My Requests**. Repeat Section 1's native checks on the same controller and compare every result with the before record.
 5. Keep everyone-for-anyone temporarily enabled for the next lab and retain the original-setting record. If stopping here, restore the recorded original setting and note that AR-024 must re-enable everyone-for-anyone before its single test.
 
 **Check:** Permission to choose a recipient and permission to see an item are separate observations.

@@ -247,3 +247,9 @@ Local checks passed: all 18 Module 1 walkthrough structures and journals, 66 emb
 Reviewed AR-016–021 in both paths and all 12 journals. Corrected existing-object reuse, requester/admin session transitions, checks for requests made by another person, native retained-access verification, and HR registration/file-preservation steps. See [the review record](M03-REVIEW.md#final-learner-walkthrough-review-16-september-2026).
 
 All 12 walkthrough structures, 12 journal acceptance lists, six paired working procedures, screenshot inventories and expandable answers passed. The changed-file check resolved 159 local file links and their referenced heading anchors before this validation entry; whitespace checks passed. Official application, role-revocation and user-removal documentation was rechecked. No tenant actions were performed and no new screenshots were added. AR-001–006 remain learner-reported complete; AR-007 tenant execution has not started.
+
+## Module 4 final learner review, 16 September 2026
+
+Reviewed AR-022–027 in both paths and all 12 journals. Added missing native before checks, clarified session and interrupted-permission handling, distinguished first-pass account creation from repeats, and supplied pending-request and imported-assignment checks for Sofia's account-specific exercises. See [the review](M04-REVIEW.md#final-learner-walkthrough-review-16-september-2026).
+
+All 12 walkthrough structures, 12 journal acceptance lists, six matching working procedures, screenshot inventories and expandable answers passed. The changed-file check resolved 145 local file links and referenced heading anchors before this entry; whitespace checks passed. Current official request/segment/account-selection references were rechecked. No tenant operations or new screenshot validation were performed. AR-001–006 remain learner-reported complete; AR-007 has not started.

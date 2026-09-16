@@ -40,3 +40,18 @@ Both folders expose the complete working steps. Engineering pages add prediction
 Local validation covers Markdown links/anchors, paired procedures, section Checks, journals, screenshot lists, matching actor data and required handoff states. Final local results are recorded in [VALIDATION.md](VALIDATION.md).
 
 No tenant requests, AD account creation, approval decisions, source imports or new learner screenshot validation were performed in this writing pass. Run the labs in order and record actual UI labels, propagation, account chooser values, correlation, grant/removal activity and native results before marking them tenant-tested. Later modules have not received this paired review.
+
+## Final learner walkthrough review, 16 September 2026
+
+Reviewed AR-022–027 in both paths, all 12 journals and the transition to AR-028. Learner progress remains AR-001–006 reported complete; AR-007 tenant execution has not started. No Module 4 tenant actions or screenshot validation were performed.
+
+- Added native before-state checks to the catalog and permission comparisons. AR-025 also checks the role and control profile before changing Department; AR-027 records the identity and native values it later compares after restoration.
+- Placed resume guidance before the steps in both paths. Reusing a segment preserves matching criteria and access associations instead of adding duplicate rows.
+- AR-023 retains the original permission record across interruptions. AR-024 now explains how to restore that permission while separately accounting for an already-submitted request, and where to inspect requests made by another person.
+- Sofia's separate browser profile is prepared before registration. First-pass one-account prerequisites and baseline timing now distinguish a repeat where both accounts already exist.
+- AR-026 and AR-027 check unfinished account-specific requests before another submission and refresh imported data if a completed assignment is not yet available for removal.
+- Added the missing beginner AR-027 link to AR-028. Preserved the account-specific removal route, baseline selection criterion and both correlated accounts.
+
+Rechecked current official segment, request-on-behalf, Request Center and Multiple Account Options documentation, plus the SailPoint product announcement for account-selection labels. Tenant execution remains necessary to verify propagation, actual account choices, approval details and native changes.
+
+Local checks passed: 12 walkthrough structures, 12 journal acceptance lists, six matching working procedures (allowing path-specific links), screenshot filename inventories, expandable answers, 145 local file links and their referenced heading anchors in changed files, and whitespace checks.

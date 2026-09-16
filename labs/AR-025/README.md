@@ -10,6 +10,8 @@ Complete [AR-024](../AR-024/README.md). Keep the Finance segment enabled and the
 
 Open the latest complete private HR working file and your [journal](EVIDENCE.md). A first pass has 24 rows; a repeat after AR-047 can have 25. Preserve the current population and controlled email addresses throughout.
 
+If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
+
 ## Follow the steps
 
 ### 1. Save a complete starting record
@@ -20,7 +22,8 @@ Open the latest complete private HR working file and your [journal](EVIDENCE.md)
 4. Open Lucas under **Admin > Identity Management > Identities** and record Department, identity ID and Manager.
 5. Open **Admin > Identity Management > Identity Profiles > Acme Employees > Mappings**. Find Department and confirm its source is Acme HR and account attribute is department. Record any transform instead of assuming a direct mapping.
 6. Inspect **Admin > Access Model > Segments > SEG-Acme-Finance > Edit Segment > Define Segment**. Record Finance and Lucas's matching membership.
-7. In Acme Lucas, search AP-Finance-Reporting and AP-Finance-AP in **Request Center > Access Items > Access Profiles**. Both must be visible before changing the data.
+7. In Acme Lucas, search AP-Finance-Reporting and AP-Finance-AP in **Request Center > Access Items > Access Profiles**. Both must be visible before changing the data. Search ROLE-Finance-Analyst under **Access Items > Roles** and AP-Remote-Worker under **Access Profiles** too; both must be visible.
+8. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas against GG-VPN-USERS and GG-ACME-BASELINE. Record True for both, the controller and account identifiers before editing the CSV.
 
 **Check:** CSV, HR account and identity agree on Finance, and Lucas matches the unchanged Finance segment.
 
@@ -57,7 +60,7 @@ Open the latest complete private HR working file and your [journal](EVIDENCE.md)
 2. After the saved attribute/segment result reaches the catalog, refresh Acme Lucas's Request Center for himself.
 3. Search both Finance profiles and the Finance Analyst role. They should be absent for Lucas while he is Sales.
 4. Search AP-Remote-Worker; it remains visible. Repeat Liam's Finance/Remote Worker comparison as the unchanged outside-Finance control.
-5. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas against GG-VPN-USERS and GG-ACME-BASELINE.
+5. On the same controller used in Section 1, run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas against GG-VPN-USERS and GG-ACME-BASELINE.
 
 **Check:** Lucas no longer matches the Finance segment and loses its three catalog choices, but his existing VPN and baseline remain True. Do not change the segment to Sales.
 

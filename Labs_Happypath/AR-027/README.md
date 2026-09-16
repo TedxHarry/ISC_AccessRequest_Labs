@@ -6,9 +6,11 @@ In this lab, you'll check the Finance catalog restriction, trace a department pr
 
 ## Before you start
 
-Complete [AR-026](../AR-026/README.md), including VPN removal. Open Acme Admin, Acme Lucas, Acme Liam, Acme Sofia and Acme Priya. Keep the latest complete private HR file, AR-023's original permission record, AR-026's two-account evidence and your [journal](EVIDENCE.md) open.
+Complete [AR-026](../AR-026/README.md), including VPN removal. Open the AD workstation, Acme Admin, Acme Lucas, Acme Liam, Acme Sofia and Acme Priya. Keep the latest complete private HR file, AR-023's original permission record, AR-026's two-account evidence and your [journal](EVIDENCE.md) open.
 
 Finance segmentation is enabled; Lucas is Finance; Liam is IT. Sofia has two correlated AD accounts, neither with VPN. Only her standard account has baseline. No test request is pending.
+
+If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
 
 ## Follow the steps
 
@@ -26,7 +28,7 @@ Finance segmentation is enabled; Lucas is Finance; Liam is IT. Sofia has two cor
 
 ### 2. Compare an administrator while Lucas has the wrong department
 
-1. Save a new private backup of the latest complete HR file. Confirm Lucas is Finance on the file, HR account and identity before the comparison.
+1. Save a new private backup of the latest complete HR file. Confirm Lucas is Finance on the file, HR account and identity before the comparison. Record his identity ID and Manager, then run the [native check](../../M02-CHECKS.md#inspect-direct-ad-membership) for VPN and baseline (both True), recording the controller and account identifiers.
 2. In a separate working copy, change only E012's department to Sales. Preserve every current row, email and manager value. Verify the row count and single-field change.
 3. Upload the full edited file through **Admin > Connections > Sources > Acme HR > Account Management > Account Aggregation**.
 4. Inspect completed aggregation, then **Acme HR > Account Management > Accounts > acme.e012**. Wait for identity processing and verify Sales on Lucas's identity.
@@ -55,7 +57,7 @@ Finance segmentation is enabled; Lucas is Finance; Liam is IT. Sofia has two cor
 
 The earlier AR-026 grant targeted the second account. This request deliberately targets standard, so you can compare both choices with actual results.
 
-1. As administrator, open Sofia's **Accounts** and verify both recorded accounts remain correlated. Recheck the baseline Multiple Account Options criterion under AP-Acme-AD-Baseline.
+1. In Acme Sofia, check **My Requests** and use [administrator request details](../../M02-CHECKS.md#inspect-a-request-as-administrator) to rule out unfinished VPN grants/removals for either account. As administrator, open Sofia's **Accounts** and verify both recorded accounts remain correlated. Recheck the baseline Multiple Account Options criterion under AP-Acme-AD-Baseline.
 2. Run native checks for both acme.e009 and acme.e009.admin against GG-VPN-USERS and GG-ACME-BASELINE. VPN must be False on both; baseline must be True only on standard.
 3. Confirm GG-VPN-USERS remains requestable with Priya as owner and primary-owner grant/removal reviewer.
 4. In Acme Sofia, verify acme.e009 and open **Request Center > Access Items > Entitlements** for herself.
@@ -91,7 +93,7 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 
 ### 6. Remove the standard-account test grant
 
-1. In Acme Sofia, open **My Access > Entitlements > GG-VPN-USERS**.
+1. If the completed assignment is not visible yet, [refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data) and wait for processing. In Acme Sofia, open **My Access > Entitlements > GG-VPN-USERS**.
 2. Select the **Assignment** whose target is the standard account acme.e009. Compare its account identifier with Section 5.
 3. Select **Revoke Assignment**, enter `AR-027: Standard-account VPN test complete` and **Submit Request**.
 4. In Acme Priya, find the VPN **Remove** request, verify its target account, approve and record **Reviewed**.
@@ -169,4 +171,4 @@ Exclude passwords, invitation links and private HR email fields.
 
 Continue to Module 5 after the C04 checks pass.
 
-[Previous: AR-026](../AR-026/README.md) · [Lab index](../README.md)
+[Previous: AR-026](../AR-026/README.md) · [Lab index](../README.md) · [Next: AR-028](../AR-028/README.md)

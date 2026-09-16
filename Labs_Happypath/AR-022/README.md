@@ -6,7 +6,9 @@ In this lab, you'll restrict Finance catalog items to Finance requesters, using 
 
 ## Before you start
 
-Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../M04-READINESS.md). Open Acme Admin, Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep your [journal](EVIDENCE.md) open.
+Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../M04-READINESS.md). Open the AD workstation, Acme Admin, Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep your [journal](EVIDENCE.md) open.
+
+If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
 
 ## Follow the steps
 
@@ -17,18 +19,19 @@ Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../
 3. Inspect both identities' **Access** for existing Finance assignments. Neither should already hold the tested profiles or role.
 4. In each user's own **Request Center**, request for self and search the two Finance profiles under **Access Items > Access Profiles**, then the role under **Access Items > Roles**. Record each result without selecting or submitting.
 5. Search AP-Remote-Worker in both sessions too.
-6. Inspect **Admin > Access Model > Segments** for existing Finance-item associations. On a first run without an existing restriction, both users should find all four items. On a repeat with the course segment already enabled, inspect/reuse it and record that starting state; do not disable a working restriction merely to recreate a before image.
+6. Record native access before editing: use [the membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas with GG-VPN-USERS and GG-ACME-BASELINE (both True), and Liam with GG-FIN-REPORTING, GG-FIN-AP and GG-VPN-USERS (all False), plus baseline (True). Record the controller and account identifiers.
+7. Inspect **Admin > Access Model > Segments** for existing Finance-item associations. On a first run without an existing restriction, both users should find all four items. On a repeat with the course segment already enabled, inspect/reuse it and record that starting state; do not disable a working restriction merely to recreate a before image.
 
 **Check:** Your record identifies the actual starting visibility and existing segments. Missing access before the exercise is a condition to investigate, not proof that the new segment works.
 
-**Screenshot:** `AR-022-01.png`: departments and each user's starting item searches.
+**Screenshot:** `AR-022-01.png`: departments, each user's starting item searches and native before results.
 
 ### 2. Define the Finance identities
 
 1. In Acme Admin, open **Admin > Access Model > Segments**. Search `SEG-Acme-Finance`.
 2. If absent, select **New**, enter that name and description `Finance requester visibility for Acme Finance profiles and role`, then **Save**.
 3. Select the saved segment and **Edit Segment > Define Segment**.
-4. Choose the mapped identity attribute **Department (`department`)** and value **Finance**. Select **Add Criteria**; do not leave the choice only in the dropdown.
+4. If the saved Department=Finance criterion already exists, keep it and continue to Step 5. Otherwise choose the mapped identity attribute **Department (`department`)** and value **Finance**. Select **Add Criteria**; do not leave the choice only in the dropdown.
 5. Inspect the matching-identity table. Confirm Lucas and Olivia appear and Liam does not. Use their usernames to identify them.
 6. Keep this one criterion and select **Save**. Reopen it to verify the saved attribute/value.
 
@@ -36,7 +39,7 @@ Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../
 
 ### 3. Add the exact access items and enable
 
-1. On **Edit Segment > Define Access**, search AP-Finance-Reporting. Check its name/type/ID and select its checkbox, then **+ Add to Segment**.
+1. On **Edit Segment > Define Access**, inspect the saved items and keep matching associations. Add only missing items: search AP-Finance-Reporting. Check its name/type/ID and select its checkbox, then **+ Add to Segment**.
 2. Add AP-Finance-AP and ROLE-Finance-Analyst the same way, using the appropriate profile/role search.
 3. Verify exactly these three items are included and select **Save**. Leave AP-Remote-Worker and GG-VPN-USERS outside this course segment.
 4. Open **Review**, inspect the criterion and three items, then **Save**.
@@ -69,7 +72,7 @@ Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../
 
 ### 5. Confirm that visibility did not revoke access
 
-1. Use the [native check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas against GG-VPN-USERS and GG-ACME-BASELINE; both remain True.
+1. On the same controller recorded in Section 1, use the [native check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas against GG-VPN-USERS and GG-ACME-BASELINE; both remain True.
 2. Check Liam still lacks GG-FIN-REPORTING, GG-FIN-AP and GG-VPN-USERS and retains baseline.
 3. Verify there are no requests from this lab in either user's **My Requests**.
 4. Leave the Finance segment enabled.
@@ -113,7 +116,7 @@ Keep SEG-Acme-Finance enabled for AR-023–025 and later exercises. Record its I
 
 | Filename | What to show |
 |---|---|
-| AR-022-01.png | Starting departments and catalog |
+| AR-022-01.png | Starting departments, catalog and native memberships |
 | AR-022-02.png | Saved criterion, identities, items and enabled state |
 | AR-022-03.png | Lucas/Liam matrix with Remote Worker |
 | AR-022-04.png | Preserved memberships and retained segment |
