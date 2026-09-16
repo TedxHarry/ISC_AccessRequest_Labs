@@ -13,7 +13,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Register-change, import and task-completion times | |
 | Removal request/task IDs and reconciliation evidence | |
 | Final D012/D025 values, requestability and unresolved work | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

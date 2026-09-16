@@ -85,4 +85,4 @@ Capture these beside the matching steps. Hide credentials and unnecessary person
 | AR-075-04.png | Post-repair grant/removal and fresh denial |
 | AR-075-05.png | C12 final settings, memberships and pending-work record |
 
-[Previous: AR-074](../AR-074/README.md) · [Course outline](../../README.md) · [Next: AR-076](../../labs/AR-076/README.md)
+[Previous: AR-074](../AR-074/README.md) · [Course outline](../../README.md) · [Next: AR-076](../AR-076/README.md)

@@ -45,7 +45,7 @@ The release review and sources are in [COURSE-REVIEW.md](COURSE-REVIEW.md). Prod
 
 | Track | Additional requirement | Entry point |
 |---|---|---|
-| SoD | SoD policy administration and native workflows for enforced denial | AR-076 after the core request/approval labs |
+| SoD | SoD policy administration and native workflows for a verified request stop | AR-076 after the core request/approval labs |
 | Disconnected source | Permission to create a separate non-authoritative file source | AR-078 after AR-047 |
 | JIT | Privilege on Demand/JIT enabled | AR-079 after the AD request/removal labs |
 | Reauthentication | Existing SSO and supported reauthentication | AR-080 after approval/API labs |

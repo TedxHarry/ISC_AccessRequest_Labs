@@ -145,3 +145,11 @@ Triage request evidence, choose the correct administrative action, handle an own
 73. [AR-073 · Investigate mixed outcomes in one submission](AR-073/README.md)
 74. [AR-074 · Prepare a reproducible support handover](AR-074/README.md)
 75. [AR-075 · Run an IAM support shift and save C12](AR-075/README.md)
+
+## Module 13 · SoD and manual fulfillment
+
+Compare a policy warning with an enforced workflow stop, then fulfill and reconcile access on a separate file source. AR-078 can be completed without SoD or native approval workflows.
+
+76. [AR-076 · Investigate a separation-of-duties conflict](AR-076/README.md)
+77. [AR-077 · Test a workflow stop for conflicting payment access](AR-077/README.md)
+78. [AR-078 · Fulfill and reconcile a disconnected application](AR-078/README.md)

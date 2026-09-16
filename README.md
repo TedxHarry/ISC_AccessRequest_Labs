@@ -245,7 +245,7 @@ Complete the core request and investigation labs first. SoD exercises require So
 | ID | Type | Assignment | Required proof |
 |---|---|---|---|
 | [AR-076](labs/AR-076/README.md) | Build | Investigate a separation-of-duties conflict | Conflict versus clean request and native result |
-| [AR-077](labs/AR-077/README.md) | Build | Reject a conflicting request through a workflow | Explicit denial, clean approval and missing-data handling |
+| [AR-077](labs/AR-077/README.md) | Build | Test a workflow stop for conflicting payment access | Actual terminal no-grant result, clean approval and guarded missing-data branches |
 | [AR-078](labs/AR-078/README.md) | Build | Fulfill and reconcile a disconnected application | Manual task, target register and account reconciliation |
 
 ## M14 — Practice additional capabilities and change control

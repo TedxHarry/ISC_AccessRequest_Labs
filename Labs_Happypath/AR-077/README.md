@@ -66,10 +66,6 @@ The stop is accepted only when the actual request ends without access. A workflo
 
 A conflicting live request stops without access and a clean live request reaches Daniel, provisions and is removed. Missing/unknown inputs take the stop branch in labelled tests. Any failed acceptance check remains recorded as Not accepted rather than described as enforced policy.
 
-## Engineering practice
-
-Use a private copy of the conflict input to test the wrong type: change the string `"true"` to Boolean `true`. Verify the Is a string check routes to SoD Input Unavailable. Compare that execution with the live conflict. Explain why a type mismatch must not fall through to approval. Restore the copy; do not broaden the live gate without new positive and negative tests.
-
 ## Finish
 
 Keep the input types, paths, actual request outcomes and disabled workflow. Leave both payment groups absent from Lucas/Olivia and non-requestable. The independent disconnected-source exercise in AR-078 does not require a passing SoD gate.

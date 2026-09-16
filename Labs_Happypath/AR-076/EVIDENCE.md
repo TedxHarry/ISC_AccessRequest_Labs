@@ -12,7 +12,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Conflicting warning/denial and clean control IDs | |
 | Controlled grant or block, evaluation and actual violation | |
 | Removal IDs, final memberships and policy state | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 

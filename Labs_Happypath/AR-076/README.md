@@ -77,10 +77,6 @@ foreach ($login in 'acme.e012','acme.e011') {
 
 The conflict and clean case have separate decisions and native proof. The controlled grant has either a detected violation or a clearly recorded blocking condition/gap. Cleanup leaves no identity holding both payment groups.
 
-## Engineering practice
-
-Investigate a missing warning using the saved definition, imported account and submission timestamp. Write which observation would distinguish a stale import from a wrong entitlement ID. Do not change both at once. If you repeat a request after correcting one cause, first resolve the old request and remove any temporary APPROVE grant.
-
 ## Finish
 
 Keep policy/group/request IDs and the actual warning/evaluation results. Continue to AR-077 with Lucas PREPARE only and Olivia neither; use Section 5 cleanup if stopping this track. Preserve Lucas VPN and both original accounts.

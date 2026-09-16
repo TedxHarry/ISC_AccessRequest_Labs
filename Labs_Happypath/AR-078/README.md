@@ -88,10 +88,6 @@ D025,acme.e025,E025,Reader
 
 Lucas receives Reader through approved manual fulfillment and then loses it through a separate reviewed removal. Each change is imported and checked before task completion. Taylor retains Reader and both source accounts remain correlated to existing identities.
 
-## Engineering practice
-
-With no request or task pending, compare the saved pre-grant file with the current register and the successful grant import. Explain how uploading an old snapshot could undo an imported observation even after a task was marked complete. Identify the source ID, file contents and aggregation result you would inspect for a repeated task. Use the saved evidence; do not leave a false completion running for 24 hours just to produce a duplicate.
-
 ## Finish
 
 Keep the current two-row register, source/account/entitlement IDs and both task histories. Reader stays non-requestable, Lucas lacks Reader and Taylor retains it. Keep this file separate from Acme HR and record any unresolved work before continuing.
@@ -109,4 +105,4 @@ Capture these beside the matching steps. Hide credentials and unnecessary person
 | AR-078-05.png | Manual removal, reconciliation and completed task |
 | AR-078-06.png | Final register/accounts, requestability and pending-work check |
 
-[Previous: AR-077](../AR-077/README.md) · [Course outline](../../README.md) · [Next: AR-079](../AR-079/README.md)
+[Previous: AR-077](../AR-077/README.md) · [Course outline](../../README.md) · [Next: AR-079](../../labs/AR-079/README.md)

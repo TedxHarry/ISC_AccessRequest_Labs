@@ -133,7 +133,7 @@
     - [AR-075 — Run an IAM support shift](/labs/AR-075/README.md)
   - **MODULE 13 · SOD AND DISCONNECTED ACCESS**
     - [AR-076 — Investigate a separation-of-duties conflict](/labs/AR-076/README.md)
-    - [AR-077 — Reject a conflicting request through a workflow](/labs/AR-077/README.md)
+    - [AR-077 — Test a workflow stop for conflicting payment access](/labs/AR-077/README.md)
     - [AR-078 — Fulfill and reconcile a disconnected application](/labs/AR-078/README.md)
   - **MODULE 14 · ADDITIONAL CAPABILITIES**
     - [AR-079 — Activate and expire Just-In-Time access](/labs/AR-079/README.md)

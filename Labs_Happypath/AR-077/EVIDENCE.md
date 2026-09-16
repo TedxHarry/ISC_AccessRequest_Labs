@@ -13,7 +13,6 @@ Record actual observations beside the [lab](README.md). Mark unexecuted cases **
 | Synthetic missing/unknown/wrong-type results | |
 | Acceptance decision, rollback and unresolved work | |
 | Final group memberships and disabled settings | |
-| Engineering investigation: evidence, conclusion and next check | |
 
 ## Screenshots
 
