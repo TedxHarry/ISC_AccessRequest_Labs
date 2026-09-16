@@ -18,6 +18,8 @@ This is a readiness assessment. Check the current records as well as your saved 
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
+**Repeating C01 after later labs:** The counts and empty AdminAccounts expectation below describe the first Module 1 pass. Verify the original 24 standard accounts and baseline assignments, but retain later identities, Sofia's admin account and legitimate business access. Record those additions separately; do not delete them or revoke access to recreate an earlier screenshot. Use the original activity for historical provisioning evidence.
+
 ## Follow the steps
 
 ### 1. Verify the baseline

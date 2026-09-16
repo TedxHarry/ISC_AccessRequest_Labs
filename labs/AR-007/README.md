@@ -18,6 +18,8 @@ Keep the 24-person journal open while selecting identities. A role-list count al
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
+**Returning after a completed batch:** Inspect the current role list and accounts first. Keep already selected course members; add only the missing identities. The four-person checkpoint below describes the first expansion, not a reason to reduce an existing 24-person role.
+
 ## Follow the steps
 
 ### 1. Check the population before expanding

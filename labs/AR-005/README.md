@@ -18,6 +18,8 @@ Record the current Create Account mappings before editing. These settings apply 
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
+**Returning after AR-006:** Keep Liam's existing account, the saved mappings and baseline memberships. Compare current settings with this lab and use the original creation activity as historical evidence; do not delete his account to recreate the starting screenshot.
+
 ## Follow the steps
 
 ### 1. Check the write connection
@@ -46,6 +48,10 @@ The **User logon name (pre-Windows 2000)** field is a different sign-in format, 
 
 **Screenshot:** Save `AR-005-upn-suffix.png` showing Lucas's **Account** tab and the selected suffix.
 
+![Lucas Account tab showing acme.e012 and the isc.com UPN suffix](images/AR-005-upn-suffix.png)
+
+Read the selected suffix, `isc.com` in this example. The password and expiry options shown belong to this existing Lucas account; do not copy them into the account-creation policy.
+
 #### Copy the target OU DN
 
 The OU's **distinguished name (DN)** tells ISC where to create the user. Copy the OU value, not Lucas's account DN.
@@ -60,6 +66,10 @@ For example, if the copied value is `OU=Users,OU=AcmeLab,DC=isc,DC=com`, enter `
 
 **Check:** The recorded target starts with your Users OU and ends with your actual domain components. Save `AR-005-users-ou-dn.png` showing this value.
 
+![Users OU distinguishedName in the AD Attribute Editor](images/AR-005-users-ou-dn.png)
+
+This is the target OU DN, `OU=Users,OU=AcmeLab,DC=isc,DC=com`. The generated user DN adds `CN=$(uid),` before your own OU value.
+
 ### 2. Prepare a separate baseline group
 
 1. In **Active Directory Users and Computers**, open **AcmeLab > Groups** and look for `GG-ACME-BASELINE` before opening the creation dialog.
@@ -69,7 +79,11 @@ For example, if the copied value is `OU=Users,OU=AcmeLab,DC=isc,DC=com`, enter `
 
 **Check:** You now have 15 course groups: the original 14 plus this baseline group. Keep the baseline group separate from VPN and Finance grants.
 
-**Screenshot reminder:** Save `AR-005-01-baseline-group.png`, `AR-005-02-baseline-entitlement.png`. Use the matching descriptions in the screenshot checklist at the end.
+**Screenshot reminder:** Save `AR-005-01-baseline-group.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![GG-ACME-BASELINE imported into the AD source entitlement list](images/AR-005-01-baseline-group.png)
+
+The supplied image shows the imported ISC entitlement, not the AD Members tab. The source also contains unrelated groups, so its total of 24 results is not the count of Acme course groups. Open this entitlement to check its full native value.
 
 ### 3. Define the account attributes
 
@@ -111,7 +125,11 @@ The password generator uses the source's assigned ISC password policy. Verify th
 
 The chosen usernames are unique course IDs under AD's length limit. If a username or DN already exists, investigate its owner instead of adding a suffix to bypass the collision. This exercise deliberately avoids a naming counter so expected account names stay predictable.
 
-**Screenshot reminder:** Save `AR-005-03-create-account.png`, `AR-005-04-naming.png`. Use the matching descriptions in the screenshot checklist at the end.
+**Screenshot reminder:** Save `AR-005-02-create-account-mappings.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![ObjectType, distinguishedName generator and sAMAccountName mapping](images/AR-005-02-create-account-mappings.png)
+
+The visible rows show `ObjectType = User`, the DN generator and Username mapping. Scroll further to verify the UPN expression/order, employeeID, password and remaining rows; they are outside this capture.
 
 #### Inspect the password policy before creating an account
 
@@ -140,14 +158,18 @@ If `Import-Module` fails, use the AD server or a workstation with the Active Dir
 ### 4. Check the values before triggering creation
 
 1. Reopen **Create Account** and inspect the saved rows and order. Record the expected enabled/disabled state under your existing connector configuration; this table does not independently configure account enablement.
-2. Open Liam's ISC identity. Confirm uid `acme.e008`, identificationNumber `E008`, first name Liam, last name Patel, displayName `Acme Lab - Liam Patel`, department IT, and title IT Analyst.
+2. Open Liam's ISC identity. Verify his Manager is Priya (`acme.e002`) from AR-002; this is separate from the disabled AD manager mapping. Confirm uid `acme.e008`, identificationNumber `E008`, first name Liam, last name Patel, displayName `Acme Lab - Liam Patel`, department IT, and title IT Analyst.
 3. Write the expected values in your journal: `CN=acme.e008,` followed by your Users OU DN, and `acme.e008@` followed by your UPN suffix.
 4. Search AD and the ISC AD source for `acme.e008`. Confirm no account exists. If one does, record it and resolve the baseline discrepancy before this new-account exercise; do not delete it just to continue.
 5. Confirm employeeID is also in the aggregation schema from AR-004. A creation mapping alone does not add an attribute to imported account data.
 
 **Check:** Your written expectations match the saved configuration; actual creation still needs to be checked in AR-006. Saving Create Account does not itself create Liam's account. AR-006 supplies the access assignment that triggers creation.
 
-**Screenshot reminder:** Save `AR-005-05-liam-identity.png`. Use the matching descriptions in the screenshot checklist at the end.
+**Screenshot reminder:** Save `AR-005-03-liam-identity.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![Liam identity with E008, acme.e008 and IT attributes](images/AR-005-03-liam-identity.png)
+
+The account-creation attributes are visible, but Manager is blank in this capture. Recheck Liam against AR-002: his ISC manager should be Priya (`acme.e002`). Resolve a currently blank manager before the later approval labs. Disabling the AD manager creation mapping does not remove the need for a correct ISC manager relationship.
 
 ## Check the result
 
@@ -206,14 +228,17 @@ Reuse the existing baseline group and inspect its members before continuing. If 
 
 ### Screenshots to capture
 
-| Filename | What to show |
-|---|---|
-| AR-005-01-baseline-group.png | AD group and its empty Members tab |
-| AR-005-02-baseline-entitlement.png | Imported group source and value |
-| AR-005-03-create-account.png | Saved mappings; use multiple images for the full list |
-| AR-005-04-naming.png | DN pattern, username mapping, and UPN expression/order |
-| AR-005-05-liam-identity.png | Liam's identity attributes |
+The supplied screenshots are placed beside their matching steps. Add the remaining views when available; keep earlier creation evidence labelled historical when revisiting the lab.
 
-Keep passwords and connection secrets out of images. Use the [journal](EVIDENCE.md).
+| Filename | Coverage and remaining capture |
+|---|---|
+| AR-005-upn-suffix.png | Included: observed UPN suffix; do not copy the existing password flags. |
+| AR-005-users-ou-dn.png | Included: target Users OU DN. |
+| AR-005-01-baseline-group.png | Included: imported ISC entitlement. Add an AD group/Members capture separately. |
+| AR-005-02-create-account-mappings.png | Included: first three mapping rows. Add remaining mappings and UPN evaluation order. |
+| AR-005-03-liam-identity.png | Included: identity attributes. Add a current view with Manager Priya resolved. |
+| AR-005-password-policy.png | Still to add: assigned ISC policy and applicable AD password requirements, without secrets. |
+
+Keep passwords, tokens and invitation links out of shared images.
 
 [Previous: AR-004](../AR-004/README.md) · [Next: AR-006](../AR-006/README.md)

@@ -1,5 +1,24 @@
 # Module 1 learner walkthrough review
 
+## Latest learner progress and screenshot review — 16 September 2026
+
+The learner reports completing AR-001–006. Next is AR-007, after confirming Lucas and Liam retain their correctly linked standard AD accounts and direct baseline membership. No account or role membership needs to be removed to retake a screenshot.
+
+AR-001–004 already have 21 published screenshots in each path. The 16 loose AR-002–004 originals match the published image bytes, so no replacement was needed. Added 12 unchanged AR-005–006 images, referenced from both paths. The originals remain untouched. The final inventories distinguish included panels from additional views still needed.
+
+| Review finding | Correction |
+|---|---|
+| AR-005 baseline filename could imply an AD screenshot | Caption identifies the ISC entitlement list and distinguishes the source total from the 15 course groups. |
+| Create Account image shows only the first three rows | Caption preserves the requirement to inspect UPN order, employeeID, password and remaining mappings. |
+| Liam's displayed Manager is blank | Both paths now explicitly recheck Priya/E002; the AD manager creation mapping is a separate setting. No claim is made that the current tenant still has this earlier blank value. |
+| Lucas before-image highlights the OU DN | Caption tells the learner to capture Lucas's account DN separately; his visible objectGUID and empty Members list remain useful. |
+| Activity summary and source stages differ | Captions distinguish Lucas's completed summary, Liam's Committed create request, and the independent AD checks still required. |
+| Liam has three source rows | Verify one course AD account; HR and IdentityNow rows are not duplicate AD accounts. |
+| First-run steps could be replayed after successful provisioning | Added early resume guidance, explicit reuse checks and preservation of later role members. |
+| Later repeats of AR-008/009 could imply reverting the population | Preserve the complete current HR file, later accounts and legitimate access; report first-pass counts separately. |
+
+Reviewed Module 1's HR-to-manager-to-AD sequence and the pilot-to-batch-to-session handoff in both paths. The supplied images establish the visible configuration and displayed outcomes, not every cropped attribute, native membership, password-policy check or engineering variation. The optional captures remain in AR-005/006's existing inventories rather than a new checklist document. Official provisioning, role assignment and monitoring references were rechecked. This is a writing/screenshot review, not an agent-executed tenant test.
+
 ## Screenshot and terminology correction — 12 September 2026
 
 Compared the 16 supplied AR-002–004 screenshots with both paths. Embedded unchanged copies beside the matching steps. Corrected the UI label to Employee Number throughout Module 1; the mapping screenshot confirms its technical name remains identificationNumber. Removed the unsupported requirement to find or restore an AD Delta Aggregation toggle. AR-003 uses the account-aggregation page; AR-004 uses the request-only disableOptimization flag. Updated the API URL to the documented /sources/v1 endpoint shown in the supplied Postman collection.
@@ -40,9 +59,9 @@ This pass is limited to Module 1. Apply the same review to Module 2 next; later 
 
 ## Limits and next validation
 
-AR-001 is learner-reported complete. AR-002–009 still require execution in the learner’s tenant. In particular, verify the actual UI labels, assigned AD password policy, enabled state, account creation result, sign-in route and absence of unintended role assignments. IQService installation and TLS setup remain stated environment prerequisites, not a newly authored installation guide.
+At the earlier review, only AR-001 had learner-reported completion. The 16 September update above supersedes that status: AR-001–006 are now reported complete, and AR-007–009 remain next. In particular, verify the actual UI labels, assigned AD password policy, enabled state, account creation result, sign-in route and absence of unintended role assignments. IQService installation and TLS setup remain stated environment prerequisites, not a newly authored installation guide.
 
-Run AR-002 next. Keep both the correct hierarchy evidence and the wrong-manager/restored-manager evidence. Do not repeat AR-001’s source creation to obtain new screenshots.
+The earlier next-step recommendation was AR-002. Now continue with AR-007 after checking the pilot accounts; preserve the completed configuration. Extra engineering practice and missing screenshot views are not automatically proved by the completion report.
 
 [Module prerequisites](M01-READINESS.md) · [Course validation](VALIDATION.md)
 

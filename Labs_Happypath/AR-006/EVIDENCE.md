@@ -70,3 +70,14 @@
 | Which evidence proves the write reached AD? | |
 | State retained for the next lab | |
 | Unresolved check, if any | |
+
+## Supplied screenshot checks
+
+The walkthrough includes seven supplied images. Record the native checks separately from the displayed activity status. The highlighted DN in the before-image belongs to the OU; Liam's source-detail image shows Committed.
+
+| Check | Current result / additional evidence |
+|---|---|
+| Lucas account DN/GUID unchanged | |
+| Lucas AD membership operation and native baseline membership | |
+| Liam actual AD attributes, enabled state and direct baseline membership | |
+| Liam final source result and imported employeeID | |

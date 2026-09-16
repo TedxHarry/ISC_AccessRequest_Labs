@@ -45,3 +45,14 @@ Use the checklist in the lab and record your files here.
 | Historical activity reused, including original date | |
 | Live changes made and original values | |
 | Restoration evidence and retained state | |
+
+## Supplied screenshot checks
+
+The walkthrough includes seven supplied images. Record the native checks separately from the displayed activity status. The highlighted DN in the before-image belongs to the OU; Liam's source-detail image shows Committed.
+
+| Check | Current result / additional evidence |
+|---|---|
+| Lucas account DN/GUID unchanged | |
+| Lucas AD membership operation and native baseline membership | |
+| Liam actual AD attributes, enabled state and direct baseline membership | |
+| Liam final source result and imported employeeID | |

@@ -27,6 +27,8 @@ From the previous labs, you need:
 
 Keep the [account verification journal](EVIDENCE.md) open.
 
+**Returning after a completed batch:** Inspect the current role list and accounts first. Keep already selected course members; add only the missing identities. The four-person checkpoint below describes the first expansion, not a reason to reduce an existing 24-person role.
+
 ## Follow the steps
 
 ### 1. Verify the 24-person roster
@@ -46,6 +48,7 @@ Keep the [account verification journal](EVIDENCE.md) open.
 6. Confirm Lucas and Liam already have correctly linked AD accounts.
 7. Confirm the saved Create Account configuration still points to **AcmeLab/Users**.
 8. Confirm `AP-Acme-AD-Baseline` still contains only `GG-ACME-BASELINE`.
+9. Before selecting the remaining employees, use Active Directory Users and Computers to search each username in the domain. Record any existing account and compare its employeeID with the intended employee. If it is a legitimate course account, verify or establish its ISC link using [AR-004](../AR-004/README.md) before assigning the role. Do not delete or rename an existing account to force a new creation.
 
 **Check:** The 24-person identity roster is ready and the baseline provisioning configuration is unchanged.
 

@@ -6,7 +6,7 @@ Review date: 8 September 2026. Baseline reviewed: d832fc3, the 90-lab expansion.
 
 The topic coverage is broad, but the earlier publication summary overstated consistency of the walkthroughs. The foundation labs contain more instructional detail than many later exercises. File counts, working links and sample-tool tests did not establish that the whole course was logically executable. This review found real sequence, payload and instruction gaps.
 
-This pass reviewed the lab sequence and retained state across AR-001–090, shared procedures, examples and capstones. Product documentation was rechecked for the affected behaviors. It did not execute the course in ISC. Only AR-001 has learner-reported completion.
+This pass reviewed the lab sequence and retained state across AR-001–090, shared procedures, examples and capstones. Product documentation was rechecked for the affected behaviors. It did not execute the course in ISC. As of 16 September 2026, the learner reports completing AR-001–006. Supplied screenshots cover parts of those results; see the latest Module 1 review for their scope.
 
 ## Corrections made
 
@@ -54,7 +54,7 @@ Do not mark the 90 labs all validated. The audit corrects known written defects 
 - Run the local tool tests after changing the subscriber; synthetic test success is not live event delivery.
 - Accept a lab only when its actors can follow the steps, both the positive and negative outcomes are observed, and cleanup returns the expected state.
 
-For the learner’s next session, run AR-002 and compare the resolved hierarchy with its full verification table. Do not restart the completed HR import or jump to an advanced feature simply because its instructions are published.
+For the learner’s next session, continue with AR-007 after rechecking the two pilot accounts and their native baseline membership. The learner reports completing AR-001–006; preserve that work. Recheck Liam’s current Manager against Priya because the supplied AR-005 image shows a blank value.
 
 ## Sources used for the corrections
 

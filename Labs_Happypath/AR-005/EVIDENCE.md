@@ -84,3 +84,14 @@
 | Why does saving Create Account leave Liam absent from AD? | |
 | State retained for the next lab | |
 | Unresolved check, if any | |
+
+## Supplied screenshot checks
+
+The walkthrough includes the supplied UPN, OU, imported baseline entitlement, partial mapping and Liam identity images. The Liam image has a blank Manager; record the current result below rather than assuming the screenshot proves Priya resolved.
+
+| Check | Current result / additional evidence |
+|---|---|
+| Liam Manager resolves to Priya (E002) | |
+| Remaining mapping rows and UPN order checked | |
+| AD baseline group settings/membership checked | |
+| Assigned password policy compared with AD | |

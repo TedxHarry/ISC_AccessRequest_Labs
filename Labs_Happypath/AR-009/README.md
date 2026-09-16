@@ -18,6 +18,8 @@ Complete [AR-008](../AR-008/README.md).
 
 Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, and Priya sessions available.
 
+**Repeating C01 after later labs:** The counts and empty AdminAccounts expectation below describe the first Module 1 pass. Verify the original 24 standard accounts and baseline assignments, but retain later identities, Sofia's admin account and legitimate business access. Record those additions separately; do not delete them or revoke access to recreate an earlier screenshot. Use the original activity for historical provisioning evidence.
+
 ## Follow the steps
 
 ### 1. Verify Acme HR and identities

@@ -18,11 +18,13 @@ If you are returning to a partially completed run, inspect the existing role, ac
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
+**Returning after provisioning:** Reuse the existing baseline profile and role. Keep Lucas, Liam and any later course members selected. Inspect the saved creation/update activity and current AD accounts; do not remove membership, delete an account or reduce the role list to recreate the first-run screenshots.
+
 ## Follow the steps
 
 ### 1. Create the baseline access profile
 
-1. Open **Admin > Access Model > Access Profiles > Create New**.
+1. Open **Admin > Access Model > Access Profiles** and search AP-Acme-AD-Baseline. Reuse the matching course profile if it exists; select **Create New** only if absent.
 2. Name it `AP-Acme-AD-Baseline`, select your administrator as owner, and select the AD source recorded in your journal.
 3. Under **Manage Entitlements**, add only GG-ACME-BASELINE. Verify its source and actual value before selecting it.
 4. Save the configuration and enable the access profile. Leave access requests disabled.
@@ -31,9 +33,17 @@ The profile contains one group and will be assigned through a role. [Access prof
 
 **Screenshot reminder:** Save `AR-006-01-baseline-profile.png`. Use the matching descriptions in the screenshot checklist at the end.
 
+![Baseline profile containing one GG-ACME-BASELINE entitlement](images/AR-006-01-baseline-profile.png)
+
+AP-Acme-AD-Baseline contains one entitlement on AD_Local_Ted in this example. Select your recorded AD source and also verify the profile is enabled with requests disabled.
+
 ### 2. Start with Lucas's existing account
 
-1. In AD, open GG-ACME-BASELINE and confirm Lucas is not a member. Record his existing account DN and objectGUID from Attribute Editor.
+1. In AD, open GG-ACME-BASELINE and confirm Lucas is not a member. Record his existing account DN and objectGUID from Attribute Editor. Save `AR-006-02-lucas-before.png` before enabling the role.
+
+![Empty baseline Members list, Lucas objectGUID and Users OU DN](images/AR-006-02-lucas-before.png)
+
+The Members panel is empty and the Lucas panel shows his objectGUID. The highlighted distinguishedName on the left belongs to the Users OU, not Lucas. Record Lucas's own distinguishedName from his Properties > Attribute Editor before comparing the account after provisioning.
 2. In ISC, open **Admin > Access Model > Roles > Create New**. Name the role `ROLE-Acme-AD-Baseline`, select your administrator as owner, and add AP-Acme-AD-Baseline to its access profiles. Leave requests disabled.
 3. Open **Define Assignment**, choose **Identity List**, and add only Lucas (`acme.e012`) using the + control. Save.
 4. Verify the list contains one person. Enable the role and select **Apply Changes** from the role list.
@@ -42,7 +52,15 @@ The profile contains one group and will be assigned through a role. [Access prof
 
 **Check:** The assignment changed membership on the existing account. Resolve a failure here before adding Liam.
 
-**Screenshot reminder:** Save `AR-006-02-lucas-assignment.png`, `AR-006-03-lucas-membership.png`. Use the matching descriptions in the screenshot checklist at the end.
+**Screenshot reminder:** Save `AR-006-03-lucas-role.png`, `AR-006-04-lucas-update.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![Lucas Identity Refresh activity marked Complete and confirmed on the source](images/AR-006-04-lucas-update.png)
+
+The Overview shows Complete and Confirmed on the source. Select the AD source entry to inspect the actual membership operation, then verify the baseline group in AD and Lucas's unchanged DN/objectGUID.
+
+![Baseline role Identity List selecting only Lucas](images/AR-006-03-lucas-role.png)
+
+The first stage selects only Lucas. Save, enable and apply the role before checking its resulting activity; an edit-page selection alone does not prove provisioning.
 
 ### 3. Add Liam to the same role
 
@@ -53,7 +71,11 @@ The profile contains one group and will be assigned through a role. [Access prof
 
 Granting access on a direct-connect source can create the missing account using its Create Account configuration. Saving the role assignment starts that path; it does not prove completion. [Account creation behavior](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html)
 
-**Screenshot reminder:** Save `AR-006-04-pilot-assignment.png`. Use the matching descriptions in the screenshot checklist at the end.
+**Screenshot reminder:** Save `AR-006-05-pilot-role.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![Baseline role Identities view listing Lucas and Liam](images/AR-006-05-pilot-role.png)
+
+The role view now lists both pilot identities. Inspect Define Assignment to confirm both remain selected, then verify each account and native baseline membership.
 
 ### 4. Inspect the operation and the target
 
@@ -67,7 +89,15 @@ Use account activity to investigate provisioning and AD to verify the target cha
 
 **Check:** The course has two standard AD accounts: Lucas and Liam. Both are linked to their intended identities and belong to the baseline group. Provisioned accounts may show `manuallyCorrelated=true`; ISC documents this for accounts it creates. It does not mean you manually uploaded a correlation file.
 
-**Screenshot reminder:** Save `AR-006-05-liam-activity.png`, `AR-006-06-liam-ad.png`, `AR-006-07-liam-linked.png`. Use the matching descriptions in the screenshot checklist at the end.
+**Screenshot reminder:** Save `AR-006-06-liam-created.png`, `AR-006-08-native-accounts.png`, `AR-006-07-liam-linked.png`. Use the matching descriptions in the screenshot checklist at the end.
+
+![Liam identity Accounts view with AD, Acme HR and IdentityNow rows](images/AR-006-07-liam-linked.png)
+
+Liam has an Enabled AD_Local_Ted account linked to his identity. Acme HR and IdentityNow are separate source rows. Count one account on the course AD source, not exactly two accounts across all sources; open the AD row to verify imported employeeID and membership.
+
+![Liam AD create request and requested account attributes](images/AR-006-06-liam-created.png)
+
+The AD detail shows Create account and the requested attributes, including employeeID E008 and baseline membership. Its displayed stage is Committed: Sent to the connector. Even though the background row says Complete, check the actual AD account and membership rather than treating this panel alone as target verification. The requested password is hidden as Unknown.
 
 ## Check the result
 
@@ -140,18 +170,24 @@ Inspect Lucas’s original account and Liam’s creation activity. Keep the full
 
 If Liam already exists after an interrupted operation, compare his employeeID, DN, linked identity and activity first. A missing group does not mean account creation failed. Keep Lucas and Liam selected in the baseline role; do not remove and re-add them to force a retry. Resolve the failed operation and verify the target. On a later repeat, inspect retained assignments and repeat the comparison above. Keep both accounts, the role/profile and their baseline memberships.
 
+**Additional captures:** Save `AR-006-08-native-accounts.png` for the native checks and `AR-006-09-source-operation.png` for expanded source operations. Use multiple panels when needed.
+
 ### Screenshots to capture
 
-| Filename | What to show |
-|---|---|
-| AR-006-01-baseline-profile.png | Profile and its single baseline entitlement |
-| AR-006-02-lucas-assignment.png | Initial role identity list with Lucas only |
-| AR-006-03-lucas-membership.png | Membership added to Lucas's existing account |
-| AR-006-04-pilot-assignment.png | Saved identity list with Lucas and Liam |
-| AR-006-05-liam-activity.png | Creation/provisioning activity and result |
-| AR-006-06-liam-ad.png | Actual AD attributes and group membership |
-| AR-006-07-liam-linked.png | Liam's ISC identity with its AD account |
+The supplied screenshots are placed beside their matching steps. Add the remaining views when available; keep earlier creation evidence labelled historical when revisiting the lab.
 
-Record results in the [journal](EVIDENCE.md). Keep the role assigned to both users for AR-007.
+| Filename | Coverage and remaining capture |
+|---|---|
+| AR-006-01-baseline-profile.png | Baseline profile containing one GG-ACME-BASELINE entitlement. Included; see the limits beside the image. |
+| AR-006-02-lucas-before.png | Empty baseline Members list, Lucas objectGUID and Users OU DN. Included; see the limits beside the image. |
+| AR-006-03-lucas-role.png | Baseline role Identity List selecting only Lucas. Included; see the limits beside the image. |
+| AR-006-04-lucas-update.png | Lucas Identity Refresh activity marked Complete and confirmed on the source. Included; see the limits beside the image. |
+| AR-006-05-pilot-role.png | Baseline role Identities view listing Lucas and Liam. Included; see the limits beside the image. |
+| AR-006-06-liam-created.png | Liam AD create request and requested account attributes. Included; see the limits beside the image. |
+| AR-006-07-liam-linked.png | Liam identity Accounts view with AD, Acme HR and IdentityNow rows. Included; see the limits beside the image. |
+| AR-006-08-native-accounts.png | Still to add: Lucas unchanged account DN/GUID, Liam AD attributes/enabled state and both direct baseline memberships. |
+| AR-006-09-source-operation.png | Still to add: expanded Lucas AD membership operation and completed Liam source result. |
+
+Keep passwords, tokens and invitation links out of shared images.
 
 [Previous: AR-005](../AR-005/README.md) · [Next: AR-007](../AR-007/README.md)

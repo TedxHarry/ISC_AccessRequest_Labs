@@ -50,11 +50,11 @@ Enabling an ISC identity and enabling its AD account are separate operations. [I
 Each person needs a different, deliverable work email address. Do not assign the same address to all three. Use controlled test addresses; verify that each inbox receives mail before continuing. [Invitation prerequisites](https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html)
 
 1. Make a private working copy of the latest complete Acme HR CSV you used in your tenant. Name it `acme-hr-working.csv`. If you have made no dataset changes, start from the [baseline CSV](../../datasets/acme-hr-baseline.csv).
-2. Replace only the `email` values for E012, E003, and E002 with their test addresses. Preserve all 24 rows, column names, employee numbers, usernames, and manager references.
+2. Replace only the `email` values for E012, E003, and E002 with their test addresses. Preserve the entire current population, column names, employee numbers, usernames and manager references. The first pass has 24 rows; keep Taylor and any other legitimate later additions on a repeat.
 3. In ISC, open **Admin > Connections > Sources > Acme HR > Account Management > Account Aggregation**.
 4. Upload the complete working CSV using the file-upload control. Wait for aggregation and identity processing to finish; inspect the job for warnings or errors.
 5. Reopen the three identities and confirm their Work Email values show the intended addresses. If the values are old, inspect **Acme Employees > Mappings > Work Email**, which should read **Acme HR > email**, and check processing in **Admin > Dashboard > Monitor**.
-6. Verify that Acme still has 24 HR accounts and identities. Keep this working CSV for later HR imports so you do not overwrite these addresses with the original placeholders.
+6. Verify that the HR account and identity counts match the complete file used before this edit: 24 on the first pass, or the recorded larger population on a repeat. Keep this working CSV for later HR imports so you do not overwrite these addresses with the original placeholders.
 
 Use the complete file for a flat-file import. [Loading HR account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 

@@ -70,14 +70,14 @@ Use three different test email addresses that you control.
 | Daniel Brooks | E003 | acme.e003 |
 | Lucas Brown | E012 | acme.e012 |
 
-3. Keep all 24 employee rows in the file.
+3. Keep every row in the latest complete file: 24 on the first pass, including Taylor and other legitimate additions on a later repeat.
 4. Save the file as UTF-8 CSV.
 5. Open **Admin > Connections > Sources > Acme HR > Account Management > Account Aggregation**.
 6. Upload the complete working CSV.
 7. Wait for aggregation and identity processing to finish.
 8. Reopen all three identities.
 9. Confirm each **Work Email** shows the intended test address.
-10. Confirm Acme HR still contains 24 accounts and Acme Employees still contains 24 identities.
+10. Confirm the HR account and identity populations match their pre-edit counts: 24 on the first pass, or your recorded larger population on a repeat.
 
 Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 
@@ -213,7 +213,7 @@ If sign-in fails, verify the selected authentication route and username. For a m
 - [ ] The independent check and both explanations are recorded.
 - [ ] Lucas's manager is Daniel.
 - [ ] Lucas, Daniel, and Priya have distinct working Work Email values.
-- [ ] The working HR CSV still contains all 24 employees.
+- [ ] The working HR CSV preserves the full current population, including the original 24 employees.
 - [ ] The configured sign-in route is recorded and works for all three users.
 - [ ] Lucas can complete a fresh sign-in through that route.
 - [ ] Daniel can complete a fresh sign-in through that route.

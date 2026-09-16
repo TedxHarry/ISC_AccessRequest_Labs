@@ -28,12 +28,14 @@ From the previous labs, you need:
 
 Keep your [evidence journal](EVIDENCE.md) open.
 
+**Returning after provisioning:** Reuse the existing baseline profile and role. Keep Lucas, Liam and any later course members selected. Inspect the saved creation/update activity and current AD accounts; do not remove membership, delete an account or reduce the role list to recreate the first-run screenshots.
+
 ## Follow the steps
 
 ### 1. Create the baseline access profile
 
 1. Open **Admin > Access Model > Access Profiles**.
-2. Select **Create New**.
+2. Search AP-Acme-AD-Baseline first. Reuse the matching course profile if it exists; select **Create New** only if absent.
 3. Configure:
 
 | Setting | Value |
@@ -53,6 +55,10 @@ Reference: [Access profiles](https://documentation.sailpoint.com/saas/help/acces
 
 **Screenshot:** Save `AR-006-01-baseline-profile.png`. Capture the access profile and entitlement.
 
+![Baseline profile containing one GG-ACME-BASELINE entitlement](../../labs/AR-006/images/AR-006-01-baseline-profile.png)
+
+AP-Acme-AD-Baseline contains one entitlement on AD_Local_Ted in this example. Select your recorded AD source and also verify the profile is enabled with requests disabled.
+
 ### Record Lucas before assigning access
 
 In **Active Directory Users and Computers**, enable **View > Advanced Features**, open Lucas’s **Properties > Attribute Editor** and record `distinguishedName` and `objectGUID` in the journal. Open **GG-ACME-BASELINE > Properties > Members** and confirm Lucas is absent. Compare these before-values after provisioning.
@@ -60,6 +66,10 @@ In **Active Directory Users and Computers**, enable **View > Advanced Features**
 **Check:** You recorded Lucas’s original identifiers and the group has no Lucas membership.
 
 **Screenshot:** Save `AR-006-02-lucas-before.png`. Capture Lucas’s DN, objectGUID and absence from baseline membership.
+
+![Empty baseline Members list, Lucas objectGUID and Users OU DN](../../labs/AR-006/images/AR-006-02-lucas-before.png)
+
+The Members panel is empty and the Lucas panel shows his objectGUID. The highlighted distinguishedName on the left belongs to the Users OU, not Lucas. Record Lucas's own distinguishedName from his Properties > Attribute Editor before comparing the account after provisioning.
 
 ### 2. Create the baseline role for Lucas
 
@@ -87,6 +97,10 @@ Reference: [Role assignment](https://documentation.sailpoint.com/saas/help/provi
 
 **Screenshot:** Save `AR-006-03-lucas-role.png`. Capture the role with Lucas in the identity list.
 
+![Baseline role Identity List selecting only Lucas](../../labs/AR-006/images/AR-006-03-lucas-role.png)
+
+The first stage selects only Lucas. Save, enable and apply the role before checking its resulting activity; an edit-page selection alone does not prove provisioning.
+
 ### 3. Verify Lucas's existing account was updated
 
 1. In **Admin > Dashboard > Monitor**, wait for the identity-processing work started by **Apply Changes** to finish. Do not add Liam while Lucas’s update is still processing or has failed.
@@ -111,6 +125,10 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 
 **Screenshot:** Save `AR-006-04-lucas-update.png`. Capture Lucas's successful activity and native group membership.
 
+![Lucas Identity Refresh activity marked Complete and confirmed on the source](../../labs/AR-006/images/AR-006-04-lucas-update.png)
+
+The Overview shows Complete and Confirmed on the source. Select the AD source entry to inspect the actual membership operation, then verify the baseline group in AD and Lucas's unchanged DN/objectGUID.
+
 ### 4. Add Liam to the same role
 
 1. Confirm `acme.e008` is still absent from AD and the ISC AD-source accounts.
@@ -126,6 +144,10 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 **Check:** The role now contains Lucas and Liam.
 
 **Screenshot:** Save `AR-006-05-pilot-role.png`. Capture the two-person identity list.
+
+![Baseline role Identities view listing Lucas and Liam](../../labs/AR-006/images/AR-006-05-pilot-role.png)
+
+The role view now lists both pilot identities. Inspect Define Assignment to confirm both remain selected, then verify each account and native baseline membership.
 
 ### 5. Verify Liam's new AD account
 
@@ -158,6 +180,10 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 
 **Screenshot:** Save `AR-006-06-liam-created.png`. Capture Liam's provisioning activity, AD account, and group membership.
 
+![Liam AD create request and requested account attributes](../../labs/AR-006/images/AR-006-06-liam-created.png)
+
+The AD detail shows Create account and the requested attributes, including employeeID E008 and baseline membership. Its displayed stage is Committed: Sent to the connector. Even though the background row says Complete, check the actual AD account and membership rather than treating this panel alone as target verification. The requested password is hidden as Unknown.
+
 ### 6. Aggregate and verify Liam's account link
 
 1. Run one AD account aggregation from **Account Management > Account Aggregation**.
@@ -172,6 +198,10 @@ Reference: [Tracking provisioning](https://documentation.sailpoint.com/saas/help
 **Check:** Liam's AD account is linked to the correct ISC identity.
 
 **Screenshot:** Save `AR-006-07-liam-linked.png`. Capture Liam's identity with the linked AD account.
+
+![Liam identity Accounts view with AD, Acme HR and IdentityNow rows](../../labs/AR-006/images/AR-006-07-liam-linked.png)
+
+Liam has an Enabled AD_Local_Ted account linked to his identity. Acme HR and IdentityNow are separate source rows. Count one account on the course AD source, not exactly two accounts across all sources; open the AD row to verify imported employeeID and membership.
 
 ### 7. Compare the two provisioning results
 
@@ -237,19 +267,25 @@ If the activity is still pending, follow it before applying again. If it fails:
 
 Keep the access profile, role, Lucas assignment, Liam assignment, both AD accounts, and both baseline memberships in place.
 
+**Additional captures:** Save `AR-006-08-native-accounts.png` for the native checks and `AR-006-09-source-operation.png` for expanded source operations. Use multiple panels when needed.
+
 ### Screenshots to capture
 
-Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
+The supplied screenshots are placed beside their matching steps. Add the remaining views when available; keep earlier creation evidence labelled historical when revisiting the lab.
 
-| Filename | Evidence |
+| Filename | Coverage and remaining capture |
 |---|---|
-| `AR-006-01-baseline-profile.png` | Capture the access profile and entitlement. |
-| `AR-006-02-lucas-before.png` | Capture Lucas’s DN, objectGUID and absence from baseline membership. |
-| `AR-006-03-lucas-role.png` | Capture the role with Lucas in the identity list. |
-| `AR-006-04-lucas-update.png` | Capture Lucas's successful activity and native group membership. |
-| `AR-006-05-pilot-role.png` | Capture the two-person identity list. |
-| `AR-006-06-liam-created.png` | Capture Liam's provisioning activity, AD account, and group membership. |
-| `AR-006-07-liam-linked.png` | Capture Liam's identity with the linked AD account. |
+| AR-006-01-baseline-profile.png | Baseline profile containing one GG-ACME-BASELINE entitlement. Included; see the limits beside the image. |
+| AR-006-02-lucas-before.png | Empty baseline Members list, Lucas objectGUID and Users OU DN. Included; see the limits beside the image. |
+| AR-006-03-lucas-role.png | Baseline role Identity List selecting only Lucas. Included; see the limits beside the image. |
+| AR-006-04-lucas-update.png | Lucas Identity Refresh activity marked Complete and confirmed on the source. Included; see the limits beside the image. |
+| AR-006-05-pilot-role.png | Baseline role Identities view listing Lucas and Liam. Included; see the limits beside the image. |
+| AR-006-06-liam-created.png | Liam AD create request and requested account attributes. Included; see the limits beside the image. |
+| AR-006-07-liam-linked.png | Liam identity Accounts view with AD, Acme HR and IdentityNow rows. Included; see the limits beside the image. |
+| AR-006-08-native-accounts.png | Still to add: Lucas unchanged account DN/GUID, Liam AD attributes/enabled state and both direct baseline memberships. |
+| AR-006-09-source-operation.png | Still to add: expanded Lucas AD membership operation and completed Liam source result. |
+
+Keep passwords, tokens and invitation links out of shared images.
 
 Next: **[AR-007 — Provision the Remaining Standard Accounts](../AR-007/README.md)**
 

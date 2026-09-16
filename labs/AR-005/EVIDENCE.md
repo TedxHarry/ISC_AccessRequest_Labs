@@ -12,7 +12,7 @@ Record actual results. Keep credentials out of this file.
 | Saved attribute mappings and order | |
 | Assigned password policy checked against AD | |
 | Expected Liam DN and UPN | |
-| Liam account absent in AD and ISC | |
+| Liam account absent on first pass, or existing account retained on repeat | |
 
 ## Lookup results
 
@@ -56,3 +56,14 @@ Use the checklist in the lab and record your files here.
 | Historical activity reused, including original date | |
 | Live changes made and original values | |
 | Restoration evidence and retained state | |
+
+## Supplied screenshot checks
+
+The walkthrough includes the supplied UPN, OU, imported baseline entitlement, partial mapping and Liam identity images. The Liam image has a blank Manager; record the current result below rather than assuming the screenshot proves Priya resolved.
+
+| Check | Current result / additional evidence |
+|---|---|
+| Liam Manager resolves to Priya (E002) | |
+| Remaining mapping rows and UPN order checked | |
+| AD baseline group settings/membership checked | |
+| Assigned password policy compared with AD | |
