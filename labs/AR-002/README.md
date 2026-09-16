@@ -211,7 +211,7 @@ Confirm Lucas → Daniel → Morgan and record Lucas’s current E003 manager re
 
 If interrupted during the wrong-manager exercise, inspect E012 in both the working CSV and HR account before proceeding. Restore managerEmployeeNumber E003, upload the complete file and check Daniel is the resolved manager. Keep the mappings and manager-correlation pair. When repeating later, preserve added employees and report the original 23 relationships separately from any later additions.
 
-### Screenshots to retain
+### Screenshots to capture
 
 - Manager Name and Employee Number mappings.
 - The Manager Correlation dropdown selections.

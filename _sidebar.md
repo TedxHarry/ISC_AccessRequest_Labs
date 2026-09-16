@@ -149,10 +149,15 @@
     - [AR-089 — Change a profile without assuming existing access changes](/labs/AR-089/README.md)
     - [AR-090 — Complete an asynchronous trigger callback](/labs/AR-090/README.md)
 
-- **CAPSTONES**
+- **CAPSTONES · ENGINEERING**
   - [CAP-01](/capstones/CAP-01/README.md)
   - [CAP-02](/capstones/CAP-02/README.md)
   - [CAP-03](/capstones/CAP-03/README.md)
+
+- **CAPSTONES · BEGINNER**
+  - [CAP-01](/Labs_Happypath/capstones/CAP-01/README.md)
+  - [CAP-02](/Labs_Happypath/capstones/CAP-02/README.md)
+  - [CAP-03](/Labs_Happypath/capstones/CAP-03/README.md)
 
 - [Practice path](PRACTICE-PATH.md)
 - [Content audit](CONTENT-AUDIT.md)

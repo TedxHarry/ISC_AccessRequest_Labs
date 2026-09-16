@@ -23,7 +23,7 @@ This pass reviewed the lab sequence and retained state across AR-001–090, shar
 | A conditional Required effect was suggested without documented support | AR-036 | Removed that suggestion; the Show condition and reviewer-enforced rollback requirement are separate controls. |
 | The known-good permission-fault control had no explicit cleanup | AR-048 | Named Remote Worker as the control and added its removal/verification. |
 | AD rename did not explicitly verify the identifier used by later commands | AR-049 | Check both the new name and sAMAccountName plus DN/GUID and a native lookup. |
-| Missing department could produce an execution error rather than a denial | AR-061 | Added existence/type checks, an isolated live denial test, restored HR data and a gate before Finance association. |
+| Missing department could produce an execution error rather than a denial | AR-061 | Added existence/type checks, an isolated live no-access outcome test, restored HR data and a gate before Finance association. |
 | Finance eligibility covered only one request path | AR-061, CAP-01 | Added independent positive/negative tests for both profiles and the Analyst role; direct entitlements and automatic assignments are explicitly separate paths. |
 | SoD lab assumed a native workflow sample existed after direct review | AR-077 | Generate a disposable native-workflow request, deny it, and inspect that execution before building the gate. |
 | Every non-approved output could be mislabeled as denied | AR-063 | Use Approval Policy status and APPROVED comparison; other outcomes receive a neutral message containing actual status. Attach the clone before trying to inspect its execution. |
@@ -70,3 +70,9 @@ For the learner’s next session, run AR-002 and compare the resolved hierarchy 
 ## Module 1 follow-up
 
 The [9 September learner walkthrough review](M01-REVIEW.md) records the focused AR-001–009 corrections and remaining live checks.
+
+## Capstone follow-up, 16 September 2026
+
+CAP-01–03 now have beginner and engineering walkthroughs and journals. The paired working procedures name actors, starting memberships, exact objects, requests, reviews, native checks and restoration. Finance keeps accepted eligibility policies and uses clean Olivia. The queue has six consistently named reports and distinguishes two live faults from historical/synthetic investigations. Temporary Support uses dedicated profiles/workflow, accepts its isolated gate before service attachment, tests the recipient on behalf, observes real scheduled boundaries and restores the earlier course service. Its optional rollback field is checked by the reviewer; a Show condition is not described as conditional-required validation.
+
+The cross-module structural check covers 180 lab walkthroughs; all have an objective above prerequisites, an evidence journal and a screenshot section. AR-032 now states its objective explicitly; AR-001/002 screenshot headings use the shared wording. This is a consistency check, not a new claim that every lab was executed. Capstone tenant runs, timed outcomes and screenshots remain pending.

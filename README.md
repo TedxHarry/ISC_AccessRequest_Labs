@@ -271,29 +271,29 @@ Use the entry points and capability prerequisites in the [coverage matrix](COVER
 
 ### CAP-01 — Launch Finance self-service access
 
-[Open the step-by-step capstone](capstones/CAP-01/README.md)
+[Beginner walkthrough](Labs_Happypath/capstones/CAP-01/README.md) · [Engineering walkthrough](capstones/CAP-01/README.md)
 
 Acme Finance needs a usable request catalog for reporting and accounts-payable access, appropriate review, and clear requester descriptions. Deliver a working solution, test approval and denial, prove target memberships, and demonstrate removal. Include one non-Finance requester visibility test.
 
-Evidence: access-model rationale, configuration record, positive/negative test matrix, linked request/activity/AD evidence, and handover notes. Prerequisite: M01–M07.
+Evidence: access-model rationale, configuration record, positive/negative test matrix, linked request/activity/AD evidence, and handover notes. Prerequisites: AR-001–022 and AR-042–045. Recipient eligibility and SoD are separate extensions when their capabilities are available.
 
 ### CAP-02 — Recover the Access Request service queue
 
-[Open the step-by-step capstone](capstones/CAP-02/README.md)
+[Beginner walkthrough](Labs_Happypath/capstones/CAP-02/README.md) · [Engineering walkthrough](capstones/CAP-02/README.md)
 
-Receive five tickets covering a missing catalog item, unexpected reviewer, approved-but-missing access, retained access after removal, and an aged request. Investigate the evidence behind each symptom, including information that may initially point toward the wrong cause.
+Work six reports covering visibility, unexpected review, approved-but-missing access, retained access, uncertain submissions and mixed item outcomes. Reproduce and repair two scoped configuration faults, then investigate the remaining reports using clearly labelled live, historical or synthetic evidence.
 
 Evidence: triage order, evidence-supported hypotheses, root causes, targeted repairs, verification, and an escalation package for any unresolved condition. Prerequisites: M01–M09 and M12. Explain whether each ticket is resolved or requires escalation.
 
 ### CAP-03 — Deliver temporary production-support access
 
-[Open the step-by-step capstone](capstones/CAP-03/README.md)
+[Beginner walkthrough](Labs_Happypath/capstones/CAP-03/README.md) · [Engineering walkthrough](capstones/CAP-03/README.md)
 
 IT and Engineering require a controlled production-support request. Business justification and ticket number are required. The request needs manager review followed by Security review, a seven-day maximum access period enforced through a supported mechanism, decision notification, and auditable target verification. Test both eligible and ineligible requester/recipient combinations.
 
 Select a documented implementation, identify any unmet requirement, and explain alternatives. A segment alone must not be claimed to enforce recipient eligibility. A form-only duration field must not be claimed to enforce expiration.
 
-Evidence: design decision record, implementation, timing plan, approval/denial tests, eligibility tests, expiration/removal evidence, one injected failure and recovery, and support runbook. Prerequisites: M01–M12. Verify expiration using the actual target state and retain the supporting evidence.
+Use a dedicated capstone profile and workflow while preserving the earlier Production Support configuration. Evidence includes recipient checks, ordered reviews, delivered decision messages, actual native start/expiry observations, date amendment and cleanup. Engineering adds a scoped visibility fault and repair. Prerequisites: AR-034–041, AR-049 and AR-058–063, with native forms, dates and Adaptive Approvals available. Unobserved or unaccepted results remain pending.
 
 ## Practical assessment
 

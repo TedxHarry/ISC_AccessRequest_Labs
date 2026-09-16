@@ -1,6 +1,6 @@
 # AR-032 · Observe reminders, escalation and approval expiration
 
-This lab includes real scheduled events. You can write down the configuration today, but leave the timed results unverified until the events occur.
+In this lab, you'll configure and observe reminders, escalation and approval expiration. These are real scheduled events. You can write down the configuration today, but leave the timed results unverified until the events occur.
 
 ## Before you start
 

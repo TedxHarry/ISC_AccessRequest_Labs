@@ -170,3 +170,11 @@ Choose each track by its own prerequisites. Record unavailable capabilities sepa
 88. [AR-088 · Regression-test a product or API change](AR-088/README.md)
 89. [AR-089 · Change a profile and compare assignment origins](AR-089/README.md)
 90. [AR-090 · Complete and time out an asynchronous trigger callback](AR-090/README.md)
+
+## Capstones
+
+Use the same course objects and keep the recorded state from your completed labs. Each capstone names its own prerequisites; optional features are not required for every capstone.
+
+- [CAP-01 · Launch Finance self-service access](capstones/CAP-01/README.md)
+- [CAP-02 · Recover the access request service queue](capstones/CAP-02/README.md)
+- [CAP-03 · Deliver temporary Production Support](capstones/CAP-03/README.md)

@@ -356,7 +356,7 @@ Confirm Lucas is Finance/FIN200 on HR and identity, and retain the latest comple
 
 If an upload stopped, inspect the latest aggregation before uploading again. If accounts exist but identities do not, resume at profile mappings and processing. For a repeat, reuse the same source/profile and complete working file. Restore Lucas to Finance after the department exercise; keep source, profile, identities and the corrected file. After later labs add employees, preserve those rows and record the actual population instead of reimporting the original 24-row file.
 
-### Screenshots to retain
+### Screenshots to capture
 
 | Screenshot | What it should show |
 |---|---|

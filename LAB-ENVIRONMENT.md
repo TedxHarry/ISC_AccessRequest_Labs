@@ -147,3 +147,7 @@ Create checkpoints after M01, M03, M05, M07, M09, and each advanced extension. A
 Start each module from its prerequisite checkpoint. Retain business configuration and remove temporary faults after each exercise. Never leave an unresponsive event subscriber enabled after its exercise. In a shared tenant, coordinate global-setting changes with other participants; object prefixes do not isolate global configuration.
 
 [Return to the course outline](README.md)
+
+### Capstone objects
+
+CAP-01 reuses the Finance service and restores its original removal policies. CAP-02 restores Priya and the original Remote Worker settings. CAP-03 creates AP-CAP03-Eligibility-Control (GG-ACME-FAULT-049), AP-CAP03-Production-Support (GG-PROD-SUPPORT) and WF-Acme-CAP03-Support. Both profiles finish disabled/non-requestable and the workflow disabled after all requests and grants are resolved. Keep the shared form, Security group, earlier Production Support configuration and original accounts. A paused timed test remains Pending until observed or explicitly revoked.

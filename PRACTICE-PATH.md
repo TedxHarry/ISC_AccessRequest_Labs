@@ -60,4 +60,12 @@ Prepare each new requester/reviewer with [AR-008](labs/AR-008/README.md). Existi
 
 Before repeating an earlier lab, use the [lab desk’s starting-state check](LAB-DESK.md). Record the current state and prepare that lab’s named control without deleting later identities or unrelated assignments. A repeat of AR-025 after AR-047 must preserve all 25 HR records even though its original first-run population was 24.
 
+## Capstone starting points
+
+- [Finance service](capstones/CAP-01/README.md): AR-001–022 and AR-042–045, clean Olivia, retained Finance definitions and segment. Preserve accepted AR-061 policies when present.
+- [Service queue](capstones/CAP-02/README.md): AR-070–075 and their earlier incident evidence, clean Taylor, Priya on Remote Worker. Six reports include two controlled live faults; historical evidence stays labelled.
+- [Temporary support](capstones/CAP-03/README.md): AR-034–041, AR-049 and AR-058–063, native forms/dates/Adaptive Approvals and clean Henry/Liam/Olivia. Create dedicated CAP03 objects, accept the isolated gate before service use and disable the capstone objects after cleanup. Preserve the original Production Support policy.
+
+The [beginner index](Labs_Happypath/README.md#capstones) links to the same guided working procedures without the added engineering investigation.
+
 [Course outline](README.md) · [Coverage](COVERAGE.md)
