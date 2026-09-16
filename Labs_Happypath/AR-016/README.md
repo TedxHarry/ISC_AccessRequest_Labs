@@ -8,12 +8,14 @@ In this lab, you'll create one Finance reporting item that supplies Reporting an
 
 Complete [AR-015](../AR-015/README.md) and the [Module 3 starting checks](../../M03-READINESS.md). Open Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and your AD workstation. Keep your [journal](EVIDENCE.md) open.
 
+If you are returning after a break, follow [the module resume checks](../../M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
+
 ## Follow the steps
 
 ### 1. Confirm Olivia's starting access
 
 1. In Acme Admin, open **Admin > Identity Management > Identities**, find Olivia and verify E011 and Acme Employees.
-2. Inspect **Accounts** and **Access**. Record the standard AD account DN and objectGUID. Confirm she has no Finance profile or role assignment and no pending request in her **Request Center > My Requests**.
+2. Inspect **Accounts** and **Access**. Record the standard AD account DN and objectGUID. Confirm she has no Finance profile or role assignment. Switch to Acme Olivia to inspect **Request Center > My Requests**, then use [administrator request details](../../M02-CHECKS.md#inspect-a-request-as-administrator) to check for unfinished requests made for her by someone else.
 3. Run the [native membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for `acme.e011` against `GG-FIN-REPORTING`, `GG-VPN-USERS` and `GG-ACME-BASELINE`. Record the actual group DNs.
 4. Keep the same controller for every before/after check.
 
@@ -34,7 +36,7 @@ Complete [AR-015](../AR-015/README.md) and the [Module 3 starting checks](../../
 | Entitlement Source | Your recorded AD source |
 
 3. Select **Save**. Check the source before this save; an existing profile's source cannot be changed.
-4. Open **Manage Entitlements**. Search `GG-FIN-REPORTING`, compare its source and DN with Section 1, and select **+**.
+4. Open **Manage Entitlements**. On a reused profile, keep matching existing rows and add only missing groups. Search `GG-FIN-REPORTING`, compare its source and DN with Section 1, and select **+**.
 5. Add `GG-VPN-USERS` the same way. Select **Save**, leave the page and reopen it.
 6. Confirm exactly these two groups are included. Keep the baseline profile and role separate.
 

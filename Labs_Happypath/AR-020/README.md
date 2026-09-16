@@ -10,6 +10,8 @@ Complete [AR-019](../AR-019/README.md). Use Acme Admin, Acme Olivia (`acme.e011`
 
 Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles are enabled/requestable, as is ROLE-Finance-Analyst. Olivia has no Finance/VPN access or pending request. Lucas retains his direct VPN.
 
+If you are returning after a break, follow [the module resume checks](../../M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
+
 ## Follow the steps
 
 ### 1. Capture the working catalog

@@ -8,11 +8,13 @@ In this lab, you'll create a requestable Finance Analyst role, approve it for Ol
 
 Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and the AD workstation. Keep the [module state](../../M03-READINESS.md) and your [journal](EVIDENCE.md) open.
 
+If you are returning after a break, follow [the module resume checks](../../M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
+
 ## Follow the steps
 
 ### 1. Check the recipient and the new entitlement
 
-1. As administrator, open Olivia under **Admin > Identity Management > Identities**. Inspect **Accounts**, **Access** and her pending requests.
+1. As administrator, open Olivia under **Admin > Identity Management > Identities**. Inspect **Accounts** and **Access**. Switch to Acme Olivia for **Request Center > My Requests**, and check [administrator request details](../../M02-CHECKS.md#inspect-a-request-as-administrator) for unfinished requests submitted for her.
 2. Record the standard AD account DN/objectGUID. Run the [native check](../../M02-CHECKS.md#inspect-direct-ad-membership) for `GG-FIN-REPORTING`, `GG-VPN-USERS`, `GG-FIN-AP` and `GG-ACME-BASELINE`.
 3. Open **Admin > Connections > Sources > your AD source > Entitlement Management > Entitlements**. Search `GG-FIN-AP` and compare its native value with the AD group DN.
 4. Record that entitlement's source, attribute, value and [ISC ID](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values).
@@ -25,12 +27,12 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 
 1. In **Admin > Access Model > Access Profiles**, search `AP-Finance-AP`. Inspect and reuse the matching course profile if present; otherwise select **Create New**.
 2. Set **Name** to `AP-Finance-AP`, **Primary Owner** to Daniel (`acme.e003`), **Description** to `Accounts-payable access for Acme Finance work` and **Entitlement Source** to your recorded AD source. Select **Save**.
-3. On **Manage Entitlements**, search `GG-FIN-AP`, verify its DN and add it with **+**. Select **Save**. This profile contains exactly one group.
+3. On **Manage Entitlements**, keep GG-FIN-AP if its correct-source row already exists. Otherwise search `GG-FIN-AP`, verify its DN and add it with **+**. Select **Save**. This profile contains exactly one group.
 4. On **Access Requests**, enable **Allow Access Requests**. Under **Reviewing Access Requests**, select **Require Approval > Reviewer**, add **Primary Owner** with **+**, and retain one grant reviewer.
 5. Require request and denial comments. Leave request form and required end date off. Record timeout, reminder and escalation settings.
 6. Under **Reviewing Removal Requests**, enable **Require Approval for Removal** and add **Primary Owner** as the single removal reviewer. Select **Save**.
 7. Enable the profile. Reopen it and verify source, entitlement and policies.
-8. Open **Admin > Access Model > Applications > Finance Services > Edit > Access Profiles**. In **Add Access Profile**, select AP-Finance-AP and use **+**, then **Save**. Keep AP-Finance-Reporting associated too.
+8. Open **Admin > Access Model > Applications > Finance Services > Edit > Access Profiles**. In **Add Access Profile**, select AP-Finance-AP and use **+**, then **Save**. Keep AP-Finance-Reporting associated too. Skip the add action if AP-Finance-AP is already listed.
 
 **Check:** Finance Services has two separately requestable profiles. Reporting still contains Reporting + VPN; AP contains FIN-AP only.
 
@@ -41,8 +43,8 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 1. Open **Admin > Access Model > Roles** and search `ROLE-Finance-Analyst`. Reuse only the matching course role; otherwise select **Create New**.
 2. On **Configuration**, choose **Standard** for Role Type. Set **Name** to `ROLE-Finance-Analyst`, **Primary Owner** to Daniel (`acme.e003`) and **Description** to `Reporting, VPN and accounts-payable access for the Acme Finance Analyst assignment`.
 3. Leave **Common Access** unselected if shown, and select **Save**.
-4. Open **Manage Access > Add Access > Access Profiles**. Select AP-Finance-Reporting and AP-Finance-AP.
-5. Select **Review**, check exactly these two profiles, then **Add Access**. Reopen Manage Access to confirm the saved contents.
+4. On a reused role, first inspect **Manage Access** and keep the existing matching profiles. Add only missing profiles using **Manage Access > Add Access > Access Profiles**. The required pair is AP-Finance-Reporting and AP-Finance-AP.
+5. If adding access, select **Review**, check that only the missing required profiles are selected, then **Add Access**. Reopen Manage Access and confirm the role contains exactly the required pair.
 6. Open **Define Assignment**. Leave automatic assignment criteria unconfigured. Do not add a Finance department criterion or individual identities. This role will be assigned only when requested.
 7. Keep ROLE-Acme-AD-Baseline unchanged.
 
@@ -95,7 +97,7 @@ Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme 
 4. Enter `AR-018: Finance Analyst test complete` in the revocation dialog and select **Revoke** once.
 5. Record the administrative action and inspect the resulting account activity for Olivia and the three group DNs. Administrative revocation is audited; do not use the absence of a notification as a failure test or assume a separate Daniel review is required for this route.
 6. Wait for the operations to finish, then repeat all four native checks. Refresh imported AD data when needed and reopen View Assignments.
-7. Confirm the requested role assignment is removed. Keep the role enabled, its profiles intact and both profiles associated with Finance Services.
+7. Confirm the requested role assignment is removed. Run the native VPN check for Lucas (`acme.e012`); his membership must remain True. Keep the role enabled, its profiles intact and both profiles associated with Finance Services.
 
 **Check:** Olivia lacks all three business groups and the requested role assignment. Her baseline and original account remain. Do not disable/delete the role or revoke its contained profiles to perform this cleanup.
 

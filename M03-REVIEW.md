@@ -46,3 +46,19 @@ This review did not execute PowerShell against AD, submit tenant requests, appro
 ## Tenant checks still required
 
 Run the labs in order and capture actual UI labels, profile/role assignment origin, routed reviewers, activity results, native group changes, catalog behavior and cleanup. Verify the administrator role-revocation route separately from user/profile removal review. If a feature or UI differs, record the exact observed state before changing the walkthrough; do not mark an unexecuted step Passed.
+
+## Final learner walkthrough review, 16 September 2026
+
+Scope: AR-016–021 in both paths, all 12 journals, Module 2 retained state and the Module 4 starting checks. Learner progress remains AR-001–006 reported complete, with AR-007 tenant execution not started. No Module 3 execution or screenshot validation is claimed.
+
+- Clarified which session to use for identity Access versus My Requests. Added administrator request inspection for requests made for the recipient by someone else.
+- Added resume guidance before the working steps in both paths. Existing applications now have an explicit Edit route, and existing profile/group associations are retained instead of added again.
+- AR-017 preserves the accounts-payable association when repeated after AR-018. The original one-profile starting example no longer implies removing later work.
+- AR-017 and AR-018 now explicitly verify Lucas's retained native VPN during cleanup, matching their acceptance checklists.
+- AR-019 refreshes imported data when the completed entitlement assignment has not appeared for self-removal.
+- HR registration creates separate browser profiles before invitations are opened. The current complete HR file and its actual row count are preserved, including identities introduced later in the course.
+- AR-021 uses the learner's recorded OU path and distinguishes the original 24 baseline recipients from later additional accounts/identities. Its design instruction moved into the working steps, leaving prerequisites in Before you start.
+
+Rechecked official application configuration, requested-role revocation and user removal documentation linked above. Existing grant/removal distinctions remain. Current tenant labels, actual decisions, target writes and screenshots still require learner execution.
+
+Local checks passed: 12 walkthrough structures, 12 journal acceptance lists, six identical paired working procedures, screenshot filename inventories, expandable answers, 159 local links and referenced heading anchors in changed files, plus whitespace checks.

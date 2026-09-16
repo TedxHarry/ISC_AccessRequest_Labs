@@ -241,3 +241,9 @@ The walkthrough corrections add the ISC Manager/Priya check without conflating i
 References rechecked: [account creation](https://documentation.sailpoint.com/saas/help/provisioning/create_profile.html), [role assignment](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html), and [provisioning monitoring](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html), alongside the supplied screenshots.
 
 Local checks passed: all 18 Module 1 walkthrough structures and journals, 66 embedded image references across both paths, byte equality of the 12 newly published image copies to their supplied originals, AR-005/006 screenshot-inventory consistency, 2,256 course-wide local file/anchor references before this entry, two PowerShell examples parsed without execution, and whitespace checks. Screenshot evidence remains limited to the visible panels; additional native views and AR-007 onward execution remain pending.
+
+## Module 3 final learner review, 16 September 2026
+
+Reviewed AR-016–021 in both paths and all 12 journals. Corrected existing-object reuse, requester/admin session transitions, checks for requests made by another person, native retained-access verification, and HR registration/file-preservation steps. See [the review record](M03-REVIEW.md#final-learner-walkthrough-review-16-september-2026).
+
+All 12 walkthrough structures, 12 journal acceptance lists, six paired working procedures, screenshot inventories and expandable answers passed. The changed-file check resolved 159 local file links and their referenced heading anchors before this validation entry; whitespace checks passed. Official application, role-revocation and user-removal documentation was rechecked. No tenant actions were performed and no new screenshots were added. AR-001–006 remain learner-reported complete; AR-007 tenant execution has not started.

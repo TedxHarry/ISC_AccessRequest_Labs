@@ -6,7 +6,7 @@ Start with C02 from AR-015. Keep your private journals, [actual environment valu
 
 1. As administrator, open **Admin > Identity Management > Identities**. Find Olivia (`acme.e011`, E011), Daniel (`acme.e003`, E003), Priya (`acme.e002`, E002) and Lucas (`acme.e012`, E012). Confirm Acme Employees and one linked standard AD account each.
 2. Sign in to their existing browser profiles and verify the username in each user menu. Olivia requests Finance access; Daniel reviews Finance profiles and the role; Priya reviews the direct VPN grant.
-3. Inspect Olivia's **Access** and **Request Center > My Requests**. She must have no unfinished business request, Remote Worker assignment, or Finance assignment.
+3. In Acme Admin, inspect Olivia's identity **Access**. Switch to Acme Olivia for **Request Center > My Requests**. Also use [administrator request details](M02-CHECKS.md#inspect-a-request-as-administrator) to find requests submitted for Olivia by another person. She must have no unfinished business request, Remote Worker assignment, or Finance assignment.
 4. Run the [direct AD membership check](M02-CHECKS.md#inspect-direct-ad-membership) for Olivia against `GG-VPN-USERS`, `GG-FIN-REPORTING` and `GG-FIN-AP`. All three must be False. Confirm `GG-ACME-BASELINE` is True. Confirm Lucas's VPN is True.
 5. Check C02's retained configuration: 24 standard accounts and baseline assignments, requestable VPN, enabled/requestable AP-Remote-Worker, and Liam and Olivia without Remote Worker groups. Resolve incomplete C02 operations before proceeding.
 
@@ -30,15 +30,17 @@ Every row preserves all baseline assignments and Lucas's direct VPN grant. A def
 James is `acme.e014` (E014); Elena is `acme.e004` (E004). They already have standard AD accounts from Module 1.
 
 1. In **Admin > Identity Management > Identities**, open each identity. Check employee number, Acme Employees profile and the linked AD account. Confirm James's manager is Elena.
-2. Open the latest complete private `acme-hr-working.csv`. Give these two rows unique email inboxes you control. Preserve all 24 rows and the controlled addresses already used by the other lab participants.
+2. Open the latest complete private `acme-hr-working.csv`. Give these two rows unique email inboxes you control. Record the current row count and preserve every row and the controlled addresses already used by other lab participants. The first pass has 24 rows; after AR-047 the file may also include Taylor. Do not replace this file with the original public CSV.
 3. Open **Admin > Connections > Sources > Acme HR > Account Management > Account Aggregation**. Upload the complete working file, inspect the aggregation result and wait for **Admin > Dashboard > Monitor** processing to finish.
 4. Reopen both identities and confirm their Work Email values. Keep this version of the file for later imports.
-5. Read **Acme Employees > Settings > Sign-in Method**. Keep the current route. For an unregistered ISC-password identity, select **Actions > Invite Identity**, open the invitation in that person's separate browser profile, and finish registration as in AR-008. For external authentication, use the route already established in AR-008. Do not copy an invitation into another person's session.
-6. Create browser profiles **Acme James** and **Acme Elena**. Sign out and back in to confirm each username. James needs ordinary requester access; Elena can review requests assigned to her without administrator permissions.
+5. Create separate browser profiles **Acme James** and **Acme Elena** before opening either invitation. Read **Acme Employees > Settings > Sign-in Method**. Keep the current route. For an unregistered ISC-password identity, select **Actions > Invite Identity**, open the invitation in that person's separate browser profile, and finish registration as in AR-008. For external authentication, use the route already established in AR-008. Do not copy an invitation into another person's session.
+6. In each prepared browser profile, sign out and back in to confirm each username. James needs ordinary requester access; Elena can review requests assigned to her without administrator permissions.
 
-**Check:** Both sessions work and the imported population still has 24 employees. Keep passwords and registration links out of your journal and screenshots.
+**Check:** Both sessions work and the imported population matches your recorded current row count, including all original 24 employees. Keep passwords and registration links out of your journal and screenshots.
 
 ## Resume or repeat safely
+
+If later labs changed the profile policies, application associations or role contents, record that current configuration before repeating this earlier module. Do not reset later work to the first-pass values without accounting for its assignments and requests.
 
 Inspect an existing course object before choosing Create. Reuse it when its source, groups and policies match the lab. Stop on a same-name object with a different source or unexpected assignments; do not delete it to make the instructions fit.
 

@@ -16,11 +16,13 @@ All three items below are enabled/requestable. Olivia starts without the three b
 | B | Access profile: AP-Finance-Reporting | Daniel | VPN + FIN-REPORTING |
 | C | Role: ROLE-Finance-Analyst | Daniel | VPN + FIN-REPORTING + FIN-AP |
 
+If you are returning after a break, follow [the module resume checks](../../M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
+
 ## Follow the steps
 
 ### 1. Prepare the comparison and VPN removal review
 
-1. As administrator, inspect Olivia's **Accounts**, **Access** and pending requests. Record her standard AD account DN/objectGUID.
+1. As administrator, inspect Olivia's **Accounts** and **Access**. Check [administrator request details](../../M02-CHECKS.md#inspect-a-request-as-administrator) for unfinished requests for Olivia, and use her own session for **Request Center > My Requests**. Record her standard AD account DN/objectGUID.
 2. Run the [native membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Olivia against GG-VPN-USERS, GG-FIN-REPORTING, GG-FIN-AP and GG-ACME-BASELINE. Business results must be False and baseline True.
 3. Open **Admin > Access Model > Entitlements**, locate GG-VPN-USERS on your recorded AD source and choose **Actions > Edit**.
 4. Confirm its primary owner is Priya and its **Access Requests** page retains the individual primary-owner grant review from Module 2.
@@ -40,7 +42,7 @@ All three items below are enabled/requestable. Olivia starts without the three b
 4. In Acme Priya, open **Approvals > Access Requests > Requested**, inspect Olivia's VPN **Grant**, approve and verify **Reviewed**.
 5. In Acme Admin, inspect [request and activity](../../M02-CHECKS.md#inspect-a-request-as-administrator) until completion. Check all four native groups.
 6. Record VPN=True, FIN-REPORTING=False, FIN-AP=False, baseline=True and the original account identifiers.
-7. In Acme Olivia, return to the home dashboard and open **My Access > Entitlements**. Select GG-VPN-USERS, then its **Assignment** in the left navigation. Check the target account and select **Revoke Assignment**.
+7. If the new requested assignment has not appeared in ISC yet, [refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data) and reopen the assignment before trying to revoke it. In Acme Olivia, return to the home dashboard and open **My Access > Entitlements**. Select GG-VPN-USERS, then its **Assignment** in the left navigation. Check the target account and select **Revoke Assignment**.
 8. Enter `AR-019 A: Direct VPN test complete` and select **Submit Request**.
 9. In Acme Priya, find the matching VPN **Remove** request in **Approvals > Access Requests > Requested**. Approve it and record the decision.
 10. Inspect the removal activity as administrator. Repeat all four native checks. [Refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data) if needed and verify the requested entitlement assignment is gone.
