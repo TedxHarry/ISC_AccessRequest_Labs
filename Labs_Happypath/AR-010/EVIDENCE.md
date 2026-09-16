@@ -15,6 +15,8 @@ Complete this during the lab. Record actual observations; a written procedure is
 | Domain controller and group DNs | |
 | Current assignments and pending requests | |
 
+For a later visibility-only repeat using Olivia, record the changed recipient and her before/after state. The first-run expectations below describe Lucas before AR-011. Preserve his completed VPN grant.
+
 ## Expected and observed results
 
 | Check | Expected | Observed / evidence |
@@ -55,6 +57,6 @@ Use a separate row for each grant, denial or removal. A denied case does not nee
 
 - [ ] Every final verification in the lab passed.
 - [ ] Expected state matches actual target and request evidence.
-- [ ] No unexplained pending operation remains, except the intentional AR-011 pending review.
+- [ ] No unexplained pending request or operation remains.
 
 [Return to the lab](README.md)

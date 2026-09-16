@@ -43,6 +43,8 @@ Use a separate row for each actual request. Write Not applicable for stages that
 |---|---|---|---|---|---|
 | | | | | | |
 
+For a later visibility-only repeat using Olivia, record the changed recipient and her before/after state. The first-run expectations below describe Lucas before AR-011. Preserve his completed VPN grant.
+
 ## Walkthrough acceptance record
 
 | Check | Expected | Actual / evidence |

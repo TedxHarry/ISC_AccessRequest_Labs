@@ -14,6 +14,8 @@ Lucas (`acme.e012`) has one linked standard AD account and baseline membership. 
 
 Keep your [journal](EVIDENCE.md) and [request and target checks](../../M02-CHECKS.md) open. Use the AD source and group DNs recorded in AR-003; an item’s name alone is not enough to identify it.
 
+If you are returning after a break, read [where to resume](#if-you-return-to-this-lab-later) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Record Lucas’s current access

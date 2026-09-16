@@ -23,7 +23,7 @@ Complete this during the lab. Record actual observations; a written procedure is
 | Catalog states | Visible, unavailable, restored | |
 | Global entitlement requests | Remain enabled | |
 | Owner / reviewer | Priya, unchanged | |
-| Lucas VPN | Retained | |
+| Lucas / Olivia native VPN | Lucas present and Olivia absent, before and after | |
 | New requests | None | |
 
 ## Request and target timeline
@@ -47,16 +47,16 @@ Use a separate row for each grant, denial or removal. A denied case does not nee
 
 | Filename | What to show |
 |---|---|
-| AR-014-01.png | VPN visible as Olivia |
+| AR-014-01.png | VPN visible as Olivia; both native before states |
 | AR-014-02.png | Individual requestability off |
 | AR-014-03.png | VPN unavailable with username and search |
 | AR-014-04.png | Restored visible item |
-| AR-014-05.png | Lucas retained VPN membership |
+| AR-014-05.png | Lucas retained VPN and Olivia absent, after checks |
 
 ## Completion
 
 - [ ] Every final verification in the lab passed.
 - [ ] Expected state matches actual target and request evidence.
-- [ ] No unexplained pending operation remains, except the intentional AR-011 pending review.
+- [ ] No unexplained pending request or operation remains.
 
 [Return to the lab](README.md)

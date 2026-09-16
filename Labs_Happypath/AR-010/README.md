@@ -14,6 +14,8 @@ Lucas (`acme.e012`) has one linked standard AD account and baseline membership. 
 
 Keep your [journal](EVIDENCE.md) and [request and target checks](../../M02-CHECKS.md) open. Use the AD source and group DNs recorded in AR-003; an item’s name alone is not enough to identify it.
 
+If you are returning after a break, read [where to resume](#if-you-return-to-this-lab-later) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Record Lucas’s current access
@@ -91,6 +93,10 @@ In your journal, explain why importing a group, making it requestable and granti
 Keep VPN requestable, Priya as owner, the internal control hidden and all baseline assignments intact. Continue to AR-011 without submitting yet.
 
 [Entitlement request configuration](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html)
+
+### If you return to this lab later
+
+Reuse the same entitlement. If Lucas already received VPN in AR-012, preserve that access. Use Olivia's prepared session for a repeat visibility comparison after checking her assignments and pending requests. Record the changed actor. Do not remove Lucas's retained grant to recreate an empty starting state.
 
 ### Screenshots to capture
 

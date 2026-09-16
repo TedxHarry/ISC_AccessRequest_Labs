@@ -12,6 +12,8 @@ Complete [AR-010](../AR-010/README.md). Use Acme Admin, Acme Lucas (`acme.e012`)
 
 VPN is requestable and owned by Priya. Lucas has baseline access but no VPN grant or pending VPN request. Recheck his **Access**, **My Requests** and [native membership](../../M02-CHECKS.md#inspect-direct-ad-membership). Do not submit if an earlier request is already pending.
 
+If you are returning after a break, read [where to resume](#if-you-stopped-after-submitting) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Set the item's approval policy

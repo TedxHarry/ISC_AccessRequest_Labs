@@ -50,3 +50,17 @@ The shared [request checks](M02-CHECKS.md) supply additional-user registration, 
 - Beginner and engineering journals have the same core acceptance outcomes, with separate engineering diagnosis fields. Screenshot cues and end lists were checked for matching filenames.
 
 Local checks covered 1,010 Markdown file links, 32 Module 1/2 heading anchors, 30 lab-page structures and all Module 2 screenshot inventories before this review-record update. No native commands, approvals or provisioning were executed in a tenant. Later module content was not revised by this pass.
+
+## Final learner walkthrough review — 16 September 2026
+
+Reviewed AR-010–015 in both paths against their prerequisites, journals, retained access and Module 3 handoff. The learner reports AR-001–006 completed; **AR-007 tenant execution has not started**. This review does not mark Module 2 executed or provide new tenant screenshots.
+
+- Added the existing engineering restart guidance to the beginner path and linked it before the steps in both paths. A learner returning to a pending or completed request can resume without submitting a duplicate or removing Lucas's retained VPN.
+- AR-014 now captures Lucas's and Olivia's native membership before the visibility change and repeats both afterward. The unchanged-access conclusion has a direct comparison.
+- AR-015 now checks baseline membership before the test and checks administrator-visible requests for the profile and individual groups, including requests made by another person.
+- AR-015 now tells a returning learner to open the existing profile, skip creation and preserve later-module configuration instead of overwriting it.
+- Clarified that Module 2 starts after AR-007–009. The profile and request procedures were checked against the official entitlement, profile configuration and revocation sources linked above.
+
+Tenant execution, actual UI observations and new screenshots remain pending. Follow AR-007 next in the tenant; the documentation review can continue separately with Module 3.
+
+Local verification for this pass: all 12 walkthrough structures and screenshot filename inventories passed; 131 local links in changed files and their referenced heading anchors resolved; whitespace checks passed. Removed the copied AR-011 pending-review exception from the other beginner journals. No tenant actions were performed.

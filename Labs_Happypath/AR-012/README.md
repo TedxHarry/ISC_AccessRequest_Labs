@@ -12,6 +12,8 @@ Complete [AR-011](../AR-011/README.md). Use Acme Priya, Acme Lucas, Acme Admin a
 
 Reopen that request and confirm it is pending with Priya, for Lucas and the VPN entitlement, with immediate access. If it expired, completed or changed reviewer while you were away, inspect its current stage before submitting or deciding anything else.
 
+If you are returning after a break, read [where to resume](#if-you-repeat-this-lab) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Capture the target before approval
@@ -95,6 +97,10 @@ Point to the evidence that proves the decision, the write and the unchanged acco
 Keep Lucas's directly requested VPN and baseline assignments. AR-013 uses Olivia for denial so Lucas's successful grant remains available as a comparison.
 
 [Reviewing access](https://documentation.sailpoint.com/saas/user-help/approvals/reviewing_access.html) · [Provisioning tracking](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
+
+### If you repeat this lab
+
+Keep Lucas's requested VPN assignment. Inspect its history and current native membership. Label decision evidence historical if you did not perform it again. If the request is unresolved, resume its current stage rather than blindly replacing it. A different controller result calls for a replication check before changing ISC.
 
 ### Screenshots to capture
 

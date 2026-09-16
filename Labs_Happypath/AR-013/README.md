@@ -12,6 +12,8 @@ Complete [AR-012](../AR-012/README.md). Use Acme Olivia (`acme.e011`), Acme Priy
 
 Olivia must have her linked standard account and baseline access, but neither VPN nor Remote Users and no pending VPN request. Keep Lucas's approved VPN grant.
 
+If you are returning after a break, read [where to resume](#if-you-stopped-during-the-decision) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Check Olivia and the saved policy
@@ -86,6 +88,10 @@ Use two journal rows for Lucas's approval and Olivia's denial. Identify the deci
 Keep the denied request as evidence. No access removal is needed for a correctly denied request. Keep Olivia's session, VPN's request settings and Lucas's grant for AR-014.
 
 [Reviewing access requests](https://documentation.sailpoint.com/saas/user-help/approvals/reviewing_access.html)
+
+### If you stopped during the decision
+
+Reopen the recorded request first. If denied, inspect the result and recheck native membership; do not resubmit merely to capture the comment prompt. If still pending, resume as Priya. A repeat denial test needs a fresh request only after confirming the earlier request ended and Olivia remains without VPN. Label each attempt separately.
 
 ### Screenshots to capture
 

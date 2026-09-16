@@ -12,6 +12,8 @@ Complete [AR-013](../AR-013/README.md). Use Acme Admin, Acme Olivia (`acme.e011`
 
 This is a catalog administration task. Do not submit a request or remove an existing assignment during it.
 
+If you are returning after a break, read [where to resume](#if-you-stopped-while-vpn-was-hidden) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Record current availability
@@ -21,12 +23,13 @@ This is a catalog administration task. Do not submit a request or remove an exis
 3. Clear unrelated filters, search `GG-VPN-USERS` and inspect its details. Confirm the recorded AD source.
 4. In Acme Admin, open **Admin > Access Model > Entitlements**, find the same source/group DN and open **Actions > Edit**.
 5. Record the entitlement ID, primary owner, reviewer and **Access Requests > Allow Access Requests** setting.
+6. Run the [native membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas (`acme.e012`) and `GG-VPN-USERS`. Record **DirectMember = True**, his DN, objectGUID and controller before changing requestability. Run it for Olivia (`acme.e011`) too and record **DirectMember = False**.
 
 For the separate ISC ID and native group value, follow [the entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values). Record both beside the source name.
 
 **Check:** Olivia can find the intended VPN item. Priya remains owner and reviewer.
 
-**Screenshot:** `AR-014-01.png`: visible VPN item in Olivia's session.
+**Screenshot:** `AR-014-01.png`: visible VPN item in Olivia's session, plus Lucas's and Olivia's native before states.
 
 ### 2. Stop new requests for this item
 
@@ -56,11 +59,11 @@ For the separate ISC ID and native group value, follow [the entitlement lookup](
 
 1. Run the [native membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Lucas (`acme.e012`) and `GG-VPN-USERS` on the recorded controller.
 2. Confirm direct membership remains and his account identifiers match AR-012.
-3. Check Olivia's **My Requests** and **Access**. No request or grant should have been added by this exercise.
+3. Repeat the native VPN check for Olivia on the same controller; **DirectMember** must still be **False**. Check her **My Requests** and administrator identity **Access** view as well. No request or grant should have been added by this exercise.
 
 **Check:** Changing catalog availability did not revoke Lucas's grant or provision Olivia.
 
-**Screenshot:** `AR-014-05.png`: Lucas's retained native VPN membership.
+**Screenshot:** `AR-014-05.png`: Lucas's retained native VPN membership and Olivia's absent membership.
 
 ## Check the result
 
@@ -120,10 +123,10 @@ Capture these at the matching steps. Use extra images when needed to show all ev
 
 | Filename | What to show |
 |---|---|
-| AR-014-01.png | VPN visible as Olivia |
+| AR-014-01.png | VPN visible as Olivia; both native before states |
 | AR-014-02.png | Individual requestability off |
 | AR-014-03.png | VPN unavailable with username and search |
 | AR-014-04.png | Restored visible item |
-| AR-014-05.png | Lucas retained VPN membership |
+| AR-014-05.png | Lucas retained VPN and Olivia absent, after checks |
 
 [Previous: AR-013](../AR-013/README.md) · [Course outline](../../README.md) · [Next: AR-015](../AR-015/README.md)

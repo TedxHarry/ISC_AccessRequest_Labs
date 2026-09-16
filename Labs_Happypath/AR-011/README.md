@@ -12,6 +12,8 @@ Complete [AR-010](../AR-010/README.md). Use Acme Admin, Acme Lucas (`acme.e012`)
 
 VPN is requestable and owned by Priya. Lucas has baseline access but no VPN grant or pending VPN request. Recheck his **Access**, **My Requests** and [native membership](../../M02-CHECKS.md#inspect-direct-ad-membership). Do not submit if an earlier request is already pending.
 
+If you are returning after a break, read [where to resume](#if-you-stopped-after-submitting) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Set the item's approval policy
@@ -94,6 +96,10 @@ Record the configured reviewer category and the resolved person separately. Expl
 Keep this exact request pending and continue to AR-012. If its status changes while you are away, inspect the recorded request before taking another action. A saved screenshot does not mean it is still pending.
 
 [Entitlement controls](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html) · [Request Center procedure](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
+
+### If you stopped after submitting
+
+Find the recorded request before submitting again. If still pending with Priya, continue in AR-012. If it completed, inspect the actual decision and AD result and label missed observations historical. If it expired or was canceled, verify no active duplicate or VPN grant remains, then submit one replacement with a repeat label. Record both identifiers. Screenshots do not keep a request pending indefinitely.
 
 ### Screenshots to capture
 

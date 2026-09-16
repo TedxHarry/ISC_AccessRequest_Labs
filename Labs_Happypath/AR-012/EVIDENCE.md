@@ -57,6 +57,6 @@ Use a separate row for each grant, denial or removal. A denied case does not nee
 
 - [ ] Every final verification in the lab passed.
 - [ ] Expected state matches actual target and request evidence.
-- [ ] No unexplained pending operation remains, except the intentional AR-011 pending review.
+- [ ] No unexplained pending request or operation remains.
 
 [Return to the lab](README.md)

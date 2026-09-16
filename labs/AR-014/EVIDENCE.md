@@ -51,7 +51,7 @@ Use a separate row for each actual request. Write Not applicable for stages that
 | Catalog states | Visible, unavailable, restored | |
 | Global entitlement requests | Remain enabled | |
 | Owner / reviewer | Priya, unchanged | |
-| Lucas VPN | Retained | |
+| Lucas / Olivia native VPN | Lucas present and Olivia absent, before and after | |
 | New requests | None | |
 
 Use the screenshot names in the current README. Additional control captures in AR-011 and AR-013 follow the main walkthrough captures.

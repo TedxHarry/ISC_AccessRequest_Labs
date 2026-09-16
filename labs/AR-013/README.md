@@ -12,6 +12,8 @@ Complete [AR-012](../AR-012/README.md). Use Acme Olivia (`acme.e011`), Acme Priy
 
 Olivia must have her linked standard account and baseline access, but neither VPN nor Remote Users and no pending VPN request. Keep Lucas's approved VPN grant.
 
+If you are returning after a break, read [where to resume](#if-you-stopped-during-the-decision) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Check Olivia and the saved policy

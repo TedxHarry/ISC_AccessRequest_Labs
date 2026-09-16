@@ -12,6 +12,8 @@ Complete [AR-011](../AR-011/README.md). Use Acme Priya, Acme Lucas, Acme Admin a
 
 Reopen that request and confirm it is pending with Priya, for Lucas and the VPN entitlement, with immediate access. If it expired, completed or changed reviewer while you were away, inspect its current stage before submitting or deciding anything else.
 
+If you are returning after a break, read [where to resume](#if-you-repeat-this-lab) before changing settings or submitting a request.
+
 ## Follow the steps
 
 ### 1. Capture the target before approval

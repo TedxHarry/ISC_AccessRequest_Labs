@@ -1,6 +1,6 @@
 # Before your first business request
 
-Use this page before AR-010. Keep C01 available and use the current tenant records to check the starting state.
+Use this page after completing AR-007, AR-008 and the AR-009 checkpoint, before AR-010. Keep C01 available and use the current tenant records to check the starting state.
 
 ## Get the sessions and target checks ready
 

@@ -10,7 +10,9 @@ Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
 
 Complete [AR-014](../AR-014/README.md). Use Acme Admin, Acme Liam (`acme.e008`), Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`) and the AD workstation. Prepare Liam using [the additional-session steps](../../M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in).
 
-Liam and Olivia each have one linked standard AD account and baseline access, but neither `GG-VPN-USERS` nor `GG-REMOTE-USERS`. They have no Remote Worker assignment or pending request. Preserve Lucas's approved VPN and all 24 baseline assignments. Keep your [journal](EVIDENCE.md) open.
+Liam and Olivia each have one linked standard AD account and baseline access, but neither `GG-VPN-USERS` nor `GG-REMOTE-USERS`. They have no Remote Worker assignment or pending grant/removal request for the profile or either business group. Preserve Lucas's approved VPN and all 24 baseline assignments. Keep your [journal](EVIDENCE.md) open.
+
+If you are returning after a break, read [where to resume](#if-you-stopped-midway-or-repeat-later) before changing settings or submitting a request.
 
 ## Follow the steps
 
@@ -19,7 +21,8 @@ Liam and Olivia each have one linked standard AD account and baseline access, bu
 1. As administrator, open each identity under **Admin > Identity Management > Identities**. Inspect **Accounts** and **Access** for existing business assignments.
 2. In each user's own session, check **Request Center > My Requests** for a pending request.
 3. Run the [native membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) for Liam and Olivia against both business groups. Use the same controller throughout.
-4. Record account DNs, objectGUIDs, group DNs and all four membership results.
+4. Record account DNs, objectGUIDs, group DNs and all four membership results. Repeat the check with `GG-ACME-BASELINE` for each person; both baseline results must be **True**.
+5. Use the [administrator request check](../../M02-CHECKS.md#inspect-a-request-as-administrator) for each person to check for pending grants or removals of the profile and either group, including requests submitted by someone else. Resolve an existing request before starting this test.
 
 **Check:** Both people start without either group or a profile assignment. If access already exists, inspect its origin before continuing; preserve unrelated access.
 
@@ -27,7 +30,7 @@ Liam and Olivia each have one linked standard AD account and baseline access, bu
 
 ### 2. Create AP-Remote-Worker
 
-Use Acme Admin. If the named course profile exists, inspect its source and settings before reusing it; do not create a duplicate.
+Use Acme Admin. Search **Admin > Access Model > Access Profiles** for `AP-Remote-Worker` first. If it exists from an earlier attempt, open that profile and compare its source, owner and entitlements with the values below; skip Create New and keep its identity. If later labs changed its routing or other settings, record that configuration before deciding whether to repeat this earlier exercise. Do not overwrite later work just to reproduce this first-run setup.
 
 1. Open **Admin > Access Model > Access Profiles > Create New**.
 2. On **Configuration**, enter:
