@@ -105,4 +105,4 @@ Capture these beside the matching steps. Hide credentials and unnecessary person
 | AR-078-05.png | Manual removal, reconciliation and completed task |
 | AR-078-06.png | Final register/accounts, requestability and pending-work check |
 
-[Previous: AR-077](../AR-077/README.md) · [Course outline](../../README.md) · [Next: AR-079](../../labs/AR-079/README.md)
+[Previous: AR-077](../AR-077/README.md) · [Course outline](../../README.md) · [Next: AR-079](../AR-079/README.md)

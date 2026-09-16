@@ -37,7 +37,7 @@ Use the [practice path and starting states](PRACTICE-PATH.md) to follow the core
 | Multi-account grant/removal | AR-026, AR-045, AR-082 | Two correctly correlated accounts and explicit selection |
 | JIT entitlement assignment and activation | AR-079 | Privilege on Demand and supported direct source |
 | Reauthenticated approvals | AR-080 | SSO, global flag and item setting |
-| Machine identity access requests | AR-083 | Required machine/agent products and governed test account |
+| Machine identity access requests | AR-083 | Machine Identity Security and a governed test AD account |
 
 The release review and sources are in [COURSE-REVIEW.md](COURSE-REVIEW.md). Product announcements describe a release; your tenant's enabled capability and observed behavior determine which practical you can complete.
 
@@ -49,8 +49,8 @@ The release review and sources are in [COURSE-REVIEW.md](COURSE-REVIEW.md). Prod
 | Disconnected source | Permission to create a separate non-authoritative file source | AR-078 after AR-047 |
 | JIT | Privilege on Demand/JIT enabled | AR-079 after the AD request/removal labs |
 | Reauthentication | Existing SSO and supported reauthentication | AR-080 after approval/API labs |
-| Machine identity | Existing isolated governed machine identity/account and required products | AR-083 after the request/account-selection labs |
-| External channel | Installed supported lab integration, authorized users and integration documentation | AR-084 after the core request labs |
+| Machine identity | Machine Identity Security, authorized requester and existing governed AD test account | AR-083 after the request/account-selection labs |
+| External channel | Installed SailPoint for Slack with entitlement requests/approvals and linked lab users | AR-084 after the core request labs |
 | Subscriber | Controlled authenticated HTTPS route to the supplied service | AR-064 after AR-049; AR-058–063 only for the optional native-workflow comparison; AR-090 after AR-069 |
 
 ## Demonstrate independence

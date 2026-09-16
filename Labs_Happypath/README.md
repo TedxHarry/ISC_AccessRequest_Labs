@@ -153,3 +153,20 @@ Compare a policy warning with an enforced workflow stop, then fulfill and reconc
 76. [AR-076 · Investigate a separation-of-duties conflict](AR-076/README.md)
 77. [AR-077 · Test a workflow stop for conflicting payment access](AR-077/README.md)
 78. [AR-078 · Fulfill and reconcile a disconnected application](AR-078/README.md)
+
+## Module 14 · Additional capabilities and change control
+
+Choose each track by its own prerequisites. Record unavailable capabilities separately from failed or unexecuted tests; complete AR-088 with the tracks you can actually run.
+
+79. [AR-079 · Activate, extend and expire Just-In-Time access](AR-079/README.md)
+80. [AR-080 · Require reauthentication for a sensitive approval](AR-080/README.md)
+81. [AR-081 · Inspect group reviewers and compare owner categories](AR-081/README.md)
+82. [AR-082 · Test API dates and account-specific removal](AR-082/README.md)
+83. [AR-083 · Request and remove access for a machine identity](AR-083/README.md)
+84. [AR-084 · Trace an entitlement request from Slack to AD](AR-084/README.md)
+85. [AR-085 · Distinguish direct membership, nested access and account state](AR-085/README.md)
+86. [AR-086 · Test service-desk request permissions](AR-086/README.md)
+87. [AR-087 · Reassign review work during an absence](AR-087/README.md)
+88. [AR-088 · Regression-test a product or API change](AR-088/README.md)
+89. [AR-089 · Change a profile and compare assignment origins](AR-089/README.md)
+90. [AR-090 · Complete and time out an asynchronous trigger callback](AR-090/README.md)

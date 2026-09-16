@@ -1,29 +1,79 @@
-# AR-089 · Change a profile without assuming existing access changes
+# AR-089 · Change a profile and compare assignment origins
 
-**Before you start:** AR-088 or the completed core course. Use Lucas for requested access and Taylor for a narrow automatic role. Record their existing memberships before selecting the groups below.
+In this lab, you'll edit one profile used by requested and automatic access, compare the resulting memberships, and explicitly clean up residual entitlements.
 
-## Compare assignment origins
+## Before you start
 
-1. Create `AP-Acme-Change-Test` with only the disposable GG-ACME-FAULT-049 entitlement. Enable requests with Priya reviewing. Request it for Lucas and approve; verify membership.
-2. Create `ROLE-Acme-Change-Test` containing this profile, with an explicit identity list containing only Taylor. Enable and apply. Verify Taylor receives the profile and group automatically.
-3. Add `GG-REMOTE-USERS` to the test profile and apply changes. Inspect both identities and native accounts.
-4. Record the difference: the role-driven assignment enforces its updated profile, while a previously requested/detected profile does not automatically provision its newly added entitlement. Check the resulting profile representation on Lucas rather than assuming it stays identical.
-5. Remove GG-ACME-FAULT-049 from the profile and apply. Verify whether each existing native membership remains. Removed profile entitlements can become independent assignments rather than being revoked by the definition edit.
-6. Open each identity's Access and identify the current assignment paths. Remove the test role's eligibility and any requested/independent test assignments with supported removal actions. Verify both native groups against the original record.
-7. Disable the empty test role and profile. Write the change plan that would have prevented the mistaken promise `editing the bundle updates everyone the same way`.
+Complete [AR-049](../AR-049/README.md) and the automatic role exercise in [AR-006](../AR-006/README.md). AR-088 is not a prerequisite. Use Lucas, Taylor, Priya, Acme Admin and AD checks. Both people must lack GG-ACME-FAULT-049 and GG-REMOTE-USERS with no pending request for them; preserve Lucas's VPN and baseline and Taylor's baseline exclusion. Keep course developer subscriptions disabled and open your [journal](EVIDENCE.md).
 
-**Check:** You separately prove definition changes, automatic enforcement, requested-assignment behavior and explicit cleanup.
+## Follow the steps
 
-**Reset:** No new test membership remains. Preserve any pre-existing Remote Users access and the foundation role.
+### 1. Establish requested access and a narrow automatic role
 
-[Changing profile entitlements](https://documentation.sailpoint.com/saas/help/access/access-profiles.html)
+1. Record both account DNs/GUIDs, the two target group IDs and four native False results using [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership). Stop if either group supplies existing business access; resolve that starting-state difference rather than removing it as lab cleanup.
+2. Create **Admin > Access Model > Access Profiles > Create New** named `AP-Acme-Change-Test`, owner Priya, AD source, with only GG-ACME-FAULT-049 under Manage Entitlements. Require Primary Owner grant/removal review, user comments and no forms/dates. Save, enable/requestable and Apply Changes. Reuse only the recorded course profile on a repeat.
+3. Lucas requests this profile from Request Center with `AR-089 requested origin`; Priya approves. Follow Account Activity and require Lucas disposable True/Remote False.
+4. Create **Admin > Access Model > Roles > Create New** named `ROLE-Acme-Change-Test`, owner Priya. Under Manage Access add only the test profile. Under **Define Assignment > Identity List** add only Taylor (`acme.e025`). Keep role requestability off. Save, verify one listed identity, enable and Apply Changes.
+5. Follow Taylor's operation and require disposable True/Remote False on his existing account. Inspect both identities' Access: Lucas has a requested profile, Taylor has the automatic role/profile path. Save `AR-089-01.png`.
 
-## Screenshots to capture
+**Check:** The same initial entitlement reaches two people through different assignment origins.
 
-1. Requested and automatic assignment origins.
-2. Before/after profile definition and both target results.
-3. Independent residual access, explicit cleanup and change plan.
+### 2. Add an entitlement and observe both identities
 
-Record the results in your [evidence journal](EVIDENCE.md). Use the [lab desk](../../LAB-DESK.md) for the shared request, AD verification and removal procedures.
+1. Edit the test profile's **Manage Entitlements**, add only GG-REMOTE-USERS from the same source and save. Record the definition and Apply Changes once. Do not submit a new Lucas request.
+2. Follow resulting activities for both identities and repeat the four native checks. The documented behavior adds the new entitlement for role/lifecycle assignments, but not for a previously requested/detected profile. Record actual results and processing times; expect Taylor Remote True and Lucas Remote False while both retain the disposable group.
+3. Aggregate AD accounts and inspect both Access views. Record whether Lucas still appears to match the changed profile and how his original request/assignment is represented. Do not infer a new request from a changed profile label. Save `AR-089-02.png`.
+
+**Check:** Definition changes and target changes are separately observed. [Profile update behavior](https://documentation.sailpoint.com/saas/help/access/access-profiles.html)
+
+### 3. Remove an entitlement from the definition
+
+1. In the test profile, remove only GG-ACME-FAULT-049 from Manage Entitlements. Leave Remote Users, save and Apply Changes. This edits the profile; it does not delete the source group.
+2. Inspect operations and repeat native checks. Record the disposable membership still held by each person and any independent entitlement representation. The documented behavior does not revoke existing access merely because its entitlement was removed from the profile.
+3. Reconcile accounts and record current role/profile/independent access paths on each identity. Save `AR-089-03.png`. Do not label residual membership a connector failure without checking the definition-change behavior.
+
+**Check:** Removal from a bundle is not an explicit account-level revocation.
+
+### 4. Remove the automatic path before cleaning residual access
+
+1. Edit the test role's **Define Assignment > Identity List**, remove Taylor, save and Apply Changes. Verify he is no longer eligible/assigned and inspect any deprovisioning. Leave the role disabled and non-requestable after this processing. Do not remove ROLE-Acme-AD-Baseline.
+2. If Lucas retains a requested test-profile assignment, revoke that exact profile through his **My Access > Access Profiles**, reason `AR-089 requested profile cleanup`; Priya approves any matching Remove. Record when no such assignment remains rather than inventing one.
+3. As administrator, open each identity's **Access > Entitlements**, find each residual disposable/Remote Users entitlement on the recorded account and inspect its origin. Use the available **Revoke/Remove** assignment action, enter `AR-089 residual test access cleanup` and submit. Complete the actual configured removal review before checking the target.
+4. If an independent detected entitlement has no supported removal action in your tenant, record that limitation and first confirm no role, profile or requested assignment still requires it. On the AD workstation, remove only the confirmed residual test membership through **group Properties > Members > select exact account > Remove**. Record that this was a manual source cleanup, not proof of ISC revocation. Reconcile accounts afterward. Never use this fallback while an assignment would reprovision it.
+5. Require disposable and Remote Users False for both people, Lucas's prior VPN/baseline intact and Taylor's baseline absent. Keep original accounts. Disable requestability and the test profile; retain the empty/disabled role and definition/history. Save `AR-089-04.png`.
+
+**Check:** Assignment paths are removed before any residual native membership, preventing immediate reprovisioning.
+
+### 5. Write the change handover
+
+1. In the journal record the original definition, each edit/apply time, Lucas and Taylor's separate resulting access, cleanup method and final state.
+2. Write a short change instruction for another engineer: enumerate assignment origins, predict the two update behaviors, identify residual-access removal, test one identity per origin and verify the target afterward. Name any result that differed from the documented behavior and the evidence needed to investigate it.
+3. Save `AR-089-05.png` with the comparison and final disabled objects.
+
+**Check:** The handover does not promise that changing a bundle changes every existing assignment in the same way.
+
+## Check the result
+
+Requested and automatic assignments have separate before/after evidence for adding and removing an entitlement. All test memberships and assignment paths are explicitly cleaned up.
+
+## Engineering practice
+
+Before looking at the native result from Section 3, predict whether deleting an entitlement from the profile will revoke it from Lucas or Taylor. Compare the prediction with both account/activity records and describe the required removal operation.
+
+## Finish
+
+Keep both test objects disabled/non-requestable and Taylor removed from the identity list. Preserve the changed source groups and their IDs, with no residual test access on either account.
+
+### Screenshots to capture
+
+Capture these beside the matching steps. Hide credentials and unnecessary personal data. Use letter suffixes when several images are needed. Label synthetic tests separately from live requests.
+
+| Filename | What to show |
+|---|---|
+| AR-089-01.png | Requested and automatic origins with initial memberships |
+| AR-089-02.png | Added entitlement and different target results |
+| AR-089-03.png | Removed definition item and residual access |
+| AR-089-04.png | Explicit cleanup, eligibility removal and native state |
+| AR-089-05.png | Change handover and disabled objects |
 
 [Previous: AR-088](../AR-088/README.md) · [Course outline](../../README.md) · [Next: AR-090](../AR-090/README.md)

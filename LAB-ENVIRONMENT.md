@@ -131,7 +131,10 @@ The population grows only in the named exercises:
 | AR-048–049 | One disposable permission/reference-test group; renamed to GG-ACME-FAULT-049 |
 | AR-076 | Two isolated payment-duty groups for SoD |
 | AR-078 | Two correlated accounts on a separate non-authoritative disconnected source; no new identities |
+| AR-080/081 | One isolated approval-feature profile on the existing disposable group |
 | AR-085 | Two harmless nested-membership test groups |
+| AR-088 | Disabled regression profile/role after grant, removal and denial tests |
+| AR-089 | Profile-change test profile/role, with automatic eligibility removed and definitions disabled at finish |
 
 The foundation role continues to contain only the original 24 employees. After AR-047, preserve Taylor in the complete private HR working file so a later import does not unintentionally remove the test identity. Keep the original 24-row repository dataset as the foundation starting point.
 

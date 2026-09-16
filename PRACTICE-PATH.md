@@ -27,11 +27,11 @@ Prepare each new requester/reviewer with [AR-008](labs/AR-008/README.md). Existi
 | AR-076–077: SoD | Core grant/removal controls and SoD administration; AR-077 needs native approval workflows and familiarity with AR-058; it verifies its own isolated stop against the actual request outcome. |
 | AR-078: disconnected source | AR-047, entitlement grants/removals and permission to create a file source. No SoD prerequisite. |
 | AR-079: JIT | AR-026/045, JIT capability and a supported source. No disconnected-source prerequisite. |
-| AR-080: reauthentication | AR-029/052, existing SSO and supported item reauthentication. No JIT prerequisite. |
-| AR-081: governance visibility and owners | AR-029/052, current configuration API and governance group |
+| AR-080: reauthentication | AR-049/052, existing SSO and supported item reauthentication. No JIT prerequisite. |
+| AR-081: governance visibility and owners | AR-029/049/052, current configuration API and governance group |
 | AR-082: API dates and account removal | AR-055, date capability and Sofia’s two-account setup |
-| AR-083: machine requests | Governed isolated machine account, supported source and licensed capability. Creating that environment is a separate prerequisite. |
-| AR-084: external channel | An already-installed supported integration. Choose one integration and use its actual field/action names. |
+| AR-083: machine requests | Governed isolated AD machine account and Machine Identity Security. Creating that environment is a separate prerequisite. |
+| AR-084: external channel | Installed SailPoint for Slack with linked lab users and entitlement requests/approvals enabled. |
 | AR-085–089: operational extensions | Core AD controls; use the individual lab’s actors and additional features |
 
 ## Keep the shared state straight

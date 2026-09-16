@@ -254,12 +254,12 @@ Use the entry points and capability prerequisites in the [coverage matrix](COVER
 
 | ID | Type | Assignment | Required proof |
 |---|---|---|---|
-| [AR-079](labs/AR-079/README.md) | Practice | Activate and expire Just-In-Time access | Assignment, activation and actual expiration |
+| [AR-079](labs/AR-079/README.md) | Practice | Activate, extend and expire Just-In-Time access | Assignment, activation and actual expiration |
 | [AR-080](labs/AR-080/README.md) | Practice | Require reauthentication for a sensitive approval | Authenticated decision and audit |
 | [AR-081](labs/AR-081/README.md) | Practice | Expose governance-group reviewers and compare owner choices | Visible group members and decision actor |
 | [AR-082](labs/AR-082/README.md) | Practice | Test API dates and account-specific removal | Effective API dates and selected-account removal |
 | [AR-083](labs/AR-083/README.md) | Practice | Request access for a machine identity | Machine recipient and shared-account impact |
-| [AR-084](labs/AR-084/README.md) | Practice | Trace a request from an external channel | External reference, ISC request and native state |
+| [AR-084](labs/AR-084/README.md) | Practice | Trace an entitlement request from Slack to AD | Installed Slack control, external reference, ISC request and native state |
 | [AR-085](labs/AR-085/README.md) | Practice | Distinguish direct access, nested membership and account state | Direct/nested membership and account state |
 | [AR-086](labs/AR-086/README.md) | Practice | Give the service desk only the required request permissions | Read-only versus management authority and bulk actions |
 | [AR-087](labs/AR-087/README.md) | Practice | Reassign review work during an absence | Delegated work and restored routing |
