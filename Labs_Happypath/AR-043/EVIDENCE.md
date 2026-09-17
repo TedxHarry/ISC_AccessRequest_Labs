@@ -11,7 +11,7 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | Standalone origins and entitlement sets | |
 | Reporting removal operations; VPN False and Remote Users True | |
 | Controlled Remote Worker re-grant/removal IDs | |
-| Final three business groups False; baseline True | |
+| Final three business groups False; baseline True; account unchanged; Lucas VPN True | |
 
 ## Screenshots
 

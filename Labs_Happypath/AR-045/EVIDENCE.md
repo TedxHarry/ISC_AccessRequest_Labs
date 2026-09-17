@@ -15,7 +15,7 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | Unchanged accounts; baseline on standard only | |
 | Date validation, timed boundaries and amendment statuses | |
 | Object removals, standalone overlap and role-required overlap evidence | |
-| Henry cleanup, restored permissions and disabled test role/profile | |
+| Henry cleanup, restored permissions, disabled test role/profile and Lucas VPN True | |
 
 ## Screenshots
 

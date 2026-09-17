@@ -265,3 +265,9 @@ Twelve walkthrough structures, six paired procedures, screenshot inventories and
 Reviewed AR-034–039 in both paths and all 12 journals. Corrected repeat-run form creation, validation retries, hidden copied answers, decision/capture order, provisioning waits and account-preserving cleanup. Updated the four grant/removal journals and C06 handoff. See [M06-REVIEW.md](M06-REVIEW.md).
 
 Local checks passed for 12 walkthrough structures, six paired procedures, screenshot inventories, expandable answers and 108 learner-file links/anchors. Whitespace checks passed. No Module 6 tenant execution or new screenshot verification is claimed; AR-007 remains not started.
+
+## Module 7 final learner walkthrough review — 17 September 2026
+
+Reviewed AR-040–045 in both paths and all 12 journals. Corrected invalid-date navigation, scheduled-access waits, amendment evidence, grant refresh before removal, repeat-run object reuse and account-selection decision order. Engineering observations now occur before their evidence is removed. Updated eight journals and the private C07 handoff. See [M07-REVIEW.md](M07-REVIEW.md).
+
+Local checks passed for 12 walkthrough structures, six paired working procedures (excluding reviewed engineering capture prompts), screenshot inventories, expandable answers and 118 learner-file links/anchors. Whitespace checks passed. No Module 7 tenant execution or new screenshot validation is claimed; AR-007 remains not started.

@@ -5,11 +5,12 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted cases *
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and signed-in usernames | |
+| Henry account DN/objectGUID and domain controller | |
 | A request ID: start/end local, zone, offsets and UTC | |
 | Approval times before A start | |
 | Before/during/after native checks and actual operation timestamps | |
-| B original S and end; My Access changed dates and removal approval | |
-| C Request Center changed dates and grant approvals | |
+| B grant ID, original S/end, amendment ID and removal reviewer before decision | |
+| C request ID, changed dates and both grant reviewers before decisions | |
 | Final revocation/activity; no future assignment or pending request | |
 | Timed cases observed / failed / missed / deferred | |
 | Engineering investigation: evidence, cause and next action | |
