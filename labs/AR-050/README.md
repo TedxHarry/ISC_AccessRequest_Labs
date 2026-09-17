@@ -6,6 +6,8 @@ In this lab, you'll add and remove Taylor directly in AD, then follow each chang
 
 Complete [AR-049](../AR-049/README.md). Keep Taylor's existing account, GG-ACME-FAULT-049 with its restored permissions, its direct entitlement non-requestable and AP-Acme-Reference-Test disabled. Taylor must have no membership or pending request for that group. Use Acme Admin and the AD workstation. Open your [journal](EVIDENCE.md).
 
+If you are resuming, open your journal and inspect the current assignments, pending requests and retries before making another change. Continue from the first unfinished step; do not repeat a grant that can still complete.
+
 ## Follow the steps
 
 ### 1. Record the same account in AD and ISC
@@ -14,6 +16,8 @@ Complete [AR-049](../AR-049/README.md). Keep Taylor's existing account, GG-ACME-
 2. As administrator, open **Admin > Identity Management > Identities > Taylor > Accounts**, select the AD account matching that DN, and inspect its imported group-membership attribute. Record the account ID and whether the current group DN appears. Open **Access > Entitlements** and inspect the same source/group separately.
 3. Verify the direct entitlement is non-requestable and the reference-test profile disabled. Check Taylor has no requested assignment or automatic role that requires this group. Resolve any pending grant/removal before proceeding.
 4. Record the last AD account aggregation from **Admin > Connections > Sources > AD source > Account Management > Account Aggregation > Aggregation History**. Save `AR-050-01.png` with the starting views.
+
+If the imported view still shows membership while AD is False, complete account aggregation and processing using Section 3 before adding Taylor. Record the corrected starting views.
 
 **Check:** Both views start without this membership. You are about to make a native change, not submit an access request.
 
@@ -54,6 +58,8 @@ Your evidence shows native False → True → False, the corresponding account a
 Investigate a report that says ‘The group was removed, but ISC still shows it.’ Start with the exact account and controller, then compare the imported account attribute, identity Access and Search. Identify the first view that disagrees. Explain why re-running entitlement aggregation or changing correlation would not be your first repair for an account-membership discrepancy. If the data is still inconsistent, retain the aggregation details and controller comparison rather than marking the exercise passed.
 
 ## Finish
+
+If you pause after the manual addition, remove only Taylor’s membership using Section 4 and complete reconciliation before leaving. Keep unfinished observations marked Pending.
 
 Leave Taylor out of GG-ACME-FAULT-049, VPN, Remote Users and baseline. Keep the account, restored group permissions, current group identifiers and disabled reference-test profile. Preserve the complete private HR file with Taylor.
 

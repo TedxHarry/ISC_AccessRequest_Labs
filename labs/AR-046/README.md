@@ -6,11 +6,15 @@ In this lab, you'll follow one Henry request through review, provisioning and AD
 
 Use the cleaned state from [AR-045](../AR-045/README.md), or the completed AR-029 grant/removal setup if optional forms/date labs are unavailable. Resolve Henry’s old pending or future assignments before starting. Use Acme Admin, Henry (`acme.e018`), Ava (`acme.e006`), Evelyn (`acme.e021`) and the AD workstation. Keep your [journal](EVIDENCE.md) open.
 
+If you are resuming, open your journal and inspect the current assignments, pending requests and retries before making another change. Continue from the first unfinished step; do not repeat a grant that can still complete.
+
 ## Follow the steps
+
+Use the same recorded account and verification domain controller for each native comparison. For a working control, wait for the matching source operation to finish successfully, then check AD. For a fault test, record the actual failure and check native membership as directed. Investigate a pending operation before submitting another request.
 
 ### 1. Record the account before requesting
 
-1. As administrator, open **Admin > Identity Management > Identities > Henry > Accounts**. Record his AD source, account ID, DN and objectGUID using [the value lookup guide](../../LAB-VALUES.md). Confirm Manager Ava and one standard AD account.
+1. As administrator, open **Admin > Identity Management > Identities > Henry > Accounts**. Record his AD source, account ID, DN and objectGUID using [the value lookup guide](../../LAB-VALUES.md). Record the verification domain controller. Confirm Manager Ava and one standard AD account.
 2. Inspect Henry's Access and pending requests. He must have no Production Support assignment or future schedule. Run [the direct membership check](../../M02-CHECKS.md#inspect-direct-ad-membership): `GG-PROD-SUPPORT` False and `GG-ACME-BASELINE` True on `acme.e018`.
 3. Open **Admin > Access Model > Access Profiles > AP-Production-Support > Edit > Access Requests**. Verify Manager then GOV-Security-Review grant approval and Primary Owner/Ava removal approval. Record any required form and end date; retain the seven-day maximum if configured.
 
@@ -30,8 +34,8 @@ Use the cleaned state from [AR-045](../AR-045/README.md), or the completed AR-02
 
 1. Open **Search > Account Activity** and query `recipient.name:acme.e018`. Narrow with your exact AD source using [the activity lookup procedure](../../LAB-DESK.md#find-the-account-activity). Match the submission/approval time and access item; do not select an old Henry operation just because its name matches.
 2. Open the activity and the AD source operation. Record its ID, operation type, native account identity, group value, status, completion time and any error. Compare the account DN and group with your before-record. Save `AR-046-02.png`.
-3. When the operation completes, run the same native check on the same controller. Support must be True and baseline True. If controllers disagree, record the controllers and investigate replication rather than changing the request target.
-4. If AD has the membership but ISC's account view does not, [aggregate the account data](../../M02-CHECKS.md#refresh-imported-ad-data) and reopen Henry's Accounts/Access. Record the refreshed result separately from the native change time. Save `AR-046-03.png`.
+3. When the operation completes successfully, run the same native check on the same controller. Support must be True and baseline True. If controllers disagree, record the controllers and investigate replication rather than changing the request target.
+4. Compare the native result with Henry’s ISC Accounts/Access view. If membership is missing there, [aggregate the account data](../../M02-CHECKS.md#refresh-imported-ad-data) and reopen Henry's Accounts/Access. Record the refreshed result separately from the native change time. Save `AR-046-03.png`.
 5. Complete this short comparison in your journal:
 
 | Evidence | What it establishes |
@@ -46,8 +50,10 @@ Use the cleaned state from [AR-045](../AR-045/README.md), or the completed AR-02
 
 ### 4. Remove the control and verify the account remains
 
-1. As Henry, open **My Access > Access Profiles > AP-Production-Support**, choose **Revoke Access Profile**, enter `AR-046 control complete`, and **Submit**.
-2. As Ava, inspect and approve the matching removal under **Approvals > Access Requests > Requested**. Record its ID and follow the removal activity.
+Check the effective end before revoking. If it already passed, follow the scheduled removal and verify the same final state instead of submitting another removal. Record whether cleanup was requested or scheduled.
+
+1. [Refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data), then reopen Henry’s **My Access > Access Profiles > AP-Production-Support**, choose **Revoke Access Profile**, enter `AR-046 control complete`, and **Submit**.
+2. For a submitted removal request, have Ava inspect and approve the matching removal under **Approvals > Access Requests > Requested**. Record its ID and follow the removal activity.
 3. Verify Support False, baseline True and the original account DN/GUID unchanged. Refresh imported data and confirm the requested profile assignment is gone. Save `AR-046-04.png`.
 
 **Check:** The control grant and removal are complete. The account remains available for later requests.

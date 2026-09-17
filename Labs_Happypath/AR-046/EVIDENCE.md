@@ -5,6 +5,7 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and signed-in usernames | |
+| Verification controller and account DN/GUID for native comparisons | |
 | Before account ID/DN/GUID, source and memberships | |
 | Request ID, form/date settings and submission time | |
 | Ava and Security stage evidence | |

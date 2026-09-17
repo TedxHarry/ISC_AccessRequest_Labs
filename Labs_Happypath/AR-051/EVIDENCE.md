@@ -5,7 +5,8 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and signed-in usernames | |
-| C08 status and unresolved/unexecuted cases | |
+| Verification controller and account DN/GUID for native comparisons | |
+| Module observation status and unresolved/unexecuted cases; AR-052 readiness separately | |
 | Incident symptom and affected identity/account/item | |
 | Historical request/operation or manual-change/aggregation IDs | |
 | Timeline, actual error and evidence-supported cause | |
@@ -14,7 +15,7 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Removal ID/activity, native False and imported cleanup | |
 | Taylor identity/source/account/profile/entitlement IDs labelled separately | |
 | Final group name/GUID/ACL, non-requestability and disabled test profile | |
-| Retained HR/account counts, private CSV and original baseline | |
+| Retained HR/account counts, private CSV, baseline and Lucas VPN True | |
 | Misleading observation and remaining uncertainty | |
 
 ## Screenshots

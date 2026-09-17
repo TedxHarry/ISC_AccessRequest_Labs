@@ -5,10 +5,11 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and signed-in usernames | |
+| Verification controller and account DN/GUID for native comparisons | |
 | First run or resumed run; preexisting identity/account evidence | |
 | Complete HR row count, E025 uniqueness and manager | |
 | Expected create attributes and saved source policy | |
-| Requester identity: Taylor or administrator alternative | |
+| Requester identity: Taylor or administrator alternative; verified Taylor login | |
 | Request/create activity IDs and actual operation | |
 | AD DN/GUID, UPN, employeeID and correlated ISC account | |
 | Memberships: VPN/Remote True then False; baseline False | |

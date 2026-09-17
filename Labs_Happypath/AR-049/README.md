@@ -6,14 +6,20 @@ In this lab, you'll rename the disposable AD group, compare its native and ISC i
 
 Complete [AR-048](../AR-048/README.md), with permissions restored, no membership and no queued write/retry. Use Acme Admin, Taylor, Priya and the AD workstation. Keep the group’s original DN/GUID and entitlement ID from AR-048 beside your [journal](EVIDENCE.md).
 
+If you are resuming, open your journal and inspect the current assignments, pending requests and retries before making another change. Continue from the first unfinished step; do not repeat a grant that can still complete.
+
 ## Follow the steps
+
+Use the same recorded account and verification domain controller for each native comparison. For a working control, wait for the matching source operation to finish successfully, then check AD. For a fault test, record the actual failure and check native membership as directed. Investigate a pending operation before submitting another request.
 
 ### 1. Create a profile that uses the original group
 
+Record Taylor’s account DN/GUID and verification controller before the test. Use that controller in AD Users and Computers too: right-click the domain, choose **Change Domain Controller**, and select the recorded controller.
+
 1. On a repeat after the rename, use `GG-ACME-FAULT-049` and its saved GUID throughout; skip the rename in Section 2 and label the earlier before/after evidence historical. Do not create a second group or profile. Verify Taylor is not a member of the recorded disposable group, the group has its original ACL, and its direct entitlement is non-requestable. Use [the native lookup](../../LAB-VALUES.md#read-an-ad-objectguid-and-account-attributes) and [entitlement lookup](../../LAB-VALUES.md#separate-entitlement-ids-from-native-group-values) to record sAMAccountName, full DN, objectGUID, ISC entitlement ID and native value separately.
 2. Open **Admin > Access Model > Access Profiles**. If AP-Acme-Reference-Test already exists, edit that profile; otherwise select **Create New**. Enter `AP-Acme-Reference-Test`, description `Disposable group reference validation`, Primary Owner Priya and your AD entitlement source. Save.
-3. Under **Manage Entitlements**, select the original disposable group by its source and native value, add it and save. Keep exactly one entitlement.
-4. Under **Access Requests**, enable requests, configure one Primary Owner grant reviewer and one Primary Owner removal reviewer, and require request/denial comments. Leave date/form requirements off. Save, enable the profile and reopen it. Record its ID and saved group reference. Save `AR-049-01.png`.
+3. Under **Manage Entitlements**, inspect the existing selection first. Keep it if it matches the recorded current group. If missing, select that group by source and native value, add it and save. Keep exactly one entitlement.
+4. Under **Access Requests**, enable requests, configure one Primary Owner grant reviewer and one Primary Owner removal reviewer, and require request/denial comments. Leave date/form requirements off. Save, enable the profile if disabled, and apply changes from the profile list. Wait for processing and reopen it. Record its ID and saved group reference. Save `AR-049-01.png`.
 
 **Check:** There is now a real saved profile reference to compare after the rename. No request is submitted while changing the native object.
 
@@ -50,8 +56,8 @@ Get-ADGroup -Identity 'GG-ACME-FAULT-049' -Server $LabDC -ErrorAction Stop |
 1. As Taylor, open **Request Center > Access Items > Access Profiles**, select `AP-Acme-Reference-Test`, enter `AR-049 current group reference control`, keep immediate access and his standard account, then save, review and submit. Record the ID.
 2. As Priya, open the matching Grant under **Approvals > Access Requests > Requested**, inspect Taylor, profile and reason, approve and confirm.
 3. As administrator, locate Taylor's matching Account Activity, open the AD operation and compare its group/native value with the current recorded DN. Verify direct membership in `GG-ACME-FAULT-049` True. Save `AR-049-04.png`.
-4. As Taylor, open **My Access > Access Profiles > AP-Acme-Reference-Test**, select **Revoke Access Profile**, enter `AR-049 reference test complete`, and **Submit**. As Priya, inspect and approve the removal. Follow its activity and verify membership False.
-5. Refresh imported AD data. Confirm Taylor's account remains and no reference-test assignment or pending request remains. Disable requestability and then disable `AP-Acme-Reference-Test`; keep its definition and current reference. Keep the direct entitlement non-requestable. Save `AR-049-05.png`.
+4. [Refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data), then as Taylor reopen **My Access > Access Profiles > AP-Acme-Reference-Test**, select **Revoke Access Profile**, enter `AR-049 reference test complete`, and **Submit**. As Priya, inspect and approve the removal. Follow its activity and verify membership False.
+5. Refresh imported AD data. Compare Taylor’s final DN/GUID with the starting record and confirm the account remains and no reference-test assignment or pending request remains. Disable requestability and then disable `AP-Acme-Reference-Test`; keep its definition and current reference. Keep the direct entitlement non-requestable. Save `AR-049-05.png`.
 
 **Check:** The new request and removal operated on the current native group, and the renamed group remains available for reconciliation exercises.
 

@@ -5,6 +5,7 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and signed-in usernames | |
+| Verification controller and account DN/GUID for native comparisons | |
 | Original group name/DN/GUID and ISC entitlement ID | |
 | Reference-test profile ID and initial selection | |
 | New name/sAMAccountName/DN and unchanged GUID | |

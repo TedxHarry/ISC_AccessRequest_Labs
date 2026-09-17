@@ -271,3 +271,9 @@ Local checks passed for 12 walkthrough structures, six paired procedures, screen
 Reviewed AR-040–045 in both paths and all 12 journals. Corrected invalid-date navigation, scheduled-access waits, amendment evidence, grant refresh before removal, repeat-run object reuse and account-selection decision order. Engineering observations now occur before their evidence is removed. Updated eight journals and the private C07 handoff. See [M07-REVIEW.md](M07-REVIEW.md).
 
 Local checks passed for 12 walkthrough structures, six paired working procedures (excluding reviewed engineering capture prompts), screenshot inventories, expandable answers and 118 learner-file links/anchors. Whitespace checks passed. No Module 7 tenant execution or new screenshot validation is claimed; AR-007 remains not started.
+
+## Module 8 final learner walkthrough review — 17 September 2026
+
+Reviewed AR-046–051 in both paths and all 12 journals. Clarified interrupted-run recovery, complete HR import, requester alternatives, creation evidence, permission restoration/retries, grant refresh before removal and reconciliation cleanup. Updated ten journals, Taylor's login capture and the private C08 handoff. See [M08-REVIEW.md](M08-REVIEW.md).
+
+Local checks passed for 12 walkthrough structures, six paired procedures, screenshot inventories, expandable answers and 110 learner-file links/anchors. Whitespace checks passed. Module observation completion is distinct from API-module readiness. No Module 8 tenant execution or new screenshot validation is claimed; AR-007 remains not started.

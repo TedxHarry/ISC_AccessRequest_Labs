@@ -6,7 +6,11 @@ In this lab, you'll use your saved failures to explain a fulfillment incident, p
 
 Complete [AR-050](../AR-050/README.md). Have the journals from AR-046–050 available, including actual failure evidence from AR-048 if reproduced. Use Acme Taylor, Priya, Acme Admin and the AD workstation. Taylor's account remains, with no VPN, Remote Users, baseline or disposable-group membership. Open your [journal](EVIDENCE.md).
 
+If you are resuming, open your journal and inspect the current assignments, pending requests and retries before making another change. Continue from the first unfinished step; do not repeat a grant that can still complete.
+
 ## Follow the steps
+
+Use the same recorded account and verification domain controller for each native comparison. For a working control, wait for the matching source operation to finish successfully, then check AD. For a fault test, record the actual failure and check native membership as directed. Investigate a pending operation before submitting another request.
 
 ### 1. Reconstruct one incident from your own evidence
 
@@ -28,21 +32,21 @@ Complete [AR-050](../AR-050/README.md). Have the journals from AR-046–050 avai
 
 ### 2. Prove the current request path works
 
-1. Check Taylor's VPN and Remote Users membership are both False, and no earlier Remote Worker request can still run. Confirm AP-Remote-Worker is enabled/requestable, contains only these two groups and uses Priya for grant/removal.
+1. Record Taylor’s account DN/GUID and verification controller. Check Taylor’s VPN and Remote Users membership are both False, and no earlier Remote Worker request can still run. Confirm AP-Remote-Worker is enabled/requestable, contains only these two groups and uses Priya for grant/removal.
 2. As Taylor, open **Request Center > Access Items > Access Profiles**, select `AP-Remote-Worker`, enter `AR-051 current fulfillment control`, keep immediate access and Taylor's standard account, then save, review and submit. Record the ID from My Requests.
 3. As Priya, open **Approvals > Access Requests > Requested**, inspect Taylor's matching Grant, approve with `AR-051 verified control`, and confirm.
 4. As administrator, find the matching Account Activity for `recipient.name:acme.e025`. Record its AD operation, actual account/group values and result. Run [the native checks](../../M02-CHECKS.md#inspect-direct-ad-membership): VPN True and Remote Users True. Save `AR-051-02.png`.
-5. As Taylor, open **My Access > Access Profiles > AP-Remote-Worker > Revoke Access Profile**, enter `AR-051 control complete`, and **Submit**. Have Priya inspect and approve the matching removal. Follow its operation and verify both groups False. Refresh imported account data and confirm the requested assignment is gone. Save `AR-051-03.png`.
+5. [Refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data), then as Taylor reopen **My Access > Access Profiles > AP-Remote-Worker > Revoke Access Profile**, enter `AR-051 control complete`, and **Submit**. Have Priya inspect and approve the matching removal. Follow its operation and verify both groups False. Refresh imported account data and confirm the requested assignment is gone. Save `AR-051-03.png`.
 
 **Check:** Today's grant and removal worked on Taylor's existing account. Use AR-048's repaired disposable-group request to prove that specific permission repair; this Remote Worker control alone would not prove it.
 
 ### 3. Write the incident outcome and save the next starting state
 
 1. In the journal, write six short entries: reported symptom; affected account/item; timeline with record IDs; evidence-supported cause; exact repair; and verification/remaining uncertainty. For example, cite your actual denied property and recovered request, not simply ‘fixed permissions.’ Keep a diagnosis provisional if the evidence does not establish it.
-2. Record C08 as Complete only when the required grant/removal and reconciliation checks passed and every temporary permission/request is resolved. List **Not run**, **Not reproduced** or unresolved cases separately. Authoring a report does not change their status.
-3. Verify Taylor's AD account remains with its recorded DN/GUID and ISC account ID. Check VPN, Remote Users, baseline and GG-ACME-FAULT-049 all False. Keep the original 24-person baseline membership and Sofia's extra account. On a first full-course pass, retain 25 HR identities and 26 AD accounts.
+2. Create a private `C08` folder alongside your earlier checkpoints. Save the AR-046–051 journals and captures there. Mark the module Complete only when all required observations were performed and passed. Keep **Not run**, **Not reproduced** and unresolved cases visible; a successful current control does not turn them into passes. Record readiness for AR-052 separately: Taylor’s login works, the account is retained, memberships are clean and no temporary permission or pending write remains.
+3. Verify Taylor's AD account remains with its recorded DN/GUID and ISC account ID. Check VPN, Remote Users, baseline and GG-ACME-FAULT-049 all False. Keep the original 24-person baseline membership and Sofia’s extra account, preserving legitimate later additions if repeating these labs. Run the direct check for Lucas (`acme.e012`) and verify his retained VPN=True. On a first full-course pass, retain 25 HR identities and 26 AD accounts.
 4. Verify the disposable group has its original ACL, current name and non-requestable entitlement; AP-Acme-Reference-Test remains disabled and references the current entitlement. Resolve pending requests/retries before later tests. Keep the complete private HR CSV with Taylor for subsequent imports.
-5. Record Taylor's ISC identity ID, AD source ID, ISC account ID, current disposable entitlement ID and AP-Remote-Worker ID using [the value lookup guide](../../LAB-VALUES.md). Label each ID; they are not interchangeable with AD objectGUID or native DN. These values will help you identify the correct objects in AR-052. Save `AR-051-04.png` showing final state without credentials or tokens.
+5. Record Taylor's ISC identity ID, AD source ID, ISC account ID, current disposable entitlement ID and AP-Remote-Worker ID using [the value lookup guide](../../LAB-VALUES.md). Label each ID; they are not interchangeable with AD objectGUID or native DN. Confirm Remote Worker remains requestable with Priya’s reviews and no required form or end date, as restored earlier. These values will help you identify the correct objects in AR-052. Save `AR-051-04.png` showing final state without credentials or tokens.
 
 **Check:** C08 gives you a verified account, clean memberships and current identifiers for the API module. Any unresolved case remains visible in the journal.
 

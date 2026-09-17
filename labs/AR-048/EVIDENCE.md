@@ -5,13 +5,14 @@ Use the [lab](README.md) while recording actual results. Mark unexecuted checks 
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and signed-in usernames | |
+| Verification controller and account DN/GUID for native comparisons | |
 | Disposable group DN/GUID, ISC ID and native value | |
 | Configured/effective write principal and how confirmed | |
 | Original ACL/inheritance and exact temporary entry | |
 | Before-fault grant/removal request/activity IDs | |
 | Fault request ID, exact error, status and native result | |
 | Independent control IDs and cleanup | |
-| ACL restoration; retry/final-failure decision | |
+| ACL restoration; original retry/final-failure decision and any late grant cleanup | |
 | Recovery and removal IDs; final membership False | |
 | Pending retries resolved; item non-requestable; fault reproduced or not | |
 | Engineering investigation: evidence, conclusion and next check | |
