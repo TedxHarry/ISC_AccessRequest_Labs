@@ -64,7 +64,7 @@ Continue from AR-027 with the existing accounts and access configuration. Each l
 
 28. [AR-028 · Compare manager, item-owner and source-owner routing](AR-028/README.md)
 29. [AR-029 · Require manager review followed by Security](AR-029/README.md)
-30. [AR-030 · Reassign a review and investigate an unresolved reviewer](AR-030/README.md)
+30. [AR-030 · Reassign a review and verify the next request](AR-030/README.md)
 31. [AR-031 · Compare consolidated review and self-approval handling](AR-031/README.md)
 32. [AR-032 · Observe reminders, escalation and approval expiration](AR-032/README.md)
 33. [AR-033 · Verify the approval setup and save C05](AR-033/README.md)

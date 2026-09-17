@@ -4,11 +4,13 @@ In this lab, you'll configure and observe reminders, escalation and approval exp
 
 ## Before you start
 
-Complete AR-031. Use Acme Henry, Acme Harper, Acme Ava and Acme Noah. Prepare Samuel's session (`acme.e024`) using [AR-029 Section 1](../AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), substituting Samuel's username. Ava and Samuel need controlled inboxes for the reminder/escalation observations.
+Complete [AR-031](../AR-031/README.md). Use Acme Admin, the AD workstation, Acme Henry, Acme Harper, Acme Ava and Acme Noah. Prepare Samuel's session (`acme.e024`) using [AR-029 Section 1](../AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), substituting Samuel's username. Ava and Samuel need controlled inboxes for the reminder/escalation observations.
 
 Use the item-level Timeout, Reminders and Escalations controls described below. If they are unavailable in your tenant, record the missing capability and defer this lab rather than changing global settings as a substitute.
 
 Keep the [journal](EVIDENCE.md) for the next observation. Do not approve either diagnostic request.
+
+If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
 ## Follow the steps
 
@@ -16,7 +18,7 @@ Keep the [journal](EVIDENCE.md) for the next observation. Do not approve either 
 
 1. Open **Admin > Global > System Settings > Feature Settings > Approval Settings**. Read the **Global** and **Access Requests** tabs and record their settings without changing them.
 2. Open **Admin > Access Model > Access Profiles > AP-Production-Support > Access Requests**. Record grant/removal reviewers, grant timeout, reminder/escalation toggles, any escalation chain, fallback and time zone. The course grant setup from AR-029 is 90 days with reminders and escalations off. Resolve an unexplained difference before this comparison.
-3. Verify Henry and Harper have Manager Ava and neither has a pending Production Support request. Run native checks for `acme.e018` and `acme.e019`: GG-PROD-SUPPORT False, baseline True.
+3. Use [the native membership procedure](../../M02-CHECKS.md#inspect-direct-ad-membership) on the same recorded controller throughout. Verify Henry and Harper have Manager Ava and neither has a pending Production Support request. Run native checks for `acme.e018` and `acme.e019`: GG-PROD-SUPPORT False, baseline True.
 4. In Acme Henry, request AP-Production-Support through **Request Center > Access Items > Access Profiles** with reason `AR-032 before schedule change`. Keep immediate access, then **Save > Review Request > Submit Request**.
 5. Record its ID and Created time from My Requests. Find the ID in **Admin > Dashboard > Approval Management > Access Requests** and verify Ava is assigned. Leave it pending.
 
@@ -51,7 +53,7 @@ Keep the [journal](EVIDENCE.md) for the next observation. Do not approve either 
 1. In Acme Harper, request AP-Production-Support with reason `AR-032 after schedule change`, using the same submission route as Henry. Record the new ID and Created time.
 2. Inspect the new request in Approval Management. Ava is initially assigned. Record any displayed expiration date from request details; otherwise record the expected deadline from the four-day setting separately from the actual observed result.
 3. In your journal, record the two IDs, their original settings and the next reminder/escalation observations. Keep both requests pending. Do not use manual **Remind User** or Reassign during this test; those would be different events.
-4. Restore the profile's original grant timing settings from Section 1 now, then **Save** and reopen it. Existing requests retain the timing settings in force at submission. Restoring the profile prevents later new requests from using the temporary schedule.
+4. Restore the profile's original grant timing settings from Section 1 now, including the recorded time zone, escalation chain and fallback. Restore those fields while editable, then restore the original reminder/escalation on/off states, then **Save** and reopen it. Existing requests retain the timing settings in force at submission. Restoring the profile prevents later new requests from using the temporary schedule.
 
 **Check:** The profile is restored while the earlier and later requests retain different submitted configurations. Save `AR-032-04.png` showing both recorded request IDs and creation times.
 

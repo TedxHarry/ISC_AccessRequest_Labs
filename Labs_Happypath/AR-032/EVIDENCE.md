@@ -5,7 +5,7 @@ Keep this completed journal privately. Follow the [walkthrough](README.md) and i
 | Record | Your result |
 |---|---|
 | Date, tenant and signed-in usernames | |
-| Original item/global settings and restore time | |
+| Original item/global settings, chain, fallback, time zone and restore time | |
 | Henry earlier ID / Created / initial reviewer | |
 | Harper later ID / Created / expiration displayed or predicted | |
 | Time zone; expected and actual reminder receipt | |

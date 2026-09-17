@@ -4,9 +4,11 @@ You will create AP-Production-Support and require two decisions: Ava first, then
 
 ## Before you start
 
-Complete AR-028. Use Henry (`acme.e018`) as requester, Ava (`acme.e006`) as manager, and Noah (`acme.e007`), Evelyn (`acme.e021`) and William (`acme.e022`) as Security reviewers. Keep Acme Admin and the AD workstation available.
+Complete [AR-028](../AR-028/README.md). Use Henry (`acme.e018`) as requester, Ava (`acme.e006`) as manager, and Noah (`acme.e007`), Evelyn (`acme.e021`) and William (`acme.e022`) as Security reviewers. Keep Acme Admin and the AD workstation available.
 
 Keep the [journal](EVIDENCE.md) open.
+
+If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
 ## Follow the steps
 
@@ -14,25 +16,25 @@ Keep the [journal](EVIDENCE.md) open.
 
 1. In Acme Admin, open **Admin > Identity Management > Identities** and find each username above. Confirm Acme Employees, the expected employee number and a linked standard AD account. Henry's Manager must be Ava.
 2. For anyone without a working session, update their email in the latest complete private HR CSV to a unique inbox you control. Preserve all rows and existing controlled addresses. Upload the complete file through **Acme HR > Account Management > Account Aggregation**, wait for processing, and reopen each identity to verify Work Email.
-3. Keep the Acme Employees sign-in method established in AR-008. For an unregistered ISC-password user, select **Actions > Invite Identity** and complete registration in a separate browser profile named for that person. For existing external authentication, use that person's established sign-in route. [Registration steps](../../labs/AR-008/README.md#4-register-users-who-use-isc-credentials)
+3. Create separate browser profiles for Henry, Ava, Noah, Evelyn and William before opening invitations. Keep the Acme Employees sign-in method established in AR-008. For an unregistered ISC-password user, select **Actions > Invite Identity** and complete registration in a separate browser profile named for that person. For existing external authentication, use that person's established sign-in route. [Registration steps](../AR-008/README.md#4-invite-lucas)
 4. Sign out and back in to each profile. Verify the username in the user menu. Henry needs Request Center; Ava and the three Security members need Approvals. Ordinary reviewer access is sufficient.
-5. Run [native membership checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for `acme.e018`: `GG-PROD-SUPPORT` must be False and `GG-ACME-BASELINE` True. Record his original account DN and objectGUID.
+5. Run [native membership checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for `acme.e018`: `GG-PROD-SUPPORT` must be False and `GG-ACME-BASELINE` True. Record his original account DN and objectGUID. Check administrator Approval Management for unfinished Production Support requests for Henry before submitting another.
 
 **Check:** Every actor can use their own session and Henry starts without Production Support.
 
 ### 2. Create the Security governance group
 
-1. Open **Admin > Identities > Governance Groups > Create Group**.
-2. Enter **Name: GOV-Security-Review**, **Description: Reviews Acme production support requests**, and **Owner: Noah (acme.e007)**. Select **Save**. If this exact course group already exists, inspect and reuse it.
-3. Open **Membership > Add Members**. Select Noah, Evelyn and William by their usernames, then **Add**. Verify exactly those three members; selecting Noah as owner did not replace this membership step.
+1. Open **Admin > Identities > Governance Groups** and search `GOV-Security-Review`. Open the matching course group if present and compare its configuration with Step 2. Otherwise select **Create Group** and complete Step 2.
+2. For a new group, enter **Name: GOV-Security-Review**, **Description: Reviews Acme production support requests**, and **Owner: Noah (acme.e007)**. Select **Save**. If this exact course group already exists, inspect and reuse it.
+3. Open **Membership** and keep matching existing members. Use **Add Members** for any missing identities. Select Noah, Evelyn and William by their usernames, then **Add**. Verify exactly those three members; selecting Noah as owner did not replace this membership step.
 4. Record the group ID from its URL or details in the journal. Do not create an AD group for this reviewer group.
 
 **Check:** GOV-Security-Review contains three eligible identities. Save `AR-029-01.png` showing its membership.
 
 ### 3. Configure the Production Support profile
 
-1. Open **Admin > Access Model > Access Profiles > Create New**. Enter **AP-Production-Support**, description `Production support for approved maintenance`, primary owner **Ava**, and your AD source. Save. If this course profile already exists from a partial run, reopen it and verify its name and source instead of creating a second copy.
-2. Open **Manage Entitlements**. Find `GG-PROD-SUPPORT`, verify the source and native group DN, add it with **+**, and save. This profile contains only that entitlement.
+1. Open **Admin > Access Model > Access Profiles** and search `AP-Production-Support`. If the matching course profile exists, open it and compare its source and configuration below. Otherwise select **Create New** and enter **AP-Production-Support**, description `Production support for approved maintenance`, primary owner **Ava**, and your AD source. Save. If this course profile already exists from a partial run, reopen it and verify its name and source instead of creating a second copy.
+2. Open **Manage Entitlements**. Find `GG-PROD-SUPPORT`, verify the source and native group DN, add it with **+** only if its matching row is absent, and save. This profile contains only that entitlement.
 3. Open **Access Requests**. Enable **Allow Access Requests**. Under **Reviewing Access Requests**, select **Require Approval > Reviewer**. Add **Manager**, then **Governance Group**, selecting `GOV-Security-Review`. Use the arrows to put Manager first. Remove unintended extra reviewer rows.
 4. Require comments **When the user requests access** and **When a reviewer denies the request**. Leave forms and required end dates off for this new profile.
 5. Under **Reviewing Removal Requests**, enable **Require Approval for Removal** and add only **Primary Owner**. This gives Ava a separate removal decision after the grant test.
@@ -65,7 +67,7 @@ Keep the [journal](EVIDENCE.md) open.
 
 1. In Acme Admin, open **Admin > Identity Management > Identities > Henry > Access > Access Profiles**. Open **AP-Production-Support > Details > Revoke Access Profile**. Enter `AR-029 test complete`, then **Revoke**.
 2. In Acme Ava, find Henry's **Remove** request, open its details and approve it. Record this removal ID separately from the grant.
-3. Follow the removal operation and verify native `GG-PROD-SUPPORT` is False again. Refresh imported account data if needed. Keep the profile and baseline role.
+3. Follow the removal operation and verify native `GG-PROD-SUPPORT` is False again and `GG-ACME-BASELINE` is True. Capture `AR-029-07.png` showing the removal decision/activity and final native results. Refresh imported account data if needed. Keep the profile and baseline role.
 4. In Acme Henry, repeat Section 4's submission with reason `AR-029 manager denial`. Record the new ID. In Acme Ava, open that Grant and **Deny** with the same reason.
 5. Inspect Process to confirm the request ended at Ava's denial. Verify no Security decision is needed and Production Support remains False.
 
@@ -97,5 +99,6 @@ Capture these as you reach the matching step. If a result needs two screens, add
 | AR-029-04.png | Evelyn recorded as the group decision maker |
 | AR-029-05.png | Henry native Production Support membership after fulfillment |
 | AR-029-06.png | Fresh manager-denied request |
+| AR-029-07.png | Ava removal decision, activity and native cleanup |
 
 [Previous: AR-028](../AR-028/README.md) · [Course outline](../../README.md) · [Next: AR-030](../AR-030/README.md)

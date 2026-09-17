@@ -253,3 +253,9 @@ All 12 walkthrough structures, 12 journal acceptance lists, six paired working p
 Reviewed AR-022–027 in both paths and all 12 journals. Added missing native before checks, clarified session and interrupted-permission handling, distinguished first-pass account creation from repeats, and supplied pending-request and imported-assignment checks for Sofia's account-specific exercises. See [the review](M04-REVIEW.md#final-learner-walkthrough-review-16-september-2026).
 
 All 12 walkthrough structures, 12 journal acceptance lists, six matching working procedures, screenshot inventories and expandable answers passed. The changed-file check resolved 145 local file links and referenced heading anchors before this entry; whitespace checks passed. Current official request/segment/account-selection references were rechecked. No tenant operations or new screenshot validation were performed. AR-001–006 remain learner-reported complete; AR-007 has not started.
+
+## Module 5 final learner review, 16 September 2026
+
+Reviewed AR-028–033 in both paths and their 12 journals. Corrected reuse/registration order, capture timing, beginner-path links, imported-assignment checks and restoration of approval timing details. See [the review](M05-REVIEW.md#final-learner-walkthrough-review-16-september-2026).
+
+Twelve walkthrough structures, six paired procedures, screenshot inventories and expandable answers passed. Reviewed the 12 journal field sets; 197 changed-file local links and their referenced anchors resolved before this entry. Whitespace checks passed. Current official approval administration, governance-group, timing and product-enhancement sources were rechecked. Tenant execution and timed observations remain pending. AR-001–006 are learner-reported complete; AR-007 has not started.

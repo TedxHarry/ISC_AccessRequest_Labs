@@ -4,9 +4,11 @@ You will first reassign a valid pending review to Noah and verify that the next 
 
 ## Before you start
 
-Complete AR-029. Prepare Acme Harper (`acme.e019`) using the same email, registration and browser-profile steps in [AR-029 Section 1](../AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), substituting Harper's username. Use Acme Admin, Acme Ava and Acme Noah too.
+Complete [AR-029](../AR-029/README.md). Prepare Acme Harper (`acme.e019`) using the same email, registration and browser-profile steps in [AR-029 Section 1](../AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), substituting Harper's username. Use Acme Admin, Acme Ava and Acme Noah too.
 
 Harper's Manager is Ava. AP-Production-Support still requires Manager then Security. Keep the [journal](EVIDENCE.md) open.
+
+If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
 ## Follow the steps
 
@@ -14,7 +16,7 @@ Harper's Manager is Ava. AP-Production-Support still requires Manager then Secur
 
 1. Open Harper in **Admin > Identity Management > Identities**. Confirm E019, Manager Ava and the linked standard AD account. Record the identity ID and manager.
 2. Reopen **AP-Production-Support > Access Requests** and record the grant order and current timing settings. Keep the profile owner Ava and GOV-Security-Review membership unchanged.
-3. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for `acme.e019`: Production Support False, baseline True. Check Approval Management for a pending Harper request before creating another.
+3. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for `acme.e019`: `GG-PROD-SUPPORT` False, `GG-ACME-BASELINE` True. Record the controller, account DN and objectGUID. Check Approval Management for a pending Harper request before creating another.
 
 **Check:** Harper has a valid manager and no Production Support grant.
 
@@ -40,7 +42,7 @@ Harper's Manager is Ava. AP-Production-Support still requires Manager then Secur
 
 1. Reopen Harper's identity and the profile policy. Manager is still Ava and grant order is still Manager then Security.
 2. In Acme Harper, submit a fresh request using Section 2 and reason `AR-030 original routing control`.
-3. Find the new ID in Approval Management and verify Ava is assigned. In Acme Ava, open the matching Grant and deny it with the same reason.
+3. Find the new ID in Approval Management and verify Ava is assigned and capture `AR-030-03.png` before the decision. In Acme Ava, open the matching Grant and deny it with the same reason.
 4. Recheck Production Support False and baseline True for Harper. Record both IDs and their different current reviewers.
 
 **Check:** Reassigning one request did not change the next request's routing. Save `AR-030-03.png` showing the fresh request assigned to Ava.

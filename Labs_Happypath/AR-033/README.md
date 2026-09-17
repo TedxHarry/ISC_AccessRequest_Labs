@@ -6,7 +6,9 @@ You will run fresh approval and denial controls, then leave the environment read
 
 Complete AR-031 and either finish AR-032's observations or close its requests and mark the timed portion deferred. AP-Production-Support must have its original timing settings restored before you create new requests.
 
-Use Acme Admin, Acme Henry, Acme Harper, Acme Ava and Acme Evelyn. Keep the Module 5 journals and the [AR-033 journal](EVIDENCE.md) open.
+Use the AD workstation, Acme Admin, Acme Henry, Acme Harper, Acme Ava and Acme Evelyn. Keep the Module 5 journals and the [AR-033 journal](EVIDENCE.md) open.
+
+If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
 ## Follow the steps
 
@@ -17,7 +19,7 @@ Use Acme Admin, Acme Henry, Acme Harper, Acme Ava and Acme Evelyn. Keep the Modu
 3. Open **Admin > Identities > Governance Groups > GOV-Security-Review > Membership**. Verify Noah, Evelyn and William. Confirm Henry and Harper both have Ava as Manager on their identities.
 4. Verify Finance Reporting's owner/reviewers are restored to Daniel and VPN's primary-owner grant/removal review resolves to Priya. Keep the AD source owner unchanged.
 5. In Approval Management, inspect every request ID recorded in AR-028–032. No diagnostic request should remain pending. Use **Actions > Cancel Request**, a lab comment and confirmation for an unwanted pending diagnostic; verify any concluded grant was removed through ISC.
-6. Run native checks for Henry and Harper: Production Support False, baseline True. Reuse their existing accounts.
+6. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) on the recorded controller for Henry and Harper: Production Support False, baseline True. Record each existing account's DN and objectGUID for the before/after comparison; reuse those accounts.
 
 **Check:** The policies, identities and accounts are ready for fresh tests. Save `AR-033-01.png` showing the restored Production Support reviewer order.
 
@@ -27,13 +29,13 @@ Use Acme Admin, Acme Henry, Acme Harper, Acme Ava and Acme Evelyn. Keep the Modu
 2. Record the ID from My Requests and find it in **Admin > Dashboard > Approval Management > Access Requests**. Inspect Process/Assignees and verify Ava is first.
 3. In Acme Ava, open the matching Grant under **Approvals > Access Requests > Requested** and approve. Confirm Security is now the active step.
 4. In Acme Evelyn, open the matching Grant and approve for Security. Record both decisions in the admin Process view.
-5. Follow the [Account Activity lookup](../../LAB-DESK.md#find-the-account-activity) for `acme.e018` and the exact source. Record the group-add result, then verify native GG-PROD-SUPPORT True and unchanged baseline/account identifiers.
+5. Follow the [Account Activity lookup](../../LAB-DESK.md#find-the-account-activity) for `acme.e018` and the exact source. Wait for the group-add operation to finish and record its result, then verify native GG-PROD-SUPPORT True and unchanged baseline/account identifiers.
 
 **Check:** Fresh manager and Security decisions produced the intended AD change. Save `AR-033-02.png` showing the completed review process.
 
 ### 3. Remove Henry's grant and deny Harper's control
 
-1. In Acme Admin, open **Henry > Access > Access Profiles > AP-Production-Support > Details > Revoke Access Profile**. Enter `AR-033 approval test complete` and select **Revoke**.
+1. If the completed assignment is not visible in ISC yet, [refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data) and wait for processing. In Acme Admin, open **Admin > Identity Management > Identities > Henry > Access > Access Profiles > AP-Production-Support > Details > Revoke Access Profile**. Enter `AR-033 approval test complete` and select **Revoke**.
 2. In Acme Ava, find Henry's Remove request and approve it. Follow the removal operation, then verify native Production Support False again. Refresh imported account data using [the source aggregation steps](../../M02-CHECKS.md#refresh-imported-ad-data) if needed.
 3. In Acme Harper, submit AP-Production-Support through the same Request Center route with reason `AR-033 final denial control`.
 4. Record the new ID, verify Ava as reviewer, then deny it in Acme Ava with the same reason. Confirm Denied and no Security decision needed.
@@ -87,4 +89,4 @@ Capture these as you reach the matching step. If a result needs two screens, add
 | AR-033-04.png | Final Henry/Harper native membership checks |
 | AR-033-05.png | C05 results with observed and pending items distinguished |
 
-[Previous: AR-032](../AR-032/README.md) · [Course outline](../../README.md) · [Next: AR-034](../../labs/AR-034/README.md)
+[Previous: AR-032](../AR-032/README.md) · [Course outline](../../README.md) · [Next: AR-034](../AR-034/README.md)

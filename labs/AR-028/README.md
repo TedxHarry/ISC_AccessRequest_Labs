@@ -4,7 +4,9 @@ You will request the same VPN entitlement three times, changing only its grant r
 
 ## Before you start
 
-Complete AR-027. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and Acme Priya (`acme.e002`). You will also need the existing AD source owner's working session for the third test. Keep the [journal](EVIDENCE.md) open.
+Complete [AR-027](../AR-027/README.md). Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and Acme Priya (`acme.e002`). You will also need the existing AD source owner's working session for the third test. Keep the AD workstation and [journal](EVIDENCE.md) open.
+
+If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
 ## Follow the steps
 
@@ -13,7 +15,7 @@ Complete AR-027. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e
 1. In Acme Admin, open **Admin > Identity Management > Identities**, find `acme.e011`, and confirm her Manager is Daniel and her standard AD account is linked.
 2. Run [the direct AD membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) with username `acme.e011` and group `GG-VPN-USERS`. Record **False**. Repeat with `GG-ACME-BASELINE`; record **True**. Resolve leftover business access before requesting again.
 3. Open **Admin > Access Model > Entitlements**, find `GG-VPN-USERS` on your AD source, then **Actions > Edit > Access Requests**. Record the grant reviewer, removal reviewer, comments, requestability and any timing settings. The course grant and removal reviewer should be **Primary Owner**, resolving to Priya.
-4. Open **Admin > Connections > Sources > your AD source > Source Setup > Base Configuration**. Record the **Source Owner** identity. Do not change it for this test. Confirm that person's session is available; if your source uses a governance-group owner, record its members and use a current member's session.
+4. Open **Admin > Connections > Sources > your AD source > Source Setup > Base Configuration**. Record the **Source Owner** identity. Do not change it for this test. Use that owner's existing session, or prepare it using [AR-008](../AR-008/README.md). Confirm its username before the test; if your source uses a governance-group owner, record its members and use a current member's session.
 5. In **Admin > Dashboard > Approval Management > Access Requests**, use the filters for Olivia and VPN to confirm there is no pending duplicate. Keep a record of the source owner even if it is also Priya or Daniel.
 
 **Check:** Olivia has baseline but no VPN. You know which person or group each reviewer category should resolve to.
@@ -24,7 +26,7 @@ Complete AR-027. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e
 2. Select **Save**, leave the page and reopen it to verify Manager persisted.
 3. In Acme Olivia, confirm the username in the user menu. Open **Request Center > Access Items > Entitlements**, search `GG-VPN-USERS`, and verify its AD source.
 4. Select the item. Enter `AR-028 manager routing` as the reason, keep immediate access, select **Save**, then **Review Request**. Verify Olivia and the VPN entitlement before selecting **Submit Request**. If an account chooser appears, select her recorded standard AD account.
-5. Open **Request Center > My Requests**, open that request and record its ID. In Acme Admin, paste the ID into **Approval Management > Access Requests**. Open the access name and inspect **Process** and **Assignees**. Record Daniel as the current reviewer.
+5. Open **Request Center > My Requests**, open that request and record its ID. In Acme Admin, paste the ID into **Approval Management > Access Requests**. Open the access name and inspect **Process** and **Assignees**. Record Daniel as the current reviewer. Capture `AR-028-01.png` now, before denying.
 6. In Acme Daniel, open **Approvals > Access Requests > Requested**. Open Olivia's VPN **Grant** details, verify the reason, select **Deny**, enter `AR-028 manager routing control`, and confirm. Reopen the request in the admin view and verify **Denied**.
 
 **Check:** A new request routed to Daniel and was denied. Save `AR-028-01.png` showing its ID and resolved reviewer before the decision.
@@ -32,9 +34,11 @@ Complete AR-027. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e
 ### 3. Repeat for the item owner and source owner
 
 1. As administrator, replace only the grant-review row with **Primary Owner**, then **Save** and reopen it.
-2. Repeat Section 2's submission and inspection steps as Olivia, using reason `AR-028 primary owner routing`. Record the new request ID. Verify Priya is assigned, then deny in Acme Priya with the same reason.
+2. Repeat Section 2's submission and inspection steps as Olivia, using reason `AR-028 primary owner routing`. Record the new request ID. Verify Priya is assigned and capture `AR-028-02.png`, then deny in Acme Priya with the same reason.
 3. Replace only the grant-review row with **Source Owner**, save and reopen it.
-4. Submit a third Olivia request with reason `AR-028 source owner routing`. Inspect its **Assignees** against the source owner recorded in Section 1. In that owner's session, open the matching approval and deny it. For a group owner, inspect the individual assignees and have one eligible member deny.
+4. Submit a third Olivia request with reason `AR-028 source owner routing`. Inspect its **Assignees** against the source owner recorded in Section 1. Capture `AR-028-03.png` before the decision. In the resolved reviewer's session, open the matching approval and deny it. If self-approval prevention resolved a different reviewer, use that person's session; do not assume the source owner still holds the task. For a group owner, inspect the individual assignees and have one eligible member deny.
+Before each new variant, confirm the previous request concluded and Olivia still lacks VPN.
+
 5. Record all three IDs and decisions separately. If two categories resolved to the same person, write that down; the configured categories can differ even when the reviewer is the same. If Olivia herself is the source owner, inspect the actual replacement reviewer: self-approval prevention can change the assignee. Record that exception without changing the source owner.
 
 **Check:** Each category has its own fresh request and resolved-reviewer evidence. Save `AR-028-02.png` for the item-owner assignment and `AR-028-03.png` for the source-owner assignment.
