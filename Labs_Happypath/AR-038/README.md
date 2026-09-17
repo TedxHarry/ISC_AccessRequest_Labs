@@ -6,7 +6,11 @@ In this lab, you'll reproduce a missing form association, restore it, and verify
 
 Complete [AR-037](../AR-037/README.md), including removal and restoration of Remote Worker. Use Acme Admin, Acme Henry (`acme.e018`) and Acme Ava (`acme.e006`) in separate browser profiles, plus your AD workstation. Keep your [journal](EVIDENCE.md) open.
 
+If you are resuming, check your journal and Henry's **My Requests** before submitting again. Finish or remove any earlier test grant before starting another. These steps use the configuration left by the preceding lab; if you have already completed later modules, compare their saved settings before changing them.
+
 ## Follow the steps
+
+As Acme Admin, check **Admin > Dashboard > Approval Management > Access Requests** for Henry's pending Production Support requests. Resolve any previous diagnostic request before continuing. Run [the direct AD membership check](../../M02-CHECKS.md#inspect-direct-ad-membership): Henry's `GG-PROD-SUPPORT` must be **False** and `GG-ACME-BASELINE` **True**. A failed check needs investigation; it does not mean the group is absent.
 
 ### 1. Confirm the working request
 
@@ -19,7 +23,7 @@ Complete [AR-037](../AR-037/README.md), including removal and restoration of Rem
 
 ### 2. Reproduce the missing association
 
-1. As administrator, clear **Require Access Request Form** on Production Support and **Save**. Do not delete the form definition or change reviewers. This temporary change applies to new requests for this lab profile; keep other lab sessions from submitting it during the test.
+1. As administrator, clear **Require Access Request Form** on Production Support and **Save**. Apply changes if offered and wait for completion. Do not delete the form definition or change reviewers. This temporary change applies to new requests for this lab profile; keep other lab sessions from submitting it during the test.
 2. Leave the settings page and reopen it to verify the unchecked state.
 3. In Henry's session, return to the access catalog and start a new selection of the same profile. The custom maintenance questions should be absent. Standard comments may still be required; those are separate from the custom form.
 4. Save `AR-038-02.png` showing the missing custom questions. Do not submit this incomplete business case. Remove the unsent item as in Step 1.
@@ -29,11 +33,11 @@ Complete [AR-037](../AR-037/README.md), including removal and restoration of Rem
 
 ### 3. Repair and prove the result
 
-1. Return to **Admin > Access Model > Access Profiles > AP-Production-Support > Access Requests**. Enable **Require Access Request Form**, select `FORM-Acme-Production-Support`, and **Save**. Reopen to verify both the checkbox and selection.
+1. Return to **Admin > Access Model > Access Profiles > AP-Production-Support > Access Requests**. Enable **Require Access Request Form**, select `FORM-Acme-Production-Support`, and **Save**. Apply changes if offered and wait for completion. Reopen to verify both the checkbox and selection.
 2. Confirm Manager then GOV-Security-Review grant approval and Primary Owner removal approval remain unchanged.
 3. As Henry, start another fresh request for that exact profile. Enter ticket `CHG-LAB-038`, Environment `Production`, Work description `Verify restored request questions`, Rollback plan `Revoke any approved test access`, and standard comments `AR-038 repaired association`. Leave Implementation notes and standard dates empty.
 4. Save, select **Review Request**, and reopen **Edit Request Details**. Verify the saved answers, Henry and his standard account. Select **Submit Request** once and record the ID from **My Requests**.
-5. As Ava, open **Approvals > Access Requests > Requested** and open Henry's matching Production Support **Grant** details. Compare each answer with your journal. Select **Deny**, enter the stated test reason and confirm. As administrator, verify **Denied** under **Admin > Dashboard > Approval Management > Access Requests** using that request ID. Check Henry's direct `GG-PROD-SUPPORT` membership is **False** using [the AD membership procedure](../../M02-CHECKS.md#inspect-direct-ad-membership). An error is not a False result. Use reason `AR-038 repaired form verified`. Save `AR-038-03.png` showing the restored requester form and Ava's matching answers.
+5. As Ava, open **Approvals > Access Requests > Requested** and open Henry's matching Production Support **Grant** details. Compare each answer with your journal. Save `AR-038-03.png` showing Ava’s answers before deciding; include the requester’s saved form as a second image. Select **Deny**, enter `AR-038 repaired form verified`, and confirm. As administrator, verify **Denied** under **Admin > Dashboard > Approval Management > Access Requests** using that request ID. Check Henry's direct `GG-PROD-SUPPORT` membership is **False** using [the AD membership procedure](../../M02-CHECKS.md#inspect-direct-ad-membership). An error is not a False result.
 
 **Check:** The repair is proved with a newly submitted request and its reviewer details, not just a saved administrator checkbox.
 

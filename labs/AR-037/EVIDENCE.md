@@ -5,12 +5,14 @@ Record what you observe while following the [lab](README.md). Leave unexecuted c
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and signed-in usernames | |
+| Henry account DN/objectGUID and domain controller before/after | |
 | Original Remote Worker form/review/date settings | |
 | Copied values before editing; final A/B answers | |
-| Separate item request IDs and reviewer decisions | |
+| Request ID and profile name for each item; reviewer decisions | |
+| Addition/removal activity IDs and successful completion | |
 | Support True; VPN/Remote False after decisions | |
 | Removal ID and final three groups False; baseline True | |
-| Remote Worker association restored | |
+| Remote Worker association restored; Lucas VPN remains True | |
 | Engineering investigation: cause, evidence, repair and fresh check | |
 
 ## Screenshots

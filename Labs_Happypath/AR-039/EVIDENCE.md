@@ -5,6 +5,7 @@ Record what you observe while following the [lab](README.md). Leave unexecuted c
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and signed-in usernames | |
+| Henry account DN/objectGUID and domain controller before/after | |
 | C06 status: observed / failed / not run | |
 | Form/profile IDs and five fields: type/key/required | |
 | Environment choices and condition operator/value/effect | |
@@ -13,7 +14,7 @@ Record what you observe while following the [lab](README.md). Leave unexecuted c
 | Production request ID; Ava and Evelyn decisions | |
 | Addition activity and Support True; other groups unchanged | |
 | Removal request/activity and Support False; baseline True | |
-| Remote Worker original association restored; no pending requests | |
+| Remote Worker original association restored; no pending requests; Lucas VPN True | |
 | Outstanding failure or unexecuted observation | |
 
 ## Screenshots

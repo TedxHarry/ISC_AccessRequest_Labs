@@ -259,3 +259,9 @@ All 12 walkthrough structures, 12 journal acceptance lists, six matching working
 Reviewed AR-028–033 in both paths and their 12 journals. Corrected reuse/registration order, capture timing, beginner-path links, imported-assignment checks and restoration of approval timing details. See [the review](M05-REVIEW.md#final-learner-walkthrough-review-16-september-2026).
 
 Twelve walkthrough structures, six paired procedures, screenshot inventories and expandable answers passed. Reviewed the 12 journal field sets; 197 changed-file local links and their referenced anchors resolved before this entry. Whitespace checks passed. Current official approval administration, governance-group, timing and product-enhancement sources were rechecked. Tenant execution and timed observations remain pending. AR-001–006 are learner-reported complete; AR-007 has not started.
+
+## Module 6 final learner walkthrough review — 17 September 2026
+
+Reviewed AR-034–039 in both paths and all 12 journals. Corrected repeat-run form creation, validation retries, hidden copied answers, decision/capture order, provisioning waits and account-preserving cleanup. Updated the four grant/removal journals and C06 handoff. See [M06-REVIEW.md](M06-REVIEW.md).
+
+Local checks passed for 12 walkthrough structures, six paired procedures, screenshot inventories, expandable answers and 108 learner-file links/anchors. Whitespace checks passed. No Module 6 tenant execution or new screenshot verification is claimed; AR-007 remains not started.
