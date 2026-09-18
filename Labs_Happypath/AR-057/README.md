@@ -33,7 +33,7 @@ $LabRows.Count
 
 3. At the hidden prompt, paste Taylor's current access token and press Enter. Do not put it on the command line. Wait for the saved-record count. If the command reports 401, renew the token; for 403, verify owner/recipient and scopes; for 429, observe Retry-After before another read. The script sends no automatic retry. A failed run is not an empty successful report.
 4. Open the saved file privately. Check every non-null `requestedFor.id` is Taylor's recorded ID. Compare its AR-053–056 records with your journal by parent tracking ID, type, comment and created time. The report contains item-status rows, so its count need not equal the number of POST calls or parent requests.
-5. Account for denied/canceled outcomes and ignored duplicates that have no additional history row. Compare with the same status filters in Postman and the matching ISC requests. If records changed while paging, rerun after the diagnostic work settles using a new filename. Save `AR-057-02.png`.
+5. Check whether the same status `id` occurs more than once. Compare the report with your earlier grant, removal, denial and cancellation records; a missing known item needs investigation even if the total count looks plausible. Retain the original output and rerun after processing settles if rows repeat or expected rows are missing. Account for denied/canceled outcomes and ignored duplicates that have no additional history row. Compare with the same status filters in Postman and the matching ISC requests. If records changed while paging, rerun after the diagnostic work settles using a new filename. Save `AR-057-02.png`.
 
 **Check:** The report is a dated observation of request history, not a live approval queue or a current-access inventory.
 
@@ -64,7 +64,7 @@ $LabHenryRows.Count
 ### 4. Save C09 and retain a clean tenant
 
 1. Record C09 in the journal: repository revision, command, service path, caller identity/authority, collection time, filters, report filenames, row counts and unresolved cases. Record the observed outcome of each AR-052–056 case; use Not run or Not reproduced where appropriate.
-2. Verify Taylor has no Remote Worker assignment, VPN/Remote Users/disposable-group/baseline membership or pending diagnostic work. Keep his original account, the 25-row private HR file, the original 24-person baseline list and current disabled reference-test profile from C08. Save `AR-057-04.png`.
+2. Verify Taylor has no Remote Worker assignment, VPN/Remote Users/disposable-group/baseline membership or pending diagnostic work. Keep his original account, the complete private HR file including Taylor and any later-course records (25 rows on the first pass), the original 24-person baseline list and current disabled reference-test profile from C08. Save `AR-057-04.png`.
 3. Keep raw reports in the private evidence folder. For any shared sample, remove credentials and unnecessary identity details; retain enough labelled fields to explain the example. Do not export the local vault.
 4. If you will continue API labs soon, retain the named PATs privately and renew only expired bearer tokens. If finished with them, use each owner's **Preferences > Personal Access Tokens** to delete only that module's named token. Record which credentials need recreating before a later API lab.
 

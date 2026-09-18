@@ -277,3 +277,9 @@ Local checks passed for 12 walkthrough structures, six paired working procedures
 Reviewed AR-046–051 in both paths and all 12 journals. Clarified interrupted-run recovery, complete HR import, requester alternatives, creation evidence, permission restoration/retries, grant refresh before removal and reconciliation cleanup. Updated ten journals, Taylor's login capture and the private C08 handoff. See [M08-REVIEW.md](M08-REVIEW.md).
 
 Local checks passed for 12 walkthrough structures, six paired procedures, screenshot inventories, expandable answers and 110 learner-file links/anchors. Whitespace checks passed. Module observation completion is distinct from API-module readiness. No Module 8 tenant execution or new screenshot validation is claimed; AR-007 remains not started.
+
+## Module 9 final learner walkthrough review — 17 September 2026
+
+Reviewed AR-052–057 in both paths, all 12 journals and the shared API workbench. Corrected repeated credential setup, stale per-caller identifiers, processing waits, grant reconciliation before removal, duplicate-review selection and report reconciliation. Updated eight journals and preserved the complete current HR population in cleanup. See [M09-REVIEW.md](M09-REVIEW.md).
+
+Local checks passed for 12 walkthrough structures, six paired procedures, screenshot inventories, expandable answers, 102 learner/workbench links and anchors, and 13 JSON examples. All four existing report-tool tests passed, including fixture pagination and mocked API reads. Whitespace checks passed. No authenticated tenant operations or new screenshot validation were performed; AR-007 remains not started.

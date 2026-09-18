@@ -12,6 +12,7 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Cancellation response/details, final queue and native state | |
 | Race or uncompleted case, if observed | |
 | Clean final account and cleared transient ID variables | |
+| Each case's run comment, current approval check and verified parent | |
 
 ## Screenshots
 

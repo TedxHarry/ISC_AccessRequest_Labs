@@ -10,6 +10,8 @@ Complete [AR-054](../AR-054/README.md). Use Acme API Taylor, Priya and Admin wit
 
 ### 1. Approve a fresh grant as Priya
 
+For each case below, record the previous IDs in your journal, then clear `approvalId` and `activityId` in the environments where you used them. Add a run date/time to each case comment if repeating. After each environment switch, verify Taylor's `recipientId`, Remote Worker's `itemId` and the caller. All JSON POSTs use **Content-Type: application/json**. Wait for the matching status/approval to appear before acting; repeat GETs about 30 seconds apart while processing continues.
+
 1. Verify Taylor's VPN/Remote Users False and no pending grant. As Acme API Taylor, set `requestTag` to `AR-055 approve control`, then send the AR-053 Grant body once to **POST `{{apiBase}}/access-requests/v1`**. Record acceptance and the matching status record.
 2. As Acme API Priya, read **GET `{{apiBase}}/access-request-approvals/v1/pending`** with `owner-id=me`, `limit=50`, `offset=0` and the Taylor filter from AR-054. Match owner, requestedFor, requestedObject, Grant type, comment and created time. Set `approvalId` to that pending object's `id` in Priya's environment.
 3. Create **POST `{{apiBase}}/access-request-approvals/v1/{{approvalId}}/approve`**, Bearer `{{token}}`, **Body > raw > JSON**:
@@ -18,13 +20,13 @@ Complete [AR-054](../AR-054/README.md). Use Acme API Taylor, Priya and Admin wit
 {"comment":"AR-055 approved lab requirement"}
 ```
 
-4. Send once. Record the response; HTTP 202 means the decision was accepted for processing. Read the status as Taylor and the matching activity as Admin. Verify both native memberships True before calling the case successful. Save `AR-055-01.png`.
+4. Reread Priya's pending queue and confirm this ID still belongs to the intended undecided Grant. Send once. Record the response; HTTP 202 means the decision was accepted for processing. Read the status as Taylor and the matching activity as Admin. Verify both native memberships True before calling the case successful. Save `AR-055-01.png`.
 
 **Check:** Priya's own token decided Priya's current approval. The approved request reached Taylor's existing AD account.
 
 ### 2. Request removal as administrator and approve it as Priya
 
-1. Select Acme API Admin and verify `recipientId` and `itemId` still identify Taylor and Remote Worker. Create **POST `{{apiBase}}/access-requests/v1`**, Bearer `{{token}}`, raw JSON:
+1. Confirm the grant operation succeeded, both native memberships are True and ISC shows the Remote Worker assignment. Refresh imported data if the assignment is behind; resolve any remaining mismatch before removal. Select Acme API Admin and verify `recipientId` and `itemId` still identify Taylor and Remote Worker. Create **POST `{{apiBase}}/access-requests/v1`**, Bearer `{{token}}`, raw JSON:
 
 ```json
 {
@@ -42,7 +44,7 @@ Complete [AR-054](../AR-054/README.md). Use Acme API Taylor, Priya and Admin wit
 
 2. Send once and record the removal separately from the Grant. There is one recipient and one requested profile, with no start/remove date. Taylor has one account, so this exercise does not need multi-account selection.
 3. Read Priya's pending queue with Acme API Priya. Select the new **REVOKE_ACCESS** approval for Taylor/Remote Worker and this removal comment. Replace the old `approvalId` with its new pending ID.
-4. Send the approve operation from Section 1 with comment `AR-055 removal approved`. Read the removal status/activity, verify VPN False and Remote Users False, refresh imported data and confirm the profile assignment is gone. Save `AR-055-02.png`.
+4. Send the approve operation from Section 1 with comment `AR-055 removal approved`. Set Admin's `activityId` from the matching removal status's `accessRequestId` and verify that parent with the activity GET from AR-053; do not reuse the grant activity. Wait for the removal operation to succeed, verify VPN False and Remote Users False, refresh imported data and confirm the profile assignment is gone. Save `AR-055-02.png`.
 
 **Check:** This API removal uses the documented ORG_ADMIN route. The API does not support ordinary self-revocation even though Taylor can use the My Access UI removal route. Keep the baseline account intact.
 
@@ -65,7 +67,7 @@ Complete [AR-054](../AR-054/README.md). Use Acme API Taylor, Priya and Admin wit
 1. As Acme API Taylor, submit another Grant with `requestTag` = `AR-055 cancel control`. Leave it awaiting Priya. Read Taylor's status and match the new comment, time, recipient and item.
 2. Confirm the matched record has **cancelable: true** and has not passed approval. Record `accessRequestId` as the candidate parent, separately from `accountActivityItemId` and any approval IDs.
 3. In Acme API Admin, set `activityId` from that **accessRequestId** and send **GET `{{apiBase}}/account-activities/v1/{{activityId}}`**. Confirm the intended parent, Taylor and the AR-055 cancellation case. If this read does not match, stop the cancellation call and resolve the mapping using AR-054.
-4. Still as administrator, send **POST `{{apiBase}}/access-requests/v1/cancel`**, Bearer `{{token}}`, raw JSON:
+4. Reread the matching status immediately before cancellation and confirm it is still cancelable and awaiting approval. If it has advanced, use Step 6. Still as administrator, send **POST `{{apiBase}}/access-requests/v1/cancel`**, Bearer `{{token}}`, raw JSON:
 
 ```json
 {

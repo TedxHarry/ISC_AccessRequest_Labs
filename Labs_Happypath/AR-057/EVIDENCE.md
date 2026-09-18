@@ -13,6 +13,7 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Action table with parent/item IDs and unresolved evidence | |
 | Henry admin caller/filter/path/count and matching recipient | |
 | Pagination/concurrent-change limitations | |
+| Repeated status IDs, missing known rows and reconciliation outcome | |
 | Clean retained Taylor/C08 state and PAT retention/deletion record | |
 
 ## Screenshots

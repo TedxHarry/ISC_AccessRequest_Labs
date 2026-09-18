@@ -5,6 +5,7 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Record | Your observation or evidence |
 |---|---|
 | Date, tenant and caller usernames | |
+| Starting Taylor DN/GUID and verification domain controller | |
 | Starting assignment/native checks and verified object IDs | |
 | Caller, requestTag, submission time and HTTP result | |
 | newRequests/existingRequests tracking if returned | |

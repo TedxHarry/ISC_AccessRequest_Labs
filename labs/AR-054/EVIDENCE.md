@@ -7,6 +7,7 @@ Use the [lab](README.md) and record actual observations. Mark unexecuted cases *
 | Date, tenant and caller usernames | |
 | History filters, sorters, offsets and page counts | |
 | X-Total-Count when returned and observed concurrent changes | |
+| Repeated status IDs, missing known rows and any fresh paging run | |
 | AR-053 grant/removal status fields and parent/child mapping | |
 | AR-054 request and matching owner/requestedObject/approval ID | |
 | Rejected history, departed queue item and native absence | |
