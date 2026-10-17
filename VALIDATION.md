@@ -283,3 +283,14 @@ Local checks passed for 12 walkthrough structures, six paired procedures, screen
 Reviewed AR-052–057 in both paths, all 12 journals and the shared API workbench. Corrected repeated credential setup, stale per-caller identifiers, processing waits, grant reconciliation before removal, duplicate-review selection and report reconciliation. Updated eight journals and preserved the complete current HR population in cleanup. See [M09-REVIEW.md](M09-REVIEW.md).
 
 Local checks passed for 12 walkthrough structures, six paired procedures, screenshot inventories, expandable answers, 102 learner/workbench links and anchors, and 13 JSON examples. All four existing report-tool tests passed, including fixture pagination and mocked API reads. Whitespace checks passed. No authenticated tenant operations or new screenshot validation were performed; AR-007 remains not started.
+
+
+## 2026-10-17: guided learning structure
+
+- One canonical guided course: 90 labs and 3 capstones under guided-labs/.
+- Additional diagnostics and independent variations separated into 14 module guides per practice area.
+- Original screenshots preserved byte-for-byte; all named engineering exercises retained.
+- Legacy lab routes and relocated section bookmarks checked with the client router and browser.
+- 18 Python tests and the JavaScript route checks passed. All local Markdown links and image references resolve.
+- Browser checks fetched all 121 canonical lab/practice pages and exercised area selection, active lab expansion, expandable answers, keyboard selection, legacy routes and layouts from 320 to 1440 pixels.
+- This validates content organization and website behavior. It does not add ISC tenant executions to the lab validation record.

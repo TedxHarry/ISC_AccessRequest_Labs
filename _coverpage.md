@@ -1,10 +1,10 @@
 # SailPoint ISC Access Request Labs
 
-<small>BEGINNER → ENGINEER</small>
+<small>LEARN BY DOING</small>
 
-> A hands-on course for building, testing, operating, and troubleshooting Access Requests in SailPoint Identity Security Cloud.
+> Configure access, follow the request, approve or deny it, and verify the real result.
 >
-> **90 practice labs · 14 modules · 3 capstone projects**
+> Guided Labs · Troubleshooting Practice · Try It Yourself
 
-[Start the Course](START-HERE.md)
-[View Course Map](README.md)
+[Start Here](START-HERE.md)
+[Open Guided Labs](guided-labs/README.md)

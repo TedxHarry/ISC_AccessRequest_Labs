@@ -1,11 +1,11 @@
 # Subscriber workbench
 
-Use this page beside AR-064–069. You'll run the supplied service locally, prove its response contracts, then connect a scoped tenant subscription through an HTTPS route you control. Python 3, Postman Desktop and access to Admin > Event Triggers are required. Live filter validation uses the Acme API Admin environment from [AR-052](labs/AR-052/README.md); prepare or renew it before that step.
+Use this page beside AR-064-069. You'll run the supplied service locally, prove its response contracts, then connect a scoped tenant subscription through an HTTPS route you control. Python 3, Postman Desktop and access to Admin > Event Triggers are required. Live filter validation uses the Acme API Admin environment from [AR-052](guided-labs/AR-052/README.md); prepare or renew it before that step.
 
 ## Prepare the isolated access item
 
-1. Verify Taylor (`acme.e025`) and the retained AD account from AR-047–049. Keep the current GG-ACME-FAULT-049, its original GUID and restored permissions. Verify Taylor has no membership in that group, VPN, Remote Users or baseline, and no pending test request. Use [native AD checks](M02-CHECKS.md#inspect-direct-ad-membership). Do not create another Taylor account.
-2. Prepare separate Acme Admin, Acme Taylor, Acme Priya (`acme.e002`) and Acme Evelyn (`acme.e021`) sessions. Taylor's [registration steps](labs/AR-047/README.md#2-add-one-hr-row-and-import-the-complete-file) retain the existing identity. Use existing sign-in for the retained AD account when external authentication is configured. Verify each session's username. Taylor will submit and remove access for himself; this module does not require changing Requests on Behalf.
+1. Verify Taylor (`acme.e025`) and the retained AD account from AR-047-049. Keep the current GG-ACME-FAULT-049, its original GUID and restored permissions. Verify Taylor has no membership in that group, VPN, Remote Users or baseline, and no pending test request. Use [native AD checks](M02-CHECKS.md#inspect-direct-ad-membership). Do not create another Taylor account.
+2. Prepare separate Acme Admin, Acme Taylor, Acme Priya (`acme.e002`) and Acme Evelyn (`acme.e021`) sessions. Taylor's [registration steps](guided-labs/AR-047/README.md#2-add-one-hr-row-and-import-the-complete-file) retain the existing identity. Use existing sign-in for the retained AD account when external authentication is configured. Verify each session's username. Taylor will submit and remove access for himself; this module does not require changing Requests on Behalf.
 3. Open **Admin > Access Model > Access Profiles > Create New**. Name the profile `AP-Acme-Subscriber-Test`, description `Acme isolated event-trigger exercise`, owner Priya, source your AD source. Reuse the named profile on a repeat.
 4. Under **Manage Entitlements**, add only the current GG-ACME-FAULT-049 by source and native value. Under **Access Requests**, enable requests, require grant approval and add only Primary Owner. Under **Reviewing Removal Requests**, require approval and add only Primary Owner. Require a reason, leave form/date requirements off and keep direct reviewer approval, not Workflow.
 5. Save, enable from the profile list and Apply Changes when offered. Reopen the profile and record its ID, current entitlement ID/native value and Priya's grant/removal review. Keep the direct entitlement non-requestable, the profile outside segments and automatic assignments, and earlier disposable profiles disabled.
@@ -130,7 +130,7 @@ The event can contain multiple approval entries. Preserve those entries in the e
 
 ## Compare asynchronous handling without mixing contracts
 
-In synchronous mode the HTTP response carries the decision. In asynchronous mode the subscriber first acknowledges and later completes the invocation using its supplied callback URL and secret. Follow [AR-090](labs/AR-090/README.md) to run the latter contract with a manual callback. [Response contracts](https://developer.sailpoint.com/docs/extensibility/event-triggers/responding-request-response-trigger/)
+In synchronous mode the HTTP response carries the decision. In asynchronous mode the subscriber first acknowledges and later completes the invocation using its supplied callback URL and secret. Follow [AR-090](guided-labs/AR-090/README.md) to run the latter contract with a manual callback. [Response contracts](https://developer.sailpoint.com/docs/extensibility/event-triggers/responding-request-response-trigger/)
 
 Create `C:/LabEvidence/ISC-Subscriber/callbacks` privately, add `"async": true` to the mode file and start:
 

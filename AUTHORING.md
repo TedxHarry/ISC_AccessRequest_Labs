@@ -2,7 +2,11 @@
 
 Each lab and capstone has temporary **Author: Capture screenshot** notes beside the action being photographed. Use the suggested filename and capture the fields/result listed in the note. Use an extra image suffix when a comparison needs more than one panel.
 
+The canonical walkthroughs are in `guided-labs/`. Additional exercises are in `troubleshooting/` and `try-it-yourself/`, grouped by module. The former path URLs remain compatibility links; edit the canonical pages. The removal tool scans all three current folders.
+
 Save images in that lab's `images/` folder. Add the real Markdown image and a short explanatory caption beside the matching step, **outside** the marked author block. Existing screenshots remain in place; no empty image placeholders have been added.
+
+For module practice guides, use a lab-ID subfolder such as `try-it-yourself/images/AR-001/` so filenames remain unambiguous. Place the screenshot note before an approval, denial or restoration that would hide the state being photographed. Existing image links may still refer to retained assets under an older folder; keep those assets while the links use them.
 
 When all images and captions are ready, preview removal of the temporary instructions:
 

@@ -49,7 +49,7 @@ Investigate each report, identify the relevant evidence, explain the root cause,
 | T43 | I | The second item has the wrong change ticket | Per-item form answers / AR-037 |
 | T44 | A | A date amendment used a different reviewer path | Date amendment versus re-request / AR-041 |
 | T45 | A | VPN was removed from only one of two accounts | Selected-account assignment / AR-045 |
-| T46 | A | SoD warned the reviewer but the conflicting grant proceeded | Warning versus decision enforcement / AR-076–077 |
+| T46 | A | SoD warned the reviewer but the conflicting grant proceeded | Warning versus decision enforcement / AR-076-077 |
 | T47 | A | A completed manual task is absent from account data | Disconnected reconciliation / AR-078 |
 | T48 | A | JIT was approved but the account has no membership | Assignment versus activation / AR-079 |
 | T49 | A | Approval now asks the reviewer to authenticate again | Reauthentication / AR-080 |

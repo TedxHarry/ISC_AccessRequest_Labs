@@ -1,97 +1,12 @@
 # AR-066 · Add a final reviewer dynamically
 
-In this lab, you'll add Evelyn after Priya's normal review, then run a second request with no additional reviewer.
+[Open the guided lab](../../guided-labs/AR-066/README.md).
 
-## Before you start
-
-Complete [AR-065](../AR-065/README.md). Keep Submitted disabled and Taylor clean. Use Acme Admin, Taylor, Priya, Evelyn and the AD workstation. The service and validated HTTPS route remain available. ## Follow the steps
-
-### 1. Configure the additional reviewer
-
-1. Open Evelyn in **Admin > Identity Management > Identities**, search acme.e021 and copy her ISC ID and display name. Verify her separate session works. In the private mode file set dynamic reviewer and the reviewer object's id/name to those values, type IDENTITY. Keep submitted approve and async absent/false.
-2. POST the workbench's authenticated synthetic Submitted input to `/dynamic`. Verify the response is Evelyn's id/name/type object, not an approved boolean.
-
-   <!-- AUTHOR_SCREENSHOT_START: AR-066-01 -->
-
-   > **Author: Capture screenshot**
-   >
-   > **Filename:** `AR-066-01.png`
-   >
-   > **Show:** Evelyn identity and local dynamic response.
-
-   <!-- AUTHOR_SCREENSHOT_END: AR-066-01 -->
-3. Inspect existing Access Request Dynamic Approval subscriptions. If another integration owns the single Response Required slot, retain local evidence and leave live cases Not run.
-4. Follow [subscription setup and validation](../../SUBSCRIBER-WORKBENCH.md#scope-the-subscription-before-enabling-it): name `SUB-Acme-AR-Dynamic`, description `Taylor additional reviewer`, trigger Access Request Dynamic Approval, path `/dynamic`, Synchronous response and Basic Auth. Use the same requestedItems/Taylor/profile/Add filter and repeat its positive/negative tests. Save Disabled and reopen it before enabling.
-
-**Check:** The service returns a real reviewer ID. The test profile's own Primary Owner/Priya review remains unchanged.
-
-### 2. Observe Priya followed by Evelyn
-
-1. Enable only SUB-Acme-AR-Dynamic. Submit as Taylor using [the submission steps](../../SUBSCRIBER-WORKBENCH.md#submit-one-taylor-request), reason `AR-066 Evelyn final review`.
-2. Match the dynamic invocation and returned Evelyn object in Activity Log and the terminal. The trigger may run while building the approval list; the added reviewer becomes the final review step after configured requirements. Do not wait until Priya decides before looking for the invocation.
-3. Inspect the request process and both reviewers' queues. As Priya, approve the matching Grant with `AR-066 primary owner approved`. Before Evelyn acts, require an outstanding Evelyn review and native disposable membership False.
-
-   <!-- AUTHOR_SCREENSHOT_START: AR-066-02 -->
-
-   > **Author: Capture screenshot**
-   >
-   > **Filename:** `AR-066-02.png`
-   >
-   > **Show:** Priya completed, Evelyn pending and membership absent.
-
-   <!-- AUTHOR_SCREENSHOT_END: AR-066-02 -->
-4. As Evelyn, open **Approvals > Access Requests > Requested**, inspect Taylor/profile/reason and approve with `AR-066 additional review approved`. Follow Account Activity and verify native membership True.
-5. Disable Dynamic and complete [Taylor's profile removal](../../SUBSCRIBER-WORKBENCH.md#decide-and-remove-the-test-access), including Priya's Remove approval, native False and refreshed assignment absence.
-
-   <!-- AUTHOR_SCREENSHOT_START: AR-066-03 -->
-
-   > **Author: Capture screenshot**
-   >
-   > **Filename:** `AR-066-03.png`
-   >
-   > **Show:** Final grant, removal and disabled subscription.
-
-   <!-- AUTHOR_SCREENSHOT_END: AR-066-03 -->
-
-**Check:** Priya's decision advanced the request; Evelyn's separate decision completed its grant review.
-
-### 3. Return no additional reviewer
-
-1. With Dynamic disabled, change only dynamic to none and save. POST the synthetic input to `/dynamic`. Verify this documented no-review response:
-
-```json
-{"id": "", "name": "", "type": ""}
-```
-
-2. Enable Dynamic and submit a fresh Taylor request, reason `AR-066 no additional reviewer`. Match its invocation and returned empty fields.
-3. Inspect the process before deciding. As Priya, approve the matching Grant. Verify no additional Evelyn step was added and the request fulfills after the normal review. Confirm native membership True.
-
-   <!-- AUTHOR_SCREENSHOT_START: AR-066-04 -->
-
-   > **Author: Capture screenshot**
-   >
-   > **Filename:** `AR-066-04.png`
-   >
-   > **Show:** No-additional-review response, completed normal review and cleanup.
-
-   <!-- AUTHOR_SCREENSHOT_END: AR-066-04 -->
-4. Disable Dynamic, remove the profile as Taylor, approve Remove as Priya, and verify membership False/assignment absent. Restore dynamic reviewer with Evelyn's original object. Leave Submitted and Dynamic disabled.
-
-**Check:** The second response omitted only the additional step; it did not remove the profile's ordinary approval requirement.
-
-## Check the result
-
-The first request waits for Evelyn after Priya; the second completes its normal review without adding her. Both grants are verified and removed. The final file again selects Evelyn and subscriptions are disabled.
-
-## Engineering practice
-
-1. After the working cases, record GOV-Security-Review's ID from **Admin > Identity Management > Governance Groups** and verify its intended membership. Prepare Noah's existing acme.e007 session.
-2. With Dynamic disabled, save Evelyn's reviewer object. Replace it with the group's ID, name GOV-Security-Review and type GOVERNANCE_GROUP. POST the synthetic input to /dynamic and inspect that exact object.
-3. Enable the validated Dynamic subscription for one Taylor request, reason `AR-066 group reviewer`. Have Priya approve the normal review. Verify the additional task is assigned to the group; have Noah inspect and deny it with `AR-066 group test complete`.
-4. Verify terminal denial and native membership False. Disable Dynamic and restore Evelyn's ID/name/type. Record the group assignee and actual deciding identity separately. Do not treat a governance-group review as the individual-vote quorum from Module 10.
-
-## Finish
-
-Keep both request-response subscriptions disabled, dynamic reviewer restored to Evelyn and Taylor clean. Do not leave the group-reviewer override active. Preserve the profile and current group/account identifiers.
-
-[Previous: AR-065](../AR-065/README.md) · [Course outline](../../README.md) · [Next: AR-067](../AR-067/README.md)
+<a id="1-configure-the-additional-reviewer"></a>
+<a id="2-observe-priya-followed-by-evelyn"></a>
+<a id="3-return-no-additional-reviewer"></a>
+<a id="ar-066--add-a-final-reviewer-dynamically"></a>
+<a id="before-you-start"></a>
+<a id="check-the-result"></a>
+<a id="engineering-practice"></a>
+<a id="finish"></a>

@@ -24,8 +24,8 @@ def main():
         parser.error('--write requires --remove')
     root = Path(__file__).resolve().parents[1]
     pending = []
-    for directory in ['labs', 'Labs_Happypath', 'capstones']:
-        for file in sorted((root / directory).rglob('README.md')):
+    for directory in ['guided-labs', 'troubleshooting', 'try-it-yourself']:
+        for file in sorted((root / directory).rglob('*.md')):
             text = file.read_text(encoding='utf-8')
             clean, count = strip_notes(text)
             if count:
@@ -36,7 +36,7 @@ def main():
         for file, clean, _ in pending:
             file.write_text(clean, encoding='utf-8')
     action = 'Removed' if args.write else 'Would remove' if args.remove else 'Found'
-    print(f'{action} {total} screenshot notes in {len(pending)} walkthroughs.')
+    print(f'{action} {total} screenshot notes in {len(pending)} lab and practice pages.')
     if args.remove and not args.write:
         print('Preview only. Add --write to remove the marked notes. Images, captions and other text are preserved.')
 

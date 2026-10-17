@@ -1,6 +1,6 @@
 # Module 1: prepare before starting
 
-Module 1 covers AR-001–009. It prepares the identities, target accounts and sessions needed for access requests. The first user-submitted business request follows in Module 2.
+Module 1 covers AR-001-009. It prepares the identities, target accounts and sessions needed for access requests. The first user-submitted business request follows in Module 2.
 
 ## Have these available
 
@@ -9,10 +9,9 @@ Module 1 covers AR-001–009. It prepares the identities, target accounts and se
 | ISC | Administrator who can manage sources, identity profiles, access profiles and roles | AR-001 |
 | Windows AD workstation | Active Directory Users and Computers, permission to manage the dedicated AcmeLab area | AR-003 |
 | AD source in ISC | Working read connection; correct account/group scopes | AR-003 |
-| AD provisioning | Existing supported IQService/TLS setup and account/group write permissions | AR-005–006 |
+| AD provisioning | Existing supported IQService/TLS setup and account/group write permissions | AR-005-006 |
 | REST client | Postman or equivalent, administrator-owned API credentials kept private | AR-004 |
 | Test email/sign-in | Three distinct controlled addresses and the tenant’s supported authentication route | AR-008 |
-| Private evidence folder | Working HR file, earlier request results and screenshots | Every lab |
 
 On a Windows client, open **Active Directory Users and Computers** from Windows Tools or run `dsa.msc`. Server Manager > Tools is the Windows Server route. If the console is unavailable, arrange the AD administration tools before AR-003. You do not need to sign in to a domain controller to use a properly configured administration workstation.
 
@@ -24,7 +23,7 @@ An existing AD connection may read successfully while lacking write prerequisite
 |---|---|
 | AR-001 | 24 HR accounts, 24 ISC identities; no AD account created by this import |
 | AR-002 | 23 resolved manager relationships; Morgan is the one root |
-| AR-003–004 | Lucas’s one standard AD account imported and linked; 14 business groups imported |
+| AR-003-004 | Lucas’s one standard AD account imported and linked; 14 business groups imported |
 | AR-005 | Baseline group added: 15 course groups; saved creation settings, still no new Liam account |
 | AR-006 | Lucas and Liam linked to AD accounts; both in baseline group |
 | AR-007 | 24 standard AD accounts and 24 course baseline members |
@@ -35,8 +34,10 @@ Count course objects, not the entire tenant or source. When resuming, inspect wh
 
 Create Account mappings affect new accounts. Existing Lucas attributes and later HR email changes need separate verification; the creation policy does not retroactively synchronize them. Reused standard accounts outside Users require an explicit layout/account-selection decision before later multi-account labs.
 
-## What to practice here
+## Begin at the right point
 
-Follow the HR department correction in AR-001 and the wrong-manager correction in AR-002. Prove the difference between an imported account and an identity, between correlation and creation, and between a successful operation and the actual AD result. Capture real failures if encountered. Deliberate connector permission faults belong to AR-048, after the working baseline is established.
+If the Acme environment is new, start AR-001 and follow the setup labs. If someone already prepared this exact environment, validate [AR-009](guided-labs/AR-009/README.md), then repair any missing prerequisites before AR-010. A working AD connection alone is not the completed Acme setup.
 
-[Begin AR-001](labs/AR-001/README.md) · [Continue AR-002](labs/AR-002/README.md) · [Course outline](README.md)
+Keep the complete working HR file and any original setting needed for restoration. No evidence folder or written journal is required.
+
+[Begin AR-001](guided-labs/AR-001/README.md) · [Continue AR-002](guided-labs/AR-002/README.md) · [Course outline](README.md)

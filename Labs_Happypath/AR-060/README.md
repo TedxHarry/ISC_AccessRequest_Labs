@@ -1,96 +1,13 @@
-# AR-060 — Test a quorum with three separate reviewers
+# AR-060 ; Test a quorum with three separate reviewers
 
-In this lab, you'll configure a 60 percent quorum and observe when approvals or denials determine its outcome.
+[Open the guided lab](../../guided-labs/AR-060/README.md).
 
-## Before you start
-
-Complete [AR-059](../AR-059/README.md). Use Henry and three individual reviewers: Noah (`acme.e007`), Evelyn (`acme.e021`) and William (`acme.e022`), with sessions from AR-029. Keep Acme Admin, Ava for removals, AD verification available.
-
-## Follow the steps
-
-### 1. Configure the three-person quorum
-
-1. Verify Henry is clean. Duplicate WF-Acme-AR058 through **Admin > Workflows > Manager > Actions > Duplicate Workflow** and name the copy `WF-Acme-AR060`.
-2. In Approval Policy, choose **Approval Type: Quorum**, **Approval Scheme: Parallel**, **Quorum Approval Percentage: 60**.
-3. Under Add Reviewers, add three separate **Identity (Other)** entries: Noah, Evelyn and William by username. Save and verify exactly three identities. Do not use one GOV-Security-Review entry; that is a different participant model.
-4. Keep Reminder No, Timeout 2 days and Action at Timeout Expire. Save, validate, enable and attach the copy to Production Support. Preserve form/date requirements and Ava's removal approval.
-
-   <!-- AUTHOR_SCREENSHOT_START: AR-060-01 -->
-
-   > **Author: Capture screenshot**
-   >
-   > **Filename:** `AR-060-01.png`
-   >
-   > **Show:** Three individual reviewers and threshold.
-
-   <!-- AUTHOR_SCREENSHOT_END: AR-060-01 -->
-5. Write the prediction: two approvals out of three exceed 60 percent. After one denial, two approvals are still possible; after two denials, the target cannot be reached.
-
-**Check:** The percentage and denominator are explicit. See [Adaptive Approvals](https://documentation.sailpoint.com/saas/help/adaptive_approvals/index.html).
-
-### 2. Reach the quorum before the third reviewer acts
-
-1. Submit as Henry using only steps 1–2 of [the submission section](../AR-058/README.md#3-submit-a-complete-request-and-inspect-its-execution), reason `AR-060 two approvals` and ticket `CHG-LAB-060-A` if required. Match its AR-060 execution and three tasks. Stop before any approval; the decisions are below.
-2. As Noah, inspect and approve the matching Grant. Leave the others undecided. Record the process and verify Support False.
-3. As Evelyn, approve. Before William acts, inspect the final policy/request result and William's task state. Verify Support True after provisioning.
-
-   <!-- AUTHOR_SCREENSHOT_START: AR-060-02 -->
-
-   > **Author: Capture screenshot**
-   >
-   > **Filename:** `AR-060-02.png`
-   >
-   > **Show:** Two approvals and third task state.
-
-   <!-- AUTHOR_SCREENSHOT_END: AR-060-02 -->
-4. Remove the profile through Henry's **My Access > Access Profiles > AP-Production-Support > Revoke Access Profile**, comment `AR-060 case A complete`. Have Ava approve removal and verify Support False and no assignment.
-
-**Check:** Two approvals completed the quorum without a required third approval.
-
-### 3. Continue after one denial
-
-1. Submit a fresh Henry request with reason `AR-060 one denial then approvals`, valid form/date values and a new execution.
-2. As Noah, deny with `AR-060 first reviewer disagrees`. Inspect before the others act: two approvals are still possible. Record the open request and Support False.
-3. As Evelyn, approve. One approval and one denial still leave William's decision outstanding. Inspect the process and verify Support False.
-4. As William, approve. Record policy output, request decision and Support True. Remove the profile as Henry, have Ava approve removal and verify Support False.
-
-   <!-- AUTHOR_SCREENSHOT_START: AR-060-03 -->
-
-   > **Author: Capture screenshot**
-   >
-   > **Filename:** `AR-060-03.png`
-   >
-   > **Show:** One denial plus two approvals and cleanup.
-
-   <!-- AUTHOR_SCREENSHOT_END: AR-060-03 -->
-
-**Check:** One denial did not automatically decide this quorum request.
-
-### 4. Make the threshold unreachable
-
-1. Submit another Henry request with reason `AR-060 two denials`. Have Noah deny, inspect the remaining tasks, then have Evelyn deny. Leave William undecided.
-2. Inspect policy/request results and William's queue. Verify the denied outcome and no Support membership. Record the actual completion point; arithmetic alone is not execution evidence.
-
-   <!-- AUTHOR_SCREENSHOT_START: AR-060-04 -->
-
-   > **Author: Capture screenshot**
-   >
-   > **Filename:** `AR-060-04.png`
-   >
-   > **Show:** Two denials, final absence and restored control.
-
-   <!-- AUTHOR_SCREENSHOT_END: AR-060-04 -->
-3. If behaviour differs, retain resolved reviewers, percentage, decision order and output. Do not change the threshold to fit the result. Resolve the request before another test.
-4. Restore Production Support to WF-Acme-AR058, save and reopen. After all AR-060 requests are terminal and grants removed, disable the quorum copy while retaining its definition.
-
-**Check:** Both successful cases are cleaned up and the denied case granted nothing.
-
-## Check the result
-
-Three distinct identities and each decision sequence are recorded. The observations identify the completion threshold. Henry has no Support or unresolved quorum request.
-
-## Finish
-
-Keep the quorum copy disabled, the original control attached/enabled and Henry clean. Retain the case records and original profile settings.
-
-[Previous: AR-059](../AR-059/README.md) · [Course outline](../../README.md) · [Next: AR-061](../AR-061/README.md)
+<a id="1-configure-the-three-person-quorum"></a>
+<a id="2-reach-the-quorum-before-the-third-reviewer-acts"></a>
+<a id="3-continue-after-one-denial"></a>
+<a id="4-make-the-threshold-unreachable"></a>
+<a id="ar-060--test-a-quorum-with-three-separate-reviewers"></a>
+<a id="before-you-start"></a>
+<a id="check-the-result"></a>
+<a id="finish"></a>
+<a id="follow-the-steps"></a>

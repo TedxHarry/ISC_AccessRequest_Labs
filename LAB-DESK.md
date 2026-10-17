@@ -1,6 +1,6 @@
 # Lab desk
 
-Keep this page open beside the current lab. These procedures use the accounts and groups created in AR-001–009.
+Keep this page open beside the current lab. These procedures use the accounts and groups created in AR-001-009.
 
 ## Record your environment
 
@@ -40,10 +40,10 @@ If controllers disagree, record both results and investigate AD replication befo
 
 ## Check the starting state for every lab
 
-1. Read the current lab’s actors and confirm each required requester/reviewer can sign in. For a new actor, repeat [AR-008 Sections 1–4](labs/AR-008/README.md), using the latest complete private HR file.
+1. Read the current lab’s actors and confirm each required requester/reviewer can sign in. For a new actor, repeat [AR-008 Sections 1-4](guided-labs/AR-008/README.md), using the latest complete private HR file.
 2. Record the item’s owner, reviewer or workflow, requestability, form, date constraints, removal policy and segment. Record any global value the lab changes.
 3. Check the recipient’s current assignments, native group memberships and pending requests for the same item/account. A clean grant test needs no matching assignment or pending duplicate. Preserve baseline and unrelated access.
-4. For a request on behalf of Taylor or another user, verify the current requester is authorized under [AR-023](labs/AR-023/README.md). If a temporary setting change is needed, record it, enable only for the exercise, and restore it after all requests have been accounted for. Do not assume an earlier lab left Everyone-for-anyone enabled.
+4. For a request on behalf of Taylor or another user, verify the current requester is authorized under [AR-023](guided-labs/AR-023/README.md). If a temporary setting change is needed, record it, enable only for the exercise, and restore it after all requests have been accounted for. Do not assume an earlier lab left Everyone-for-anyone enabled.
 5. After the lab, remove every test grant, including any known-good control on a second group, and resolve pending controls. Restore recorded settings unless the lab explicitly retains them. Do not advance while a failed removal leaves unexplained access.
 
 Keep Lucas's VPN assignment from AR-012 in place unless a lab explicitly tests its removal. Do not assume a separate grant protects an entitlement when an overlapping profile is revoked. Check the assignment origin and native membership; [profile removal can revoke shared entitlements](https://documentation.sailpoint.com/saas/help/access/access-profiles.html#deprovisioning-with-access-profiles). Use the recipient named in each lab for grant/removal tests.
@@ -146,7 +146,7 @@ Use the Access Request action, not **Generic Approval Policy**. A successful wor
 2. As administrator, inspect **Admin > Access Model > Access Profiles > AP-Remote-Worker > Edit**. Its owner is Priya unless the lab is deliberately testing Samuel. Access Requests uses direct Primary Owner grant/removal review, required reason, no form and no date requirement. Verify the included groups are VPN and Remote Users. Keep the course's developer subscriptions disabled.
 3. In the requester's session open **Request Center > Access Items > Access Profiles**, select AP-Remote-Worker, enter the lab's exact reason and leave dates empty. Select Save, Review Request, verify the recipient and standard account, then Submit Request once.
 4. Open My Requests and record the new ID/time. As administrator, open **Admin > Dashboard > Approval Management > Access Requests**, find the matching request and open its access name, Process and Assignees. Record the actual current reviewer. Stop before deciding; the lab gives the next action.
-5. To decide, the named reviewer opens **Approvals > Access Requests > Requested**, verifies recipient/item/reason and chooses Approve or Deny with the lab comment. After approval, follow [Account Activity](#find-the-account-activity) and verify both native groups True. After denial, verify both remain False. Preserve account DN/GUID and each recipient's original baseline state.
+5. To decide, the named reviewer opens **Approvals > Access Requests > Requested**, verifies recipient/item/reason and chooses Approve or Deny with the lab comment. After approval, follow [Account Activity](LAB-DESK.md#find-the-account-activity) and verify both native groups True. After denial, verify both remain False. Preserve account DN/GUID and each recipient's original baseline state.
 
 ## Remove a Remote Worker operations grant
 

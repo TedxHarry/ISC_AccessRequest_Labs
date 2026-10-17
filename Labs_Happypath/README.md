@@ -1,180 +1,21 @@
 # ISC Access Request Labs
 
-Complete the labs in order. Keep the [Module 1 configuration Check](../M01-STATE.md), the [lab desk](../LAB-DESK.md), and each lab's result checks beside you. Use actual tenant values wherever the instructions identify a placeholder. When a step says **find**, **locate**, **reopen**, or **follow** a request or provisioning activity, use the lab desk's exact [request/approval/account-activity lookup procedure](../LAB-DESK.md#find-a-specific-request-approval-or-account-activity) rather than scanning the tenant and guessing.
+[Open the guided lab](../guided-labs/README.md).
 
-## Module 1 · Foundations
-
-1. [AR-001 — Import Acme's HR Records](AR-001/README.md)
-2. [AR-002 — Resolve the Manager Hierarchy](AR-002/README.md)
-3. [AR-003 — Prepare and Aggregate the AD Lab](AR-003/README.md)
-4. [AR-004 — Correlate Lucas's Existing AD Account](AR-004/README.md)
-5. [AR-005 — Configure AD Account Creation](AR-005/README.md)
-6. [AR-006 — Provision Your First AD Account](AR-006/README.md)
-7. [AR-007 — Provision the Remaining Standard Accounts](AR-007/README.md)
-8. [AR-008 — Prepare Requester and Reviewer Sessions](AR-008/README.md)
-9. [AR-009 — Verify the Environment and Save C01](AR-009/README.md)
-
-## Lab method
-
-For each lab:
-
-1. Confirm the prerequisites and starting state.
-2. Follow the numbered steps in order.
-3. Stop at every **Check** and confirm the expected result.
-4. Capture the requested screenshots and evidence.
-5. Complete the final verification before moving to the next lab.
-6. Keep the stated configuration in place for the next exercise.
-
-## Module 2 · First access requests
-
-Keep the [request and target checks](../M02-CHECKS.md) open when preparing new sessions or verifying native AD results.
-
-10. [AR-010 · Make VPN access requestable](AR-010/README.md)
-11. [AR-011 · Require a reviewer and a business reason](AR-011/README.md)
-12. [AR-012 · Approve the first request and prove the AD change](AR-012/README.md)
-13. [AR-013 · Deny a request and verify that access was not added](AR-013/README.md)
-14. [AR-014 · Control VPN catalog availability](AR-014/README.md)
-15. [AR-015 · Request and remove a two-group access profile](AR-015/README.md)
-
-## Module 3 · Business access
-
-Complete the [Module 3 starting checks](../M03-READINESS.md). Keep the existing accounts and baseline assignments throughout the grant/removal exercises.
-
-16. [AR-016 · Bundle Finance reporting access](AR-016/README.md)
-17. [AR-017 · Present Finance access through an application](AR-017/README.md)
-18. [AR-018 · Offer the Finance Analyst role](AR-018/README.md)
-19. [AR-019 · Compare entitlement, profile and role requests](AR-019/README.md)
-20. [AR-020 · Manage the profiles offered by Finance Services](AR-020/README.md)
-21. [AR-021 · Deliver HR Services from a business requirement](AR-021/README.md)
-
-## Module 4 · Visibility and accounts
-
-Complete the [Module 4 starting checks](../M04-READINESS.md). Record original permissions before changing them and keep both account identifiers visible during the Sofia exercises.
-
-22. [AR-022 · Restrict Finance catalog visibility](AR-022/README.md)
-23. [AR-023 · Test who can request for another person](AR-023/README.md)
-24. [AR-024 · Separate requester visibility from recipient eligibility](AR-024/README.md)
-25. [AR-025 · Follow a department change into the catalog](AR-025/README.md)
-26. [AR-026 · Select the correct account for Sofia's access](AR-026/README.md)
-27. [AR-027 · Verify visibility and account targeting](AR-027/README.md)
-
-## Module 5 · Approval routing
-
-Continue from AR-027 with the existing accounts and access configuration. Each lab identifies its requester and reviewer sessions.
-
-28. [AR-028 · Compare manager, item-owner and source-owner routing](AR-028/README.md)
-29. [AR-029 · Require manager review followed by Security](AR-029/README.md)
-30. [AR-030 · Reassign a review and verify the next request](AR-030/README.md)
-31. [AR-031 · Compare consolidated review and self-approval handling](AR-031/README.md)
-32. [AR-032 · Observe reminders, escalation and approval expiration](AR-032/README.md)
-33. [AR-033 · Verify the approval setup and save C05](AR-033/README.md)
-
-## Module 6 · Request forms
-
-Continue from C05. You will create the form in AR-034, add and test its questions, then save C06 after the final grant and removal.
-
-34. [AR-034 · Attach a native form to Production Support](AR-034/README.md)
-35. [AR-035 · Test required and optional form answers](AR-035/README.md)
-36. [AR-036 · Show an extra field for Production work](AR-036/README.md)
-37. [AR-037 · Trace form answers through a multi-item request](AR-037/README.md)
-38. [AR-038 · Repair a missing request form](AR-038/README.md)
-39. [AR-039 · Verify the Production Support form and save C06](AR-039/README.md)
-
-## Module 7 · Temporary access and removal
-
-Keep the completed form and approval configuration. Start with date controls when available, then compare removal by assignment type, overlapping access and Sofia’s two accounts.
-
-40. [AR-040 · Enforce an end date and maximum duration](AR-040/README.md)
-41. [AR-041 · Observe scheduled access and compare date-change reviews](AR-041/README.md)
-42. [AR-042 · Request removal at the correct access level](AR-042/README.md)
-43. [AR-043 · Observe removal across overlapping standalone profiles](AR-043/README.md)
-44. [AR-044 · Compare role-required access with requested access](AR-044/README.md)
-45. [AR-045 · Remove access from one account and save C07](AR-045/README.md)
-
-## Module 8 — Provisioning and reconciliation
-
-Trace a working request, create Taylor’s missing AD account, repair a disposable-group fault and follow manual AD changes into ISC. Keep each lab’s cleanup complete before the next test.
-
-46. [AR-046 — Trace a request from approval to the AD result](AR-046/README.md)
-47. [AR-047 — Create Taylor’s AD account through an access request](AR-047/README.md)
-48. [AR-048 — Diagnose and repair a group-specific AD permission failure](AR-048/README.md)
-49. [AR-049 — Repair a profile after its AD group reference changes](AR-049/README.md)
-50. [AR-050 — Reconcile AD and ISC after a manual group change](AR-050/README.md)
-51. [AR-051 — Resolve a fulfillment incident and save C08](AR-051/README.md)
-
-## Module 9 · Access Request APIs
-
-Prepare the callers, submit and trace a request, compare identifiers, decide and cancel fresh controls, then produce a read-only report. Keep the same tenant objects from C08.
-
-52. [AR-052 · Authenticate and verify the API caller](AR-052/README.md)
-53. [AR-053 · Submit an API request and verify fulfillment](AR-053/README.md)
-54. [AR-054 · Map request, approval and activity identifiers](AR-054/README.md)
-55. [AR-055 · Approve, remove, deny and cancel through the API](AR-055/README.md)
-56. [AR-056 · Handle duplicate submissions and uncertain responses](AR-056/README.md)
-57. [AR-057 · Produce a repeatable request report and save C09](AR-057/README.md)
-
-## Module 10 · Native approval workflows
-
-Start with the capability check in AR-058. Build a working manager review, compare review sequences, test recipient eligibility, repair an association and send decision notifications. Resolve each test and restore its settings before continuing.
-
-58. [AR-058 · Attach and verify a native approval workflow](AR-058/README.md)
-59. [AR-059 · Compare serial and parallel reviews](AR-059/README.md)
-60. [AR-060 · Test a quorum with three separate reviewers](AR-060/README.md)
-61. [AR-061 · Check recipient eligibility before Finance approval](AR-061/README.md)
-62. [AR-062 · Repair a workflow that is not invoked](AR-062/README.md)
-63. [AR-063 · Send a notification that reflects the real decision](AR-063/README.md)
-
-## Module 11 · Developer event triggers and subscribers
-
-Prepare an isolated subscriber, compare preliminary decisions and additional reviewers, capture decision events, then recover from response failures. Start with the local checks; live delivery also needs the controlled HTTPS route and validated subscription filter.
-
-64. [AR-064 · Connect an isolated developer event subscriber](AR-064/README.md)
-65. [AR-065 · Return a preliminary approval or denial](AR-065/README.md)
-66. [AR-066 · Add a final reviewer dynamically](AR-066/README.md)
-67. [AR-067 · Match a decision event to its access request](AR-067/README.md)
-68. [AR-068 · Recover from an invalid or late subscriber response](AR-068/README.md)
-69. [AR-069 · Verify recovery and save the subscriber handover](AR-069/README.md)
-
-## Module 12 · Access Request operations
-
-Triage request evidence, choose the correct administrative action, handle an owner change and mixed item outcomes, then prepare a support handover and complete a controlled support shift.
-
-70. [AR-070 · Triage an Access Request queue](AR-070/README.md)
-71. [AR-071 · Choose between cancellation, closure and removal](AR-071/README.md)
-72. [AR-072 · Change an owner without losing pending work](AR-072/README.md)
-73. [AR-073 · Investigate mixed outcomes in one submission](AR-073/README.md)
-74. [AR-074 · Prepare a reproducible support handover](AR-074/README.md)
-75. [AR-075 · Run an IAM support shift and save C12](AR-075/README.md)
-
-## Module 13 · SoD and manual fulfillment
-
-Compare a policy warning with an enforced workflow stop, then fulfill and reconcile access on a separate file source. AR-078 can be completed without SoD or native approval workflows.
-
-76. [AR-076 · Investigate a separation-of-duties conflict](AR-076/README.md)
-77. [AR-077 · Test a workflow stop for conflicting payment access](AR-077/README.md)
-78. [AR-078 · Fulfill and reconcile a disconnected application](AR-078/README.md)
-
-## Module 14 · Additional capabilities and change control
-
-Choose each track by its own prerequisites. Record unavailable capabilities separately from failed or unexecuted tests; complete AR-088 with the tracks you can actually run.
-
-79. [AR-079 · Activate, extend and expire Just-In-Time access](AR-079/README.md)
-80. [AR-080 · Require reauthentication for a sensitive approval](AR-080/README.md)
-81. [AR-081 · Inspect group reviewers and compare owner categories](AR-081/README.md)
-82. [AR-082 · Test API dates and account-specific removal](AR-082/README.md)
-83. [AR-083 · Request and remove access for a machine identity](AR-083/README.md)
-84. [AR-084 · Trace an entitlement request from Slack to AD](AR-084/README.md)
-85. [AR-085 · Distinguish direct membership, nested access and account state](AR-085/README.md)
-86. [AR-086 · Test service-desk request permissions](AR-086/README.md)
-87. [AR-087 · Reassign review work during an absence](AR-087/README.md)
-88. [AR-088 · Regression-test a product or API change](AR-088/README.md)
-89. [AR-089 · Change a profile and compare assignment origins](AR-089/README.md)
-90. [AR-090 · Complete and time out an asynchronous trigger callback](AR-090/README.md)
-
-## Capstones
-
-Use the same course objects and keep the recorded state from your completed labs. Each capstone names its own prerequisites; optional features are not required for every capstone.
-
-- [CAP-01 · Launch Finance self-service access](capstones/CAP-01/README.md)
-- [CAP-02 · Recover the access request service queue](capstones/CAP-02/README.md)
-- [CAP-03 · Deliver temporary Production Support](capstones/CAP-03/README.md)
+<a id="capstones"></a>
+<a id="isc-access-request-labs"></a>
+<a id="lab-method"></a>
+<a id="module-1--foundations"></a>
+<a id="module-10--native-approval-workflows"></a>
+<a id="module-11--developer-event-triggers-and-subscribers"></a>
+<a id="module-12--access-request-operations"></a>
+<a id="module-13--sod-and-manual-fulfillment"></a>
+<a id="module-14--additional-capabilities-and-change-control"></a>
+<a id="module-2--first-access-requests"></a>
+<a id="module-3--business-access"></a>
+<a id="module-4--visibility-and-accounts"></a>
+<a id="module-5--approval-routing"></a>
+<a id="module-6--request-forms"></a>
+<a id="module-7--temporary-access-and-removal"></a>
+<a id="module-8--provisioning-and-reconciliation"></a>
+<a id="module-9--access-request-apis"></a>

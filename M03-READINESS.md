@@ -1,6 +1,6 @@
 # Module 3 · Prepare for business access requests
 
-Start with C02 from AR-015. Keep your private earlier request results, [actual environment values](LAB-VALUES.md), and [request and AD checks](M02-CHECKS.md) open. You will reuse the existing AD accounts and groups.
+Start with C02 from AR-015. Keep your private earlier request and activity details, [actual environment values](LAB-VALUES.md), and [request and AD checks](M02-CHECKS.md) open. You will reuse the existing AD accounts and groups.
 
 ## Check your starting point
 

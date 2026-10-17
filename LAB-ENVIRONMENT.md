@@ -37,7 +37,7 @@ AR-009 is the environment gate: demonstrate correlation, group aggregation, targ
 
 Use employeeNumber as the stable HR identifier. Map managerEmployeeNumber through the chosen manager-correlation configuration; a populated CSV column alone is not proof of a resolved ISC manager.
 
-Download the [HR baseline CSV](datasets/acme-hr-baseline.csv) and follow [AR-001](labs/AR-001/README.md) to import it.
+Download the [HR baseline CSV](datasets/acme-hr-baseline.csv) and follow [AR-001](guided-labs/AR-001/README.md) to import it.
 
 Columns: employeeNumber, userName, firstName, lastName, displayName, email, department, title, managerEmployeeNumber, location, employeeType, costCenter, status, startDate.
 
@@ -45,7 +45,7 @@ The file uses usernames `acme.e001` through `acme.e024`, display names prefixed 
 
 | ID | Name | Department | Manager | Course responsibility or controlled variant |
 |---|---|---|---|---|
-| E001 | Morgan Reed | IT | — | Executive manager; intentional hierarchy root |
+| E001 | Morgan Reed | IT | ; | Executive manager; intentional hierarchy root |
 | E002 | Priya Shah | IT | E001 | IT manager and VPN owner |
 | E003 | Daniel Brooks | Finance | E001 | Finance manager and Finance application owner |
 | E004 | Elena Cruz | HR | E001 | HR manager and HR application owner |
@@ -128,7 +128,7 @@ The population grows only in the named exercises:
 |---|---|
 | AR-026 | Sofia's second AD account; still 24 HR identities and 24 standard accounts |
 | AR-047 | Taylor Stone, E025, and a request-created AD account; 25 HR identities and 26 AD accounts including Sofia's extra account |
-| AR-048–049 | One disposable permission/reference-test group; renamed to GG-ACME-FAULT-049 |
+| AR-048-049 | One disposable permission/reference-test group; renamed to GG-ACME-FAULT-049 |
 | AR-076 | Two isolated payment-duty groups for SoD |
 | AR-078 | Two correlated accounts on a separate non-authoritative disconnected source; no new identities |
 | AR-080/081 | One isolated approval-feature profile on the existing disposable group |

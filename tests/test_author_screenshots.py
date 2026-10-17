@@ -22,14 +22,22 @@ class AuthorScreenshotTests(unittest.TestCase):
             module.strip_notes('<!-- AUTHOR_SCREENSHOT_START: one -->\ntext\n<!-- AUTHOR_SCREENSHOT_END: two -->\n')
 
     def test_every_walkthrough_has_removable_notes(self):
-        files = [*ROOT.glob('labs/AR-*/README.md'), *ROOT.glob('Labs_Happypath/AR-*/README.md'), *ROOT.glob('capstones/CAP-*/README.md'), *ROOT.glob('Labs_Happypath/capstones/CAP-*/README.md')]
-        self.assertEqual(len(files), 186)
+        files = [*ROOT.glob('guided-labs/AR-*/README.md'), *ROOT.glob('guided-labs/capstones/CAP-*/README.md')]
+        self.assertEqual(len(files), 93)
         for file in files:
             text = file.read_text(encoding='utf-8')
             clean, count = module.strip_notes(text)
             self.assertGreater(count, 0, str(file))
             self.assertNotIn('AUTHOR_SCREENSHOT_', clean)
             self.assertEqual(clean.count('```'), text.count('```'), str(file))
+
+    def test_practice_notes_are_also_removable(self):
+        for directory in ['troubleshooting', 'try-it-yourself']:
+            for file in (ROOT / directory).glob('*.md'):
+                text = file.read_text(encoding='utf-8')
+                clean, _ = module.strip_notes(text)
+                self.assertNotIn('AUTHOR_SCREENSHOT_', clean)
+                self.assertEqual(clean.count('```'), text.count('```'), str(file))
 
 if __name__ == '__main__':
     unittest.main()

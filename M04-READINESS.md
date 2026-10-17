@@ -12,7 +12,7 @@ Start with C03 from AR-021. Keep the [actual-value guide](LAB-VALUES.md), [reque
 | Liam | acme.e008 | IT | Priya, acme.e002 | Outside-Finance requester/recipient |
 | Daniel | acme.e003 | Finance | Morgan, acme.e001 | Manager-selection check and Finance reviewer |
 | Priya | acme.e002 | IT | Morgan, acme.e001 | VPN grant/removal reviewer |
-| Sofia | acme.e009 | IT | Priya, acme.e002 | Two-account exercise in AR-026–027 |
+| Sofia | acme.e009 | IT | Priya, acme.e002 | Two-account exercise in AR-026-027 |
 
 2. On the first pass, confirm each has one linked standard AD account before AR-026. On a repeat, Sofia may already have the second account from AR-026; retain it and check both accounts instead of treating it as a duplicate. Verify the current browser session's username before every requester/reviewer action. Use ordinary-user sessions for catalog comparisons and a separate Acme Admin profile for configuration.
 3. Check C03's retained Finance profiles, Finance Analyst role, Finance Services and Remote Worker. They must be enabled/requestable. Olivia and Liam have no unfinished Finance requests or Finance business access; Liam also lacks VPN and Remote Users. Lucas retains VPN.
@@ -52,6 +52,6 @@ Saving a segment is not proof that every requester already sees the new result. 
 
 On a repeat after later modules, inspect the current course policies and assignments before restoring first-pass settings. Preserve later work and use the recorded request/account identifiers to choose where to resume.
 
-If returning during AR-023–024, read the saved original request-on-behalf settings before changing them. If the exercise is stopping, restore that original configuration and record the next step; re-enable the temporary mode only when resuming AR-024.
+If returning during AR-023-024, read the saved original request-on-behalf settings before changing them. If the exercise is stopping, restore that original configuration and record the next step; re-enable the temporary mode only when resuming AR-024.
 
 If returning during the department exercise, compare the saved original complete file with the current tenant before restoring. Preserve newer employee records and unrelated edits. If a Sofia request is pending, complete that request's review/provisioning stage rather than submitting another. If granted, verify and revoke its exact account assignment through ISC. Keep both accounts for later labs and never remove baseline as a reset.

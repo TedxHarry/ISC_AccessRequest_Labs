@@ -1,153 +1,19 @@
 # AR-024 · Separate requester visibility from recipient eligibility
 
+[Open the guided lab](../../guided-labs/AR-024/README.md).
+
+<a id="1-verify-the-two-different-people"></a>
+<a id="2-submit-as-lucas-for-liam"></a>
+<a id="3-inspect-and-deny-the-request"></a>
+<a id="4-prove-the-denial-left-access-unchanged"></a>
+<a id="5-restore-the-original-request-on-behalf-permission"></a>
+<a id="ar-024--separate-requester-visibility-from-recipient-eligibility"></a>
+<a id="before-you-start"></a>
+<a id="check-the-result"></a>
+<a id="explain-the-result"></a>
+<a id="final-verification"></a>
+<a id="finish"></a>
+<a id="follow-the-steps"></a>
 <a id="goal"></a>
-
-In this lab, you'll have Lucas request Finance Reporting for Liam and Daniel deny it, then verify that catalog visibility allowed submission but the review prevented the grant.
-
-## Before you start
-
-Complete [AR-023](../AR-023/README.md). Keep its **original request-on-behalf configuration** record. Open Acme Admin, Acme Lucas (`acme.e012`), Acme Liam (`acme.e008`), Acme Daniel (`acme.e003`) and the AD workstation.
-
-SEG-Acme-Finance remains enabled. Everyone-for-anyone must be enabled for this test; if you restored the original setting while pausing AR-023, enable the temporary mode again using its Section 4. If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
-
-## Follow the steps
-
-### 1. Verify the two different people
-
-1. As administrator, inspect Lucas and Liam under **Admin > Identity Management > Identities**. Record their identity IDs, usernames and Departments: Finance and IT respectively.
-2. Inspect Liam's **Accounts** and **Access**. Use [administrator request details](../../M02-CHECKS.md#inspect-a-request-as-administrator) to check unfinished requests for Liam, including those submitted by another person. He must have no Finance Reporting assignment or unfinished matching request.
-3. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for Liam against GG-FIN-REPORTING, GG-VPN-USERS and GG-ACME-BASELINE. Record the account DN/objectGUID.
-4. Open **Admin > Access Model > Access Profiles > AP-Finance-Reporting > Access Requests**. Confirm its saved grant reviewer is **Primary Owner**, Daniel, and request/denial comments are required.
-5. In Liam's own Request Center, verify AP-Finance-Reporting is absent while Remote Worker is visible. Record this before Lucas submits anything.
-
-**Check:** Liam has neither business group and retains baseline. The profile has an explicit Daniel review, and Liam's own catalog remains restricted.
-
-<!-- AUTHOR_SCREENSHOT_START: AR-024-01 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-024-01.png`
->
-> **Show:** Different departments, clean recipient and restricted catalog.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-024-01 -->
-
-### 2. Submit as Lucas for Liam
-
-1. In Acme Lucas, verify `acme.e012` in the user menu.
-2. Open **Request Center > Request for Others**.
-3. In **Select Identities**, search `acme.e008`, select Liam and choose **Request for These Identities**.
-4. Check the request header identifies **Liam** as recipient. Lucas remains the signed-in requester.
-5. Open **Access Items > Access Profiles**, search AP-Finance-Reporting and inspect its details.
-6. Select the profile. Enter `AR-024: Recipient eligibility test; deny Finance access for Liam`, keep immediate access and verify Liam's standard account if prompted. Select **Save**.
-7. Select **Review Request**, check Liam, one profile and the account, then **Submit Request** once.
-8. Record the **My Requests** entry, request ID and time.
-
-**Check:** Lucas submitted a visible Finance item for Liam under the temporary request-on-behalf permission. The submitted recipient must not be Lucas.
-
-<!-- AUTHOR_SCREENSHOT_START: AR-024-02 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-024-02.png`
->
-> **Show:** Lucas's request for Liam.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-024-02 -->
-
-### 3. Inspect and deny the request
-
-1. In Acme Daniel, open **Approvals > Access Requests > Requested** and find this AP-Finance-Reporting **Grant**.
-2. Open **Details** and verify both the requester and requested-for identity and business reason. If a single-account request does not show an account selection, use administrator details and Liam's recorded linked AD account to confirm the target before deciding.
-3. In Acme Admin, locate [the matching request](../../LAB-DESK.md#find-the-request). Inspect **Assignees** and confirm Daniel. Read Liam's identity Department to support the decision; do not infer it from Lucas's department.
-4. In Acme Daniel, select **Deny**, enter `Recipient is not eligible for Finance access for this task` and confirm.
-5. Verify **Reviewed** and record the denied result in administrator request details.
-
-**Check:** Daniel denied Liam's request based on the recipient. This is a deliberate human decision, not an automated department check.
-
-<!-- AUTHOR_SCREENSHOT_START: AR-024-03 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-024-03.png`
->
-> **Show:** Recipient-aware denial and request details.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-024-03 -->
-
-### 4. Prove the denial left access unchanged
-
-1. Repeat Liam's three native checks on the same controller.
-2. Inspect Liam's ISC **Access** and **Accounts** after processing. No reporting profile should have been added. If imported data differs, use [the AD refresh procedure](../../M02-CHECKS.md#refresh-imported-ad-data).
-3. Reopen Liam's own Request Center and repeat the Finance/Remote Worker comparison.
-4. Check Lucas still has his direct VPN and baseline. Do not remove Lucas's VPN as cleanup for a request made for Liam.
-5. Record request/decision evidence and native results. A denied request need not produce a successful AD add operation.
-
-**Check:** Liam still lacks Reporting and VPN; baseline remains. His catalog restriction and Lucas's retained access are unchanged.
-
-<!-- AUTHOR_SCREENSHOT_START: AR-024-04 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-024-04.png`
->
-> **Show:** Unchanged native access and catalog.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-024-04 -->
-
-### 5. Restore the original request-on-behalf permission
-
-1. Open the original-setting record from AR-023, not the temporary everyone-mode screenshot.
-2. As administrator, open **Admin > Global > System Settings > Feature Settings > Access Requests**.
-3. Restore the original selected mode. If requests on behalf were originally disabled, turn **Enable Requests on Behalf of others** off after restoring any stored selection that is editable.
-4. Select **Save**, leave and reopen to verify the original on/off state and mode.
-5. Refresh the ordinary-user sessions. Recheck one appropriate row: if originally manager-only, Daniel can choose Lucas and Lucas cannot choose Liam; if originally disabled, Lucas has no ordinary request-for-others choice; if originally everyone, Lucas can choose Liam.
-6. Leave that test without selecting or submitting access. Confirm no pending AR-024 request remains.
-
-**Check:** The temporary broad permission has been replaced by the exact original configuration, and the ordinary-user behavior agrees with it.
-
-<!-- AUTHOR_SCREENSHOT_START: AR-024-05 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-024-05.png`
->
-> **Show:** Restored original permission and behavior.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-024-05 -->
-
-## Check the result
-
-### If the result differs
-
-If you stop before completing the denial, restore the original request-on-behalf setting using Section 5 and record the outstanding request ID and stage. Restoring the setting does not cancel an already-submitted request; finish its review or use the [existing-request procedure](../../M02-READINESS.md#account-for-existing-requests-before-repeating) before another attempt.
-
-If the profile is unavailable to Lucas, verify his session, Finance identity attribute and the segment before loosening visibility. If it was accidentally approved, do not report the denial exercise as passed: verify Liam's actual groups, remove the requested profile through the AR-016 removal procedure using Liam as recipient and Daniel as reviewer, then repeat from a clean state with a new request ID. Preserve Lucas's grant.
-
-### Explain the result
-
-Write the rule an automated approval would need to enforce for this scenario. Identify whose identity attributes it must read.
-
-<details>
-<summary>Check your explanation</summary>
-
-The decision must evaluate the requested-for identity, Liam, against the approved Finance eligibility rule. Looking only at requester Lucas's Finance department would permit the wrong recipient. The segment and request-on-behalf setting allowed submission; Daniel's manual denial prevented fulfillment. Keep this evidence for the later recipient-check workflow exercise.
-
-</details>
-
-### Final verification
-
-- [ ] Lucas and Liam were recorded as separate requester and recipient.
-- [ ] Daniel reviewed the submitted profile request and denied it.
-- [ ] Liam gained neither group and kept his original account/baseline.
-- [ ] Liam's own catalog remains restricted.
-- [ ] Original request-on-behalf settings and behavior are restored.
-- [ ] Lucas's VPN and the Finance segment remain intact.
-
-## Finish
-
-### Leave this in place
-
-Retain the Finance segment and original request-on-behalf configuration. Liam finishes without Finance Reporting or VPN. [Requester segment scope](https://documentation.sailpoint.com/saas/help/requests/segments.html) · [Request-on-behalf settings](https://documentation.sailpoint.com/saas/help/requests/requests_for_others.html)
-
-[Previous: AR-023](../AR-023/README.md) · [Lab index](../README.md) · [Next: AR-025](../AR-025/README.md)
+<a id="if-the-result-differs"></a>
+<a id="leave-this-in-place"></a>

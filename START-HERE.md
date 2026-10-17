@@ -1,69 +1,38 @@
 # Start Here
 
-Build the environment once, then complete the labs in order. Choose the beginner path to follow the working scenario, or the engineering path for the same guided steps with additional troubleshooting practice. Both paths use the same lab environment.
+Begin with the Guided Labs. Each lab tells you who to sign in as, where to go, what to change, what result to expect, and what to leave in place.
 
-## Your learning path
+## 1. Check your environment
 
-| Stage | Modules | What you are building |
-|---|---|---|
-| **Foundation** | M01–M02 | Reliable lab data and your first verified access request |
-| **Access design** | M03–M04 | Access profiles, roles, applications, visibility, and requests for others |
-| **Request engineering** | M05–M07 | Approval routing, forms, temporary access, and removal behavior |
-| **Troubleshooting** | M08 | A repeatable method for approved-but-missing-access incidents |
-| **Automation** | M09–M11 | APIs, workflows, and event-trigger integrations |
-| **Operations** | M12 + Capstones | Production-style tickets, changes, investigations, and independent delivery |
-| **Policy and disconnected systems** | M13 | SoD warning/enforcement and manual fulfillment with reconciliation |
-| **Additional capabilities** | M14 | JIT, reauthentication, machine requests, permissions, delegation, model changes and callbacks |
+You need an ISC training tenant and an isolated AD environment with the connector infrastructure already installed. Follow the [preparation checklist](M01-READINESS.md) to confirm access and tools. You will create the Acme course objects in the setup labs.
 
-Use the [coverage and prerequisite matrix](COVERAGE.md) to choose tracks available in your tenant. Keep the [lab desk](LAB-DESK.md) open while following the walkthroughs. Each lab ends with the screenshots to capture and links to its evidence result checks.
+| Your starting point | Begin here |
+|---|---|
+| Infrastructure is ready, but the Acme course objects do not exist | [AR-001: import the HR records](guided-labs/AR-001/README.md) |
+| The Acme identities, accounts, baseline access and sessions are already prepared | [AR-009: verify the exact course environment](guided-labs/AR-009/README.md). Complete any missing setup before AR-010. |
+| You paused partway through the course | Reopen your current lab and compare its **Before you start** and **Finish** sections with the current environment. Keep later legitimate objects. |
 
-## How to complete each lab
+An unrelated working ISC tenant is not automatically the prepared Acme environment.
 
-If a step asks you to record an unfamiliar value, open [Find the values a lab asks you to record](LAB-VALUES.md). It covers domain controllers, directory paths, UPN references, object identifiers and the difference between an entitlement ID and its native value.
+## 2. Follow the everyday-work sequence
 
-1. **Before you start:** Confirm the accounts, permissions and files needed for this lab.
-2. **Follow the steps:** Use the named session and values. Capture screenshots where prompted.
-3. **Check the result:** Compare what you see with the expected result. Use the nearby troubleshooting guidance if it differs.
-4. **Finish:** Keep or restore the configuration specified for the next lab.
+Complete setup AR-001 to AR-009, then AR-010 to AR-051, then daily operations AR-070 to AR-075. Use the [Guided Lab map](guided-labs/README.md) to continue. The map separates feature-dependent exercises and automation extensions.
 
-Engineering labs put their additional investigation after the working walkthrough. Complete the working steps first, then use that evidence to diagnose the supplied case.
+AR-012 completes your first approved request and verifies the AD result. You will then practice denial, packaged access, visibility, approvals, removal and support work.
 
-## Lab types
+## 3. Work through one lab at a time
 
-| Type | What it means | How to approach it |
-|---|---|---|
-| **Build** | Configure a working solution | Follow the requirement, implement it, then prove the outcome |
-| **Practice** | Compare behavior or use an engineering tool | Record what changed and explain the difference |
-| **Investigate** | Diagnose a deliberately broken or realistic scenario | Classify the failing layer before making changes |
-| **Check** | Complete a practical assessment with less guidance | Treat it like an engineer-owned task or support ticket |
+1. Read **Before you start** and confirm the named user and starting state.
+2. Follow the numbered actions. Use the actual values from your environment where a placeholder is shown.
+3. Stop at each **Check** and compare the result before continuing.
+4. Complete **Check the result** and leave the configuration described in **Finish**.
 
-## Check the result
+Keep a request ID or original setting only when you need it for a later action or restoration. There is no journal to fill in. You do not need to write explanations or submit screenshots to finish a regular lab.
 
-At each expected-result check, compare the actual user, item, reviewer and target state with the walkthrough. An approval, a completed account operation and AD membership are separate results.
+If a result differs, open the separate [Troubleshooting Practice](troubleshooting/README.md) guide for that module. The [Reference desk](REFERENCE.md) explains how to locate unfamiliar values and request activity.
 
-Keep a request ID or original setting only when the next action or restoration needs it. Screenshots in the walkthrough help you recognize the right screen; you do not need a separate worksheet or a screenshot submission to complete the lab.
+## 4. Return for independent practice
 
-## Before Lab AR-001
+After the guided labs, use [Try It Yourself](try-it-yourself/README.md) for variations with less guidance, then attempt the [capstones](guided-labs/README.md#capstones). Use [Troubleshooting Practice](troubleshooting/README.md) to work through the supplied incident cases.
 
-Use the [Module 1 readiness checklist](M01-READINESS.md) to confirm the AD administration tools, provisioning prerequisites and expected counts.
-
-Complete these items first:
-
-- Read the [Lab Environment](LAB-ENVIRONMENT.md) page.
-- Confirm you have access to the ISC training tenant and isolated AD lab required by the course.
-- Download the course datasets when the lab asks for them rather than editing the repository copy.
-- Create a place for your evidence screenshots.
-- Use dedicated requester and reviewer sessions when a lab tests requester-facing behavior.
-
-Begin AR-001: **[Beginner walkthrough](Labs_Happypath/AR-001/README.md)** or **[Engineering lab](labs/AR-001/README.md)**. When switching paths, continue from your current lab and keep its required configuration.
-
-## When a lab does not match your tenant
-
-ISC capabilities and UI labels can change. Do not blindly substitute an unrelated control just to finish a step.
-
-1. Compare the lab requirement with the current official SailPoint documentation linked in the lab.
-2. Confirm whether the capability is enabled in your tenant and whether your account has the required permissions.
-3. Record the actual UI or API behavior you see.
-4. If the documented workflow has changed, update the lab notes before continuing so your evidence remains reproducible.
-
-**Note:** The goal is engineering confidence. A useful lab teaches you how to prove the current behavior, including when the product does not behave as expected.
+You can then add the API, workflow, event-subscriber and specialist labs that match your available features and work. Each extension names its own starting requirements.

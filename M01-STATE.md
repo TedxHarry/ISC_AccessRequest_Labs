@@ -1,6 +1,6 @@
 # Module 1 configuration record
 
-Use this record alongside your private earlier request results. Enter actual source names, IDs and directory values before using them in a lab. Counts refer to the original Acme roster, not the tenant-wide population. Keep later legitimate additions when revisiting these checks.
+Use this lookup when a lab needs an actual source name, ID or directory value. Keep a value only when a later action needs it. Counts refer to the original Acme roster, not the tenant-wide population. Keep later legitimate additions when revisiting these checks.
 
 ## Your environment values
 
@@ -8,7 +8,7 @@ Use this record alongside your private earlier request results. Enter actual sou
 |---|---|
 | AD source name and ID | Open the existing source in Admin > Connections > Sources; record its name and ID from the source URL |
 | Users, AdminAccounts and Groups DNs | AD Users and Computers > View > Advanced Features; each OU > Properties > Attribute Editor > distinguishedName |
-| AD UPN suffix | Lucas’s AD Properties > Account > User logon name suffix dropdown; record without @. Follow the [UPN lookup steps](labs/AR-005/README.md#find-and-record-your-upn-suffix) |
+| AD UPN suffix | Lucas’s AD Properties > Account > User logon name suffix dropdown; record without @. Follow the [UPN lookup steps](guided-labs/AR-005/README.md#find-and-record-your-upn-suffix) |
 | Baseline entitlement value | AD source > Entitlement Management > Entitlements; open GG-ACME-BASELINE |
 | Administrator username | Signed-in user menu in the administrator browser profile |
 | Authentication route | Acme Employees > Settings > Sign-in Method |
@@ -29,4 +29,4 @@ Record these privately; example domains and YOUR-* values are not values to past
 | AR-008 | 24-account foundation; three controlled inboxes | Separate admin/Lucas/Daniel/Priya sessions; recorded authentication route; ordinary user levels; complete private HR file with controlled emails |
 | AR-009 | All previous checks complete | C01 evidence of current foundation; all 15 groups checked; no unresolved baseline operation; business requests not yet tested |
 
-The HR source and identity profile establish identity data. Only Lucas is created manually in AD. The baseline role updates Lucas and provisions the other 23 standard accounts. Neither path submits a business access request in Module 1.
+The HR source and identity profile establish identity data. Only Lucas is created manually in AD. The baseline role updates Lucas and provisions the other 23 standard accounts. The setup labs do not submit a business access request in Module 1.

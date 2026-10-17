@@ -1,168 +1,22 @@
 # AR-009 · Verify the Environment and Save C01
 
-<a id="what-youll-do"></a>
+[Open the guided lab](../../guided-labs/AR-009/README.md).
 
-In this lab, you'll verify the Module 1 environment using current ISC and AD records, then save checkpoint C01.
-
-## Before you start
-
-**Prerequisites:** Complete [AR-008](../AR-008/README.md) and retain the evidence from AR-001 through AR-007.
-
+<a id="1-verify-the-baseline"></a>
+<a id="2-record-c01"></a>
+<a id="ar-009--verify-the-environment-and-save-c01"></a>
 <a id="before-you-open-the-settings"></a>
-
-Use the administrator, Lucas, Daniel and Priya sessions from AR-008 and keep the AR-001–008 earlier request results available.
-
-You expect 24 HR accounts, 24 Acme identities, 24 standard AD accounts and 24 course baseline members. No course business request has been submitted yet.
-
-This is a readiness assessment. Check the current records as well as your saved screenshots; a screenshot from yesterday does not establish today’s state.
-
-Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
-
-**Repeating C01 after later labs:** The counts and empty AdminAccounts expectation below describe the first Module 1 pass. Verify the original 24 standard accounts and baseline assignments, but retain later identities, Sofia's admin account and legitimate business access. Record those additions separately; do not delete them or revoke access to recreate an earlier screenshot. Use the original activity for historical provisioning evidence.
-
-## Follow the steps
-
-### 1. Verify the baseline
-
-Perform each check and record its actual result.
-
-| Check | Expected result |
-|---|---|
-| Acme HR accounts and Acme identities | 24 each |
-| Manager hierarchy | 23 relationships and Morgan as the root |
-| Standard AD accounts | 24, each linked to the correct employee |
-| AdminAccounts OU | Empty until the later account-selection lab |
-| Course groups imported into ISC | 15, including GG-ACME-BASELINE |
-| Baseline assignment | 24 identities in ROLE-Acme-AD-Baseline |
-| Baseline target membership | All 24 standard accounts in GG-ACME-BASELINE |
-| Business group membership | Matches the recorded pre-request baseline |
-| Provisioning operations | Lucas update and Liam creation verified in ISC and AD |
-| Sessions | Lucas opens Request Center; Daniel and Priya open Approvals; administrator remains usable |
-| Working HR file | Complete population and working test email addresses retained privately |
-
-Reopen saved source settings, the baseline profile, and the role. Check the IDs and actual values against earlier request results. Recheck the current AD membership rather than relying only on an earlier screenshot.
-
-If any check fails, return to its lab, correct the cause, and repeat that check. An empty approval queue is acceptable because this foundation has not yet submitted a business access request.
-
-#### Explain the chain before the first business request
-
-Answer these questions using actual evidence:
-
-1. Which operation created Lucas’s HR account, and which configuration produced his identity?
-2. Which values resolve Daniel as his manager? Which different pair correlates his AD account?
-3. Why did the baseline role update Lucas but create Liam? Identify both operation records.
-4. Why do 24 HR identities not prove 24 AD accounts? Why does Test Connection not prove a successful write?
-5. Which sign-in route/password does each reviewer use? Why can identity Work Email differ from AD mail?
-6. Which business request, approval and revocation have you proved? At C01, **none yet**: you proved baseline role provisioning. User-submitted business requests begin in AR-010–012.
-
-Return to a missing check instead of recreating the environment. Record any standard-account OU exception before moving into the account-selection labs.
-
-<!-- AUTHOR_SCREENSHOT_START: AR-009-01 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-009-01-population.png`
->
-> **Show:** Acme HR and identity population checks.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-009-01 -->
-
-<!-- AUTHOR_SCREENSHOT_START: AR-009-02 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-009-02-baseline-role.png`
->
-> **Show:** Enabled role, profile, and course membership.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-009-02 -->
-
-<!-- AUTHOR_SCREENSHOT_START: AR-009-03 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-009-03-target-baseline.png`
->
-> **Show:** AD baseline membership.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-009-03 -->
-
-<!-- AUTHOR_SCREENSHOT_START: AR-009-04 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-009-04-sessions.png`
->
-> **Show:** Correct requester and reviewer session identities; separate images are fine.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-009-04 -->
-
-### 2. Record C01
-
-Create a private folder named `C01-Acme-Foundation` and retain:
-
-1. Your complete working HR CSV and earlier request results.
-2. Actual source IDs, OU DNs, group DNs/entitlement values, baseline profile ID, and baseline role ID where exposed.
-3. Saved account-search, group-search, membership-search, correlation, and Create Account settings. Exclude credentials.
-4. The 24-account verification table and current group membership record.
-5. Check the reconstruction sequence: create the HR baseline, correlate Lucas, configure provisioning, assign the baseline role in stages, then prepare user sessions.
-
-Keep ROLE-Acme-AD-Baseline enabled and its identity list intact. Removing baseline eligibility can remove its group access; it is not a reset method. A folder of evidence is not a whole-tenant restore image.
-
-## Check the result
-
+<a id="before-you-start"></a>
+<a id="check-the-result"></a>
 <a id="completion-and-screenshots"></a>
-
-### Final checks
-
-- [ ] Every baseline check has an actual passing result.
-- [ ] C01 contains the working data, configuration record, and reconstruction note.
-- [ ] No unresolved provisioning failure remains.
-
-## Engineering practice
-
-### Repeat the check with a different employee
-
-1. Select James acme.e014 instead of the Lucas/Liam samples.
-2. Without following his earlier screenshots, find his HR account, resolved manager, AD account, role selection and native baseline membership.
-3. Compare with the roster: his manager is Elena acme.e004 and his employee number is E014.
-4. Add the current evidence to C01. If a value is wrong, identify its source before making a correction.
-
-You should be able to follow the same checks for an employee whose setup you did not memorize.
-
-### Your ticket: A colleague says 24 identities means we are ready for access requests.
-
-The colleague has only a screenshot of the identity count.
-
-Write the additional evidence you would request, then locate it s. Identify any missing evidence without marking it passed.
-
-Write your diagnosis before opening the answer. Label this as a supplied ticket, not a failure observed in your tenant.
-
-<details>
-<summary>Compare your diagnosis with the mentor’s solution</summary>
-
-Ask for correct manager links, individually verified AD accounts, baseline membership, source scope and creation settings, clean operation outcomes, and separate requester/reviewer sign-ins. These establish C01. They still do not prove a business approval or revocation; that evidence comes from the following request labs.
-
-</details>
-
-## Finish
-
-### What you should leave in place
-
-| Item | State before you continue |
-|---|---|
-| C01 | Current counts, object IDs, configuration and reconstruction notes saved |
-| Pending problems | None unresolved in the foundation provisioning checks |
-| Next action | Configure VPN in AR-010; keep the baseline assignment |
-
+<a id="engineering-practice"></a>
+<a id="explain-the-chain-before-the-first-business-request"></a>
+<a id="final-checks"></a>
+<a id="finish"></a>
+<a id="follow-the-steps"></a>
 <a id="if-this-configuration-already-exists"></a>
-
-### If you stopped midway or want to repeat this lab
-
-Recheck current foundation state. Keep later legitimate additions and record them separately from the original 24-person baseline. Label earlier activity as historical when repeating the lab.
-
-If any check fails, record its identity/object and return to that check’s lab. Keep the rest of the working environment. When resuming, repeat the failed check and inspect pending activity before accepting C01. Keep the baseline role assigned and the source, accounts, profiles and sessions available for Module 2. On later repeats, record legitimate additions separately rather than deleting objects to force the original counts.
-
-Next is [AR-010: Make VPN access requestable](../AR-010/README.md). Keep baseline access assigned while learning how requested VPN access is granted and removed.
-
-[Previous: AR-008](../AR-008/README.md) · [Course outline](../../README.md)
+<a id="if-you-stopped-midway-or-want-to-repeat-this-lab"></a>
+<a id="repeat-the-check-with-a-different-employee"></a>
+<a id="what-you-should-leave-in-place"></a>
+<a id="what-youll-do"></a>
+<a id="your-ticket-a-colleague-says-24-identities-means-we-are-ready-for-access-requests"></a>
