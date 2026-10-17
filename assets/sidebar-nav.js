@@ -11,6 +11,19 @@
   function heading(li) {
     return direct(li, 'STRONG') || (direct(li, 'P') && direct(direct(li, 'P'), 'STRONG'));
   }
+  function setExpanded(li, open) {
+    var list = direct(li, 'UL');
+    var control = direct(li, 'BUTTON') || (direct(li, 'P') && direct(direct(li, 'P'), 'BUTTON'));
+    if (!list || !control) return;
+    list.hidden = !open;
+    control.setAttribute('aria-expanded', String(open));
+    li.classList.toggle('sidebar-group-open', open);
+  }
+  function isCurrent(li, route) {
+    return Array.prototype.some.call(li.querySelectorAll('a'), function (link) {
+      return link.getAttribute('href').split('?')[0].replace(/\.md$/, '') === route.split('?')[0];
+    });
+  }
   function collapse(li, initiallyOpen) {
     var list = direct(li, 'UL');
     var label = heading(li);
@@ -21,13 +34,14 @@
     button.textContent = label.textContent;
     label.replaceWith(button);
     li.classList.add('sidebar-collapsible');
-    function set(open) {
-      list.hidden = !open;
-      button.setAttribute('aria-expanded', String(open));
-      li.classList.toggle('sidebar-group-open', open);
-    }
-    button.addEventListener('click', function () {set(list.hidden);});
-    set(initiallyOpen);
+    button.addEventListener('click', function () {
+      var open = list.hidden;
+      if (open) Array.prototype.forEach.call(li.parentElement.children, function (sibling) {
+        if (sibling !== li) setExpanded(sibling, false);
+      });
+      setExpanded(li, open);
+    });
+    setExpanded(li, initiallyOpen);
   }
   function setup() {
     var nav = document.querySelector('.sidebar-nav');
@@ -45,13 +59,7 @@
         existing.children[index].setAttribute('aria-pressed', String(active === area.key));
       });
       nav.querySelectorAll('.sidebar-collapsible').forEach(function (group) {
-        var list = direct(group, 'UL');
-        var button = group.querySelector('.sidebar-collapse-heading');
-        if (list && button && group.querySelector('li.active > a')) {
-          list.hidden = false;
-          button.setAttribute('aria-expanded', 'true');
-          group.classList.add('sidebar-group-open');
-        }
+        setExpanded(group, isCurrent(group, route));
       });
       nav.dataset.courseRoute = route;
       return;
@@ -74,14 +82,16 @@
       button.setAttribute('aria-pressed', String(active === area.key));
       button.addEventListener('click', function () {window.location.hash = '#/' + area.route;});
       controls.appendChild(button);
-      var list = direct(section, 'UL');
-      if (list) Array.prototype.forEach.call(list.children, function (li) {
-        var current = Array.prototype.some.call(li.querySelectorAll('a'), function (link) {
-          var target = link.getAttribute('href').split('?')[0].replace(/\.md$/, '');
-          return target === route.split('?')[0];
+      function decorate(list, depth) {
+        if (!list) return;
+        Array.prototype.forEach.call(list.children, function (li) {
+          if (!heading(li) || !direct(li, 'UL')) return;
+          if (depth === 0) li.classList.add('sidebar-stage');
+          decorate(direct(li, 'UL'), depth + 1);
+          collapse(li, isCurrent(li, route));
         });
-        collapse(li, current);
-      });
+      }
+      decorate(direct(section, 'UL'), 0);
     });
     nav.insertBefore(controls, root);
     nav.classList.add('sidebar-enhanced');

@@ -1,0 +1,153 @@
+# AR-017 · Present Finance access through an application
+
+<a id="goal"></a>
+
+In this lab, you'll associate the reporting profile with Finance Services, request it from that application and verify the resulting AD access before removal.
+
+## Before you start
+
+Complete [AR-016](../AR-016/README.md), including removal. Use Acme Admin, Acme Olivia, Acme Daniel and the AD workstation. Keep [module state](../../../reference/M03-READINESS.md) open.
+
+AP-Finance-Reporting is enabled/requestable with Daniel reviewing grants and removals. Olivia has no Reporting or VPN membership, profile assignment or pending request. Confirm those conditions using AR-016 Section 1 before continuing.
+
+If you are returning after a break, follow [the module resume checks](../../../reference/M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
+
+## Follow the steps
+
+### 1. Record the existing profile
+
+1. In Acme Admin, open **Admin > Access Model > Access Profiles > AP-Finance-Reporting**.
+2. Record its ID using [the object ID steps](../../../reference/LAB-VALUES.md#find-an-access-profile-or-role-id), source, owner, two entitlements and request/removal reviewers.
+3. Inspect Olivia's **Access** and native memberships. Record the original account DN/objectGUID and clean business access.
+4. Search **Admin > Access Model > Applications** for `Finance Services`. Reuse the course application if its configuration matches the following sections; if it is absent, create it in Section 2. If a same-name application has a different source or unexpected profiles, inspect it before making changes.
+
+**Check:** You have one existing reporting profile to associate. Do not create a second copy for the application.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-017-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-01.png`
+>
+> **Show:** Existing profile and clean recipient.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-01 -->
+
+### 2. Create and configure Finance Services
+
+1. As administrator, open **Admin > Access Model > Applications**. If Section 1 found the matching Finance Services application, select its **Edit** action and continue with Step 3, comparing its saved values with Step 2. Otherwise select **Create Application** and complete Step 2.
+2. Enter **Name** `Finance Services`, **Description** `Finance reporting and accounts-payable access for Acme employees`, **Owner** Daniel (`acme.e003`) and **Source** your recorded AD source. Select **Save**.
+3. On **Configuration**, set **App Accounts Created By** to **Admin (IT)**.
+4. Under **Account Source**, select **Specific Users from Source** and your AD source. This setting determines which account holders see the application in password management based on its associated profiles. It is not a Finance-department request restriction.
+5. Under **Request Center Options**, select **Visible in Request Center** and **Allow Access Requests**.
+6. Select **Save** before leaving the tab. Reopen Configuration and confirm all saved values.
+
+**Check:** Finance Services points to your existing AD source with both request options selected. You have not created a separate Finance source or account-creation policy.
+
+### 3. Associate the reporting profile and enable the application
+
+1. Open Finance Services' **Access Profiles** tab.
+2. If AP-Finance-Reporting is already associated, keep its row and continue to Step 3. Otherwise, in **Add Access Profile**, type `AP-Finance-Reporting`. Select the matching profile and select the **Add (+)** icon.
+3. Confirm it appears once in the list, then select **Save**. On a repeat after AR-018, keep AP-Finance-AP associated too; do not remove it to recreate the first-pass list.
+4. Turn on **Enable for Users**. This also enables the access application for password management; retain the existing AD password policy and do not run a password-change exercise here.
+5. Wait for the identity refresh triggered by the association to finish under **Admin > Dashboard > Monitor**.
+6. Reopen the application. Confirm the profile association, both Request Center options and Enable for Users are saved.
+
+**Check:** The application contains the enabled/requestable Reporting profile. On the first pass it is the only association; later repeats preserve the AP profile too. The profile's groups and Daniel's review policy remain unchanged.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-017-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-02.png`
+>
+> **Show:** Application source, options, association and enablement.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-02 -->
+
+### 4. Request through Finance Services
+
+1. Switch to Acme Olivia and confirm `acme.e011` in the user menu.
+2. Open **Request Center**, choose **Request for Myself** if asked, then choose **Applications**.
+3. Search `Finance Services` and select the application. Inspect its offered access profiles.
+4. Select **AP-Finance-Reporting**, then **Save Selections**. Do not add a separate VPN entitlement.
+5. Open the selected item's request details, enter `AR-017: Reporting requested through Finance Services`, keep immediate access and confirm Olivia's standard account if prompted. Select **Save**.
+6. Select **Review Request**, verify Olivia and the reporting profile, then **Submit Request** once.
+7. Open **My Requests**. Record the item type/name, submission time and available request ID.
+
+**Check:** Olivia found the access through Finance Services, but the submitted access item is AP-Finance-Reporting. An application card by itself is not a fulfilled access request.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-017-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-03.png`
+>
+> **Show:** Application selection and resulting profile request.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-03 -->
+
+### 5. Approve and verify the existing account
+
+1. In Acme Daniel, open **Approvals > Access Requests > Requested**. Find Olivia's reporting **Grant**, inspect the reason and approve it. Confirm the recorded decision under **Reviewed**.
+2. In Acme Admin, inspect [the matching request and account activity](../../../reference/M02-CHECKS.md#inspect-a-request-as-administrator).
+3. After the operations finish, run [native membership checks](../../../reference/M02-CHECKS.md#inspect-direct-ad-membership) for Olivia against `GG-FIN-REPORTING`, `GG-VPN-USERS` and `GG-ACME-BASELINE`.
+4. Compare the AD account's DN and objectGUID with Section 1. Open Olivia's ISC **Accounts** and **Access**; [refresh imported AD data](../../../reference/M02-CHECKS.md#refresh-imported-ad-data) if needed.
+5. Check the application, requested profile, reviewer, source and native groups in separate result checks fields.
+
+**Check:** Both business groups and baseline are True on the original AD account. This proves the lab's directory access; it does not prove a login to an external Finance product.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-017-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-04.png`
+>
+> **Show:** Approval/activity and original account memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-04 -->
+
+<a id="resume-or-repeat"></a>
+
+### 6. Remove the assignment and retain the catalog entry
+
+1. In Acme Admin, open **Admin > Identity Management > Identities > Olivia > Access > Access Profiles**.
+2. Open **AP-Finance-Reporting > Details**, verify it is revocable, select **Revoke Access Profile**, enter `AR-017: Application request test complete`, then **Revoke**.
+3. In Acme Daniel, find Olivia's profile **Remove** request in **Approvals > Access Requests > Requested** and approve it.
+4. Follow the removal activity as administrator. Recheck the two native business groups and baseline.
+5. Refresh imported AD data if needed. Confirm Olivia's reporting assignment is gone. Run the native VPN check for Lucas (`acme.e012`) and confirm his retained membership is True. Reopen Finance Services as administrator and verify its association and request options remain.
+
+**Check:** Olivia lacks Reporting and VPN, retains baseline and the original account, and Finance Services still offers the reporting profile for another request.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-017-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-05.png`
+>
+> **Show:** Removal and retained catalog configuration.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-05 -->
+
+## Check the result
+
+### Final verification
+
+- [ ] Finance Services uses the existing AD source and contains AP-Finance-Reporting once.
+- [ ] The application and profile are enabled for requests.
+- [ ] Olivia requested the profile through Applications; Daniel reviewed it.
+- [ ] Both native groups were added and then removed through ISC.
+- [ ] The original account, baseline, Lucas's VPN and application definition remain.
+- [ ] No unresolved test request or operation remains.
+
+## Finish
+
+### Leave this in place
+
+Keep Finance Services enabled for users, visible and requestable with the Reporting profile associated. Olivia finishes without either Finance business group. Use [resume guidance](../../../reference/M03-READINESS.md#resume-or-repeat-safely) if returning later.
+
+[Access applications](https://documentation.sailpoint.com/saas/help/access/app-config.html) · [Request Center](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
+
+Keep credentials and registration links out of captures.
+
+[Previous: AR-016](../AR-016/README.md) · [Lab index](../../README.md) · [Next: AR-018](../AR-018/README.md)

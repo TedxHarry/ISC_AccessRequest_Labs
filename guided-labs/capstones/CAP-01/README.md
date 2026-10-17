@@ -4,7 +4,7 @@ In this capstone, you'll prepare the Finance catalog, prove separate profile and
 
 ## Before you start
 
-Complete AR-001-022 and the removal exercises in AR-042-045. Use Acme Admin, Olivia (`acme.e011`), Liam (`acme.e008`), Daniel (`acme.e003`) and your AD workstation. Open the [starting-state check](../../../LAB-DESK.md#check-the-starting-state-for-every-lab). Prepare any missing sign-in through [AR-008](../../AR-008/README.md).
+Complete AR-001-022 and the removal exercises in AR-042-045. Use Acme Admin, Olivia (`acme.e011`), Liam (`acme.e008`), Daniel (`acme.e003`) and your AD workstation. Open the [starting-state check](../../../reference/LAB-DESK.md#check-the-starting-state-for-every-lab). Prepare any missing sign-in through [AR-008](../../M01/AR-008/README.md).
 
 Native workflows and SoD are optional extensions here. If you completed AR-061, keep its accepted Finance grant policies; the steps below do not replace them with direct review.
 
@@ -13,11 +13,11 @@ Native workflows and SoD are optional extensions here. If you completed AR-061, 
 ### 1. Inspect the service and its starting state
 
 1. As Acme Admin, open **Admin > Identity Management > Identities > Olivia**. Confirm Department Finance, Manager Daniel and her linked standard AD account. Record its DN and objectGUID. Check Access and pending requests for earlier Finance tests.
-2. Use [Inspect direct AD membership](../../../M02-CHECKS.md#inspect-direct-ad-membership) with `acme.e011`. Require GG-VPN-USERS, GG-FIN-REPORTING and GG-FIN-AP False, and GG-ACME-BASELINE True. If test access remains, finish its original removal before proceeding. Do not remove an unrelated assignment to manufacture a clean result.
+2. Use [Inspect direct AD membership](../../../reference/M02-CHECKS.md#inspect-direct-ad-membership) with `acme.e011`. Require GG-VPN-USERS, GG-FIN-REPORTING and GG-FIN-AP False, and GG-ACME-BASELINE True. If test access remains, finish its original removal before proceeding. Do not remove an unrelated assignment to manufacture a clean result.
 3. Open each object below under **Admin > Access Model > Access Profiles** or **Roles**.
 
    - Record its ID, enabled/requestable state, owner, grant policy, removal policy, form and dates.
-   - Compare its saved access with the table. If a definition is missing or differs, complete the relevant creation steps in [AR-016](../../AR-016/README.md), [AR-017](../../AR-017/README.md) or [AR-018](../../AR-018/README.md) before continuing; reuse the course names.
+   - Compare its saved access with the table. If a definition is missing or differs, complete the relevant creation steps in [AR-016](../../M03/AR-016/README.md), [AR-017](../../M03/AR-017/README.md) or [AR-018](../../M03/AR-018/README.md) before continuing; reuse the course names.
 
 | Object | Required content | Owner |
 |---|---|---|
@@ -29,7 +29,7 @@ Native workflows and SoD are optional extensions here. If you completed AR-061, 
 
    - Record the original removal policies for restoration.
    - Keep required request/denial comments and existing form/date constraints; these course Finance items normally have no form/date requirement.
-5. Inspect **Admin > Access Model > Applications > Finance Services > Edit**. Confirm the course AD source, enabled state, **Visible in Request Center**, **Allow Access Requests**, and exactly the two Finance profile associations. Use [AR-020's restoration steps](../../AR-020/README.md#4-restore-the-two-application-choices) if the associations are missing.
+5. Inspect **Admin > Access Model > Applications > Finance Services > Edit**. Confirm the course AD source, enabled state, **Visible in Request Center**, **Allow Access Requests**, and exactly the two Finance profile associations. Use [AR-020's restoration steps](../../M03/AR-020/README.md#4-restore-the-two-application-choices) if the associations are missing.
 6. Record Lucas's current VPN=True as a preserved control.
 
    <!-- AUTHOR_SCREENSHOT_START: CAP-01-01 -->
@@ -46,7 +46,7 @@ Native workflows and SoD are optional extensions here. If you completed AR-061, 
 
 1. As Olivia, open **Request Center > Applications > Finance Services**. Confirm Reporting and Accounts Payable are offered. Open their details and compare their descriptions and underlying access with Section 1. Do not submit yet.
 2. In Olivia's **Access Items > Access Profiles**, search both profile names; under **Roles**, search ROLE-Finance-Analyst. Record each result. Existing assignments can hide request choices, which is why Section 1 starts clean.
-3. As Liam, verify the ordinary-user session and search the same profiles and role for himself. Confirm **SEG-Acme-Finance** remains enabled under **Admin > Access Model > Segments**, selecting Finance requesters and these three items. If absent or incorrect, use [AR-022 Sections 2-4](../../AR-022/README.md#2-define-the-finance-identities) to configure and test it, then return here.
+3. As Liam, verify the ordinary-user session and search the same profiles and role for himself. Confirm **SEG-Acme-Finance** remains enabled under **Admin > Access Model > Segments**, selecting Finance requesters and these three items. If absent or incorrect, use [AR-022 Sections 2-4](../../M04/AR-022/README.md#2-define-the-finance-identities) to configure and test it, then return here.
 4. Record Olivia's visible choices and Liam's restricted choices. Search AP-Remote-Worker in both sessions as the comparison. Keep application-card visibility separate from visibility of its usable profile choices.
 
    <!-- AUTHOR_SCREENSHOT_START: CAP-01-02 -->
@@ -66,7 +66,7 @@ Native workflows and SoD are optional extensions here. If you completed AR-061, 
 1. As Olivia, select **Request Center > Access Items > Access Profiles > AP-Finance-Reporting**. Enter `CAP-01 Reporting grant`, keep immediate access and her standard account, complete any recorded required fields, then **Save > Review Request > Submit Request** once. Record its My Requests ID and submission time.
 2. As Acme Admin, locate that request in **Admin > Dashboard > Approval Management > Access Requests**. Open Process/Assignees. With the saved course policy, Daniel is either Primary Owner or Olivia's Manager. If another reviewer resolves, inspect the recorded policy and any delegation before deciding; do not approve an unexplained route.
 3. As Daniel, open **Approvals > Access Requests > Requested**, match Olivia, Reporting and the reason, then approve with `CAP-01 Reporting approved`. If using AR-061, also match the workflow execution's requestedFor to Olivia and department Finance.
-4. Follow [Account Activity](../../../LAB-DESK.md#find-the-account-activity). Repeat the four native checks: VPN=True, FIN-REPORTING=True, FIN-AP=False, baseline=True. Check Olivia's profile assignment and unchanged account identifiers.
+4. Follow [Account Activity](../../../reference/LAB-DESK.md#find-the-account-activity). Repeat the four native checks: VPN=True, FIN-REPORTING=True, FIN-AP=False, baseline=True. Check Olivia's profile assignment and unchanged account identifiers.
 
    <!-- AUTHOR_SCREENSHOT_START: CAP-01-03 -->
 
@@ -77,7 +77,7 @@ Native workflows and SoD are optional extensions here. If you completed AR-061, 
    > **Show:** Reporting approval and native grant.
 
    <!-- AUTHOR_SCREENSHOT_END: CAP-01-03 -->
-5. As Olivia, open **My Access > Access Profiles > AP-Finance-Reporting > Revoke Access Profile**. Enter `CAP-01 Reporting cleanup` and submit. As Daniel, approve the matching Remove request. Follow removal activity and [refresh imported AD data](../../../M02-CHECKS.md#refresh-imported-ad-data).
+5. As Olivia, open **My Access > Access Profiles > AP-Finance-Reporting > Revoke Access Profile**. Enter `CAP-01 Reporting cleanup` and submit. As Daniel, approve the matching Remove request. Follow removal activity and [refresh imported AD data](../../../reference/M02-CHECKS.md#refresh-imported-ad-data).
 6. Require all three business groups False, baseline True, no Reporting assignment and no pending operation.
 
    <!-- AUTHOR_SCREENSHOT_START: CAP-01-04 -->
@@ -118,7 +118,7 @@ Native workflows and SoD are optional extensions here. If you completed AR-061, 
 
    <!-- AUTHOR_SCREENSHOT_END: CAP-01-06 -->
 4. As Olivia, open **My Access > Roles > ROLE-Finance-Analyst > Assignment > Revoke Assignment**, select the assignment from this request and enter `CAP-01 Analyst cleanup`. Submit; have Daniel approve the matching removal under the explicit policy prepared in Section 1.
-5. Follow activity, refresh imported data, and verify the requested role assignment is gone and all three business groups False. If membership remains, inspect other assignments before retrying or changing AD directly. Use [AR-043](../../AR-043/README.md) for assignment-origin checks.
+5. Follow activity, refresh imported data, and verify the requested role assignment is gone and all three business groups False. If membership remains, inspect other assignments before retrying or changing AD directly. Use [AR-043](../../M07/AR-043/README.md) for assignment-origin checks.
 
    <!-- AUTHOR_SCREENSHOT_START: CAP-01-07 -->
 
@@ -139,8 +139,8 @@ Native workflows and SoD are optional extensions here. If you completed AR-061, 
 ### 6. Record the scope and restore temporary settings
 
 1. record Reporting approval/removal, AP denial, Analyst approval/removal, and Olivia/Liam visibility as separate cases with request, activity and native evidence. Do not mark an unexecuted case Passed.
-2. If automated recipient eligibility is required, complete [AR-061](../../AR-061/README.md), including its isolated non-Finance and missing-data checks before Finance attachment, and both recipient outcomes for each profile and the role. Label that requirement Not tested or Not accepted until all those checks pass. Keep segmentation enabled; it is not a substitute for this test.
-3. If you include SoD, use the separate payment groups and clean/conflicting cases in [AR-076](../../AR-076/README.md) and [AR-077](../../AR-077/README.md). Keep their actual outcomes separate from Finance Reporting/AP evidence; no policy for those groups is created by this capstone.
+2. If automated recipient eligibility is required, complete [AR-061](../../M10/AR-061/README.md), including its isolated non-Finance and missing-data checks before Finance attachment, and both recipient outcomes for each profile and the role. Label that requirement Not tested or Not accepted until all those checks pass. Keep segmentation enabled; it is not a substitute for this test.
+3. If you include SoD, use the separate payment groups and clean/conflicting cases in [AR-076](../../M13/AR-076/README.md) and [AR-077](../../M13/AR-077/README.md). Keep their actual outcomes separate from Finance Reporting/AP evidence; no policy for those groups is created by this capstone.
 4. Restore the original removal policies saved in Section 1 and reopen them. Preserve accepted grant workflows, the enabled Finance segment, both application associations and all object IDs. If AR-061 was run, verify its HR and on-behalf restoration too.
 5. Recheck Olivia's three business groups False, baseline True, Lucas VPN True, and no pending capstone requests. Write the handover : exact object IDs/source/groups, current reviewers, available choices, proven cases, unmet requirements and restoration state.
 
@@ -162,4 +162,4 @@ Reporting and the Analyst role each have a separate grant/removal cycle; Account
 
 Leave the catalog enabled, original removal policies restored and only accepted grant policies attached. Olivia has no capstone access; Lucas retains VPN. Keep unresolved requirements available for the next engineer.
 
-[Course outline](../../../README.md) · [Choose a path](../../README.md) · [Practice path](../../../PRACTICE-PATH.md)
+[Course outline](../../../README.md) · [Choose a path](../../README.md) · [Practice path](../../../reference/PRACTICE-PATH.md)

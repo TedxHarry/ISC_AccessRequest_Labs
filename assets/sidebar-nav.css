@@ -1,22 +1,80 @@
-/* Match the course's light sidebar and make each learning area easy to select. */
-.course-area-buttons {display: grid; gap: 0.35rem; margin: 0.5rem 0.85rem 1rem;}
-.course-area-button {
-  min-height: 44px; padding: 0.65rem 0.8rem; border: 1px solid #a3bbc9;
-  border-radius: 0.35rem; background: #ffffff; color: #12344d;
-  text-align: left; font: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+/* Semantic colors apply to every navigation control in both system themes. */
+:root {
+  --nav-surface: #f5f8fb;
+  --nav-card: #ffffff;
+  --nav-text: #2c4257;
+  --nav-heading: #17384e;
+  --nav-muted: #52687b;
+  --nav-accent: #086b78;
+  --nav-border: #b9cbd8;
+  --nav-stage: #e7eef5;
+  --nav-hover: #e2edf3;
+  --nav-selected: #deeff3;
+  --nav-selected-text: #074f5c;
+  --section-surface: #eef5fa;
 }
-.course-area-button[aria-pressed="true"] {border-color: #bae6fd; background: #bae6fd; color: #082f49;}
-.course-area-button:hover {border-color: #1677b8;}
-.course-area-button:focus-visible, .sidebar-collapse-heading:focus-visible {outline: 2px solid #1677b8; outline-offset: 3px;}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nav-surface: #13222f;
+    --nav-card: #1b2e3e;
+    --nav-text: #d6e3ef;
+    --nav-heading: #f0f6fc;
+    --nav-muted: #b5c9da;
+    --nav-accent: #91dce9;
+    --nav-border: #466277;
+    --nav-stage: #21384a;
+    --nav-hover: #263e50;
+    --nav-selected: #174352;
+    --nav-selected-text: #b6eff8;
+    --section-surface: #183246;
+  }
+}
+.sidebar {background: var(--nav-surface) !important; border-color: var(--nav-border) !important;}
+.sidebar .app-name-link {color: var(--nav-heading) !important;}
+.course-area-buttons {display: grid; gap: 0.4rem; margin: 0.5rem 0.85rem 1rem;}
+.course-area-button {
+  min-height: 44px; padding: 0.65rem 0.8rem;
+  border: 1px solid var(--nav-border); border-radius: 0.35rem;
+  background: var(--nav-card); color: var(--nav-heading);
+  text-align: left; font: inherit; font-size: 0.9rem; font-weight: 650; cursor: pointer;
+}
+.course-area-button[aria-pressed="true"] {
+  border-color: var(--nav-accent); background: var(--nav-selected); color: var(--nav-selected-text);
+  box-shadow: inset 3px 0 0 var(--nav-accent);
+}
+.course-area-button:hover {border-color: var(--nav-accent);}
+.course-area-button:focus-visible, .sidebar-collapse-heading:focus-visible, .sidebar a:focus-visible, .sidebar-toggle:focus-visible {
+  outline: 2px solid var(--nav-accent); outline-offset: 2px;
+}
 .sidebar-area[hidden], .sidebar-collapsible > ul[hidden] {display: none !important;}
 .sidebar-collapse-heading {
   display: block; position: relative; box-sizing: border-box; width: 100%; min-height: 44px;
-  padding: 0.7rem 1.8rem 0.7rem 0.8rem; border: 0; border-radius: 0.35rem;
-  background: transparent; color: #12344d; text-align: left; font: inherit;
-  font-size: 0.85rem; font-weight: 700; line-height: 1.4; cursor: pointer;
+  padding: 0.7rem 1.8rem 0.7rem 0.7rem; border: 0; border-radius: 0.35rem;
+  background: transparent; color: var(--nav-heading); text-align: left; font: inherit;
+  font-size: 0.875rem; font-weight: 650; line-height: 1.45; cursor: pointer;
+  white-space: normal; overflow-wrap: anywhere;
 }
-.sidebar-collapse-heading::after {content: '+'; position: absolute; right: 0.65rem; color: #1677b8;}
+.sidebar-collapse-heading::after {content: '+'; position: absolute; right: 0.65rem; color: var(--nav-accent);}
 .sidebar-group-open > .sidebar-collapse-heading::after, .sidebar-group-open > p > .sidebar-collapse-heading::after {content: '−';}
-.sidebar-collapse-heading:hover {background: #e5f1f8;}
+.sidebar-collapse-heading:hover {background: var(--nav-hover);}
 .sidebar-nav .sidebar-collapsible > p {margin: 0 !important;}
-.sidebar-nav a.active {font-weight: 700;}
+.sidebar-area > ul {padding-left: 0; margin-left: 0;}
+.sidebar-collapsible > ul {padding-left: 0.5rem; margin-left: 0;}
+.sidebar-stage {margin: 0.7rem 0.4rem;}
+.sidebar-stage > .sidebar-collapse-heading, .sidebar-stage > p > .sidebar-collapse-heading {
+  background: var(--nav-stage); color: var(--nav-heading); font-size: 0.9rem; font-weight: 750;
+}
+.sidebar ul li a {
+  color: var(--nav-text) !important; white-space: normal !important; overflow: visible !important;
+  text-overflow: clip !important; overflow-wrap: anywhere; line-height: 1.5;
+  font-size: 0.875rem; margin: 3px 7px; padding: 9px 10px;
+}
+.sidebar ul li a:hover {background: var(--nav-hover) !important; color: var(--nav-heading) !important;}
+.sidebar ul li.active > a {
+  background: var(--nav-selected) !important; color: var(--nav-selected-text) !important;
+  box-shadow: inset 3px 0 0 var(--nav-accent); font-weight: 650;
+}
+.sidebar-nav > ul > li > p, .sidebar-nav > ul > li > strong {color: var(--nav-muted) !important;}
+.sidebar-toggle {background: var(--nav-surface) !important; opacity: 1;}
+.sidebar-toggle span {background-color: var(--nav-accent) !important;}
+.markdown-section h2 {background: var(--section-surface) !important;}

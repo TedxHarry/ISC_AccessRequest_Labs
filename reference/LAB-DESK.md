@@ -1,0 +1,160 @@
+# Lab desk
+
+Keep this page open beside the current lab. These procedures use the accounts and groups created in AR-001-009.
+
+## Record your environment
+
+Copy this table into your private notes. Follow [Find the values a lab asks you to record](LAB-VALUES.md) for the domain controller, DNs, objectGUIDs and ISC IDs. Each lookup explains where to open the value and how to check you copied the right one.
+
+| Parameter | Your value |
+|---|---|
+| Tenant UI URL and API base URL | |
+| AD source name and ID | |
+| Domain controller used for verification | |
+| Users, AdminAccounts and Groups OU distinguished names | |
+| Requester, recipient and reviewer identity IDs | |
+| Access item type, name and ID | |
+| AD account distinguished name and objectGUID | |
+| Entitlement ID and native group distinguished name | |
+| Request ID, item ID, approval ID and account activity ID | |
+
+Keep passwords, tokens, callback secrets and working email addresses outside GitHub. Screenshots should show the relevant configuration and result without those values.
+
+## Check membership in AD
+
+On the AD administration workstation, open PowerShell with the ActiveDirectory module. First [find your verification controller](LAB-VALUES.md#find-the-ad-domain-and-domain-controller). Enter its HostName when prompted below and use the same controller for before/after checks.
+
+```powershell
+Import-Module ActiveDirectory -ErrorAction Stop
+$LabDC = Read-Host 'Domain controller DNS name'
+$LabUser = Get-ADUser -Identity 'acme.e012' -Server $LabDC -Properties memberOf,employeeID,Enabled -ErrorAction Stop
+$LabUser | Select-Object SamAccountName,DistinguishedName,ObjectGUID,employeeID,Enabled
+$LabUser.memberOf | Sort-Object
+Get-ADGroupMember -Identity 'GG-VPN-USERS' -Server $LabDC -ErrorAction Stop |
+    Select-Object SamAccountName,DistinguishedName,ObjectClass
+```
+
+Change the username and group to those named in the lab. Capture the result before submitting and after fulfillment. Direct membership and effective access through nested groups are different checks. Do not use a nested-membership result to claim ISC directly provisioned a group.
+
+If controllers disagree, record both results and investigate AD replication before changing ISC. Use native AD tools to verify the actual account; the Request Center status alone cannot prove membership.
+
+## Check the starting state for every lab
+
+1. Read the current lab’s actors and confirm each required requester/reviewer can sign in. For a new actor, repeat [AR-008 Sections 1-4](../guided-labs/M01/AR-008/README.md), using the latest complete private HR file.
+2. Record the item’s owner, reviewer or workflow, requestability, form, date constraints, removal policy and segment. Record any global value the lab changes.
+3. Check the recipient’s current assignments, native group memberships and pending requests for the same item/account. A clean grant test needs no matching assignment or pending duplicate. Preserve baseline and unrelated access.
+4. For a request on behalf of Taylor or another user, verify the current requester is authorized under [AR-023](../guided-labs/M04/AR-023/README.md). If a temporary setting change is needed, record it, enable only for the exercise, and restore it after all requests have been accounted for. Do not assume an earlier lab left Everyone-for-anyone enabled.
+5. After the lab, remove every test grant, including any known-good control on a second group, and resolve pending controls. Restore recorded settings unless the lab explicitly retains them. Do not advance while a failed removal leaves unexplained access.
+
+Keep Lucas's VPN assignment from AR-012 in place unless a lab explicitly tests its removal. Do not assume a separate grant protects an entitlement when an overlapping profile is revoked. Check the assignment origin and native membership; [profile removal can revoke shared entitlements](https://documentation.sailpoint.com/saas/help/access/access-profiles.html#deprovisioning-with-access-profiles). Use the recipient named in each lab for grant/removal tests.
+
+After AR-047 the working HR file has 25 records; the baseline role still selects only the original 24.
+
+## Find a specific request, approval, or account activity
+
+Use this procedure whenever a lab says **find**, **locate**, **reopen**, or **follow** a request or provisioning activity. Do not scan the whole tenant and guess from a similar row.
+
+### Find the request
+
+1. In the requester's session, open **Request Center > My Requests**.
+2. Match the **recipient**, exact **access item**, lab reason/comment, and **submission time** recorded when you submitted it.
+3. In the administrator session, open **Admin > Dashboard > Approval Management > Access Requests** and match the same recipient, item, and submission time. Open **Process**, **Assignees**, and **Details**.
+4. Check the matching request, operation and target results directly. Do not assume it is the same value as an Account Activity ID.
+
+### Find the review task
+
+1. Sign in as the reviewer named by the lab and verify the username in the user menu.
+2. Open **Approvals > Access Requests > Requested** for pending work or **Reviewed** for a completed decision.
+3. Match the **Grant/Remove action**, recipient, item, lab reason, and submission time before deciding anything.
+4. If the task is missing, compare the administrator request's actual assignee and current stage before changing configuration or submitting another request.
+
+### Find the Account Activity
+
+1. Open the top navigation **Search** and select **Account Activity**.
+2. Use the course identity name and the exact AD source name recorded. Replace `YOUR-AD-SOURCE-NAME` before running the query:
+
+```text
+recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"
+```
+
+For Liam's missing-account creation in AR-006, narrow the same search to create operations:
+
+```text
+recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)
+```
+
+3. The `sources` value is case-sensitive. Use the source name exactly as ISC displays it.
+4. If several results match, use the recorded submission/role-assignment time and the **Created/Last Modified** values to select the activity produced by this lab. Account Activity is normally displayed newest first.
+5. Open the result, select the AD source entry, and inspect the account operation. Record the activity ID/tracking number, account/native identity, operation, attribute request, final status, and any error or warning.
+6. If a create-filtered query returns nothing, remove only `AND @accountRequests(op:create)` and search again. Do not resubmit or reapply access just to make a new row appear.
+7. For another identity, replace only the `recipient.name` value with that course username. For another source, replace only the quoted source name.
+
+Use Account Activity to prove what ISC attempted; use AD to prove what actually changed. Search retains Account Activity for a limited period, so label older screenshots or result checks records as historical when the live activity is no longer available.
+
+References: [Searchable Account Activity fields](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html) · [Building nested Search queries](https://documentation.sailpoint.com/saas/help/search/building-query.html) · [Monitoring provisioning](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
+
+## Submit and follow a control request
+
+1. Use the named requester's browser session. Confirm their username in the profile menu.
+2. Open **Request Center**, find the exact lab item and check its source/type. For a request for someone else, select the recipient and verify their name before continuing.
+3. Add the item. If account selection appears, match its identifier to the intended AD account. Complete required form/date fields.
+4. Use the current lab ID as the start of the business reason, for example `AR-012: Finance reporting from the remote lab`.
+5. Review and submit once. Open **Request Center > My Requests** and record the request, recipient, item, status and timestamp.
+6. In the assigned reviewer's session, open **Approvals**, locate that recipient/item, inspect the details and approve or deny as instructed. Record each stage separately.
+7. As administrator, open **Admin > Dashboard > Approval Management** and locate the same request. Inspect its process and available provisioning details. Open the linked account activity where available; otherwise locate the matching activity by recipient, item and submission time.
+8. Check native membership using the commands above. If AD changed but ISC is stale, run the source's account aggregation and inspect the identity's **Accounts** and **Access** after processing. Allow indexing to finish before comparing Search.
+
+An approval still pending is not a provisioning failure. A future-dated assignment need not be provisioned today. If no error is visible, capture the current stage and timestamps before retrying.
+
+## Create a business access profile
+
+Use the name, owner and groups from the current lab.
+
+1. Open **Admin > Access Model > Access Profiles > Create New**.
+2. In **Configuration**, enter the exact name and a description explaining the business task. Select the specified primary owner and your AD entitlement source. Save.
+3. In **Manage Entitlements**, find each specified group, verify its source and native value, add it and save.
+4. Open **Access Requests**, enable requests and set the lab's reviewer and required comments. Save.
+5. Enable the profile. Apply changes from the Access Profiles page when offered and wait for processing to finish.
+6. Reopen the profile and record the saved entitlements and approval settings. Test visibility as the named requester.
+
+Retain business profiles for later labs. Disable requestability only when a lab explicitly asks you to test that condition. [Access profiles](https://documentation.sailpoint.com/saas/help/access/access-profiles.html)
+
+## Remove a test assignment
+
+1. Record the identity's current **Access** and native membership.
+2. As administrator or an authorized Access Revoker, open **Admin > Identity Management > Identities**, select the recipient and open **Access**.
+3. Locate the requested role, profile or entitlement assignment. Inspect its origin and account. Select the available removal action for that assignment, add the lab's reason and submit.
+4. Complete any removal approvals. Track the removal request and verify the intended target membership disappears.
+5. If it remains, inspect other roles/profiles and automatic assignments before making another change. AR-043 compares standalone profile overlap; AR-044 tests access still required by a role.
+
+Do not remove `ROLE-Acme-AD-Baseline` or its group as a request-lab reset. If a business membership existed before the lab, preserve it and use a different recipient for a clean negative test.
+
+## Prepare an approval workflow
+
+1. Open **Admin > Workflows > Create Workflow > Start in the Workflow Builder**. Use the name specified by the lab. If duplicating a control, use **Manager > Actions > Duplicate Workflow** and rename the copy.
+2. Select the native **Access Request Submitted** trigger.
+3. Add **Approval Policy** from **Access Request Actions**. Select the specified type, scheme and reviewers. Use **Expire** for timeout unless a lab explicitly tests another outcome.
+4. Connect the trigger to the action and the action to **End Steps > Success**. Save and resolve validation errors, then set Status to Enabled on the Workflows Manager page.
+5. Edit the named access item's **Access Requests** configuration. Under approval, choose **Workflow**, select this enabled workflow and save.
+6. Submit a new request. Open that workflow's **Executions** tab and match the request ID, recipient, item and submission time. Verify the policy decision and target state separately. Changes to the association affect future requests; resolve earlier diagnostic requests before switching policies.
+
+Use the Access Request action, not **Generic Approval Policy**. A successful workflow execution is not by itself proof that access was approved. [Workflow actions](https://documentation.sailpoint.com/saas/help/workflows/workflow-actions.html), [Adaptive Approvals](https://documentation.sailpoint.com/saas/help/adaptive_approvals/index.html)
+
+## Submit a Remote Worker operations control
+
+1. Use the requester named by the lab, normally Taylor (`acme.e025`) or Liam (`acme.e008`). Verify the session username, no AP-Remote-Worker assignment or pending request, and native GG-VPN-USERS/GG-REMOTE-USERS membership False. Keep the account; Taylor has no baseline membership, while Liam retains baseline.
+2. As administrator, inspect **Admin > Access Model > Access Profiles > AP-Remote-Worker > Edit**. Its owner is Priya unless the lab is deliberately testing Samuel. Access Requests uses direct Primary Owner grant/removal review, required reason, no form and no date requirement. Verify the included groups are VPN and Remote Users. Keep the course's developer subscriptions disabled.
+3. In the requester's session open **Request Center > Access Items > Access Profiles**, select AP-Remote-Worker, enter the lab's exact reason and leave dates empty. Select Save, Review Request, verify the recipient and standard account, then Submit Request once.
+4. Open My Requests and record the new ID/time. As administrator, open **Admin > Dashboard > Approval Management > Access Requests**, find the matching request and open its access name, Process and Assignees. Record the actual current reviewer. Stop before deciding; the lab gives the next action.
+5. To decide, the named reviewer opens **Approvals > Access Requests > Requested**, verifies recipient/item/reason and chooses Approve or Deny with the lab comment. After approval, follow [Account Activity](LAB-DESK.md#find-the-account-activity) and verify both native groups True. After denial, verify both remain False. Preserve account DN/GUID and each recipient's original baseline state.
+
+## Remove a Remote Worker operations grant
+
+1. Before submitting, verify Remote Worker's owner is Priya and removal review is Primary Owner. If an owner-change test is still active, restore Priya first as that lab instructs. In the recipient's session, open **My Access > Access Profiles > AP-Remote-Worker > Revoke Access Profile**. Enter the lab's cleanup reason and submit.
+2. As Priya, inspect the matching Remove under **Approvals > Access Requests > Requested**, approve and confirm.
+3. Follow the removal activity and verify GG-VPN-USERS and GG-REMOTE-USERS False on the same account. Refresh imported data using [account aggregation](M02-CHECKS.md#refresh-imported-ad-data) and confirm the profile assignment is gone before another request. Taylor remains outside baseline; Liam keeps baseline.
+4. An error is not absence. If a write remains pending or membership remains, keep the actual request/activity evidence and investigate before another grant. Do not delete the user's account as cleanup.
+
+## When the result differs
+
+Write down the failing boundary: visibility, submission, routing, decision, provisioning, target state or reconciliation. Compare a fresh control request. Change one setting, repeat the same case and record the new evidence. When the configuration and inputs match the documentation but the service result does not, retain the request IDs and sanitized evidence for AR-074 instead of inventing a workaround.

@@ -4,12 +4,12 @@ Begin with the Guided Labs. Each lab tells you who to sign in as, where to go, w
 
 ## 1. Check your environment
 
-You need an ISC training tenant and an isolated AD environment with the connector infrastructure already installed. Follow the [preparation checklist](M01-READINESS.md) to confirm access and tools. You will create the Acme course objects in the setup labs.
+You need an ISC training tenant and an isolated AD environment with the connector infrastructure already installed. Follow the [preparation checklist](reference/M01-READINESS.md) to confirm access and tools. You will create the Acme course objects in the setup labs.
 
 | Your starting point | Begin here |
 |---|---|
-| Infrastructure is ready, but the Acme course objects do not exist | [AR-001: import the HR records](guided-labs/AR-001/README.md) |
-| The Acme identities, accounts, baseline access and sessions are already prepared | [AR-009: verify the exact course environment](guided-labs/AR-009/README.md). Complete any missing setup before AR-010. |
+| Infrastructure is ready, but the Acme course objects do not exist | [AR-001: import the HR records](guided-labs/M01/AR-001/README.md) |
+| The Acme identities, accounts, baseline access and sessions are already prepared | [AR-009: verify the exact course environment](guided-labs/M01/AR-009/README.md). Complete any missing setup before AR-010. |
 | You paused partway through the course | Reopen your current lab and compare its **Before you start** and **Finish** sections with the current environment. Keep later legitimate objects. |
 
 An unrelated working ISC tenant is not automatically the prepared Acme environment.
@@ -29,7 +29,7 @@ AR-012 completes your first approved request and verifies the AD result. You wil
 
 Keep a request ID or original setting only when you need it for a later action or restoration. There is no journal to fill in. You do not need to write explanations or submit screenshots to finish a regular lab.
 
-If a result differs, open the separate [Troubleshooting Practice](troubleshooting/README.md) guide for that module. The [Reference desk](REFERENCE.md) explains how to locate unfamiliar values and request activity.
+If a result differs, open the separate [Troubleshooting Practice](troubleshooting/README.md) guide for that module. The [Reference desk](reference/README.md) explains how to locate unfamiliar values and request activity.
 
 ## 4. Return for independent practice
 

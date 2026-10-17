@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class LearningStructureTests(unittest.TestCase):
     def test_single_guided_sequence_and_separate_practice(self):
-        labs = sorted((ROOT / 'guided-labs').glob('AR-*/README.md'))
+        labs = sorted((ROOT / 'guided-labs').glob('M*/AR-*/README.md'))
         self.assertEqual(len(labs), 90)
         self.assertEqual(len(list((ROOT / 'guided-labs/capstones').glob('CAP-*/README.md'))), 3)
         trouble = '\n'.join(p.read_text(encoding='utf-8') for p in (ROOT / 'troubleshooting').glob('M*.md'))
@@ -25,12 +25,12 @@ class LearningStructureTests(unittest.TestCase):
             text = (ROOT / name).read_text(encoding='utf-8')
             self.assertNotRegex(text, r'(?i)happy path|engineer path|choose.*(?:beginner|engineering).*path', name)
         sidebar = (ROOT / '_sidebar.md').read_text(encoding='utf-8')
-        self.assertEqual(len(re.findall(r'\]\(/guided-labs/AR-\d+/README.md\)', sidebar)), 90)
+        self.assertEqual(len(re.findall(r'\]\(/guided-labs/M\d+/AR-\d+/README.md\)', sidebar)), 90)
         self.assertIn('TROUBLESHOOTING PRACTICE', sidebar)
         self.assertIn('TRY IT YOURSELF', sidebar)
 
     def test_guided_labs_do_not_require_journal_or_optional_assessment(self):
-        for file in (ROOT / 'guided-labs').glob('AR-*/README.md'):
+        for file in (ROOT / 'guided-labs').glob('M*/AR-*/README.md'):
             text = file.read_text(encoding='utf-8')
             self.assertNotRegex(text, r'(?i)Create a private \*\*C\d+[^\n]*folder|independent check and both explanations are recorded|EVIDENCE\.md', str(file))
 

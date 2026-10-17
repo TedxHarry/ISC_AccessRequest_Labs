@@ -22,7 +22,7 @@ class AuthorScreenshotTests(unittest.TestCase):
             module.strip_notes('<!-- AUTHOR_SCREENSHOT_START: one -->\ntext\n<!-- AUTHOR_SCREENSHOT_END: two -->\n')
 
     def test_every_walkthrough_has_removable_notes(self):
-        files = [*ROOT.glob('guided-labs/AR-*/README.md'), *ROOT.glob('guided-labs/capstones/CAP-*/README.md')]
+        files = [*ROOT.glob('guided-labs/M*/AR-*/README.md'), *ROOT.glob('guided-labs/capstones/CAP-*/README.md')]
         self.assertEqual(len(files), 93)
         for file in files:
             text = file.read_text(encoding='utf-8')

@@ -1,0 +1,193 @@
+# AR-015 · Request and remove a two-group access profile
+
+<a id="goal"></a>
+
+In this lab, you'll create a Remote Worker profile, approve it for Liam, deny it for Olivia and remove Liam's test grant through ISC. You will check each result in AD.
+
+## Before you start
+
+Keep the [Module 2 starting checks](../../../reference/M02-READINESS.md) beside the current request details.
+
+Complete [AR-014](../AR-014/README.md). Use Acme Admin, Acme Liam (`acme.e008`), Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`) and the AD workstation. Prepare Liam using [the additional-session steps](../../../reference/M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in).
+
+Liam and Olivia each have one linked standard AD account and baseline access, but neither `GG-VPN-USERS` nor `GG-REMOTE-USERS`. They have no Remote Worker assignment or pending grant/removal request for the profile or either business group. Preserve Lucas's approved VPN and all 24 baseline assignments. If you are returning after a break, read [where to resume](../../../troubleshooting/M02.md#ar-015) before changing settings or submitting a request.
+
+## Follow the steps
+
+### 1. Record the two recipients before requesting
+
+1. As administrator, open each identity under **Admin > Identity Management > Identities**. Inspect **Accounts** and **Access** for existing business assignments.
+2. In each user's own session, check **Request Center > My Requests** for a pending request.
+3. Run the [native membership check](../../../reference/M02-CHECKS.md#inspect-direct-ad-membership) for Liam and Olivia against both business groups. Use the same controller throughout.
+4. Record account DNs, objectGUIDs, group DNs and all four membership results. Repeat the check with `GG-ACME-BASELINE` for each person; both baseline results must be **True**.
+5. Use the [administrator request check](../../../reference/M02-CHECKS.md#inspect-a-request-as-administrator) for each person to check for pending grants or removals of the profile and either group, including requests submitted by someone else. Resolve an existing request before starting this test.
+
+**Check:** Both people start without either group or a profile assignment. If access already exists, inspect its origin before continuing; preserve unrelated access.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-01.png`
+>
+> **Show:** Liam and Olivia before memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-01 -->
+
+### 2. Create AP-Remote-Worker
+
+Use Acme Admin. Search **Admin > Access Model > Access Profiles** for `AP-Remote-Worker` first. If it exists from an earlier attempt, open that profile and compare its source, owner and entitlements with the values below; skip Create New and keep its identity. If later labs changed its routing or other settings, record that configuration before deciding whether to repeat this earlier exercise. Do not overwrite later work just to reproduce this first-run setup.
+
+1. Open **Admin > Access Model > Access Profiles > Create New**.
+2. On **Configuration**, enter:
+
+| Field | Value |
+|---|---|
+| Name | AP-Remote-Worker |
+| Primary Owner | Priya Shah, acme.e002 |
+| Description | VPN and remote-tool access for Acme remote workers |
+| Entitlement Source | Your recorded AD source |
+
+3. Select **Save**. Verify the source carefully before saving; it cannot be edited on an existing profile.
+4. Open **Manage Entitlements**. Search `GG-VPN-USERS`, verify its DN and select **+** to add it.
+5. Add `GG-REMOTE-USERS` in the same way, then select **Save**.
+6. Confirm the list contains exactly these two entitlements. Do not include GG-ACME-BASELINE or add this profile to the baseline role.
+
+**Check:** One profile contains the two intended groups from the correct source. Creating its definition has not assigned it to Liam or Olivia.
+
+### 3. Configure grant and removal review
+
+1. Open the profile's **Access Requests** page and enable **Allow Access Requests**.
+2. Under **Reviewing Access Requests**, select **Require Approval > Reviewer**. Choose **Primary Owner** and select **+**. Keep it as the only grant reviewer.
+3. Require comments when the user requests access and when the approver denies.
+4. Leave **Require Access Request Form** and **Require End Date** off for this immediate-access exercise. Record applicable timeout, reminders and escalation settings.
+5. Under **Reviewing Removal Requests**, enable **Require Approval for Removal**. Choose **Primary Owner** and select **+**. Keep one removal reviewer too.
+6. Select **Save**. Enable the profile using **Enable Access Profile**, or **Actions > Enable** from the profile list.
+7. On the Access Profiles list, select **Apply Changes**. Inspect **Admin > Dashboard > Monitor** until identity processing finishes.
+8. Reopen the profile and check its two entitlements, enabled state, requestability and both reviewer lists.
+
+**Check:** Priya is configured to review both grants and removals for this profile. Its approval policy is configured separately from the individual VPN entitlement.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-02.png`
+>
+> **Show:** Profile groups and grant/removal policies.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-02 -->
+
+### 4. Request the profile as Liam
+
+1. Switch to Acme Liam and verify `acme.e008` in the user menu.
+2. Open **Request Center**, choose **Request for Myself** if prompted, then **Access Items > Access Profiles**.
+3. Search `AP-Remote-Worker` and inspect **Details**. Select the profile, not the two individual entitlement cards.
+4. In request details, enter `AR-015: Remote Worker acceptance test`. Keep immediate access and select Liam's standard account if prompted. Select **Save**.
+5. Select **Review Request**, confirm Liam and one profile, then **Submit Request** once.
+6. Open **My Requests** and record the identifier where displayed and the submission time. Use administrator details when needed to obtain the ID.
+
+**Check:** One profile request for Liam is pending. Two groups are included in the requested item.
+
+### 5. Approve and verify both groups
+
+1. In Acme Priya, open **Approvals > Access Requests > Requested**.
+2. Select Liam's AP-Remote-Worker **Grant** request. Check the recipient, profile and reason, then select **Approve** and confirm.
+3. Open **Reviewed** and record the decision. In Acme Admin, follow the [request and activity checks](../../../reference/M02-CHECKS.md#inspect-a-request-as-administrator) for Liam.
+4. Inspect the operations for both native group values. Wait for completion and record activity IDs and final results.
+5. Repeat the native AD checks. Both business memberships must now be present on Liam's original account; compare objectGUID and DN with Section 1.
+6. In ISC, inspect Liam's **Access > Access Profiles** and **Accounts > AD account**. If imported membership is stale, use [Refresh imported AD data](../../../reference/M02-CHECKS.md#refresh-imported-ad-data).
+
+**Check:** Liam has the profile and both groups, with matching request/activity/native evidence. One successful group operation is not enough to pass.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-03.png`
+>
+> **Show:** Liam approval and activity.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-03 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-04.png`
+>
+> **Show:** Liam two native memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-04 -->
+
+### 6. Run Olivia's denial
+
+1. Recheck that Olivia still lacks both groups and has no pending profile request.
+2. In Acme Olivia, repeat Section 4 for **AP-Remote-Worker**, using reason `AR-015: Remote Worker denial check`. Verify Olivia as recipient and her standard account. Record this separate request ID.
+3. In Acme Priya, open Olivia's Grant request and select **Deny**. Enter `Remote-work requirement has not been approved` and confirm.
+4. Record the denied result in **Reviewed** and administrator request details.
+5. Repeat both native checks for Olivia on the same controller. Neither membership should have been added.
+
+**Check:** The denied profile request left Olivia without either business group.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-05.png`
+>
+> **Show:** Olivia denied request.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-05 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-06.png`
+>
+> **Show:** Olivia unchanged memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-06 -->
+
+### 7. Remove Liam's completed test assignment
+
+1. In Acme Admin, open **Admin > Identity Management > Identities**, select Liam, then **Access > Access Profiles**.
+2. Open **AP-Remote-Worker > Details**. Confirm it is Liam's test assignment and is revocable.
+3. Select **Revoke Access Profile**, enter `AR-015: Remove completed Remote Worker test`, then select **Revoke** once. Record the removal request separately from the grant.
+4. In Acme Priya, open **Approvals > Access Requests > Requested**. Find Liam's profile request and verify the action is **Remove**. Approve it and record the decision.
+5. In Acme Admin, follow the removal request and then open **Search > Account Activity**. Run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND action:"Access Request"`, replacing the source placeholder with the exact recorded AD source name. Use the removal-approval time to select the matching row, open the AD source operation, and wait for both group removals to finish. If the action-filtered search returns nothing, remove only the `action` clause and search again. See [Find the Account Activity](../../../reference/LAB-DESK.md#find-the-account-activity).
+6. Check AD: Liam must now lack both business groups but retain **GG-ACME-BASELINE** and his original account. Refresh imported data if needed and confirm the profile assignment is gone.
+7. Check that Olivia still lacks both groups and Lucas still has VPN. Keep the enabled profile definition for later labs.
+
+**Check:** Liam's test grant is removed through ISC; baseline and Lucas's independent grant are preserved.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-07.png`
+>
+> **Show:** Liam removal and final native state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-07 -->
+
+## Check the result
+
+### Final verification
+
+- [ ] The profile is enabled and requestable, with exactly two intended entitlements.
+- [ ] Priya reviews profile grants and removals.
+- [ ] Liam's approval granted both groups to his original account.
+- [ ] Olivia's denial granted neither group.
+- [ ] Liam's removal removed both business groups and the profile assignment.
+- [ ] All baseline assignments and Lucas's VPN remain.
+- [ ] No unresolved test request or operation remains; the working configuration is retained.
+
+## Finish
+
+### Leave this in place
+
+Retain AP-Remote-Worker and its policies. Liam and Olivia finish without either business group; Lucas retains VPN. Keep all 24 standard accounts and baseline assignments.
+
+[Profile request/removal policies](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html) · [Profile creation and revocation](https://documentation.sailpoint.com/saas/help/access/access-profiles.html)
