@@ -31,12 +31,31 @@
   }
   function setup() {
     var nav = document.querySelector('.sidebar-nav');
-    if (!nav || nav.querySelector('.course-area-buttons')) return;
+    if (!nav) return;
     var root = direct(nav, 'UL');
     if (!root) return;
     var top = Array.prototype.slice.call(root.children);
     var route = window.location.hash || '';
     var active = route.indexOf('/troubleshooting/') !== -1 ? 'troubleshooting' : route.indexOf('/try-it-yourself/') !== -1 ? 'practice' : 'guided';
+    var existing = nav.querySelector('.course-area-buttons');
+    if (existing) {
+      areas.forEach(function (area, index) {
+        var section = nav.querySelector('.sidebar-area-' + area.key);
+        if (section) section.hidden = active !== area.key;
+        existing.children[index].setAttribute('aria-pressed', String(active === area.key));
+      });
+      nav.querySelectorAll('.sidebar-collapsible').forEach(function (group) {
+        var list = direct(group, 'UL');
+        var button = group.querySelector('.sidebar-collapse-heading');
+        if (list && button && group.querySelector('li.active > a')) {
+          list.hidden = false;
+          button.setAttribute('aria-expanded', 'true');
+          group.classList.add('sidebar-group-open');
+        }
+      });
+      nav.dataset.courseRoute = route;
+      return;
+    }
     var controls = document.createElement('div');
     controls.className = 'course-area-buttons';
     controls.setAttribute('role', 'group');
@@ -66,6 +85,7 @@
     });
     nav.insertBefore(controls, root);
     nav.classList.add('sidebar-enhanced');
+    nav.dataset.courseRoute = route;
   }
   window.$docsify = window.$docsify || {};
   window.$docsify.plugins = (window.$docsify.plugins || []).concat(function (hook) {
