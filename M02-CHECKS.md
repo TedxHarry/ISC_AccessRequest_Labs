@@ -1,6 +1,6 @@
 # Request and target checks
 
-Keep this page and the current lab journal open. These checks use existing accounts; do not create another AD user for a request.
+Check the matching request, operation and target results directly. These checks use existing accounts; do not create another AD user for a request.
 
 ## Prepare Olivia or Liam to sign in
 

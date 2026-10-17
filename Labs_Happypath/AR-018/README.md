@@ -6,7 +6,7 @@ In this lab, you'll create a requestable Finance Analyst role, approve it for Ol
 
 ## Before you start
 
-Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and the AD workstation. Keep the [module state](../../M03-READINESS.md) and your [journal](EVIDENCE.md) open.
+Complete [AR-017](../AR-017/README.md), including cleanup. Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and the AD workstation. Keep the [module state](../../M03-READINESS.md) open.
 
 If you are returning after a break, follow [the module resume checks](../../M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
 
@@ -21,7 +21,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Olivia lacks all three business groups and retains baseline. GG-FIN-AP already exists in AD and ISC; this lab does not create another group.
 
-**Screenshot:** `AR-018-01.png`: clean recipient and the exact FIN-AP entitlement.
+<!-- AUTHOR_SCREENSHOT_START: AR-018-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-018-01.png`
+>
+> **Show:** Clean recipient and FIN-AP entitlement.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-018-01 -->
 
 ### 2. Create the accounts-payable profile
 
@@ -36,7 +44,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Finance Services has two separately requestable profiles. Reporting still contains Reporting + VPN; AP contains FIN-AP only.
 
-**Screenshot:** `AR-018-02.png`: AP profile settings and both application associations.
+<!-- AUTHOR_SCREENSHOT_START: AR-018-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-018-02.png`
+>
+> **Show:** AP profile and two application associations.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-018-02 -->
 
 ### 3. Build a standard role with those profiles
 
@@ -62,7 +78,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** The role is enabled for requests, Daniel is the role grant reviewer, and no Finance-wide assignment has been introduced.
 
-**Screenshot:** `AR-018-03.png`: role contents, empty automatic criteria and saved request controls.
+<!-- AUTHOR_SCREENSHOT_START: AR-018-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-018-03.png`
+>
+> **Show:** Role contents, assignment criteria and policies.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-018-03 -->
 
 ### 5. Request the role as Olivia
 
@@ -75,7 +99,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** The grant request names ROLE-Finance-Analyst. Its role approval policy applies; contained profile policies do not each create another grant review for this role request.
 
-**Screenshot:** `AR-018-04.png`: requested role and Daniel's decision.
+<!-- AUTHOR_SCREENSHOT_START: AR-018-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-018-04.png`
+>
+> **Show:** Role request and approval.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-018-04 -->
 
 ### 6. Verify all three groups and assignment origin
 
@@ -83,11 +115,19 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 2. After provisioning finishes, repeat Section 1's native membership checks.
 3. Open **Admin > Access Model > Roles > ROLE-Finance-Analyst > View Details > Identities**. Find Olivia and open **View Assignments**. Record the requested assignment and target account.
 4. Inspect Olivia's identity **Access** and **Accounts**. [Refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data) if needed.
-5. Compare the original DN/objectGUID and write the role → two profiles → three groups relationship in your journal.
+5. Compare the original DN/objectGUID and write the role → two profiles → three groups relationship.
 
 **Check:** Reporting, VPN and FIN-AP are all True on Olivia's original account, and baseline remains True. The role assignment is requested, not automatically assigned.
 
-**Screenshot:** `AR-018-05.png`: requested assignment and all three native memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-018-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-018-05.png`
+>
+> **Show:** Requested assignment and all target memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-018-05 -->
 
 ### 7. Revoke Olivia's requested role assignment
 
@@ -101,7 +141,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Olivia lacks all three business groups and the requested role assignment. Her baseline and original account remain. Do not disable/delete the role or revoke its contained profiles to perform this cleanup.
 
-**Screenshot:** `AR-018-06.png`: administrative revocation/activity and final memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-018-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-018-06.png`
+>
+> **Show:** Role revocation and final native state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-018-06 -->
 
 ## Check the result
 
@@ -136,17 +184,6 @@ The role packages both profiles into one requested job assignment and uses its o
 Keep the two Finance profiles, Finance Services and the role enabled/requestable. Olivia finishes with none of the three business groups or Finance assignments. Use [resume guidance](../../M03-READINESS.md#resume-or-repeat-safely) before repeating.
 
 [Role configuration and revocation](https://documentation.sailpoint.com/saas/help/access/roles.html) · [Role and profile request policies](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html)
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-018-01.png | Clean recipient and FIN-AP entitlement |
-| AR-018-02.png | AP profile and two application associations |
-| AR-018-03.png | Role contents, assignment criteria and policies |
-| AR-018-04.png | Role request and approval |
-| AR-018-05.png | Requested assignment and all target memberships |
-| AR-018-06.png | Role revocation and final native state |
 
 Exclude credentials and private registration details.
 

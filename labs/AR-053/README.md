@@ -4,9 +4,7 @@ In this lab, you'll submit Remote Worker as Taylor through the API, let Priya ap
 
 ## Before you start
 
-Complete [AR-052](../AR-052/README.md). Use Acme API Taylor for submission/history and Acme API Admin for detailed activity reads, plus Priya's ISC session and the AD workstation. Taylor starts without Remote Worker or a pending duplicate. Open your [journal](EVIDENCE.md).
-
-## Follow the steps
+Complete [AR-052](../AR-052/README.md). Use Acme API Taylor for submission/history and Acme API Admin for detailed activity reads, plus Priya's ISC session and the AD workstation. Taylor starts without Remote Worker or a pending duplicate. ## Follow the steps
 
 ### 1. Check the recipient and current access
 
@@ -36,7 +34,17 @@ Complete [AR-052](../AR-052/README.md). Use Acme API Taylor for submission/histo
 ```
 
 2. Check both variables resolve to the verified IDs and `Content-Type` is `application/json`. Leave start/remove dates out for this immediate request. Send once.
-3. Record the HTTP status, submission time and sanitized response. HTTP 202 is acceptance. If `newRequests` or `existingRequests` is returned, inspect the recipient, requested item and `accessRequestIds` within each entry. Save `AR-053-01.png`.
+3. Record the HTTP status, submission time and sanitized response. HTTP 202 is acceptance. If `newRequests` or `existingRequests` is returned, inspect the recipient, requested item and `accessRequestIds` within each entry.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-053-01 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-053-01.png`
+   >
+   > **Show:** One POST body and acceptance/tracking response.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-053-01 -->
 4. If the response is empty, delayed or lost, use the status read in the next section before deciding whether another submission is needed. Do not send another POST merely because the response did not show a fulfillment result.
 
 **Check:** The submission has one recorded attempt. Approval and provisioning are still separate observations.
@@ -45,6 +53,16 @@ Complete [AR-052](../AR-052/README.md). Use Acme API Taylor for submission/histo
 
 1. Repeat Taylor's status GET. If the new record is not visible yet, wait about 30 seconds and repeat the GET. Do not submit another grant to make it appear. Match `requestedFor.id`, profile name/type, `requesterComment.comment`, created time and any returned tracking IDs. Record `id`, `accessRequestId`, `accountActivityItemId`, `approvalIds`, `state` and `cancelable` as separately labelled fields. Do not assume every field appears before processing has progressed.
 2. Wait until the matching approval is visible; an accepted submission may not appear immediately. In Priya's ISC session, open **Approvals > Access Requests > Requested**, open the matching Taylor Grant and verify Remote Worker and the AR-053 reason. Save the pending review/status comparison as `AR-053-02.png`.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-053-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-053-02.png`
+   >
+   > **Show:** Matching status fields and Priya pending review.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-053-02 -->
 3. Approve with comment `AR-053 UI review approved` and confirm. Repeat Taylor's status GET after processing; inspect approval details, provisioning details and errors rather than checking only the top-level state.
 4. In Acme API Admin, set `activityId` from the matched status record's `accessRequestId`. Send **GET `{{apiBase}}/account-activities/v1/{{activityId}}`**. Verify its target, creation time and item details match this request. `accountActivityItemId` is a child item identifier, not the value to use for this parent read.
 5. If that read fails or identifies a different activity, keep the returned fields and use [the UI activity lookup](../../LAB-DESK.md#find-the-account-activity) with Taylor, the exact source and submission time. Record the verified parent ID from the matching activity. Do not try an unverified ID in a cancellation or decision call.
@@ -53,10 +71,32 @@ Complete [AR-052](../AR-052/README.md). Use Acme API Taylor for submission/histo
 
 ### 4. Verify AD and remove the control
 
-1. Open the matching AD operation in Account Activity and wait for its successful completion. While it is still processing, record that state and revisit it; approval alone does not establish a grant. Record its native account identity, source and group changes. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) on `acme.e025`: GG-VPN-USERS True and GG-REMOTE-USERS True. Confirm Taylor's original DN/GUID remains. Save `AR-053-03.png`.
+1. Open the matching AD operation in Account Activity and wait for its successful completion. While it is still processing, record that state and revisit it; approval alone does not establish a grant. Record its native account identity, source and group changes. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) on `acme.e025`: GG-VPN-USERS True and GG-REMOTE-USERS True. Confirm Taylor's original DN/GUID remains.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-053-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-053-03.png`
+   >
+   > **Show:** Parent activity, native grant and retained account.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-053-03 -->
 2. If AD is correct but ISC's account view is behind, [refresh imported data](../../M02-CHECKS.md#refresh-imported-ad-data) and record the later observation. If the operation failed or membership is missing, use the AR-046 stage checks before calling the request successful.
 3. Before removing the grant, confirm ISC shows the Remote Worker assignment. Refresh imported data if needed and resolve any remaining mismatch. As Taylor, open **My Access > Access Profiles > AP-Remote-Worker > Revoke Access Profile**, enter `AR-053 control complete`, and **Submit**. As Priya, inspect and approve the matching Remove request under **Approvals > Access Requests > Requested**.
-4. Follow the removal activity, verify both native memberships False, refresh imported data and confirm the profile assignment is gone. Save `AR-053-04.png`. Retain the account and all labelled request/operation IDs.
+4. Follow the removal activity, verify both native memberships False, refresh imported data and confirm the profile assignment is gone.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-053-04 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-053-04.png`
+   >
+   > **Show:** Removal and final native/imported absence.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-053-04 -->
+
+   Retain the account and all labelled request/operation IDs.
 
 **Check:** Acceptance, review, target grant and removal each have their own evidence.
 
@@ -71,16 +111,5 @@ Compare the 202 response time with the approval and native-operation times. Expl
 ## Finish
 
 Leave Taylor without Remote Worker, VPN or Remote Users and without a pending diagnostic request. Keep the sanitized submission and separate parent/item/approval IDs for AR-054. Restore Acme API Taylor for the next request.
-
-### Screenshots to capture
-
-Capture these beside the matching steps. Hide token values and secrets. Add a letter suffix when one result needs several images.
-
-| Filename | What to show |
-|---|---|
-| AR-053-01.png | One POST body and acceptance/tracking response |
-| AR-053-02.png | Matching status fields and Priya pending review |
-| AR-053-03.png | Parent activity, native grant and retained account |
-| AR-053-04.png | Removal and final native/imported absence |
 
 [Previous: AR-052](../AR-052/README.md) · [Course outline](../../README.md) · [Next: AR-054](../AR-054/README.md)

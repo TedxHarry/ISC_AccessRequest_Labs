@@ -50,9 +50,17 @@ In **Acme Employees > Mappings**, the field is **Employee Number (`identificatio
 
 Despite its label, Manager Name takes the reference supplied by this HR feed. Do not replace the CSV's employee numbers with display names. [Identity-profile mappings](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html)
 
-**Check:** Manager Name reads from `managerEmployeeNumber`; Employee Number reads from `employeeNumber`. Capture both mappings.
+**Check:** Manager Name reads from `managerEmployeeNumber`; Employee Number reads from `employeeNumber`. Compare both mappings.
 
-**Screenshot reminder:** Capture the Manager Name and Employee Number mappings.
+<!-- AUTHOR_SCREENSHOT_START: AR-002-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-01.png`
+>
+> **Show:** Manager Name and Employee Number mappings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-01 -->
 
 ![Employee Number (identificationNumber) reads employeeNumber; Manager Name (manager) reads managerEmployeeNumber from Acme HR.](images/AR-002-01-identity-mappings.png)
 
@@ -83,7 +91,15 @@ Daniel's identity: identificationNumber = E003
 Lucas's manager = Daniel Brooks
 ```
 
-**Screenshot reminder:** Capture the saved Manager Correlation selections.
+<!-- AUTHOR_SCREENSHOT_START: AR-002-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-02.png`
+>
+> **Show:** The Manager Correlation dropdown selections.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-02 -->
 
 ![Select Employee Number on the identity side and managerEmployeeNumber on the account side, then save. Equals is displayed between the fields.](images/AR-002-02-manager-correlation.png)
 
@@ -102,7 +118,7 @@ Profile changes require applying; processing selected identities provides a targ
 
 ### 5. Check everyone’s manager
 
-For each group below, inspect the employee identities' **Manager** value. Use the usernames from the CSV to distinguish people with similar names. Record the actual result for every employee in your journal.
+For each group below, inspect the employee identities' **Manager** value. Use the usernames from the CSV to distinguish people with similar names. Record the actual result for every employee.
 
 | Expected manager | Employee IDs reporting to that manager | Count |
 |---|---|---:|
@@ -117,9 +133,18 @@ For each group below, inspect the employee identities' **Manager** value. Use th
 
 **Check:** Morgan is the only intentional root. No employee is their own manager. The HR account and Acme identity counts remain 24.
 
+
 Manager relationships prepare the data for later manager-approval labs. Their presence alone does not demonstrate that an approval policy has been configured or tested.
 
-**Screenshot reminder:** Capture Lucas with Daniel as manager, Daniel with Morgan, and Morgan with no manager.
+<!-- AUTHOR_SCREENSHOT_START: AR-002-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-03.png`
+>
+> **Show:** Lucas's identity with Daniel shown as Manager.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-03 -->
 
 ![Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Check the remaining employees against the roster too.](images/AR-002-03-manager-hierarchy.png)
 
@@ -135,7 +160,29 @@ Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Ch
 | Daniel Brooks — E003 | Morgan Reed — E001 |
 | Morgan Reed — E001 | No manager; hierarchy root |
 
-The full dataset has **23 employee-to-manager relationships and one root**. Keep notes in the [evidence journal](EVIDENCE.md).
+<!-- AUTHOR_SCREENSHOT_START: AR-002-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-05.png`
+>
+> **Show:** Morgan's identity with no Manager.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-06 -->
+
+
+<!-- AUTHOR_SCREENSHOT_START: AR-002-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-04.png`
+>
+> **Show:** Daniel's identity with Morgan shown as Manager.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-05 -->
+
+
+The full dataset has **23 employee-to-manager relationships and one root**. Keep notes.
 
 ### If a manager does not resolve
 
@@ -172,11 +219,20 @@ Complete this after the correct hierarchy is verified. Use only the Acme lab pop
 3. Upload the complete edited file using AR-001’s import procedure. Wait for processing, then inspect Lucas’s HR manager reference and identity Manager. Record whether it resolves to Priya.
 4. Compare the CSV, source account, correlation pair and resolved manager. The correlation configuration can be correct while HR supplies the wrong relationship. Do not change the matching rule to compensate.
 5. Restore the saved complete file, import/process and verify Lucas resolves to Daniel again. Confirm Morgan remains the root and the other relationships are unchanged.
-6. Capture the incorrect and corrected manager results with the corresponding HR values. Do not continue while Lucas’s manager is still Priya.
+6. Compare the incorrect and corrected manager results with the corresponding HR values. Do not continue while Lucas’s manager is still Priya.
+
 
 This exercise changes manager data, not an approval policy. The later Manager-review lab proves which person actually receives a submitted request.
 
-**Screenshot reminder:** Save the temporary Priya result and the restored Daniel result before leaving the practice.
+<!-- AUTHOR_SCREENSHOT_START: AR-002-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-06.png`
+>
+> **Show:** Lucas temporarily showing Priya during the practice, then Daniel after restoration.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-04 -->
 
 ### Your ticket: Lucas is assigned to Priya even though the rule looks correct.
 
@@ -210,15 +266,6 @@ E002 is a valid identifier for Priya. The matching rule can work correctly on in
 Confirm Lucas → Daniel → Morgan and record Lucas’s current E003 manager reference before the reversible practice. Label earlier activity as historical when repeating the lab.
 
 If interrupted during the wrong-manager exercise, inspect E012 in both the working CSV and HR account before proceeding. Restore managerEmployeeNumber E003, upload the complete file and check Daniel is the resolved manager. Keep the mappings and manager-correlation pair. When repeating later, preserve added employees and report the original 23 relationships separately from any later additions.
-
-### Screenshots to capture
-
-- Manager Name and Employee Number mappings.
-- The Manager Correlation dropdown selections.
-- Lucas's identity with Daniel shown as Manager.
-- Daniel's identity with Morgan shown as Manager.
-- Morgan's identity with no Manager.
-- Lucas temporarily showing Priya during the practice, then Daniel after restoration.
 
 Keep this configuration for the later request-approval exercises.
 

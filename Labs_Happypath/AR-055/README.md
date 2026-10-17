@@ -4,13 +4,13 @@ In this lab, you'll complete separate approval, removal, denial and cancellation
 
 ## Before you start
 
-Complete [AR-054](../AR-054/README.md). Use Acme API Taylor, Priya and Admin with current tokens, plus the ISC sessions and AD workstation. Taylor starts without Remote Worker or a pending request. Keep the [identifier map](../AR-054/README.md#2-build-the-identifier-map-from-the-ar-053-record) and your [journal](EVIDENCE.md) open.
+Complete [AR-054](../AR-054/README.md). Use Acme API Taylor, Priya and Admin with current tokens, plus the ISC sessions and AD workstation. Taylor starts without Remote Worker or a pending request. Keep the [identifier map](../AR-054/README.md#2-build-the-identifier-map-from-the-ar-053-record) open.
 
 ## Follow the steps
 
 ### 1. Approve a fresh grant as Priya
 
-For each case below, record the previous IDs in your journal, then clear `approvalId` and `activityId` in the environments where you used them. Add a run date/time to each case comment if repeating. After each environment switch, verify Taylor's `recipientId`, Remote Worker's `itemId` and the caller. All JSON POSTs use **Content-Type: application/json**. Wait for the matching status/approval to appear before acting; repeat GETs about 30 seconds apart while processing continues.
+For each case below, record the previous IDs then clear `approvalId` and `activityId` in the environments where you used them. Add a run date/time to each case comment if repeating. After each environment switch, verify Taylor's `recipientId`, Remote Worker's `itemId` and the caller. All JSON POSTs use **Content-Type: application/json**. Wait for the matching status/approval to appear before acting; repeat GETs about 30 seconds apart while processing continues.
 
 1. Verify Taylor's VPN/Remote Users False and no pending grant. As Acme API Taylor, set `requestTag` to `AR-055 approve control`, then send the AR-053 Grant body once to **POST `{{apiBase}}/access-requests/v1`**. Record acceptance and the matching status record.
 2. As Acme API Priya, read **GET `{{apiBase}}/access-request-approvals/v1/pending`** with `owner-id=me`, `limit=50`, `offset=0` and the Taylor filter from AR-054. Match owner, requestedFor, requestedObject, Grant type, comment and created time. Set `approvalId` to that pending object's `id` in Priya's environment.
@@ -20,7 +20,17 @@ For each case below, record the previous IDs in your journal, then clear `approv
 {"comment":"AR-055 approved lab requirement"}
 ```
 
-4. Reread Priya's pending queue and confirm this ID still belongs to the intended undecided Grant. Send once. Record the response; HTTP 202 means the decision was accepted for processing. Read the status as Taylor and the matching activity as Admin. Verify both native memberships True before calling the case successful. Save `AR-055-01.png`.
+4. Reread Priya's pending queue and confirm this ID still belongs to the intended undecided Grant. Send once. Record the response; HTTP 202 means the decision was accepted for processing. Read the status as Taylor and the matching activity as Admin. Verify both native memberships True before calling the case successful.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-055-01 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-055-01.png`
+   >
+   > **Show:** Priya API approval and native grant.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-055-01 -->
 
 **Check:** Priya's own token decided Priya's current approval. The approved request reached Taylor's existing AD account.
 
@@ -44,7 +54,17 @@ For each case below, record the previous IDs in your journal, then clear `approv
 
 2. Send once and record the removal separately from the Grant. There is one recipient and one requested profile, with no start/remove date. Taylor has one account, so this exercise does not need multi-account selection.
 3. Read Priya's pending queue with Acme API Priya. Select the new **REVOKE_ACCESS** approval for Taylor/Remote Worker and this removal comment. Replace the old `approvalId` with its new pending ID.
-4. Send the approve operation from Section 1 with comment `AR-055 removal approved`. Set Admin's `activityId` from the matching removal status's `accessRequestId` and verify that parent with the activity GET from AR-053; do not reuse the grant activity. Wait for the removal operation to succeed, verify VPN False and Remote Users False, refresh imported data and confirm the profile assignment is gone. Save `AR-055-02.png`.
+4. Send the approve operation from Section 1 with comment `AR-055 removal approved`. Set Admin's `activityId` from the matching removal status's `accessRequestId` and verify that parent with the activity GET from AR-053; do not reuse the grant activity. Wait for the removal operation to succeed, verify VPN False and Remote Users False, refresh imported data and confirm the profile assignment is gone.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-055-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-055-02.png`
+   >
+   > **Show:** Administrator API removal, Priya decision and native absence.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-055-02 -->
 
 **Check:** This API removal uses the documented ORG_ADMIN route. The API does not support ordinary self-revocation even though Taylor can use the My Access UI removal route. Keep the baseline account intact.
 
@@ -58,7 +78,17 @@ For each case below, record the previous IDs in your journal, then clear `approv
 {"comment":"AR-055 requirement not approved"}
 ```
 
-4. Verify acceptance, then the rejected status and removal of that work item from Priya's queue. Confirm neither native group was added. Save `AR-055-03.png`.
+4. Verify acceptance, then the rejected status and removal of that work item from Priya's queue. Confirm neither native group was added.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-055-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-055-03.png`
+   >
+   > **Show:** New rejection and unchanged membership.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-055-03 -->
 
 **Check:** Rejection ended this grant before fulfillment. It did not reverse an earlier approved grant; Section 2 already removed that access.
 
@@ -76,7 +106,17 @@ For each case below, record the previous IDs in your journal, then clear `approv
 }
 ```
 
-5. Record acceptance, then reread Taylor's history and Priya's queue. Inspect the final state and `cancelledRequestDetails`; the exact state label may differ from the UI wording. Verify no pending review remains for this request and both native memberships are False. Save `AR-055-04.png`.
+5. Record acceptance, then reread Taylor's history and Priya's queue. Inspect the final state and `cancelledRequestDetails`; the exact state label may differ from the UI wording. Verify no pending review remains for this request and both native memberships are False.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-055-04 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-055-04.png`
+   >
+   > **Show:** Verified cancellation parent, final state and empty matching queue.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-055-04 -->
 6. If approval advanced before cancellation, record the returned error/current state rather than retrying blindly. If access was provisioned, remove it using Section 2 and mark this cancellation case Not completed. Repeat the cancellation case only with a new clean request and no reviewer action.
 
 **Check:** Cancellation used the verified parent identity-request tracking ID while the request was eligible. An authorized administrator can cancel Taylor's request; the original requester is also an allowed caller. Cancellation is not a removal operation.
@@ -88,16 +128,5 @@ Separate records prove an API-approved grant, API-requested removal, rejected gr
 ## Finish
 
 Leave Taylor without Remote Worker or pending controls. Keep the account, restored course configuration and separate records for all four cases. Clear stale `approvalId` and `activityId` values after recording them so the next case cannot accidentally reuse them.
-
-### Screenshots to capture
-
-Capture these beside the matching steps. Hide token values and secrets. Add a letter suffix when one result needs several images.
-
-| Filename | What to show |
-|---|---|
-| AR-055-01.png | Priya API approval and native grant |
-| AR-055-02.png | Administrator API removal, Priya decision and native absence |
-| AR-055-03.png | New rejection and unchanged membership |
-| AR-055-04.png | Verified cancellation parent, final state and empty matching queue |
 
 [Previous: AR-054](../AR-054/README.md) · [Course outline](../../README.md) · [Next: AR-056](../AR-056/README.md)

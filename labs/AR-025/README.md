@@ -8,7 +8,7 @@ In this lab, you'll trace Lucas's Department from HR to his identity and catalog
 
 Complete [AR-024](../AR-024/README.md). Keep the Finance segment enabled and the original request-on-behalf setting restored. Use Acme Admin, Acme Lucas (`acme.e012`), Acme Liam (`acme.e008`) and the AD workstation.
 
-Open the latest complete private HR working file and your [journal](EVIDENCE.md). A first pass has 24 rows; a repeat after AR-047 can have 25. Preserve the current population and controlled email addresses throughout.
+Open the latest complete private HR working file. A first pass has 24 rows; a repeat after AR-047 can have 25. Preserve the current population and controlled email addresses throughout.
 
 If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
 
@@ -27,7 +27,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** CSV, HR account and identity agree on Finance, and Lucas matches the unchanged Finance segment.
 
-**Screenshot:** `AR-025-01.png`: Lucas's identity Details showing Department=Finance. Hide private email values.
+<!-- AUTHOR_SCREENSHOT_START: AR-025-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-025-01.png`
+>
+> **Show:** Lucas's identity Details showing Department=Finance. Hide private email values.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-025-01 -->
 
 ### 2. Change only Lucas's department
 
@@ -39,7 +47,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** The full working file contains one intended field change and preserves all current identities.
 
-**Screenshot:** `AR-025-02.png`: E012's row in the complete working CSV showing department=Sales. Hide private email columns.
+<!-- AUTHOR_SCREENSHOT_START: AR-025-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-025-02.png`
+>
+> **Show:** E012's row in the complete working CSV showing department=Sales. Hide private email columns.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-025-02 -->
 
 ### 3. Import and inspect the source and identity
 
@@ -52,7 +68,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** The source account and mapped identity both show Sales without changing Lucas's identity ID or Manager.
 
-**Screenshot:** `AR-025-03.png`: Lucas's identity Details showing Department=Sales after processing.
+<!-- AUTHOR_SCREENSHOT_START: AR-025-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-025-03.png`
+>
+> **Show:** Lucas's identity Details showing Department=Sales after processing.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-025-03 -->
 
 ### 4. Observe the changed catalog
 
@@ -64,7 +88,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Lucas no longer matches the Finance segment and loses its three catalog choices, but his existing VPN and baseline remain True. Do not change the segment to Sales.
 
-**Screenshot:** `AR-025-04.png`: Lucas's Request Center search for AP-Finance-Reporting showing no matching item.
+<!-- AUTHOR_SCREENSHOT_START: AR-025-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-025-04.png`
+>
+> **Show:** Lucas's Request Center search for AP-Finance-Reporting showing no matching item.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-025-04 -->
 
 ### 5. Restore Finance through the full HR file
 
@@ -78,7 +110,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** The restored source value restores the intended visibility. The segment definition, population and pre-existing access remain intact.
 
-**Screenshot:** `AR-025-05.png`: Lucas's Request Center search for AP-Finance-Reporting showing the item again after restoring Finance.
+<!-- AUTHOR_SCREENSHOT_START: AR-025-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-025-05.png`
+>
+> **Show:** Lucas's Request Center search for AP-Finance-Reporting showing the item again after restoring Finance.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-025-05 -->
 
 ## Check the result
 
@@ -140,17 +180,5 @@ Lucas finishes in Finance. Keep the restored current HR file and private before/
 ### Resume or repeat
 
 Check Lucas's department in the working file, HR account and identity. If all three show Sales, continue with Section 4, then restore Finance in Section 5. If they disagree, finish the import and mapping checks in Section 3 first. If you already completed the Sales comparison and all three now show Finance, finish the checks in Section 5. If you have not made the change yet, start at Section 1. Keep his VPN and baseline memberships; this lab does not submit or remove access requests.
-
-### Screenshots to capture
-
-Save these five screens. Record the other checks in your journal.
-
-| Filename | What to show |
-|---|---|
-| AR-025-01.png | Lucas's identity Details showing Department=Finance. Hide private email values. |
-| AR-025-02.png | E012's row in the complete working CSV showing department=Sales. Hide private email columns. |
-| AR-025-03.png | Lucas's identity Details showing Department=Sales after processing. |
-| AR-025-04.png | Lucas's Request Center search for AP-Finance-Reporting showing no matching item. |
-| AR-025-05.png | Lucas's Request Center search for AP-Finance-Reporting showing the item again after restoring Finance. |
 
 [Previous: AR-024](../AR-024/README.md) · [Course outline](../../README.md) · [Next: AR-026](../AR-026/README.md)

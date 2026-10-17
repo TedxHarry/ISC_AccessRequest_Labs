@@ -4,9 +4,7 @@ In this lab, you'll give Alexander one automatic test role, request overlapping 
 
 ## Before you start
 
-Complete [AR-043](../AR-043/README.md), including cleanup. Use Acme Admin, Alexander (`acme.e020`), Priya (`acme.e002`) and the AD workstation. Alexander’s business groups must be absent and baseline present. You will create the test role below; do not change ROLE-Acme-AD-Baseline. Keep your [journal](EVIDENCE.md) open.
-
-If you are resuming, check your journal, current assignments and pending requests before submitting again. Resolve the earlier attempt first. If later labs changed these policies, compare their saved settings before restoring the first-pass values below.
+Complete [AR-043](../AR-043/README.md), including cleanup. Use Acme Admin, Alexander (`acme.e020`), Priya (`acme.e002`) and the AD workstation. Alexander’s business groups must be absent and baseline present. You will create the test role below; do not change ROLE-Acme-AD-Baseline. If you are resuming, check current assignments and pending requests before submitting again. Resolve the earlier attempt first. If later labs changed these policies, compare their saved settings before restoring the first-pass values below.
 
 ## Follow the steps
 
@@ -27,7 +25,17 @@ For each native check, use the same domain controller and account identifiers yo
 2. Open **Manage Access**. If `AP-Acme-Auto-Test` is already listed, keep it without adding another entry. Otherwise select **Add Access > Access Profiles**, select only that profile and choose **Review**, verify the one profile, then **Add Access**. Reopen Manage Access to confirm. Leave role access requests disabled.
 3. Open **Define Assignment**, select **Identity List**, and search for Alexander White (`acme.e020`) in **Add Identities**. Select him and use **+** to add only that identity. Verify the username and a one-person list, then **Save**. If disabled, enable the role. Select **Apply Changes** from the role list.
 4. In **Admin > Dashboard > Monitor**, wait for the started identity processing to finish. Follow [Alexander's Account Activity](../../LAB-DESK.md#find-the-account-activity) for the group addition and verify Remote Users True, VPN False, baseline True.
-5. Open Alexander's Access and the test role's identities/assignment details. Record its criteria-based origin. Save `AR-044-01.png` showing the one-identity list and native result.
+5. Open Alexander's Access and the test role's identities/assignment details. Record its criteria-based origin.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-044-01 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-044-01.png`
+   >
+   > **Show:** One-person automatic role and native grant.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-044-01 -->
 
 **Check:** The role granted access because Alexander meets its identity-list criteria. No access-request approval was submitted for this automatic grant.
 
@@ -36,7 +44,17 @@ For each native check, use the same domain controller and account identifiers yo
 1. As Alexander, open **Request Center > Access Items > Access Profiles** and select `AP-Remote-Worker`. Enter `AR-044 requested overlap with automatic role`, keep immediate access and his standard account, then **Save > Review Request > Submit Request**. Record the request ID.
 2. As Priya, open the matching Grant under **Approvals > Access Requests > Requested**, inspect the recipient, profile and reason, approve and confirm. Follow the activity and verify both VPN and Remote Users True; baseline remains True.
 3. [Refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data), then as Alexander reopen **My Access > Access Profiles > AP-Remote-Worker**, select **Revoke Access Profile**, enter `AR-044 remove requested profile only`, then **Submit**. As Priya, inspect and approve its removal request.
-4. Follow the removal operation and check **VPN=False, Remote Users=True, baseline=True**. Refresh imported AD data and record the remaining test-role assignment. Save `AR-044-02.png`.
+4. Follow the removal operation and check **VPN=False, Remote Users=True, baseline=True**. Refresh imported AD data and record the remaining test-role assignment.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-044-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-044-02.png`
+   >
+   > **Show:** Requested-profile removal with role-required group retained.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-044-02 -->
 5. Inspect `AP-Acme-Auto-Test` in Alexander's My Access and the test role under Roles. Record that criteria-assigned role access is not available for ordinary requested-assignment revocation. Do not revoke the underlying Remote Users group as a workaround.
 
 **Check:** Unlike the standalone overlap in AR-043, the automatic role still requires Remote Users. Record the role ID and membership criterion explaining why that group remains.
@@ -45,7 +63,17 @@ For each native check, use the same domain controller and account identifiers yo
 
 1. As administrator, open **Admin > Access Model > Roles > ROLE-Acme-Auto-Test > Define Assignment > Identity List**. Verify this is the disposable test role, not the foundation role.
 2. Select **X** on Alexander’s row to remove him from the list, leaving no selected identities. Save, then select **Apply Changes** from the role list. Wait for processing in Monitor.
-3. Follow Alexander's resulting removal activity. Verify Remote Users False, VPN False and baseline True. Confirm the test role is no longer assigned and his original AD account DN/GUID is unchanged. Save `AR-044-03.png`.
+3. Follow Alexander's resulting removal activity. Verify Remote Users False, VPN False and baseline True. Confirm the test role is no longer assigned and his original AD account DN/GUID is unchanged.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-044-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-044-03.png`
+   >
+   > **Show:** Eligibility removal and baseline preserved.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-044-03 -->
 4. Only after removal is verified, disable the empty test role and `AP-Acme-Auto-Test`. Keep their definitions for reference. Disabling a profile by itself is not a reliable way to remove its groups.
 5. Confirm the foundation role still has its original 24-person list for this first course pass. If you are revisiting after later labs added identities, preserve that recorded later membership instead of removing those people. Confirm Alexander retains its baseline membership. Leave Remote Worker enabled/requestable with its original Priya reviews.
 
@@ -62,15 +90,5 @@ Explain this ticket: “I removed the group, but it came back overnight.” Insp
 ## Finish
 
 Keep the empty test role and its profile disabled, with no Alexander assignment or business membership. Preserve the 24-person baseline and all standard accounts. Continue to Sofia’s account-specific removal.
-
-### Screenshots to capture
-
-Capture these at the matching step. Add a letter suffix when one result needs several images.
-
-| Filename | What to show |
-|---|---|
-| AR-044-01.png | One-person automatic role and native grant |
-| AR-044-02.png | Requested-profile removal with role-required group retained |
-| AR-044-03.png | Eligibility removal and baseline preserved |
 
 [Previous: AR-043](../AR-043/README.md) · [Course outline](../../README.md) · [Next: AR-045](../AR-045/README.md)

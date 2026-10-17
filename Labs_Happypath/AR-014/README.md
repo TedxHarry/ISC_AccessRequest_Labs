@@ -6,11 +6,9 @@ In this lab, you'll temporarily stop new VPN requests, check the catalog and res
 
 ## Before you start
 
-Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
+Keep the [Module 2 starting checks](../../M02-READINESS.md) beside the current request details.
 
-Complete [AR-013](../AR-013/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Olivia's denied request is concluded; she has no VPN grant or pending VPN request. Lucas keeps his approved VPN membership. Keep your [journal](EVIDENCE.md) open.
-
-This is a catalog administration task. Do not submit a request or remove an existing assignment during it.
+Complete [AR-013](../AR-013/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Olivia's denied request is concluded; she has no VPN grant or pending VPN request. Lucas keeps his approved VPN membership. This is a catalog administration task. Do not submit a request or remove an existing assignment during it.
 
 If you are returning after a break, read [where to resume](#if-you-stopped-while-vpn-was-hidden) before changing settings or submitting a request.
 
@@ -29,7 +27,15 @@ For the separate ISC ID and native group value, follow [the entitlement lookup](
 
 **Check:** Olivia can find the intended VPN item. Priya remains owner and reviewer.
 
-**Screenshot:** `AR-014-01.png`: visible VPN item in Olivia's session, plus Lucas's and Olivia's native before states.
+<!-- AUTHOR_SCREENSHOT_START: AR-014-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-014-01.png`
+>
+> **Show:** VPN visible as Olivia; both native before states.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-014-01 -->
 
 ### 2. Stop new requests for this item
 
@@ -41,7 +47,25 @@ For the separate ISC ID and native group value, follow [the entitlement lookup](
 
 **Check:** VPN is unavailable for a new request in Olivia's catalog. You changed individual requestability, not the global feature.
 
-**Screenshots:** `AR-014-02.png`: saved off setting. `AR-014-03.png`: Olivia's catalog search with username and filters.
+<!-- AUTHOR_SCREENSHOT_START: AR-014-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-014-02.png`
+>
+> **Show:** Individual requestability off.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-014-02 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-014-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-014-03.png`
+>
+> **Show:** VPN unavailable with username and search.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-014-03 -->
 
 ### 3. Restore availability
 
@@ -53,7 +77,15 @@ For the separate ISC ID and native group value, follow [the entitlement lookup](
 
 **Check:** VPN is available again, with the original reviewer. The internal control remains hidden.
 
-**Screenshot:** `AR-014-04.png`: restored VPN item in Olivia's session.
+<!-- AUTHOR_SCREENSHOT_START: AR-014-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-014-04.png`
+>
+> **Show:** Restored visible item.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-014-04 -->
 
 ### 4. Verify existing access was retained
 
@@ -63,7 +95,15 @@ For the separate ISC ID and native group value, follow [the entitlement lookup](
 
 **Check:** Changing catalog availability did not revoke Lucas's grant or provision Olivia.
 
-**Screenshot:** `AR-014-05.png`: Lucas's retained native VPN membership and Olivia's absent membership.
+<!-- AUTHOR_SCREENSHOT_START: AR-014-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-014-05.png`
+>
+> **Show:** Lucas retained VPN and Olivia absent, after checks.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-014-05 -->
 
 ## Check the result
 
@@ -92,18 +132,6 @@ Keep VPN requestable and all existing assignments intact. Keep Olivia's session 
 
 ### If you stopped while VPN was hidden
 
-Reopen the recorded entitlement and restore Allow Access Requests before any new request exercise. Retest with Olivia, verify Priya's owner/reviewer settings, and confirm GG-INTERNAL-NOREQUEST remains hidden. Keep the before, faulty and restored results separate in your journal. For another attempt, start from the verified visible state each time.
-
-### Screenshots to capture
-
-Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
-
-| Filename | What to show |
-|---|---|
-| AR-014-01.png | VPN visible as Olivia; both native before states |
-| AR-014-02.png | Individual requestability off |
-| AR-014-03.png | VPN unavailable with username and search |
-| AR-014-04.png | Restored visible item |
-| AR-014-05.png | Lucas retained VPN and Olivia absent, after checks |
+Reopen the recorded entitlement and restore Allow Access Requests before any new request exercise. Retest with Olivia, verify Priya's owner/reviewer settings, and confirm GG-INTERNAL-NOREQUEST remains hidden. Keep the before, faulty and restored results separate. For another attempt, start from the verified visible state each time.
 
 [Previous: AR-013](../AR-013/README.md) · [Lab index](../README.md) · [Next: AR-015](../AR-015/README.md)

@@ -16,7 +16,7 @@ Use the ISC administrator and AD workstation for configuration checks. In Sectio
 
 Complete [AR-008](../AR-008/README.md).
 
-Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, and Priya sessions available.
+Keep the AR-001 through AR-008 earlier request results and your administrator, Lucas, Daniel, and Priya sessions available.
 
 **Repeating C01 after later labs:** The counts and empty AdminAccounts expectation below describe the first Module 1 pass. Verify the original 24 standard accounts and baseline assignments, but retain later identities, Sofia's admin account and legitimate business access. Record those additions separately; do not delete them or revoke access to recreate an earlier screenshot. Use the original activity for historical provisioning evidence.
 
@@ -37,14 +37,22 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 
 **Check:** The authoritative population contains 24 HR accounts and 24 Acme identities.
 
-**Screenshot:** Save `AR-009-01-population.png`. Capture the records that prove this check.
+<!-- AUTHOR_SCREENSHOT_START: AR-009-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-009-01-population.png`
+>
+> **Show:** The authoritative population contains 24 HR accounts and 24 Acme identities.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-009-01 -->
 
 ### 2. Verify manager relationships
 
 1. Open Lucas and confirm Manager = Daniel Brooks.
 2. Open Daniel (`acme.e003`) and confirm Manager = Morgan Reed.
 3. Open Morgan (`acme.e001`) and confirm no Manager is assigned.
-4. Reopen the remaining identities and check their current Manager against the AR-002 table. Update the journal if an earlier screenshot no longer matches.
+4. Reopen the remaining identities and check their current Manager against the AR-002 table. Update the result checks if an earlier screenshot no longer matches.
 
 **Check:** Morgan is the hierarchy root and the original roster has 23 manager relationships.
 
@@ -53,7 +61,7 @@ Keep the AR-001 through AR-008 journals and your administrator, Lucas, Daniel, a
 1. Open the AD source in ISC.
 2. Open **Account Management > Accounts**.
 3. Confirm every username `acme.e001` through `acme.e024` has a standard AD account.
-4. Use the AR-007 journal to verify each account has:
+4. Check the matching request, operation and target results directly.
 
 - Correct `employeeID`
 - Correct DN / Users OU placement
@@ -89,11 +97,19 @@ Open **Entitlement Management > Entitlements** on the AD source. Check the 14 bu
 
 **Check:** The native target state matches the baseline role assignment.
 
-**Screenshot:** Save `AR-009-02-baseline-members.png`. Capture the records that prove this check.
+<!-- AUTHOR_SCREENSHOT_START: AR-009-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-009-02-baseline-members.png`
+>
+> **Show:** The native target state matches the baseline role assignment.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-009-02 -->
 
 ### 6. Verify the key provisioning examples
 
-Open **Search > Account Activity** and use the exact AD source name from your journal. For Lucas, run `recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"`. For Liam, run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)`. Use the AR-006 timestamps to select the correct historical rows, then open each activity and inspect its AD source operation. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
+Open **Search > Account Activity** and use the exact AD source name from the matching object details. For Lucas, run `recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"`. For Liam, run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)`. Use the AR-006 timestamps to select the correct historical rows, then open each activity and inspect its AD source operation. See [Find the Account Activity](../../LAB-DESK.md#find-the-account-activity).
 
 Use those activities and your saved evidence to confirm:
 
@@ -133,7 +149,15 @@ Use those activities and your saved evidence to confirm:
 
 **Check:** The requester, reviewers, and administrator are signed in through separate sessions.
 
-**Screenshot:** Save `AR-009-03-user-sessions.png`. Capture the records that prove this check.
+<!-- AUTHOR_SCREENSHOT_START: AR-009-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-009-03-user-sessions.png`
+>
+> **Show:** The requester, reviewers, and administrator are signed in through separate sessions.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-009-03 -->
 
 ### 8. Confirm no business request has been tested yet
 
@@ -160,7 +184,7 @@ C01-Acme-Foundation
 Save:
 
 1. The latest complete working HR CSV.
-2. AR-001 through AR-009 evidence journals.
+2. AR-001 through AR-009 evidence earlier request results.
 3. Source IDs and identity-profile ID.
 4. Users, AdminAccounts, and Groups OU DNs.
 5. GG-ACME-BASELINE DN and entitlement value.
@@ -173,7 +197,7 @@ Save:
 
 Do not save passwords, Personal Access Token secrets, invitation links, MFA codes, or connector credentials in the evidence folder.
 
-**Check:** The private C01 folder contains the complete working file, journals, configuration values and current target evidence. This folder is an evidence checkpoint, not a tenant backup.
+**Check:** The private C01 folder contains the complete working file, earlier request results, configuration values and current target evidence. This folder is an evidence checkpoint, not a tenant backup.
 
 ## Check the result
 
@@ -198,7 +222,7 @@ Do not save passwords, Personal Access Token secrets, invitation links, MFA code
 
 Without following the earlier sample screenshots, inspect James (`acme.e014`) from HR through identity, manager Elena (`acme.e004`), linked AD account, role assignment and native baseline membership. Record current evidence for every link. Keep all configuration intact.
 
-Write these answers in your [journal](EVIDENCE.md):
+Consider these questions:
 
 1. Which parts of the foundation can you prove with current target evidence?
 2. Which request, approval and revocation behavior remains to be tested?
@@ -237,16 +261,6 @@ If a check fails, record the affected identity or object and return to the lab t
 ### Leave this in place
 
 Keep the HR source, identity profile, manager relationships, AD source configuration, 24 standard accounts, baseline access profile, baseline role, baseline memberships, and separate user sessions in place.
-
-### Screenshots to capture
-
-Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
-
-| Filename | Evidence |
-|---|---|
-| `AR-009-01-population.png` | The authoritative population contains 24 HR accounts and 24 Acme identities. |
-| `AR-009-02-baseline-members.png` | The native target state matches the baseline role assignment. |
-| `AR-009-03-user-sessions.png` | The requester, reviewers, and administrator are signed in through separate sessions. |
 
 **Module 1 is complete when the C01 checks pass.**
 

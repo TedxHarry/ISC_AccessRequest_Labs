@@ -12,7 +12,7 @@ Module 1 covers AR-001–009. It prepares the identities, target accounts and se
 | AD provisioning | Existing supported IQService/TLS setup and account/group write permissions | AR-005–006 |
 | REST client | Postman or equivalent, administrator-owned API credentials kept private | AR-004 |
 | Test email/sign-in | Three distinct controlled addresses and the tenant’s supported authentication route | AR-008 |
-| Private evidence folder | Working HR file, journals and screenshots | Every lab |
+| Private evidence folder | Working HR file, earlier request results and screenshots | Every lab |
 
 On a Windows client, open **Active Directory Users and Computers** from Windows Tools or run `dsa.msc`. Server Manager > Tools is the Windows Server route. If the console is unavailable, arrange the AD administration tools before AR-003. You do not need to sign in to a domain controller to use a properly configured administration workstation.
 

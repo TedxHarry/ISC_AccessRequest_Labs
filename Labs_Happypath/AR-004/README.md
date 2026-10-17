@@ -23,8 +23,6 @@ From the previous labs, you need:
 - `identificationNumber = E012` on Lucas's ISC identity.
 - The AD source ID and Lucas's AD distinguishedName recorded.
 
-Keep your [evidence journal](EVIDENCE.md) open.
-
 ## Follow the steps
 
 ### 1. Verify Lucas's ISC identifier
@@ -37,7 +35,15 @@ Keep your [evidence journal](EVIDENCE.md) open.
 
 **Check:** Lucas's ISC identity contains `E012` in Employee Number.
 
-**Screenshot:** Save `AR-004-01-identity-number.png`. Capture Lucas's Employee Number.
+<!-- AUTHOR_SCREENSHOT_START: AR-004-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-004-01-identity-number.png`
+>
+> **Show:** Lucas's Employee Number.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-004-01 -->
 
 ![Lucas has Employee Number E012 on his ISC identity. In profile mappings, this field has technical name identificationNumber.](images/AR-004-01-identity-number.png)
 
@@ -58,7 +64,15 @@ Do not change the separate AD `employeeNumber` attribute.
 
 **Check:** Lucas's AD account contains `employeeID = E012`.
 
-**Screenshot:** Save `AR-004-02-ad-employee-id.png`. Capture `employeeID = E012` on the AD account.
+<!-- AUTHOR_SCREENSHOT_START: AR-004-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-004-02-ad-employee-id.png`
+>
+> **Show:** `employeeID = E012` on the AD account.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-004-02 -->
 
 ![Set AD employeeID to E012. The separate AD employeeNumber field is not used for this correlation and remains unset in this example.](images/AR-004-02-ad-employee-id.png)
 
@@ -85,7 +99,15 @@ Reference: [Account schemas](https://documentation.sailpoint.com/saas/help/accou
 
 **Check:** `employeeID` is present in the AD account schema.
 
-**Screenshot:** Save `AR-004-03-account-schema.png`. Capture `employeeID` in the account schema.
+<!-- AUTHOR_SCREENSHOT_START: AR-004-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-004-03-account-schema.png`
+>
+> **Show:** `employeeID` in the account schema.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-004-03 -->
 
 ![The AD account schema includes employeeID with type string. Check the remaining flags in its attribute settings before saving.](images/AR-004-03-account-schema.png)
 
@@ -94,7 +116,7 @@ The AD account schema includes employeeID with type string. Check the remaining 
 ### 4. Configure account correlation
 
 1. Open **Admin > Connections > Sources > your AD source > Account Management > Account Correlation**.
-2. Record the current account-correlation configuration in your journal.
+2. Record the current account-correlation configuration.
 3. Configure the course correlation pair:
 
 | Field | Value |
@@ -120,7 +142,15 @@ identificationNumber = E012
 
 **Check:** The saved correlation pair uses `identificationNumber` and `employeeID`.
 
-**Screenshot:** Save `AR-004-04-correlation.png`. Capture the saved Account Correlation configuration.
+<!-- AUTHOR_SCREENSHOT_START: AR-004-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-004-04-correlation.png`
+>
+> **Show:** the saved Account Correlation configuration.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-004-04 -->
 
 ![The first criterion compares Employee Number with employeeID. The recommendation refresh shows Error; that is separate from the configured criterion. Save and reopen the criterion, inspect any lower fallback rows, and verify the aggregation result.](images/AR-004-04-correlation.png)
 
@@ -134,7 +164,25 @@ The API procedure requires Postman and an authorized administrator API token. Us
 
 **Check:** The aggregation completes successfully and Lucas's imported AD account shows `employeeID = E012`.
 
-**Screenshot:** Save `AR-004-05-aggregation.png`. Capture the Postman request and response. Also capture the completed job separately as `AR-004-07-aggregation-history.png`.
+<!-- AUTHOR_SCREENSHOT_START: AR-004-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-004-05-aggregation.png`
+>
+> **Show:** Postman request body and 202 Accepted response; submission only.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-004-05 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-004-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-004-07-aggregation-history.png`
+>
+> **Show:** AR-004-05-aggregation.png. Capture the Postman request and response. Also capture the completed job separately as AR-004-07-aggregation-history.png.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-004-06 -->
 
 ![Postman submits disableOptimization=true and receives 202 Accepted. This confirms submission only. Check the completed job in Aggregation History before continuing.](images/AR-004-05-aggregation.png)
 
@@ -162,7 +210,15 @@ If Lucas was already linked correctly, retain that link. Record that you verifie
 
 **Check:** Lucas's existing AD account is linked to the correct ISC identity.
 
-**Screenshot:** Save `AR-004-06-linked-account.png`. Capture Lucas's identity with the linked AD account.
+<!-- AUTHOR_SCREENSHOT_START: AR-004-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-004-06-linked-account.png`
+>
+> **Show:** Lucas's identity with the linked AD account.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-004-07 -->
 
 ![Lucas retains Acme HR and has one account on the course AD source. This tenant also lists an IdentityNow account; count accounts on the selected AD source rather than requiring two total rows.](images/AR-004-06-linked-account.png)
 
@@ -185,7 +241,7 @@ Lucas retains Acme HR and has one account on the course AD source. This tenant a
 
 Open Lucas’s Accounts and compare the Acme HR account with the AD account. Record each source’s account identifier and the E012 employee value. Explain why the two account identifiers need not be identical.
 
-Write these answers in your [journal](EVIDENCE.md):
+Consider these questions:
 
 1. Which two values identify Lucas across ISC and AD?
 2. Why did this schema/correlation change require an unoptimized aggregation?
@@ -216,21 +272,6 @@ Keep:
 - `employeeID` in the AD account schema.
 - The saved account-correlation criterion.
 - Lucas's existing AD account linked to his ISC identity.
-
-### Screenshots to capture
-
-The six supplied images appear above. Add AR-004-07-aggregation-history.png showing the completed account job, status and optimization disabled. Also retain an image of the imported AD account attribute mployeeID = E012; the account-list image alone does not show that value.
-
-Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
-
-| Filename | Evidence |
-|---|---|
-| `AR-004-01-identity-number.png` | Capture Lucas's Employee Number. |
-| `AR-004-02-ad-employee-id.png` | Capture `employeeID = E012` on the AD account. |
-| `AR-004-03-account-schema.png` | Capture `employeeID` in the account schema. |
-| `AR-004-04-correlation.png` | Capture the saved Account Correlation configuration. |
-| `AR-004-05-aggregation.png` | Postman request body and 202 Accepted response; submission only. |
-| `AR-004-06-linked-account.png` | Capture Lucas's identity with the linked AD account. |
 
 Next: **[AR-005 — Configure AD Account Creation](../AR-005/README.md)**
 

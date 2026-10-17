@@ -6,9 +6,7 @@ In this lab, you'll request an entitlement, an access profile and a role for Oli
 
 ## Before you start
 
-Complete [AR-018](../AR-018/README.md), including role removal. Open Acme Admin, Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`), Acme Daniel (`acme.e003`) and the AD workstation. Keep your [journal](EVIDENCE.md) open.
-
-All three items below are enabled/requestable. Olivia starts without the three business groups or their Finance assignments. Preserve Lucas's VPN and all baseline assignments.
+Complete [AR-018](../AR-018/README.md), including role removal. Open Acme Admin, Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`), Acme Daniel (`acme.e003`) and the AD workstation. All three items below are enabled/requestable. Olivia starts without the three business groups or their Finance assignments. Preserve Lucas's VPN and all baseline assignments.
 
 | Test | Select in Request Center | Grant reviewer | Groups expected after grant |
 |---|---|---|---|
@@ -28,11 +26,19 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 4. Confirm its primary owner is Priya and its **Access Requests** page retains the individual primary-owner grant review from Module 2.
 5. Under the same page's removal settings, select **Require Approval for Removal**, choose **Primary Owner** and add it with **+**. Keep one removal reviewer and select **Save**. Reopen and verify the saved setting.
 6. Inspect both Finance profiles and the Finance Analyst role. Record their IDs/types, groups, Daniel's grant policies and removal settings using [actual object values](../../LAB-VALUES.md).
-7. Prepare three rows in your journal: selected type/ID, recipient, grant reviewer, grant request/activity, native before/after, removal route/decision/activity and final native state.
+7. Prepare three rows : selected type/ID, recipient, grant reviewer, grant request/activity, native before/after, removal route/decision/activity and final native state.
 
 **Check:** Olivia is clean and direct VPN removals now explicitly route to Priya. Keep this item-level policy for later labs; leave global settings unchanged.
 
-**Screenshot:** `AR-019-01.png`: initial memberships and saved VPN removal policy.
+<!-- AUTHOR_SCREENSHOT_START: AR-019-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-019-01.png`
+>
+> **Show:** Clean starting state and VPN removal policy.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-019-01 -->
 
 ### 2. Test A — request and remove the entitlement
 
@@ -49,7 +55,25 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Only VPN was added; after removal all three business groups are False and baseline is True. Do not start Test B until that cleanup passes.
 
-**Screenshots:** `AR-019-02.png`: Test A grant and native result. `AR-019-03.png`: self-removal, Priya's decision and clean result.
+<!-- AUTHOR_SCREENSHOT_START: AR-019-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-019-02.png`
+>
+> **Show:** A: entitlement grant and VPN only.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-019-02 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-019-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-019-03.png`
+>
+> **Show:** A: removal and clean state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-019-03 -->
 
 ### 3. Test B — request and remove the profile
 
@@ -65,7 +89,25 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** The profile added two groups, then its removal returned all three business groups to False. Baseline and the account remain. Do not start Test C with leftover profile access.
 
-**Screenshots:** `AR-019-04.png`: Test B grant and native result. `AR-019-05.png`: profile removal and clean result.
+<!-- AUTHOR_SCREENSHOT_START: AR-019-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-019-04.png`
+>
+> **Show:** B: profile grant and two groups.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-019-04 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-019-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-019-05.png`
+>
+> **Show:** B: removal and clean state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-019-05 -->
 
 ### 4. Test C — request and remove the role
 
@@ -81,7 +123,25 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** The role added three business groups and its targeted revocation removed them. Baseline remains True on the same account.
 
-**Screenshots:** `AR-019-06.png`: Test C grant, assignment and target result. `AR-019-07.png`: administrative role revocation and final native state.
+<!-- AUTHOR_SCREENSHOT_START: AR-019-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-019-06.png`
+>
+> **Show:** C: role grant and three groups.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-019-06 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-019-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-019-07.png`
+>
+> **Show:** C: administrator revocation and clean state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-019-07 -->
 
 ### 5. Compare the three records
 
@@ -93,7 +153,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Your evidence explains the request origin and the target outcome independently. It also records which removal route you used; different routes are not a controlled comparison of approval policy alone.
 
-**Screenshot:** `AR-019-08.png`: completed comparison with final control memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-019-08 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-019-08.png`
+>
+> **Show:** Comparison and preserved controls.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-019-08 -->
 
 ## Check the result
 
@@ -103,7 +171,7 @@ If a later card is unavailable, check whether the previous assignment or importe
 
 ### Explain the result
 
-A reviewer says, “All three tests delivered VPN, so they are the same request.” Use two differences from your journal to respond.
+A reviewer says, “All three tests delivered VPN, so they are the same request.” Use two differences from the matching object details to respond.
 
 <details>
 <summary>Check your explanation</summary>
@@ -128,19 +196,6 @@ The requested type/ID and approval policy differ. The profile also delivered Rep
 Retain the access model and the explicit VPN removal policy. Olivia finishes with none of the three business groups. Follow [resume guidance](../../M03-READINESS.md#resume-or-repeat-safely) before repeating any cycle.
 
 [Entitlement request/removal policies](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html) · [User removal steps](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access_removal.html) · [Role revocation](https://documentation.sailpoint.com/saas/help/access/roles.html)
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-019-01.png | Clean starting state and VPN removal policy |
-| AR-019-02.png | A: entitlement grant and VPN only |
-| AR-019-03.png | A: removal and clean state |
-| AR-019-04.png | B: profile grant and two groups |
-| AR-019-05.png | B: removal and clean state |
-| AR-019-06.png | C: role grant and three groups |
-| AR-019-07.png | C: administrator revocation and clean state |
-| AR-019-08.png | Comparison and preserved controls |
 
 Use extra captures for decision/activity/native panels. Exclude credentials.
 

@@ -6,7 +6,7 @@ You will run fresh approval and denial controls, then leave the environment read
 
 Complete AR-031 and either finish AR-032's observations or close its requests and mark the timed portion deferred. AP-Production-Support must have its original timing settings restored before you create new requests.
 
-Use the AD workstation, Acme Admin, Acme Henry, Acme Harper, Acme Ava and Acme Evelyn. Keep the Module 5 journals and the [AR-033 journal](EVIDENCE.md) open.
+Use the AD workstation, Acme Admin, Acme Henry, Acme Harper, Acme Ava and Acme Evelyn. Keep the Module 5 earlier request results open.
 
 If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
@@ -21,7 +21,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 5. In Approval Management, inspect every request ID recorded in AR-028–032. No diagnostic request should remain pending. Use **Actions > Cancel Request**, a lab comment and confirmation for an unwanted pending diagnostic; verify any concluded grant was removed through ISC.
 6. Run [native checks](../../M02-CHECKS.md#inspect-direct-ad-membership) on the recorded controller for Henry and Harper: Production Support False, baseline True. Record each existing account's DN and objectGUID for the before/after comparison; reuse those accounts.
 
-**Check:** The policies, identities and accounts are ready for fresh tests. Save `AR-033-01.png` showing the restored Production Support reviewer order.
+**Check:** The policies, identities and accounts are ready for fresh tests.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-033-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-033-01.png`
+>
+> **Show:** Restored Production Support grant order.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-033-01 -->
 
 ### 2. Run a fresh approval as Henry
 
@@ -31,7 +41,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 4. In Acme Evelyn, open the matching Grant and approve for Security. Record both decisions in the admin Process view.
 5. Follow the [Account Activity lookup](../../LAB-DESK.md#find-the-account-activity) for `acme.e018` and the exact source. Wait for the group-add operation to finish and record its result, then verify native GG-PROD-SUPPORT True and unchanged baseline/account identifiers.
 
-**Check:** Fresh manager and Security decisions produced the intended AD change. Save `AR-033-02.png` showing the completed review process.
+**Check:** Fresh manager and Security decisions produced the intended AD change.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-033-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-033-02.png`
+>
+> **Show:** Fresh Henry manager/Security approval.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-033-02 -->
 
 ### 3. Remove Henry's grant and deny Harper's control
 
@@ -41,11 +61,31 @@ If returning to an unfinished run, inspect its recorded request before submittin
 4. Record the new ID, verify Ava as reviewer, then deny it in Acme Ava with the same reason. Confirm Denied and no Security decision needed.
 5. Check Harper's Production Support False and baseline True. Record Henry's removal separately from Harper's denied Grant.
 
-**Check:** Henry's test grant was removed and Harper's denial granted nothing. Save `AR-033-03.png` showing the denied request and `AR-033-04.png` showing the final native checks.
+**Check:** Henry's test grant was removed and Harper's denial granted nothing.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-033-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-033-03.png`
+>
+> **Show:** Fresh Harper denial.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-033-03 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-033-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-033-04.png`
+>
+> **Show:** Final Henry/Harper native membership checks.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-033-04 -->
 
 ### 4. Save the module handoff
 
-1. Create a private folder named `C05-Acme-Approvals` and save the Module 5 journals and sanitized screenshots there. Keep credentials, registration links and private HR emails out of shared evidence.
+1. Create a private folder named `C05-Acme-Approvals` and save the Module 5 earlier request results and sanitized screenshots there. Keep credentials, registration links and private HR emails out of shared evidence.
 2. Record the Production Support profile ID, Security group ID/members, grant order, removal reviewer and restored timing settings.
 3. Link each result below to its request ID. Use **Observed**, **Not run**, or **Timed observation pending**; a written procedure is not execution evidence.
 
@@ -63,7 +103,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 4. Confirm Olivia has no Reporting or VPN test access, Henry and Harper have no Production Support, and Lucas retains his original VPN. Sofia still has two accounts with no test VPN and baseline only on her standard account.
 5. Retain the 24-identity baseline role and its standard-account memberships. On the first pass, the course still has 24 HR identities and 25 AD accounts because Sofia has a second account. The request tests did not create new employees.
 
-**Check:** C05 identifies the current configuration, fresh working controls and any unverified timed evidence. Save `AR-033-05.png` showing the completed results table.
+**Check:** C05 identifies the current configuration, fresh working controls and any unverified timed evidence.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-033-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-033-05.png`
+>
+> **Show:** C05 results with observed and pending items distinguished.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-033-05 -->
 
 ## Check the result
 
@@ -76,17 +126,5 @@ If the fresh control routes incorrectly, inspect the restored profile reviewer o
 ## Finish
 
 Keep GOV-Security-Review, AP-Production-Support, all existing identities/accounts and the restored policies. Carry C05 into AR-034, where the Production Support request form will be added. If AR-032 is deferred, keep that clearly marked and rerun its before/after requests when ready; do not mark the timed observations passed.
-
-### Screenshots to capture
-
-Capture these as you reach the matching step. If a result needs two screens, add `a` and `b` to that filename.
-
-| Filename | What to show |
-|---|---|
-| AR-033-01.png | Restored Production Support grant order |
-| AR-033-02.png | Fresh Henry manager/Security approval |
-| AR-033-03.png | Fresh Harper denial |
-| AR-033-04.png | Final Henry/Harper native membership checks |
-| AR-033-05.png | C05 results with observed and pending items distinguished |
 
 [Previous: AR-032](../AR-032/README.md) · [Course outline](../../README.md) · [Next: AR-034](../AR-034/README.md)

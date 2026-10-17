@@ -1,7 +1,7 @@
 # SailPoint ISC Access Requests: Hands-On Labs
 
 
-[Choose your practice path and check retained state](PRACTICE-PATH.md) · [Content audit and corrections](CONTENT-AUDIT.md)
+[Choose your practice path and check retained state](PRACTICE-PATH.md)
 
 Build requestable access, configure approvals, verify provisioning in Active Directory, and troubleshoot realistic Access Request incidents.
 
@@ -74,7 +74,7 @@ Prerequisites: a provisioned training tenant and Windows infrastructure. You wil
 | [AR-005](labs/AR-005/README.md) | Build | Configure AD account creation | Validate naming, OU, attributes, password policy, and connector readiness |
 | [AR-006](labs/AR-006/README.md) | Build | Provision one missing AD account | Compare updating Lucas with creating Liam; verify target results |
 | [AR-007](labs/AR-007/README.md) | Practice | Provision the remaining standard accounts | Verify 24 correctly linked accounts without duplicates |
-| [AR-008](labs/AR-008/README.md) | Build | Prepare reviewers, sessions, and the evidence journal | Demonstrate separate requester/reviewer access and required permissions |
+| [AR-008](labs/AR-008/README.md) | Build | Prepare reviewers, sessions, and the evidence result checks | Demonstrate separate requester/reviewer access and required permissions |
 | [AR-009](labs/AR-009/README.md) | Check | Prove the environment is ready | Complete the readiness gate and save checkpoint C01 |
 
 ## M02 — Deliver your first working request
@@ -225,7 +225,7 @@ The Submitted developer trigger is documented as REQUEST_RESPONSE; an absent or 
 
 ## M12 — Run Access Request operations
 
-Prerequisite: AR-051 with clean Taylor access and restored permissions. AR-071 uses the AR-052 administrator API environment only when a genuinely stuck request is eligible for live closure. Earlier journals supply historical cases; Modules 10/11 are optional. You will triage requests, test a configuration change and prepare an operational handover. Documentation: [Approvals Administration](https://documentation.sailpoint.com/saas/help/requests/approvals_admin.html).
+Prerequisite: AR-051 with clean Taylor access and restored permissions. AR-071 uses the AR-052 administrator API environment only when a genuinely stuck request is eligible for live closure. earlier request results supply historical cases; Modules 10/11 are optional. You will triage requests, test a configuration change and prepare an operational handover. Documentation: [Approvals Administration](https://documentation.sailpoint.com/saas/help/requests/approvals_admin.html).
 
 | ID | Type | Assignment | Skill and required proof |
 |---|---|---|---|
@@ -307,4 +307,4 @@ Your work should demonstrate:
 - Awareness of other assignment paths and possible side effects.
 - Clear handover notes that another engineer can follow.
 
-Keep a journal of what you changed, your expected result, the actual result, the evidence, and the resolution. Restore temporary faults before moving to the next lab.
+Check the matching request, operation and target results directly. Restore temporary faults before moving to the next lab.

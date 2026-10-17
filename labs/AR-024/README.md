@@ -8,9 +8,7 @@ In this lab, you'll have Lucas request Finance Reporting for Liam and Daniel den
 
 Complete [AR-023](../AR-023/README.md). Keep its **original request-on-behalf configuration** record. Open Acme Admin, Acme Lucas (`acme.e012`), Acme Liam (`acme.e008`), Acme Daniel (`acme.e003`) and the AD workstation.
 
-SEG-Acme-Finance remains enabled. Everyone-for-anyone must be enabled for this test; if you restored the original setting while pausing AR-023, enable the temporary mode again using its Section 4. Keep your [journal](EVIDENCE.md) open.
-
-If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
+SEG-Acme-Finance remains enabled. Everyone-for-anyone must be enabled for this test; if you restored the original setting while pausing AR-023, enable the temporary mode again using its Section 4. If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
 
 ## Follow the steps
 
@@ -24,7 +22,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Liam has neither business group and retains baseline. The profile has an explicit Daniel review, and Liam's own catalog remains restricted.
 
-**Screenshot:** `AR-024-01.png`: requester/recipient departments, Liam's clean native state and catalog.
+<!-- AUTHOR_SCREENSHOT_START: AR-024-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-024-01.png`
+>
+> **Show:** Different departments, clean recipient and restricted catalog.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-024-01 -->
 
 ### 2. Submit as Lucas for Liam
 
@@ -39,7 +45,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Lucas submitted a visible Finance item for Liam under the temporary request-on-behalf permission. The submitted recipient must not be Lucas.
 
-**Screenshot:** `AR-024-02.png`: selected Liam, request details and submitted requester/recipient evidence.
+<!-- AUTHOR_SCREENSHOT_START: AR-024-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-024-02.png`
+>
+> **Show:** Lucas's request for Liam.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-024-02 -->
 
 ### 3. Inspect and deny the request
 
@@ -51,7 +65,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Daniel denied Liam's request based on the recipient. This is a deliberate human decision, not an automated department check.
 
-**Screenshot:** `AR-024-03.png`: distinct requester/recipient details and the denial reason/result.
+<!-- AUTHOR_SCREENSHOT_START: AR-024-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-024-03.png`
+>
+> **Show:** Recipient-aware denial and request details.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-024-03 -->
 
 ### 4. Prove the denial left access unchanged
 
@@ -63,7 +85,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Liam still lacks Reporting and VPN; baseline remains. His catalog restriction and Lucas's retained access are unchanged.
 
-**Screenshot:** `AR-024-04.png`: denied recipient's final memberships and control catalog.
+<!-- AUTHOR_SCREENSHOT_START: AR-024-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-024-04.png`
+>
+> **Show:** Unchanged native access and catalog.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-024-04 -->
 
 ### 5. Restore the original request-on-behalf permission
 
@@ -76,7 +106,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** The temporary broad permission has been replaced by the exact original configuration, and the ordinary-user behavior agrees with it.
 
-**Screenshot:** `AR-024-05.png`: restored setting and corresponding recipient-selection check.
+<!-- AUTHOR_SCREENSHOT_START: AR-024-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-024-05.png`
+>
+> **Show:** Restored original permission and behavior.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-024-05 -->
 
 ## Check the result
 
@@ -134,15 +172,5 @@ Retain the Finance segment and original request-on-behalf configuration. Liam fi
 ### Resume or repeat
 
 Find the recorded Lucas-for-Liam request before submitting anything else. If it is pending with Daniel, continue with Section 3. If it was denied, complete the AD check and restore the original request-on-behalf setting in Sections 4–5. If it was approved instead, record the different outcome and remove Liam's AP-Finance-Reporting test grant using AR-016's profile-revocation procedure with Liam as the recipient. Verify his Reporting and VPN memberships are absent before repeating the denial exercise.
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-024-01.png | Different departments, clean recipient and restricted catalog |
-| AR-024-02.png | Lucas's request for Liam |
-| AR-024-03.png | Recipient-aware denial and request details |
-| AR-024-04.png | Unchanged native access and catalog |
-| AR-024-05.png | Restored original permission and behavior |
 
 [Previous: AR-023](../AR-023/README.md) · [Course outline](../../README.md) · [Next: AR-025](../AR-025/README.md)

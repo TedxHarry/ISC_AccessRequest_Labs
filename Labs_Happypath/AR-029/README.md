@@ -6,8 +6,6 @@ You will create AP-Production-Support and require two decisions: Ava first, then
 
 Complete [AR-028](../AR-028/README.md). Use Henry (`acme.e018`) as requester, Ava (`acme.e006`) as manager, and Noah (`acme.e007`), Evelyn (`acme.e021`) and William (`acme.e022`) as Security reviewers. Keep Acme Admin and the AD workstation available.
 
-Keep the [journal](EVIDENCE.md) open.
-
 If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
 ## Follow the steps
@@ -27,9 +25,19 @@ If returning to an unfinished run, inspect its recorded request before submittin
 1. Open **Admin > Identities > Governance Groups** and search `GOV-Security-Review`. Open the matching course group if present and compare its configuration with Step 2. Otherwise select **Create Group** and complete Step 2.
 2. For a new group, enter **Name: GOV-Security-Review**, **Description: Reviews Acme production support requests**, and **Owner: Noah (acme.e007)**. Select **Save**. If this exact course group already exists, inspect and reuse it.
 3. Open **Membership** and keep matching existing members. Use **Add Members** for any missing identities. Select Noah, Evelyn and William by their usernames, then **Add**. Verify exactly those three members; selecting Noah as owner did not replace this membership step.
-4. Record the group ID from its URL or details in the journal. Do not create an AD group for this reviewer group.
+4. Record the group ID from its URL or details. Do not create an AD group for this reviewer group.
 
-**Check:** GOV-Security-Review contains three eligible identities. Save `AR-029-01.png` showing its membership.
+**Check:** GOV-Security-Review contains three eligible identities.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-029-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-029-01.png`
+>
+> **Show:** Noah, Evelyn and William in the governance group.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-029-01 -->
 
 ### 3. Configure the Production Support profile
 
@@ -41,7 +49,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 6. For this new profile's grant review, set **Timeout: 90 days**, **Reminders: off**, and **Escalations: off**. Record the saved settings and leave global settings unchanged. AR-032 will test a shorter schedule. Save the page.
 7. Enable the profile from the Access Profiles list and select **Apply Changes**. Reopen it after processing to verify the entitlement, reviewer order and removal reviewer. Leave it outside the Finance segment and any automatic role or lifecycle assignment.
 
-**Check:** Manager is first, GOV-Security-Review second, and Primary Owner reviews removals. Save `AR-029-02.png` showing the grant reviewer order.
+**Check:** Manager is first, GOV-Security-Review second, and Primary Owner reviews removals.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-029-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-029-02.png`
+>
+> **Show:** Manager followed by Security on the profile.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-029-02 -->
 
 ### 4. Submit as Henry and approve as Ava
 
@@ -51,7 +69,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 4. In Acme Evelyn, open **Approvals > Access Requests > Requested**. Confirm this request is not yet actionable for her. Return to Acme Ava, open Henry's matching Grant details, select **Approve** and confirm.
 5. Before the Security decision, repeat Henry's native Production Support check. It must still be False.
 
-**Check:** Ava's approval advances the process but does not yet grant the group. Save `AR-029-03.png` showing the process after Ava's decision.
+**Check:** Ava's approval advances the process but does not yet grant the group.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-029-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-029-03.png`
+>
+> **Show:** Process after Ava approves, before Security decides.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-029-03 -->
 
 ### 5. Complete the Security review and verify AD
 
@@ -61,17 +89,59 @@ If returning to an unfinished run, inspect its recorded request before submittin
 4. Follow [the Account Activity lookup](../../LAB-DESK.md#find-the-account-activity), using `acme.e018`, the exact AD source and this request's time. Open the source operation and record the group-add result.
 5. Repeat Henry's native check: Production Support must be True, baseline True, and account DN/objectGUID unchanged. If imported access lags AD, [aggregate and refresh the account](../../M02-CHECKS.md#refresh-imported-ad-data).
 
-**Check:** One Security member completed the group step and the native group was added. Save `AR-029-04.png` showing the group decision and `AR-029-05.png` showing the AD result.
+**Check:** One Security member completed the group step and the native group was added.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-029-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-029-04.png`
+>
+> **Show:** Evelyn recorded as the group decision maker.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-029-04 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-029-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-029-05.png`
+>
+> **Show:** Henry native Production Support membership after fulfillment.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-029-05 -->
 
 ### 6. Remove the grant, then test manager denial
 
 1. In Acme Admin, open **Admin > Identity Management > Identities > Henry > Access > Access Profiles**. Open **AP-Production-Support > Details > Revoke Access Profile**. Enter `AR-029 test complete`, then **Revoke**.
 2. In Acme Ava, find Henry's **Remove** request, open its details and approve it. Record this removal ID separately from the grant.
-3. Follow the removal operation and verify native `GG-PROD-SUPPORT` is False again and `GG-ACME-BASELINE` is True. Capture `AR-029-07.png` showing the removal decision/activity and final native results. Refresh imported account data if needed. Keep the profile and baseline role.
+3. Follow the removal operation and verify native `GG-PROD-SUPPORT` is False again and `GG-ACME-BASELINE` is True.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-029-06 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-029-07.png`
+   >
+   > **Show:** Ava removal decision, activity and native cleanup.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-029-06 -->
+
+   Refresh imported account data if needed. Keep the profile and baseline role.
 4. In Acme Henry, repeat Section 4's submission with reason `AR-029 manager denial`. Record the new ID. In Acme Ava, open that Grant and **Deny** with the same reason.
 5. Inspect Process to confirm the request ended at Ava's denial. Verify no Security decision is needed and Production Support remains False.
 
-**Check:** The positive test was granted and removed; the negative test never granted access. Save `AR-029-06.png` showing the denied control.
+**Check:** The positive test was granted and removed; the negative test never granted access.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-029-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-029-06.png`
+>
+> **Show:** Fresh manager-denied request.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-029-07 -->
 
 ## Check the result
 
@@ -86,19 +156,5 @@ If Security can act before Ava, reopen the saved reviewer order and check that y
 Keep GOV-Security-Review and AP-Production-Support. Grant order is Manager then Security; removal reviewer is Primary Owner (Ava). Henry has no Production Support grant. Keep the recorded 90-day grant timeout with reminders/escalations off until AR-032.
 
 If interrupted, find the recorded request before submitting another. Complete its current stage, verify any grant, then use Section 6 to remove it. Do not remove membership directly in AD.
-
-### Screenshots to capture
-
-Capture these as you reach the matching step. If a result needs two screens, add `a` and `b` to that filename.
-
-| Filename | What to show |
-|---|---|
-| AR-029-01.png | Noah, Evelyn and William in the governance group |
-| AR-029-02.png | Manager followed by Security on the profile |
-| AR-029-03.png | Process after Ava approves, before Security decides |
-| AR-029-04.png | Evelyn recorded as the group decision maker |
-| AR-029-05.png | Henry native Production Support membership after fulfillment |
-| AR-029-06.png | Fresh manager-denied request |
-| AR-029-07.png | Ava removal decision, activity and native cleanup |
 
 [Previous: AR-028](../AR-028/README.md) · [Course outline](../../README.md) · [Next: AR-030](../AR-030/README.md)

@@ -35,8 +35,6 @@ From the previous labs, you need:
 - `identificationNumber` mapped to Acme HR `employeeNumber`.
 - Lucas Brown as `acme.e012` / E012.
 
-Keep your [evidence journal](EVIDENCE.md) open.
-
 ## Follow the steps
 
 ### 1. Understand the matching values
@@ -92,7 +90,15 @@ Reference: [Identity-profile mappings](https://documentation.sailpoint.com/saas/
 
 **Check:** Manager Name reads `managerEmployeeNumber`, while Employee Number reads `employeeNumber`.
 
-**Screenshot:** Save `AR-002-01-identity-mappings.png`. Capture both mappings.
+<!-- AUTHOR_SCREENSHOT_START: AR-002-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-01-identity-mappings.png`
+>
+> **Show:** both mappings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-01 -->
 
 ![Employee Number (identificationNumber) reads employeeNumber; Manager Name (manager) reads managerEmployeeNumber from Acme HR.](images/AR-002-01-identity-mappings.png)
 
@@ -128,7 +134,15 @@ identificationNumber
 
 **Check:** The saved configuration compares `managerEmployeeNumber` from the employee HR account with `identificationNumber` on the manager identity.
 
-**Screenshot:** Save `AR-002-02-manager-correlation.png`. Capture the Manager Correlation settings.
+<!-- AUTHOR_SCREENSHOT_START: AR-002-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-02-manager-correlation.png`
+>
+> **Show:** the Manager Correlation settings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-02 -->
 
 ![Select Employee Number on the identity side and managerEmployeeNumber on the account side, then save. Equals is displayed between the fields.](images/AR-002-02-manager-correlation.png)
 
@@ -175,7 +189,15 @@ Morgan Reed
           └── Lucas Brown
 ```
 
-**Screenshot:** Save `AR-002-03-manager-hierarchy.png`. Capture Lucas with Daniel as manager, Daniel with Morgan as manager, and Morgan with no manager.
+<!-- AUTHOR_SCREENSHOT_START: AR-002-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-002-03-manager-hierarchy.png`
+>
+> **Show:** Lucas with Daniel as manager, Daniel with Morgan as manager, and Morgan with no manager.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-002-03 -->
 
 ![Lucas reports to Daniel, Daniel reports to Morgan, and Morgan has no manager. Check the remaining employees against the roster too.](images/AR-002-03-manager-hierarchy.png)
 
@@ -196,7 +218,7 @@ Use the table below to validate the complete Acme population.
 | Noah Williams — E007 | E021, E022, E023 |
 | No manager | E001 |
 
-Open every employee identity listed in the table and compare its Manager with the expected manager. Record each relationship in your journal. Do not infer all 23 matches from the three sample identities.
+Open every employee identity listed in the table and compare its Manager with the expected manager. Record each relationship. Do not infer all 23 matches from the three sample identities.
 
 **Check:** Morgan is the only intended root, and no identity is its own manager.
 
@@ -218,7 +240,7 @@ The original 24-person dataset contains **23 manager relationships and one root*
 
 Find James (`acme.e014`) and follow his Manager link. Confirm Elena (`acme.e004`), then confirm Elena reports to Morgan. Record the usernames; leave the manager data unchanged.
 
-Write these answers in your [journal](EVIDENCE.md):
+Consider these questions:
 
 1. Why does Lucas’s E003 manager reference match Daniel rather than Lucas?
 2. What proves Morgan is the only root?
@@ -247,16 +269,6 @@ If a manager differs, compare the employee’s stored managerEmployeeNumber with
 ### Leave this in place
 
 Keep the manager mapping and manager-correlation configuration. These relationships are required later for manager-based Access Request approvals.
-
-### Screenshots to capture
-
-Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
-
-| Filename | Evidence |
-|---|---|
-| `AR-002-01-identity-mappings.png` | Capture both mappings. |
-| `AR-002-02-manager-correlation.png` | Capture the Manager Correlation settings. |
-| `AR-002-03-manager-hierarchy.png` | Capture Lucas with Daniel as manager, Daniel with Morgan as manager, and Morgan with no manager. |
 
 Next: **[AR-003 — Prepare and Aggregate the AD Lab](../AR-003/README.md)**
 

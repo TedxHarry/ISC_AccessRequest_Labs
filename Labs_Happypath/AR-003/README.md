@@ -22,8 +22,6 @@ Use your ISC administrator session for ISC steps and your AD administration work
 - Permission to create OUs, users, and groups in the isolated AD lab area.
 - Access to Active Directory Users and Computers.
 
-Keep your [evidence journal](EVIDENCE.md) open.
-
 <a id="environment-requirements"></a>
 
 - The AD source passes **Test Connection**.
@@ -46,7 +44,15 @@ Reference: [AD Review and Test](https://documentation.sailpoint.com/connectors/a
 
 **Check:** Test Connection succeeds.
 
-**Screenshot:** Save `AR-003-01-connection-test.png`. Capture the AD source name and successful connection test.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-01-connection-test.png`
+>
+> **Show:** the AD source name and successful connection test.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-01 -->
 
 ![The AD connection test succeeds. AD_Local_Ted is the source used in this example; select your own AD source.](images/AR-003-01-connection-test.png)
 
@@ -84,7 +90,15 @@ Use the actual DN from your directory.
 
 **Check:** All three OUs exist and you recorded their actual DNs.
 
-**Screenshot:** Save `AR-003-02-lab-ous.png`. Capture AcmeLab expanded with Users, AdminAccounts, and Groups.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-02-lab-ous.png`
+>
+> **Show:** AcmeLab expanded with Users, AdminAccounts, and Groups.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-02 -->
 
 ![AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own domain.](images/AR-003-02-lab-ous.png)
 
@@ -123,7 +137,15 @@ Before selecting the suffix, read the dropdown beside **User logon name**. Use t
 
 **Check:** Lucas exists under AcmeLab/Users with `sAMAccountName = acme.e012`.
 
-**Screenshot:** Save `AR-003-03-lucas-account.png`. Capture Lucas's account and distinguishedName.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-03-lucas-account.png`
+>
+> **Show:** Lucas's account and distinguishedName.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-03 -->
 
 ![Lucas lives under AcmeLab/Users. This image shows his distinguishedName; also check the Account tab for acme.e012 and your logon suffix.](images/AR-003-03-lucas-account.png)
 
@@ -163,7 +185,15 @@ Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishe
 
 **Check:** All 14 groups exist under AcmeLab/Groups.
 
-**Screenshot:** Save `AR-003-04-ad-groups.png`. Capture the 14 groups in AD.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-04-ad-groups.png`
+>
+> **Show:** the 14 groups in AD.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-04 -->
 
 ![The 14 business groups are present in AcmeLab/Groups. The baseline group is added in AR-005.](images/AR-003-04-ad-groups.png)
 
@@ -207,7 +237,15 @@ Reference: [AD Account and Group Settings](https://documentation.sailpoint.com/c
 - Membership search for the lab users can reach AcmeLab/Groups.
 - Existing source coverage was not removed.
 
-**Screenshot:** Save `AR-003-05-source-scopes.png`. Capture the saved user, group, and membership-search settings.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-05-source-scopes.png`
+>
+> **Show:** the saved user, group, and membership-search settings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-05 -->
 
 ![User Search Scope includes Users and AdminAccounts, with Group Membership Search DN pointing to Groups. Scroll to the separate Group Search Scope and verify it too; that section is outside this image.](images/AR-003-05-source-scopes.png)
 
@@ -238,7 +276,15 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 **Check:** Lucas's AD account is visible on the ISC AD source with the expected sAMAccountName and DN.
 
-**Screenshot:** Save `AR-003-06-account-import.png`. Capture the completed account aggregation and Lucas's imported AD account.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-06-account-import.png`
+>
+> **Show:** the completed account aggregation and Lucas's imported AD account.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-06 -->
 
 ![The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.](images/AR-003-06-ad-account.png)
 
@@ -265,7 +311,15 @@ Reference: [Entitlement aggregation](https://documentation.sailpoint.com/saas/he
 
 **Check:** All 14 Acme groups are visible as entitlements on the correct AD source.
 
-**Screenshot:** Save `AR-003-07-entitlements.png`. Capture the completed entitlement aggregation, the Acme groups, and GG-VPN-USERS details.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-07-entitlements.png`
+>
+> **Show:** the completed entitlement aggregation, the Acme groups, and GG-VPN-USERS details.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-07 -->
 
 ![The AD source contains the imported lab groups. Other groups can also appear. Search for all 14 course names; this cropped list does not show every group.](images/AR-003-07-entitlements.png)
 
@@ -297,7 +351,7 @@ ISC will contain:
 
 Open GG-HR-PAYROLL in AD and then on the ISC AD source. Record its actual DN and imported entitlement value. Confirm you selected the same group on the same source.
 
-Write these answers in your [journal](EVIDENCE.md):
+Consider these questions:
 
 1. Which search setting controls users, which controls groups, and which controls membership reads?
 2. Does an imported AD account necessarily belong to an ISC identity yet?
@@ -336,22 +390,6 @@ Keep:
 - The added AD source scope coverage.
 
 Do not make the groups requestable yet.
-
-### Screenshots to capture
-
-The seven supplied images appear beside the steps. Capture these additional views to complete the evidence: Lucas's Account tab, the separate saved Group Search Scope, completed account and entitlement aggregation history, and GG-VPN-USERS details showing its native value. The supplied source-scopes image shows user and membership searches; the supplied account image shows the imported record. Neither replaces the missing views.
-
-Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
-
-| Filename | Evidence |
-|---|---|
-| `AR-003-01-connection-test.png` | Capture the AD source name and successful connection test. |
-| `AR-003-02-lab-ous.png` | Capture AcmeLab expanded with Users, AdminAccounts, and Groups. |
-| `AR-003-03-lucas-account.png` | Capture Lucas's account and distinguishedName. |
-| `AR-003-04-ad-groups.png` | Capture the 14 groups in AD. |
-| `AR-003-05-source-scopes.png` | Capture the saved user, group, and membership-search settings. |
-| `AR-003-06-account-import.png` | Capture the completed account aggregation and Lucas's imported AD account. |
-| `AR-003-07-entitlements.png` | Capture the completed entitlement aggregation, the Acme groups, and GG-VPN-USERS details. |
 
 Next: **[AR-004 — Correlate Lucas's Existing AD Account](../AR-004/README.md)**.
 

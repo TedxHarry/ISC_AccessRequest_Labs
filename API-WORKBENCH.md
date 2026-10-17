@@ -12,7 +12,7 @@ On a repeat run, reuse the matching caller environment and named PAT if its cred
 4. Open **Vault > Local Vault**, unlock or set up the vault, and add caller-specific secrets for Client ID and Client Secret. In the environment, create `clientId` and `clientSecret`; make each a secure variable and select its matching local vault secret as the value. You will add `token` after a successful exchange. Keep the caller names distinct, for example `acme-taylor-client-secret`. Local vault secrets are not shared with collaborators. See [Postman vault variables](https://learning.postman.com/docs/use/postman-vault/use-vault-secrets).
 5. Create a request named **Get token**, set **POST** `{{apiBase}}/oauth/token` and **Authorization > No Auth**. Under **Body > x-www-form-urlencoded**, add `grant_type` = `client_credentials`, `client_id` = `{{clientId}}`, and `client_secret` = `{{clientSecret}}`. Send once.
 6. Expect HTTP 200 with `access_token`, `token_type` and expiry information. Create a caller-specific local vault secret for the returned access-token value. Add the environment variable `token`, make it secure and select that new local vault secret. On a later exchange, update that caller's existing token secret. On other requests, set **Authorization > Bearer Token** to `{{token}}`. Record the expiry privately. If it expires, repeat the token exchange; do not use the Client Secret as the bearer token.
-7. Add ordinary environment variables `recipientId`, `itemId`, `approvalId`, `activityId` and `requestTag`. Populate recipient/item using the lookup below. Leave approval/activity IDs empty until a matching request exists. When switching environments, verify the caller and resolved recipient/item values. Environment values are separate: changing `approvalId` in Priya's environment does not update Admin's `activityId`. Record old IDs in your journal, then clear approval/activity variables before each new case. Save the request definitions without embedding credentials in their bodies or headers. Before a screenshot, hide authorization values and the token response.
+7. Add ordinary environment variables `recipientId`, `itemId`, `approvalId`, `activityId` and `requestTag`. Populate recipient/item using the lookup below. Leave approval/activity IDs empty until a matching request exists. When switching environments, verify the caller and resolved recipient/item values. Environment values are separate: changing `approvalId` in Priya's environment does not update Admin's `activityId`. Record old IDs then clear approval/activity variables before each new case. Save the request definitions without embedding credentials in their bodies or headers. Before a screenshot, hide authorization values and the token response.
 
 PATs retain the owner's user-level boundary; scopes can further restrict calls. If a token is restricted, compare its granted scopes with the specific operation's security entry. A token that works for a self request does not establish permission to read another person's history or approve Priya's work. Do not promote Taylor or Priya to administrator to make a failed read pass. [Authentication](https://developer.sailpoint.com/docs/api/authentication/), [authorization and scopes](https://developer.sailpoint.com/docs/api/authorization/).
 
@@ -88,7 +88,7 @@ This uses the established My Access removal route. The API's `REVOKE_ACCESS` cal
 ### Open the correct folder and run the fixture first
 
 1. Download or clone this repository and locate the folder containing `tools`, `fixtures` and this file. Open **Windows PowerShell** and run `Set-Location -LiteralPath (Read-Host 'Full path to the course repository folder')`. Enter that folder path, not the `tools` subfolder.
-2. Run `Test-Path .\tools\request_report.py` and `Test-Path .\fixtures\request-status-pages.json`. Both must return `True`. If either is `False`, correct the current folder before continuing.
+2. Run `Test-Path.\tools\request_report.py` and `Test-Path.\fixtures\request-status-pages.json`. Both must return `True`. If either is `False`, correct the current folder before continuing.
 3. Run `python --version`. If Python is unavailable, install Python 3 from [python.org](https://www.python.org/downloads/windows/) or use a workstation where it is already installed, then reopen PowerShell. The report uses Python's standard library; it needs no additional package installation.
 4. Run the fixture below. It reads supplied sample data and needs no tenant token.
 
@@ -96,7 +96,7 @@ This uses the established My Access removal route. The API's `REVOKE_ACCESS` cal
 $LabEvidenceFolder = Join-Path ([Environment]::GetFolderPath('MyDocuments')) ('AcmeLabEvidence-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory -Path $LabEvidenceFolder -ErrorAction Stop | Out-Null
 $LabFixtureReport = Join-Path $LabEvidenceFolder 'fixture-report.json'
-python .\tools\request_report.py --fixture .\fixtures\request-status-pages.json --output $LabFixtureReport
+python.\tools\request_report.py --fixture.\fixtures\request-status-pages.json --output $LabFixtureReport
 if ($LASTEXITCODE -ne 0) { throw 'The fixture report failed; inspect the error before continuing.' }
 $LabRows = @(Get-Content -LiteralPath $LabFixtureReport -Raw | ConvertFrom-Json)
 $LabRows.Count
@@ -110,7 +110,7 @@ The [request report script](tools/request_report.py) reads all pages for one rec
 $LabApiBase = Read-Host 'Confirmed tenant API origin, without an operation path'
 $LabRecipientId = Read-Host 'Verified ISC recipient identity ID'
 $LabLiveReport = Join-Path $LabEvidenceFolder 'request-report.json'
-python .\tools\request_report.py --base $LabApiBase --recipient $LabRecipientId --output $LabLiveReport
+python.\tools\request_report.py --base $LabApiBase --recipient $LabRecipientId --output $LabLiveReport
 ```
 
 Enter a current token at the hidden prompt. Run `if ($LASTEXITCODE -ne 0) { throw 'Live report failed; inspect the error.' }` before opening `$LabLiveReport`. The report can contain identity information; keep it private. If you opened a new PowerShell session, repeat the folder/fixture setup to establish the variables first.

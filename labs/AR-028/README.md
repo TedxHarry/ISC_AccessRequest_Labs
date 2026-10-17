@@ -4,7 +4,7 @@ You will request the same VPN entitlement three times, changing only its grant r
 
 ## Before you start
 
-Complete [AR-027](../AR-027/README.md). Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and Acme Priya (`acme.e002`). You will also need the existing AD source owner's working session for the third test. Keep the AD workstation and [journal](EVIDENCE.md) open.
+Complete [AR-027](../AR-027/README.md). Use Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and Acme Priya (`acme.e002`). You will also need the existing AD source owner's working session for the third test. Keep the AD workstation open.
 
 If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
@@ -26,22 +26,56 @@ If returning to an unfinished run, inspect its recorded request before submittin
 2. Select **Save**, leave the page and reopen it to verify Manager persisted.
 3. In Acme Olivia, confirm the username in the user menu. Open **Request Center > Access Items > Entitlements**, search `GG-VPN-USERS`, and verify its AD source.
 4. Select the item. Enter `AR-028 manager routing` as the reason, keep immediate access, select **Save**, then **Review Request**. Verify Olivia and the VPN entitlement before selecting **Submit Request**. If an account chooser appears, select her recorded standard AD account.
-5. Open **Request Center > My Requests**, open that request and record its ID. In Acme Admin, paste the ID into **Approval Management > Access Requests**. Open the access name and inspect **Process** and **Assignees**. Record Daniel as the current reviewer. Capture `AR-028-01.png` now, before denying.
+5. Open **Request Center > My Requests**, open that request and record its ID. In Acme Admin, paste the ID into **Approval Management > Access Requests**. Open the access name and inspect **Process** and **Assignees**. Record Daniel as the current reviewer.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-028-01 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-028-01.png`
+   >
+   > **Show:** Manager request: ID and Daniel assigned.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-028-01 -->
 6. In Acme Daniel, open **Approvals > Access Requests > Requested**. Open Olivia's VPN **Grant** details, verify the reason, select **Deny**, enter `AR-028 manager routing control`, and confirm. Reopen the request in the admin view and verify **Denied**.
 
-**Check:** A new request routed to Daniel and was denied. Save `AR-028-01.png` showing its ID and resolved reviewer before the decision.
+**Check:** A new request routed to Daniel and was denied.
 
 ### 3. Repeat for the item owner and source owner
 
 1. As administrator, replace only the grant-review row with **Primary Owner**, then **Save** and reopen it.
-2. Repeat Section 2's submission and inspection steps as Olivia, using reason `AR-028 primary owner routing`. Record the new request ID. Verify Priya is assigned and capture `AR-028-02.png`, then deny in Acme Priya with the same reason.
+2. Repeat Section 2's submission and inspection steps as Olivia, using reason `AR-028 primary owner routing`. Record the new request ID. Verify Priya is assigned.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-028-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-028-02.png`
+   >
+   > **Show:** Primary-owner request: ID and Priya assigned.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-028-02 -->
+
+   Deny in Acme Priya with the same reason.
 3. Replace only the grant-review row with **Source Owner**, save and reopen it.
-4. Submit a third Olivia request with reason `AR-028 source owner routing`. Inspect its **Assignees** against the source owner recorded in Section 1. Capture `AR-028-03.png` before the decision. In the resolved reviewer's session, open the matching approval and deny it. If self-approval prevention resolved a different reviewer, use that person's session; do not assume the source owner still holds the task. For a group owner, inspect the individual assignees and have one eligible member deny.
+4. Submit a third Olivia request with reason `AR-028 source owner routing`. Inspect its **Assignees** against the source owner recorded in Section 1.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-028-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-028-03.png`
+   >
+   > **Show:** Source-owner request: ID and actual assignee.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-028-03 -->
+
+   In the resolved reviewer's session, open the matching approval and deny it. If self-approval prevention resolved a different reviewer, use that person's session; do not assume the source owner still holds the task. For a group owner, inspect the individual assignees and have one eligible member deny.
 Before each new variant, confirm the previous request concluded and Olivia still lacks VPN.
 
 5. Record all three IDs and decisions separately. If two categories resolved to the same person, write that down; the configured categories can differ even when the reviewer is the same. If Olivia herself is the source owner, inspect the actual replacement reviewer: self-approval prevention can change the assignee. Record that exception without changing the source owner.
 
-**Check:** Each category has its own fresh request and resolved-reviewer evidence. Save `AR-028-02.png` for the item-owner assignment and `AR-028-03.png` for the source-owner assignment.
+**Check:** Each category has its own fresh request and resolved-reviewer evidence.
 
 ### 4. Restore VPN and verify the target
 
@@ -49,11 +83,21 @@ Before each new variant, confirm the previous request concluded and Olivia still
 2. Reopen the three request IDs in Approval Management. All should be Denied; none should still need a decision.
 3. Repeat Olivia's native VPN and baseline checks. VPN must remain False and baseline True. Check Lucas (`acme.e012`) still has VPN.
 
-**Check:** The source owner never changed, the VPN policy is restored, and the tests granted no access. Save `AR-028-04.png` showing the restored grant/removal reviewer settings.
+**Check:** The source owner never changed, the VPN policy is restored, and the tests granted no access.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-028-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-028-04.png`
+>
+> **Show:** Restored VPN grant/removal settings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-028-04 -->
 
 ## Check the result
 
-Your journal should show Manager → Daniel, Primary Owner → Priya, and Source Owner → the recorded AD owner or its eligible group members. Each request must be Denied with Olivia's VPN membership still False.
+Compare the actual results: Manager → Daniel, Primary Owner → Priya, and Source Owner → the recorded AD owner or its eligible group members. Each request must be Denied with Olivia's VPN membership still False.
 
 If a reviewer differs, first compare the request's creation time with the policy save time, then inspect the selected source, owner and Olivia's Manager. Editing a policy does not turn an older request into a fresh routing test.
 
@@ -82,16 +126,5 @@ The request identifies Olivia as Requested by and Liam as Access for. Profile Ma
 ## Finish
 
 Keep VPN requestable with Priya as its primary-owner grant/removal reviewer. Keep Olivia without VPN, Lucas with VPN, and all baseline access. If interrupted, locate the recorded request and finish its denial before submitting the next variant. Restore the grant reviewer before leaving this lab.
-
-### Screenshots to capture
-
-Capture these as you reach the matching step. If a result needs two screens, add `a` and `b` to that filename.
-
-| Filename | What to show |
-|---|---|
-| AR-028-01.png | Manager request: ID and Daniel assigned |
-| AR-028-02.png | Primary-owner request: ID and Priya assigned |
-| AR-028-03.png | Source-owner request: ID and actual assignee |
-| AR-028-04.png | Restored VPN grant/removal settings |
 
 [Previous: AR-027](../AR-027/README.md) · [Course outline](../../README.md) · [Next: AR-029](../AR-029/README.md)

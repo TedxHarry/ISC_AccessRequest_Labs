@@ -8,7 +8,7 @@ Complete [AR-031](../AR-031/README.md). Use Acme Admin, the AD workstation, Acme
 
 Use the item-level Timeout, Reminders and Escalations controls described below. If they are unavailable in your tenant, record the missing capability and defer this lab rather than changing global settings as a substitute.
 
-Keep the [journal](EVIDENCE.md) for the next observation. Do not approve either diagnostic request.
+Do not approve either diagnostic request.
 
 If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
@@ -22,7 +22,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 4. In Acme Henry, request AP-Production-Support through **Request Center > Access Items > Access Profiles** with reason `AR-032 before schedule change`. Keep immediate access, then **Save > Review Request > Submit Request**.
 5. Record its ID and Created time from My Requests. Find the ID in **Admin > Dashboard > Approval Management > Access Requests** and verify Ava is assigned. Leave it pending.
 
-**Check:** The earlier request was created under the original settings. Save `AR-032-01.png` showing those profile settings before editing.
+**Check:** The earlier request was created under the original settings.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-032-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-032-01.png`
+>
+> **Show:** Original profile timing settings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-032-01 -->
 
 ### 2. Save a separate reminder and escalation schedule
 
@@ -46,16 +56,46 @@ If returning to an unfinished run, inspect its recorded request before submittin
 5. Check both **Schedule Preview** displays. Record the next eligible reminder and escalation times using the selected zone; a daily 10:00 schedule is not simply the submission time plus 24 hours. Verify the first reminder precedes escalation and both fall before timeout.
 6. Select **Save**, leave and reopen the profile. Verify all values, the chain and the time zone persisted. Do not change the tenant clock or global settings to speed up the test.
 
-**Check:** The item has a one-reminder schedule and a later escalation to Samuel. Save `AR-032-02.png` showing reminder settings and `AR-032-03.png` showing escalation settings and time zone.
+**Check:** The item has a one-reminder schedule and a later escalation to Samuel.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-032-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-032-02.png`
+>
+> **Show:** Saved reminder configuration.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-032-02 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-032-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-032-03.png`
+>
+> **Show:** Escalation chain, fallback and time zone.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-032-03 -->
 
 ### 3. Submit the later request and plan the observations
 
 1. In Acme Harper, request AP-Production-Support with reason `AR-032 after schedule change`, using the same submission route as Henry. Record the new ID and Created time.
 2. Inspect the new request in Approval Management. Ava is initially assigned. Record any displayed expiration date from request details; otherwise record the expected deadline from the four-day setting separately from the actual observed result.
-3. In your journal, record the two IDs, their original settings and the next reminder/escalation observations. Keep both requests pending. Do not use manual **Remind User** or Reassign during this test; those would be different events.
+3. record the two IDs, their original settings and the next reminder/escalation observations. Keep both requests pending. Do not use manual **Remind User** or Reassign during this test; those would be different events.
 4. Restore the profile's original grant timing settings from Section 1 now, including the recorded time zone, escalation chain and fallback. Restore those fields while editable, then restore the original reminder/escalation on/off states, then **Save** and reopen it. Existing requests retain the timing settings in force at submission. Restoring the profile prevents later new requests from using the temporary schedule.
 
-**Check:** The profile is restored while the earlier and later requests retain different submitted configurations. Save `AR-032-04.png` showing both recorded request IDs and creation times.
+**Check:** The profile is restored while the earlier and later requests retain different submitted configurations.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-032-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-032-04.png`
+>
+> **Show:** Earlier and later request IDs and creation times.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-032-04 -->
 
 ### 4. Observe the reminder and escalation
 
@@ -64,7 +104,27 @@ If returning to an unfinished run, inspect its recorded request before submittin
 3. Leave the request undecided. If it later advances to the configured fallback, record Noah and that event separately. Do not confuse the fallback with the normal second Security stage, which would follow approval of the first required review.
 4. Reopen Henry's earlier request and compare its assignment/history. It should not acquire the new reminder/escalation schedule merely because the profile was edited.
 
-**Check:** Record observed notification and assignment events separately. Save `AR-032-05.png` for the reminder, hiding mailbox details, and `AR-032-06.png` for the escalation history.
+**Check:** Record observed notification and assignment events separately.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-032-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-032-05.png`
+>
+> **Show:** Actual reminder when received.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-032-05 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-032-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-032-06.png`
+>
+> **Show:** Actual escalation history when observed.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-032-06 -->
 
 ### 5. Observe expiration and close the diagnostics
 
@@ -74,7 +134,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 4. Cancel Henry's still-pending earlier request in **Approval Management > Actions > Cancel Request**. Enter `AR-032 comparison complete` and confirm. If either request has already concluded, record its outcome rather than trying to cancel a completed grant.
 5. Reopen the profile and verify original settings, Manager then Security, and Primary Owner removal. Verify no pending diagnostic request or test membership remains.
 
-**Check:** Each timed observation has an actual result or is explicitly unverified. Save `AR-032-07.png` showing the later request's expiration outcome.
+**Check:** Each timed observation has an actual result or is explicitly unverified.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-032-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-032-07.png`
+>
+> **Show:** Actual expiration outcome when observed.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-032-07 -->
 
 ## Check the result
 
@@ -100,19 +170,5 @@ Timing changes apply to newly created requests. Henry's earlier request retains 
 ## Finish
 
 Keep AP-Production-Support's original timing configuration, Manager then Security grant review, and Primary Owner removal review. Henry and Harper must have no Production Support membership or pending diagnostic request before AR-033. Save the actual observations, or explicitly record that the timed portion was deferred. Keep Samuel's prepared session for later work.
-
-### Screenshots to capture
-
-Capture these as you reach the matching step. If a result needs two screens, add `a` and `b` to that filename.
-
-| Filename | What to show |
-|---|---|
-| AR-032-01.png | Original profile timing settings |
-| AR-032-02.png | Saved reminder configuration |
-| AR-032-03.png | Escalation chain, fallback and time zone |
-| AR-032-04.png | Earlier and later request IDs and creation times |
-| AR-032-05.png | Actual reminder when received |
-| AR-032-06.png | Actual escalation history when observed |
-| AR-032-07.png | Actual expiration outcome when observed |
 
 [Previous: AR-031](../AR-031/README.md) · [Course outline](../../README.md) · [Next: AR-033](../AR-033/README.md)

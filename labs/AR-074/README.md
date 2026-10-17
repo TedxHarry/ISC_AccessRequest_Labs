@@ -4,7 +4,7 @@ In this lab, you'll turn the mixed-results investigation into a support handover
 
 ## Before you start
 
-Complete [AR-073](../AR-073/README.md), including cleanup. Keep its basket, per-item decisions and native evidence. Use a private evidence folder and your [journal](EVIDENCE.md). You may substitute an actual recorded AR-048/068 failure, but do not invent a product defect or an error message.
+Complete [AR-073](../AR-073/README.md), including cleanup. Keep its basket, per-item decisions and native evidence. Use a private evidence folder. You may substitute an actual recorded AR-048/068 failure, but do not invent a product defect or an error message.
 
 ## Follow the steps
 
@@ -12,8 +12,16 @@ Complete [AR-073](../AR-073/README.md), including cleanup. Keep its basket, per-
 
 1. Use this report from AR-073: `Taylor requested two items but received only Remote Worker`. Write what the requester expected, then state the observed facts: one item approved/fulfilled, the other deliberately denied, with later removal of the approved grant.
 2. Record the case as explained policy behavior unless evidence shows otherwise. If substituting a real failure, retain its exact error and actual unresolved stage. A support handover does not require alleging a SailPoint defect.
-3. In your private journal, list source, recipient, account DN/GUID, item ID/type, each request/approval/activity ID and observation time zone. Copy values from the evidence; leave unavailable values marked Missing with the next lookup needed.
-4. Save `AR-074-01.png` showing the symptom and the two decisions, with private identifiers hidden in the shareable image.
+3. In your private result checks, list source, recipient, account DN/GUID, item ID/type, each request/approval/activity ID and observation time zone. Copy values from the evidence; leave unavailable values marked Missing with the next lookup needed.
+<!-- AUTHOR_SCREENSHOT_START: AR-074-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-074-01.png`
+>
+> **Show:** Reported symptom and separate observed decisions.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-074-01 -->
 
 **Check:** A reader can distinguish the business report from the conclusion supported by evidence.
 
@@ -31,16 +39,36 @@ Complete [AR-073](../AR-073/README.md), including cleanup. Keep its basket, per-
 1. Make a timeline with timestamp/time zone, actor or system, event, request/item ID and evidence filename. Include submission, each decision, native observation, removal request, removal outcome and any configuration restoration. Use the observed timestamps; mark missing times instead of estimating them.
 2. Add changes tried and their results. If none were needed because denial explains the missing item, say so. Identify the current native state and whether any request/write remains pending.
 3. Write the requested next action. For AR-073, explain the denied item to the requester and require a new business justification if it is still wanted. For an unresolved case, name the missing evidence and whether the source administrator or SailPoint support can supply it.
-4. Save `AR-074-02.png` with the timeline and conclusion. Keep the private ID map separate from the shareable narrative.
+<!-- AUTHOR_SCREENSHOT_START: AR-074-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-074-02.png`
+>
+> **Show:** Timeline, current state and next action.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-074-02 -->
+
+Keep the private ID map separate from the shareable narrative.
 
 **Check:** The next engineer knows what is established, what remains uncertain and what to do next.
 
 ### 4. Review a shareable copy
 
-1. Create a copy in your private evidence folder, such as `AR-074-support-case.md`, containing symptom, scope/impact, prerequisites, reproduction, expected/observed results, timeline, changes tried, current state and next action. Keep this within the existing journal if you prefer one file.
+1. Create a copy in your private evidence folder, such as `AR-074-support-case.md`, containing symptom, scope/impact, prerequisites, reproduction, expected/observed results, timeline, changes tried, current state and next action. Check the matching request, operation and target results directly.
 2. Replace private identity/account values consistently in the shareable copy; preserve stable labels such as Recipient A, Profile A and Entitlement B so the events can still be correlated. Remove tokens, passwords, callback secrets and unrelated exports.
 3. Reread only that copy, with the walkthrough closed. Check whether you can identify the two items, reproduce the observations and find cleanup/current state. Fix every missing actor, input, timestamp reference or evidence link you notice.
-4. Save `AR-074-03.png` of the corrected shareable copy. Retain the private original and identifier map. This lab prepares the package; it does not send an email or open a support case.
+<!-- AUTHOR_SCREENSHOT_START: AR-074-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-074-03.png`
+>
+> **Show:** Reviewed shareable reproduction package.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-074-03 -->
+
+Retain the private original and identifier map. This lab prepares the package; it does not send an email or open a support case.
 
 **Check:** Another engineer can follow the evidence without needing your open sessions or credentials.
 
@@ -55,15 +83,5 @@ Remove the item table from a temporary copy and reread the symptom. Identify the
 ## Finish
 
 Keep the private evidence and sanitized handover. Leave all tenant objects in their AR-073 restored state. If using a historical failure, preserve its later resolution and do not present it as a current outage.
-
-### Screenshots to capture
-
-Capture these beside the matching steps. Hide credentials and unnecessary personal data. Use letter suffixes when a result needs several images. Label historical and synthetic evidence separately from current tenant observations.
-
-| Filename | What to show |
-|---|---|
-| AR-074-01.png | Reported symptom and separate observed decisions |
-| AR-074-02.png | Timeline, current state and next action |
-| AR-074-03.png | Reviewed shareable reproduction package |
 
 [Previous: AR-073](../AR-073/README.md) · [Course outline](../../README.md) · [Next: AR-075](../AR-075/README.md)

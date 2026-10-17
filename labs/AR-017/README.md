@@ -6,7 +6,7 @@ In this lab, you'll associate the reporting profile with Finance Services, reque
 
 ## Before you start
 
-Complete [AR-016](../AR-016/README.md), including removal. Use Acme Admin, Acme Olivia, Acme Daniel and the AD workstation. Keep your [journal](EVIDENCE.md) and [module state](../../M03-READINESS.md) open.
+Complete [AR-016](../AR-016/README.md), including removal. Use Acme Admin, Acme Olivia, Acme Daniel and the AD workstation. Keep [module state](../../M03-READINESS.md) open.
 
 AP-Finance-Reporting is enabled/requestable with Daniel reviewing grants and removals. Olivia has no Reporting or VPN membership, profile assignment or pending request. Confirm those conditions using AR-016 Section 1 before continuing.
 
@@ -23,7 +23,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** You have one existing reporting profile to associate. Do not create a second copy for the application.
 
-**Screenshot:** `AR-017-01.png`: profile identity/settings and Olivia's starting access.
+<!-- AUTHOR_SCREENSHOT_START: AR-017-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-01.png`
+>
+> **Show:** Existing profile and clean recipient.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-01 -->
 
 ### 2. Create and configure Finance Services
 
@@ -47,7 +55,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** The application contains the enabled/requestable Reporting profile. On the first pass it is the only association; later repeats preserve the AP profile too. The profile's groups and Daniel's review policy remain unchanged.
 
-**Screenshot:** `AR-017-02.png`: application source, options, profile association and enabled state.
+<!-- AUTHOR_SCREENSHOT_START: AR-017-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-02.png`
+>
+> **Show:** Application source, options, association and enablement.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-02 -->
 
 ### 4. Request through Finance Services
 
@@ -61,7 +77,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Olivia found the access through Finance Services, but the submitted access item is AP-Finance-Reporting. An application card by itself is not a fulfilled access request.
 
-**Screenshot:** `AR-017-03.png`: application choice, selected profile and submitted request.
+<!-- AUTHOR_SCREENSHOT_START: AR-017-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-03.png`
+>
+> **Show:** Application selection and resulting profile request.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-03 -->
 
 ### 5. Approve and verify the existing account
 
@@ -69,11 +93,19 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 2. In Acme Admin, inspect [the matching request and account activity](../../M02-CHECKS.md#inspect-a-request-as-administrator).
 3. After the operations finish, run [native membership checks](../../M02-CHECKS.md#inspect-direct-ad-membership) for Olivia against `GG-FIN-REPORTING`, `GG-VPN-USERS` and `GG-ACME-BASELINE`.
 4. Compare the AD account's DN and objectGUID with Section 1. Open Olivia's ISC **Accounts** and **Access**; [refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data) if needed.
-5. Record the application, requested profile, reviewer, source and native groups in separate journal fields.
+5. Check the application, requested profile, reviewer, source and native groups in separate result checks fields.
 
 **Check:** Both business groups and baseline are True on the original AD account. This proves the lab's directory access; it does not prove a login to an external Finance product.
 
-**Screenshot:** `AR-017-04.png`: decision/activity and two native additions on the original account.
+<!-- AUTHOR_SCREENSHOT_START: AR-017-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-04.png`
+>
+> **Show:** Approval/activity and original account memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-04 -->
 
 ### 6. Remove the assignment and retain the catalog entry
 
@@ -85,7 +117,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Olivia lacks Reporting and VPN, retains baseline and the original account, and Finance Services still offers the reporting profile for another request.
 
-**Screenshot:** `AR-017-05.png`: completed removal, final memberships and retained application association.
+<!-- AUTHOR_SCREENSHOT_START: AR-017-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-017-05.png`
+>
+> **Show:** Removal and retained catalog configuration.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-017-05 -->
 
 ## Check the result
 
@@ -145,16 +185,6 @@ Keep Finance Services enabled for users, visible and requestable with the Report
 ### Resume or repeat
 
 Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-017-01.png | Existing profile and clean recipient |
-| AR-017-02.png | Application source, options, association and enablement |
-| AR-017-03.png | Application selection and resulting profile request |
-| AR-017-04.png | Approval/activity and original account memberships |
-| AR-017-05.png | Removal and retained catalog configuration |
 
 Keep credentials and registration links out of captures.
 

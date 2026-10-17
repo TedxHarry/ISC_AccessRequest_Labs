@@ -4,9 +4,7 @@ In this lab, you'll show a rollback question when Production is selected and che
 
 ## Before you start
 
-Complete [AR-035](../AR-035/README.md). Keep its required questions and optional Implementation notes. Use Acme Admin, Acme Henry (`acme.e018`) and Acme Ava (`acme.e006`) in separate browser profiles, plus your AD workstation. Keep your [journal](EVIDENCE.md) open.
-
-If you are resuming, check your journal and Henry's **My Requests** before submitting again. Finish or remove any earlier test grant before starting another. These steps use the configuration left by the preceding lab; if you have already completed later modules, compare their saved settings before changing them.
+Complete [AR-035](../AR-035/README.md). Keep its required questions and optional Implementation notes. Use Acme Admin, Acme Henry (`acme.e018`) and Acme Ava (`acme.e006`) in separate browser profiles, plus your AD workstation. If you are resuming, check Henry's **My Requests** before submitting again. Finish or remove any earlier test grant before starting another. These steps use the configuration left by the preceding lab; if you have already completed later modules, compare their saved settings before changing them.
 
 ## Follow the steps
 
@@ -18,7 +16,17 @@ As Acme Admin, check **Admin > Dashboard > Approval Management > Access Requests
 2. Inside Maintenance details, edit `rollbackPlan` if it exists. Otherwise select **+ Add > Text Area Field**. Set Label `Rollback plan`, Technical Key `rollbackPlan`, and leave **Mark as required** off. Select **Apply**.
 3. Open **Settings > Conditions**. Edit the existing rule for `rollbackPlan` if present; otherwise select **+ Create New**. Set **If** to the Environment field's technical key `environment`. For a single-value field, select **Equals** and enter exact String Value `Production`.
 4. If your builder represents that Select field as an array and offers **A List of Values** instead of String Value, use **Includes** with the single value `Production`. Record the actual operator and representation. Do not compare an array to a scalar string.
-5. Add the effect **Action: Show**, **Element: Rollback plan**. Select **Apply**, exit Settings and **Save** the form. Reopen the condition to verify the key, value and target field. Save `AR-036-01.png`.
+5. Add the effect **Action: Show**, **Element: Rollback plan**. Select **Apply**, exit Settings and **Save** the form. Reopen the condition to verify the key, value and target field.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-036-01 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-036-01.png`
+   >
+   > **Show:** Saved condition, key, operator and target.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-036-01 -->
 
 SailPoint applies the contrary effect when the condition is false, so this Show rule hides the field for a nonmatching selection. Do not add a second competing visibility rule. See [form conditions](https://documentation.sailpoint.com/saas/help/forms/index.html#conditions).
 
@@ -28,11 +36,43 @@ SailPoint applies the contrary effect when the condition is false, so this Show 
 
 1. In Henry's session, open **Request Center > Access Items > Access Profiles** and select `AP-Production-Support`. Use a new request after saving the definition; do not reuse an already-open form from before the change.
 2. Enter ticket `CHG-LAB-036-A`, Work description `Test conditional rollback guidance`, and standard comments `AR-036 condition check`. Keep immediate access and leave Implementation notes blank.
-3. Select `Test`. Confirm Rollback plan is hidden. Save `AR-036-02.png`.
-4. Change Environment to `Production`. Confirm Rollback plan appears. Enter `Remove the lab support assignment and verify group removal.` Save `AR-036-03.png`.
+3. Select `Test`. Confirm Rollback plan is hidden.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-036-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-036-02.png`
+   >
+   > **Show:** Test with rollback hidden.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-036-02 -->
+4. Change Environment to `Production`. Confirm Rollback plan appears. Enter `Remove the lab support assignment and verify group removal.`
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-036-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-036-03.png`
+   >
+   > **Show:** Production with rollback visible.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-036-03 -->
 5. Change back to `Test`, then back to `Production`. Record whether your entered plan is retained or cleared. Reenter it if necessary. Hiding an answer is not proof that its stored value was erased.
 6. Save, select **Review Request**, open **Edit Request Details**, and verify Production and the rollback text. Confirm Henry and his standard account, then **Submit Request**. Record the ID.
-7. As Ava, open **Approvals > Access Requests > Requested** and open Henry's matching Production Support **Grant** details. Compare each answer with your journal. Save `AR-036-04.png` showing the plan in Ava's details before deciding. Select **Deny**, enter `AR-036 condition inspection complete`, and confirm. As administrator, verify **Denied** under **Admin > Dashboard > Approval Management > Access Requests** using that request ID. Check Henry's direct `GG-PROD-SUPPORT` membership is **False** using [the AD membership procedure](../../M02-CHECKS.md#inspect-direct-ad-membership). An error is not a False result.
+7. As Ava, open **Approvals > Access Requests > Requested** and open Henry's matching Production Support **Grant** details. Compare each answer with the current request details.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-036-04 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-036-04.png`
+   >
+   > **Show:** Ava’s submitted rollback answer.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-036-04 -->
+
+   Select **Deny**, enter `AR-036 condition inspection complete`, and confirm. As administrator, verify **Denied** under **Admin > Dashboard > Approval Management > Access Requests** using that request ID. Check Henry's direct `GG-PROD-SUPPORT` membership is **False** using [the AD membership procedure](../../M02-CHECKS.md#inspect-direct-ad-membership). An error is not a False result.
 
 **Check:** Test hides the field, Production shows it, and the submitted Production answer reaches Ava.
 
@@ -52,16 +92,5 @@ You verified Test → Production → Test → Production, recorded hidden-answer
 ## Finish
 
 Keep the form definition and its Production Support association. Leave Henry without Production Support membership or a pending diagnostic request. Preserve existing accounts, baseline access and Lucas's VPN. Keep Rollback plan optional and the working Production visibility condition saved.
-
-### Screenshots to capture
-
-Capture these at the matching step. Add a letter suffix when one result needs more than one image.
-
-| Filename | What to show |
-|---|---|
-| AR-036-01.png | Saved condition, key, operator and target |
-| AR-036-02.png | Test with rollback hidden |
-| AR-036-03.png | Production with rollback visible |
-| AR-036-04.png | Ava’s submitted rollback answer |
 
 [Previous: AR-035](../AR-035/README.md) · [Course outline](../../README.md) · [Next: AR-037](../AR-037/README.md)

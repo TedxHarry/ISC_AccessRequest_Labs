@@ -6,7 +6,7 @@ In this lab, you'll compare manager-only and everyone-for-anyone request authori
 
 ## Before you start
 
-Complete [AR-022](../AR-022/README.md). Open the AD workstation, Acme Admin, Acme Daniel (`acme.e003`), Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep the Finance segment enabled and your [journal](EVIDENCE.md) open.
+Complete [AR-022](../AR-022/README.md). Open the AD workstation, Acme Admin, Acme Daniel (`acme.e003`), Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep the Finance segment enabled open.
 
 If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
 
@@ -15,7 +15,7 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 ### 1. Save the original setting and manager relationships
 
 1. As administrator, open **Admin > Global > System Settings > Feature Settings > Access Requests**.
-2. Record **Enable Requests on Behalf of others** as on/off and the selected option: **By Managers for their Team** or **By Everyone for Anyone**. Capture the whole relevant section, including any disabled selection. If you are resuming AR-023–024, keep the original record from before the first edit; do not replace it with the temporary everyone-mode setting.
+2. Record **Enable Requests on Behalf of others** as on/off and the selected option: **By Managers for their Team** or **By Everyone for Anyone**. If you are resuming AR-023–024, keep the original record from before the first edit; do not replace it with the temporary everyone-mode setting.
 3. Label the record **AR-023 original request-on-behalf configuration**. Keep it for restoration in AR-024; do not replace it with a screenshot taken after your edit.
 4. Open Lucas and Liam under **Admin > Identity Management > Identities**. Verify Lucas's manager is Daniel and Liam's is Priya.
 5. Verify Lucas has no direct reports in the current lab data. Keep the ordinary-user sessions separate from Acme Admin.
@@ -23,7 +23,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** You can name the original configuration and explain why Lucas is Daniel's direct-report test while Liam is the non-report control.
 
-**Screenshot:** `AR-023-01.png`: original global setting and manager relationships.
+<!-- AUTHOR_SCREENSHOT_START: AR-023-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-023-01.png`
+>
+> **Show:** Original setting and manager relationships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-023-01 -->
 
 ### 2. Enable manager-only requests
 
@@ -34,7 +42,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Manager-only is the saved mode. This controls which recipients can be selected; the Finance segment still controls item visibility.
 
-**Screenshot:** `AR-023-02.png`: saved manager-only mode.
+<!-- AUTHOR_SCREENSHOT_START: AR-023-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-023-02.png`
+>
+> **Show:** Saved manager-only configuration.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-023-02 -->
 
 ### 3. Check Daniel and Lucas in manager-only mode
 
@@ -47,7 +63,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Daniel can begin for Lucas but not Liam. Lucas cannot choose Liam in manager-only mode. If a user is missing unexpectedly, verify active identity status and actual manager mapping before changing the global policy.
 
-**Screenshot:** `AR-023-03.png`: Daniel's report/non-report comparison and Lucas's self-only view.
+<!-- AUTHOR_SCREENSHOT_START: AR-023-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-023-03.png`
+>
+> **Show:** Manager/direct-report/non-report checks.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-023-03 -->
 
 ### 4. Compare everyone-for-anyone mode
 
@@ -68,7 +92,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Changing the mode changed who could select Liam. No business access was granted.
 
-**Screenshot:** `AR-023-04.png`: everyone-for-anyone setting, Lucas selecting Liam and completed matrix.
+<!-- AUTHOR_SCREENSHOT_START: AR-023-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-023-04.png`
+>
+> **Show:** Everyone mode and recipient-selection matrix.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-023-04 -->
 
 ### 5. Keep item visibility separate
 
@@ -80,7 +112,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Permission to choose a recipient and permission to see an item are separate observations.
 
-**Screenshot:** `AR-023-05.png`: actor-specific catalog comparison and retained original-setting record.
+<!-- AUTHOR_SCREENSHOT_START: AR-023-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-023-05.png`
+>
+> **Show:** Separate catalog checks and restoration record.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-023-05 -->
 
 ## Check the result
 
@@ -113,15 +153,5 @@ Manager-only mode permits requests for direct reports. The identity's actual Man
 ### Leave this in place
 
 For immediate continuation, keep everyone-for-anyone enabled through AR-024's denial test, then restore the original setting there. [Request-on-behalf configuration](https://documentation.sailpoint.com/saas/help/requests/requests_for_others.html) · [Recipient selection](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-023-01.png | Original setting and manager relationships |
-| AR-023-02.png | Saved manager-only configuration |
-| AR-023-03.png | Manager/direct-report/non-report checks |
-| AR-023-04.png | Everyone mode and recipient-selection matrix |
-| AR-023-05.png | Separate catalog checks and restoration record |
 
 [Previous: AR-022](../AR-022/README.md) · [Lab index](../README.md) · [Next: AR-024](../AR-024/README.md)

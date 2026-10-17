@@ -6,9 +6,7 @@ You will first reassign a valid pending review to Noah and verify that the next 
 
 Complete [AR-029](../AR-029/README.md). Prepare Acme Harper (`acme.e019`) using the same email, registration and browser-profile steps in [AR-029 Section 1](../AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), substituting Harper's username. Use Acme Admin, Acme Ava and Acme Noah too.
 
-Harper's Manager is Ava. AP-Production-Support still requires Manager then Security. Keep the [journal](EVIDENCE.md) open.
-
-If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
+Harper's Manager is Ava. AP-Production-Support still requires Manager then Security. If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
 ## Follow the steps
 
@@ -26,7 +24,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 2. Open **My Requests** and record the ID. In Acme Admin, open **Admin > Dashboard > Approval Management > Access Requests**, paste that ID into Search, then open its access name.
 3. Open **Process** and **Assignees**. Record Ava as the current reviewer. Leave the request pending.
 
-**Check:** You found the exact request and its current review. Save `AR-030-01.png` showing Ava assigned.
+**Check:** You found the exact request and its current review.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-030-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-030-01.png`
+>
+> **Show:** Original request assigned to Ava.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-030-01 -->
 
 ### 3. Reassign this review to Noah
 
@@ -36,16 +44,38 @@ If returning to an unfinished run, inspect its recorded request before submittin
 4. In Acme Noah, open **Approvals > Access Requests > Requested**. Find Harper's Production Support Grant, verify the reason, then **Deny** with comment `AR-030 reassignment control complete` and confirm.
 5. Verify the request is Denied in Approval Management. Recheck Harper's native Production Support membership; it must remain False.
 
-**Check:** Noah completed the reassigned review, and the audit trail identifies the change. Save `AR-030-02.png` showing that history.
+**Check:** Noah completed the reassigned review, and the audit trail identifies the change.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-030-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-030-02.png`
+>
+> **Show:** Reassignment history and Noah decision.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-030-02 -->
 
 ### 4. Prove that new requests still use Ava
 
 1. Reopen Harper's identity and the profile policy. Manager is still Ava and grant order is still Manager then Security.
 2. In Acme Harper, submit a fresh request using Section 2 and reason `AR-030 original routing control`.
-3. Find the new ID in Approval Management and verify Ava is assigned and capture `AR-030-03.png` before the decision. In Acme Ava, open the matching Grant and deny it with the same reason.
+3. Find the new ID in Approval Management and verify Ava is assigned.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-030-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-030-03.png`
+   >
+   > **Show:** Fresh control assigned to Ava.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-030-03 -->
+
+   In Acme Ava, open the matching Grant and deny it with the same reason.
 4. Recheck Production Support False and baseline True for Harper. Record both IDs and their different current reviewers.
 
-**Check:** Reassigning one request did not change the next request's routing. Save `AR-030-03.png` showing the fresh request assigned to Ava.
+**Check:** Reassigning one request did not change the next request's routing.
 
 ## Check the result
 
@@ -62,8 +92,41 @@ If Noah cannot find the reassigned task, check his signed-in username and the re
 1. Make a private backup of the latest complete working HR CSV. Locate E019 and record `managerEmployeeNumber=E006`. Preserve the current population, including any later-added rows and controlled emails.
 2. In the working copy, clear only E019's `managerEmployeeNumber`. Save, reopen and verify that one field changed.
 3. Upload the complete edited file through **Admin > Connections > Sources > Acme HR > Account Management > Account Aggregation**. Wait for aggregation and identity processing in **Admin > Dashboard > Monitor**. Inspect Harper's HR account and identity separately. Continue only when the HR manager field and resolved identity Manager are both empty.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-030-04 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-030-04.png`
+   >
+   > **Show:** Missing Manager during the engineering exercise.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-030-04 -->
+
 4. Submit one Harper request using Section 2 with reason `AR-030 missing manager`. Find its ID in Approval Management. Record the actual Assignees and Process history. Inspect the saved escalation/fallback configuration; do not assume the missing reviewer always routes to a particular administrator.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-030-05 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-030-05.png`
+   >
+   > **Show:** Actual missing-reviewer fallback.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-030-05 -->
+
 5. Restore E019's manager field to E006 in the latest complete file, preserving other edits. Upload it and verify Ava returns as Harper's identity Manager.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-030-06 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-030-06.png`
+   >
+   > **Show:** Restored Harper Manager.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-030-06 -->
+
 6. Inspect the existing diagnostic request separately. If pending with someone other than Ava, use Section 3's reassignment steps to move that individual review to Ava with comment `AR-030 manager data restored`. If already assigned to Ava through fallback, record that outcome without manufacturing a reassignment.
 7. Deny the diagnostic request in its current authorized reviewer's session. If the diagnostic request already concluded, record its actual outcome. For an unexpected grant, use [AR-029 Section 6](../AR-029/README.md#6-remove-the-grant-then-test-manager-denial) with Harper as recipient to revoke the profile and have Ava approve removal. Verify Production Support is absent before continuing.
 8. Repeat Section 4's fresh control and deny as Ava. Verify the restored HR row, identity Manager, clean request state and native membership.
@@ -79,23 +142,12 @@ No. Check Harper's current identity Manager and a fresh request separately from 
 
 </details>
 
-Capture the missing-manager identity as `AR-030-04.png`, actual fallback as `AR-030-05.png`, and restored Manager as `AR-030-06.png`.
+
+
+
 
 ## Finish
 
 Keep Harper's Manager Ava, the complete corrected HR file, the original profile settings and Security membership. Both working-scenario requests must be concluded with no grant. If pausing during the engineering exercise, restore the HR manager first, then account for its diagnostic request. Never leave the HR fault in place for the next lab.
-
-### Screenshots to capture
-
-Capture these as you reach the matching step. If a result needs two screens, add `a` and `b` to that filename.
-
-| Filename | What to show |
-|---|---|
-| AR-030-01.png | Original request assigned to Ava |
-| AR-030-02.png | Reassignment history and Noah decision |
-| AR-030-03.png | Fresh control assigned to Ava |
-| AR-030-04.png | Missing Manager during the engineering exercise |
-| AR-030-05.png | Actual missing-reviewer fallback |
-| AR-030-06.png | Restored Harper Manager |
 
 [Previous: AR-029](../AR-029/README.md) · [Course outline](../../README.md) · [Next: AR-031](../AR-031/README.md)

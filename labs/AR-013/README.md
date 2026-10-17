@@ -6,11 +6,9 @@ In this lab, you'll submit Olivia's VPN request, deny it with a reason and verif
 
 ## Before you start
 
-Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
+Keep the [Module 2 starting checks](../../M02-READINESS.md) beside the current request details.
 
-Complete [AR-012](../AR-012/README.md). Use Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`), Acme Admin and the AD workstation. Prepare Olivia using [the additional-session steps](../../M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in) before continuing. Keep your [journal](EVIDENCE.md) open.
-
-Olivia must have her linked standard account and baseline access, but neither VPN nor Remote Users and no pending VPN request. Keep Lucas's approved VPN grant.
+Complete [AR-012](../AR-012/README.md). Use Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`), Acme Admin and the AD workstation. Prepare Olivia using [the additional-session steps](../../M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in) before continuing. Olivia must have her linked standard account and baseline access, but neither VPN nor Remote Users and no pending VPN request. Keep Lucas's approved VPN grant.
 
 If you are returning after a break, read [where to resume](#if-you-stopped-during-the-decision) before changing settings or submitting a request.
 
@@ -25,7 +23,15 @@ If you are returning after a break, read [where to resume](#if-you-stopped-durin
 
 **Check:** Neither business group is present for Olivia, and the saved policy will send her request to Priya.
 
-**Screenshot:** `AR-013-01.png`: Olivia's before memberships and account identifiers.
+<!-- AUTHOR_SCREENSHOT_START: AR-013-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-013-01.png`
+>
+> **Show:** Olivia before memberships and identifiers.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-013-01 -->
 
 ### 2. Request VPN as Olivia
 
@@ -38,20 +44,48 @@ If you are returning after a break, read [where to resume](#if-you-stopped-durin
 
 **Check:** Olivia's request is pending and is separate from Lucas's earlier approved request.
 
-**Screenshot:** `AR-013-02.png`: Olivia's submitted request and reason.
+<!-- AUTHOR_SCREENSHOT_START: AR-013-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-013-02.png`
+>
+> **Show:** Olivia submitted request and reason.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-013-02 -->
 
 ### 3. Deny as Priya
 
 1. Switch to Acme Priya and verify her username.
 2. Open **Approvals > Access Requests > Requested** and select Olivia's VPN request.
 3. Confirm the action is **Grant**, with Olivia as recipient and the AR-013 reason.
-4. Select **Deny**. First leave the reason empty and try to confirm. Record the validation or disabled control as `AR-013-05.png`. If a denial unexpectedly completes, record it and inspect the effective policy before creating another request. Otherwise enter `Remote-work requirement has not been approved` in the denial comment and confirm the decision.
+4. Select **Deny**. First leave the reason empty and try to confirm.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-013-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-013-05.png`
+   >
+   > **Show:** Required denial-comment validation.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-013-03 -->
+
+   If a denial unexpectedly completes, record it and inspect the effective policy before creating another request. Otherwise enter `Remote-work requirement has not been approved` in the denial comment and confirm the decision.
 5. Open **Reviewed** and locate the same request. Record the decision and comment.
 6. In Acme Olivia, inspect the request under **My Requests**. In Acme Admin, locate it under **Admin > Dashboard > Approval Management > Access Requests** and inspect **Process** and **Details**. Record which view displays the explanation.
 
 **Check:** The denied result belongs to Olivia's request and includes the recorded reason. No grant approval remains pending for this case.
 
-**Screenshot:** `AR-013-03.png`: denied request and explanation.
+<!-- AUTHOR_SCREENSHOT_START: AR-013-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-013-03.png`
+>
+> **Show:** Denied request and explanation.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-013-04 -->
 
 ### 4. Verify unchanged target access
 
@@ -62,7 +96,15 @@ If you are returning after a break, read [where to resume](#if-you-stopped-durin
 
 **Check:** Olivia's denial did not grant either business group. A missing activity search result alone is not proof; the recorded decision and unchanged native state support your result.
 
-**Screenshot:** `AR-013-04.png`: Olivia's after memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-013-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-013-04.png`
+>
+> **Show:** Olivia after memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-013-05 -->
 
 ## Check the result
 
@@ -72,7 +114,7 @@ If VPN is present, inspect whether it existed before the request or came from an
 
 ### Explain the result
 
-Use two journal rows for Lucas's approval and Olivia's denial. Identify the decision, actual reviewer, native before/after state and whether a successful grant operation occurred. Mark an operation ID not applicable when no grant operation occurred.
+Check the matching request, operation and target results directly. Identify the decision, actual reviewer, native before/after state and whether a successful grant operation occurred. Mark an operation ID not applicable when no grant operation occurred.
 
 ### Final verification
 
@@ -111,17 +153,5 @@ Keep the denied request as evidence. No access removal is needed for a correctly
 ### If you stopped during the decision
 
 Reopen the recorded request first. If denied, inspect the result and recheck native membership; do not resubmit merely to capture the comment prompt. If still pending, resume as Priya. A repeat denial test needs a fresh request only after confirming the earlier request ended and Olivia remains without VPN. Label each attempt separately.
-
-### Screenshots to capture
-
-Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
-
-| Filename | What to show |
-|---|---|
-| AR-013-01.png | Olivia before memberships and identifiers |
-| AR-013-02.png | Olivia submitted request and reason |
-| AR-013-03.png | Denied request and explanation |
-| AR-013-04.png | Olivia after memberships |
-| AR-013-05.png | Required denial-comment validation |
 
 [Previous: AR-012](../AR-012/README.md) · [Course outline](../../README.md) · [Next: AR-014](../AR-014/README.md)

@@ -26,8 +26,6 @@ From the previous labs, you need:
 
 Use the sign-in method configured for Acme Employees. The registration steps below apply to **User Name & Password**; retain working SSO or Directory Connection settings when your tenant uses those.
 
-Keep your [evidence journal](EVIDENCE.md) open.
-
 <a id="users-for-this-lab"></a>
 
 | Person | ISC username | Use in later labs |
@@ -55,7 +53,15 @@ Keep your [evidence journal](EVIDENCE.md) open.
 
 **Check:** Lucas, Daniel, and Priya are enabled and Lucas's Manager is Daniel.
 
-**Screenshot:** Save `AR-008-01-lucas-manager.png`. Capture Lucas's identity with Daniel shown as Manager.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-01-lucas-manager.png`
+>
+> **Show:** Lucas's identity with Daniel shown as Manager.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-01 -->
 
 ### 2. Add working email addresses
 
@@ -83,7 +89,15 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 **Check:** Lucas, Daniel, and Priya each have a different working email address.
 
-**Screenshot:** Save `AR-008-02-hr-email-import.png`. Capture the completed HR aggregation and one identity with the updated Work Email. Hide the actual mailbox address if the screenshot will be shared.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-02-hr-email-import.png`
+>
+> **Show:** the completed HR aggregation and one identity with the updated Work Email. Hide the actual mailbox address if the screenshot will be shared.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-02 -->
 
 The identity Work Email is used for invitations. AD mail can still show the placeholder used during creation; Create Account mappings do not configure ongoing attribute synchronization. Keep the latest complete working CSV privately for future imports. [Attribute synchronization](https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html)
 
@@ -101,7 +115,15 @@ Reference: [Identity profile settings](https://documentation.sailpoint.com/saas/
 
 **Check:** The sign-in route is recorded. ISC-credential users can proceed to invitations; externally authenticated users must be able to sign in as the correct Acme identities.
 
-**Screenshot:** Save `AR-008-03-sign-in-settings.png`. Capture the saved sign-in and invitation settings.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-03-sign-in-settings.png`
+>
+> **Show:** the saved sign-in and invitation settings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-03 -->
 
 ### 4. Invite Lucas
 
@@ -191,7 +213,15 @@ Reference: [User-level access matrix](https://documentation.sailpoint.com/saas/h
 
 **Check:** Every browser profile shows the intended signed-in identity and the required page loads.
 
-**Screenshot:** Save `AR-008-04-user-sessions.png`. Capture Lucas in Request Center, Daniel in Approvals, Priya in Approvals, and the relevant user-level checks. Do not capture passwords, invitation links, MFA codes, or personal mailbox details.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-04-user-sessions.png`
+>
+> **Show:** Lucas in Request Center, Daniel in Approvals, Priya in Approvals, and the relevant user-level checks. Do not capture passwords, invitation links, MFA codes, or personal mailbox details.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-04 -->
 
 ## Check the result
 
@@ -199,7 +229,7 @@ Reference: [User-level access matrix](https://documentation.sailpoint.com/saas/h
 
 Close Daniel’s tenant tab, reopen the tenant in Acme Daniel and confirm the signed-in username before opening Approvals. Keep Acme Admin open separately and confirm its username has not changed.
 
-Write these answers in your [journal](EVIDENCE.md):
+Consider these questions:
 
 1. Which credentials does each person use for the recorded sign-in method?
 2. Why does opening Approvals not yet prove approval routing?
@@ -229,17 +259,6 @@ If sign-in fails, verify the selected authentication route and username. For a m
 ### Leave this in place
 
 Keep the three registered user accounts, their test email addresses, the separate browser profiles, and the administrator session available.
-
-### Screenshots to capture
-
-Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
-
-| Filename | Evidence |
-|---|---|
-| `AR-008-01-lucas-manager.png` | Capture Lucas's identity with Daniel shown as Manager. |
-| `AR-008-02-hr-email-import.png` | Capture the completed HR aggregation and one identity with the updated Work Email. Hide the actual mailbox address if the screenshot will be shared. |
-| `AR-008-03-sign-in-settings.png` | Capture the saved sign-in and invitation settings. |
-| `AR-008-04-user-sessions.png` | Capture Lucas in Request Center, Daniel in Approvals, Priya in Approvals, and the relevant user-level checks. Do not capture passwords, invitation links, MFA codes, or personal mailbox details. |
 
 Next: **[AR-009 — Verify the Environment and Save C01](../AR-009/README.md)**
 

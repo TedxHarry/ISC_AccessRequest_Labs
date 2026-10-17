@@ -41,4 +41,4 @@ For the course VPN item, record inherited settings and configure the item explic
 
 Catalog visibility proves only that the user can find the item. Approval proves a decision. Account activity and native membership prove whether the requested target change occurred. Retain evidence for each.
 
-Keep this page with the current lab journal.
+Check the matching request, operation and target results directly.

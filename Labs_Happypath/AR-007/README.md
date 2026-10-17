@@ -25,8 +25,6 @@ From the previous labs, you need:
 - The role currently assigned to Lucas and Liam.
 - No unresolved provisioning failures.
 
-Keep the [account verification journal](EVIDENCE.md) open.
-
 **Returning after a completed batch:** Inspect the current role list and accounts first. Keep already selected course members; add only the missing identities. The four-person checkpoint below describes the first expansion, not a reason to reduce an existing 24-person role.
 
 ## Follow the steps
@@ -72,7 +70,15 @@ Keep the [account verification journal](EVIDENCE.md) open.
 
 **Check:** Lucas, Liam, Priya, and Daniel all have standard AD accounts and baseline membership.
 
-**Screenshot:** Save `AR-007-01-four-person-batch.png`. Capture the four-person assignment and successful provisioning results.
+<!-- AUTHOR_SCREENSHOT_START: AR-007-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-01-four-person-batch.png`
+>
+> **Show:** the four-person assignment and successful provisioning results.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-01 -->
 
 ### 3. Add the remaining 20 identities
 
@@ -90,7 +96,15 @@ Reference: [Role assignment](https://documentation.sailpoint.com/saas/help/provi
 
 **Check:** The role contains exactly the 24 Acme identities.
 
-**Screenshot:** Save `AR-007-02-complete-role.png`. Capture the complete role assignment. Use multiple images if needed.
+<!-- AUTHOR_SCREENSHOT_START: AR-007-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-02-complete-role.png`
+>
+> **Show:** the complete role assignment. Use multiple images if needed.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-02 -->
 
 ### 4. Run one AD account aggregation
 
@@ -106,7 +120,7 @@ Do not start a separate aggregation for each employee.
 
 ### 5. Verify all 24 AD accounts
 
-Complete every row in [EVIDENCE.md](EVIDENCE.md).
+Complete every row in result checks.
 
 For each employee:
 
@@ -119,7 +133,7 @@ For each employee:
 7. Open the ISC identity > **Accounts**.
 8. Confirm the AD account is linked to the correct identity.
 
-Use the journal rather than relying only on total counts.
+Check the matching request, operation and target results directly.
 
 **Check:** All 24 rows have the correct account, employeeID, baseline membership, and ISC link.
 
@@ -133,7 +147,15 @@ Use the journal rather than relying only on total counts.
 
 **Check:** `GG-ACME-BASELINE` contains the 24 intended Acme accounts.
 
-**Screenshot:** Save `AR-007-03-baseline-members.png`. Capture the baseline group membership. Use multiple images if needed.
+<!-- AUTHOR_SCREENSHOT_START: AR-007-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-03-baseline-members.png`
+>
+> **Show:** the baseline group membership. Use multiple images if needed.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-03 -->
 
 ### 7. Confirm business groups were not changed
 
@@ -166,7 +188,7 @@ Confirm this lab did not add the 24 users to those groups.
 
 Compare Priya’s actual DN, UPN and employeeID with your AR-005 prediction. Then independently locate James (`acme.e014`) in AD and ISC and verify his baseline membership and account link.
 
-Write these answers in your [journal](EVIDENCE.md):
+Consider these questions:
 
 1. Why are 24 role assignments insufficient evidence of 24 usable accounts?
 2. What did you check before moving from four people to 24?
@@ -194,16 +216,6 @@ If a person is missing, find that username in the role list, activity and AD in 
 ### Leave this in place
 
 Keep all 24 role assignments, AD accounts, account links, and baseline memberships in place.
-
-### Screenshots to capture
-
-Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
-
-| Filename | Evidence |
-|---|---|
-| `AR-007-01-four-person-batch.png` | Capture the four-person assignment and successful provisioning results. |
-| `AR-007-02-complete-role.png` | Capture the complete role assignment. Use multiple images if needed. |
-| `AR-007-03-baseline-members.png` | Capture the baseline group membership. Use multiple images if needed. |
 
 Next: **[AR-008 — Prepare Requester and Reviewer Sessions](../AR-008/README.md)**
 

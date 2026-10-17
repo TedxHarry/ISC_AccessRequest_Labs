@@ -6,7 +6,7 @@ In this lab, you'll request one entitlement for a governed machine account, trac
 
 Complete [AR-049](../AR-049/README.md), [AR-052](../AR-052/README.md) and the account-selection controls in [AR-045](../AR-045/README.md). Your tenant needs Machine Identity Security and an existing isolated machine identity with an owned AD user/service account on the course AD source. Use its authorized owner/requester, Priya, Acme Admin and Acme API Admin. Agent Identity Security is not a substitute for the documented machine-request prerequisites.
 
-Record the existing machine's details-page link in your [journal](EVIDENCE.md). If no governed test machine account exists, mark this track Not run; do not reclassify a human account to manufacture it. Creating and governing the machine identity is a prerequisite to this request exercise.
+Record the existing machine's details-page link. If no governed test machine account exists, mark this track Not run; do not reclassify a human account to manufacture it. Creating and governing the machine identity is a prerequisite to this request exercise.
 
 ## Follow the steps
 
@@ -15,7 +15,17 @@ Record the existing machine's details-page link in your [journal](EVIDENCE.md). 
 1. Open the existing machine identity's details. Record its machine UUID, owner identity, AD source ID, linked account ID/nativeIdentity and every machine/agent sharing that account. Confirm it is the isolated test account and currently lacks GG-ACME-FAULT-049. Preserve a before-record of other memberships and enabled state.
 2. As administrator, inspect **Admin > Global > System Settings > Feature Settings > Access Requests > Enable Machine Identity Access Requests**. Save its original value and enable if needed. Read the complete `/access-request-config/v2` with Acme API Admin. Record `machineIdentityAccessRequestEnabled` and the machine request-on-behalf settings; do not broaden them merely to use an unrelated requester.
 3. Use Acme Admin as requester for this walkthrough so the requester and Priya reviewer are different people. Confirm that account is allowed by the current machine-request configuration. Open GG-ACME-FAULT-049, save original owner/request settings, set primary owner Priya, enable requests with Primary Owner grant/removal review and a user reason. Keep forms/dates off and course developer subscriptions disabled.
-4. Save `AR-083-01.png` with sanitized machine/account relationships and configuration. If the machine is on another source, this AD exercise is not applicable; do not request an AD entitlement for a machine without an AD account.
+<!-- AUTHOR_SCREENSHOT_START: AR-083-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-083-01.png`
+>
+> **Show:** Machine, account, owners and shared relationships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-083-01 -->
+
+If the machine is on another source, this AD exercise is not applicable; do not request an AD entitlement for a machine without an AD account.
 
 **Check:** A machine UUID, human owner ID and AD account identifier refer to different objects. [Machine requests](https://documentation.sailpoint.com/saas/help/requests/requests_for_machine_identities.html)
 
@@ -24,7 +34,17 @@ Record the existing machine's details-page link in your [journal](EVIDENCE.md). 
 1. In the authorized requester's **Request Center**, select **Request for Machine Identities**. Read and confirm the shared-account impact, then choose only the recorded test machine.
 2. Open **Access Items > Entitlements**, select GG-ACME-FAULT-049 from the course AD source and select the exact recorded account. Enter `AR-083 machine grant`, Save, Review Request and Submit Request. If the item is absent, verify that the machine has an account on that source before changing visibility or permissions.
 3. Record the request ID and submission time. Priya opens the matching Grant in **Approvals > Access Requests > Requested**, verifies the machine recipient/account and approves with `AR-083 isolated machine access`.
-4. Follow [Account Activity](../../LAB-DESK.md#find-the-account-activity), using the actual machine account/native identity rather than Taylor's username. On the AD workstation run `Get-ADUser -Identity 'YOUR-TEST-ACCOUNT-SAMACCOUNTNAME' -Properties memberOf,Enabled`; compare memberOf with `(Get-ADGroup GG-ACME-FAULT-049).DistinguishedName`. Require membership True and unchanged enabled state. Save `AR-083-02.png`.
+4. Follow [Account Activity](../../LAB-DESK.md#find-the-account-activity), using the actual machine account/native identity rather than Taylor's username. On the AD workstation run `Get-ADUser -Identity 'YOUR-TEST-ACCOUNT-SAMACCOUNTNAME' -Properties memberOf,Enabled`; compare memberOf with `(Get-ADGroup GG-ACME-FAULT-049).DistinguishedName`. Require membership True and unchanged enabled state.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-083-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-083-02.png`
+   >
+   > **Show:** Machine selection, review and native grant.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-083-02 -->
 
 **Check:** The changed native account may serve several identities; the request recipient alone does not describe the full impact. [Machine selection in Request Center](https://documentation.sailpoint.com/saas/user-help/requests/request_center.html)
 
@@ -49,7 +69,17 @@ Record the existing machine's details-page link in your [journal](EVIDENCE.md). 
 }
 ```
 
-3. Priya inspects and approves the matching Remove for that machine/account. Track the operation and repeat the native membership check; require False. Re-read request status and record the removal separately from the original grant. Save `AR-083-03.png`.
+3. Priya inspects and approves the matching Remove for that machine/account. Track the operation and repeat the native membership check; require False. Re-read request status and record the removal separately from the original grant.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-083-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-083-03.png`
+   >
+   > **Show:** Machine status and nested removal body/result.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-083-03 -->
 4. If the response is 403, check the administrator caller, token scope, license and configuration rather than changing the body to a human recipient. If an account mismatch occurs, inspect the original nativeIdentity before another submission.
 
 **Check:** Machine revoke uses the nested machine request shape; human revoke in AR-082 uses the flat shape. [Current machine API contract](https://github.com/sailpoint-oss/api-specs/blob/main/dereferenced/deref-sailpoint-api.json)
@@ -57,7 +87,17 @@ Record the existing machine's details-page link in your [journal](EVIDENCE.md). 
 ### 4. Restore the request controls
 
 1. Restore the original machine-request toggle and disposable entitlement owner/review settings. Mark the disposable entitlement non-requestable again. Verify the actual GET configuration preserves unrelated request-on-behalf settings.
-2. Verify the machine account, ownership and shared relationships remain intact, with only the test membership removed and no pending grant/removal. Save `AR-083-04.png`.
+2. Verify the machine account, ownership and shared relationships remain intact, with only the test membership removed and no pending grant/removal.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-083-04 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-083-04.png`
+   >
+   > **Show:** Restored controls and retained account.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-083-04 -->
 
 **Check:** No human identity or machine relationship was changed to bypass an authorization requirement.
 
@@ -72,16 +112,5 @@ Compare a human and machine status record without mutating either. Explain the d
 ## Finish
 
 Keep the governed machine/account unchanged apart from the completed test grant/removal. Restore global and entitlement settings and preserve the sanitized ID map.
-
-### Screenshots to capture
-
-Capture these beside the matching steps. Hide credentials and unnecessary personal data. Use letter suffixes when several images are needed. Label synthetic tests separately from live requests.
-
-| Filename | What to show |
-|---|---|
-| AR-083-01.png | Machine, account, owners and shared relationships |
-| AR-083-02.png | Machine selection, review and native grant |
-| AR-083-03.png | Machine status and nested removal body/result |
-| AR-083-04.png | Restored controls and retained account |
 
 [Previous: AR-082](../AR-082/README.md) · [Course outline](../../README.md) · [Next: AR-084](../AR-084/README.md)

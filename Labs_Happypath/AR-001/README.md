@@ -16,7 +16,7 @@ Use your ISC administrator session.
 
 - ISC training tenant access with permission to create sources and identity profiles.
 - The course HR CSV: [acme-hr-baseline.csv](../../datasets/acme-hr-baseline.csv).
-- A place to save screenshots and your [evidence journal](EVIDENCE.md).
+- A place to save screenshots.
 
 Your existing Active Directory source is not used yet. AD work begins in AR-003. Before importing new identities, check that existing automatic role assignments and identity-triggered workflows will not grant unrelated access to the Acme test population.
 
@@ -71,7 +71,15 @@ Reference: [Source configuration](https://documentation.sailpoint.com/saas/help/
 
 ![Acme HR Delimited File source](images/01-hr-source.png)
 
-**Screenshot:** Save `AR-001-01-hr-source.png`. Capture the Acme HR source name and type.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-01-hr-source.png`
+>
+> **Show:** the Acme HR source name and type.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-01 -->
 
 ### 3. Configure the account schema
 
@@ -113,7 +121,15 @@ Set the identifying attributes before importing accounts. [Account schemas](http
 
 ![Acme HR account schema](images/02-account-schema.png)
 
-**Screenshot:** Save `AR-001-02-account-schema.png`. Capture the schema with Account ID and Account Name visible.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-02-account-schema.png`
+>
+> **Show:** the schema with Account ID and Account Name visible.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-02 -->
 
 Before importing, open **Source Setup > Parsing Settings** and select delimited parsing. Open **File Settings**, set the delimiter to a comma, and confirm the first row supplies column names. Save. If a preview is offered, confirm it shows 14 separate columns.
 
@@ -140,7 +156,15 @@ Reference: [Loading account data](https://documentation.sailpoint.com/saas/help/
 
 ![Completed HR aggregation](images/03-account-import.png)
 
-**Screenshot:** Save `AR-001-03-hr-import.png`. Capture the completed aggregation and 24-account result.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-03-hr-import.png`
+>
+> **Show:** the completed aggregation and 24-account result.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-03 -->
 
 ### 5. Create the Acme Employees identity profile
 
@@ -179,7 +203,15 @@ Reference: [Identity profiles](https://documentation.sailpoint.com/saas/help/set
 
 ![Acme Employees mappings](images/04-identity-mappings.png)
 
-**Screenshot:** Save `AR-001-04-identity-mappings.png`. Capture the saved identity mappings.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-04-identity-mappings.png`
+>
+> **Show:** the saved identity mappings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-04 -->
 
 ### 6. Apply the profile and process identities
 
@@ -226,7 +258,15 @@ Repeat the account-to-identity comparison for these employees:
 
 ![Lucas baseline identity](images/05-baseline-identity.png)
 
-**Screenshot:** Save `AR-001-05-lucas-baseline.png`. Capture Lucas's identity and Acme HR account.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-05-lucas-baseline.png`
+>
+> **Show:** Lucas's identity and Acme HR account.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-05 -->
 
 ## Check the result
 
@@ -248,7 +288,7 @@ Repeat the account-to-identity comparison for these employees:
 
 Open Henry (`acme.e018`) without using Lucas’s screenshots. Compare his Acme HR department with identity Department. Both should show Engineering. Record his employee number E018 and leave his data unchanged.
 
-Write these answers in your [journal](EVIDENCE.md):
+Consider these questions:
 
 1. Which record contains the CSV values before identity mappings run?
 2. What proves that the 24 imported accounts became 24 Acme identities?
@@ -276,18 +316,6 @@ If the account count or attributes differ, inspect the uploaded filename, comma 
 ### Leave this in place
 
 Keep the Acme HR source, Acme Employees identity profile, 24 imported HR accounts, and 24 identities exactly as configured.
-
-### Screenshots to capture
-
-Capture results after the checks above. Hide passwords, tokens, invitation links and private mailbox details. Use additional images when all required fields do not fit.
-
-| Filename | Evidence |
-|---|---|
-| `AR-001-01-hr-source.png` | Capture the Acme HR source name and type. |
-| `AR-001-02-account-schema.png` | Capture the schema with Account ID and Account Name visible. |
-| `AR-001-03-hr-import.png` | Capture the completed aggregation and 24-account result. |
-| `AR-001-04-identity-mappings.png` | Capture the saved identity mappings. |
-| `AR-001-05-lucas-baseline.png` | Capture Lucas's identity and Acme HR account. |
 
 Next: **[AR-002 — Resolve the Manager Hierarchy](../AR-002/README.md)**
 

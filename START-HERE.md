@@ -15,7 +15,7 @@ Build the environment once, then complete the labs in order. Choose the beginner
 | **Policy and disconnected systems** | M13 | SoD warning/enforcement and manual fulfillment with reconciliation |
 | **Additional capabilities** | M14 | JIT, reauthentication, machine requests, permissions, delegation, model changes and callbacks |
 
-Use the [coverage and prerequisite matrix](COVERAGE.md) to choose tracks available in your tenant. Keep the [lab desk](LAB-DESK.md) open while following the walkthroughs. Each lab ends with the screenshots to capture and links to its evidence journal.
+Use the [coverage and prerequisite matrix](COVERAGE.md) to choose tracks available in your tenant. Keep the [lab desk](LAB-DESK.md) open while following the walkthroughs. Each lab ends with the screenshots to capture and links to its evidence result checks.
 
 ## How to complete each lab
 
@@ -37,24 +37,11 @@ Engineering labs put their additional investigation after the working walkthroug
 | **Investigate** | Diagnose a deliberately broken or realistic scenario | Classify the failing layer before making changes |
 | **Check** | Complete a practical assessment with less guidance | Treat it like an engineer-owned task or support ticket |
 
-## Evidence standard
+## Check the result
 
-For important labs, keep enough evidence that another engineer could understand what happened without watching you perform the exercise.
+At each expected-result check, compare the actual user, item, reviewer and target state with the walkthrough. An approval, a completed account operation and AD membership are separate results.
 
-Capture, where relevant:
-
-- the requester and requested-for identity
-- the requested access object
-- request or activity identifiers
-- expected and actual reviewer
-- approval or denial result
-- provisioning/account-activity result
-- target-system state such as AD group membership
-- relevant identity/account attributes
-- timestamps for sequence-sensitive investigations
-- the root cause and the change that resolved it
-
-**Important:** Screenshots are evidence, not the explanation. Record the reasoning that connects the request, approval, provisioning, aggregation, and target state.
+Keep a request ID or original setting only when the next action or restoration needs it. Screenshots in the walkthrough help you recognize the right screen; you do not need a separate worksheet or a screenshot submission to complete the lab.
 
 ## Before Lab AR-001
 
@@ -65,7 +52,7 @@ Complete these items first:
 - Read the [Lab Environment](LAB-ENVIRONMENT.md) page.
 - Confirm you have access to the ISC training tenant and isolated AD lab required by the course.
 - Download the course datasets when the lab asks for them rather than editing the repository copy.
-- Create a place for your evidence journal and screenshots.
+- Create a place for your evidence screenshots.
 - Use dedicated requester and reviewer sessions when a lab tests requester-facing behavior.
 
 Begin AR-001: **[Beginner walkthrough](Labs_Happypath/AR-001/README.md)** or **[Engineering lab](labs/AR-001/README.md)**. When switching paths, continue from your current lab and keep its required configuration.

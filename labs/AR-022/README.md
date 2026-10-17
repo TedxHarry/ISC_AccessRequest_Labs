@@ -6,9 +6,7 @@ In this lab, you'll restrict Finance catalog items to Finance requesters, using 
 
 ## Before you start
 
-Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../M04-READINESS.md). Open the AD workstation, Acme Admin, Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). Keep your [journal](EVIDENCE.md) open.
-
-If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
+Complete [AR-021](../AR-021/README.md) and the [Module 4 starting checks](../../M04-READINESS.md). Open the AD workstation, Acme Admin, Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
 
 ## Follow the steps
 
@@ -24,7 +22,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Your record identifies the actual starting visibility and existing segments. Missing access before the exercise is a condition to investigate, not proof that the new segment works.
 
-**Screenshot:** `AR-022-01.png`: departments, each user's starting item searches and native before results.
+<!-- AUTHOR_SCREENSHOT_START: AR-022-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-022-01.png`
+>
+> **Show:** Starting departments, catalog and native memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-022-01 -->
 
 ### 2. Define the Finance identities
 
@@ -48,7 +54,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** One enabled Finance segment contains both profiles and the role. Associating only the application name would not perform this three-item test.
 
-**Screenshot:** `AR-022-02.png`: criterion, matching identities, three items and enabled state.
+<!-- AUTHOR_SCREENSHOT_START: AR-022-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-022-02.png`
+>
+> **Show:** Saved criterion, identities, items and enabled state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-022-02 -->
 
 ### 4. Verify both requester views
 
@@ -68,7 +82,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** The four-row matrix matches. Remote Worker distinguishes the intended restriction from a generally empty or failed catalog.
 
-**Screenshot:** `AR-022-03.png`: both requester searches and Remote Worker control.
+<!-- AUTHOR_SCREENSHOT_START: AR-022-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-022-03.png`
+>
+> **Show:** Lucas/Liam matrix with Remote Worker.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-022-03 -->
 
 ### 5. Confirm that visibility did not revoke access
 
@@ -79,7 +101,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** The exercise changed catalog visibility without granting or revoking test memberships.
 
-**Screenshot:** `AR-022-04.png`: preserved native controls and final segment state.
+<!-- AUTHOR_SCREENSHOT_START: AR-022-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-022-04.png`
+>
+> **Show:** Preserved memberships and retained segment.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-022-04 -->
 
 ## Check the result
 
@@ -134,14 +164,5 @@ Keep SEG-Acme-Finance enabled for AR-023–025 and later exercises. Record its I
 ### Resume or repeat
 
 Reopen SEG-Acme-Finance and compare its saved criterion and three access items with Sections 2–3. Reuse that segment, then repeat the Lucas/Liam checks in Sections 4–5. Keep the segment enabled and existing memberships unchanged. This lab does not submit or revoke requests.
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-022-01.png | Starting departments, catalog and native memberships |
-| AR-022-02.png | Saved criterion, identities, items and enabled state |
-| AR-022-03.png | Lucas/Liam matrix with Remote Worker |
-| AR-022-04.png | Preserved memberships and retained segment |
 
 [Previous: AR-021](../AR-021/README.md) · [Course outline](../../README.md) · [Next: AR-023](../AR-023/README.md)

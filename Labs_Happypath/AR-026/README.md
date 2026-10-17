@@ -8,9 +8,7 @@ In this lab, you'll create and correlate Sofia's second AD test account, keep au
 
 Complete [AR-025](../AR-025/README.md). Prepare [Sofia's ordinary ISC session](../../M04-READINESS.md#prepare-sofias-sign-in-before-ar-026). Open Acme Admin, Acme Sofia (`acme.e009`), Acme Priya (`acme.e002`) and the AD workstation.
 
-The second account will be called `acme.e009.admin` to distinguish its use in the lab. It receives no domain-administrator privileges. Keep your [journal](EVIDENCE.md) open.
-
-If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
+The second account will be called `acme.e009.admin` to distinguish its use in the lab. It receives no domain-administrator privileges. If you are returning after a break, read [the module resume checks](../../M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.
 
 ## Follow the steps
 
@@ -26,7 +24,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Sofia's original account and baseline are recorded, VPN is absent, and the second account's OU is inside the connector's saved search scope.
 
-**Screenshot:** `AR-026-01.png`: original account, memberships and source coverage.
+<!-- AUTHOR_SCREENSHOT_START: AR-026-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-026-01.png`
+>
+> **Show:** Original account, memberships and saved source scope.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-026-01 -->
 
 ### 2. Set baseline selection before introducing the second account
 
@@ -40,7 +46,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** The saved criterion identifies the standard Users OU. These options govern automatically assigned profile access, not the interactive account choice in a request. With one source account, ISC does not apply this multiple-account filter yet.
 
-**Screenshot:** `AR-026-02.png`: imported DN attribute, saved criterion and predicted match/non-match.
+<!-- AUTHOR_SCREENSHOT_START: AR-026-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-026-02.png`
+>
+> **Show:** DN attribute and baseline selection criterion.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-026-02 -->
 
 ### 3. Create the second ordinary AD test account
 
@@ -57,7 +71,15 @@ If the matching course account already exists, inspect its values and continue t
 
 **Check:** Two distinct native accounts now have employeeID E009, but their names, DNs and objectGUIDs differ. They represent one existing HR identity.
 
-**Screenshot:** `AR-026-03.png`: second account's name, OU, employeeID and distinct native identifier.
+<!-- AUTHOR_SCREENSHOT_START: AR-026-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-026-03.png`
+>
+> **Show:** Second account and employeeID E009.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-026-03 -->
 
 ### 4. Aggregate and verify correlation and baseline
 
@@ -76,7 +98,15 @@ If the matching course account already exists, inspect its values and continue t
 
 **Check:** One identity has two correlated accounts, the filter uniquely matches standard, and baseline remains on standard only. An existing baseline membership does not prove a new provisioning write; record actual activity only if one occurred.
 
-**Screenshot:** `AR-026-04.png`: two correlated accounts, unique criterion match and four native results.
+<!-- AUTHOR_SCREENSHOT_START: AR-026-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-026-04.png`
+>
+> **Show:** Two correlated accounts and clean memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-026-04 -->
 
 ### 5. Request VPN for the second account
 
@@ -85,12 +115,22 @@ If the matching course account already exists, inspect its values and continue t
 3. Search GG-VPN-USERS, inspect its source/group DN and select it. Enter `AR-026: VPN for the acme.e009.admin test account` in request details, keep immediate access and **Save**.
 4. Select **Review Request**, check Sofia and one entitlement, then proceed to submission.
 5. In **Select Accounts**, use the AD account dropdown and choose the entry matching `acme.e009.admin` using the Account Name/Account ID values recorded in Section 4. Check the AdminAccounts DN where displayed. Do not choose by list position.
-6. Capture the selected account before choosing **Submit Request** in that account-selection panel. Record the confirmation, **My Requests** entry, ID and time.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-026-05 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-026-05.png`
+   >
+   > **Show:** Explicit second-account selection.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-026-05 -->
+
+6. Choose **Submit Request** in that account-selection panel. Record the confirmation, **My Requests** entry, ID and time.
 7. If only one account is available or the entries cannot be distinguished, close the selection without completing submission and return to Section 4. Do not use automatic baseline criteria to guess the request target.
 
 **Check:** The submitted VPN request identifies Sofia as recipient and the second AD account as target.
 
-**Screenshot:** `AR-026-05.png`: selected account and submitted request account details.
 
 ### 6. Approve and verify both accounts
 
@@ -102,7 +142,15 @@ If the matching course account already exists, inspect its values and continue t
 
 **Check:** VPN is True on acme.e009.admin and False on acme.e009. Baseline remains True on standard and False on the second account. The selected account, operation target and native change agree.
 
-**Screenshot:** `AR-026-06.png`: reviewer account details, activity target and both accounts' memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-026-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-026-06.png`
+>
+> **Show:** Approval/activity account target and native grant.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-026-06 -->
 
 ### 7. Remove VPN from that exact assignment
 
@@ -115,7 +163,15 @@ If the matching course account already exists, inspect its values and continue t
 
 **Check:** VPN is absent from both accounts. Standard retains baseline, the second account does not receive baseline, and both accounts remain correlated to Sofia.
 
-**Screenshot:** `AR-026-07.png`: account-specific removal and final four native results.
+<!-- AUTHOR_SCREENSHOT_START: AR-026-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-026-07.png`
+>
+> **Show:** Targeted removal and final memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-026-07 -->
 
 ## Check the result
 
@@ -150,18 +206,6 @@ Employee Number/employeeID correlation linked both accounts to Sofia. The baseli
 Keep both accounts for AR-027, AR-045 and later exercises. Keep the baseline Multiple Account Options criterion. On a first pass, there are now 24 identities and 25 lab AD accounts; baseline still covers the 24 standard accounts.
 
 [Automatic multiple-account options](https://documentation.sailpoint.com/saas/help/access/access-profiles.html) · [Account selection in requests](https://developer.sailpoint.com/discuss/t/new-capability-multi-account-support/105600) · [Targeted user removal](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access_removal.html)
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-026-01.png | Original account, memberships and saved source scope |
-| AR-026-02.png | DN attribute and baseline selection criterion |
-| AR-026-03.png | Second account and employeeID E009 |
-| AR-026-04.png | Two correlated accounts and clean memberships |
-| AR-026-05.png | Explicit second-account selection |
-| AR-026-06.png | Approval/activity account target and native grant |
-| AR-026-07.png | Targeted removal and final memberships |
 
 Exclude passwords and invitation links.
 

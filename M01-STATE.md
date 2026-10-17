@@ -1,6 +1,6 @@
 # Module 1 configuration record
 
-Use this record alongside your private journals. Enter actual source names, IDs and directory values before using them in a lab. Counts refer to the original Acme roster, not the tenant-wide population. Keep later legitimate additions when revisiting these checks.
+Use this record alongside your private earlier request results. Enter actual source names, IDs and directory values before using them in a lab. Counts refer to the original Acme roster, not the tenant-wide population. Keep later legitimate additions when revisiting these checks.
 
 ## Your environment values
 

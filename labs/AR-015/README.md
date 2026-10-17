@@ -6,13 +6,11 @@ In this lab, you'll create a Remote Worker profile, approve it for Liam, deny it
 
 ## Before you start
 
-Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
+Keep the [Module 2 starting checks](../../M02-READINESS.md) beside the current request details.
 
 Complete [AR-014](../AR-014/README.md). Use Acme Admin, Acme Liam (`acme.e008`), Acme Olivia (`acme.e011`), Acme Priya (`acme.e002`) and the AD workstation. Prepare Liam using [the additional-session steps](../../M02-CHECKS.md#prepare-olivia-or-liam-to-sign-in).
 
-Liam and Olivia each have one linked standard AD account and baseline access, but neither `GG-VPN-USERS` nor `GG-REMOTE-USERS`. They have no Remote Worker assignment or pending grant/removal request for the profile or either business group. Preserve Lucas's approved VPN and all 24 baseline assignments. Keep your [journal](EVIDENCE.md) open.
-
-If you are returning after a break, read [where to resume](#if-you-stopped-midway-or-repeat-later) before changing settings or submitting a request.
+Liam and Olivia each have one linked standard AD account and baseline access, but neither `GG-VPN-USERS` nor `GG-REMOTE-USERS`. They have no Remote Worker assignment or pending grant/removal request for the profile or either business group. Preserve Lucas's approved VPN and all 24 baseline assignments. If you are returning after a break, read [where to resume](#if-you-stopped-midway-or-repeat-later) before changing settings or submitting a request.
 
 ## Follow the steps
 
@@ -26,7 +24,15 @@ If you are returning after a break, read [where to resume](#if-you-stopped-midwa
 
 **Check:** Both people start without either group or a profile assignment. If access already exists, inspect its origin before continuing; preserve unrelated access.
 
-**Screenshot:** `AR-015-01.png`: Liam and Olivia before memberships and account identifiers.
+<!-- AUTHOR_SCREENSHOT_START: AR-015-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-01.png`
+>
+> **Show:** Liam and Olivia before memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-01 -->
 
 ### 2. Create AP-Remote-Worker
 
@@ -62,7 +68,15 @@ Use Acme Admin. Search **Admin > Access Model > Access Profiles** for `AP-Remote
 
 **Check:** Priya is configured to review both grants and removals for this profile. Its approval policy is configured separately from the individual VPN entitlement.
 
-**Screenshot:** `AR-015-02.png`: profile source, entitlements, grant and removal settings.
+<!-- AUTHOR_SCREENSHOT_START: AR-015-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-02.png`
+>
+> **Show:** Profile groups and grant/removal policies.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-02 -->
 
 ### 4. Request the profile as Liam
 
@@ -86,7 +100,25 @@ Use Acme Admin. Search **Admin > Access Model > Access Profiles** for `AP-Remote
 
 **Check:** Liam has the profile and both groups, with matching request/activity/native evidence. One successful group operation is not enough to pass.
 
-**Screenshots:** `AR-015-03.png`: approval and activity. `AR-015-04.png`: Liam's two memberships and unchanged account identifiers.
+<!-- AUTHOR_SCREENSHOT_START: AR-015-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-03.png`
+>
+> **Show:** Liam approval and activity.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-03 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-04.png`
+>
+> **Show:** Liam two native memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-04 -->
 
 ### 6. Run Olivia's denial
 
@@ -98,7 +130,25 @@ Use Acme Admin. Search **Admin > Access Model > Access Profiles** for `AP-Remote
 
 **Check:** The denied profile request left Olivia without either business group.
 
-**Screenshots:** `AR-015-05.png`: Olivia's denied request. `AR-015-06.png`: unchanged native memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-015-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-05.png`
+>
+> **Show:** Olivia denied request.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-05 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-015-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-06.png`
+>
+> **Show:** Olivia unchanged memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-06 -->
 
 ### 7. Remove Liam's completed test assignment
 
@@ -112,7 +162,15 @@ Use Acme Admin. Search **Admin > Access Model > Access Profiles** for `AP-Remote
 
 **Check:** Liam's test grant is removed through ISC; baseline and Lucas's independent grant are preserved.
 
-**Screenshot:** `AR-015-07.png`: removal decision/activity and final memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-015-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-015-07.png`
+>
+> **Show:** Liam removal and final native state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-015-07 -->
 
 ## Check the result
 
@@ -124,7 +182,7 @@ If one group is missing after approval, inspect that group's operation and exact
 
 Without following the steps again, explain where to find proof for Liam's grant, Olivia's denial and Liam's removal. Record which evidence belongs to each request.
 
-Create a private **C02-First-Requests** folder. Keep all six module journals, source/item/profile IDs, saved policies, Lucas's retained VPN evidence and the three AR-015 outcomes. Include a short handover naming Priya, both group DNs and the final recipient states. C02 is evidence, not a tenant backup.
+Create a private **C02-First-Requests** folder. Keep earlier request results, source/item/profile IDs, saved policies, Lucas's retained VPN evidence and the three AR-015 outcomes. Include a short handover naming Priya, both group DNs and the final recipient states. C02 is evidence, not a tenant backup.
 
 <details>
 <summary>Check your C02 handover</summary>
@@ -177,19 +235,5 @@ Retain AP-Remote-Worker and its policies. Liam and Olivia finish without either 
 ### If you stopped midway or repeat later
 
 Find existing grant, denial and removal requests before submitting another. If Liam has the test profile, finish verification and supported removal. If removal is pending, resume its review or operation. Start a new test only after checking both memberships and accounting for earlier requests. Preserve pre-existing access and label exceptions; do not claim clean removal while a group remains unexplained.
-
-### Screenshots to capture
-
-Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
-
-| Filename | What to show |
-|---|---|
-| AR-015-01.png | Liam and Olivia before memberships |
-| AR-015-02.png | Profile groups and grant/removal policies |
-| AR-015-03.png | Liam approval and activity |
-| AR-015-04.png | Liam two native memberships |
-| AR-015-05.png | Olivia denied request |
-| AR-015-06.png | Olivia unchanged memberships |
-| AR-015-07.png | Liam removal and final native state |
 
 [Previous: AR-014](../AR-014/README.md) · [Course outline](../../README.md) · [Next: AR-016](../AR-016/README.md)

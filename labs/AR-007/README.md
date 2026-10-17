@@ -14,7 +14,7 @@ Use the administrator session and the existing ROLE-Acme-AD-Baseline and AP-Acme
 
 Lucas and Liam must each have one correctly linked standard account and baseline membership. There must be no unresolved failure from either pilot operation.
 
-Keep the 24-person journal open while selecting identities. A role-list count alone cannot tell you that the correct people were selected.
+Check the matching request, operation and target results directly. A role-list count alone cannot tell you that the correct people were selected.
 
 Use the [Module 1 configuration record](../../M01-STATE.md) for actual environment values and the required retained state.
 
@@ -28,23 +28,51 @@ Use the [Module 1 configuration record](../../M01-STATE.md) for actual environme
 2. Search AD for the remaining usernames before assigning access. Record any account that already exists. Correlate a legitimate existing account using AR-004's employee-number match before giving it the baseline role. Do not permit an unexpected existing account to become a duplicate-creation attempt.
 3. Confirm the saved Create Account policy still points to AcmeLab/Users and the baseline profile still contains only GG-ACME-BASELINE.
 
-**Check:** The journal identifies which employees already have accounts and which require creation.
+**Check:** Check which employees already have accounts and which require creation.
 
 ### 2. Expand in two stages
 
 1. Open **Admin > Access Model > Roles > ROLE-Acme-AD-Baseline > Define Assignment**.
 2. Retain Lucas and Liam in **Identity List**. Add Priya (`acme.e002`) and Daniel (`acme.e003`) with the + control. Verify the four selected identities, save, and select **Apply Changes** from the role list.
 3. Wait for processing and provisioning. Use the activity and AD checks from AR-006 for both new accounts. Resolve errors before adding more identities.
-4. Return to the identity list and add the remaining 20 Acme identities. Use the journal roster and verify usernames before selecting them. Retain the four existing members.
+4. Return to the identity list and add the remaining 20 Acme identities. Check the matching request, operation and target results directly. Retain the four existing members.
 5. Confirm the list contains exactly the 24 Acme identities and no unrelated identities. Save and apply changes.
 
 Identity List keeps the provisioning population explicit. Removing a user from that list can remove the assigned access, so preserve existing members while expanding it. [Role assignment](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html)
 
-**Screenshot reminder:** Save `AR-007-01-four-person-batch.png`, `AR-007-02-complete-assignment.png`, `AR-007-03-account-activity.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-007-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-01-four-person-batch.png`
+>
+> **Show:** Lucas, Liam, Priya, and Daniel in the saved list.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-01 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-007-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-02-complete-assignment.png`
+>
+> **Show:** All 24 selected identities; multiple images if needed.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-02 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-007-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-03-account-activity.png`
+>
+> **Show:** Batch outcomes and any resolved failure.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-03 -->
 
 ### 3. Verify every account
 
-After each provisioning batch finishes, run **one AD account aggregation** using AR-003 Section 6. Wait for completion and inspect its result. Do not start an aggregation for every employee. Then complete each row in the [journal](EVIDENCE.md):
+After each provisioning batch finishes, run **one AD account aggregation** using AR-003 Section 6. Wait for completion and inspect its result. Do not start an aggregation for every employee. Then complete each row :
 
 1. Inspect the AD account's sAMAccountName, employeeID, UPN, and DN. Compare them with the intended employee and Users OU. Record its enabled state.
 2. Confirm direct membership in GG-ACME-BASELINE. Check for unintended duplicate usernames or accounts in another OU.
@@ -54,7 +82,35 @@ After each provisioning batch finishes, run **one AD account aggregation** using
 
 **Check:** There are 24 standard course AD accounts, correctly linked to 24 identities, and 24 course members in GG-ACME-BASELINE. Source-wide counts may include unrelated users. Lucas was reused; in a fresh run, the other 23 accounts were provisioned.
 
-**Screenshot reminder:** Save `AR-007-04-ad-users.png`, `AR-007-05-baseline-members.png`, `AR-007-06-account-links.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-007-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-04-ad-users.png`
+>
+> **Show:** Standard accounts in the Users OU.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-04 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-007-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-05-baseline-members.png`
+>
+> **Show:** Baseline group's 24 course members.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-05 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-007-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-007-06-account-links.png`
+>
+> **Show:** Representative linked accounts; result checks covers every identity.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-007-06 -->
 
 ## Check the result
 
@@ -64,7 +120,9 @@ If an account fails, record the employee, failing operation, exact error, target
 
 For a deliberate fault exercise later, use a separate test identity and a configuration isolated from this baseline. Do not change the shared Create Account OU to an invalid value while these assignments can retry.
 
-### Completion and screenshots
+<a id="completion-and-screenshots"></a>
+
+### Final checks
 
 - [ ] All 24 expected accounts and identity links are individually verified.
 - [ ] The role's identity list contains exactly the course population.
@@ -88,7 +146,7 @@ Keep all successful assignments in place. Your evidence must identify the accoun
 
 This is a supplied case. The total of selected identities is correct, but it does not identify the missing account.
 
-Use the 24-row journal to explain how you would find the missing person and separate a creation failure from a membership failure.
+Check the matching request, operation and target results directly.
 
 Write your diagnosis before opening the answer. Label this as a supplied ticket, not a failure observed in your tenant.
 
@@ -116,16 +174,5 @@ Compare each selected username with native account existence, employeeID, member
 Verify all 24 current account links and memberships. Use the saved batch history to compare operations; do not unassign employees to repeat provisioning. Label earlier activity as historical when repeating the lab.
 
 If the batch was interrupted, identify which selected identities have successful, failed or running activity. Preserve successful assignments and investigate only the unfinished accounts. Resume by adding only missing roster members; keep the current members. Leave all 24 in the role and retain their accounts and memberships. On repeat, verify the full roster without unassigning/reassigning it. Later extra accounts or identities must be recorded separately, not deleted to restore a count.
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-007-01-four-person-batch.png | Lucas, Liam, Priya, and Daniel in the saved list |
-| AR-007-02-complete-assignment.png | All 24 selected identities; multiple images if needed |
-| AR-007-03-account-activity.png | Batch outcomes and any resolved failure |
-| AR-007-04-ad-users.png | Standard accounts in the Users OU |
-| AR-007-05-baseline-members.png | Baseline group's 24 course members |
-| AR-007-06-account-links.png | Representative linked accounts; journal covers every identity |
 
 [Previous: AR-006](../AR-006/README.md) · [Next: AR-008](../AR-008/README.md)

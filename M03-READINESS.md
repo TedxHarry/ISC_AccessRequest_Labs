@@ -1,6 +1,6 @@
 # Module 3 · Prepare for business access requests
 
-Start with C02 from AR-015. Keep your private journals, [actual environment values](LAB-VALUES.md), and [request and AD checks](M02-CHECKS.md) open. You will reuse the existing AD accounts and groups.
+Start with C02 from AR-015. Keep your private earlier request results, [actual environment values](LAB-VALUES.md), and [request and AD checks](M02-CHECKS.md) open. You will reuse the existing AD accounts and groups.
 
 ## Check your starting point
 
@@ -36,7 +36,7 @@ James is `acme.e014` (E014); Elena is `acme.e004` (E004). They already have stan
 5. Create separate browser profiles **Acme James** and **Acme Elena** before opening either invitation. Read **Acme Employees > Settings > Sign-in Method**. Keep the current route. For an unregistered ISC-password identity, select **Actions > Invite Identity**, open the invitation in that person's separate browser profile, and finish registration as in AR-008. For external authentication, use the route already established in AR-008. Do not copy an invitation into another person's session.
 6. In each prepared browser profile, sign out and back in to confirm each username. James needs ordinary requester access; Elena can review requests assigned to her without administrator permissions.
 
-**Check:** Both sessions work and the imported population matches your recorded current row count, including all original 24 employees. Keep passwords and registration links out of your journal and screenshots.
+**Check:** Both sessions work and the imported population matches your recorded current row count, including all original 24 employees. Keep passwords and registration links out of screenshots.
 
 ## Resume or repeat safely
 

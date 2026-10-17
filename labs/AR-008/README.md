@@ -13,7 +13,7 @@ In this lab, you'll prepare separate ISC sessions for Lucas, Daniel and Priya, t
 
 Priya becomes the VPN item's owner when you configure that item in the request labs. Naming her here does not assign ownership or route an approval.
 
-Finish with four separate browser sessions and record the checks in your [lab journal](EVIDENCE.md). Keep the 24-person HR dataset and 24 standard AD accounts from the previous labs.
+Finish with four separate browser sessions and record the checks. Keep the 24-person HR dataset and 24 standard AD accounts from the previous labs.
 
 ## Before you start
 
@@ -43,7 +43,15 @@ Enabling an ISC identity and enabling its AD account are separate operations. [I
 
 **Check:** All three identities are available for sign-in setup, and Lucas resolves to Daniel as manager.
 
-**Screenshot reminder:** Save `AR-008-01-lucas-manager.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-01-lucas-manager.png`
+>
+> **Show:** Lucas's identity with Daniel as Manager.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-01 -->
 
 ### 2. Replace the email placeholders in HR
 
@@ -66,12 +74,20 @@ Compare Lucas’s Acme HR account email, identity Work Email and AD account mail
 
 Record the difference instead of treating it as an import failure. Registration requires a deliverable identity Work Email. Do not enable source-wide synchronization merely to make screenshots match. If existing mail synchronization is configured, record its actual result. [Attribute synchronization](https://documentation.sailpoint.com/saas/help/provisioning/attr_sync.html)
 
-**Screenshot reminder:** Save `AR-008-02-hr-import.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-02-hr-import.png`
+>
+> **Show:** Completed HR import and 24 accounts scanned.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-02 -->
 
 ### 3. Confirm how these users will sign in
 
 1. Open **Admin > Identity Management > Identity Profiles > Acme Employees > Settings**.
-2. Record **Sign-in Method**, **Invitation Options**, and the authentication requirements in your journal.
+2. Record **Sign-in Method**, **Invitation Options**, and the authentication requirements.
 3. For an Acme profile using ISC credentials, use **User Name & Password** and manual invitations. Save any changes. Complete Section 4 below.
 4. If your tenant already uses working SSO or Directory Connection for these users, keep that setup. Use its established sign-in route in Section 5 and verify it opens the correct Acme identity. Directory Connection uses the configured authentication source; an AD correlation alone does not configure authentication.
 
@@ -79,7 +95,15 @@ Do not change tenant-wide SSO, MFA, or network restrictions to follow this lab. 
 
 **Check:** You have recorded one working sign-in route for the three users. For ISC credentials, continue with registration; for existing external authentication, proceed to the session checks.
 
-**Screenshot reminder:** Save `AR-008-03-sign-in-settings.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-03-sign-in-settings.png`
+>
+> **Show:** Acme Employees sign-in method and invitation option.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-03 -->
 
 ### 4. Register users who use ISC credentials
 
@@ -92,16 +116,24 @@ Perform these steps for each unregistered user using ISC User Name & Password:
 
 Use the registered ISC password for this path. The AD password generated during AD provisioning is not automatically the ISC password. If an invitation expires, resend it from the identity rather than resetting the identity. [Manual invitations and registration](https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html)
 
-**Check:** Lucas, Daniel, and Priya can each complete a fresh sign-in. Keep passwords, registration links, and MFA setup codes out of screenshots and the journal.
+**Check:** Lucas, Daniel, and Priya can each complete a fresh sign-in. Keep passwords, registration links, and MFA setup codes out of screenshots.
 
-**Screenshot reminder:** Save `AR-008-04-registration-status.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-04-registration-status.png`
+>
+> **Show:** The three identities' actual registration/access status for the chosen sign-in route.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-04 -->
 
 ### 5. Keep the sessions separate and check access
 
 Create four browser profiles named `Acme Admin`, `Acme Lucas`, `Acme Daniel`, and `Acme Priya`. In Chrome or Edge, use the browser profile menu to add a profile; browser-account synchronization is unnecessary. Separate normal tabs share a session, and multiple private windows can also share a private session.
 
 1. Open the tenant in each profile and sign in as its named user. With SSO, check the identity-provider session too; it must not silently reuse your administrator identity.
-2. In each ISC window, open the user menu and confirm the signed-in identity. Record the username and browser profile in the journal.
+2. In each ISC window, open the user menu and confirm the signed-in identity. Record the username and browser profile.
 3. In Lucas's session, open **Request Center**. Confirm it loads. An empty catalog is acceptable here; VPN has not yet been configured as requestable.
 4. In Daniel's and Priya's sessions, open **Approvals**. Confirm each page loads. An empty queue is expected when no work has been assigned.
 5. In your admin session, open **Admin > Connections > Sources** and **Admin > Identity Management > Identities** to confirm you can continue configuring the course.
@@ -116,7 +148,45 @@ Keep your administrator's permissions unchanged. [Setting user levels](https://d
 
 **Check:** Every window shows the intended user, and the required page loads with that user's own permissions. Opening Approvals verifies page access; a later submitted request will verify actual routing and decision permissions.
 
-**Screenshot reminder:** Save `AR-008-05-lucas-request-center.png`, `AR-008-06-daniel-approvals.png`, `AR-008-07-priya-approvals.png`, `AR-008-08-user-levels.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-008-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-05-lucas-request-center.png`
+>
+> **Show:** Lucas's signed-in identity and Request Center.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-05 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-008-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-06-daniel-approvals.png`
+>
+> **Show:** Daniel's signed-in identity and Approvals.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-06 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-008-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-07-priya-approvals.png`
+>
+> **Show:** Priya's signed-in identity and Approvals.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-07 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-008-08 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-008-08-user-levels.png`
+>
+> **Show:** User levels for the course users; use separate images if needed.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-008-08 -->
 
 ## Check the result
 
@@ -205,20 +275,5 @@ AR-008 registers Lucas, Daniel and Priya. Other identities exist but are not aut
 | AR-086 | Ethan, acme.e010 |
 
 Taylor can remain a recipient of administrator-submitted requests; a Taylor requester session is not required for those cases. Provisioned AD passwords do not register any of these ISC sessions.
-
-### Screenshots to capture as you work
-
-Hide credentials, invitation links, MFA codes, and personal mailbox details before sharing.
-
-| After section | Suggested filename | What to show |
-|---|---|---|
-| 1 | `AR-008-01-lucas-manager.png` | Lucas's identity with Daniel as Manager |
-| 2 | `AR-008-02-hr-import.png` | Completed HR import and 24 accounts scanned |
-| 3 | `AR-008-03-sign-in-settings.png` | Acme Employees sign-in method and invitation option |
-| 4 or 5 | `AR-008-04-registration-status.png` | The three identities' actual registration/access status for the chosen sign-in route |
-| 5 | `AR-008-05-lucas-request-center.png` | Lucas's signed-in identity and Request Center |
-| 5 | `AR-008-06-daniel-approvals.png` | Daniel's signed-in identity and Approvals |
-| 5 | `AR-008-07-priya-approvals.png` | Priya's signed-in identity and Approvals |
-| 5 | `AR-008-08-user-levels.png` | User levels for the course users; use separate images if needed |
 
 [Previous: AR-007](../AR-007/README.md) · [Next: AR-009](../AR-009/README.md) · [Course outline](../../README.md)

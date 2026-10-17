@@ -24,8 +24,6 @@ From the previous labs, you need:
 - The actual AcmeLab/Users OU DN.
 - Access to Lucas's AD Account tab to look up the configured UPN suffix below.
 
-Keep your [evidence journal](EVIDENCE.md) open.
-
 **Returning after AR-006:** Keep Liam's existing account, the saved mappings and baseline memberships. Compare current settings with this lab and use the original creation activity as historical evidence; do not delete his account to recreate the starting screenshot.
 
 ## Follow the steps
@@ -37,7 +35,7 @@ Keep your [evidence journal](EVIDENCE.md) open.
 3. Select **Test Connection**.
 4. Confirm the result is successful.
 5. Record the actual **Users OU DN** from AR-003.
-6. Follow **Find and record your UPN suffix** below before filling in the journal.
+6. Follow **Find and record your UPN suffix** below before filling.
 7. Confirm provisioning/IQService, TLS and service-account permissions are already in place. The account must be able to create users in Users, set attributes/passwords and update the baseline group. Test Connection alone does not prove a write; AR-006 will verify that.
 
 Reference:
@@ -56,14 +54,22 @@ A **User Principal Name (UPN)** is an AD sign-in name such as `acme.e012@isc.com
 2. Expand your training domain, then **AcmeLab > Users**.
 3. Right-click **Acme Lab - Lucas Brown > Properties** and open **Account**.
 4. Find **User logon name**. Read the username on the left and the selected suffix on the right. For example, `acme.e012` and `@isc.com` together form `acme.e012@isc.com`.
-5. In your journal, record Lucas's full UPN and the suffix **without `@`**. Use this same configured suffix for the new standard lab users. Close with **Cancel**; you are inspecting Lucas, not changing his sign-in name.
+5. record Lucas's full UPN and the suffix **without `@`**. Use this same configured suffix for the new standard lab users. Close with **Cancel**; you are inspecting Lucas, not changing his sign-in name.
 6. If several suffixes are available, record the one selected for Lucas's standard lab account. If his UPN is blank, check the suffix selected on another working standard account in the same training domain. Do not invent a suffix from the HR email addresses.
 
 The **User logon name (pre-Windows 2000)** field is a different sign-in format, such as `ISC\acme.e012`; do not copy `ISC` as the UPN suffix. If you need to inspect configured alternatives, open **Server Manager > Tools > Active Directory Domains and Trusts**, right-click the top **Active Directory Domains and Trusts** node, select **Properties**, and view **UPN Suffixes**. An empty alternative-suffix list does not mean the domain has no default suffix. No new suffix is required for this lab. [Microsoft UPN guidance](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/howto-troubleshoot-upn-changes)
 
-**Check:** Your journal contains an observed full UPN and its suffix. For a confirmed suffix of `isc.com`, the ISC mapping will be `${sAMAccountName}@isc.com`, and Liam's expected UPN will be `acme.e008@isc.com`. Keep `${sAMAccountName}` as an expression in the mapping; do not replace it with Lucas's or Liam's username.
+**Check:** the current request details contains an observed full UPN and its suffix. For a confirmed suffix of `isc.com`, the ISC mapping will be `${sAMAccountName}@isc.com`, and Liam's expected UPN will be `acme.e008@isc.com`. Keep `${sAMAccountName}` as an expression in the mapping; do not replace it with Lucas's or Liam's username.
 
-**Screenshot:** Save `AR-005-upn-suffix.png` showing Lucas's **Account** tab and the selected suffix.
+<!-- AUTHOR_SCREENSHOT_START: AR-005-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-005-upn-suffix.png`
+>
+> **Show:** Included: observed UPN suffix; do not copy the existing password flags.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-005-01 -->
 
 ![Lucas Account tab showing acme.e012 and the isc.com UPN suffix](../../labs/AR-005/images/AR-005-upn-suffix.png)
 
@@ -81,7 +87,17 @@ The OU's **distinguished name (DN)** tells ISC where to create the user. Copy th
 
 For example, if the copied value is `OU=Users,OU=AcmeLab,DC=isc,DC=com`, enter `CN=$(uid),OU=Users,OU=AcmeLab,DC=isc,DC=com` in the DN generator. Preserve any additional parent OUs present in your real DN. A value beginning `CN=Acme Lab - Lucas Brown,` is Lucas's account DN, not the target OU DN.
 
-**Check:** The recorded target starts with your Users OU and ends with your actual domain components. Save `AR-005-users-ou-dn.png` showing this value.
+**Check:** The recorded target starts with your Users OU and ends with your actual domain components.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-005-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-005-users-ou-dn.png`
+>
+> **Show:** Included: target Users OU DN.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-005-02 -->
 
 ![Users OU distinguishedName in the AD Attribute Editor](../../labs/AR-005/images/AR-005-users-ou-dn.png)
 
@@ -113,7 +129,15 @@ GG-ACME-BASELINE
 
 **Check:** ISC now contains 15 Acme course groups, including `GG-ACME-BASELINE`.
 
-**Screenshot:** Save `AR-005-01-baseline-group.png`. Capture the baseline group in AD and the imported entitlement in ISC.
+<!-- AUTHOR_SCREENSHOT_START: AR-005-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-005-01-baseline-group.png`
+>
+> **Show:** Included: imported ISC entitlement. Add an AD group/Members capture separately.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-005-03 -->
 
 ![GG-ACME-BASELINE imported into the AD source entitlement list](../../labs/AR-005/images/AR-005-01-baseline-group.png)
 
@@ -175,7 +199,15 @@ Reference: [AD provisioning reference](https://documentation.sailpoint.com/conne
 
 **Check:** The saved Create Account configuration matches the table and uses your actual Users OU DN and UPN suffix.
 
-**Screenshot:** Save `AR-005-02-create-account-mappings.png`. Capture the complete mappings and the naming expressions.
+<!-- AUTHOR_SCREENSHOT_START: AR-005-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-005-02-create-account-mappings.png`
+>
+> **Show:** Included: first three mapping rows. Add remaining mappings and UPN evaluation order.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-005-04 -->
 
 ![ObjectType, distinguishedName generator and sAMAccountName mapping](../../labs/AR-005/images/AR-005-02-create-account-mappings.png)
 
@@ -200,10 +232,20 @@ Get-ADUserResultantPasswordPolicy -Identity 'acme.e012' -Server $LabDomain -Erro
 
 The first result is the domain default. The second checks for a fine-grained policy applying to Lucas. No second result means no resultant fine-grained policy was returned; an error is not the same as an empty result. If a fine-grained policy applies, record it and check which users/groups it targets with your AD administrator. Lucas's result does not establish which policy a new Liam account will receive. [Domain policy](https://learn.microsoft.com/en-us/powershell/module/activedirectory/get-addefaultdomainpasswordpolicy) and [resultant user policy](https://learn.microsoft.com/en-us/powershell/module/activedirectory/get-aduserresultantpasswordpolicy).
 
-4. Compare the ISC generation rules with the applicable AD requirements. Also account for any installed password filter or custom provisioning rule. Record the ISC policy name, AD requirements and any unresolved difference in the journal. Keep domain policy and sync-group membership unchanged during this inspection.
+4. Compare the ISC generation rules with the applicable AD requirements. Also account for any installed password filter or custom provisioning rule. Record the ISC policy name, AD requirements and any unresolved difference. Keep domain policy and sync-group membership unchanged during this inspection.
 5. If the rules conflict, resolve the assigned ISC policy with the lab administrator before triggering creation. AR-006's actual account creation will verify acceptance; checking policy settings alone is not proof.
 
-If `Import-Module` fails, use the AD server or a workstation with the Active Directory RSAT tools installed. Save `AR-005-password-policy.png` showing policy names and requirements, without a password or secret.
+If `Import-Module` fails, use the AD server or a workstation with the Active Directory RSAT tools installed.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-005-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-005-password-policy.png`
+>
+> **Show:** Still to add: assigned ISC policy and applicable AD password requirements, without secrets.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-005-05 -->
 
 ### 5. Verify Liam's identity before creation
 
@@ -233,7 +275,15 @@ employeeID = E008
 
 **Check:** Liam's identity is ready and no AD account exists yet.
 
-**Screenshot:** Save `AR-005-03-liam-identity.png`. Capture Liam's ISC identity attributes.
+<!-- AUTHOR_SCREENSHOT_START: AR-005-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-005-03-liam-identity.png`
+>
+> **Show:** Included: identity attributes. Add a current view with Manager Priya resolved.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-005-06 -->
 
 ![Liam identity with E008, acme.e008 and IT attributes](../../labs/AR-005/images/AR-005-03-liam-identity.png)
 
@@ -253,7 +303,7 @@ The account-creation attributes are visible, but Manager is blank in this captur
 
 Use Priya’s identity (`acme.e002`) to write her expected DN, UPN and employeeID using the saved mappings. Keep this prediction for AR-007. Do not change the shared policy or create her manually.
 
-Write these answers in your [journal](EVIDENCE.md):
+Consider these questions:
 
 1. What will supply Liam’s username in the DN and UPN expressions?
 2. Why does saving Create Account leave Liam absent from AD?
@@ -282,19 +332,6 @@ If a saved mapping differs, reopen Create Account and correct its type, value an
 ### Leave this in place
 
 Keep the baseline group and Create Account configuration unchanged. AR-006 will use them to update Lucas's existing account and create Liam's missing account.
-
-### Screenshots to capture
-
-The supplied screenshots are placed beside their matching steps. Add the remaining views when available; keep earlier creation evidence labelled historical when revisiting the lab.
-
-| Filename | Coverage and remaining capture |
-|---|---|
-| AR-005-upn-suffix.png | Included: observed UPN suffix; do not copy the existing password flags. |
-| AR-005-users-ou-dn.png | Included: target Users OU DN. |
-| AR-005-01-baseline-group.png | Included: imported ISC entitlement. Add an AD group/Members capture separately. |
-| AR-005-02-create-account-mappings.png | Included: first three mapping rows. Add remaining mappings and UPN evaluation order. |
-| AR-005-03-liam-identity.png | Included: identity attributes. Add a current view with Manager Priya resolved. |
-| AR-005-password-policy.png | Still to add: assigned ISC policy and applicable AD password requirements, without secrets. |
 
 Keep passwords, tokens and invitation links out of shared images.
 

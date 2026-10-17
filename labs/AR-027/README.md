@@ -6,7 +6,7 @@ In this lab, you'll check the Finance catalog restriction, trace a department pr
 
 ## Before you start
 
-Complete [AR-026](../AR-026/README.md), including VPN removal. Open the AD workstation, Acme Admin, Acme Lucas, Acme Liam, Acme Sofia and Acme Priya. Keep the latest complete private HR file, AR-023's original permission record, AR-026's two-account evidence and your [journal](EVIDENCE.md) open.
+Complete [AR-026](../AR-026/README.md), including VPN removal. Open the AD workstation, Acme Admin, Acme Lucas, Acme Liam, Acme Sofia and Acme Priya. Keep the latest complete private HR file, AR-023's original permission record, AR-026's two-account evidence open.
 
 Finance segmentation is enabled; Lucas is Finance; Liam is IT. Sofia has two correlated AD accounts, neither with VPN. Only her standard account has baseline. No test request is pending.
 
@@ -24,7 +24,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Finance items are absent and Remote Worker is visible. Liam's result matches the configured policy; no repair is required.
 
-**Screenshot:** `AR-027-01.png`: identity, segment and Liam's restricted/control searches.
+<!-- AUTHOR_SCREENSHOT_START: AR-027-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-027-01.png`
+>
+> **Show:** Liam restriction and Remote Worker control.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-027-01 -->
 
 ### 2. Compare an administrator while Lucas has the wrong department
 
@@ -38,7 +46,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Lucas cannot see the Finance profile while the org administrator can. Remote Worker remains visible to Lucas. The administrator's exception does not prove ordinary-user visibility is correct.
 
-**Screenshot:** `AR-027-02.png`: Sales identity value and administrator/ordinary-user catalog comparison.
+<!-- AUTHOR_SCREENSHOT_START: AR-027-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-027-02.png`
+>
+> **Show:** Incorrect Lucas department and admin/user views.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-027-02 -->
 
 ### 3. Restore the source data and retest Lucas
 
@@ -51,7 +67,15 @@ If you are returning after a break, read [the module resume checks](../../M04-RE
 
 **Check:** Lucas is Finance again, his catalog is restored and existing access remains. The complete HR population is preserved.
 
-**Screenshot:** `AR-027-03.png`: restored data chain, catalog and native control.
+<!-- AUTHOR_SCREENSHOT_START: AR-027-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-027-03.png`
+>
+> **Show:** Restored data, catalog and access.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-027-03 -->
 
 ### 4. Request VPN for Sofia's standard account
 
@@ -62,13 +86,23 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 3. Confirm GG-VPN-USERS remains requestable with Priya as owner and primary-owner grant/removal reviewer.
 4. In Acme Sofia, verify acme.e009 and open **Request Center > Access Items > Entitlements** for herself.
 5. Find GG-VPN-USERS on the recorded AD source. Select it and enter `AR-027: VPN for the standard acme.e009 account`. Keep immediate access and **Save**.
-6. Select **Review Request**, verify the recipient/item and proceed to submission. In **Select Accounts**, select **acme.e009**, matching the standard account name/ID from the journal and its Users OU DN where displayed.
-7. Capture the selection, then select **Submit Request** in that panel. Record the confirmation, request ID and time.
+6. Select **Review Request**, verify the recipient/item and proceed to submission. In **Select Accounts**, select **acme.e009**, matching the standard account name/ID from its Users OU DN where displayed.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-027-04 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-027-04.png`
+   >
+   > **Show:** Standard-account request selection.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-027-04 -->
+
+7. Select **Submit Request** in that panel. Record the confirmation, request ID and time.
 8. If the account choice is missing or ambiguous, close before completing submission and use AR-026's correlation/account-label checks.
 
 **Check:** The new request selects standard, while AR-026's earlier request selected the second account. Keep their IDs separate.
 
-**Screenshot:** `AR-027-04.png`: clean two-account state and explicit standard-account selection.
 
 ### 5. Compare intended, selected and fulfilled targets
 
@@ -89,7 +123,15 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 
 **Check:** Standard has VPN and baseline; the second account has neither. The submitted account and native operation agree with this request's intended standard target.
 
-**Screenshot:** `AR-027-05.png`: approval/account activity, both native results and comparison.
+<!-- AUTHOR_SCREENSHOT_START: AR-027-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-027-05.png`
+>
+> **Show:** Intended/selected/fulfilled comparison and native grant.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-027-05 -->
 
 ### 6. Remove the standard-account test grant
 
@@ -102,11 +144,19 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 
 **Check:** Neither account has VPN. Standard alone retains baseline, and the two correlated accounts are ready for later labs.
 
-**Screenshot:** `AR-027-06.png`: exact removal target and final memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-027-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-027-06.png`
+>
+> **Show:** Targeted removal and final two-account state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-027-06 -->
 
 ### 7. Save the Module 4 handoff
 
-1. Create a private **C04-Visibility-and-Accounts** evidence folder and copy the six module journals, request histories, configuration records and screenshots into it.
+1. Create a private **C04-Visibility-and-Accounts** evidence folder and copy earlier request results, request histories, configuration records and screenshots into it.
 2. Reopen the Finance segment and verify it is enabled with its original Finance criterion and three items.
 3. Reopen **Admin > Global > System Settings > Feature Settings > Access Requests**. Compare request-on-behalf on/off state and mode with AR-023's original record. Restore and save if different, then recheck the corresponding ordinary-user behavior from AR-024 Section 5.
 4. Verify Lucas is Finance and Liam is IT; compare the complete HR row count with the start of the module. Verify their manager values are unchanged.
@@ -118,7 +168,15 @@ The earlier AR-026 grant targeted the second account. This request deliberately 
 
 **Check:** C04 matches [the retained-state table](../../M04-READINESS.md#what-each-lab-leaves-behind), and every temporary permission, HR value and test grant has been accounted for.
 
-**Screenshot:** `AR-027-07.png`: final segment, original permission, HR values, baseline and C04 index.
+<!-- AUTHOR_SCREENSHOT_START: AR-027-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-027-07.png`
+>
+> **Show:** Restored configuration and C04 handoff.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-027-07 -->
 
 ## Check the result
 
@@ -177,18 +235,6 @@ Retain the Finance restriction, original request-on-behalf mode, current HR file
 ### Resume or repeat
 
 First confirm Lucas is back in Finance; if he is still Sales, complete Section 3. Find Sofia's standard-account VPN request before submitting another. Finish its verification and removal in Sections 5–6, then complete the handoff in Section 7. Keep both Sofia accounts, her baseline filter and the Finance segment; restore the original request-on-behalf setting.
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-027-01.png | Liam restriction and Remote Worker control |
-| AR-027-02.png | Incorrect Lucas department and admin/user views |
-| AR-027-03.png | Restored data, catalog and access |
-| AR-027-04.png | Standard-account request selection |
-| AR-027-05.png | Intended/selected/fulfilled comparison and native grant |
-| AR-027-06.png | Targeted removal and final two-account state |
-| AR-027-07.png | Restored configuration and C04 handoff |
 
 Exclude passwords, invitation links and private HR email fields.
 

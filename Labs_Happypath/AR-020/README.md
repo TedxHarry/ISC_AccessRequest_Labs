@@ -6,9 +6,7 @@ In this lab, you'll change which profiles Finance Services offers, observe the c
 
 ## Before you start
 
-Complete [AR-019](../AR-019/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Keep your [journal](EVIDENCE.md) open.
-
-Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles are enabled/requestable, as is ROLE-Finance-Analyst. Olivia has no Finance/VPN access or pending request. Lucas retains his direct VPN.
+Complete [AR-019](../AR-019/README.md). Use Acme Admin, Acme Olivia (`acme.e011`) and the AD workstation. Finance Services contains AP-Finance-Reporting and AP-Finance-AP. Both profiles are enabled/requestable, as is ROLE-Finance-Analyst. Olivia has no Finance/VPN access or pending request. Lucas retains his direct VPN.
 
 If you are returning after a break, follow [the module resume checks](../../M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
 
@@ -19,13 +17,21 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 1. As administrator, open **Admin > Access Model > Applications**, find Finance Services and select **Edit**.
 2. Record Configuration: owner, AD source, **Admin (IT)**, **Specific Users from Source**, both Request Center options and **Enable for Users**.
 3. Open **Access Profiles**. Record both associated profile names/IDs. Open each under **Admin > Access Model > Access Profiles** and record its enabled/requestable state.
-4. In Acme Olivia, confirm the username and open **Request Center > Applications** for herself. Search Finance Services and open its choices. Capture both Finance profiles without submitting a request.
+4. In Acme Olivia, confirm the username and open **Request Center > Applications** for herself. Search Finance Services and open its choices. Compare both Finance profiles without submitting a request.
 5. In the same session, search each profile directly under **Access Items > Access Profiles**. Record the results.
 6. Use the [native membership check](../../M02-CHECKS.md#inspect-direct-ad-membership) to record Olivia without VPN, Reporting and FIN-AP, and Lucas with VPN. Record baseline=True for both.
 
 **Check:** The application offers both profiles before any change. If this is already failing, use the recovery table below to restore this starting state first.
 
-**Screenshot:** `AR-020-01.png`: saved application settings, two choices and direct profile search.
+<!-- AUTHOR_SCREENSHOT_START: AR-020-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-020-01.png`
+>
+> **Show:** Working settings and two original choices.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-020-01 -->
 
 ### 2. Change the application associations
 
@@ -37,7 +43,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Finance Services has no associated profiles. Do not require a particular empty-catalog message to pass this observation.
 
-**Screenshot:** `AR-020-02.png`: empty saved associations and Olivia's catalog result.
+<!-- AUTHOR_SCREENSHOT_START: AR-020-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-020-02.png`
+>
+> **Show:** Removed associations and catalog result.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-020-02 -->
 
 ### 3. Check the profiles and target independently
 
@@ -49,7 +63,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** The profile definitions and direct requestability remain. Olivia has not received access, and Lucas still has VPN. Lucas is a control for his independent grant; this observation does not test removal of an already-assigned Finance profile.
 
-**Screenshot:** `AR-020-03.png`: direct profile search, intact definitions and unchanged native controls.
+<!-- AUTHOR_SCREENSHOT_START: AR-020-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-020-03.png`
+>
+> **Show:** Direct profiles and unchanged native controls.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-020-03 -->
 
 ### 4. Restore the two application choices
 
@@ -62,7 +84,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Both Finance profiles are offered again and the application settings match the working starting configuration.
 
-**Screenshot:** `AR-020-04.png`: restored associations and both requester choices.
+<!-- AUTHOR_SCREENSHOT_START: AR-020-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-020-04.png`
+>
+> **Show:** Restored association list and requester choices.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-020-04 -->
 
 ### 5. Verify the handoff
 
@@ -73,7 +103,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Catalog configuration is restored without a business-access change to the test recipients.
 
-**Screenshot:** `AR-020-05.png`: final configuration and preserved native state.
+<!-- AUTHOR_SCREENSHOT_START: AR-020-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-020-05.png`
+>
+> **Show:** Final role/application configuration and native state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-020-05 -->
 
 ## Check the result
 
@@ -116,16 +154,6 @@ During the empty-association state, the enabled/requestable profiles remained av
 Keep the restored Finance Services application, both profiles and role. Olivia remains without Finance/VPN access. Use [resume guidance](../../M03-READINESS.md#resume-or-repeat-safely) and Section 4 if returning while associations are removed.
 
 [Application configuration and associations](https://documentation.sailpoint.com/saas/help/access/app-config.html)
-
-### Screenshots to capture
-
-| Filename | What to show |
-|---|---|
-| AR-020-01.png | Working settings and two original choices |
-| AR-020-02.png | Removed associations and catalog result |
-| AR-020-03.png | Direct profiles and unchanged native controls |
-| AR-020-04.png | Restored association list and requester choices |
-| AR-020-05.png | Final role/application configuration and native state |
 
 Keep private registration information out of captures.
 

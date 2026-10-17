@@ -4,9 +4,7 @@ You will compare two reviewer categories resolving to one person, two different 
 
 ## Before you start
 
-Complete [AR-030](../AR-030/README.md). Use the AD workstation, Acme Admin, Acme Olivia, Acme Daniel and Acme Priya. AP-Finance-Reporting contains Reporting and VPN; Olivia's Manager is Daniel. Keep the [journal](EVIDENCE.md) open.
-
-If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
+Complete [AR-030](../AR-030/README.md). Use the AD workstation, Acme Admin, Acme Olivia, Acme Daniel and Acme Priya. AP-Finance-Reporting contains Reporting and VPN; Olivia's Manager is Daniel. If returning to an unfinished run, inspect its recorded request before submitting another. If later labs changed these course policies, record those changes before repeating this first-pass setup; do not overwrite later work without checking its assignments and requests.
 
 ## Follow the steps
 
@@ -28,16 +26,38 @@ If returning to an unfinished run, inspect its recorded request before submittin
 6. Before changing the owner, open **Admin > Identity Management > Identities > Olivia > Access > Access Profiles > AP-Finance-Reporting > Details > Revoke Access Profile**. Enter `AR-031 same-reviewer test complete`, then **Revoke**. In Acme Daniel, approve the separate Remove request.
 7. Follow its removal operation and verify Reporting False, VPN False and baseline True. Record the removal ID separately. Do not begin the next grant with this assignment still present.
 
-**Check:** One Daniel approval completed his required grant reviews, both groups were added, and the test grant was removed. Save `AR-031-01.png` showing the grant process and decision before removal.
+**Check:** One Daniel approval completed his required grant reviews, both groups were added, and the test grant was removed.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-031-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-031-01.png`
+>
+> **Show:** Same-person request and recorded decision.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-031-01 -->
 
 ### 3. Separate the two reviewers
 
 1. Change only the profile's primary owner to Priya under its **Configuration** page. Save. Keep grant reviewers Manager then Primary Owner and reopen Access Requests to confirm them. Select **Apply Changes** from the Access Profiles list and wait for processing.
 2. Submit a fresh Olivia request using reason `AR-031 different reviewers`. Find the new ID in Approval Management and verify Daniel is the first current reviewer.
-3. In Acme Daniel, approve that Grant. Refresh the admin Process/Assignees view and confirm Priya is now the current reviewer. Capture `AR-031-02.png` before her decision. Verify neither business group has been added yet.
+3. In Acme Daniel, approve that Grant. Refresh the admin Process/Assignees view and confirm Priya is now the current reviewer.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-031-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-031-02.png`
+   >
+   > **Show:** Priya stage after Daniel approved.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-031-02 -->
+
+   Verify neither business group has been added yet.
 4. In Acme Priya, open that Grant and deny with `AR-031 second-stage denial`. Confirm Denied and both business groups absent.
 
-**Check:** Daniel's approval exposed Priya's separate review. Save `AR-031-02.png` showing Priya's stage after Daniel approved.
+**Check:** Daniel's approval exposed Priya's separate review.
 
 ### 4. Observe the requester-owner case
 
@@ -48,7 +68,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 5. Restore Daniel as owner and the original grant/removal policies now. Save and reopen, select **Apply Changes** from the Access Profiles list and wait for processing before any removal or final control.
 6. If the requester-owner test granted the profile, open **Admin > Identity Management > Identities > Olivia > Access > Access Profiles > AP-Finance-Reporting > Details > Revoke Access Profile**. Enter `AR-031 self-review test cleanup` and select **Revoke**. Approve its Remove request in Acme Daniel. Follow its activity and verify Reporting and VPN are both absent. Cancellation cannot undo a completed grant.
 
-**Check:** The result reflects the tenant's actual self-approval behavior, and Olivia finishes without either business group. Save `AR-031-03.png` showing the requester-owner request's actual outcome.
+**Check:** The result reflects the tenant's actual self-approval behavior, and Olivia finishes without either business group.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-031-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-031-03.png`
+>
+> **Show:** Actual requester-owner handling.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-031-03 -->
 
 ### 5. Confirm the original policy works again
 
@@ -56,7 +86,17 @@ If returning to an unfinished run, inspect its recorded request before submittin
 2. Submit one fresh Olivia request with reason `AR-031 restored policy`. Verify it routes to Daniel, deny it in Acme Daniel, and record the final ID.
 3. Check all four grant-request variants and any removal requests are concluded. Recheck Olivia's Reporting False, VPN False and baseline True; run the native VPN check for Lucas (`acme.e012`) and confirm it remains True.
 
-**Check:** The restored configuration passes a fresh control. Save `AR-031-04.png` showing the restored profile settings.
+**Check:** The restored configuration passes a fresh control.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-031-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-031-04.png`
+>
+> **Show:** Restored Finance Reporting settings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-031-04 -->
 
 ## Check the result
 
@@ -82,16 +122,5 @@ Manager and Primary Owner both resolved to Daniel in the first test. In the seco
 ## Finish
 
 Keep Daniel as Finance Reporting owner, restore its original grant/removal review and keep Olivia without Reporting or VPN. If interrupted, inspect the recorded request before acting. Restore Daniel before requesting removal of any self-review test grant, then finish the exact assignment's cleanup. Keep all baseline assignments and the Finance segment.
-
-### Screenshots to capture
-
-Capture these as you reach the matching step. If a result needs two screens, add `a` and `b` to that filename.
-
-| Filename | What to show |
-|---|---|
-| AR-031-01.png | Same-person request and recorded decision |
-| AR-031-02.png | Priya stage after Daniel approved |
-| AR-031-03.png | Actual requester-owner handling |
-| AR-031-04.png | Restored Finance Reporting settings |
 
 [Previous: AR-030](../AR-030/README.md) · [Course outline](../../README.md) · [Next: AR-032](../AR-032/README.md)

@@ -4,7 +4,7 @@ In this lab, you'll send Finance recipients to manager review and stop other rec
 
 ## Before you start
 
-Complete AR-058–060 and [AR-049](../AR-049/README.md). Keep GG-ACME-FAULT-049 with restored permissions, its direct entitlement non-requestable and AP-Acme-Reference-Test disabled. Use Olivia (`acme.e011`), Liam (`acme.e008`), Daniel (`acme.e003`), Acme Admin and AD verification. Keep the latest complete private HR CSV and your [journal](EVIDENCE.md). Retain the Finance items, clean Olivia and requester-based Finance segment from [AR-019](../AR-019/README.md) and [AR-022](../AR-022/README.md). The segment remains enabled.
+Complete AR-058–060 and [AR-049](../AR-049/README.md). Keep GG-ACME-FAULT-049 with restored permissions, its direct entitlement non-requestable and AP-Acme-Reference-Test disabled. Use Olivia (`acme.e011`), Liam (`acme.e008`), Daniel (`acme.e003`), Acme Admin and AD verification. Keep the latest complete private HR CSV. Retain the Finance items, clean Olivia and requester-based Finance segment from [AR-019](../AR-019/README.md) and [AR-022](../AR-022/README.md). The segment remains enabled.
 
 ## Follow the steps
 
@@ -25,7 +25,19 @@ Complete AR-058–060 and [AR-049](../AR-049/README.md). Keep GG-ACME-FAULT-049 
 4. On the valid-string branch, add **Compare Strings**. Set Value 1 to the selected department, Comparison Operator Equals, and Value 2 to static `Finance`. Keep the generated JSONPath for your actual Get Recipient step. An empty or unrecognized string takes the non-matching branch.
 5. Connect the Finance branch to **Approval Policy: Single**, **Reviewer Category: Manager**, Reminder No, Timeout 2 days, Action at Timeout Expire. Connect its output to an End Steps Success.
 6. Connect the non-Finance branch to an **End Steps > Failure** named `Not Finance`, with Failure Details `Recipient department does not meet the Finance requirement`. Save all steps and resolve validation errors. Neither failure branch should connect to an approval action or a Success end.
-7. Confirm the trigger connects to Get Recipient, and Get Recipient connects to the Exists check. Inspect the full canvas and save `AR-061-01.png`. In the next test, verify both the intentional workflow failure and the access request's actual terminal outcome. Do not describe the outcome as a reviewer denial unless that is what the request records.
+7. Confirm the trigger connects to Get Recipient, and Get Recipient connects to the Exists check. Inspect the full canvas.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-061-01 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-061-01.png`
+   >
+   > **Show:** Recipient lookup, data checks and named Failure branches.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-061-01 -->
+
+   In the next test, verify both the intentional workflow failure and the access request's actual terminal outcome. Do not describe the outcome as a reviewer denial unless that is what the request records.
 
 **Check:** Only the Finance branch creates a manager review. The other branches stop at a named failure. Deny Access Request requires an approval ID; the trigger's accessRequestId is not a substitute before an approval exists. See the [action contract](https://documentation.sailpoint.com/saas/help/workflows/workflow-actions.html#deny-access-request) and the [reported pre-approval limitation](https://developer.sailpoint.com/discuss/t/auto-deny-inside-an-adaptive-approvals-workflow/214447).
 
@@ -35,7 +47,17 @@ Complete AR-058–060 and [AR-049](../AR-049/README.md). Keep GG-ACME-FAULT-049 
 2. Enable requests; set grant and removal approval to one Primary Owner/Daniel, comments required, no form/date requirement. Save, enable and Apply Changes when offered. Leave this profile outside the Finance segment and automatic assignments.
 3. Enable WF-Acme-Finance-Eligibility and select it as this control profile's grant Workflow. Preserve Daniel's removal review. Reopen the saved association.
 4. As Liam, open **Request Center > Access Items > Access Profiles**, select the control, reason `AR-061 non-Finance isolated test`, then **Save > Review Request > Submit Request**. Record the request ID.
-5. Open the matching workflow Execution. Verify requestedFor is Liam, Get Recipient's ID is Liam and its department is IT, then inspect the chosen branch and named failure details. Require a terminal request with no grant, no pending manager review or provisioning operation, and native disposable membership False. Record the actual request status, such as Failed or Canceled; workflow Failure alone is insufficient. Save `AR-061-02.png`.
+5. Open the matching workflow Execution. Verify requestedFor is Liam, Get Recipient's ID is Liam and its department is IT, then inspect the chosen branch and named failure details. Require a terminal request with no grant, no pending manager review or provisioning operation, and native disposable membership False. Record the actual request status, such as Failed or Canceled; workflow Failure alone is insufficient.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-061-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-061-02.png`
+   >
+   > **Show:** Isolated named failure, terminal request and absent membership.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-061-02 -->
 6. If execution stops before the intended failure branch, or the request remains pending, record the actual error, last step and IDs. Restore the control's direct Primary Owner review for future requests. Resolve the original through Liam's **My Requests > matching request > Cancel** when eligible, or have Daniel deny an actionable review. Changing the association does not repair an already-running request. If it cannot be resolved, retain it for investigation and do not proceed to Finance attachment. Mark the eligibility control Not accepted. Complete Section 6 and Finish even when you stop these tests here.
 
 **Check:** Proceed only after the request itself stops without access. The intentional named Failure is expected in this test; an unrelated action error is not a passing result.
@@ -44,10 +66,20 @@ Complete AR-058–060 and [AR-049](../AR-049/README.md). Keep GG-ACME-FAULT-049 
 
 1. Back up the latest complete private HR CSV. In a working copy, clear only Liam E008's department; preserve every other value and all rows, including Taylor E025. Upload the complete copy through **Acme HR > Account Management > Account Aggregation**, confirm the upload and wait for aggregation and identity processing. Follow [the import controls](../../labs/AR-001/README.md#4-import-the-accounts), using your current complete file and population rather than the original 24 rows.
 2. Reopen Liam's mapped department. If a fallback still supplies IT, record that missing data was not reproduced; do not assume editing the CSV made the identity value empty.
-3. If the actual department is absent, null or empty, submit a new control request as Liam with reason `AR-061 missing department`. Inspect Get Recipient's real output, the selected branch, named failure and actual terminal request status. A blank string should reach Not Finance; absent/null should reach Missing Department. Confirm no review or provisioning remains pending. Verify no disposable membership. Save `AR-061-03.png`.
-4. Immediately restore/import the saved complete HR file, even if the test failed. Wait for processing and verify Liam's department IT and the original row count/controlled emails. Capture the restored identity alongside the test evidence. Resolve the test request before continuing.
+3. If the actual department is absent, null or empty, submit a new control request as Liam with reason `AR-061 missing department`. Inspect Get Recipient's real output, the selected branch, named failure and actual terminal request status. A blank string should reach Not Finance; absent/null should reach Missing Department. Confirm no review or provisioning remains pending. Verify no disposable membership.
 
-**Check:** The journal identifies which missing-value representation was actually tested. An unobserved null or data type is not a passed test.
+   <!-- AUTHOR_SCREENSHOT_START: AR-061-03 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-061-03.png`
+   >
+   > **Show:** Real missing-data outcome and restored Liam IT.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-061-03 -->
+4. Immediately restore/import the saved complete HR file, even if the test failed. Wait for processing and verify Liam's department IT and the original row count/controlled emails. Compare the restored identity with the test result. Resolve the test request before continuing.
+
+**Check:** Check which missing-value representation was actually tested. An unobserved null or data type is not a passed test.
 
 ### 5. Test each Finance entry point independently
 
@@ -60,10 +92,30 @@ Complete AR-058–060 and [AR-049](../AR-049/README.md). Keep GG-ACME-FAULT-049 
 | ROLE-Finance-Analyst | Roles | GG-VPN-USERS, GG-FIN-REPORTING and GG-FIN-AP |
 
 2. For the first row, as Olivia open **Request Center > Access Items > the listed tab**, select that object, reason `AR-061 eligible` plus its name, keep immediate access and her standard account, then Save, Review Request and Submit Request.
-3. Verify the execution fetched Olivia's Finance department and reached Manager/Daniel. As Daniel, open **Approvals > Access Requests > Requested**, inspect and approve the matching Grant. Follow [Account Activity](../../LAB-DESK.md#find-the-account-activity) and verify the row's native groups True and baseline True. Save `AR-061-04.png`, adding a suffix for each object.
+3. Verify the execution fetched Olivia's Finance department and reached Manager/Daniel. As Daniel, open **Approvals > Access Requests > Requested**, inspect and approve the matching Grant. Follow [Account Activity](../../LAB-DESK.md#find-the-account-activity) and verify the row's native groups True and baseline True.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-061-04 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-061-04.png`
+   >
+   > **Show:** Eligible grant/removal for each Finance object.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-061-04 -->
 4. Remove this assignment before testing the next row. For a profile, Olivia uses **My Access > Access Profiles > item > Revoke Access Profile**. For the role, use **My Access > Roles > ROLE-Finance-Analyst > Assignment > Revoke Assignment**. Enter `AR-061 eligible test complete` and submit. Have Daniel approve the matching removal, follow its operation and verify the three business groups False/baseline True. [Refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data) and confirm the assignment is gone before another request. Repeat steps 2–4 for the remaining rows.
 5. To test another recipient without changing catalog segmentation, temporarily set **Requests on Behalf > By Everyone for Anyone** using the page saved in Section 1. Save and refresh Olivia's session. As Olivia, choose **Request Center > Request for Others > Liam > Request for These Identities**, select the first listed Finance object and submit with reason `AR-061 ineligible Liam` plus the item name.
-6. Verify the execution fetched Liam rather than Olivia, read IT, and stopped the request at the Not Finance failure. Record the actual terminal status and absence of a pending review or provisioning operation. Verify Liam's Finance memberships remain absent and other original memberships unchanged. Repeat separately for each remaining object. Save `AR-061-05.png` with each recipient/branch/outcome.
+6. Verify the execution fetched Liam rather than Olivia, read IT, and stopped the request at the Not Finance failure. Record the actual terminal status and absence of a pending review or provisioning operation. Verify Liam's Finance memberships remain absent and other original memberships unchanged. Repeat separately for each remaining object.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-061-05 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-061-05.png`
+   >
+   > **Show:** On-behalf Liam stop for each object and restored global setting.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-061-05 -->
 7. Restore the original Requests on Behalf mode immediately after these submissions/tests; save/reopen and record it. Keep Finance group entitlements directly non-requestable. These three request policies do not prevent manual AD grants or establish an automatic-role eligibility rule.
 
 **Check:** Each Finance request entry point has its own positive and negative evidence; a passing profile alone does not prove the role's policy.
@@ -82,7 +134,7 @@ The isolated non-Finance and missing/blank-data tests must stop the request with
 
 ## Engineering practice
 
-1. Open the saved Get Recipient output from the isolated test. Copy just the department field into your private journal, without changing the workflow or HR data.
+1. Open the saved Get Recipient output from the isolated test. Check the matching request, operation and target results directly.
 2. Trace five written examples through your configured checks: absent, null, empty string, number 42 and string IT. Record which check should route each to a named failure end. Then trace Finance to Manager review. Label this table Predicted; it is not tenant execution.
 3. Compare the prediction with the actual missing/blank-value run. Record the representation you observed and which other cases remain untested. A synthetic trigger edit cannot override the real department fetched by Get Identity.
 4. Open the on-behalf execution and compare requestedBy with requestedFor and Get Recipient's input. Explain why selecting the requester's Finance department would incorrectly admit Liam. Keep the tested recipient path unchanged.
@@ -90,17 +142,5 @@ The isolated non-Finance and missing/blank-data tests must stop the request with
 ## Finish
 
 On success or an early stop, restore the original Requests on Behalf setting, complete private HR file and original Finance removal policies. Verify Liam is back in IT and Olivia/Liam have no diagnostic access. Keep only tested Finance grant associations; otherwise restore the original grant policies. Disable the isolated control after its requests are resolved. Production Support remains on WF-Acme-AR058. Record unresolved requests and enforcement tests as Pending or Not accepted.
-
-### Screenshots to capture
-
-Capture these beside the matching steps. Hide credentials and unnecessary identity details. Add a letter suffix when one result needs several images.
-
-| Filename | What to show |
-|---|---|
-| AR-061-01.png | Recipient lookup, data checks and named Failure branches |
-| AR-061-02.png | Isolated named failure, terminal request and absent membership |
-| AR-061-03.png | Real missing-data outcome and restored Liam IT |
-| AR-061-04.png | Eligible grant/removal for each Finance object |
-| AR-061-05.png | On-behalf Liam stop for each object and restored global setting |
 
 [Previous: AR-060](../AR-060/README.md) · [Course outline](../../README.md) · [Next: AR-062](../AR-062/README.md)

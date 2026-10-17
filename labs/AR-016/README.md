@@ -6,9 +6,7 @@ In this lab, you'll create one Finance reporting item that supplies Reporting an
 
 ## Before you start
 
-Complete [AR-015](../AR-015/README.md) and the [Module 3 starting checks](../../M03-READINESS.md). Open Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and your AD workstation. Keep your [journal](EVIDENCE.md) open.
-
-If you are returning after a break, follow [the module resume checks](../../M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
+Complete [AR-015](../AR-015/README.md) and the [Module 3 starting checks](../../M03-READINESS.md). Open Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and your AD workstation. If you are returning after a break, follow [the module resume checks](../../M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.
 
 ## Follow the steps
 
@@ -21,7 +19,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Reporting and VPN are False; baseline is True. If either business group is already present, inspect its assignment origin and finish the previous lab's cleanup first.
 
-**Screenshot:** `AR-016-01.png`: Olivia's starting memberships and account identifiers.
+<!-- AUTHOR_SCREENSHOT_START: AR-016-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-016-01.png`
+>
+> **Show:** Starting memberships and original account.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-016-01 -->
 
 ### 2. Create the reporting profile
 
@@ -47,7 +53,7 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 1. On this profile, open **Access Requests** and turn on **Allow Access Requests**.
 2. Under **Reviewing Access Requests**, select **Require Approval > Reviewer**. Choose **Primary Owner**, select **+**, and keep that as the single grant reviewer.
 3. Require comments **When the user requests access** and **When a reviewer denies the request**.
-4. Leave **Require Access Request Form** and **Require End Date** off for this exercise. Record the current timeout, reminders and escalation settings in your journal.
+4. Leave **Require Access Request Form** and **Require End Date** off for this exercise. Record the current timeout, reminders and escalation settings.
 5. Under **Reviewing Removal Requests**, enable **Require Approval for Removal**, add **Primary Owner** with **+**, and keep one removal reviewer.
 6. Select **Save**. Turn on **Enable Access Profile** (or use the list's **Actions > Enable**).
 7. Return to the Access Profiles list and select **Apply Changes** once. Wait for **Admin > Dashboard > Monitor** processing to finish.
@@ -55,7 +61,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Daniel reviews this profile's grants and removals. Priya's direct VPN policy remains unchanged; requesting the profile uses the profile's policy.
 
-**Screenshot:** `AR-016-02.png`: the two groups and saved grant/removal policies.
+<!-- AUTHOR_SCREENSHOT_START: AR-016-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-016-02.png`
+>
+> **Show:** Profile groups and grant/removal settings.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-016-02 -->
 
 ### 4. Request and approve the profile
 
@@ -69,7 +83,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** The request names the profile and its review was assigned to Daniel. If it is absent from his queue, inspect administrator Assignees before changing policies or resubmitting.
 
-**Screenshot:** `AR-016-03.png`: Olivia's request and Daniel's recorded decision.
+<!-- AUTHOR_SCREENSHOT_START: AR-016-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-016-03.png`
+>
+> **Show:** Request and Daniel's decision.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-016-03 -->
 
 ### 5. Prove the two target changes
 
@@ -77,11 +99,19 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 2. Inspect the operations for both recorded group DNs. Wait for final results; record account activity IDs separately from request and approval IDs.
 3. Repeat Section 1's native checks. Compare the account DN and objectGUID with the starting values.
 4. Open Olivia's **Access > Access Profiles** and her **Accounts > AD account**. If imported data is stale, [aggregate AD and recheck](../../M02-CHECKS.md#refresh-imported-ad-data).
-5. In your journal, draw or write the path: Olivia's profile request → AP-Finance-Reporting → the two native groups.
+5. draw or write the path: Olivia's profile request → AP-Finance-Reporting → the two native groups.
 
 **Check:** Both business groups are True on Olivia's original account; baseline remains True. An approved request with one failed group operation does not pass.
 
-**Screenshot:** `AR-016-04.png`: both native memberships, unchanged account and matching activity.
+<!-- AUTHOR_SCREENSHOT_START: AR-016-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-016-04.png`
+>
+> **Show:** Successful activity and both memberships.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-016-04 -->
 
 ### 6. Remove Olivia's test grant
 
@@ -94,7 +124,15 @@ If you are returning after a break, follow [the module resume checks](../../M03-
 
 **Check:** Olivia returns to baseline-only access for these groups. Lucas's independent VPN grant and the reporting profile definition remain.
 
-**Screenshot:** `AR-016-05.png`: removal decision/activity and final memberships.
+<!-- AUTHOR_SCREENSHOT_START: AR-016-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-016-05.png`
+>
+> **Show:** Removal and restored recipient state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-016-05 -->
 
 ## Check the result
 
@@ -154,17 +192,5 @@ Keep AP-Finance-Reporting. Olivia finishes without Reporting or VPN. Preserve al
 ### Resume or repeat
 
 Inspect the current object and request status before repeating. Reuse the saved course definitions when their source, access and policies match. A completed grant resumes at target verification and removal; a pending request resumes at its current review or provisioning stage. If cleanup is already complete, retain the definitions and use your evidence for the comparison. Follow the [module resume procedure](../../M03-READINESS.md#resume-or-repeat-safely); do not create duplicate objects or manually clear AD memberships.
-
-### Screenshots to capture
-
-Capture at the matching steps; use additional images when a panel does not fit. Keep credentials and private mailbox information out of captures.
-
-| Filename | What to show |
-|---|---|
-| AR-016-01.png | Starting memberships and original account |
-| AR-016-02.png | Profile groups and grant/removal settings |
-| AR-016-03.png | Request and Daniel's decision |
-| AR-016-04.png | Successful activity and both memberships |
-| AR-016-05.png | Removal and restored recipient state |
 
 [Previous: AR-015](../AR-015/README.md) · [Course outline](../../README.md) · [Next: AR-017](../AR-017/README.md)

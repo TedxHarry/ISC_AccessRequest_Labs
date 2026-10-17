@@ -59,7 +59,7 @@ Use this procedure whenever a lab says **find**, **locate**, **reopen**, or **fo
 1. In the requester's session, open **Request Center > My Requests**.
 2. Match the **recipient**, exact **access item**, lab reason/comment, and **submission time** recorded when you submitted it.
 3. In the administrator session, open **Admin > Dashboard > Approval Management > Access Requests** and match the same recipient, item, and submission time. Open **Process**, **Assignees**, and **Details**.
-4. Keep the request ID or tracking value with the lab journal. Do not assume it is the same value as an Account Activity ID.
+4. Check the matching request, operation and target results directly. Do not assume it is the same value as an Account Activity ID.
 
 ### Find the review task
 
@@ -71,7 +71,7 @@ Use this procedure whenever a lab says **find**, **locate**, **reopen**, or **fo
 ### Find the Account Activity
 
 1. Open the top navigation **Search** and select **Account Activity**.
-2. Use the course identity name and the exact AD source name recorded in your journal. Replace `YOUR-AD-SOURCE-NAME` before running the query:
+2. Use the course identity name and the exact AD source name recorded. Replace `YOUR-AD-SOURCE-NAME` before running the query:
 
 ```text
 recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"
@@ -89,7 +89,7 @@ recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(
 6. If a create-filtered query returns nothing, remove only `AND @accountRequests(op:create)` and search again. Do not resubmit or reapply access just to make a new row appear.
 7. For another identity, replace only the `recipient.name` value with that course username. For another source, replace only the quoted source name.
 
-Use Account Activity to prove what ISC attempted; use AD to prove what actually changed. Search retains Account Activity for a limited period, so label older screenshots or journal records as historical when the live activity is no longer available.
+Use Account Activity to prove what ISC attempted; use AD to prove what actually changed. Search retains Account Activity for a limited period, so label older screenshots or result checks records as historical when the live activity is no longer available.
 
 References: [Searchable Account Activity fields](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html) · [Building nested Search queries](https://documentation.sailpoint.com/saas/help/search/building-query.html) · [Monitoring provisioning](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
 

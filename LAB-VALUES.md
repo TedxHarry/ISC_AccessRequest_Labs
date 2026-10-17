@@ -1,6 +1,6 @@
 # Find the values a lab asks you to record
 
-Keep your private journal open. Copy values from your own environment and label what each value identifies. `E012`, an ISC identity ID, and an AD account's objectGUID identify different things even when they belong to Lucas.
+Check the matching request, operation and target results directly. Copy values from your own environment and label what each value identifies. `E012`, an ISC identity ID, and an AD account's objectGUID identify different things even when they belong to Lucas.
 
 ## Find the AD domain and domain controller
 
@@ -47,7 +47,7 @@ Copy **ObjectGUID** as displayed and retain the before value for comparison. Thi
 
 ## Find ISC source and identity IDs
 
-1. For a source, open **Admin > Connections > Sources**, select the intended source, and record its name. Copy the source identifier from the source-specific browser URL. Keep the AD source and Acme HR source in separate journal rows.
+1. For a source, open **Admin > Connections > Sources**, select the intended source, and record its name. Copy the source identifier from the source-specific browser URL. Check the matching request, operation and target results directly.
 2. For an identity, open **Admin > Identity Management > Identities**, search the course username and open the matching person. Confirm **Acme Employees** and the expected Employee Number. Copy **ID** from the identity's Details card.
 3. Record the ID beside the person's username. Copying `acme.e012` or `E012` into an API parameter expecting an identity ID will not identify the same resource correctly.
 4. Before making an API change, use the workbench's read-one-object request to confirm that the ID returns the intended object. If the source URL is ambiguous, retain the full URL in private notes and use the supported source details/API response; do not guess from an unrelated URL segment.

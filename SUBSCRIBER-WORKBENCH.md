@@ -13,7 +13,7 @@ Use this page beside AR-064–069. You'll run the supplied service locally, prov
 
 ## Start the local service
 
-1. Open PowerShell in the repository folder containing tools and datasets. Run `Get-Location` and `Test-Path ./tools/lab_subscriber.py`; the latter must return True. Use a private evidence directory outside this repository, such as `C:/LabEvidence/ISC-Subscriber`.
+1. Open PowerShell in the repository folder containing tools and datasets. Run `Get-Location` and `Test-Path./tools/lab_subscriber.py`; the latter must return True. Use a private evidence directory outside this repository, such as `C:/LabEvidence/ISC-Subscriber`.
 2. Create that directory in File Explorer. In your text editor create `subscriber-mode.json` there, saved as UTF-8 without BOM. Enter this JSON, replacing Evelyn's ID and display name with values from **Admin > Identity Management > Identities > acme.e021**. Copy the ISC identity ID, not employee number E021. Keep every key shown.
 
 ```json
@@ -34,7 +34,7 @@ Use this page beside AR-064–069. You'll run the supplied service locally, prov
 ```powershell
 python -m json.tool C:/LabEvidence/ISC-Subscriber/subscriber-mode.json
 if ($LASTEXITCODE -ne 0) { throw 'Correct the JSON file before starting the service.' }
-python ./tools/lab_subscriber.py --mode-file C:/LabEvidence/ISC-Subscriber/subscriber-mode.json
+python./tools/lab_subscriber.py --mode-file C:/LabEvidence/ISC-Subscriber/subscriber-mode.json
 ```
 
 4. At the service prompts enter a dedicated Basic authentication username and private password. The password prompt is hidden. Wait for `Listening on localhost:8787` and leave this terminal running. These credentials authenticate the subscriber; they are not your ISC username/PAT. Do not use a PowerShell transcript while entering credentials.
@@ -135,7 +135,7 @@ In synchronous mode the HTTP response carries the decision. In asynchronous mode
 Create `C:/LabEvidence/ISC-Subscriber/callbacks` privately, add `"async": true` to the mode file and start:
 
 ```powershell
-python ./tools/lab_subscriber.py --mode-file C:/LabEvidence/ISC-Subscriber/subscriber-mode.json --pending-dir C:/LabEvidence/ISC-Subscriber/callbacks
+python./tools/lab_subscriber.py --mode-file C:/LabEvidence/ISC-Subscriber/subscriber-mode.json --pending-dir C:/LabEvidence/ISC-Subscriber/callbacks
 ```
 
 After an asynchronous invocation, use the saved callback URL as the POST destination and send the following raw JSON through the REST client before the deadline:

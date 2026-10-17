@@ -6,13 +6,13 @@ In this lab, you'll make the imported VPN group available in Lucas's catalog. Yo
 
 ## Before you start
 
-Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
+Keep the [Module 2 starting checks](../../M02-READINESS.md) beside the current request details.
 
 Complete [AR-009](../AR-009/README.md). Keep Acme Admin and Acme Lucas in separate browser profiles, plus your AD administration workstation. Confirm usernames in the ISC user menu.
 
 Lucas (`acme.e012`) has one linked standard AD account and baseline membership. He must have no VPN assignment, VPN membership or pending VPN request on the first pass. Keep the 24-person baseline intact. Have permission to edit request settings and entitlements.
 
-Keep your [journal](EVIDENCE.md) and [request and target checks](../../M02-CHECKS.md) open. Use the AD source and group DNs recorded in AR-003; an item’s name alone is not enough to identify it.
+Keep [request and target checks](../../M02-CHECKS.md) open. Use the AD source and group DNs recorded in AR-003; an item’s name alone is not enough to identify it.
 
 If you are returning after a break, read [where to resume](#if-you-return-to-this-lab-later) before changing settings or submitting a request.
 
@@ -27,7 +27,15 @@ If you are returning after a break, read [where to resume](#if-you-return-to-thi
 
 **Check:** VPN is absent in AD and ISC, with no pending VPN request. An existing grant needs investigation; do not delete it to force this starting state.
 
-**Screenshot:** `AR-010-01.png`: Lucas’s before membership and account identifiers.
+<!-- AUTHOR_SCREENSHOT_START: AR-010-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-010-01.png`
+>
+> **Show:** Lucas before membership, DN and objectGUID.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-010-01 -->
 
 ### 2. Enable entitlement requests
 
@@ -41,7 +49,15 @@ Use Acme Admin.
 
 **Check:** Entitlement requests are enabled globally. This does not select which individual groups can be requested.
 
-**Screenshot:** `AR-010-02.png`: saved global entitlement-request setting.
+<!-- AUTHOR_SCREENSHOT_START: AR-010-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-010-02.png`
+>
+> **Show:** Global entitlement-request setting.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-010-02 -->
 
 ### 3. Configure the VPN item
 
@@ -55,7 +71,15 @@ Use Acme Admin.
 
 **Check:** The intended VPN entitlement is requestable and Priya owns it. The internal control remains non-requestable.
 
-**Screenshot:** `AR-010-03.png`: VPN identity, source, owner and saved request settings.
+<!-- AUTHOR_SCREENSHOT_START: AR-010-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-010-03.png`
+>
+> **Show:** VPN source, owner and requestability.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-010-03 -->
 
 ### 4. Check the catalog as Lucas
 
@@ -67,7 +91,25 @@ Use Acme Admin.
 
 **Check:** Lucas can find VPN but cannot request the internal control. Catalog configuration has not granted VPN membership.
 
-**Screenshots:** `AR-010-04.png`: VPN visible as Lucas. `AR-010-05.png`: internal-control search, username and filters.
+<!-- AUTHOR_SCREENSHOT_START: AR-010-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-010-04.png`
+>
+> **Show:** VPN visible as Lucas.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-010-04 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-010-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-010-05.png`
+>
+> **Show:** Hidden internal-control search and filters.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-010-05 -->
 
 ## Check the result
 
@@ -77,7 +119,7 @@ If VPN is missing, compare global enablement, this item’s saved setting and an
 
 ### Explain the result
 
-In your journal, explain why importing a group, making it requestable and granting membership are three separate results. Use the internal group as your comparison; no additional request is needed.
+explain why importing a group, making it requestable and granting membership are three separate results. Use the internal group as your comparison; no additional request is needed.
 
 ### Final verification
 
@@ -97,17 +139,5 @@ Keep VPN requestable, Priya as owner, the internal control hidden and all baseli
 ### If you return to this lab later
 
 Reuse the same entitlement. If Lucas already received VPN in AR-012, preserve that access. Use Olivia's prepared session for a repeat visibility comparison after checking her assignments and pending requests. Record the changed actor. Do not remove Lucas's retained grant to recreate an empty starting state.
-
-### Screenshots to capture
-
-Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
-
-| Filename | What to show |
-|---|---|
-| AR-010-01.png | Lucas before membership, DN and objectGUID |
-| AR-010-02.png | Global entitlement-request setting |
-| AR-010-03.png | VPN source, owner and requestability |
-| AR-010-04.png | VPN visible as Lucas |
-| AR-010-05.png | Hidden internal-control search and filters |
 
 [Previous: AR-009](../AR-009/README.md) · [Lab index](../README.md) · [Next: AR-011](../AR-011/README.md)

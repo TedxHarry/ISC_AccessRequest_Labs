@@ -8,7 +8,7 @@ In this lab, you'll create the Acme lab OUs, Lucas's AD account and the course g
 
 The HR import created HR accounts and identities. It did not create users in Active Directory. Start with one AD user here; AR-004 correlates Lucas; AR-005 through AR-007 configure and run provisioning for the remaining standard accounts.
 
-Keep your actual source name, directory paths, and results in the [lab journal](EVIDENCE.md). Whenever these instructions say **your AD source**, select the existing Active Directory source in your tenant.
+Keep your actual source name, directory paths, and results. Whenever these instructions say **your AD source**, select the existing Active Directory source in your tenant.
 
 **Prerequisites:** Your existing AD source is connected to the training domain. You can administer that source in ISC and create users, organizational units (OUs), and groups in the AD lab area. Lucas Brown (`acme.e012`) exists in Acme Employees from [AR-001](../AR-001/README.md).
 
@@ -33,7 +33,15 @@ Use the [Module 1 configuration record](../../M01-STATE.md) for actual environme
 
 **Check:** The connection test succeeds. You still need to verify the account and groups individually in the following sections. [AD connection test](https://documentation.sailpoint.com/connectors/active_directory/help/common/topics/review_and_test.html)
 
-**Screenshot reminder:** Save `AR-003-01-connection-test.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-01-connection-test.png`
+>
+> **Show:** AD source name and successful Test Connection result.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-01 -->
 
 ![The AD connection test succeeds. AD_Local_Ted is the source used in this example; select your own AD source.](images/AR-003-01-connection-test.png)
 
@@ -45,7 +53,7 @@ The AD connection test succeeds. AD_Local_Ted is the source used in this example
 2. Expand the training domain and locate the parent location reserved for your lab objects.
 3. If `AcmeLab` does not exist there, right-click the parent and select **New > Organizational Unit**. Enter `AcmeLab` and select **OK**.
 4. Under `AcmeLab`, create three child OUs using the same action: `Users`, `AdminAccounts`, and `Groups`. Reuse these OUs if they already exist.
-5. Select **View > Advanced Features**. Open each child OU's **Properties > Attribute Editor**, select `distinguishedName`, and copy its value into your journal.
+5. Select **View > Advanced Features**. Open each child OU's **Properties > Attribute Editor**, select `distinguishedName`, and Check the matching request, operation and target results directly.
 
 Your structure should be:
 
@@ -60,7 +68,15 @@ For example, a Users OU could have the distinguished name (DN) `OU=Users,OU=Acme
 
 **Check:** You have three actual OU DNs recorded. Leave AdminAccounts empty for now; Sofia's separate administrative account is introduced in AR-026.
 
-**Screenshot reminder:** Save `AR-003-02-lab-ous.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-02-lab-ous.png`
+>
+> **Show:** AcmeLab expanded with Users, AdminAccounts, and Groups.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-02 -->
 
 ![AcmeLab contains Users, AdminAccounts and Groups. Copy the OU DNs from your own domain.](images/AR-003-02-lab-ous.png)
 
@@ -86,7 +102,7 @@ If it is missing:
 
 Before selecting the suffix, read the dropdown beside **User logon name**. Use the configured training-domain suffix, without taking a value from the HR email column. For example, `acme.e012` plus `@isc.com` forms the UPN `acme.e012@isc.com`. If more than one suffix is offered, use the established suffix for standard users in this training domain. [See the UPN lookup walkthrough](../AR-005/README.md#find-and-record-your-upn-suffix).
 
-3. Select **Next**, enter a password that meets your lab domain's policy, and retain the normal password-change settings. Keep the password out of the journal and screenshots.
+3. Select **Next**, enter a password that meets your lab domain's policy, and retain the normal password-change settings. Keep the password out of screenshots.
 4. Select **Next > Finish**.
 5. Open the account's **Properties**. On **General**, set **Display name** to `Acme Lab - Lucas Brown` if needed. On **Organization**, set **Department** to `Finance` and **Title** to `Reporting Analyst`. Select **Apply**.
 
@@ -96,7 +112,25 @@ For a reused account, verify the same logon name and lab attributes. Record its 
 
 **Check:** The account's pre-Windows 2000 logon name is `acme.e012`. Open the user directly from its OU and copy its `distinguishedName` from **Properties > Attribute Editor**; the tab may be absent when opening a Find result. The HR email `acme.e012@example.com` is a course placeholder; it does not establish your AD logon suffix.
 
-**Screenshot reminder:** Save `AR-003-03-lucas-ad-account.png`, `AR-003-04-lucas-dn.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-03-lucas-ad-account.png`
+>
+> **Show:** Lucas's Account tab showing acme.e012 and the training-domain suffix.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-03 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-003-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-04-lucas-dn.png`
+>
+> **Show:** Lucas's distinguishedName in Attribute Editor.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-04 -->
 
 ![Lucas lives under AcmeLab/Users. This image shows his distinguishedName; also check the Account tab for acme.e012 and your logon suffix.](images/AR-003-03-lucas-account.png)
 
@@ -133,7 +167,15 @@ Keep newly created groups empty. These groups simulate application access, so do
 
 **Check:** All 14 names exist in your lab directory. Open `GG-VPN-USERS > Properties > Attribute Editor` and record its `distinguishedName`.
 
-**Screenshot reminder:** Save `AR-003-05-ad-groups.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-05-ad-groups.png`
+>
+> **Show:** The 14 named groups in AD; take a second image if they do not all fit.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-05 -->
 
 ![The 14 business groups are present in AcmeLab/Groups. The baseline group is added in AR-005.](images/AR-003-04-ad-groups.png)
 
@@ -158,7 +200,7 @@ AdminAccounts is empty in this lab. Include its coverage now; you will create So
 #### Open and record the current configuration
 
 1. Open **Admin > Connections > Sources > your AD source > Account and Group Settings**.
-2. Record all existing User and Group Search DNs, LDAP filters, and membership-search settings in your journal. Capture the page before changing it.
+2. Record all existing User and Group Search DNs, LDAP filters, and membership-search settings.
 3. Check whether an existing parent search already covers each lab OU. For example, a search under AcmeLab may cover its children. Confirm the search depth and filters permit the lab objects. Keep that entry if it already provides the required coverage; do not add overlapping entries unnecessarily.
 
 #### Set the user searches
@@ -188,11 +230,39 @@ The **Group Membership Search DN** within a user-search entry controls where the
 1. For each new lab user-search entry, set **Group Membership Search DN** to the actual lab Groups OU DN and leave its optional **Group Membership Search Filter** blank. If reused lab groups are elsewhere, include their container DNs too, separated by semicolons.
 2. For existing user-search entries, preserve their membership settings. If an explicit membership DN list excludes the lab groups, append the missing group-container DN with a semicolon. Check that any membership filter permits those groups. Do not narrow an existing unrestricted search to only the new lab OU.
 3. Select **Save**, leave the page, then reopen **Account and Group Settings**.
-4. Verify the saved values against your journal. Keep account-deletion settings unchanged.
+4. Verify the saved values against the current request details. Keep account-deletion settings unchanged.
 
 **Before you continue:** Users and AdminAccounts are covered by user searches; all lab groups are covered by group searches; applicable membership restrictions permit the lab groups. The connector account must also have read access to these locations. A successful connection test alone does not verify this coverage.
 
-**Screenshot reminder:** Save `AR-003-06-user-scope.png`, `AR-003-07-group-scope.png`, `AR-003-07a-membership-scope.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-06-user-scope.png`
+>
+> **Show:** Reopened saved User Search DN entries and filters covering Users and AdminAccounts.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-06 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-003-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-07-group-scope.png`
+>
+> **Show:** Reopened saved Group Search DN entries and filters covering the lab groups.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-07 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-003-08 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-07a-membership-scope.png`
+>
+> **Show:** Membership-search DNs and filters on the applicable user-search entries.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-08 -->
 
 ![User Search Scope includes Users and AdminAccounts, with Group Membership Search DN pointing to Groups. Scroll to the separate Group Search Scope and verify it too; that section is outside this image.](images/AR-003-05-source-scopes.png)
 
@@ -215,7 +285,25 @@ The source's ID can be obtained from its URL; account aggregation runs from the 
 
 An uncorrelated Lucas account can pass this step. If an existing rule matched it, record the identity and verify that it is Lucas. Investigate an incorrect match before continuing with later access requests. AR-004 handles Lucas's existing-account correlation.
 
-**Screenshot reminder:** Save `AR-003-08-account-aggregation.png`, `AR-003-09-lucas-isc-account.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-09 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-08-account-aggregation.png`
+>
+> **Show:** Completed account aggregation, status, and scanned count.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-09 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-003-10 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-09-lucas-isc-account.png`
+>
+> **Show:** Lucas's AD account in ISC, with source, sAMAccountName, and directory identifier.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-10 -->
 
 ![The imported AD account is acme.e012. This example is already linked to Lucas; preserve a correct existing link. Open the account attributes to compare sAMAccountName and the full native identity with AD.](images/AR-003-06-ad-account.png)
 
@@ -230,13 +318,41 @@ For the separate ISC ID and native group value, follow [the entitlement lookup](
 3. Wait for completion and inspect **Latest Entitlement Aggregation**. Record the result and investigate any warnings or errors.
 4. Open **Entitlement Management > Entitlements**. Search for each of the 14 group names from Section 4.
 5. Open `GG-VPN-USERS`. Record its source, entitlement attribute/type, and value. Compare the directory identifier with the group's AD DN. Record any separate ISC entitlement ID if the details expose it.
-6. Check off each group in the journal only after finding it on this AD source.
+6. Check off each group only after finding it on this AD source.
 
 The aggregation summary's discovered count can differ from the total entitlements stored on the source. Verify the names individually. [Entitlement aggregation](https://documentation.sailpoint.com/saas/help/loading_entitlements/aggregating_entitlements.html)
 
 **Check:** All 14 groups appear as entitlements on the correct source. Keep their request settings unchanged; the request-configuration labs follow later.
 
-**Screenshot reminder:** Save `AR-003-10-entitlement-aggregation.png`, `AR-003-11-isc-groups.png`, `AR-003-12-vpn-entitlement.png`. Use the matching descriptions in the screenshot checklist at the end.
+<!-- AUTHOR_SCREENSHOT_START: AR-003-11 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-10-entitlement-aggregation.png`
+>
+> **Show:** Completed entitlement aggregation and status.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-11 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-003-12 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-11-isc-groups.png`
+>
+> **Show:** Lab entitlements on the AD source; use multiple images if necessary.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-12 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-003-13 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-003-12-vpn-entitlement.png`
+>
+> **Show:** GG-VPN-USERS details, including source, entitlement attribute/type, and value.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-003-13 -->
 
 ![The AD source contains the imported lab groups. Other groups can also appear. Search for all 14 course names; this cropped list does not show every group.](images/AR-003-07-entitlements.png)
 
@@ -280,7 +396,7 @@ Retain the users, OUs, and groups. Next, use AR-004 to correlate Lucas, then pro
 2. Search for the same person on the Identities page. Open the identity’s Accounts tab and check whether that AD account is linked yet.
 3. Compare the two results. A source can contain the imported account before the identity has the correct link. Record the actual state for AR-004; do not create a second account to make it appear under the identity.
 
-You have changed where you look, not the data. Keep both screenshots so you can explain importing versus linking.
+You have changed where you look, not the data. Compare the imported account with the identity link to distinguish importing from linking.
 
 ### Your ticket: The aggregation discovered zero new groups. Is the source broken?
 
@@ -315,28 +431,6 @@ Check Lucas and all 14 business groups are imported. Keep later accounts and the
 
 If interrupted, compare each recorded OU, user, group and saved scope before creating another object. Resume at the first missing check. If an aggregation is still running, wait for its result. Keep the lab OUs, Lucas and all 14 groups, plus the added scope coverage. Restore any unrelated setting changed accidentally. If repeating after provisioning labs, retain the other accounts and memberships; do not try to return the directory to one user.
 
-### Screenshots to capture
-
-The seven supplied images appear beside the steps. Capture these additional views to complete the evidence: Lucas's Account tab, the separate saved Group Search Scope, completed account and entitlement aggregation history, and GG-VPN-USERS details showing its native value. The supplied source-scopes image shows user and membership searches; the supplied account image shows the imported record. Neither replaces the missing views.
-
-Take each screenshot after completing the listed section. Keep the source name and relevant values visible. Hide passwords, tokens, and connection secrets. Use the suggested filenames so you can upload the images later without having to identify them again.
-
-| After section | Suggested filename | What the screenshot must show |
-|---|---|---|
-| 1 | `AR-003-01-connection-test.png` | AD source name and successful Test Connection result |
-| 2 | `AR-003-02-lab-ous.png` | AcmeLab expanded with Users, AdminAccounts, and Groups |
-| 3 | `AR-003-03-lucas-ad-account.png` | Lucas's Account tab showing acme.e012 and the training-domain suffix |
-| 3 | `AR-003-04-lucas-dn.png` | Lucas's distinguishedName in Attribute Editor |
-| 4 | `AR-003-05-ad-groups.png` | The 14 named groups in AD; take a second image if they do not all fit |
-| 5 | `AR-003-06-user-scope.png` | Reopened saved User Search DN entries and filters covering Users and AdminAccounts |
-| 5 | `AR-003-07-group-scope.png` | Reopened saved Group Search DN entries and filters covering the lab groups |
-| 5 | `AR-003-07a-membership-scope.png` | Membership-search DNs and filters on the applicable user-search entries |
-| 6 | `AR-003-08-account-aggregation.png` | Completed account aggregation, status, and scanned count |
-| 6 | `AR-003-09-lucas-isc-account.png` | Lucas's AD account in ISC, with source, sAMAccountName, and directory identifier |
-| 7 | `AR-003-10-entitlement-aggregation.png` | Completed entitlement aggregation and status |
-| 7 | `AR-003-11-isc-groups.png` | Lab entitlements on the AD source; use multiple images if necessary |
-| 7 | `AR-003-12-vpn-entitlement.png` | GG-VPN-USERS details, including source, entitlement attribute/type, and value |
-
-Record values that do not fit in an image in your [lab journal](EVIDENCE.md). Save any error and corrected result as separate images.
+Record values that do not fit in an image. Save any error and corrected result as separate images.
 
 [Previous: AR-002](../AR-002/README.md) · [Next: AR-004](../AR-004/README.md) · [Course outline](../../README.md)

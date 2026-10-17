@@ -6,9 +6,9 @@ In this lab, you'll approve the request submitted in AR-011, verify the change o
 
 ## Before you start
 
-Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
+Keep the [Module 2 starting checks](../../M02-READINESS.md) beside the current request details.
 
-Complete [AR-011](../AR-011/README.md). Use Acme Priya, Acme Lucas, Acme Admin and the AD workstation. Keep the AR-011 request ID and your [journal](EVIDENCE.md) open.
+Complete [AR-011](../AR-011/README.md). Use Acme Priya, Acme Lucas, Acme Admin and the AD workstation. Keep the AR-011 request ID open.
 
 Reopen that request and confirm it is pending with Priya, for Lucas and the VPN entitlement, with immediate access. If it expired, completed or changed reviewer while you were away, inspect its current stage before submitting or deciding anything else.
 
@@ -24,7 +24,15 @@ If you are returning after a break, read [where to resume](#if-you-repeat-this-l
 
 **Check:** The pending request has not granted VPN. If VPN already exists, identify its assignment before using this as evidence of a new grant.
 
-**Screenshot:** `AR-012-01.png`: pending request and native before state.
+<!-- AUTHOR_SCREENSHOT_START: AR-012-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-012-01.png`
+>
+> **Show:** Pending request and native before state.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-012-01 -->
 
 ### 2. Approve as Priya
 
@@ -36,7 +44,15 @@ If you are returning after a break, read [where to resume](#if-you-repeat-this-l
 
 **Check:** Priya's decision is recorded for the correct Grant request. You have proved the decision; next check fulfillment.
 
-**Screenshot:** `AR-012-02.png`: Priya's reviewed decision and time.
+<!-- AUTHOR_SCREENSHOT_START: AR-012-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-012-02.png`
+>
+> **Show:** Priya reviewed decision and time.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-012-02 -->
 
 ### 3. Follow fulfillment in ISC
 
@@ -48,7 +64,15 @@ If you are returning after a break, read [where to resume](#if-you-repeat-this-l
 
 **Check:** The request and successful VPN membership operation can be connected by recipient, source, account, group and time. If the operation failed, keep this lab incomplete and inspect the exact error before retrying.
 
-**Screenshot:** `AR-012-03.png`: request process and matching account activity.
+<!-- AUTHOR_SCREENSHOT_START: AR-012-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-012-03.png`
+>
+> **Show:** Request process and account activity.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-012-03 -->
 
 ### 4. Prove the native change
 
@@ -59,18 +83,34 @@ If you are returning after a break, read [where to resume](#if-you-repeat-this-l
 
 **Check:** VPN was added to Lucas's existing standard account; no second account was required.
 
-**Screenshot:** `AR-012-04.png`: native membership and unchanged identifiers.
+<!-- AUTHOR_SCREENSHOT_START: AR-012-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-012-04.png`
+>
+> **Show:** Native VPN membership and unchanged account.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-012-04 -->
 
 ### 5. Compare the imported account and save the timeline
 
 1. As administrator, open **Admin > Identity Management > Identities**, find Lucas and open **Accounts > AD account**.
 2. Compare imported group membership with the native result. Also inspect **Access** for the requested entitlement.
 3. If imported data is older than the write, follow [Refresh imported AD data](../../M02-CHECKS.md#refresh-imported-ad-data). Wait for aggregation/processing before comparing again.
-4. In your journal, connect submission, Priya's decision, the account operation and the target check. Record displayed timestamps and time zones rather than assuming every view uses the same zone.
+4. connect submission, Priya's decision, the account operation and the target check. Record displayed timestamps and time zones rather than assuming every view uses the same zone.
 
 **Check:** Native and imported membership agree, with an evidence trail back to the request.
 
-**Screenshot:** `AR-012-05.png`: reconciled ISC account and Access view.
+<!-- AUTHOR_SCREENSHOT_START: AR-012-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-012-05.png`
+>
+> **Show:** Reconciled ISC account and Access.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-012-05 -->
 
 ## Check the result
 
@@ -101,17 +141,5 @@ Keep Lucas's directly requested VPN and baseline assignments. AR-013 uses Olivia
 ### If you repeat this lab
 
 Keep Lucas's requested VPN assignment. Inspect its history and current native membership. Label decision evidence historical if you did not perform it again. If the request is unresolved, resume its current stage rather than blindly replacing it. A different controller result calls for a replication check before changing ISC.
-
-### Screenshots to capture
-
-Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
-
-| Filename | What to show |
-|---|---|
-| AR-012-01.png | Pending request and native before state |
-| AR-012-02.png | Priya reviewed decision and time |
-| AR-012-03.png | Request process and account activity |
-| AR-012-04.png | Native VPN membership and unchanged account |
-| AR-012-05.png | Reconciled ISC account and Access |
 
 [Previous: AR-011](../AR-011/README.md) · [Lab index](../README.md) · [Next: AR-013](../AR-013/README.md)

@@ -6,11 +6,9 @@ In this lab, you'll configure Priya as the VPN reviewer, submit Lucas's request 
 
 ## Before you start
 
-Keep the [Module 2 starting checks](../../M02-READINESS.md) beside your journal.
+Keep the [Module 2 starting checks](../../M02-READINESS.md) beside the current request details.
 
-Complete [AR-010](../AR-010/README.md). Use Acme Admin, Acme Lucas (`acme.e012`) and Acme Priya (`acme.e002`) as separate sessions. Keep your [journal](EVIDENCE.md) open.
-
-VPN is requestable and owned by Priya. Lucas has baseline access but no VPN grant or pending VPN request. Recheck his **Access**, **My Requests** and [native membership](../../M02-CHECKS.md#inspect-direct-ad-membership). Do not submit if an earlier request is already pending.
+Complete [AR-010](../AR-010/README.md). Use Acme Admin, Acme Lucas (`acme.e012`) and Acme Priya (`acme.e002`) as separate sessions. VPN is requestable and owned by Priya. Lucas has baseline access but no VPN grant or pending VPN request. Recheck his **Access**, **My Requests** and [native membership](../../M02-CHECKS.md#inspect-direct-ad-membership). Do not submit if an earlier request is already pending.
 
 If you are returning after a break, read [where to resume](#if-you-stopped-after-submitting) before changing settings or submitting a request.
 
@@ -33,11 +31,31 @@ If enforced tenant controls prevent these settings, resolve that prerequisite fo
 
 **Check:** VPN has one Primary Owner reviewer and required request/denial comments. Priya reviews because she owns VPN; Daniel's manager relationship is not the reviewer selected here.
 
-**Screenshot:** `AR-011-01.png`: saved owner, reviewer and comments configuration.
+<!-- AUTHOR_SCREENSHOT_START: AR-011-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-011-01.png`
+>
+> **Show:** Owner, reviewer and required comments.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-011-01 -->
 
 ### Check the required-comment control
 
-In Lucas’s Request Center, choose Request for Myself if prompted, open Access Items > Entitlements, find VPN and select it. Leave the comment empty in Edit Request Details and try **Save**. Record the validation or disabled control as `AR-011-06.png`. If a request unexpectedly submits, locate it in My Requests before doing anything else. Otherwise cancel the unfinished details and clear the item selection, then follow Section 2 to submit the valid request.
+In Lucas’s Request Center, choose Request for Myself if prompted, open Access Items > Entitlements, find VPN and select it. Leave the comment empty in Edit Request Details and try **Save**.
+
+<!-- AUTHOR_SCREENSHOT_START: AR-011-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-011-06.png`
+>
+> **Show:** Required-comment validation before the valid submission.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-011-02 -->
+
+If a request unexpectedly submits, locate it in My Requests before doing anything else. Otherwise cancel the unfinished details and clear the item selection, then follow Section 2 to submit the valid request.
 
 ### 2. Submit one request as Lucas
 
@@ -52,7 +70,25 @@ In Lucas’s Request Center, choose Request for Myself if prompted, open Access 
 
 **Check:** The request was accepted for Lucas and contains the reason. It is awaiting review; do not approve it yet.
 
-**Screenshots:** `AR-011-02.png`: completed reason before submission. `AR-011-03.png`: submitted request details.
+<!-- AUTHOR_SCREENSHOT_START: AR-011-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-011-02.png`
+>
+> **Show:** Completed reason before submission.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-011-03 -->
+
+<!-- AUTHOR_SCREENSHOT_START: AR-011-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-011-03.png`
+>
+> **Show:** Submitted request details.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-011-04 -->
 
 ### 3. Inspect Priya's pending review
 
@@ -63,7 +99,15 @@ In Lucas’s Request Center, choose Request for Myself if prompted, open Access 
 
 **Check:** Priya has the intended pending Grant request with Lucas's reason.
 
-**Screenshot:** `AR-011-04.png`: Priya's pending review and reason.
+<!-- AUTHOR_SCREENSHOT_START: AR-011-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-011-04.png`
+>
+> **Show:** Priya pending Grant review.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-011-05 -->
 
 ### 4. Match the administrator view and target
 
@@ -74,7 +118,15 @@ In Lucas’s Request Center, choose Request for Myself if prompted, open Access 
 
 **Check:** One identified request is pending with Priya and has not granted VPN.
 
-**Screenshot:** `AR-011-05.png`: administrator process/assignee and pending target state.
+<!-- AUTHOR_SCREENSHOT_START: AR-011-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-011-05.png`
+>
+> **Show:** Administrator process and actual assignee.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-011-06 -->
 
 ## Check the result
 
@@ -123,18 +175,5 @@ Keep this exact request pending and continue to AR-012. If its status changes wh
 ### If you stopped after submitting
 
 Find the recorded request before submitting again. If still pending with Priya, continue in AR-012. If it completed, inspect the actual decision and AD result and label missed observations historical. If it expired or was canceled, verify no active duplicate or VPN grant remains, then submit one replacement with a repeat label. Record both identifiers. Screenshots do not keep a request pending indefinitely.
-
-### Screenshots to capture
-
-Capture these at the matching steps. Use extra images when needed to show all evidence. Exclude credentials, invitation links and private mailbox details.
-
-| Filename | What to show |
-|---|---|
-| AR-011-01.png | Owner, reviewer and required comments |
-| AR-011-02.png | Completed reason before submission |
-| AR-011-03.png | Submitted request details |
-| AR-011-04.png | Priya pending Grant review |
-| AR-011-05.png | Administrator process and actual assignee |
-| AR-011-06.png | Required-comment validation before the valid submission |
 
 [Previous: AR-010](../AR-010/README.md) · [Course outline](../../README.md) · [Next: AR-012](../AR-012/README.md)

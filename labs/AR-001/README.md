@@ -31,7 +31,6 @@ Use the [Module 1 configuration record](../../M01-STATE.md) for actual environme
 ### Lab files
 
 - [HR baseline CSV](../../datasets/acme-hr-baseline.csv)
-- [Evidence journal](EVIDENCE.md)
 - [Company and environment reference](../../LAB-ENVIRONMENT.md)
 
 1. Open the **HR baseline CSV** link and select **Download raw file** on GitHub.
@@ -88,13 +87,21 @@ Keep the comma delimiter, exact column names, and all 24 rows. Save edited files
 5. Choose the file-based connection option if prompted. If this setup screen offers **Authoritative Source**, select it; creating Acme Employees with Acme HR in Section 5 establishes the authoritative identity-profile relationship.
 6. Continue and save the source configuration. Leave **Enable Provisioning** off for this HR feed.
 
-**Check:** Reopen **Admin > Connections > Sources** and confirm **Acme HR** appears as a **Delimited File** source. Record its name in your journal. [Source configuration](https://documentation.sailpoint.com/saas/help/sources/config_sources.html)
+**Check:** Reopen **Admin > Connections > Sources** and confirm **Acme HR** appears as a **Delimited File** source. Record its name. [Source configuration](https://documentation.sailpoint.com/saas/help/sources/config_sources.html)
 
 ![Acme HR Delimited File source with its name, description, owner, and Healthy status](images/01-hr-source.png)
 
 *HR source: Base Configuration shows Acme HR, the lab description, and a selected source owner. Choose your own administrator as owner; TedxHarry is the owner in this example.*
 
-**Screenshot reminder:** Capture the saved Acme HR source name and type.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-01 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-01.png`
+>
+> **Show:** Acme HR and Delimited File source type.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-01 -->
 
 ### 3. Define the account schema
 
@@ -110,7 +117,7 @@ Keep the comma delimiter, exact column names, and all 24 rows. Save edited files
 
 5. Compare the schema with the CSV header. On this new, unaggregated source, remove unused default attributes through **Actions > Delete**. Keep all 14 CSV attributes, including `location`. If deletion is blocked by a referenced configuration, preserve the error details and resolve the source-specific reference before importing; do not remove configurations elsewhere in the tenant to force this step.
 
-**Check:** All 14 CSV columns exist in the schema with their exact spelling. `employeeNumber` is marked Account ID, and `userName` is marked Account Name. Capture this screen.
+**Check:** All 14 CSV columns exist in the schema with their exact spelling. `employeeNumber` is marked Account ID, and `userName` is marked Account Name.
 
 ![Acme HR account schema showing 14 results, an Account ID attribute, userName as Account Name, and string attributes](images/02-account-schema.png)
 
@@ -126,7 +133,15 @@ Confirm the saved file is comma-delimited UTF-8 CSV with the exact 14-column hea
 
 If a preview is offered, employeeNumber, userName and department must appear in separate columns. A whole row in one attribute indicates a parsing mismatch. After upload, inspect E012’s stored account to prove the file parsed correctly. [Delimited parsing](https://documentation.sailpoint.com/connectors/saas/delimited_file/help/saas_connectivity/delimited_file/parsing_settings.html)
 
-**Screenshot reminder:** Capture the schema with Account ID and Account Name visible.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-02 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-02.png`
+>
+> **Show:** CSV attributes and Account ID/Name selections.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-02 -->
 
 ### 4. Import the accounts
 
@@ -148,7 +163,15 @@ Uploading a schema and aggregating accounts are separate operations. Account dat
 
 Use the uploaded filename and aggregation result to confirm which file was processed. **Aggregate Using Latest File** reuses the previously uploaded file; it does not read edits from your computer. [Loading account data](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html)
 
-**Screenshot reminder:** Capture the completed import and scanned account count.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-03 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-03.png`
+>
+> **Show:** Finished aggregation and account count.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-03 -->
 
 ### 5. Create the identity profile
 
@@ -189,7 +212,15 @@ Keep `managerEmployeeNumber`, `employeeType`, `status`, and `startDate` on the H
 
 Changes to imported account data normally initiate identity processing automatically. Saving a profile mapping and applying it are separate actions. [Identity processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html)
 
-**Screenshot reminder:** Capture the saved identity mappings; use several images to show all fields.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-04 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-04.png`
+>
+> **Show:** Acme HR selected for the mapped fields.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-04 -->
 
 ### 6. Verify the identities
 
@@ -214,17 +245,25 @@ Count the identities linked to this profile, not the total number of identities 
 
 Department counts should be IT **6**, Finance **4**, HR **3**, Sales **3**, Engineering **4**, and Security **4**.
 
-Capture both Lucas's HR account and identity attributes. A successful aggregation alone is not the complete verification.
+Compare Lucas's HR account and identity attributes. A successful aggregation alone is not the complete verification.
 
 **Check:** Lucas has one Acme identity, with Department `Finance`, Employee Number `E012`, and its corresponding Acme HR account. Manager resolution and AD account membership are not completion requirements for this lab.
 
 ![Baseline identity Acme Lab - Lucas Brown with username acme.e012, Finance department, FIN200 cost center, and employee number E012](images/05-baseline-identity.png)
 
-*Baseline identity: Display Name is **Acme Lab - Lucas Brown**, while Username remains **acme.e012**. The identity belongs to Acme Employees and shows Finance, FIN200, Chicago, and Reporting Analyst. The employee identifier appears under **Employee Number** in this tenant. Open **Accounts** to capture and compare the Acme HR account as well.*
+*Baseline identity: Display Name is **Acme Lab - Lucas Brown**, while Username remains **acme.e012**. The identity belongs to Acme Employees and shows Finance, FIN200, Chicago, and Reporting Analyst. The employee identifier appears under **Employee Number** in this tenant. Open **Accounts** to compare the Acme HR account as well.*
 
 **Check:** The displayed name matches the baseline CSV. Manager is still blank; resolve that relationship in [AR-002](../AR-002/README.md).
 
-**Screenshot reminder:** Capture Lucas’s HR account and identity with Department Finance.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-05 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-05.png`
+>
+> **Show:** Lucas's HR account and identity showing Finance.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-05 -->
 
 ## Check the result
 
@@ -260,7 +299,7 @@ Complete the sections in order. At each **Check**, confirm the result before con
 - [ ] Sample identity values match the corresponding HR accounts.
 - [ ] Lucas's department is restored to Finance without duplicate records.
 - [ ] The unchanged or personalized baseline CSV is retained.
-- [ ] Your journal contains the evidence and your explanation of the fault.
+- [ ] the current request details contains the evidence and your explanation of the fault.
 
 ## Engineering practice
 
@@ -307,11 +346,14 @@ Compare `E012`'s CSV department, Acme HR account department, and identity Depart
 
 #### Restore and prove the correction
 
+
+
 1. Change `E012`'s department back to `Finance` in the working file and save it.
 2. Upload that complete 24-row file again through **Acme HR > Account Management > Account Aggregation**.
 3. Verify the finished aggregation, then confirm `Finance` on the HR account and the identity.
 4. Compare Lucas's account and identity identifiers with your baseline evidence. They should still identify the same records.
 5. Retain the corrected working file. Keep your customized mailboxes if you changed them earlier.
+
 
 Your final result must show Finance in both records, 24 HR accounts, and no additional Lucas identity. Retain `FIN200` as his cost center throughout the exercise.
 
@@ -321,7 +363,26 @@ Your final result must show Finance in both records, 24 HR accounts, and no addi
 | After introducing the problem and processing | Sales | Sales | Sales |
 | After correction and processing | Finance | Finance | Finance |
 
-**Screenshot reminder:** Capture Sales on the HR account and identity during the exercise, then Finance on both after restoration.
+<!-- AUTHOR_SCREENSHOT_START: AR-001-07 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-07.png`
+>
+> **Show:** Both records showing Finance again.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-07 -->
+
+
+<!-- AUTHOR_SCREENSHOT_START: AR-001-06 -->
+
+> **Author: Capture screenshot**
+>
+> **Filename:** `AR-001-06.png`
+>
+> **Show:** Both records showing Sales.
+
+<!-- AUTHOR_SCREENSHOT_END: AR-001-06 -->
 
 ### Your ticket: Lucas still shows Sales after the file was corrected.
 
@@ -355,20 +416,6 @@ The stored latest file can still be the earlier upload. Upload the corrected com
 Confirm Lucas is Finance/FIN200 on HR and identity, and retain the latest complete CSV including any later employees and controlled email addresses. Label earlier activity as historical when repeating the lab.
 
 If an upload stopped, inspect the latest aggregation before uploading again. If accounts exist but identities do not, resume at profile mappings and processing. For a repeat, reuse the same source/profile and complete working file. Restore Lucas to Finance after the department exercise; keep source, profile, identities and the corrected file. After later labs add employees, preserve those rows and record the actual population instead of reimporting the original 24-row file.
-
-### Screenshots to capture
-
-| Screenshot | What it should show |
-|---|---|
-| HR source | Acme HR and Delimited File source type |
-| Account schema | CSV attributes and Account ID/Name selections |
-| Account import | Finished aggregation and account count |
-| Identity mappings | Acme HR selected for the mapped fields |
-| Baseline | Lucas's HR account and identity showing Finance |
-| Incident | Both records showing Sales |
-| Recovery | Both records showing Finance again |
-
-Use captions identifying the lab section and the result. Hide credentials and unrelated personal information.
 
 Keep **Acme HR** and **Acme Employees** for [AR-002 — Resolve the Manager Hierarchy](../AR-002/README.md). Its starting requirement is the verified HR baseline; the department-change exercise can be revisited separately. AD account correlation is covered in AR-004.
 
