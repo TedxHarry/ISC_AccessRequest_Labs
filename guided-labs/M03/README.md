@@ -10,3 +10,5 @@ Follow these guided labs in order. Each lab lists its required starting state an
 - [AR-021 · Deliver HR Services from a business requirement](AR-021/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M03.md) · [Try It Yourself](../../try-it-yourself/M03.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

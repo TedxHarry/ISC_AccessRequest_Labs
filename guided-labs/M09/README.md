@@ -10,3 +10,5 @@ This is an extension. Check the first lab's required capability and starting sta
 - [AR-057 · Produce a repeatable request report](AR-057/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M09.md) · [Try It Yourself](../../try-it-yourself/M09.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

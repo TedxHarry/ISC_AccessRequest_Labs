@@ -4,7 +4,7 @@ Keep this page open beside the current lab. These procedures use the accounts an
 
 ## Record your environment
 
-Copy this table into your private notes. Follow [Find the values a lab asks you to record](LAB-VALUES.md) for the domain controller, DNs, objectGUIDs and ISC IDs. Each lookup explains where to open the value and how to check you copied the right one.
+Use this as a lookup; keep only values needed for the current action or restoration. Follow [Find the values a lab asks you to record](LAB-VALUES.md) for the domain controller, DNs, objectGUIDs and ISC IDs. Each lookup explains where to open the value and how to check you copied the right one.
 
 | Parameter | Your value |
 |---|---|

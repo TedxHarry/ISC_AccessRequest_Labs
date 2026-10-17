@@ -2,6 +2,8 @@
 
 In this capstone, you'll work six support reports, repair two controlled faults, and prove that a fresh grant, removal and denial work after your repairs.
 
+[Attempt this capstone independently](../../../try-it-yourself/capstones/CAP-02.md) after completing its prerequisites.
+
 ## Before you start
 
 Complete AR-070-075 and their cleanup, with AR-046-057 evidence available for the earlier incidents. Use Acme Admin, Taylor (`acme.e025`), Priya (`acme.e002`), Samuel (`acme.e024`) and your AD workstation. Keep the [lab desk](../../../reference/LAB-DESK.md), [practice tickets](../../../reference/PRACTICE-TICKETS.md) open. Prepare missing reviewer sessions through [AR-029](../../M05/AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), substituting the named people and preserving the current HR file.
@@ -132,4 +134,4 @@ The two live faults have demonstrated causes and verified repairs. Fresh grant/r
 
 Leave Remote Worker enabled/requestable with Priya and its original policies. Leave Taylor clean, developer subscriptions disabled and every unresolved report assigned to a named next action. Keep Historical and Synthetic labels in the final handover.
 
-[Course outline](../../../README.md) · [Choose a path](../../README.md) · [Practice path](../../../reference/PRACTICE-PATH.md)
+[Course outline](../../../README.md) · [Guided Lab Map](../../README.md) · [Practice path](../../../reference/PRACTICE-PATH.md)

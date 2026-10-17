@@ -13,3 +13,5 @@ Prepare the Acme environment once. If it is already prepared, verify AR-009 befo
 - [AR-009: Verify the Environment](AR-009/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M01.md) · [Try It Yourself](../../try-it-yourself/M01.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

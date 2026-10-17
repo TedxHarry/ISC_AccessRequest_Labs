@@ -2,6 +2,8 @@
 
 In this capstone, you'll build a separate Production Support request, test recipient eligibility and ordered reviews, and observe access start and expire on the actual AD account.
 
+[Attempt this capstone independently](../../../try-it-yourself/capstones/CAP-03.md) after completing its prerequisites.
+
 ## Before you start
 
 Complete AR-034-041, AR-049 and AR-058-063, including their cleanup. Native access-request forms, start/end dates and Adaptive Approvals are required. If a capability is missing, record this capstone Not run; a custom form date or ordinary workflow is not a replacement.
@@ -187,4 +189,4 @@ Both allowed departments reach the correct manager and Security review. Finance 
 
 On completion or an early stop, restore the full HR file and original on-behalf setting first. Resolve or explicitly hand over outstanding requests, and remove unexpected/test grants through their recorded assignment path. Disable capstone requestability, profiles and workflow once all executions are resolved. Preserve the earlier service and shared definitions. Do not mark the capstone Passed while a gate, required message or timed observation remains unproven.
 
-[Course outline](../../../README.md) · [Choose a path](../../README.md) · [Practice path](../../../reference/PRACTICE-PATH.md)
+[Course outline](../../../README.md) · [Guided Lab Map](../../README.md) · [Practice path](../../../reference/PRACTICE-PATH.md)

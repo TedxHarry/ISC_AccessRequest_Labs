@@ -10,3 +10,5 @@ Follow these guided labs in order. Each lab lists its required starting state an
 - [AR-051: Resolve a fulfillment incident](AR-051/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M08.md) · [Try It Yourself](../../try-it-yourself/M08.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

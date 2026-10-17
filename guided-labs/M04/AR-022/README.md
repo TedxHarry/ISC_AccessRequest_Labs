@@ -4,6 +4,8 @@
 
 In this lab, you'll restrict Finance catalog items to Finance requesters, using Remote Worker as a visible comparison while leaving existing AD access unchanged.
 
+A catalog test asks what the signed-in requester can find. Recipient selection and the account that receives access are separate questions, so compare them independently.
+
 ## Before you start
 
 Complete [AR-021](../../M03/AR-021/README.md) and the [Module 4 starting checks](../../../reference/M04-READINESS.md). Open the AD workstation, Acme Admin, Acme Lucas (`acme.e012`) and Acme Liam (`acme.e008`). If you are returning after a break, read [the module resume checks](../../../reference/M04-READINESS.md#resume-without-losing-the-previous-state) before changing settings or submitting another request.

@@ -7,3 +7,5 @@ This is an extension. Check the first lab's required capability and starting sta
 - [AR-078 · Fulfill and reconcile a disconnected application](AR-078/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M13.md) · [Try It Yourself](../../try-it-yourself/M13.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

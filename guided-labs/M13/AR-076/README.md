@@ -2,6 +2,8 @@
 
 In this lab, you'll give Lucas one payment duty, inspect a conflicting request, and compare a reviewer warning with an actual decision and detected violation.
 
+A detected conflict and an enforced stop are different outcomes. Inspect the actual request and target result before claiming a policy prevented access.
+
 ## Before you start
 
 Complete [AR-075](../../M12/AR-075/README.md). You need SoD capability and an administrator allowed to manage policies. Use Acme Admin, Lucas (`acme.e012`), Olivia (`acme.e011`), Daniel (`acme.e003`) and the AD workstation. Prepare a missing session with [the registration steps](../../M05/AR-029/README.md#1-prepare-the-five-sessions-and-check-henry), preserving your complete private HR file. Keep course developer subscriptions disabled and You will create the two groups below. They must be ordinary lab groups with no permissions on real payment systems. If SoD is unavailable, mark AR-076/077 Not run; [AR-078](../AR-078/README.md) can be completed independently.

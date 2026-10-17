@@ -23,3 +23,10 @@ python tools/author_screenshots.py --remove --write
 The tool removes only matched `AUTHOR_SCREENSHOT_START` / `AUTHOR_SCREENSHOT_END` blocks. It validates every marker before changing files. Numbered steps, image links and captions outside those blocks remain. Commit and push the finished learner edition to update Pages.
 
 The screenshot instructions are authoring prompts, not claims that an image was captured or a tenant result was verified. The journal worksheets have been removed; verification remains in the walkthroughs.
+
+## Annotated teaching screenshots
++
++The website adds numbered reading guides to the existing HR schema and AD correlation screenshots. Their source image files stay unchanged. Keep each point tied to a field that is actually visible, and explain its meaning in the caption. Provide a full-size view for small screens.
++
++For pending capture notes, collect the request/recipient, the actual selected item or account, and the real status/result specified in that note. Do not add a label for a field your tenant does not display, invent a success state, or hide an error merely to make the example look complete. Capture a pending selection before an approval/submission removes it from view. Keep captions and image links outside the removable author block.
++

@@ -34,6 +34,8 @@ If you are returning after a break, read [where to resume](../../../troubleshoot
 >
 > **Show:** Pending request and native before state.
 
+> **Numbered annotations:** 1. The pending request and recipient; 2. the matching native account/group; 3. absence before approval. Use separate panels if needed.
+
 <!-- AUTHOR_SCREENSHOT_END: AR-012-01 -->
 
 ### 2. Approve as Priya
@@ -53,6 +55,8 @@ If you are returning after a break, read [where to resume](../../../troubleshoot
 > **Filename:** `AR-012-02.png`
 >
 > **Show:** Priya reviewed decision and time.
+
+> **Numbered annotations:** 1. Priya's signed-in identity; 2. the matching reviewed item and decision; 3. the displayed decision time/time zone.
 
 <!-- AUTHOR_SCREENSHOT_END: AR-012-02 -->
 
@@ -74,6 +78,8 @@ If you are returning after a break, read [where to resume](../../../troubleshoot
 >
 > **Show:** Request process and account activity.
 
+> **Numbered annotations:** 1. The matching request reference; 2. the actual account/group operation; 3. its status or error. Label only fields visible in your tenant.
+
 <!-- AUTHOR_SCREENSHOT_END: AR-012-03 -->
 
 ### 4. Prove the native change
@@ -92,6 +98,8 @@ If you are returning after a break, read [where to resume](../../../troubleshoot
 > **Filename:** `AR-012-04.png`
 >
 > **Show:** Native VPN membership and unchanged account.
+
+> **Numbered annotations:** 1. The same native account identifier; 2. the exact VPN group; 3. observed membership after fulfillment.
 
 <!-- AUTHOR_SCREENSHOT_END: AR-012-04 -->
 

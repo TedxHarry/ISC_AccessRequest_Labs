@@ -2,6 +2,8 @@
 
 In this lab, you'll request a JIT assignment for Sofia, activate it, compare early deactivation with expiry, and verify the selected AD account each time.
 
+Eligibility, activation and current target access are different states. Use the real event times and account results to explain when privilege was active and how it ended.
+
 ## Before you start
 
 Complete [AR-026](../../M04/AR-026/README.md) and [AR-045](../../M07/AR-045/README.md). Use Sofia (`acme.e009`), Priya, Acme Admin and the AD workstation. Your tenant needs Privilege on Demand/JIT and the direct-connected AD source. GG-IT-ADMINS must still be an ordinary course group with no real administrative permissions. If this capability is unavailable, mark this lab Not run and continue with an available track.

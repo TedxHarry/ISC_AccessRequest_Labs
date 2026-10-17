@@ -4,6 +4,8 @@
 
 In this lab, you'll create one Finance reporting item that supplies Reporting and VPN, request it for Olivia and remove the test grant after checking AD.
 
+A profile packages the access the business needs. Check every contained entitlement because an approved bundle is not complete when only one native group arrived.
+
 ## Before you start
 
 Complete [AR-015](../../M02/AR-015/README.md) and the [Module 3 starting checks](../../../reference/M03-READINESS.md). Open Acme Admin, Acme Olivia (`acme.e011`), Acme Daniel (`acme.e003`) and your AD workstation. If you are returning after a break, follow [the module resume checks](../../../reference/M03-READINESS.md#resume-or-repeat-safely) before creating an object or submitting another request.

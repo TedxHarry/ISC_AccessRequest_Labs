@@ -2,6 +2,8 @@
 
 In this capstone, you'll prepare the Finance catalog, prove separate profile and role requests, and hand over the service with its test access removed.
 
+[Attempt this capstone independently](../../../try-it-yourself/capstones/CAP-01.md) after completing its prerequisites.
+
 ## Before you start
 
 Complete AR-001-022 and the removal exercises in AR-042-045. Use Acme Admin, Olivia (`acme.e011`), Liam (`acme.e008`), Daniel (`acme.e003`) and your AD workstation. Open the [starting-state check](../../../reference/LAB-DESK.md#check-the-starting-state-for-every-lab). Prepare any missing sign-in through [AR-008](../../M01/AR-008/README.md).
@@ -138,11 +140,11 @@ Native workflows and SoD are optional extensions here. If you completed AR-061, 
 
 ### 6. Record the scope and restore temporary settings
 
-1. record Reporting approval/removal, AP denial, Analyst approval/removal, and Olivia/Liam visibility as separate cases with request, activity and native evidence. Do not mark an unexecuted case Passed.
+1. Compare Reporting approval/removal, AP denial, Analyst approval/removal, and Olivia/Liam visibility as separate cases with request, activity and native evidence. Do not mark an unexecuted case Passed.
 2. If automated recipient eligibility is required, complete [AR-061](../../M10/AR-061/README.md), including its isolated non-Finance and missing-data checks before Finance attachment, and both recipient outcomes for each profile and the role. Label that requirement Not tested or Not accepted until all those checks pass. Keep segmentation enabled; it is not a substitute for this test.
 3. If you include SoD, use the separate payment groups and clean/conflicting cases in [AR-076](../../M13/AR-076/README.md) and [AR-077](../../M13/AR-077/README.md). Keep their actual outcomes separate from Finance Reporting/AP evidence; no policy for those groups is created by this capstone.
 4. Restore the original removal policies saved in Section 1 and reopen them. Preserve accepted grant workflows, the enabled Finance segment, both application associations and all object IDs. If AR-061 was run, verify its HR and on-behalf restoration too.
-5. Recheck Olivia's three business groups False, baseline True, Lucas VPN True, and no pending capstone requests. Write the handover : exact object IDs/source/groups, current reviewers, available choices, proven cases, unmet requirements and restoration state.
+5. Recheck Olivia's three business groups False, baseline True, Lucas VPN True, and no pending capstone requests. Prepare the support handover: exact object IDs/source/groups, current reviewers, available choices, proven cases, unmet requirements and restoration state.
 
    <!-- AUTHOR_SCREENSHOT_START: CAP-01-08 -->
 
@@ -162,4 +164,4 @@ Reporting and the Analyst role each have a separate grant/removal cycle; Account
 
 Leave the catalog enabled, original removal policies restored and only accepted grant policies attached. Olivia has no capstone access; Lucas retains VPN. Keep unresolved requirements available for the next engineer.
 
-[Course outline](../../../README.md) · [Choose a path](../../README.md) · [Practice path](../../../reference/PRACTICE-PATH.md)
+[Course outline](../../../README.md) · [Guided Lab Map](../../README.md) · [Practice path](../../../reference/PRACTICE-PATH.md)

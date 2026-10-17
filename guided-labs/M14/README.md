@@ -16,3 +16,5 @@ This is an extension. Check the first lab's required capability and starting sta
 - [AR-090 · Complete and time out an asynchronous trigger callback](AR-090/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M14.md) · [Try It Yourself](../../try-it-yourself/M14.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

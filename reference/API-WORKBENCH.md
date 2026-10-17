@@ -87,8 +87,8 @@ This uses the established My Access removal route. The API's `REVOKE_ACCESS` cal
 
 ### Open the correct folder and run the fixture first
 
-1. Download or clone this repository and locate the folder containing `tools`, `fixtures` and this file. Open **Windows PowerShell** and run `Set-Location -LiteralPath (Read-Host 'Full path to the course repository folder')`. Enter that folder path, not the `tools` subfolder.
-2. Run `Test-Path.\tools\request_report.py` and `Test-Path.\fixtures\request-status-pages.json`. Both must return `True`. If either is `False`, correct the current folder before continuing.
+1. Download or clone this repository and locate the repository root containing `tools`, `fixtures` and `index.html`. Open **Windows PowerShell** and run `Set-Location -LiteralPath (Read-Host 'Full path to the course repository folder')`. Enter that folder path, not the `tools` subfolder.
+2. Run `Test-Path .\tools\request_report.py` and `Test-Path .\fixtures\request-status-pages.json`. Both must return `True`. If either is `False`, correct the current folder before continuing.
 3. Run `python --version`. If Python is unavailable, install Python 3 from [python.org](https://www.python.org/downloads/windows/) or use a workstation where it is already installed, then reopen PowerShell. The report uses Python's standard library; it needs no additional package installation.
 4. Run the fixture below. It reads supplied sample data and needs no tenant token.
 
@@ -96,7 +96,7 @@ This uses the established My Access removal route. The API's `REVOKE_ACCESS` cal
 $LabEvidenceFolder = Join-Path ([Environment]::GetFolderPath('MyDocuments')) ('AcmeLabEvidence-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory -Path $LabEvidenceFolder -ErrorAction Stop | Out-Null
 $LabFixtureReport = Join-Path $LabEvidenceFolder 'fixture-report.json'
-python.\tools\request_report.py --fixture.\fixtures\request-status-pages.json --output $LabFixtureReport
+python .\tools\request_report.py --fixture .\fixtures\request-status-pages.json --output $LabFixtureReport
 if ($LASTEXITCODE -ne 0) { throw 'The fixture report failed; inspect the error before continuing.' }
 $LabRows = @(Get-Content -LiteralPath $LabFixtureReport -Raw | ConvertFrom-Json)
 $LabRows.Count
@@ -110,7 +110,7 @@ The [request report script](../tools/request_report.py) reads all pages for one 
 $LabApiBase = Read-Host 'Confirmed tenant API origin, without an operation path'
 $LabRecipientId = Read-Host 'Verified ISC recipient identity ID'
 $LabLiveReport = Join-Path $LabEvidenceFolder 'request-report.json'
-python.\tools\request_report.py --base $LabApiBase --recipient $LabRecipientId --output $LabLiveReport
+python .\tools\request_report.py --base $LabApiBase --recipient $LabRecipientId --output $LabLiveReport
 ```
 
 Enter a current token at the hidden prompt. Run `if ($LASTEXITCODE -ne 0) { throw 'Live report failed; inspect the error.' }` before opening `$LabLiveReport`. The report can contain identity information; keep it private. If you opened a new PowerShell session, repeat the folder/fixture setup to establish the variables first.

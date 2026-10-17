@@ -22,3 +22,9 @@ Complete the regular guided labs first. Then try a different employee, compare a
 Keep the guided lab's finish state. If an exercise changes a field or policy, restore it before beginning another task. Do not repeat a live change merely to recreate a historical screenshot.
 
 [Return to Guided Labs](../guided-labs/README.md)
+
+## Independent capstones
+
+- [CAP-01: Launch Finance self-service access](capstones/CAP-01.md)
+- [CAP-02: Recover the access request service queue](capstones/CAP-02.md)
+- [CAP-03: Deliver temporary Production Support](capstones/CAP-03.md)

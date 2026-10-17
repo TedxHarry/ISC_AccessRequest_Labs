@@ -4,6 +4,8 @@
 
 In this lab, you'll build a manager approval workflow, attach it to Production Support and prove approval and denial with Henry.
 
+Workflow execution, review decision and native fulfillment are separate results. Inspect the policy output and the actual request before interpreting a successful end step.
+
 ## Before you start
 
 Use the completed AR-029 request/removal setup and resolve Henry's earlier pending or scheduled requests. C09 is useful but API credentials are not required. Use Acme Admin, Henry (`acme.e018`), Ava (`acme.e006`) and the AD workstation. Your tenant needs Adaptive Approvals with the native Access Request service. Open the current request details; you will create the workflow here.

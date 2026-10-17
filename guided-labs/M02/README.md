@@ -10,3 +10,5 @@ Follow these guided labs in order. Each lab lists its required starting state an
 - [AR-015 · Request and remove a two-group access profile](AR-015/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M02.md) · [Try It Yourself](../../try-it-yourself/M02.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

@@ -2,6 +2,8 @@
 
 In this lab, you'll prepare a subscriber, validate its filter and trace one request from ISC to your service.
 
+A locally correct response proves the local contract. It does not prove a subscription delivered a tenant event or that an ISC request reached the intended native result.
+
 ## Before you start
 
 Complete [AR-049](../../M08/AR-049/README.md). Taylor's account and disposable group are retained with clean memberships and restored permissions. Have Python 3, Postman Desktop, an administrator who can manage event subscriptions, and your AD workstation. Prepare the Acme API Admin environment from [AR-052](../../M09/AR-052/README.md) for filter validation. An existing controlled HTTPS route is required for live delivery; local tests can be completed first.

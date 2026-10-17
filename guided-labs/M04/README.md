@@ -10,3 +10,5 @@ Follow these guided labs in order. Each lab lists its required starting state an
 - [AR-027 · Verify visibility and account targeting](AR-027/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M04.md) · [Try It Yourself](../../try-it-yourself/M04.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

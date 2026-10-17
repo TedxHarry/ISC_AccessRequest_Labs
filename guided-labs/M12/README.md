@@ -10,3 +10,5 @@ Continue from AR-051. The API, workflow and subscriber extensions are not prereq
 - [AR-075 · Run an IAM support shift](AR-075/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M12.md) · [Try It Yourself](../../try-it-yourself/M12.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

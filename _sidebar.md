@@ -132,6 +132,7 @@
 
 - **TROUBLESHOOTING PRACTICE**
   - [Overview](/troubleshooting/README.md)
+  - [Live operations cases](/troubleshooting/live-operations.md)
   - **Setup**
     - [M01 · Environment setup](/troubleshooting/M01.md)
   - **Everyday tasks**
@@ -169,3 +170,8 @@
     - [M11 · Event subscribers](/try-it-yourself/M11.md)
     - [M13 · Policy and manual fulfillment](/try-it-yourself/M13.md)
     - [M14 · Specialist capabilities](/try-it-yourself/M14.md)
+
+  - **Independent capstones**
+    - [CAP-01: independent attempt](/try-it-yourself/capstones/CAP-01.md)
+    - [CAP-02: independent attempt](/try-it-yourself/capstones/CAP-02.md)
+    - [CAP-03: independent attempt](/try-it-yourself/capstones/CAP-03.md)

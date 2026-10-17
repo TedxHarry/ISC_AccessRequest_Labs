@@ -2,6 +2,8 @@
 
 In this lab, you'll build a maintenance form, attach it to Production Support, and check its answers as the manager.
 
+A form collects answers. Those answers change approval or provisioning only where a configured rule actually uses them; entering a duration or ticket number does not create an enforcement rule.
+
 ## Before you start
 
 Complete [AR-033](../../M05/AR-033/README.md), including C05 cleanup. The form does not need to exist yet. Use Acme Admin, Acme Henry (`acme.e018`) and Acme Ava (`acme.e006`) in separate browser profiles, plus your AD workstation. If you are resuming, check Henry's **My Requests** before submitting again. Finish or remove any earlier test grant before starting another. These steps use the configuration left by the preceding lab; if you have already completed later modules, compare their saved settings before changing them.

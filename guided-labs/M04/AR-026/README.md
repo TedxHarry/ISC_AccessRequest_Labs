@@ -126,6 +126,8 @@ If the matching course account already exists, inspect its values and continue t
    >
    > **Show:** Explicit second-account selection.
 
+   > **Numbered annotations:** 1. Sofia as recipient; 2. the selected account name/native identifier; 3. the submitted item. Capture selection before submission hides the panel.
+
    <!-- AUTHOR_SCREENSHOT_END: AR-026-05 -->
 
 6. Choose **Submit Request** in that account-selection panel. Record the confirmation, **My Requests** entry, ID and time.

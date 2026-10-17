@@ -4,6 +4,8 @@
 
 In this lab, you'll follow one Henry request through review, provisioning and AD, then use that evidence to locate an approved-but-missing-access report.
 
+Trace one request across its review, operation and target account before changing settings. The first demonstrated mismatch identifies the next investigation; it does not justify resetting the whole connector.
+
 ## Before you start
 
 Use the cleaned state from [AR-045](../../M07/AR-045/README.md), or the completed AR-029 grant/removal setup if optional forms/date labs are unavailable. Resolve Henry’s old pending or future assignments before starting. Use Acme Admin, Henry (`acme.e018`), Ava (`acme.e006`), Evelyn (`acme.e021`) and the AD workstation. If you are resuming, open inspect the current assignments, pending requests and retries before making another change. Continue from the first unfinished step; do not repeat a grant that can still complete.

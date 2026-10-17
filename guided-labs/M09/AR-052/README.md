@@ -2,6 +2,8 @@
 
 In this lab, you'll prepare separate API sessions for Taylor, Priya and Acme Admin, then verify which reads each caller can perform.
 
+A token represents its caller. Reading as the administrator and submitting as the requester are separate permissions and contexts, even when both requests use the same API hostname.
+
 ## Before you start
 
 Complete [AR-051](../../M08/AR-051/README.md). Taylor (`acme.e025`) retains the account created in AR-047, with no Remote Worker assignment or pending request. Use the established Taylor, Priya (`acme.e002`) and administrator ISC sessions, Postman Desktop. You will create the API credentials here; they are not a prerequisite.

@@ -1,42 +1,31 @@
 # Course validation record
 
-Updated: 13 September 2026.
+Updated: 17 October 2026.
 
-See the [content audit](reviews/CONTENT-AUDIT.md) for corrected defects and unresolved acceptance checks. Written coverage is not a course-wide quality certification.
+## Current authored course
 
-## Authored material
+- One guided sequence with 90 labs and 3 worked capstones, grouped by module.
+- Separate troubleshooting and independent-practice folders; each module now has a practical challenge with starting conditions, acceptance and restoration.
+- Three independent capstone attempts and four controlled live operations practice cases.
+- No learner journal or checkpoint folder is required. Actual report files, working input files and original settings needed for a task remain part of that task.
 
-- AR-001–090 have walkthroughs and evidence journals.
-- AR-010–090 include numbered procedures, expected-result checks, recovery/cleanup instructions and screenshot capture lists.
-- Three capstones provide execution steps and acceptance criteria.
-- The lab desk and API/subscriber workbenches supply shared procedures and local examples.
+## Tenant execution still to perform
 
-## Live tenant status
+The last supplied learner report, dated 16 September 2026, identifies AR-001 through AR-006 as complete. Existing screenshots are included with their stated limits. AR-007 onward still awaits learner execution and current-tenant confirmation. No new tenant operation was performed during the October website/content updates.
 
-As of 16 September 2026, AR-001–006 are learner-reported complete. Supplied screenshots are included through AR-006, with their limits and remaining captures recorded beside the steps. AR-007 onward still awaits learner execution/evidence; no tenant actions were performed during this writing pass. Instructions are based on cited documentation and must be checked against the tenant's actual feature availability and observed results.
+During the author's screenshot-capture run, check the exact sign-in/role, starting state, published navigation and copied commands, expected outcome, native result and restoration. Correct a discrepancy in the walkthrough before treating that lab as tested. Observe real time boundaries for scheduled access and test actual delivery for external integrations. A builder validation, local fixture or screenshot does not establish tenant execution.
 
-This record does not certify every lab as tenant-tested. Timed expiration, external integration, machine identity, SSO reauthentication and JIT exercises require their stated facilities and live observations. Local fixtures verify only the sample tools and test-handling logic.
+## Latest local verification
 
-## Local checks completed
+- Published reporting fixture executed successfully in PowerShell using a temporary output parent; its actual published commands produced the expected three records.
+- All 17 published PowerShell blocks parsed without syntax errors. Syntax parsing is not live execution of privileged or authenticated commands.
+- Existing tool tests, course structure checks and new published-instruction checks pass.
+- Website checks cover old routes, navigation, both color themes, mobile layouts, explicitly chosen completion, resume behavior and real-image annotations.
+- Current local Markdown links/anchors resolve. New processing/activity guidance was compared with official SailPoint documentation on 17 October 2026.
 
-- 90 lab pages and 90 evidence journals present.
-- 816 local Markdown links resolve to existing files.
-- 80 linked SailPoint documentation and community pages returned HTTP 200. Reachability does not establish correctness of every instruction.
-- Ten local tool tests passed, including Decision-event evidence and sensitive-field exclusion: pagination, invalid response handling, fixture export, overwrite protection, subscriber authentication, decision responses, invalid modes, dynamic responses and asynchronous metadata handling. These tests use synthetic data and do not contact ISC.
+## Historical reviews
 
-The content-audit pass also checked the baseline CSV: 24 unique employee IDs/usernames, valid manager references, no manager cycles and the expected six-department counts. All fenced JSON examples parse.
-
-## Before accepting a live lab
-
-1. Confirm the required service, permissions and starting state.
-2. Follow the steps with the named actors and actual local IDs.
-3. Capture the expected result and negative/control case.
-4. Verify native target state and cleanup.
-5. Record discrepancies and correct the procedure before marking it passed.
-
-Keep the execution ledger in the private evidence folder. Use columns: lab ID, date, tenant capability, result, request/activity IDs, screenshots, cleanup and remaining issue. The choices are Passed, Failed, Awaiting timed observation or Unavailable in this tenant.
-
-[Coverage](../reference/COVERAGE.md) · [Course outline](../README.md)
+The entries below describe the course at the time of each review. References to paired paths, evidence journals or older counts describe historical artifacts, not current learner requirements.
 
 ## Module 1 review, 9 September 2026
 

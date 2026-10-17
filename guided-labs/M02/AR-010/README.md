@@ -4,6 +4,8 @@
 
 In this lab, you'll make the imported VPN group available in Lucas's catalog. You will configure approval in AR-011 before submitting a request.
 
+Importing a group makes its entitlement available for configuration. Requestability lets an eligible user ask for it; membership changes only through a separate assignment and fulfilled operation.
+
 ## Before you start
 
 Keep the [Module 2 starting checks](../../../reference/M02-READINESS.md) beside the current request details.

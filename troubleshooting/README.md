@@ -22,3 +22,5 @@ Use these guides if a check fails, or return after the regular labs to practice 
 Keep the guided lab's finish state. If an exercise changes a field or policy, restore it before beginning another task. Do not repeat a live change merely to recreate a historical screenshot.
 
 [Return to Guided Labs](../guided-labs/README.md)
+
+[Work a live operations case](live-operations.md): controlled catalog, reviewer, scoped-permission and mixed-item practice with restoration checks.

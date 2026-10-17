@@ -10,3 +10,5 @@ Follow these guided labs in order. Each lab lists its required starting state an
 - [AR-039 · Verify the Production Support form](AR-039/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M06.md) · [Try It Yourself](../../try-it-yourself/M06.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

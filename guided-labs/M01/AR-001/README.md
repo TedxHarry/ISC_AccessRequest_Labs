@@ -10,6 +10,8 @@ In this lab, you'll import the 24 Acme HR records, map their identity attributes
 
 <a id="if-you-stopped-midway-or-want-to-repeat-this-lab"></a>
 
+The HR account stores the imported row. Identity mappings supply the employee attributes you see on the identity. Checking both records tells you whether a difference begins in the file/import or in mapping/processing.
+
 ## Before you start
 
 Use the [Module 1 configuration record](../../../reference/M01-STATE.md) for actual environment values and the required retained state.
@@ -44,7 +46,7 @@ If you already completed this lab once, reuse the existing Acme HR source and Ac
 ### 1. Download the HR file
 
 1. Open the [HR baseline CSV](../../../datasets/acme-hr-baseline.csv).
-2. Select **Download raw file**.
+2. If the browser downloads the file, open your Downloads folder. If it displays CSV text instead, use the browser's **Save as** command and keep the `.csv` extension. On GitHub, use **Download raw file** on the file page.
 3. Save it as `acme-hr-baseline.csv`.
 4. Make a working copy named `acme-hr-working.csv`.
 5. Open the working copy and confirm the first row begins with:
@@ -156,7 +158,7 @@ Before importing, open **Source Setup > Parsing Settings** and select delimited 
 
 1. Open **Acme HR > Account Management > Account Aggregation**.
 2. Upload `acme-hr-working.csv`.
-3. Wait for the aggregation to complete.
+3. Inspect this upload in the source's aggregation result/history. Wait until the run finishes, then check its errors or skipped rows before comparing the 24-account result. Do not upload again while the same run is still processing.
 4. Open **Acme HR > Account Management > Accounts**.
 5. Verify the source contains **24 accounts**.
 6. Search for `acme.e012` and open Lucas Brown's HR account.
@@ -240,7 +242,7 @@ Reference: [Identity profiles](https://documentation.sailpoint.com/saas/help/set
 
 1. In **Acme Employees**, select **Apply Changes**.
 2. Open **Admin > Dashboard > Monitor**.
-3. Wait for identity processing to finish.
+3. Open **Admin > Dashboard > Monitor** and inspect Active Jobs. Wait for identity processing to finish, then reopen the named identity and compare its mapped values. If it fails, inspect the job and [processing recovery checks](../../../reference/PROCESSING-AND-RECOVERY.md) before starting another run.
 4. Return to **Identity Profiles**.
 5. Confirm there are no unresolved Identity Exceptions for the Acme population.
 

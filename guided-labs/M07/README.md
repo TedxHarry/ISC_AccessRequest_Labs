@@ -10,3 +10,5 @@ Follow these guided labs in order. Each lab lists its required starting state an
 - [AR-045 · Remove access from one account](AR-045/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M07.md) · [Try It Yourself](../../try-it-yourself/M07.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).

@@ -2,6 +2,8 @@
 
 In this lab, you'll inspect a fresh pending request, compare it with earlier evidence and assign a justified next action to each case.
 
+A support queue mixes current work with historical outcomes. Identify the present stage and impact before choosing an action; an old Failure label is not evidence that the service is still broken.
+
 ## Before you start
 
 Complete [AR-051](../../M08/AR-051/README.md) and retain its clean Taylor account and restored AD permissions. Use Acme Admin, Taylor, Priya, the AD workstation and earlier request and activity details. Prepare missing sessions through [AR-047's registration steps](../../M08/AR-047/README.md#2-add-one-hr-row-and-import-the-complete-file). Module 10/11 evidence is optional; keep any course developer subscriptions disabled.
@@ -39,7 +41,7 @@ Complete [AR-051](../../M08/AR-051/README.md) and retain its clean Taylor accoun
 | AR-050 | AD membership differs from the last imported account view | Same account/group and aggregation completion time |
 | AR-053 or AR-046 | A grant completed and was later removed | Original grant plus separate removal/native evidence |
 
-4. For each row, record Live, Historical or Synthetic; request/item/account identifiers; evidence time; actual state; responsible person; next action; and the evidence needed to close the case.
+4. For each case, identify whether it is Live, Historical or Synthetic, its current stage, responsible person and next action. Use actual request/item/account references to find the evidence; you do not need to fill in a separate queue worksheet.
 
    <!-- AUTHOR_SCREENSHOT_START: AR-070-02 -->
 
@@ -78,6 +80,8 @@ Your queue distinguishes approval, timing, provisioning, reconciliation and hist
 
 ## Finish
 
-Keep the triage table and source evidence. Leave Taylor clean and Priya/Remote Worker settings intact. Do not recreate an old directory fault or schedule solely to fill the queue.
+Keep only the live request references needed to finish outstanding work. Leave Taylor clean and Priya/Remote Worker settings intact. Do not recreate an old directory fault or schedule solely to fill the queue.
 
 [Previous: AR-051](../../M08/AR-051/README.md) · [Course outline](../../../README.md) · [Next: AR-071](../AR-071/README.md)
+
+After the regular lab, use the separate [live operations practice](../../../troubleshooting/live-operations.md) for a fresh controlled incident instead of a supplied paper case.

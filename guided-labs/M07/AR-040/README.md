@@ -2,6 +2,8 @@
 
 In this lab, you'll require an end date on Production Support, test its seven-day limit, and approve then remove one valid request.
 
+Approval and effective access time are separate. The target result before the start and after the end matters as much as the decision recorded in the request.
+
 ## Before you start
 
 Complete [AR-039](../../M06/AR-039/README.md) and its cleanup, or use the clean C05 state from AR-033 if native forms are unavailable. Keep any completed Module 6 form attached. Use Acme Admin, Henry (`acme.e018`), Ava (`acme.e006`), Evelyn (`acme.e021`) and the AD workstation. You will configure the date policy below; it is not a prerequisite.
@@ -48,6 +50,8 @@ If an invalid date lets you continue, do not submit it. Remove the unsent item, 
    > **Filename:** `AR-040-02.png`
    >
    > **Show:** Missing and excessive date errors.
+
+   > **Numbered annotations:** 1. The effective start/end; 2. the displayed time zone; 3. the actual validation or saved-request outcome.
 
    <!-- AUTHOR_SCREENSHOT_END: AR-040-02 -->
 

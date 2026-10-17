@@ -10,3 +10,5 @@ This is an extension. Check the first lab's required capability and starting sta
 - [AR-063: Send a notification that reflects the real decision](AR-063/README.md)
 
 [Troubleshooting Practice](../../troubleshooting/M10.md) · [Try It Yourself](../../try-it-yourself/M10.md) · [All Guided Labs](../README.md)
+
+[Check a processing wait or resume safely](../../reference/PROCESSING-AND-RECOVERY.md).
