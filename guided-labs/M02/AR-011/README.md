@@ -49,20 +49,21 @@ If enforced tenant controls prevent these settings, resolve that prerequisite fo
 4. Use **Select** to add the item. In **Edit Request Details**, enter `AR-011: Remote access for the Finance lab` as the comment.
 5. Keep access immediate; do not set a future start or end date. If account selection appears, choose Lucas's standard AD account by the recorded DN.
 6. Select **Save** for the request details. Select **Review Request** and check that only VPN is selected for Lucas.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-011-02 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-011-02.png`
+   >
+   > **Show:** the completed reason and review screen before selecting Submit Request. Hide any personal information.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-011-02 -->
+
 7. Select **Submit Request** once.
 8. Open **My Requests** and locate this submission. Record its status, submission time and identifier where displayed. If the identifier is not exposed here, obtain it from administrator details in Section 4.
 
 **Check:** The request was accepted for Lucas and contains the reason. It is awaiting review; do not approve it yet.
-
-<!-- AUTHOR_SCREENSHOT_START: AR-011-02 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-011-02.png`
->
-> **Show:** Completed reason before submission.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-011-02 -->
 
 <!-- AUTHOR_SCREENSHOT_START: AR-011-03 -->
 

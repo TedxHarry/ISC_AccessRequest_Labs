@@ -65,24 +65,25 @@ From the previous labs, you need:
 - Daniel Brooks ; `acme.e003`
 
 5. Confirm the list contains exactly four identities.
+
+   <!-- AUTHOR_SCREENSHOT_START: AR-007-01 -->
+
+   > **Author: Capture screenshot**
+   >
+   > **Filename:** `AR-007-01-four-person-batch.png`
+   >
+   > **Show:** the four selected identities before saving or applying this expansion. Capture successful provisioning separately after Step 10 passes.
+
+   <!-- AUTHOR_SCREENSHOT_END: AR-007-01 -->
+
 6. Save.
 7. Select **Apply Changes**.
-8. Wait for identity processing and provisioning to complete.
+8. Open **Admin > Dashboard > Monitor** and follow Active Jobs for the role-change processing. Then inspect the individual account operations below. A finished processing job alone does not prove both AD writes succeeded.
 9. Open **Search > Account Activity**. Search Priya and Daniel separately with `recipient.name:acme.e002 AND sources:"YOUR-AD-SOURCE-NAME"` and `recipient.name:acme.e003 AND sources:"YOUR-AD-SOURCE-NAME"`. Replace the source placeholder with the exact recorded AD source name. For each person, open the newest activity from this batch and confirm the create/membership operations reach a final successful result before expanding the role.
 10. In AD, confirm both accounts exist under the intended Users OU and are direct members of `GG-ACME-BASELINE`.
 11. Run one AD account aggregation using Section 4, then verify Priya and Daniel’s identity links using Section 5 before expanding to the remaining employees.
 
 **Check:** Lucas, Liam, Priya, and Daniel all have standard AD accounts and baseline membership.
-
-<!-- AUTHOR_SCREENSHOT_START: AR-007-01 -->
-
-> **Author: Capture screenshot**
->
-> **Filename:** `AR-007-01-four-person-batch.png`
->
-> **Show:** the four-person assignment and successful provisioning results.
-
-<!-- AUTHOR_SCREENSHOT_END: AR-007-01 -->
 
 ### 3. Add the remaining 20 identities
 
@@ -93,7 +94,7 @@ From the previous labs, you need:
 5. Confirm the final Identity List contains exactly **24 Acme identities**.
 6. Save.
 7. Select **Apply Changes**.
-8. Wait for provisioning to finish.
+8. Follow processing in **Admin > Dashboard > Monitor**, then inspect the individual provisioning results below. Keep this batch incomplete if any intended account or membership operation is unresolved.
 9. Open **Search > Account Activity** and start with `sources:"YOUR-AD-SOURCE-NAME"`, using the exact recorded source name. Use the time you applied the 24-person role change to review the newest batch rows. For any employee whose result is missing, pending, or failed, narrow to `recipient.name:COURSE-USERNAME AND sources:"YOUR-AD-SOURCE-NAME"` and replace `COURSE-USERNAME` with that employee's username. Open the activity and inspect the source operation rather than relying on the batch count. See [Find the Account Activity](../../../reference/LAB-DESK.md#find-the-account-activity).
 
 Reference: [Role assignment](https://documentation.sailpoint.com/saas/help/provisioning/role_assignment.html)
@@ -115,8 +116,8 @@ Reference: [Role assignment](https://documentation.sailpoint.com/saas/help/provi
 1. Open the AD source.
 2. Open **Account Management > Account Aggregation**.
 3. Start one account aggregation after the provisioning batch is complete. Use this procedure once after the four-person batch and once after the remaining 20.
-4. Wait for it to finish.
-5. Confirm the aggregation status is successful.
+4. Open the source's **Aggregation History** and identify the run you started by its time. Do not start another while it is running.
+5. Inspect that run's final result, warnings and errors. Confirm the imported accounts reflect the completed batch before continuing. Use [Processing and Recovery](../../../reference/PROCESSING-AND-RECOVERY.md) for an unresolved job.
 
 Do not start a separate aggregation for each employee.
 
@@ -126,7 +127,7 @@ Do not start a separate aggregation for each employee.
 
 ### 5. Verify all 24 AD accounts
 
-Complete every row in result checks.
+Compare the current AD and ISC records directly with the HR roster. No separate worksheet is required.
 
 For each employee:
 
@@ -139,9 +140,9 @@ For each employee:
 7. Open the ISC identity > **Accounts**.
 8. Confirm the AD account is linked to the correct identity.
 
-Check the matching request, operation and target results directly.
+These baseline changes come from role assignment, not a user-submitted business access request. Match the role-change time to the account activity and verify the actual AD account and group membership.
 
-**Check:** All 24 rows have the correct account, employeeID, baseline membership, and ISC link.
+**Check:** All 24 employees have the correct account, employeeID, baseline membership and ISC link.
 
 ### 6. Verify the baseline group
 

@@ -23,7 +23,7 @@ Run the [native membership check](M02-CHECKS.md#inspect-direct-ad-membership) wi
 | After AR-013 | Olivia's request denied; her target memberships unchanged |
 | After AR-014 | VPN visible again; Lucas still has VPN; hidden control remains hidden |
 | Before AR-015 | Liam signs in; Liam and Olivia have neither business group or pending profile request |
-| After AR-015 | Profile retained; Liam's test grant removed; Olivia ungranted; Lucas retains VPN; C02 saved |
+| After AR-015 | Profile retained; Liam's test grant removed; Olivia ungranted; Lucas retains VPN; C02 checks passed |
 
 All 24 standard accounts and their baseline assignments remain in place. No new AD account should be needed for these requests.
 
@@ -39,6 +39,6 @@ Keep Lucas's fulfilled VPN grant when revisiting earlier catalog labs. Use Olivi
 
 For the course VPN item, record inherited settings and configure the item explicitly for one Primary Owner reviewer and required request/denial comments in AR-011. Do not assume an unchecked item approval box disables inherited approval. Existing forms, dates, workflows, reauthentication, segmentation or escalation can change the exercise. Record and resolve those conditions for the dedicated course item before declaring the expected result passed. Do not weaken tenant-wide controls to hide the difference.
 
-Catalog visibility proves only that the user can find the item. Approval proves a decision. Account activity and native membership prove whether the requested target change occurred. Retain evidence for each.
+Catalog visibility proves only that the user can find the item. Approval proves a decision. Account activity and native membership prove whether the requested target change occurred. Compare all three before calling the request successful.
 
 Check the matching request, operation and target results directly.

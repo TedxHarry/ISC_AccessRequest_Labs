@@ -61,9 +61,9 @@ Use the sign-in method configured for Acme Employees. The registration steps bel
    - Manager = Daniel Brooks
 5. Open Daniel (`acme.e003`) and confirm Employee Number = E003.
 6. Open Priya (`acme.e002`) and confirm Employee Number = E002.
-7. Confirm all three identities are enabled. For a disabled dedicated lab identity, select **Actions > Enable Identity** and recheck its state.
+7. Inspect each identity's sign-in status. **Not Invited** is expected for a new ISC-password user; it is not the same as **Disabled**. If a dedicated lab identity is Disabled, select **Actions > Enable Identity** and recheck it. Re-enabling returns it to Not Invited, so complete the applicable registration steps below. Resolve Error, Incomplete or Locked states before the sign-in test.
 
-**Check:** Lucas, Daniel, and Priya are enabled and Lucas's Manager is Daniel.
+**Check:** None of the three ISC identities is disabled, and Lucas's Manager is Daniel. This checks ISC sign-in status; the AD account's Enabled flag is a separate setting. [Identity statuses](https://documentation.sailpoint.com/saas/help/identities/identity_mgmt.html#viewing-identity-statuses)
 
 <!-- AUTHOR_SCREENSHOT_START: AR-008-01 -->
 
@@ -79,7 +79,7 @@ Use the sign-in method configured for Acme Employees. The registration steps bel
 
 ### 2. Add working email addresses
 
-Use three different test email addresses that you control.
+Use three different test email addresses that you control. Check that none is already assigned to another identity in the tenant; duplicate invitation email addresses can prevent the intended person from receiving an invitation.
 
 1. Open the latest complete `acme-hr-working.csv` used in your tenant.
 2. Update only the `email` field for:
@@ -94,7 +94,7 @@ Use three different test email addresses that you control.
 4. Save the file as UTF-8 CSV.
 5. Open **Admin > Connections > Sources > Acme HR > Account Management > Account Aggregation**.
 6. Upload the complete working CSV.
-7. Wait for aggregation and identity processing to finish.
+7. Inspect the matching run in the source's **Aggregation History**, then **Admin > Dashboard > Monitor**, Active Jobs. Continue when aggregation/processing has finished and the updated email appears on each named identity. Use [Processing and Recovery](../../../reference/PROCESSING-AND-RECOVERY.md) for an unresolved job.
 8. Reopen all three identities.
 9. Confirm each **Work Email** shows the intended test address.
 10. Confirm the HR account and identity populations match their pre-edit counts: 24 on the first pass, or your recorded larger population on a repeat.
@@ -143,6 +143,8 @@ Reference: [Identity profile settings](https://documentation.sailpoint.com/saas/
 
 ### 4. Invite Lucas
 
+For working SSO or Directory Connection, use the established sign-in route and continue to Section 6. For ISC-password users, follow the invitation steps below. If an invitation expires, resend it from the same identity; do not reset or recreate a working account.
+
 1. As administrator, open Lucas's identity. If he already has a working registration, keep it and skip to Step 8 for the fresh sign-in check.
 2. Select **Actions > Invite Identity**.
 3. Open Lucas's test inbox.
@@ -151,7 +153,7 @@ Reference: [Identity profile settings](https://documentation.sailpoint.com/saas/
 6. Complete the registration prompts.
 7. Set the ISC password required by the tenant.
 8. Sign out.
-9. Sign in again through the normal tenant sign-in page as `acme.e012`.
+9. Sign in again through the normal tenant sign-in page using the username supplied in Lucas's invitation. It must resolve to the `acme.e012` identity. If the invitation or sign-in page shows a different identifier, check the configured sign-in mapping before proceeding; do not rename HR usernames or AD accounts to work around a failed sign-in.
 10. Open the user menu and confirm the signed-in username is Lucas.
 
 The ISC password is separate from the AD password generated during account provisioning.
@@ -162,7 +164,7 @@ Reference: [Inviting users](https://documentation.sailpoint.com/saas/help/common
 
 ### 5. Invite Daniel and Priya
 
-Repeat the same registration process using separate browser profiles:
+For ISC-password users, repeat the same registration process using separate browser profiles. Keep an existing working registration; perform a fresh sign-in instead of sending another invitation:
 
 - **Acme Daniel** → `acme.e003`
 - **Acme Priya** → `acme.e002`

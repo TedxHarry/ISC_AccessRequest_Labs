@@ -58,7 +58,7 @@ Keep the Module 1 configuration and current account results and your administrat
 1. Open Lucas and confirm Manager = Daniel Brooks.
 2. Open Daniel (`acme.e003`) and confirm Manager = Morgan Reed.
 3. Open Morgan (`acme.e001`) and confirm no Manager is assigned.
-4. Reopen the remaining identities and check their current Manager against the AR-002 table. Update the result checks if an earlier screenshot no longer matches.
+4. Reopen the remaining identities and check their current Manager against the AR-002 table. Use the current identity values for the check; an earlier screenshot does not establish today's manager.
 
 **Check:** Morgan is the hierarchy root and the original roster has 23 manager relationships.
 
@@ -67,7 +67,7 @@ Keep the Module 1 configuration and current account results and your administrat
 1. Open the AD source in ISC.
 2. Open **Account Management > Accounts**.
 3. Confirm every username `acme.e001` through `acme.e024` has a standard AD account.
-4. Check the matching request, operation and target results directly.
+4. Compare the imported account and its linked identity with the actual AD account. Baseline role activity is separate from a user-submitted business access request.
 
 - Correct `employeeID`
 - Correct DN / Users OU placement
@@ -119,7 +119,9 @@ Open **Entitlement Management > Entitlements** on the AD source. Check the 14 bu
 
 Open **Search > Account Activity** and use the exact AD source name from the matching object details. For Lucas, run `recipient.name:acme.e012 AND sources:"YOUR-AD-SOURCE-NAME"`. For Liam, run `recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(op:create)`. Use the AR-006 timestamps to select the correct historical rows, then open each activity and inspect its AD source operation. See [Find the Account Activity](../../../reference/LAB-DESK.md#find-the-account-activity).
 
-Use those activities and your saved evidence to confirm:
+Account Activity search covers the past 60 days. If the original operation is no longer available, use any existing dated capture only as historical evidence and verify today's account/link/membership separately. Current membership alone cannot prove who originally created the account. Do not remove and reprovision a correct account to recreate history. [Activity search retention](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
+
+Use available original activities to confirm the examples below. If their history is unavailable, keep that historical check unconfirmed while checking the current foundation state:
 
 #### Lucas
 - Existing AD account was reused.
@@ -132,7 +134,7 @@ Use those activities and your saved evidence to confirm:
 - Baseline group membership was added.
 - The account is linked to `acme.e008`.
 
-**Check:** The foundation proves both an existing-account update and a missing-account creation.
+**Check:** Available original activity demonstrates the existing-account update and missing-account creation. Current account checks demonstrate the retained foundation; keep these conclusions separate.
 
 ### 7. Verify the user sessions
 
@@ -223,8 +225,8 @@ Keep the complete working HR CSV, the Acme sources and identity profile, the sav
 - [ ] AP-Acme-AD-Baseline contains only GG-ACME-BASELINE.
 - [ ] ROLE-Acme-AD-Baseline contains exactly 24 Acme identities.
 - [ ] GG-ACME-BASELINE contains all 24 standard accounts.
-- [ ] Lucas existing-account update is verified.
-- [ ] Liam account creation is verified.
+- [ ] Lucas's current account and baseline membership are verified; the original update is confirmed only when historical activity is available.
+- [ ] Liam's current account and link are verified; the original creation is confirmed only when historical activity is available.
 - [ ] Lucas, Daniel, Priya, and administrator sessions are ready.
 - [ ] No unresolved provisioning failure remains.
 - [ ] The verified configuration is retained for AR-010.

@@ -70,7 +70,7 @@ Use this procedure whenever a lab says **find**, **locate**, **reopen**, or **fo
 
 ### Find the Account Activity
 
-1. Open the top navigation **Search** and select **Account Activity**.
+1. Open **Admin > Identity Management > Activities**. Some tenant layouts expose the same **Account Activity** records through **Search > Account Activity**. Use the available route; the queries below apply to Account Activity search.
 2. Use the course identity name and the exact AD source name recorded. Replace `YOUR-AD-SOURCE-NAME` before running the query:
 
 ```text
@@ -89,7 +89,7 @@ recipient.name:acme.e008 AND sources:"YOUR-AD-SOURCE-NAME" AND @accountRequests(
 6. If a create-filtered query returns nothing, remove only `AND @accountRequests(op:create)` and search again. Do not resubmit or reapply access just to make a new row appear.
 7. For another identity, replace only the `recipient.name` value with that course username. For another source, replace only the quoted source name.
 
-Use Account Activity to prove what ISC attempted; use AD to prove what actually changed. Search retains Account Activity for a limited period, so label older screenshots or result checks records as historical when the live activity is no longer available.
+Use Account Activity to prove what ISC attempted; use AD to prove what actually changed. Account Activity search covers the past 60 days. Label older captures as historical when the live activity is no longer available. A current membership check cannot reconstruct the original approval or provisioning event.
 
 References: [Searchable Account Activity fields](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html) · [Building nested Search queries](https://documentation.sailpoint.com/saas/help/search/building-query.html) · [Monitoring provisioning](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html)
 

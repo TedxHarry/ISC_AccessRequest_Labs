@@ -15,6 +15,14 @@ The last supplied learner report, dated 16 September 2026, identifies AR-001 thr
 
 During the author's screenshot-capture run, check the exact sign-in/role, starting state, published navigation and copied commands, expected outcome, native result and restoration. Correct a discrepancy in the walkthrough before treating that lab as tested. Observe real time boundaries for scheduled access and test actual delivery for external integrations. A builder validation, local fixture or screenshot does not establish tenant execution.
 
+## Early walkthrough clarity review, 17 October 2026
+
+AR-007 through AR-012 and shared lookup guidance received a focused authoring review. Corrections distinguish role-driven provisioning from business requests, replace removed-worksheet references with direct checks, name processing/history checks, distinguish ISC sign-in status from AD account state and move two capture prompts before the action changes the screen. Historical account creation remains unconfirmed when original activity is unavailable; current membership is not a substitute.
+
+Sources checked: [provisioning tracking](https://documentation.sailpoint.com/saas/help/provisioning/tracking.html), [identity statuses and enablement](https://documentation.sailpoint.com/saas/help/identities/identity_mgmt.html), [invitations](https://documentation.sailpoint.com/saas/help/common/users/inviting_users.html), [identity profiles](https://documentation.sailpoint.com/saas/help/setup/identity_profiles.html) and [entitlement requests](https://documentation.sailpoint.com/saas/help/requests/config_entitlements.html). Access Request is still singular in documented Feature Settings navigation; that text was retained.
+
+During AR-008 execution, verify the exact accepted sign-in identifier for the existing `acme.eNNN` identities. Current profile documentation includes a punctuation restriction for username/alternative sign-in mappings, including periods, which needs current-tenant confirmation against this course's existing identifiers. No mass username change or new tenant sign-in test was performed. Confirm the actual invitation username, mapping and successful named-user session before publishing new sign-in screenshots or proceeding to requests.
+
 ## Latest local verification
 
 - Published reporting fixture executed successfully in PowerShell using a temporary output parent; its actual published commands produced the expected three records.

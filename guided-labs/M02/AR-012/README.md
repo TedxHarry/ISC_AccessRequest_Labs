@@ -103,7 +103,9 @@ If you are returning after a break, read [where to resume](../../../troubleshoot
 
 <!-- AUTHOR_SCREENSHOT_END: AR-012-04 -->
 
-### 5. Compare the imported account and save the timeline
+<a id="5-compare-the-imported-account-and-save-the-timeline"></a>
+
+### 5. Compare the imported account and request timing
 
 1. As administrator, open **Admin > Identity Management > Identities**, find Lucas and open **Accounts > AD account**.
 2. Compare imported group membership with the native result. Also inspect **Access** for the requested entitlement.
